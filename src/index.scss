@@ -4,6 +4,9 @@
   margin:0px;
   padding:0px;
   box-sizing: border-box;
+  outline: none !important;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 
@@ -15,16 +18,16 @@ input::-webkit-inner-spin-button {
 }
 
 body.openMenu {
-  overflow: hidden;
-}
+//   overflow: hidden;
+// }
 
-html body {
-  margin: 0;
-  padding-top: 0px;
-  counter-reset: my-sec-counter;
-  overflow-x: hidden;
-  font-family: 'Lexend Deca';
-}
+// html body {
+//   margin: 0;
+//   padding-top: 0px;
+//   counter-reset: my-sec-counter;
+//   overflow-x: hidden;
+//   font-family: 'Lexend Deca';
+// }
 
 *::-moz-selection {
   color: var(--white);
@@ -56,26 +59,26 @@ html body {
   opacity: 1;
 }
 
-a,
-div a:hover,
-div a:active,
-div a:focus,
-button {
-  text-decoration: none;
-  -webkit-transition: all 0.2s ease 0s;
-  -moz-transition: all 0.2s ease 0s;
-  -ms-transition: all 0.2s ease 0s;
-  -o-transition: all 0.2s ease 0s;
-  transition: all 0.2s ease 0s;
-}
+// a,
+// div a:hover,
+// div a:active,
+// div a:focus,
+// button {
+//   text-decoration: none;
+//   -webkit-transition: all 0.2s ease 0s;
+//   -moz-transition: all 0.2s ease 0s;
+//   -ms-transition: all 0.2s ease 0s;
+//   -o-transition: all 0.2s ease 0s;
+//   transition: all 0.2s ease 0s;
+// }
 
-a,
-span,
-div a:hover,
-div a:active,
-button {
-  text-decoration: none;
-}
+// a,
+// span,
+// div a:hover,
+// div a:active,
+// button {
+//   text-decoration: none;
+// }
 
 *::after,
 *::before,
@@ -87,10 +90,10 @@ button {
   box-sizing: border-box;
 }
 
-body a {
-  outline: none;
-  color: #555;
-}
+// body a {
+//   outline: none;
+//   color: #555;
+// }
 
 body .clearfix,
 body .clear {
@@ -102,9 +105,7 @@ body .clearfix {
   height: auto;
 }
 
-* {
-  outline: none !important;
-}
+
 
 .clr:after,
 ul:after,
@@ -207,44 +208,11 @@ ul {
   align-items: center;
   justify-content: space-between;
 }
-
-.ws_container {
-  max-width: 1240px;
-  width: 100%;
-  padding: 0 20px;
-  margin: 0 auto;
-}
-
 picture {
   display: block;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0
-}
 
-span.wpcf7-spinner,
-.wpcf7-not-valid-tip {
-  font-size: 12px;
-  line-height: 16px;
-  margin: 5px 0 0;
-  color: rgb(235, 45, 45);
-}
-
-section {
-  width: 100%;
-  display: block;
-  z-index: 999;
-  padding: 65px 0;
-  .content_wrap{
-    width:100%;
-    max-width:1200px;
-    margin-left:auto;
-    margin-right:auto;
-  }
-}
 
 body input:focus::placeholder,
 body textarea:focus::placeholder {
@@ -256,4 +224,5 @@ span.wpcf7-spinner {
   bottom: 20px;
   left: 50%;
   transform: translate(-50%, 0);
+}
 }

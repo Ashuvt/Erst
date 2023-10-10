@@ -1,0 +1,57 @@
+@import "../../scss/common";
+@import "../../scss/mixin";
+@import "../../scss/typography";
+@import "../../scss/variables";
+
+
+section.header {
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0);
+    position: fixed;
+    top: 0%;
+    bottom: 0%;
+    left: 0%;
+    right: 0%;
+    background-color: rgba(0, 0, 0, 0.65);
+    height: 100px;
+    z-index: 999;
+
+    .content_wrap {
+        header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100px;
+            .logo_wrap{
+                a{
+                    text-decoration:none;
+                }
+            }
+
+            nav{
+                display: flex;
+                justify-content: center;
+                align-items: center;              
+            }
+
+            .btns {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                gap: 20px;
+
+                button {
+                    &.signin {
+                        @include primaryBtn;
+                    }
+
+                    &.signup {
+                        @include secondaryBtn;
+                    }
+                }
+            }
+        }
+    }
+}
