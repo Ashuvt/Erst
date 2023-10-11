@@ -48,85 +48,95 @@
 
 
 h1 {
-    @include font('Syne-Regular', 100px, 110px, 600, #fff);
+    @include font('Syne-Regular', 80px, 88px, 600, $white);
     margin: 0px;
     text-transform: capitalize;
 
-    @media only screen and (max-width:$tab) {
-        @include font('Syne-Regular', 55px, 60.5px, 600, #fff);
+    @media only screen and (max-width:1720px){
+        @include font('Syne-Regular', 60px, 66px, 600, $white);
+    }
+
+    @media only screen and (max-width:1280px){
+        @include font('Syne-Regular', 55px, 60.5px, 600, $white);
     }
 
     @media only screen and (max-width:$mobile) {
-        @include font('Syne-Regular', 45px, 49.5px, 600, #fff);
+        @include font('Syne-Regular', 45px, 49.5px, 600, $white);
     }
 }
 
 h2 {
-    @include font('Syne-Regular', 50px, 55px, 600, #fff);
+    @include font('Syne-Regular', 50px, 55px, 600, $white);
     margin: 0px;
     text-transform: capitalize;
 
     @media only screen and (max-width:$tab) {
-        @include font('Syne-Regular', 45px, 49.5px, 600, #fff);
+        @include font('Syne-Regular', 45px, 49.5px, 600, $white);
     }
 
     @media only screen and (max-width:$mobile) {
-        @include font('Syne-Regular', 35px, 38.5px, 600, #fff);
+        @include font('Syne-Regular', 35px, 38.5px, 600, $white);
     }
 }
 
 h3 {
-    @include font('Syne-Regular', 40px, 44px, 600, #fff);
+    @include font('Syne-Regular', 40px, 44px, 600, $white);
     margin: 0px;
     text-transform: capitalize;
 
     @media only screen and (max-width:$tab) {
-        @include font('Syne-Regular', 35px, 38.5px, 600, #fff);
+        @include font('Syne-Regular', 35px, 38.5px, 600, $white);
     }
 
     @media only screen and (max-width:$mobile) {
-        @include font('Syne-Regular', 30px, 33px, 600, #fff);
+        @include font('Syne-Regular', 30px, 33px, 600, $white);
     }
 }
 
 h4 {
-    @include font('Syne-Regular', 35px, 38.5px, 600, #fff);
+    @include font('Syne-Regular', 35px, 38.5px, 600, $white);
     margin: 0px;
     text-transform: capitalize;
 
     @media only screen and (max-width:$tab) {
-        @include font('Syne-Regular', 30px, 33px, 600, #fff);
+        @include font('Syne-Regular', 30px, 33px, 600, $white);
     }
 
     @media only screen and (max-width:$mobile) {
-        @include font('Syne-Regular', 25px, 27.5px, 600, #fff);
+        @include font('Syne-Regular', 25px, 27.5px, 600, $white);
     }
 }
 
 h5 {
-    @include font('Syne-Regular', 30px, 33px, 600, #fff);
+    @include font('Syne-Regular', 30px, 33px, 600, $white);
     margin: 0px;
     text-transform: capitalize;
 
     @media only screen and (max-width:$tab) {
-        @include font('Syne-Regular', 25px, 27.5px, 600, #fff);
+        @include font('Syne-Regular', 25px, 27.5px, 600, $white);
     }
 
     @media only screen and (max-width:$mobile) {
-        @include font('Syne-Regular', 22px, 24.2px, 600, #fff);
+        @include font('Syne-Regular', 22px, 24.2px, 600, $white);
     }
 }
 
 h6 {
-    @include font('Syne-Regular', 13px, 15.6px, 500, #fff);
+    @include font('Syne-Regular', 13px, 15.6px, 500, $white);
     margin: 0px;
     text-transform: uppercase;
 
     @media only screen and (max-width:$tab) {
-        @include font('Syne-Regular', 13px, 15.6px, 500, #fff);
+        @include font('Syne-Regular', 13px, 15.6px, 500, $white);
     }
 
     @media only screen and (max-width:$mobile) {
-        @include font('Syne-Regular', 13px, 15.6px, 500, #fff);
+        @include font('Syne-Regular', 13px, 15.6px, 500, $white);
     }
+}
+
+p{
+    @include font('Syne-Regular', 17px, 25.5px, 400, rgba(255, 255, 255, 0.5));
+    margin: 0px;
+    text-transform: capitalize;
 }

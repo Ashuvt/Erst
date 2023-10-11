@@ -1,0 +1,27 @@
+@import "../../../scss/common";
+@import "../../../scss/mixin";
+@import "../../../scss/typography";
+@import "../../../scss/variables";
+
+section.services{
+    padding-bottom:130px;
+    .content_wrap{
+        .text_content{
+            max-width:650px;
+            width:100%;
+            margin:0px auto 60px;
+        h2{
+            text-align: center;
+            margin-bottom:40px;
+        }
+        p{
+            text-align: center;
+        }
+    }
+    .grid_sec{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap:100px;
+    }
+    }
+}

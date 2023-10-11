@@ -1,5 +1,11 @@
+@import "./mixin";
+@import "./variables";
+@import "./typography";
+
+
 section {
     width: 100%;
+    background-color:$dark;
     .content_wrap{
       width:100%;
       max-width:1200px;
@@ -8,4 +14,12 @@ section {
       padding-left:15px;
       padding-right:15px;
     }
+  }
+
+  button.primarybtn{
+    @include primaryBtn;
+  }
+
+  button.secondarybtn{
+    @include secondaryBtn;
   }
