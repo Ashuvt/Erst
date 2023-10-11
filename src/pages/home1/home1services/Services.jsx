@@ -1,4 +1,7 @@
 import "./Services.scss";
+import { images } from "../../../utils/images/images";
+import { cardData } from "../../../utils/data/data";
+import InfoCard from "./infocard/InfoCard";
 
 const Services = () => {
   return (
@@ -13,13 +16,28 @@ const Services = () => {
           </p>
         </div>
         <div className="grid_sec">
-            <div className="img_wrap">
-                
+          <div className="img_wrap">
+            <div className="wrapper">
+              <img src={images.info} alt="info" />
+              <div className="primary_blur"></div>
+              <div className="secondary_blur"></div>
             </div>
-            <div className="info_wrap">
+          </div>
 
-            </div>
-
+          <div className="info_wrap">
+            <div className="line"></div>
+            {cardData &&
+              cardData.map((data, k) => {
+                return (
+                  <InfoCard
+                    count={data.count}
+                    title={data.title}
+                    text={data.text}
+                    index={k}
+                  />
+                );
+              })}
+          </div>
         </div>
       </div>
     </section>

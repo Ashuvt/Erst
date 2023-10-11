@@ -3,25 +3,86 @@
 @import "../../../scss/typography";
 @import "../../../scss/variables";
 
-section.services{
-    padding-bottom:130px;
-    .content_wrap{
-        .text_content{
-            max-width:650px;
-            width:100%;
-            margin:0px auto 60px;
-        h2{
-            text-align: center;
-            margin-bottom:40px;
+section.services {
+    padding-bottom: 130px;
+
+    .content_wrap {
+        .text_content {
+            max-width: 650px;
+            width: 100%;
+            margin: 0px auto 60px;
+
+            h2 {
+                text-align: center;
+                margin-bottom: 40px;
+            }
+
+            p {
+                text-align: center;
+            }
         }
-        p{
-            text-align: center;
+
+        .grid_sec {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+
+            .img_wrap {
+                width: 100%;
+                margin-top: 150px;
+                align-self: flex-start;
+                position: sticky;
+                top: 300px;
+
+                .wrapper {
+                    width: 100%;
+                    position: relative;
+                    background-color: $dark;
+
+                    img {
+                        width: 100%;
+                        z-index: 1;
+                        position: relative;
+                    }
+
+                    .primary_blur {
+                        width: 200px;
+                        height: 200px;
+                        filter: blur(180px);
+                        background-color: $primary;
+                        position: absolute;
+                        top: 0%;
+                        left: 0%;
+                        z-index: 0;
+                    }
+
+                    .secondary_blur {
+                        height: 200px;
+                        width: 200px;
+                        filter: blur(180px);
+                        background-color: $secondary;
+                        position: absolute;
+                        right: 0%;
+                        bottom: 0%;
+                        z-index: 0;
+                    }
+                }
+            }
+
+.info_wrap{
+    position:relative;
+    .line{
+        position:absolute;
+        left:-60px;
+        top:35px;
+        height:calc(100% - 100px);
+        width:2px;
+        background-color:$cardBorder;
+
+    }
+}
+
+
         }
-    }
-    .grid_sec{
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap:100px;
-    }
     }
 }

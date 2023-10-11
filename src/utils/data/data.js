@@ -1,3 +1,5 @@
+
+// Header Data
 export const menuList = [
     {
         id:0,
@@ -146,4 +148,33 @@ export const menuList = [
             },
         ]
     },
-]
+];
+
+// Home1 Service card data
+
+export const cardData = [
+    {
+        id:0,
+        count:1,
+        title:"Predictive Analytics",
+        text:"Predictive analytics is the practice of using data, statistical algorithms, and machine learning techniques to identify the likelihood of future outcomes based on historical data. With predictive analytics, businesses can anticipate future events, trends, and opportunities and make data-driven decisions to improve performance."
+    },
+    {
+        id:1,
+        count:2,
+        title:"Business Intelligence",
+        text:"Business Intelligence (BI) is a technology-driven process that involves analyzing data and presenting actionable insights to help businesses make informed decisions. BI tools typically include dashboards, reports, and data visualization tools that allow users to understand and interact with complex data."
+    },
+    {
+        id:2,
+        count:3,
+        title:"Data Mining",
+        text:"Data mining is the process of analyzing large datasets to identify patterns, relationships, and insights that can be used to make better business decisions. Data mining techniques can be used to identify customer preferences, market trends, and other factors that can help businesses optimize their operations."
+    },
+    {
+        id:3,
+        count:4,
+        title:"Machine Learning",
+        text:"Machine learning is a type of artificial intelligence (AI) that involves teaching computers to learn from data and improve their performance over time. Machine learning algorithms can be used to automate decision-making processes, identify patterns in data, and make predictions about future events."
+    },
+];
