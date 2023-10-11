@@ -1,0 +1,40 @@
+@import "../../../scss/common";
+@import "../../../scss/mixin";
+@import "../../../scss/typography";
+@import "../../../scss/variables";
+
+
+section.business_decision{
+    .content_wrap{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap:100px;
+
+        .text_wrap{
+            h2{
+                margin-bottom:30px;
+            }
+            p{
+                margin-bottom:40px;
+            }
+            .btn_line{
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                gap:20px;
+            }
+        }
+
+        .img_wrap{
+            width:100%;
+            display: flex;
+            justify-content: center;
+            align-items: start;
+            img{
+                width:80%;
+                margin:0px auto;
+
+            }
+        }
+    }
+}

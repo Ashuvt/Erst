@@ -16,18 +16,9 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-
-body.openMenu {
-//   overflow: hidden;
-// }
-
-// html body {
-//   margin: 0;
-//   padding-top: 0px;
-//   counter-reset: my-sec-counter;
-//   overflow-x: hidden;
-//   font-family: 'Lexend Deca';
-// }
+body{
+  background-color:#000;
+}
 
 *::-moz-selection {
   color: var(--white);
@@ -224,5 +215,4 @@ span.wpcf7-spinner {
   bottom: 20px;
   left: 50%;
   transform: translate(-50%, 0);
-}
 }
