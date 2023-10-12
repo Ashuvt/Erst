@@ -2,6 +2,7 @@ import "./Services.scss";
 import { images } from "../../../utils/images/images";
 import { cardData } from "../../../utils/data/data";
 import InfoCard from "./infocard/InfoCard";
+import { Fragment } from "react";
 
 const Services = () => {
   return (
@@ -29,12 +30,14 @@ const Services = () => {
             {cardData &&
               cardData.map((data, k) => {
                 return (
+                  <Fragment key={data.id}>
                   <InfoCard
                     count={data.count}
                     title={data.title}
                     text={data.text}
                     index={k}
                   />
+                  </Fragment>
                 );
               })}
           </div>
