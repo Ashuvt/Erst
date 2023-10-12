@@ -1,0 +1,40 @@
+@import "../../../scss/common";
+@import "../../../scss/mixin";
+@import "../../../scss/typography";
+@import "../../../scss/variables";
+
+section.que_ans {
+    padding-top: 130px;
+    padding-bottom: 130px;
+
+    .content_wrap {
+        .content {
+            width: 100%;
+            max-width: 640px;
+            margin: 0px auto 60px;
+
+            h2 {
+                text-align: center;
+            }
+
+            p {
+                text-align: center;
+                margin-top: 30px;
+            }
+        }
+
+        .accodian_grid {
+            display: flex;
+            margin-bottom:60px;
+            gap: 60px;
+
+            .left {
+                width: 50%;
+            }
+
+            .right {
+                width: 50%;
+            }
+        }
+    }
+}

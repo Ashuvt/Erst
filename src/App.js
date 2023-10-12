@@ -2,12 +2,16 @@ import { Fragment, useEffect, useState } from "react";
 import "./App.scss";
 import { menuList } from "./utils/data/data";
 import { useLocation } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+
 
 import Header from "./layouts/header/Header";
-import Home1 from "./pages/home1/Home1";
 import Footer from "./layouts/footer/Footer";
-import { Routes, Route } from "react-router-dom";
+import Home1 from "./pages/home1/Home1";
+import Faq from "./pages/faq/Faq";
 import ErrorPage from "./pages/error/ErrorPage";
+import ContactUs from "./pages/contactus/ContactUs";
+
 
 function App() {
   var menu;
@@ -22,23 +26,24 @@ function App() {
     }else{
       setStatus(false);
     }
-  }, []);
+  }, [location.pathname]);
 
 
 
   return (
     <Fragment>
+      
       { status && <Header /> }
 
       <Routes>
         <Route path="/" element={<Home1 />} />
         <Route path="/home1" element={<Home1 />} />
+        <Route path="/faq" element={<Faq />} />
+        <Route path="/contactus" element={<ContactUs />} />
         <Route path="/*" element={<ErrorPage />} />
       </Routes>
+
       {status && <Footer /> }
-
-
-
 
     </Fragment>
   );

@@ -1,8 +1,8 @@
 import { Fragment } from "react";
 import "./MenuBtn.scss";
+import { NavLink } from "react-router-dom";
 
 const MenuBtn = ({ title, linkdata }) => {
-  console.log(linkdata);
   return (
     <button className="menubtn" type="button">
       {title}
@@ -12,7 +12,7 @@ const MenuBtn = ({ title, linkdata }) => {
           linkdata.map((data) => {
             return (
               <Fragment key={data.id}>
-                <a href={data.link}>{data.text}</a>
+                <NavLink to={data.link}>{data.text}</NavLink>
               </Fragment>
             );
           })}

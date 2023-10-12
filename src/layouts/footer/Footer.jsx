@@ -49,7 +49,7 @@ const Footer = () => {
               <div className="grid_box footer_connect">
                 <h5>Stay Connect</h5>
                 <p>2118 Thornridge Cir. Syracuse, Connecticut 35624</p>
-                <div class="stay_connect">
+                <div className="stay_connect">
                   <a href="tel:(239)555-0108">(239) 555-0108</a>
                   <a href="tel:(406)555-0120">(406) 555-0120</a>
                 </div>
@@ -59,7 +59,7 @@ const Footer = () => {
                 <h5>Download And Use</h5>
                 <p>We suggest connecting to the apps you use for work</p>
 
-                <div class="app_wrap">
+                <div className="app_wrap">
                   <a href="https://www.apple.com/ua/app-store/" target="_blank">
                     <img src={images.appStore} loading="lazy" alt="Logo" />
                   </a>

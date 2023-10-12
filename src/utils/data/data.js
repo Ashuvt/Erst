@@ -1,5 +1,5 @@
 
-// Header Data
+// Header Data main menu and router links
 export const menuList = [
     {
         id:0,
@@ -146,6 +146,16 @@ export const menuList = [
                 text:"Home 5",
                 link:"/home5"
             },
+            {
+                id:"06",
+                text:"faq",
+                link:"/faq"
+            },
+            {
+                id:"07",
+                text:"contactus",
+                link:"/contactus"
+            },
         ]
     },
 ];
@@ -178,3 +188,38 @@ export const cardData = [
         text:"Machine learning is a type of artificial intelligence (AI) that involves teaching computers to learn from data and improve their performance over time. Machine learning algorithms can be used to automate decision-making processes, identify patterns in data, and make predictions about future events."
     },
 ];
+
+// Faq Questions sec data (Questions & Answer);
+
+export const faqData = [
+    {
+        id:'faq0',
+        que:"What is the Intelligent Analytics Suite?",
+        ans:"The Intelligent Analytics Suite is a software solution that offers advanced analytics capabilities to businesses, allowing them to collect, analyze, and visualize data from various sources to gain insights and intelligence for informed decision-making."
+    },
+    {
+        id:'faq1',
+        que:"How does the Intelligent Analytics Suite work?",
+        ans:"The Intelligent Analytics Suite collects data from multiple sources, such as customer data, sales data, and operational data, and uses advanced analytics algorithms to analyze and derive insights from the data. The insights are then visualized through reports and dashboards for easy interpretation and decision-making."
+    },
+    {
+        id:'faq2',
+        que:"What types of data can the IAS analyze?",
+        ans:"The Intelligent Analytics Suite can analyze a wide range of data, including structured and unstructured data from various sources, such as databases, spreadsheets, CRM systems, social media, and more."
+    },
+    {
+        id:'faq3',
+        que:"What industries can benefit from the IAS?",
+        ans:"The Intelligent Analytics Suite can benefit businesses in various industries, including but not limited to retail, e-commerce, finance, healthcare, manufacturing, telecommunications, and more."
+    },
+    {
+        id:'faq4',
+        que:"What are the key benefits of using the IAS?",
+        ans:"The key benefits of using the Intelligent Analytics Suite include data-driven decision-making, improved operational efficiency, enhanced customer understanding, competitive advantage, real-time monitoring and alerts, and customization and scalability."
+    },
+    {
+        id:'faq5',
+        que:"Is the Intelligent Analytics Suite scalable?",
+        ans:"Yes, the Intelligent Analytics Suite is scalable, allowing businesses to easily scale the solution as their business grows. This makes it a flexible and adaptable solution that can evolve with the changing needs of the business."
+    },
+]

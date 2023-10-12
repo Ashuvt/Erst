@@ -1,0 +1,90 @@
+@import "../../../scss/common";
+@import "../../../scss/mixin";
+@import "../../../scss/typography";
+@import "../../../scss/variables";
+
+
+section.faq_landing {
+    overflow-x: hidden;
+
+    .content_wrap {
+        padding-top: 200px;
+        padding-bottom: 130px;
+        position: relative;
+
+        h1 {
+            max-width: 70%;
+            width: 100%;
+            text-align: center;
+            margin: 0px auto;
+        }
+
+        p {
+            max-width: 70%;
+            width: 100%;
+            text-align: center;
+            margin: 0px auto;
+            margin-top: 30px;
+        }
+
+        .border_line {
+            width: 100%;
+            height: 1px;
+            background-color: rgba(255, 255, 255, .2);
+            position: absolute;
+            bottom: 0px;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: all 0.4s ease-in-out;
+        }
+    }
+
+    .pink_blur {
+        height: 50px;
+        width: 50px;
+        background-color: $primary;
+        position: absolute;
+        top: -50px;
+        right: -50px;
+        filter: blur(50px);
+        transition: all 0.4s ease-in-out;
+
+        &.active {
+            height: 400px;
+            width: 400px;
+            filter: blur(250px);
+        }
+    }
+
+    .smallpink {
+        height: 50px;
+        width: 50px;
+        background-color: $primary;
+        position: absolute;
+        top: 300px;
+        left: 25%;
+        filter: blur(50px);                
+        transition:all 0.4s ease-in-out;
+        &.active{
+            height:200px;
+            width:200px;
+            filter: blur(150px);  
+        }
+    }
+
+    .blue_blur {
+        height: 50px;
+        width: 50px;
+        background-color: $secondary;
+        position: absolute;
+        bottom: 100px;
+        left: -50px;
+        filter: blur(50px);
+        transition: all 0.4s ease-in-out;
+        &.active {
+            height: 400px;
+            width: 400px;
+            filter: blur(250px);
+        }
+    }
+}
