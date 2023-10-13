@@ -8,6 +8,7 @@ import pc from "../../assets/images/pc.svg";
 import playStore from "../../assets/images/playstore.webp";
 import appStore from "../../assets/images/appstore.webp";
 import mapImage from "../../assets/images/map.png"; 
+import mobiles from "../../assets/images/contactmobile.webp";
 
 // Icons
 import instagram from "../../assets/images/instagram.svg";
@@ -32,7 +33,8 @@ export const images = {
     pc,
     playStore,
     appStore,
-    mapImage    
+    mapImage,
+    mobiles,    
 };
 
 

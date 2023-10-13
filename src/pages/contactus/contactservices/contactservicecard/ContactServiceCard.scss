@@ -1,0 +1,22 @@
+@import "../../../../scss/common";
+@import "../../../../scss/mixin";
+@import "../../../../scss/typography";
+@import "../../../../scss/variables";
+
+.contact_service_card{
+    margin-bottom:200px;
+    &:last-child{
+        margin-bottom:0px;
+    }
+    h2{
+        margin-bottom:30px;
+    };
+
+    .btn_line{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap:20px;
+        margin-top:40px;
+    }
+}

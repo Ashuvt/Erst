@@ -4,7 +4,6 @@ import { useState } from "react";
 
 const LocationCard = ({country, location, call, mail}) => {
 
-
     return(
         <div className="location_card">
             <div className="location_wrap">
