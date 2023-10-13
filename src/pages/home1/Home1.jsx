@@ -6,6 +6,7 @@ import BusinessDecision from "./bussinessdecision/BusinessDecision";
 import Features from "./features/Features";
 import HomeVideoBanner from "./videobanner/HomeVideoBanner";
 import Plan from "./plan/Plan";
+import Opportunities from "./opportunities/Opportunities";
 
 const Home1 = () => {
   return (
@@ -16,6 +17,7 @@ const Home1 = () => {
       <Features />
       <HomeVideoBanner />
       <Plan />
+      <Opportunities />
     </Fragment>
   );
 };

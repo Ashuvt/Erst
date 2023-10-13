@@ -12,9 +12,25 @@
     border-radius: 12px;
     padding: 30px;
     transition: all .35s ease-in-out;
-    h6{
-        margin-bottom:15px;
-        letter-spacing: 4px;
+
+    .offer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      
+
+        h6 {
+            margin-bottom: 15px;
+            letter-spacing: 4px;
+        }
+        .offer_pill{
+            background: $primaryGradient_5;
+            padding: 4px 12px;
+            border-radius: 6px;
+            p{
+                @include font('Syne-Regular', 17px, 17px, 400, $white);
+            }
+        }
     }
 
     h3 {
@@ -41,6 +57,7 @@
         &:hover {
             box-shadow: none;
             border: 1px solid $cardBorder;
+
         }
     }
 }

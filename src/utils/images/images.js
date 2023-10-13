@@ -25,6 +25,7 @@ import profiled from "../../assets/images/profiled.webp";
 import profilee from "../../assets/images/profilee.webp";
 import profilef from "../../assets/images/profilef.webp";
 import homeVideoBanner from "../../assets/images/homevideobanner.jpg";
+import codeScreen from "../../assets/images/codescreen.svg";
 
 
 // Icons
@@ -67,7 +68,8 @@ export const images = {
     profiled,
     profilee,
     profilef,
-    homeVideoBanner
+    homeVideoBanner,
+    codeScreen
 };
 
 
