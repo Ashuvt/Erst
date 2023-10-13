@@ -1,0 +1,55 @@
+@import "../../../scss/common";
+@import "../../../scss/mixin";
+@import "../../../scss/typography";
+@import "../../../scss/variables";
+
+section.home_video_banner {
+    max-height: 700px;
+    overflow: hidden;
+    position: relative;
+
+    .video_wrap {
+        position: relative;
+        z-index: 0;
+
+        img {
+            width: 100%;
+            background-position: center;
+        }
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, .65);
+        background-image: linear-gradient(45deg, rgba(0, 0, 0, .65), rgba(0, 0, 0, .05));
+
+        .text_content {
+            max-width: 1200px;
+            margin: 0px auto;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding-bottom:80px;
+            padding-left:50px;
+          .content{
+            max-width:650px;
+            width:100%;
+            p{
+                margin:30px 0px 50px;
+                @include font('Syne-Regular', 17px, 25.5px, 400, $white);
+            }
+            button{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap:10px;
+            }
+          }
+        }
+    }
+}

@@ -189,6 +189,42 @@ export const cardData = [
     },
 ];
 
+
+// Home1Component => Plan Component => plans
+
+export const planData = [
+    {
+        id:10,
+        level:"beginner",
+        word:"Up to 2,000 words / mo",
+        monthlyPrice:9,
+        yearlyPrice:90,
+        text:"Suitable for designers taking on 1 project per month.",
+        btnText:"buy now",
+        offer:18
+    },
+    {
+        id:20,
+        level:"PRO",
+        word:"Up to 50,000 words / mo",
+        monthlyPrice:59,
+        yearlyPrice:590,
+        text:"Suitable for designers taking on 1 project per month.",
+        btnText:"buy now",
+        offer:118
+    },
+    {
+        id:30,
+        level:"STARTER",
+        word:"Up to 10,000 words / mo",
+        monthlyPrice:19,
+        yearlyPrice:190,
+        text:"Suitable for designers taking on 1 project per month.",
+        btnText:"buy now",
+        offer:38
+    }
+]
+
 // Faq Questions sec data (Questions & Answer);
 
 export const faqData = [

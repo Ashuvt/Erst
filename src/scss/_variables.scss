@@ -8,9 +8,13 @@ $lightDark:rgba(0, 0, 0, 0.1);
 $card:#222;
 $cardBorder:rgba(255, 255, 255, 0.1);
 $lightBorder:rgba(255, 255, 255, 0.05);
+$lightBorder_1:rgba(255, 255, 255, 0.5);
 
 // Gradient
 $primaryGradient:linear-gradient(315deg, #3f0efa, #90f);
+$primaryGradient_1:linear-gradient(135deg, #90f 30%, #3f0efa);
+$primaryGradient_2:linear-gradient(135deg, #3f0efa, #90f);
+$primaryGradient_3:linear-gradient(135deg, #9558bc 12%, #3f0efa);
 $secondaryGradient:linear-gradient(rgba(255, 255, 255, .1), rgba(255, 255, 255, .1));
 
 // Break Points

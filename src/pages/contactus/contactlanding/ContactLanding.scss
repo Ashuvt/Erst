@@ -3,18 +3,103 @@
 @import "../../../scss/typography";
 @import "../../../scss/variables";
 
-section.contact_landing{
-    .content_wrap{
-        padding-top:230px;
-        padding-bottom:130px;
-       display: grid;
-       grid-template-columns: 1fr 0.4fr; 
+section.contact_landing {
+    position: relative;
 
-
-       .trial_wrap{
-        p{
-            text-align: right;
+    .content_wrap {
+        padding-top: 230px;
+        padding-bottom: 130px;
+        display: grid;
+        grid-template-columns: 1fr 0.4fr;
+        h1{
+            position:relative;
+            z-index:2;
         }
-       }
+
+        .trial_wrap {
+            position:relative;
+            z-index:2;
+            p {
+                text-align: right;
+            }
+
+            .btn_line {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+
+                button {
+                    &.round {
+                        width: 47px;
+                        height: 47px;
+                        border: 1px solid $lightBorder_1;
+                        display: flex;
+                        border-radius: 50%;
+                        justify-content: center;
+                        align-items: center;
+                        background-color: transparent;
+
+                        img {
+                            transform: rotate(45deg);
+                        }
+                    }
+
+                    &.normal {
+                        height: auto;
+                        max-height: 47px;
+                        min-height: 47px;
+                        grid-column-gap: 5px;
+                        text-align: center;
+                        letter-spacing: .2em;
+                        text-transform: uppercase;
+                        background-color: rgba(0, 0, 0, 0);
+                        border: 1px solid rgba(255, 255, 255, .5);
+                        border-radius: 100px;
+                        justify-content: center;
+                        padding: 15px 20px;
+                        transition: all .35s;
+                        display: flex;
+                        box-shadow: 0 -1px 10px rgba(153, 0, 255, .15);
+                        @include font('Syne-Regular', 12px, 16px, 500, $white);
+                    }
+                }
+            }
+        }
+    }
+    .blue_blur{
+        height: 250px;
+        width: 250px;
+        position: absolute;      
+        border-radius: 50%;
+        background-color: $secondary;
+        top:150px;
+        right:350px;
+        z-index:0;
+        filter: blur(180px);
+    }
+
+    .pink_blur {
+        height: 250px;
+        width: 250px;
+        position: absolute;
+      
+        border-radius: 50%;
+        background-color: $primary;
+        filter: blur(150px);
+
+        &.first {
+            left:200px;
+            top: 100px;
+        }
+
+        &.second {
+            left: 100px;
+            top: 200px;
+        }
+
+        &.third {
+            right:-50px;
+            top: 200px;
+        }
     }
 }

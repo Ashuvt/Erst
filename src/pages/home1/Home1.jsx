@@ -4,6 +4,8 @@ import Home1Landing from "./home1landing/HomeLanding";
 import Services from "./home1services/Services";
 import BusinessDecision from "./bussinessdecision/BusinessDecision";
 import Features from "./features/Features";
+import HomeVideoBanner from "./videobanner/HomeVideoBanner";
+import Plan from "./plan/Plan";
 
 const Home1 = () => {
   return (
@@ -12,6 +14,8 @@ const Home1 = () => {
       <Services />
       <BusinessDecision />
       <Features />
+      <HomeVideoBanner />
+      <Plan />
     </Fragment>
   );
 };

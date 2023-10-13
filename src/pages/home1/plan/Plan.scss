@@ -1,0 +1,66 @@
+@import "../../../scss/common";
+@import "../../../scss/mixin";
+@import "../../../scss/typography";
+@import "../../../scss/variables";
+
+section.home_plan {
+    padding-top: 130px;
+    padding-bottom: 130px;
+
+    .content_wrap {
+        .title {
+            max-width: 640px;
+            width: 100%;
+            margin: 0px auto;
+
+            h2 {
+                text-align: center;
+            }
+
+            p {
+                text-align: center;
+                margin-top: 30px;
+            }
+        }
+
+        .btn_line {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+
+            .toggle_price {
+                padding: 6px;
+                border: 1px solid $cardBorder;
+                margin: 0px auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 6px;
+                border-radius: 12px;
+                margin: 60px auto 40px;
+
+                button {
+                    padding: 6px 10px;
+                    border-radius: 12px;
+                    border-style: none;
+                    @include font('Syne-Regular', 17px, 23.8px, 400, $white);
+                    text-transform: uppercase;
+                    transition: all 0.4s ease-in-out;
+                    background: transparent;
+
+                    &.active {
+                        background: $cardBorder;
+                    }
+
+                }
+            }
+        }
+
+        .plan_container{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap:30px;
+        }
+    }
+}

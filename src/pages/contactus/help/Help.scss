@@ -7,8 +7,12 @@
 section.contact_help {
     padding-top: 130px;
     padding-bottom: 130px;
+    position: relative;
 
     .content_wrap {
+        position: relative;
+        z-index: 2;
+
         .help_text {
             max-width: 640px;
             width: 100%;
@@ -24,18 +28,24 @@ section.contact_help {
                 margin-bottom: 60px;
             }
         }
-        .help_form{
-            form{
-                .info_fields{
+
+        .help_form {
+            position: relative;
+            z-index: 2;
+
+            form {
+                .info_fields {
                     display: grid;
                     grid-template-columns: 1fr 1fr 1fr 1fr;
                     grid-column-gap: 15px;
                     grid-auto-columns: 1fr;
                     margin-bottom: 15px;
-                   
+
 
                 }
-                input, textarea{
+
+                input,
+                textarea {
                     height: auto;
                     min-height: 50px;
                     color: #fff;
@@ -44,20 +54,48 @@ section.contact_help {
                     border-radius: 12px;
                     margin-bottom: 0;
                     padding: 16px 18px;
-                    font-size: 17px;                     
+                    font-size: 17px;
                     box-shadow: 0 0 20px rgba(153, 0, 255, .6);
                     @include font('Syne-Regular', 17px, 17px, 400, $white);
                     transition: all .5s cubic-bezier(.25, .46, .45, .94);
-                    &:focus{
-                        box-shadow:none;
+
+                    &:focus {
+                        box-shadow: none;
                         padding: 16px 22px;
                     }
                 }
-                textarea{
-                    width:100%;
-                    min-height:200px;
+
+                textarea {
+                    width: 100%;
+                    min-height: 200px;
+                    margin-bottom: 40px;
+                }
+
+                button {
+                    width: 100%;
+
                 }
             }
+        }
+    }
+
+    .pink_blur {
+        height: 250px;
+        width: 250px;
+        background: $primary;
+        border-radius: 50%;
+        position: absolute;
+        z-index: 0;
+        filter: blur(150px);
+
+        &.left {
+            left: 300px;
+            bottom: 100px;
+        }
+
+        &.right {
+            right: 300px;
+            bottom: 0px;
         }
     }
 }
