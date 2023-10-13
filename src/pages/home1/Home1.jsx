@@ -7,6 +7,8 @@ import Features from "./features/Features";
 import HomeVideoBanner from "./videobanner/HomeVideoBanner";
 import Plan from "./plan/Plan";
 import Opportunities from "./opportunities/Opportunities";
+import ImproveBusiness from "./improvebusiness/ImproveBusiness";
+import HomeBlogs from "./homeblogs/HomeBlogs";
 
 const Home1 = () => {
   return (
@@ -18,6 +20,8 @@ const Home1 = () => {
       <HomeVideoBanner />
       <Plan />
       <Opportunities />
+      <ImproveBusiness />
+      <HomeBlogs />
     </Fragment>
   );
 };

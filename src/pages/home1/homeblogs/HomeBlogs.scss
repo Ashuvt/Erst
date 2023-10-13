@@ -1,0 +1,92 @@
+@import "../../../scss/common";
+@import "../../../scss/mixin";
+@import "../../../scss/typography";
+@import "../../../scss/variables";
+
+section.home_blog {
+    padding-top: 130px;
+    padding-bottom: 130px;
+
+    .content_wrap {
+        .home_blog_grid {
+            display: grid;
+            grid-template-columns: 1fr 0.75fr;
+            gap: 40px;
+            margin-top: 60px;
+
+            .left {
+                position: relative;
+                width: 100%;
+
+                .blog_view {
+                    height: 650px;
+                    overflow: hidden;
+                    border-radius: 20px;
+                    position: relative;
+
+                    img {
+                        position: relative;
+                        height: 100%;
+                        width: auto;
+                        object-fit: cover;
+                        transform: scale(1);
+                        transition: all 0.5s ease-in-out;
+                        z-index: 0;
+                    }
+
+                    .overlay {
+                        position: absolute;
+                        left: 0px;
+                        top: 0px;
+                        height: 100%;
+                        width: 100%;
+                        background: rgba(0, 0, 0, 0.35);
+                        z-index: 1;
+                    }
+
+                    &:hover {
+                        img {
+                            transform: scale(1.1);
+                        }
+                    }
+
+
+                }
+                .blog_content_box {
+                    padding: 36px;
+                    min-height: 150px;
+                    background: linear-gradient(#222 19%, #000);
+                    border-radius: 12px;
+                    border: 1px solid $cardBorder;
+                    padding: 36px;
+                    position: absolute;
+                    bottom:-50px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    z-index: 4;
+                    width:calc(100% - 60px);
+                    display: flex;
+                    flex-direction: column;
+                    align-items:flex-start;
+                    h4{
+                        margin:20px 0px;
+                    }
+                    .btn_line{
+                        margin-top:20px;
+                        display: flex;
+                        justify-content: flex-end;
+                        width:100%;
+                    }
+
+                }
+            }
+
+            .all_blogs{
+                display: flex;
+                flex-direction: column;
+                gap:20px;
+            }
+
+        }
+    }
+}

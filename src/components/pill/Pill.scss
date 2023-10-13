@@ -1,0 +1,18 @@
+@import "../../scss/variables";
+@import "../../scss/typography";
+
+
+.pill_box{
+    background:$primaryGradient_5;
+    border-radius: 6px;
+    padding:4px 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    p.pill_text{
+        @include font('Syne-Regular', 14px, 18px, 500, $white);
+        letter-spacing: 2.4px;
+        text-transform:uppercase;
+
+    }
+}

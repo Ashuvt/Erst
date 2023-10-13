@@ -14,7 +14,7 @@ import info from "../../assets/images/info.svg";
 import pc from "../../assets/images/pc.svg";
 import playStore from "../../assets/images/playstore.webp";
 import appStore from "../../assets/images/appstore.webp";
-import mapImage from "../../assets/images/map.png"; 
+import mapImage from "../../assets/images/map.png";
 import mobiles from "../../assets/images/contactmobile.webp";
 import contactUsBanner from "../../assets/images/contactusbanner.jpg";
 import contactUsVideoBanner from "../../assets/images/contactusvideobanner.jpg";
@@ -26,6 +26,12 @@ import profilee from "../../assets/images/profilee.webp";
 import profilef from "../../assets/images/profilef.webp";
 import homeVideoBanner from "../../assets/images/homevideobanner.jpg";
 import codeScreen from "../../assets/images/codescreen.svg";
+import businessMap from "../../assets/images/businessmap.png";
+import mobile from "../../assets/images/mobile.webp";
+import homeblogA from "../../assets/images/homebloga.jpg";
+import homeblogB from "../../assets/images/homeblogb.jpg";
+import homeblogC from "../../assets/images/homeblogc.jpg";
+import homeblogD from "../../assets/images/homeblogd.jpg";
 
 
 // Icons
@@ -38,6 +44,7 @@ import mail from "../../assets/images/mail.svg";
 import location from "../../assets/images/location.svg";
 import call from "../../assets/images/call.svg";
 import whiteplay from "../../assets/images/whiteplaybtn.webp";
+import star from "../../assets/images/star.webp";
 
 
 
@@ -53,13 +60,13 @@ export const logoImage = {
 
 
 export const images = {
-    home1landing:dashbord,
+    home1landing: dashbord,
     info,
     pc,
     playStore,
     appStore,
     mapImage,
-    mobiles,    
+    mobiles,
     contactUsBanner,
     contactUsVideoBanner,
     profilea,
@@ -69,7 +76,13 @@ export const images = {
     profilee,
     profilef,
     homeVideoBanner,
-    codeScreen
+    codeScreen,
+    businessMap,
+    mobile,
+    homeblogA,
+    homeblogB,
+    homeblogC,
+    homeblogD
 };
 
 
@@ -82,5 +95,6 @@ export const icons = {
     mail,
     location,
     call,
-    whiteplay
+    whiteplay,
+    star
 };

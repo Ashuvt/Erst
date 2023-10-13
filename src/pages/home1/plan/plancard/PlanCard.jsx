@@ -1,4 +1,5 @@
 import "./PlanCard.scss";
+import Pill from "../../../../components/pill/Pill";
 
 const PlanCard = ({
   level,
@@ -15,15 +16,15 @@ const PlanCard = ({
       <div className="offer">
         <h6>{level}</h6>
         {planType === "yearly" && (
-          <div className="offer_pill">
-            <p>save ${offer}</p>
-          </div>
+        
+          <Pill text={`save $${offer}`} />
         )}
       </div>
 
       <p>{word}</p>
       <h3>
-        ${planType === "monthly" ? monthlyPrice : yearlyPrice}/{planType === "monthly" ? "Mo" : "Yr"}
+        ${planType === "monthly" ? monthlyPrice : yearlyPrice}/
+        {planType === "monthly" ? "Mo" : "Yr"}
       </h3>
       <p>{text}</p>
       <button

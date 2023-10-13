@@ -3,6 +3,7 @@ import { Fragment, useState } from "react";
 import { planData } from "../../../utils/data/data";
 import PlanCard from "./plancard/PlanCard";
 import LogoSpace from "./logospace/LogoSpace";
+import MidTitle from "../../../components/midtitle/MidTitle";
 
 const Plan = () => {
   const [type, setType] = useState("monthly");
@@ -14,14 +15,12 @@ const Plan = () => {
   return (
     <section className="home_plan">
       <div className="content_wrap">
-        <div className="title">
-          <h2>Choose Your Plan Now</h2>
-          <p>
-            The Smart Sales Assistant can also provide insights into customer
-            behavior and preferences, allowing you to optimize your marketing
-            and sales strategies.
-          </p>
-        </div>
+        <MidTitle
+          title="Choose Your Plan Now"
+          text=" The Smart Sales Assistant can also provide insights into customer
+          behavior and preferences, allowing you to optimize your marketing
+          and sales strategies."
+        />
 
         <div className="btn_line">
           <div className="toggle_price">

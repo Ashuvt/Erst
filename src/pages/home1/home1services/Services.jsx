@@ -3,18 +3,20 @@ import { images } from "../../../utils/images/images";
 import { cardData } from "../../../utils/data/data";
 import InfoCard from "./infocard/InfoCard";
 import { Fragment } from "react";
+import MidTitle from "../../../components/midtitle/MidTitle";
 
 const Services = () => {
   return (
     <section className="services">
       <div className="content_wrap">
         <div className="text_content">
-          <h2>Flexible Digital Services For Your Needs</h2>
-          <p>
-            The Smart Sales Assistant can also provide insights into customer
-            behavior and preferences, allowing you to optimize your marketing
-            and sales strategies.
-          </p>
+          <MidTitle 
+          title="Flexible Digital Services For Your Needs" 
+          text="  The Smart Sales Assistant can also provide insights into customer
+          behavior and preferences, allowing you to optimize your marketing
+          and sales strategies."
+          />
+          
         </div>
         <div className="grid_sec">
           <div className="img_wrap">
