@@ -22,6 +22,11 @@ section.video_block {
             height: 100%;
             width: 100%;
             z-index: 1;
+            img{
+                object-fit: cover;
+                min-height:100%;
+                min-width:100%;
+            }
         }
 
         .video_card {
@@ -33,7 +38,15 @@ section.video_block {
             z-index: 2;
             width: 400px;
             border-radius: 12px;
+            @media only screen and (max-width:$tab){
+                right:50%;
+                bottom:50%;
+                transform: translate(50%, 50%);
+            }
 
+            @media only screen and (max-width:$mobile){
+                width:calc(100% - 20px);
+            }
             .img_wrap {
                 width: 100%;
                 border-radius: 12px;
@@ -44,12 +57,18 @@ section.video_block {
             }
             h5{
                 margin:20px 0px;
+                @media only screen and (max-width:$mobile){
+                    text-align: center;
+                }
             }
             .users_list{
                 display: flex;
                 justify-content:flex-start;
                 align-items: center;
                 padding-left:20px;
+                @media only screen and (max-width:$mobile){
+                    justify-content: center;       
+                }
                 .profile{
                     width: 55px;
                     height: 55px;
@@ -58,7 +77,7 @@ section.video_block {
                     margin-left: -20px;
                     position: relative;
                     padding:4px;
-
+                    
                     img{
                         max-height:100%;
                         max-width:100%;
@@ -71,6 +90,10 @@ section.video_block {
                 display: flex;
                 justify-content: flex-end;
                 align-items: center;
+                @media only screen and (max-width:$mobile){
+                 justify-content: center;
+                 margin-top:20px;       
+                }
                 button{
                     &.round{
                         width: 47px;

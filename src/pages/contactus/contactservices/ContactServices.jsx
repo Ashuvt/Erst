@@ -31,10 +31,10 @@ const Services = () => {
   return (
     <section className="contact_services">
       <div className="content_wrap">
-        <div className="img_wrap">
+        {/* <div className="img_wrap">
           <div className="bg"></div>
           <img src={images.mobiles} alt="mobiles" />
-        </div>
+        </div> */}
         <div className="service_list">
           {contactServiceData.map((data) => {
             return (

@@ -11,23 +11,60 @@ section.contact_landing {
         padding-bottom: 130px;
         display: grid;
         grid-template-columns: 1fr 0.4fr;
+        @media only screen and (max-width:$laptop){
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        @media only screen and (max-width:$tab){
+            padding-top: 180px;
+            padding-bottom: 80px;
+        }
+        @media only screen and (max-width:$mobile){
+            padding-top:160px;
+            padding-bottom: 60px;
+        }
+
         h1{
             position:relative;
             z-index:2;
+            @media only screen and (max-width:$laptop){
+                text-align: center;
+            }
         }
-
         .trial_wrap {
             position:relative;
             z-index:2;
+            @media only screen and (max-width:$laptop){
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width:100%;
+                margin-top:40px;
+            }
+            @media only screen and (max-width:$tab){
+                flex-direction: column;
+                gap:20px;
+                align-items:center;
+            }
             p {
                 text-align: right;
+                @media only screen and (max-width:$laptop){
+                    text-align: left;
+                }
+                @media only screen and (max-width:$tab){
+                    text-align: center;
+                }
             }
 
             .btn_line {
                 display: flex;
                 justify-content: flex-end;
                 align-items: center;
-
+                margin-top:20px;
+                @media only screen and (max-width:$laptop){
+                    margin-top:0px;
+                }
                 button {
                     &.round {
                         width: 47px;
@@ -76,30 +113,46 @@ section.contact_landing {
         right:350px;
         z-index:0;
         filter: blur(180px);
+        @media only screen and (max-width:$mobile){
+            height: 200px;
+            width: 200px;
+            right:10px;
+        }
     }
 
     .pink_blur {
         height: 250px;
         width: 250px;
         position: absolute;
-      
         border-radius: 50%;
         background-color: $primary;
         filter: blur(150px);
+        @media only screen and (max-width:$mobile){
+            height: 200px;
+            width: 200px;
+            right:10px;
+        }
 
         &.first {
             left:200px;
             top: 100px;
+            @media only screen and (max-width:$mobile){
+                left:0px;
+            }
         }
 
         &.second {
             left: 100px;
             top: 200px;
+            @media only screen and (max-width:$mobile){
+                left: 10px;
+            }
         }
 
         &.third {
-            right:-50px;
-            top: 200px;
+            right:0px;
+            top: 200px;            
         }
+       
     }
 }

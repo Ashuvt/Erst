@@ -7,6 +7,9 @@ section.map {
     .content_wrap {
         position: relative;
         overflow: hidden;
+        img{
+            max-width:100%;
+        }
         .circle {
             animation: scaleAnimation 2s ease-in-out infinite;
 
@@ -22,19 +25,21 @@ section.map {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-@media only screen and (max-width:$mobile){
-    width:30px;
-    height:30px;
-}
+
+                @media only screen and (max-width:$mobile) {
+                    width: 30px;
+                    height: 30px;
+                }
 
                 .dot {
                     height: 10px;
                     width: 10px;
                     border-radius: 50%;
                     background-color: #ce88fd;
-                    @media only screen and (max-width:$mobile){
-                        width:6px;
-                        height:6px;
+
+                    @media only screen and (max-width:$mobile) {
+                        width: 6px;
+                        height: 6px;
                     }
                 }
             }
@@ -138,13 +143,15 @@ section.map {
             &.q {
                 position: absolute;
                 top: 60%;
-                left: 6%;                
+                left: 6%;
             }
+
             &.r {
                 position: absolute;
                 top: 60%;
                 left: 66%;
             }
+
             &.s {
                 position: absolute;
                 top: 65%;

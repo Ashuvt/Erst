@@ -1,8 +1,8 @@
+@import "./scss/variables";
 
-
-*{
-  margin:0px;
-  padding:0px;
+* {
+  margin: 0px;
+  padding: 0px;
   box-sizing: border-box;
   outline: none !important;
   user-select: none;
@@ -16,8 +16,9 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-body{
-  background-color:#000;
+
+body {
+  background-color: #000;
 }
 
 *::-moz-selection {
@@ -50,27 +51,6 @@ body{
   opacity: 1;
 }
 
-// a,
-// div a:hover,
-// div a:active,
-// div a:focus,
-// button {
-//   text-decoration: none;
-//   -webkit-transition: all 0.2s ease 0s;
-//   -moz-transition: all 0.2s ease 0s;
-//   -ms-transition: all 0.2s ease 0s;
-//   -o-transition: all 0.2s ease 0s;
-//   transition: all 0.2s ease 0s;
-// }
-
-// a,
-// span,
-// div a:hover,
-// div a:active,
-// button {
-//   text-decoration: none;
-// }
-
 *::after,
 *::before,
 * {
@@ -80,11 +60,6 @@ body{
   -o-box-sizing: border-box;
   box-sizing: border-box;
 }
-
-// body a {
-//   outline: none;
-//   color: #555;
-// }
 
 body .clearfix,
 body .clear {
@@ -96,26 +71,6 @@ body .clearfix {
   height: auto;
 }
 
-
-
-.clr:after,
-ul:after,
-.clearfix:after,
-li:after {
-  clear: both;
-  display: block;
-  content: "";
-}
-
-div input,
-div select,
-div textarea,
-div button {
-  font-family: 'Lexend Deca';
-  font-weight: 400;
-}
-
-
 body h1:last-child,
 body h2:last-child,
 body h3:last-child,
@@ -123,18 +78,6 @@ body h4:last-child,
 body h5:last-child,
 body h6:last-child {
   margin-bottom: 0;
-}
-
-div select {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-div select option {
-  font-size: 13px;
-  color: #393939;
-  padding: 2px 5px;
 }
 
 img {
@@ -145,6 +88,7 @@ img {
   width: auto;
   height: auto;
 }
+
 body p:empty {
   margin: 0;
   line-height: 0;
@@ -173,11 +117,6 @@ iframe {
   clear: both;
 }
 
-body {
-  font-family: 'Lexend Deca';
-  font-weight: 400;
-}
-
 ul {
   padding: 0;
   margin: 0;
@@ -189,6 +128,7 @@ ul {
   align-items: center;
   justify-content: space-between;
 }
+
 picture {
   display: block;
 }
@@ -205,4 +145,26 @@ span.wpcf7-spinner {
   bottom: 20px;
   left: 50%;
   transform: translate(-50%, 0);
+}
+
+// Scroll Bar
+
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: $grey;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $card;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

@@ -5,12 +5,23 @@
 
 .contact_service_card{
     margin-bottom:200px;
+    @media only screen and (max-width:$laptop){
+        margin-bottom:60px;
+    }
     &:last-child{
         margin-bottom:0px;
     }
     h2{
         margin-bottom:30px;
+        @media only screen and (max-width:$mobile){
+            text-align: center;
+        }
     };
+    p{
+        @media only screen and (max-width:$mobile){
+            text-align: center;
+        }
+    }
 
     .btn_line{
         display: flex;
@@ -18,5 +29,12 @@
         align-items: center;
         gap:20px;
         margin-top:40px;
+        @media only screen and (max-width:$mobile){
+            flex-direction: column;
+            margin-top:30px;
+            button{
+                width:100%;
+            }
+        }
     }
 }

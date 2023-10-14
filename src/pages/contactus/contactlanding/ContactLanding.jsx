@@ -4,7 +4,7 @@ import { icons } from "../../../utils/images/images";
 
 const ContactLanding = () => {
   return (
-    <section className="contact_landing">      
+    <section className="contact_landing">
       <div className="content_wrap">
         <h1>We Will Be Glad To See You In Our Locations</h1>
 

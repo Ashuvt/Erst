@@ -64,6 +64,7 @@ section.home_opportunities {
                     img {
                         transform: translateX(-15px);
                         transition: all 0.3s ease-in-out;
+
                     }
                 }
 
@@ -88,6 +89,9 @@ section.home_opportunities {
             justify-content: center;
             align-items: center;
             width: 100%;
+            img{
+                max-width:100%;
+            }
         }
     }
 }

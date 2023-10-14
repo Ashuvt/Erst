@@ -11,10 +11,10 @@ const ContactUs = () => {
     return(
         <Fragment>
             <ContactLanding />
-            {/* <Locations />
+            <Locations />
             <Services />
             <VideoBlock />
-            <Help /> */}
+            <Help />
         </Fragment>
     )
 };
