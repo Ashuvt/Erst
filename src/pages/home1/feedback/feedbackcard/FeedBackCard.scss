@@ -1,0 +1,44 @@
+@import "../../../../scss/common";
+@import "../../../../scss/mixin";
+@import "../../../../scss/typography";
+@import "../../../../scss/variables";
+
+
+.feedback_card {
+    padding: 23px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    border-radius: 6px;
+    transition: all 0.3s ease-in-out;
+
+    .profile {
+        height: 60px;
+        width: 60px;
+        border-radius: 50%;
+        display: block;
+        img {
+            height: 100%;
+            width: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    }
+    .info{
+        width:calc(100% - 80px);
+        h5{
+            @include font('Syne-Regular', 22px, 24.2px, 600, $white);
+            margin-bottom:10px;
+        }
+        p{
+            @include font('Syne-Regular', 15px, 22.5px, 400, $lightBorder_1);
+        }
+    }
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.05);
+    }
+}

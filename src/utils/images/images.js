@@ -32,6 +32,7 @@ import homeblogA from "../../assets/images/homebloga.jpg";
 import homeblogB from "../../assets/images/homeblogb.jpg";
 import homeblogC from "../../assets/images/homeblogc.jpg";
 import homeblogD from "../../assets/images/homeblogd.jpg";
+import feedPerson from "../../assets/images/feedperson.webp";
 
 
 // Icons
@@ -82,7 +83,8 @@ export const images = {
     homeblogA,
     homeblogB,
     homeblogC,
-    homeblogD
+    homeblogD,
+    feedPerson
 };
 
 

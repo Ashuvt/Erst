@@ -9,6 +9,7 @@ import Plan from "./plan/Plan";
 import Opportunities from "./opportunities/Opportunities";
 import ImproveBusiness from "./improvebusiness/ImproveBusiness";
 import HomeBlogs from "./homeblogs/HomeBlogs";
+import FeedBack from "./feedback/FeedBack";
 
 const Home1 = () => {
   return (
@@ -22,6 +23,7 @@ const Home1 = () => {
       <Opportunities />
       <ImproveBusiness />
       <HomeBlogs />
+      <FeedBack />
     </Fragment>
   );
 };
