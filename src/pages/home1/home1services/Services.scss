@@ -6,26 +6,26 @@
 section.services {
     padding-bottom: 130px;
 
+    @media only screen and (max-width:$tab) {
+        padding-bottom: 80px;
+    }
+
+    @media only screen and (max-width:$mobile) {
+        padding-bottom: 60px;
+    }
+
     .content_wrap {
-        .text_content {
-            max-width: 650px;
-            width: 100%;
-            margin: 0px auto 60px;
-
-            h2 {
-                text-align: center;
-                margin-bottom: 40px;
-            }
-
-            p {
-                text-align: center;
-            }
-        }
-
-        .grid_sec {
+          .grid_sec {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 100px;
+            margin-top:60px;
+
+@media only screen and (max-width:$laptop){
+   display: flex;
+   flex-direction: column;
+}
+
 
             .img_wrap {
                 width: 100%;
@@ -33,7 +33,11 @@ section.services {
                 align-self: flex-start;
                 position: sticky;
                 top: 300px;
-
+                @media only screen and (max-width:$laptop){
+                    position:relative;
+                    margin-top:0px;
+                    top:0px;
+                }
                 .wrapper {
                     width: 100%;
                     position: relative;
@@ -69,18 +73,19 @@ section.services {
                 }
             }
 
-.info_wrap{
-    position:relative;
-    .line{
-        position:absolute;
-        left:-60px;
-        top:35px;
-        height:calc(100% - 100px);
-        width:2px;
-        background-color:$cardBorder;
+            .info_wrap {
+                position: relative;
 
-    }
-}
+                .line {
+                    position: absolute;
+                    left: -60px;
+                    top: 35px;
+                    height: calc(100% - 100px);
+                    width: 2px;
+                    background-color: $cardBorder;
+
+                }
+            }
 
 
         }

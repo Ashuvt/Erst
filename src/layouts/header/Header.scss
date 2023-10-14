@@ -16,7 +16,9 @@ section.header {
     background-color: rgba(0, 0, 0, 0.65);
     height: 100px;
     z-index: 999;
-
+@media only screen and (max-width:$laptop){
+    height:80px;
+}
     .content_wrap {
         header {
             width: 100%;
@@ -24,6 +26,9 @@ section.header {
             justify-content: space-between;
             align-items: center;
             height: 100px;
+            @media only screen and (max-width:$laptop){
+                height:80px;
+            }
             .logo_wrap{
                 a{
                     text-decoration:none;
@@ -50,6 +55,11 @@ section.header {
                     &.signup {
                         @include secondaryBtn;
                     }
+                }
+            }
+            @media only screen and (max-width:$laptop){
+                nav, .btns{
+                    display: none;
                 }
             }
         }

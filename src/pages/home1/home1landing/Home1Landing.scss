@@ -6,19 +6,32 @@
 
 section.home1landing {
     padding-top: 220px;
-    padding-bottom:130px;
-    position:relative;
+    padding-bottom: 130px;
+    position: relative;
     overflow-x: hidden;
-    .purple_blur{
-        height:100px;
-        width:400px;
-        background-color:$primary;
-        border-radius: 30%;
-        filter:blur(180px);
-        position:absolute;
-        top:100px;
-        left:200px;
+
+    @media only screen and (max-width:$tab) {
+        padding-top: 180px;
+        padding-bottom: 80px;
     }
+
+    @media only screen and (max-width:$mobile) {
+        padding-top: 160px;
+        padding-bottom: 60px;
+    }
+
+
+    .purple_blur {
+        height: 100px;
+        width: 400px;
+        background-color: $primary;
+        border-radius: 30%;
+        filter: blur(180px);
+        position: absolute;
+        top: 100px;
+        left: 200px;
+    }
+
     .content_wrap {
         h1 {
             text-align: center;
@@ -27,16 +40,20 @@ section.home1landing {
 
         p {
             text-align: center;
-            margin:0px auto 40px;
-            width:80%;
+            margin: 0px auto 40px;
+            width: 80%;
 
+            @media only screen and (max-width:$mobile) {
+                width: 100%;
+                margin: 0px auto 30px;
+            }
         }
 
         button {
             margin: 0px auto 0px;
         }
 
-        .dahsboard {           
+        .dahsboard {
             margin-top: 130px;
             width: 100%;
             -webkit-backdrop-filter: blur(5px);
@@ -45,41 +62,58 @@ section.home1landing {
             border: 40px solid rgba(255, 255, 255, .05);
             border-radius: 12px;
             outline: 1px solid rgba(255, 255, 255, .1);
-            position:relative;
-            z-index:1;
-            img{
-                width:100%;
+            position: relative;
+            z-index: 1;
+
+            @media only screen and (max-width:$tab) {
+                margin-top: 80px;
             }
-            .primary_glass{
-                height:300px;
-                width:300px;
-                background-color:$primary;
-                border-radius: 50%;
-                filter:blur(180px);
-                position:absolute;
-               &.left{
-                top:-30%;
-                left:-25%;
-                z-index:0;
-               }
-               &.right{
-                top:-10%;
-                right:-25%;
-                z-index:0;
-               }
+
+            @media only screen and (max-width:$mobile) {
+                margin-top: 60px;
             }
-            .secondary_glass{
-                height:300px;
-                width:300px;
-                background-color:$secondary;
+
+            img {
+                width: 100%;
+                position:relative;
+                z-index:2;
+            }
+
+            .primary_glass {
+                height: 300px;
+                width: 300px;
+                background-color: $primary;
                 border-radius: 50%;
-                filter:blur(180px);
-                position:absolute;
-                &.right{
-                    top:30%;
-                    right:-25%;
-                    z-index:0;
-                   }
+                filter: blur(180px);
+                position: absolute;
+                z-index:0;
+                &.left {
+                    top: -30%;
+                    left: -25%;
+                    z-index: 0;
+                }
+
+                &.right {
+                    top: -10%;
+                    right: -25%;
+                    z-index: 0;
+                }
+            }
+
+            .secondary_glass {
+                height: 300px;
+                width: 300px;
+                background-color: $secondary;
+                border-radius: 50%;
+                filter: blur(180px);
+                position: absolute;
+                z-index:0;
+
+                &.right {
+                    top: 30%;
+                    right: -25%;
+                    z-index: 0;
+                }
             }
         }
     }

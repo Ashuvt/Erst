@@ -7,13 +7,21 @@
     padding: 12px;
     display: grid;
     grid-column-gap: 35px;
-    grid-row-gap: 16px;
+    grid-row-gap: 20px;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     overflow: hidden;
 
     @media only screen and (max-width:$laptop) {
         grid-template-columns: 1fr 1fr 1fr;
+        margin-top:60px;
+        grid-column-gap:20px;
     }
+
+    @media only screen and (max-width:$mobile) {
+        grid-template-columns: 1fr 1fr;
+        margin-top:60px;
+    }
+    
 
     .logo_wraper {
         opacity: 0.4;

@@ -6,7 +6,7 @@
 section.map {
     .content_wrap {
         position: relative;
-
+        overflow: hidden;
         .circle {
             animation: scaleAnimation 2s ease-in-out infinite;
 
@@ -22,12 +22,20 @@ section.map {
                 display: flex;
                 justify-content: center;
                 align-items: center;
+@media only screen and (max-width:$mobile){
+    width:30px;
+    height:30px;
+}
 
                 .dot {
                     height: 10px;
                     width: 10px;
                     border-radius: 50%;
                     background-color: #ce88fd;
+                    @media only screen and (max-width:$mobile){
+                        width:6px;
+                        height:6px;
+                    }
                 }
             }
 

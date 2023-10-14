@@ -6,10 +6,28 @@
 section.home_opportunities {
     padding-bottom: 130px;
 
+    @media only screen and (max-width:$tab) {
+        padding-bottom: 80px;
+    }
+
+    @media only screen and (max-width:$mobile) {
+        padding-bottom: 60px;
+    }
+
     .content_wrap {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 100px;
+
+        @media only screen and (max-width:$laptop) {
+            display: flex;
+            flex-direction: column;
+            gap: 80px;
+        }
+
+        @media only screen and (max-width:$laptop) {
+            gap: 40px;
+        }
 
         .detail {
             p {
@@ -23,30 +41,42 @@ section.home_opportunities {
                 background-color: transparent;
                 border-style: none;
                 text-align: left;
-                border-bottom:1px solid $cardBorder;   
+                border-bottom: 1px solid $cardBorder;
                 display: flex;
                 justify-content: space-between;
-                align-items: center;     
-                transition:all 0.3s ease-in-out;
-                .icon_box{
-                    height:14px;
-                    width:14px;
+                align-items: center;
+                transition: all 0.3s ease-in-out;
+
+                @media only screen and (max-width:$tab) {
+                    padding: 20px 0px;
+                    @include font('Syne-Medium', 25px, 27.5px, 600, $white);
+                }
+
+                @media only screen and (max-width:$mobile) {
+                    @include font('Syne-Medium', 22px, 24.2px, 600, $white);
+                }
+
+                .icon_box {
+                    height: 14px;
+                    width: 14px;
                     overflow: hidden;
-                    img{
+
+                    img {
                         transform: translateX(-15px);
-                        transition:all 0.3s ease-in-out;
+                        transition: all 0.3s ease-in-out;
                     }
                 }
 
-                &:hover{
+                &:hover {
                     background-image: linear-gradient(#000 40%, rgba(153, 0, 255, .2));
-                    .icon_box{
-                        img{
+
+                    .icon_box {
+                        img {
                             transform: translateX(0px);
                         }
                     }
-                }           
-              
+                }
+
             }
         }
 
@@ -58,7 +88,6 @@ section.home_opportunities {
             justify-content: center;
             align-items: center;
             width: 100%;
-          
         }
     }
 }

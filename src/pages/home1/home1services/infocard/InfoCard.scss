@@ -11,7 +11,14 @@
     border-radius: 20px;
     margin-bottom: 60px;
     position:relative; 
-
+    @media only screen and (max-width:$laptop){
+        margin-bottom:40px;
+        padding:24px;
+    }
+    @media only screen and (max-width:$tab){
+        margin-bottom:30px;
+        padding:20px;
+    }
     .step_icon {
         width: 60px;
         height: 60px;
@@ -21,6 +28,7 @@
         align-items: center;
         display: flex;
         position: relative;
+   
 
         p {
             @include font('Syne-Regular', 17px, 23.8px, 400, $white);
@@ -29,6 +37,12 @@
 
     h3 {
         margin: 45px 0px 25px;
+        @media only screen and (max-width:$laptop){
+            margin: 40px 0px 20px;
+        }
+        @media only screen and (max-width:$tab){
+            margin: 30px 0px 20px;
+        }
     }
     .card_arrow{
         width: 24px;
@@ -40,6 +54,9 @@
         position: absolute;
         left:-13px;
         top:50%;
+        @media only screen and (max-width:$laptop){
+            display:none;
+        }
         
         transform: translateY(-50%)  rotate(45deg);
         &.first{

@@ -7,6 +7,16 @@ section.que_ans {
     padding-top: 130px;
     padding-bottom: 130px;
 
+    @media only screen and (max-width:$tab){
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    @media only screen and (max-width:$mobile){
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
     .content_wrap {
         .content {
             width: 100%;
@@ -34,6 +44,13 @@ section.que_ans {
 
             .right {
                 width: 50%;
+            }
+            @media only screen and (max-width:$laptop){
+                flex-direction: column;
+                gap:0px;
+                .left, .right{
+                    width:100%;
+                }
             }
         }
     }

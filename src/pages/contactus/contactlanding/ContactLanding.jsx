@@ -27,7 +27,6 @@ const ContactLanding = () => {
       <div className="pink_blur second"></div>
       <div className="pink_blur third"></div>
       <div className="blue_blur"></div>
-
     </section>
   );
 };

@@ -3,6 +3,7 @@ import "./Header.scss";
 import { logoImage } from "../../utils/images/images";
 import MenuBtn from "./menu/MenuBtn";
 import { menuList } from "../../utils/data/data";
+import HembergerMenu from "../../components/hembergerIcon/HembergerMenu";
 
 const Header = () => {
   return (
@@ -31,6 +32,7 @@ const Header = () => {
               Sign up
             </button>
           </div>
+          <HembergerMenu />
         </header>
       </div>
     </section>

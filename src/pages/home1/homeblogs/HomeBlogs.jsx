@@ -43,6 +43,7 @@ const HomeBlogs = () => {
           title="Read Our Interesting Blog Posts"
           text="The Smart Sales Assistant can also provide insights into customer behavior and preferences, allowing you to optimize your marketing and sales strategies."
         />
+        {/* Blog Grid */}
         <div className="home_blog_grid">
           <div className="left">
             <div className="blog_view">

@@ -8,8 +8,7 @@ const Faq = () => {
     return(
         <Fragment>
             <FaqLanding />
-            <Questions />
-           
+            <Questions />           
         </Fragment>
     )
 };

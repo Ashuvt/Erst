@@ -12,6 +12,14 @@
     border-radius: 12px;
     padding: 30px;
     transition: all .35s ease-in-out;
+    width:calc(100% / 3 - 20px);
+
+    @media only screen and (max-width:$laptop){
+        width:calc(100% / 2 - 15px);
+    }
+    @media only screen and (max-width:$tab){
+        width:100%;
+    }
 
     .offer {
         display: flex;
@@ -53,6 +61,14 @@
     &.active {
         box-shadow: 0 0 20px rgba(245, 245, 245, 0.25);
         border: 1px solid $lightBorder_1;
+        @media only screen and (max-width:$laptop){
+            width:100%;
+            order:-1;
+        }
+
+        @media only screen and (max-width:$tab){
+            order:0;
+        }
 
         &:hover {
             box-shadow: none;
