@@ -105,14 +105,14 @@ section.footer {
         padding-bottom: 50px;
         border-top: 1px solid rgba(255, 255, 255, 0.2);
         border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-
+        position:relative;
         @media only screen and (max-width:$tab) {
           margin-top: 30px;
           margin-bottom: 30px;
           padding-top: 30px;
           padding-bottom: 30px;
         }
-
+    
         .footer_grid {
           display: grid;
           grid-template-columns: 1fr 1fr 1fr;
@@ -151,13 +151,12 @@ section.footer {
                 display: flex;
                 justify-content: flex-start;
                 align-items: center;
-
+                border-bottom: 1px solid $cardBorder;
+                padding-bottom:6px;
                 input {
                   color: $white;
                   background-color: rgba(0, 0, 0, 0);
                   border-style: none;
-                  border-bottom: 1px solid $cardBorder;
-                  margin-bottom: 10px;
                   margin-right: 0;
                   padding-bottom: 6px;
                   @include font("Syne-Regular", 17px, 24.28px, 400, $white);
@@ -175,15 +174,15 @@ section.footer {
                 }
 
                 button.submit {
-                  height: 20px;
-                  width: 20px;
+                  height: 25px;
+                  width: 25px;
                   border-style: none;
                   background-color: $white;
                   border-radius: 50%;
                   transition: all 0.3s ease-in-out;
                   display: flex;
                   justify-content: center;
-                  align-items: center;
+                  align-items: center;              
 
                   img {
                     width: 15px;
@@ -224,7 +223,7 @@ section.footer {
               .stay_connect {
                 display: flex;
                 flex-direction: column;
-                align-items: center;
+                align-items: flex-start;
 
                 a {
                   @include font("Syne-Medium", 14px, 18.62px, 500, $white);
@@ -253,9 +252,11 @@ section.footer {
                 align-items: center;
                 justify-content: flex-start;
                 gap: 15px;
-                @media only screen and (max-width:$mobile){
-                  gap:10px;
+
+                @media only screen and (max-width:$mobile) {
+                  gap: 10px;
                 }
+
                 a {
                   -webkit-backdrop-filter: blur(5px);
                   backdrop-filter: blur(5px);
@@ -264,12 +265,14 @@ section.footer {
                   border-radius: 12px;
                   padding: 15px 25px;
                   text-decoration: none;
-                  color:$white;
-                  @media only screen and (max-width:$mobile){
+                  color: $white;
+
+                  @media only screen and (max-width:$mobile) {
                     padding: 15px 15px;
                   }
-                  img{
-                    max-width:100%;
+
+                  img {
+                    max-width: 100%;
                   }
                 }
               }
@@ -285,7 +288,8 @@ section.footer {
 
         @media only screen and (max-width:$laptop) {
           flex-direction: column;
-          p{
+
+          p {
             text-align: center;
           }
         }

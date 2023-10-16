@@ -92,13 +92,7 @@ const Help = () => {
                 value={help.number}
                 onChange={formHandler}
               />
-              {/* <input
-                type="text"
-                placeholder="Problem Type"
-                name="problem"
-                value={help.problem}
-                onChange={formHandler}
-              /> */}
+            
               <div className="custom_dropdown" onClick={ddToggler}>
                <p>{selectedProblem ? selectedProblem : 'select Problem'}</p>
                 <div className={`option_list ${ddStatus ? 'open' : 'close'}`}>

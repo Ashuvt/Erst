@@ -11,11 +11,7 @@ import ImproveBusiness from "./improvebusiness/ImproveBusiness";
 import HomeBlogs from "./homeblogs/HomeBlogs";
 import FeedBack from "./feedback/FeedBack";
 
-
 const Home1 = () => {
-
- 
-
   return (
     <Fragment>
       <Home1Landing />

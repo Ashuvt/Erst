@@ -13,7 +13,9 @@ const Footer = () => {
     <section className="footer">
       <div className="content_wrap">
         <footer>
-          <h2 className="wow slideInUp">Supercharge Your Business With Intelligent Analytics Suite!</h2>
+          <h2 className="wow slideInUp">
+            Supercharge Your Business With Intelligent Analytics Suite!
+          </h2>
           <div className="link_social wow slideInUp">
             <div className="links_container">
               <a href="/">home</a>
@@ -37,6 +39,10 @@ const Footer = () => {
           </div>
           {/* center Sec */}
           <div className="footer_center">
+
+            <div className="anim_border top"></div>
+            <div className="anim_border bottom"></div>
+
             <div className="footer_grid">
               <div className="grid_box footer_form wow slideInUp">
                 <h5>Get In Touch</h5>
@@ -82,7 +88,9 @@ const Footer = () => {
               <p>© All Rights Reserved 2023. Licensing</p>
             </div>
             <div className="right">
-              <p>Powered by <span className="white">Supagrow</span></p>
+              <p>
+                Powered by <span className="white">Supagrow</span>
+              </p>
             </div>
           </div>
         </footer>
