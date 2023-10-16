@@ -1,14 +1,19 @@
 import "./LocationCard.scss";
 import { icons } from "../../../../utils/images/images";
-import { useState } from "react";
-
+import { useEffect } from "react";
+import WOW from "wow.js";
 const LocationCard = ({country, location, call, mail}) => {
 
+    useEffect(() => {
+        const wow = new WOW();
+        wow.init();
+      }, []);
+
     return(
-        <div className="location_card">
+        <div className="location_card wow fadeIn">
             <div className="location_wrap">
                 <h5>{country}</h5>
-                <button type="button" class="locationbtn">
+                <button type="button" className="locationbtn">
                     <img src={icons.whiteArrow} alt="arrow" />
                 </button>                
             </div>

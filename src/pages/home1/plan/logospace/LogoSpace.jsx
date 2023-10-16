@@ -1,7 +1,15 @@
+import { useEffect } from "react";
 import "./LogoSpace.scss";
 import { logoImage } from "../../../../utils/images/images";
+import WOW from "wow.js";
 
 const LogoSpace = () => {
+
+  useEffect(() => {
+    const wow = new WOW();
+    wow.init();
+  }, []);
+
   const logoData = [
     {
       id: "00",
@@ -29,7 +37,7 @@ const LogoSpace = () => {
     },
   ];
   return (
-    <div className="logo_space">
+    <div className="logo_space wow slideInUp">
       {logoData.map((data) => {
         return (
           <div className="logo_wraper" key={data.id}>

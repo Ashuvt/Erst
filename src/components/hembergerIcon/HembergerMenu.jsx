@@ -12,9 +12,9 @@ const menuToggler = () => {
     return(
         <Fragment>
             <div className={`hemberger_menu ${status ? 'open' : ''}`} onClick={menuToggler} >
-            <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
+            <div className="bar"></div>
+        <div className="bar"></div>
+        <div className="bar"></div>
             </div>
         </Fragment>
     )

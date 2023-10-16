@@ -1,14 +1,20 @@
+import { useEffect } from "react";
 import "./Footer.scss";
 import { images } from "../../utils/images/images";
 import { icons } from "../../utils/images/images";
+import WOW from "wow.js";
 
 const Footer = () => {
+  useEffect(() => {
+    const wow = new WOW();
+    wow.init();
+  }, []);
   return (
     <section className="footer">
       <div className="content_wrap">
         <footer>
-          <h2>Supercharge Your Business With Intelligent Analytics Suite!</h2>
-          <div className="link_social">
+          <h2 className="wow slideInUp">Supercharge Your Business With Intelligent Analytics Suite!</h2>
+          <div className="link_social wow slideInUp">
             <div className="links_container">
               <a href="/">home</a>
               <a href="/">our pricing</a>
@@ -32,7 +38,7 @@ const Footer = () => {
           {/* center Sec */}
           <div className="footer_center">
             <div className="footer_grid">
-              <div className="grid_box footer_form">
+              <div className="grid_box footer_form wow slideInUp">
                 <h5>Get In Touch</h5>
                 <p>
                   Contact us today to see the power of Intelligent Analytics
@@ -46,7 +52,7 @@ const Footer = () => {
                 </form>
               </div>
 
-              <div className="grid_box footer_connect">
+              <div className="grid_box footer_connect wow slideInUp">
                 <h5>Stay Connect</h5>
                 <p>2118 Thornridge Cir. Syracuse, Connecticut 35624</p>
                 <div className="stay_connect">
@@ -55,7 +61,7 @@ const Footer = () => {
                 </div>
               </div>
 
-              <div className="grid_box footer_download">
+              <div className="grid_box footer_download wow slideInUp">
                 <h5>Download And Use</h5>
                 <p>We suggest connecting to the apps you use for work</p>
 
@@ -71,7 +77,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="footer_bottom">
+          <div className="footer_bottom wow slideInUp">
             <div className="left">
               <p>© Ersti 128. All Rights Reserved 2023. Licensing</p>
             </div>

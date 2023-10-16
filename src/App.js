@@ -11,6 +11,9 @@ import Home1 from "./pages/home1/Home1";
 import Faq from "./pages/faq/Faq";
 import ErrorPage from "./pages/error/ErrorPage";
 import ContactUs from "./pages/contactus/ContactUs";
+import SideBar from "./layouts/sidebar/SideBar";
+
+
 
 
 function App() {
@@ -19,6 +22,7 @@ function App() {
   const [status, setStatus] = useState(false);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     menu = menuList.map(menuItem => menuItem.submenu.map(submenuItem => submenuItem.link)).flat();
     menu.push("/");    
     if(menu.includes(location.pathname)){
@@ -34,6 +38,8 @@ function App() {
     <Fragment>
       
       { status && <Header /> }
+
+      {status && <SideBar />}
 
       <Routes>
         <Route path="/" element={<Home1 />} />

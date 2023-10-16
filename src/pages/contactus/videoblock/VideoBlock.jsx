@@ -43,7 +43,7 @@ const VideoBlock = () => {
           <div className="users_list">
             {usersData.map((data) => {
               return (
-                <div className="profile">
+                <div className="profile" key={data.id}>
                   <img src={data.img} alt="avtar" />
                 </div>
               );

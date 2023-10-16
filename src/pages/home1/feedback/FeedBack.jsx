@@ -1,7 +1,8 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import { icons, images } from "../../../utils/images/images";
 import "./FeedBack.scss";
 import FeedBackCard from "./feedbackcard/FeedBackCard";
+import WOW from "wow.js";
 
 const FeedBack = () => {
   const feedbackData = [
@@ -30,21 +31,28 @@ const FeedBack = () => {
       profile: images.profiled,
     },
   ];
+
+  useEffect(() => {
+    const wow = new WOW();
+    wow.init();
+  }, []);
+
+
   return (
-    <section class="feed_back">
+    <section className="feed_back">
       <div className="content_wrap">
         <div className="feed_greed">
           <div className="feed">
-            <h5>Sofia</h5>
-            <p>Independent Visual Designer & Art Director</p>
-            <div className="ratings">
+            <h5 className="wow slideInUp">Sofia</h5>
+            <p className="wow slideInUp">Independent Visual Designer & Art Director</p>
+            <div className="ratings wow slideInUp">
               <img src={icons.star} alt="star" />
               <img src={icons.star} alt="star" />
               <img src={icons.star} alt="star" />
               <img src={icons.star} alt="star" />
               <img src={icons.star} alt="star" />
             </div>
-            <p className="feed_text">
+            <p className="feed_text wow slideInUp">
               "One of the best things about the Intelligent Analytics Suite is
               its user-friendly interface. Even team members with limited
               technical expertise can easily navigate and use the suite to
@@ -53,12 +61,12 @@ const FeedBack = () => {
               decision-making at all levels of our organization."
             </p>
           </div>
-          <div className="feed_video">
+          <div className="feed_video wow slideInUp">
             <div className="overlay"></div>
             <img src={images.feedPerson} alt="feed" className="person" />
           </div>
         </div>
-        <div className="feedback_list">
+        <div className="feedback_list wow slideInUp">
         {feedbackData.map((data) => {
           return (
             <Fragment key={data.id}>

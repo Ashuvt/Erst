@@ -1,5 +1,7 @@
+import { useEffect } from "react";
 import "./Map.scss";
 import { images } from "../../utils/images/images";
+import WOW from "wow.js";
 
 const Map = () => {
   const circleData = [
@@ -84,8 +86,15 @@ const Map = () => {
     //   class: "t",
     // },
   ];
+
+  useEffect(() => {
+    const wow = new WOW();
+    wow.init();
+  }, []);
+
+
   return (
-    <section className="map">
+    <section className="map wow fadeIn">
       <div className="content_wrap">
         <img src={images.mapImage} alt="map" />
 

@@ -46,7 +46,8 @@ import location from "../../assets/images/location.svg";
 import call from "../../assets/images/call.svg";
 import whiteplay from "../../assets/images/whiteplaybtn.webp";
 import star from "../../assets/images/star.webp";
-
+import whiteClose from "../../assets/images/whiteclose.svg";
+import whiteAngle from "../../assets/images/whiteangle.svg";
 
 
 export const logoImage = {
@@ -59,6 +60,20 @@ export const logoImage = {
     companyF,
 };
 
+export const icons = {
+    instagram,
+    fb,
+    twitter,
+    rightArrow,
+    whiteArrow,
+    mail,
+    location,
+    call,
+    whiteplay,
+    star,
+    whiteClose,
+    whiteAngle
+};
 
 export const images = {
     home1landing: dashbord,
@@ -88,15 +103,3 @@ export const images = {
 };
 
 
-export const icons = {
-    instagram,
-    fb,
-    twitter,
-    rightArrow,
-    whiteArrow,
-    mail,
-    location,
-    call,
-    whiteplay,
-    star
-};

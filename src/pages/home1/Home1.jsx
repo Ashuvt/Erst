@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import "./Home1.scss";
 import Home1Landing from "./home1landing/HomeLanding";
 import Services from "./home1services/Services";
@@ -11,7 +11,11 @@ import ImproveBusiness from "./improvebusiness/ImproveBusiness";
 import HomeBlogs from "./homeblogs/HomeBlogs";
 import FeedBack from "./feedback/FeedBack";
 
+
 const Home1 = () => {
+
+ 
+
   return (
     <Fragment>
       <Home1Landing />

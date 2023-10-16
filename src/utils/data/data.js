@@ -2,18 +2,18 @@
 // Header Data main menu and router links
 export const menuList = [
     {
-        id:0,
+        id:1,
         title:"demos",
         submenu:[
             {
                 id:"01",
                 text:"Home 1",
-                link:"/home1"
+                link:"/home1",
             },
             {
                 id:"02",
                 text:"Home 2",
-                link:"/home2"
+                link:"/home2",
             },
             {
                 id:"03",
@@ -33,7 +33,7 @@ export const menuList = [
         ]
     },
     {
-        id:1,
+        id:2,
         title:"company",
          submenu:[
             {
@@ -74,7 +74,7 @@ export const menuList = [
         ]
     },
     {
-        id:2,
+        id:3,
         title:"pricing",
          submenu:[
             {
@@ -96,7 +96,7 @@ export const menuList = [
         ]
     },
     {
-        id:3,
+        id:4,
         title:"support",
          submenu:[
             {
@@ -118,7 +118,7 @@ export const menuList = [
         ]
     },
     {
-        id:4,
+        id:5,
         title:"all pages",
          submenu:[
             {

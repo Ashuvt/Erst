@@ -9,12 +9,12 @@ section.contact_help {
     padding-bottom: 130px;
     position: relative;
 
-    @media only screen and (max-width:$tab){
+    @media only screen and (max-width:$tab) {
         padding-top: 80px;
         padding-bottom: 80px;
     }
 
-    @media only screen and (max-width:$mobile){
+    @media only screen and (max-width:$mobile) {
         padding-top: 60px;
         padding-bottom: 60px;
     }
@@ -51,10 +51,10 @@ section.contact_help {
                 }
 
                 input,
-                textarea {
+                textarea,
+                .custom_dropdown {
                     height: auto;
                     min-height: 50px;
-                    color: #fff;
                     background-color: rgba(0, 0, 0, 0);
                     border: 1px solid $primary;
                     border-radius: 12px;
@@ -71,15 +71,48 @@ section.contact_help {
                     }
                 }
 
+                .custom_dropdown {
+                    position: relative;
+                    p{
+                        @include font('Syne-Regular', 17px, 17px, 400, $white);
+                    }
+                    .option_list {
+                        position: absolute;
+                        top:60px;
+                        left: 0px;
+                        transform-origin: top center;
+                        border-radius: 12px;
+                        overflow-y: auto;
+                        max-height:250px;
+                        transition:all 0.1s ease-in-out;
+                        border:1px solid $lightBorder_1;
+                        &.open {
+                        transform: scaleY(1);
+                        }
+
+                        &.close {
+                        transform: scaleY(0);
+                        }
+                    }
+                }
+
                 textarea {
                     width: 100%;
                     min-height: 200px;
                     margin-bottom: 40px;
                 }
 
-                button {
+                button.optionbtn{
                     width: 100%;
-
+                    padding:15px 15px;
+                    background-color:$dark;
+                    color:#fff;
+                    border-style: none;
+                    border-bottom:1px solid $cardBorder;
+                    transition:all 0.3s ease-in-out;
+                    &:hover{
+                    background-color:$primary;
+                    }
                 }
             }
         }

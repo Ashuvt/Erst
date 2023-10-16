@@ -1,9 +1,11 @@
+import { useEffect } from "react";
 import "./Plan.scss";
 import { Fragment, useState } from "react";
 import { planData } from "../../../utils/data/data";
 import PlanCard from "./plancard/PlanCard";
 import LogoSpace from "./logospace/LogoSpace";
 import MidTitle from "../../../components/midtitle/MidTitle";
+import WOW from "wow.js";
 
 const Plan = () => {
   const [type, setType] = useState("monthly");
@@ -11,6 +13,11 @@ const Plan = () => {
   const switchPlan = (planType) => {
     setType(planType);
   };
+
+  useEffect(() => {
+    const wow = new WOW();
+    wow.init();
+  }, []);
 
   return (
     <section className="home_plan">
@@ -23,7 +30,7 @@ const Plan = () => {
         />
 
         <div className="btn_line">
-          <div className="toggle_price">
+          <div className="toggle_price wow slideInUp">
             <button
               type="button"
               className={`${type === "monthly" ? "active" : ""}`}
@@ -41,7 +48,7 @@ const Plan = () => {
           </div>
         </div>
 
-        <div className="plan_container">
+        <div className="plan_container wow slideInUp">
           {planData &&
             planData.map((data) => {
               return (

@@ -1,18 +1,24 @@
 import "./ContactLanding.scss";
 import { useEffect } from "react";
 import { icons } from "../../../utils/images/images";
+import WOW from "wow.js";
+
 
 const ContactLanding = () => {
+  useEffect(() => {
+    const wow = new WOW();
+    wow.init();
+  }, []);  
   return (
     <section className="contact_landing">
       <div className="content_wrap">
-        <h1>We Will Be Glad To See You In Our Locations</h1>
+        <h1 className="wow slideInLeft">We Will Be Glad To See You In Our Locations</h1>
 
         <div className="trial_wrap">
-          <p>
+          <p className="wow slideInRight">
             We guarantee quality <br /> improvement and development!
           </p>
-          <div className="btn_line">
+          <div className="btn_line wow slideInRight">
             <button type="button" className="round">
               <img src={icons.whiteArrow} alt="arrow" />
             </button>

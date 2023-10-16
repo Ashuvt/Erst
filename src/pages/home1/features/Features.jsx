@@ -1,10 +1,18 @@
+import { useEffect } from "react";
 import "./Features.scss";
+import WOW from "wow.js";
 
 const Features = () => {
+
+  useEffect(() => {
+    const wow = new WOW();
+    wow.init();
+  }, []);
+
   return (
     <section className="features">
       <div className="content_wrap">
-        <div className="card active a">
+        <div className="card active a wow slideInUp">
           <h5>Data Management</h5>
           <p>
             The platform should offer robust data management capabilities that
@@ -13,7 +21,7 @@ const Features = () => {
             normalization, and data transformation.
           </p>
         </div>
-        <div className="card b">
+        <div className="card b wow slideInUp">
           <h5>Data Mining</h5>
           <p>
             Offer sophisticated data mining capabilities that allow users to
@@ -23,7 +31,7 @@ const Features = () => {
           </p>
         </div>
 
-        <div className="card c">
+        <div className="card c wow slideInUp">
           <h5>Data Security</h5>
           <p>
             Offer robust data security features to protect sensitive data and
@@ -32,7 +40,7 @@ const Features = () => {
             recovery.
           </p>
         </div>
-        <div className="card d">
+        <div className="card d wow slideInUp">
           <h5>Data Visualization</h5>
           <p>
             Provide a range of data visualization tools that allow users to

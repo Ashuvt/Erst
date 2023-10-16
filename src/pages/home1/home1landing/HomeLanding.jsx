@@ -1,17 +1,26 @@
+import { useEffect } from "react";
 import "./Home1Landing.scss";
 import { images } from "../../../utils/images/images";
+import WOW from "wow.js";
+
 
 const Home1Landing = () => {
+
+  useEffect(() => {
+    const wow = new WOW();
+    wow.init();
+  }, []);
+
   return (
     <section className="home1landing">
       <div className="purple_blur">
 
       </div>
       <div className="content_wrap">
-        <h1>
+        <h1 className="wow slideInUp">
           Improve Your Business With <br /> Intelligent Analytics Suite
         </h1>
-        <p>
+        <p className="wow slideInUp">
           This AI-powered tool can help businesses make data-driven decisions by
           providing deep insights into their operations, customers, and market
           trends. The Intelligent Analytics Suite can analyze large volumes of
@@ -19,7 +28,7 @@ const Home1Landing = () => {
           businesses optimize their processes and increase their revenue.
         </p>
 
-        <button type="button" className="primarybtn">
+        <button type="button" className="primarybtn wow slideInUp">
           Request your trial today
         </button>
 

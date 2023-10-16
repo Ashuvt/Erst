@@ -1,0 +1,108 @@
+@import "../../scss/common";
+@import "../../scss/mixin";
+@import "../../scss/typography";
+@import "../../scss/variables";
+
+
+.side_bar {
+    height: 100vh;
+    min-height: 500px;
+    background-color: $dark;
+    padding: 15px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 300px;
+    z-index: 999999;
+    overflow: hidden;
+    transition: all 0.2s ease-in-out;
+
+    &.open {
+        left: 0px;
+    }
+
+    &.close {
+        left:-300px;
+
+    }
+
+
+    .logo_line {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0px;
+
+        img {
+            margin: 0px;
+        }
+
+        button {
+            border-style: none;
+            background-color: transparent;
+        }
+    }
+
+    .main_menu {
+        padding: 6px 0px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        img {
+            margin: 0px;
+            transition: all 0.2s ease-in-out;
+
+            &.open {
+                transform: rotate(-90deg);
+            }
+
+            &.close {
+                transform: rotate(90deg);
+            }
+        }
+
+        p {
+            @include font('Syne-Regular', 12px, 18px, 500, $white);
+            letter-spacing: 2.4px;
+            text-transform: uppercase;
+        }
+
+    }
+
+    .sub_menus {
+        padding-left: 10px;
+        display: flex;
+        flex-direction: column;
+        transition: all 0.3s ease-in-out;
+
+
+
+        a {
+            text-decoration: none;
+            @include font('Syne-Regular', 12px, 16px, 500, $white);
+            letter-spacing: 2.4px;
+            text-transform: uppercase;
+            padding: 5px 0px;
+        }
+
+        &.open {}
+
+        &.close {
+            height: 0px;
+            overflow: hidden;
+        }
+    }
+
+    .btn_line{
+        margin-top:30px;
+        display: flex;
+        flex-direction: column;
+        gap:15px;
+        button{
+            width:100%;
+
+        }
+    }
+
+}

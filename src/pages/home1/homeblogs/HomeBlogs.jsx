@@ -1,11 +1,14 @@
+import { useEffect } from "react";
 import { Fragment } from "react";
 import "./HomeBlogs.scss";
 import MidTitle from "../../../components/midtitle/MidTitle";
 import Pill from "../../../components/pill/Pill";
 import { images } from "../../../utils/images/images";
 import HomeBlogCard from "./blogcard/HomeBlogCard";
+import WOW from "wow.js";
 
 const HomeBlogs = () => {
+
   const blogData = [
     {
       id:0,
@@ -35,7 +38,14 @@ const HomeBlogs = () => {
       date:"april 18, 2023",
       img:images.homeblogD
     },
-  ]
+  ];
+
+  useEffect(() => {
+    const wow = new WOW();
+    wow.init();
+  }, []);
+
+
   return (
     <section className="home_blog">
       <div className="content_wrap">
@@ -45,7 +55,7 @@ const HomeBlogs = () => {
         />
         {/* Blog Grid */}
         <div className="home_blog_grid">
-          <div className="left">
+          <div className="left wow slideInUp">
             <div className="blog_view">
               <div className="overlay"></div>
               <img src={images.homeblogD} alt="banner" />
@@ -70,7 +80,7 @@ const HomeBlogs = () => {
               </div>
             </div>
           </div>
-          <div className="all_blogs">
+          <div className="all_blogs wow slideInUp">
             {
               blogData.map((data) => {
                 return(
