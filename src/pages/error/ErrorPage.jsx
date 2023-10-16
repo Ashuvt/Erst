@@ -5,15 +5,10 @@ import { logoImage } from "../../utils/images/images";
 import WOW from "wow.js";
 
 const ErrorPage = () => {
-    const [flash, setFlash] = useState(false);
 
     useEffect(() => {
       const wow = new WOW();
       wow.init();
-
-        // setTimeout(() => {
-        //     setFlash(true);
-        // },500);
     }, []);
 
   return (
@@ -23,7 +18,7 @@ const ErrorPage = () => {
         <div className="blur pink wow zoomIn" data-wow-delay="0.5s" data-wow-duration="1.5s"></div>
       <div className="content_wrap">
         <NavLink to="/">
-          <img src={logoImage.logo} alt="logo" />
+          <h5>CyberGain</h5>
         </NavLink>
         <div className="content">
           <h1 className="wow slideInUp">404</h1>

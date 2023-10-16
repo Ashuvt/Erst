@@ -6,7 +6,8 @@ import { icons, logoImage } from "../../utils/images/images";
 const SideBar = () => {
   const [num, setNum] = useState(0);
 
-  const status = true;
+  const status = false;
+  
   const openSubmenu = (count) => {
     if(count === num){
         setNum(999999);

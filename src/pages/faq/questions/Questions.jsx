@@ -1,23 +1,30 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import "./Questions.scss";
-
 import QuestionCard from "./questioncard/QuestionCard";
 import { faqData } from "../../../utils/data/data";
 import Map from "../../../components/map/Map";
+import MidTitle from "../../../components/midtitle/MidTitle";
+import WOW from "wow.js";
 
 const Questions = () => {
+
+  useEffect(() => {
+    const wow = new WOW();
+    wow.init();
+  }, []);
+
   return (
     <section className="que_ans">
       <div className="content_wrap">
         <div className="content">
-          <h2>We're The Best And We Can Explain Why</h2>
-          <p>
-            The Smart Sales Assistant can also provide insights into customer
+          <MidTitle
+            title="We're The Best And We Can Explain Why"
+            text="The Smart Sales Assistant can also provide insights into customer
             behavior and preferences, allowing you to optimize your marketing
-            and sales strategies.
-          </p>
+            and sales strategies."
+          />
         </div>
-        <div className="accodian_grid">
+        <div className="accodian_grid wow slideInUp">
           <div className="left">
             {faqData &&
               faqData.slice(0, faqData.length / 2).map(({ que, ans, id }) => {

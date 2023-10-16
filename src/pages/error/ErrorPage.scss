@@ -12,6 +12,15 @@ section.error_page {
     .content_wrap {
         position: relative;
         z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        a {
+            margin-left: auto;
+            margin-right: auto;
+            text-decoration: none;
+        }
 
         .content {
             margin-top: 150px;
@@ -23,6 +32,10 @@ section.error_page {
                 background-image: linear-gradient(135deg, #00eaff 11%, #b5f 71%);
                 -webkit-background-clip: text;
                 color: transparent;
+                @media only screen and (max-width:$mobile){
+                    font-size:130px;
+                    line-height: 155px;;
+                }
             }
 
             h2 {
@@ -42,12 +55,13 @@ section.error_page {
                 text-align: center;
             }
 
-            a{
+            a {
                 text-decoration: none;
-            button {
-                margin: 40px auto 0px;
+
+                button {
+                    margin: 40px auto 0px;
+                }
             }
-        }
         }
     }
 

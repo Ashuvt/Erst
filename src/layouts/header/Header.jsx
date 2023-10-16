@@ -12,7 +12,7 @@ const Header = () => {
         <header>
           <div className="logo_wrap">
             <a href="/">
-              <img src={logoImage.logo} alt="logo" />
+             <h5>CyberGain</h5>
             </a>
           </div>
           <nav>

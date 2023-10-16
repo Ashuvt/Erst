@@ -29,10 +29,10 @@ const ContactLanding = () => {
           </div>
         </div>
       </div>
-      <div className="pink_blur first"></div>
-      <div className="pink_blur second"></div>
-      <div className="pink_blur third"></div>
-      <div className="blue_blur"></div>
+      <div className="pink_blur first wow zoomIn" data-wow-delay="0.5s" data-wow-duration="1.5s"></div>
+      <div className="pink_blur second wow zoomIn" data-wow-delay="0.5s" data-wow-duration="1.5s"></div>
+      <div className="pink_blur third wow zoomIn" data-wow-delay="0.5s" data-wow-duration="1.5s"></div>
+      <div className="blue_blur wow zoomIn" data-wow-delay="0.5s" data-wow-duration="1.5s"></div>
     </section>
   );
 };

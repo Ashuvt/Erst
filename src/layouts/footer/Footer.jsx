@@ -62,16 +62,16 @@ const Footer = () => {
               </div>
 
               <div className="grid_box footer_download wow slideInUp">
-                <h5>Download And Use</h5>
-                <p>We suggest connecting to the apps you use for work</p>
+                <h5>Login And Signup</h5>
+                <p>We suggest login to our portal</p>
 
                 <div className="app_wrap">
-                  <a href="https://www.apple.com/ua/app-store/" target="_blank">
-                    <img src={images.appStore} loading="lazy" alt="Logo" />
+                  <a href="#" target="_blank">
+                    Login
                   </a>
 
-                  <a href="https://play.google.com/store/games" target="_blank">
-                    <img src={images.playStore} loading="lazy" alt="Logo" />
+                  <a href="#" target="_blank">
+                    SignUp
                   </a>
                 </div>
               </div>
@@ -79,10 +79,10 @@ const Footer = () => {
           </div>
           <div className="footer_bottom wow slideInUp">
             <div className="left">
-              <p>© Ersti 128. All Rights Reserved 2023. Licensing</p>
+              <p>© All Rights Reserved 2023. Licensing</p>
             </div>
             <div className="right">
-              <p><span className="white">Webflow Templates</span> by <span className="white">128.digital.</span> Powered by <span className="white">Webflow</span></p>
+              <p>Powered by <span className="white">Supagrow</span></p>
             </div>
           </div>
         </footer>

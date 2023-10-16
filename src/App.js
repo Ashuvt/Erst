@@ -43,7 +43,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home1 />} />
-        <Route path="/home1" element={<Home1 />} />
+        <Route path="/home" element={<Home1 />} />
         <Route path="/faq" element={<Faq />} />
         <Route path="/contactus" element={<ContactUs />} />
         <Route path="/*" element={<ErrorPage />} />

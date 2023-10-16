@@ -1,10 +1,18 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import "./InfoCard.scss";
+import WOW from "wow.js";
 
 const InfoCard = ({ count, title, text, index }) => {
+
+  useEffect(() => {
+    const wow = new WOW();
+    wow.init();
+  }, []);
+
+
   return (
     <Fragment>
-      <div className="info_card">
+      <div className="info_card wow slideInUp">
         <div className="step_icon">
           <p>{count}</p>
         </div>
@@ -19,7 +27,10 @@ const InfoCard = ({ count, title, text, index }) => {
           className={`dot ${index === 0 ? "first" : ""} ${
             index === 3 ? "last" : ""
           }`}
-        ></div>
+        >
+          <div className="out_circle wow wow zoomIn" data-wow-delay="0.4s" >
+          </div>
+        </div>
       </div>
     </Fragment>
   );

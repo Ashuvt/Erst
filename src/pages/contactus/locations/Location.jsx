@@ -21,7 +21,7 @@ const Locations = () => {
     },
     {
       id: 2,
-      country: "LonNew Yorkdon",
+      country: "New York",
       location: "5 Washington Square, NY, USA",
       call: "+1 212 425 8617",
       mail: "helloabc@gmail.com",

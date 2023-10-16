@@ -94,7 +94,7 @@ const Map = () => {
 
 
   return (
-    <section className="map wow fadeIn">
+    <section className="map wow fadeIn" id="map">
       <div className="content_wrap">
         <img src={images.mapImage} alt="map" />
 
