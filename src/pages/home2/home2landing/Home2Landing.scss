@@ -1,0 +1,42 @@
+    @import "../../../scss/common";
+    @import "../../../scss/mixin";
+    @import "../../../scss/typography";
+    @import "../../../scss/variables";
+
+section.home2_landing {
+    padding-top:130px;
+    padding-bottom:130px;
+    .content_wrap {
+        .text_content {
+            padding-top:150px;
+            max-width: 800px;
+            width: 100%;
+            h1{
+
+            }
+            p{
+                margin-top:30px;
+            }
+        }
+        
+        .btn_line{
+            margin-top:50px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 30px;
+            .left{
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                gap:15px;
+                .left_beam{
+                    width:6px;
+                    height:40px;
+                    border-radius: 2px;
+                    background:linear-gradient(#34cefc, #b149f9)
+                }
+            }
+        }
+    }
+}

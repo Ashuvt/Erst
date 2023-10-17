@@ -1,5 +1,6 @@
 import "./VideoBlock.scss";
 import { icons, images } from "../../../utils/images/images";
+import ProfileList from "../../../components/profilelist/ProfileList";
 
 const VideoBlock = () => {
   const usersData = [
@@ -40,7 +41,7 @@ const VideoBlock = () => {
             <img src={images.contactUsVideoBanner} alt="video_banner" />
           </div>
           <h5>"Discussing The Main Features And Benefits..."</h5>
-          <div className="users_list">
+          {/* <div className="users_list">
             {usersData.map((data) => {
               return (
                 <div className="profile" key={data.id}>
@@ -48,7 +49,8 @@ const VideoBlock = () => {
                 </div>
               );
             })}
-          </div>
+          </div> */}
+          <ProfileList userList={usersData}  />
           <div className="btn_line">
             <button type="button" className="round">
               <img src={icons.whiteArrow} alt="arrow" />

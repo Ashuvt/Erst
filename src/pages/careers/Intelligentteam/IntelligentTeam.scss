@@ -1,0 +1,28 @@
+@import "../../../scss/common";
+@import "../../../scss/mixin";
+@import "../../../scss/typography";
+@import "../../../scss/variables";
+
+section.intelligent_team {
+    padding-top: 130px;
+    padding-bottom: 130px;
+
+    .content_wrap {
+        position:relative;
+        .title_content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 200px;
+            margin-bottom:30px;
+            h2, p{
+                align-self:center;
+            }
+        }
+
+        .bottom_line{
+            height:1px;
+            width:100%;
+            background-color:$lightBorder_2;
+        }
+    }
+}

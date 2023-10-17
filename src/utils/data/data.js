@@ -7,18 +7,28 @@ export const menuList = [
         submenu:[
             {
                 id:"01",
-                text:"Home",
-                link:"/home",
+                text:"Home1",
+                link:"/home1",
             },
             {
                 id:"02",
+                text:"Home2",
+                link:"/home2",
+            },
+            {
+                id:"03",
                 text:"faq",
                 link:"/faq",
             },
             {
-                id:"03",
+                id:"04",
                 text:"contact Us",
                 link:"/contactus"
+            },   
+            {
+                id:"05",
+                text:"careers",
+                link:"/careers"
             }          
         ]
     },

@@ -1,0 +1,39 @@
+@import "../../../scss/common";
+@import "../../../scss/mixin";
+@import "../../../scss/typography";
+@import "../../../scss/variables";
+
+section.text_slider{
+    padding:15px 0px;
+    background:$primaryGradient_6;
+    max-width:100%;
+    position:relative;
+    overflow: hidden;
+    .overlay{
+        position:absolute;
+        height:100%;
+        width:100%;
+        left:0px;
+        top:0px;
+        z-index:1;
+    }
+
+
+.marquee_text{
+    white-space: nowrap;   
+    animation: scroll-left 50s linear infinite;
+    display: flex;
+    justify-content: flex-start;
+    align-items:center;
+    gap:60px;
+    h2{
+        @include font('Syne-Regular', 30px, 33px, 600, $white);
+    }
+   
+}
+}
+
+@keyframes scroll-left {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
+  }

@@ -12,6 +12,8 @@ import Faq from "./pages/faq/Faq";
 import ErrorPage from "./pages/error/ErrorPage";
 import ContactUs from "./pages/contactus/ContactUs";
 import SideBar from "./layouts/sidebar/SideBar";
+import Home2 from "./pages/home2/home2";
+import Careers from "./pages/careers/Careers";
 
 
 
@@ -43,9 +45,12 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home1 />} />
-        <Route path="/home" element={<Home1 />} />
+        <Route path="/home1" element={<Home1 />} />
+        <Route path="/home2" element={<Home2 />} />
         <Route path="/faq" element={<Faq />} />
         <Route path="/contactus" element={<ContactUs />} />
+        <Route path="/careers" element={<Careers />} />
+
         <Route path="/*" element={<ErrorPage />} />
       </Routes>
 

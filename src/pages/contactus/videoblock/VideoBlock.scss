@@ -61,30 +61,7 @@ section.video_block {
                     text-align: center;
                 }
             }
-            .users_list{
-                display: flex;
-                justify-content:flex-start;
-                align-items: center;
-                padding-left:20px;
-                @media only screen and (max-width:$mobile){
-                    justify-content: center;       
-                }
-                .profile{
-                    width: 55px;
-                    height: 55px;
-                    background-image: $primaryGradient_3;
-                    border-radius: 100%;
-                    margin-left: -20px;
-                    position: relative;
-                    padding:4px;
-                    
-                    img{
-                        max-height:100%;
-                        max-width:100%;
-                        border-radius: 50%;
-                    }
-                }
-            }
+           
             .btn_line{
                 margin-top:40px;
                 display: flex;

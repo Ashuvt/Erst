@@ -3,10 +3,10 @@ import "./ImproveBusiness.scss";
 import MidTitle from "../../../components/midtitle/MidTitle";
 import { icons, images } from "../../../utils/images/images";
 import Pill from "../../../components/pill/Pill";
+import ProfileList from "../../../components/profilelist/ProfileList";
 import WOW from "wow.js";
 
 const ImproveBusiness = () => {
-
   const userData = [
     {
       id: 0,
@@ -35,7 +35,6 @@ const ImproveBusiness = () => {
     wow.init();
   }, []);
 
-
   return (
     <section className="improve">
       <div className="content_wrap">
@@ -63,13 +62,7 @@ const ImproveBusiness = () => {
             </div>
             <p>Based on 8,000+ reviews</p>
             <div className="users">
-              {userData.map((data) => {
-                return (
-                  <div className="profile" key={data.id}>
-                    <img src={data.img} alt="profile" />
-                  </div>
-                );
-              })}
+              <ProfileList userList={userData} />
             </div>
           </div>
           {/* Mid */}

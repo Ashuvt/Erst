@@ -40,8 +40,8 @@ const Footer = () => {
           {/* center Sec */}
           <div className="footer_center">
 
-            <div className="anim_border top"></div>
-            <div className="anim_border bottom"></div>
+            <div className="anim_border top wow zoomIn" data-wow-delay="0.5s" data-wow-duration="1.5s"></div>
+            <div className="anim_border bottom wow zoomIn" data-wow-delay="0.5s" data-wow-duration="1.5s"></div>
 
             <div className="footer_grid">
               <div className="grid_box footer_form wow slideInUp">

@@ -33,6 +33,11 @@ import homeblogB from "../../assets/images/homeblogb.jpg";
 import homeblogC from "../../assets/images/homeblogc.jpg";
 import homeblogD from "../../assets/images/homeblogd.jpg";
 import feedPerson from "../../assets/images/feedperson.webp";
+import whiteMap from "../../assets/images/whitemap.png";
+import teamA from "../../assets/images/teama.jpg";
+import teamB from "../../assets/images/teamb.jpg";
+import teamC from "../../assets/images/teamc.jpg";
+import teamD from "../../assets/images/teamd.jpg";
 
 
 // Icons
@@ -48,6 +53,7 @@ import whiteplay from "../../assets/images/whiteplaybtn.webp";
 import star from "../../assets/images/star.webp";
 import whiteClose from "../../assets/images/whiteclose.svg";
 import whiteAngle from "../../assets/images/whiteangle.svg";
+import lightArrow from "../../assets/images/lightarrow.png";
 
 
 export const logoImage = {
@@ -72,7 +78,8 @@ export const icons = {
     whiteplay,
     star,
     whiteClose,
-    whiteAngle
+    whiteAngle,
+    lightArrow
 };
 
 export const images = {
@@ -99,7 +106,12 @@ export const images = {
     homeblogB,
     homeblogC,
     homeblogD,
-    feedPerson
+    feedPerson,
+    whiteMap,
+    teamA,
+    teamB,
+    teamC,
+    teamD
 };
 
 
