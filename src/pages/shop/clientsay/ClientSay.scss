@@ -1,0 +1,36 @@
+@import "../../../scss/common";
+@import "../../../scss/mixin";
+@import "../../../scss/typography";
+@import "../../../scss/variables";
+
+
+section.client_say{
+    padding-bottom:130px;
+    @media only screen and (max-width:$tab){
+        padding-bottom:80px;
+    }
+    @media only screen and (max-width:$mobile){
+        padding-bottom:60px;
+    }
+    .content_wrap{
+
+        .feed_grid{
+            margin-top:40px;
+            display:grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap:30px;
+            @media only screen and (max-width:$laptop){
+                grid-template-columns: 1fr 1fr;
+            }
+            @media only screen and (max-width:$tab){
+                grid-template-columns: 1fr;
+            }
+           .feed_column{
+            align-self:flex-start;
+            display: flex;
+            flex-direction: column;
+            gap:30px;
+           }
+        }
+    }
+}

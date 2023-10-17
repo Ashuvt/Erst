@@ -14,7 +14,7 @@ import ContactUs from "./pages/contactus/ContactUs";
 import SideBar from "./layouts/sidebar/SideBar";
 import Home2 from "./pages/home2/home2";
 import Careers from "./pages/careers/Careers";
-
+import Shop from "./pages/shop/Shop";
 
 
 
@@ -50,6 +50,8 @@ function App() {
         <Route path="/faq" element={<Faq />} />
         <Route path="/contactus" element={<ContactUs />} />
         <Route path="/careers" element={<Careers />} />
+        <Route path="/shop" element={<Shop />}></Route>
+
 
         <Route path="/*" element={<ErrorPage />} />
       </Routes>

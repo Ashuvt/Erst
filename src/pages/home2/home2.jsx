@@ -5,7 +5,7 @@ import AboutServices from "./aboutservices/AboutServices";
 import Plan from "../home1/plan/Plan";
 import HomeBlogs from "../home1/homeblogs/HomeBlogs";
 import FeedBack from "../home1/feedback/FeedBack";
-import FreeTrial from "./freetrial/FreeTrial";
+import Offer from "./offer/Offer";
 import TipsBlog from "./tipsblog/TipsBlog";
 
 const Home2 = () => {
@@ -22,7 +22,7 @@ const Home2 = () => {
       {/* Business Analytics */}
 
       <Plan />
-      <FreeTrial
+      <Offer
       title="Get Started A 15-Days Free Trial"
       text="The SaaS model is the absence of costs for the purchase and
       maintenance of computer equipment on which you need to install

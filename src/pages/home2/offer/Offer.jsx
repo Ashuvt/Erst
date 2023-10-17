@@ -1,16 +1,16 @@
 import { useEffect } from "react";
-import "./FreeTrial.scss";
+import "./Offer.scss";
 import { icons, images } from "../../../utils/images/images";
 import WOW from "wow.js";
 
-const FreeTrial = ({title, text}) => {
+const Offer = ({title, text}) => {
   useEffect(() => {
     const wow = new WOW();
     wow.init();
   }, []);
 
   return (
-    <section className="free_trial">
+    <section className="Offer">
       <div className="top">
         <div className="float_fix wow zoomIn">
           <img src={images.profilea} alt="person" />
@@ -76,4 +76,4 @@ const FreeTrial = ({title, text}) => {
   );
 };
 
-export default FreeTrial;
+export default Offer;
