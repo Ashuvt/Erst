@@ -38,6 +38,10 @@ import teamA from "../../assets/images/teama.jpg";
 import teamB from "../../assets/images/teamb.jpg";
 import teamC from "../../assets/images/teamc.jpg";
 import teamD from "../../assets/images/teamd.jpg";
+import videoBtnImage from "../../assets/images/videobtn.webp";
+import pinkPlay from "../../assets/images/pinkplaybtn.webp";
+
+
 
 
 // Icons
@@ -111,7 +115,9 @@ export const images = {
     teamA,
     teamB,
     teamC,
-    teamD
+    teamD,
+    videoBtnImage,
+    pinkPlay
 };
 
 

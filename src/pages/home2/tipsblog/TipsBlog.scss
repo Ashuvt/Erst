@@ -1,0 +1,61 @@
+@import "../../../scss/common";
+@import "../../../scss/mixin";
+@import "../../../scss/typography";
+@import "../../../scss/variables";
+
+
+section.tips_blog {
+    padding-bottom: 130px;
+
+    @media only screen and (max-width:$tab) {
+        padding-bottom: 80px;
+    }
+
+    @media only screen and (max-width:$mobile) {
+        padding-bottom: 60px;
+    }
+
+    .content_wrap {
+        display: grid;
+        grid-template-columns: 0.5fr 1fr;
+        gap: 100px;
+
+        @media only screen and (max-width:$laptop) {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+
+        .left {
+            position: sticky;
+            top: 150px;
+            align-self: flex-start;
+
+            p {
+                margin: 30px 0px 40px;
+            }
+
+            @media only screen and (max-width:$laptop) {
+                position: relative;
+                top: 0px;
+            }
+            button{
+                @media only screen and(max-width:$mobile){
+                    width:100%;
+                }
+            }
+        }
+
+
+
+        .blog_column {
+            padding-left: 60px;
+            border-left: 1px solid $lightBorder_2;
+
+            @media only screen and (max-width:$laptop) {
+                border-style: none;
+                padding-left: 0px;
+            }
+        }
+    }
+}
