@@ -10,7 +10,7 @@ const Features = () => {
   }, []);
 
   return (
-    <section className="features">
+    <section className="features p_top p_bottom">
       <div className="content_wrap">
         <div className="card active a wow slideInUp">
           <h5>Data Management</h5>

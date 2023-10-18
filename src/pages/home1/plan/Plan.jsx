@@ -20,7 +20,7 @@ const Plan = () => {
   }, []);
 
   return (
-    <section className="home_plan">
+    <section className="home_plan p_bottom p_top">
       <div className="content_wrap">
         <MidTitle
           title="Choose Your Plan Now"

@@ -4,14 +4,43 @@
     @import "../../../scss/variables";
 
 section.home2_landing {
-    padding-top:130px;
-    padding-bottom:130px;
+   
     .content_wrap {
         .text_content {
             padding-top:150px;
             max-width: 800px;
             width: 100%;
-           
+
+            .dynamic{
+                display: flex;
+                align-items: center;
+                .text_box{
+                    height: 88px;
+                    overflow: hidden;
+                    margin-left:15px;
+                    @media only screen and (max-width:1720px){
+                        @include font('Syne-Regular', 60px, 66px, 600, $white);
+                    }
+                
+                    @media only screen and (max-width:1280px){
+                        height: 60.5px;
+                    }
+                
+                    @media only screen and (max-width:$mobile) {
+                        height: 49.5px;
+                    }
+                    .gradient_wrap{
+                        transition:all 0.9s ease-in-out;
+                    h1{
+                        background-image: linear-gradient(135deg, #00eaff, #b5f 72%);
+                        background-clip: text;
+                        color: transparent;
+                    }
+                }
+                }
+            }
+
+        
             p{
                 margin-top:30px;
             }

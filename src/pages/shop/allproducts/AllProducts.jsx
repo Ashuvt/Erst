@@ -2,7 +2,7 @@ import "./AllProducts.scss";
 
 const AllProducts = () => {
   return (
-    <section className="all_products">
+    <section className="all_products p_top p_bottom">
       <div className="content_wrap">
         <div className="top_btns">
           <button type="button">all products</button>

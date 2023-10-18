@@ -11,7 +11,7 @@ const FaqLanding = () => {
   }, []);
 
   return (
-    <section className="faq_landing">
+    <section className="faq_landing p_bottom">
       <div className="pink_blur wow zoomIn" data-wow-delay="0.5s" data-wow-duration="1.5s"></div>
       <div className="smallpink wow zoomIn" data-wow-delay="0.5s" data-wow-duration="1.5s"></div>
       <div className="blue_blur wow zoomIn" data-wow-delay="0.5s" data-wow-duration="1.5s"></div>

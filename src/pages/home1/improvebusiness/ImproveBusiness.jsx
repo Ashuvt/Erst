@@ -36,7 +36,7 @@ const ImproveBusiness = () => {
   }, []);
 
   return (
-    <section className="improve">
+    <section className="improve p_bottom">
       <div className="content_wrap">
         <MidTitle
           title="Improve Your Business"

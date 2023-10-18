@@ -7,7 +7,7 @@ import MidTitle from "../../../components/midtitle/MidTitle";
 
 const Services = () => {
   return (
-    <section className="services">
+    <section className="services p_bottom">
       <div className="content_wrap">
           <MidTitle 
           title="Flexible Digital Services For Your Needs" 

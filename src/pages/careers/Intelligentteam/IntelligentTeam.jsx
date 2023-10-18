@@ -42,7 +42,7 @@ const IntelligentTeam = () => {
   ];
 
   return (
-    <section className="intelligent_team">
+    <section className="intelligent_team p_top p_bottom">
       <div className="content_wrap">
         <div className="title_content">
           <h2 className="wow slideInUp">Join The Intelligent Analytics Suite Team</h2>

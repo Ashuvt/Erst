@@ -5,15 +5,7 @@
 
 
 section.client_say{
-    padding-bottom:130px;
-    @media only screen and (max-width:$tab){
-        padding-bottom:80px;
-    }
-    @media only screen and (max-width:$mobile){
-        padding-bottom:60px;
-    }
     .content_wrap{
-
         .feed_grid{
             margin-top:40px;
             display:grid;

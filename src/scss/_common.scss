@@ -20,6 +20,46 @@ section {
     }
   }
 
+  .p_top{
+    padding-top:130px;
+    @media only screen and (max-width:$tab){
+      padding-top:80px;
+    }
+    @media only screen and (max-width:$mobile){
+      padding-top:60px;
+    }
+  }
+
+  .p_bottom{
+    padding-bottom:130px;
+    @media only screen and (max-width:$tab){
+      padding-bottom:80px;
+    }
+    @media only screen and (max-width:$mobile){
+      padding-bottom:60px;
+    }
+  }
+
+  .m_top{
+    margin-top:130px;
+    @media only screen and (max-width:$tab){
+      margin-top:80px;
+    }
+    @media only screen and (max-width:$mobile){
+      margin-top:60px;
+    }
+  }
+
+  .m_bottom{
+    margin-bottom:130px;
+    @media only screen and (max-width:$tab){
+      margin-bottom:80px;
+    }
+    @media only screen and (max-width:$mobile){
+      margin-bottom:60px;
+    }
+  }
+
   button.primarybtn{
     @include primaryBtn;
   }

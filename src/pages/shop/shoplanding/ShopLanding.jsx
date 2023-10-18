@@ -11,7 +11,7 @@ const ShopLanding = () => {
 
       
     return(
-<section className="shop_landing">
+<section className="shop_landing p_bottom">
     <div className="content_wrap">
         <div className="bottom_border wow zoomIn"></div>
         <div className="title">

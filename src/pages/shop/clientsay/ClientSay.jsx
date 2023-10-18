@@ -5,7 +5,7 @@ import { images } from "../../../utils/images/images";
 
 export const ClientSay = () => {
   return (
-    <section className="client_say">
+    <section className="client_say p_bottom">
       <div className="content_wrap">
         <MidTitle
           title="What Our Client Say"

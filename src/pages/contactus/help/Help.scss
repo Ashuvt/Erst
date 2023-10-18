@@ -5,20 +5,7 @@
 
 
 section.contact_help {
-    padding-top: 130px;
-    padding-bottom: 130px;
     position: relative;
-
-    @media only screen and (max-width:$tab) {
-        padding-top: 80px;
-        padding-bottom: 80px;
-    }
-
-    @media only screen and (max-width:$mobile) {
-        padding-top: 60px;
-        padding-bottom: 60px;
-    }
-
     .content_wrap {
         position: relative;
         z-index: 2;

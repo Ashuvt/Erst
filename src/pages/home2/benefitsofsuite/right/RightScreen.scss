@@ -4,17 +4,8 @@
 @import "../../../../scss/variables";
 
 .benefit_suite_right {
-    padding-top: 130px;
-    padding-bottom: 130px;
     position: relative;
-
-    @media only screen and (max-width:$tab) {
-        padding-top: 80px;
-    }
-
-    @media only screen and (max-width:$mobile) {
-        padding-top: 60px;
-    }
+    width:100vw;
 
     .content_wrap {
         display: grid;
@@ -47,6 +38,7 @@
                 @media only screen and (max-width:$laptop){
                     position:relative;
                     width:100%;
+                    top:50px;
                 }
                 .overlay {
                     position: absolute;
@@ -96,6 +88,7 @@
 
                         img {
                             width: 12px !important;
+                            transform: rotate(180deg);
                         }
                     }
                 }

@@ -3,7 +3,7 @@ import "./BusinessAnalytics.scss";
 
 const BusinessAnalytics = () => {
   return (
-    <section className="business_analytics">
+    <section className="business_analytics p_top">
       <div className="content_wrap">
         <div className="card_a">
           <h2>Business Analytics</h2>

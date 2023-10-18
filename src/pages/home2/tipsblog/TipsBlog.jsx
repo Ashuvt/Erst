@@ -29,7 +29,7 @@ const TipsBlog = () => {
   ];
 
   return (
-    <section className="tips_blog">
+    <section className="tips_blog p_bottom">
       <div className="content_wrap">
         <div className="left">
           <h2>Find Useful Tips In Our Blog Posts</h2>

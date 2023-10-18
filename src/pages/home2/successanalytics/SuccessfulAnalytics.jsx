@@ -3,7 +3,7 @@ import { images } from "../../../utils/images/images";
 
 const SuccessfulAnalytics = () => {
   return (
-    <section className="success_analytics">
+    <section className="success_analytics p_top">
       <div className="content_wrap">
         <div className="graph_sec">
           <div className="graph_card">

@@ -39,7 +39,7 @@ const FeedBack = () => {
 
 
   return (
-    <section className="feed_back">
+    <section className="feed_back p_bottom">
       <div className="content_wrap">
         <div className="feed_greed">
           <div className="feed">

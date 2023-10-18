@@ -58,7 +58,7 @@ const Help = () => {
   }
 
   return (
-    <section className="contact_help">
+    <section className="contact_help p_top p_bottom">
       <div className="content_wrap">
         <Map />
         <div className="filler"></div>

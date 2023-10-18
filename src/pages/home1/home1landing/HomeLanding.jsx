@@ -12,7 +12,7 @@ const Home1Landing = () => {
   }, []);
 
   return (
-    <section className="home1landing">
+    <section className="home1landing p_bottom">
       <div className="purple_blur">
 
       </div>

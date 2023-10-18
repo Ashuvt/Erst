@@ -47,7 +47,7 @@ const HomeBlogs = () => {
 
 
   return (
-    <section className="home_blog">
+    <section className="home_blog p_bottom">
       <div className="content_wrap">
         <MidTitle
           title="Read Our Interesting Blog Posts"

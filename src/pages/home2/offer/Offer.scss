@@ -6,9 +6,6 @@
 
 
 section.Offer {
-    padding-top: 130px;
-    padding-bottom: 130px;
-    margin-bottom:130px;
     background: $primaryGradient_6;
     min-height: 715px;
     display: flex;
@@ -16,19 +13,6 @@ section.Offer {
     justify-content: center;
     align-items: center;
     position: relative;
-
-    @media only screen and (max-width:$tab) {
-        padding-top: 80px;
-        padding-bottom: 80px;
-        margin-bottom:80px;
-    }
-
-    @media only screen and (max-width:$tab) {
-        padding-top: 60px;
-        padding-bottom: 60px;
-        margin-bottom:60px;
-    }
-
     .content_wrap {
         display: flex;
         flex-direction: column;

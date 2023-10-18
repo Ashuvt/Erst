@@ -3,8 +3,6 @@ import "./App.scss";
 import { menuList } from "./utils/data/data";
 import { useLocation } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
-
-
 import Header from "./layouts/header/Header";
 import Footer from "./layouts/footer/Footer";
 import Home1 from "./pages/home1/Home1";
@@ -15,8 +13,7 @@ import SideBar from "./layouts/sidebar/SideBar";
 import Home2 from "./pages/home2/home2";
 import Careers from "./pages/careers/Careers";
 import Shop from "./pages/shop/Shop";
-
-
+import BlogDetail from "./pages/blogdetail/BlogDetail";
 
 function App() {
   var menu;
@@ -25,22 +22,22 @@ function App() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    menu = menuList.map(menuItem => menuItem.submenu.map(submenuItem => submenuItem.link)).flat();
-    menu.push("/");    
-    if(menu.includes(location.pathname)){
+    menu = menuList
+      .map((menuItem) =>
+        menuItem.submenu.map((submenuItem) => submenuItem.link)
+      )
+      .flat();
+    menu.push("/");
+    if (menu.includes(location.pathname)) {
       setStatus(true);
-    }else{
+    } else {
       setStatus(false);
     }
   }, [location.pathname]);
 
-
-
   return (
     <Fragment>
-      
-      { status && <Header /> }
-
+      {status && <Header />}
       {status && <SideBar />}
 
       <Routes>
@@ -51,15 +48,13 @@ function App() {
         <Route path="/contactus" element={<ContactUs />} />
         <Route path="/careers" element={<Careers />} />
         <Route path="/shop" element={<Shop />}></Route>
-
-
+        <Route path="/blog/:id" element={<BlogDetail />}></Route>
         <Route path="/*" element={<ErrorPage />} />
       </Routes>
 
-      {status && <Footer /> }
-
+      {status && <Footer />}
     </Fragment>
   );
-}
+};
 
 export default App;

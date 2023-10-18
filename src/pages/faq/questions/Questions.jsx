@@ -14,7 +14,7 @@ const Questions = () => {
   }, []);
 
   return (
-    <section className="que_ans">
+    <section className="que_ans p_top p_bottom">
       <div className="content_wrap">
         <div className="content">
           <MidTitle

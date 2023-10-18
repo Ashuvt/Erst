@@ -31,9 +31,14 @@ export const menuList = [
                 link:"/careers"
             },
             {
-                id:"05",
+                id:"06",
                 text:"shop",
                 link:"/shop"
+            },  
+            {
+                id:"07",
+                text:"blogdetail",
+                link:"/blog/:id"
             },          
         ]
     },

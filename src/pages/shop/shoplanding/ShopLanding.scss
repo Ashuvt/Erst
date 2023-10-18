@@ -5,16 +5,13 @@
 
 section.shop_landing {
     padding-top: 230px;
-    padding-bottom: 130px;
 
     @media only screen and (max-width:$tab) {
         padding-top: 180px;
-        padding-bottom: 80px;
     }
 
     @media only screen and (max-width:$mobile) {
         padding-top: 160px;
-        padding-bottom: 60px;
     }
 
     .content_wrap {

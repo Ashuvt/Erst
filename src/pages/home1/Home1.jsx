@@ -1,5 +1,4 @@
 import { Fragment, useEffect } from "react";
-import "./Home1.scss";
 import Home1Landing from "./home1landing/HomeLanding";
 import Services from "./home1services/Services";
 import BusinessDecision from "./bussinessdecision/BusinessDecision";

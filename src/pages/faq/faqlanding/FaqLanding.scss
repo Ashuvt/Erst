@@ -8,17 +8,14 @@ section.faq_landing {
     overflow-x: hidden!important;
     .content_wrap {
         padding-top: 200px;
-        padding-bottom: 130px;
         position: relative;
         overflow-x: hidden!important;
         @media only screen and (max-width:$tab){
             padding-top: 150px;
-            padding-bottom: 80px;
         }
     
         @media only screen and (max-width:$mobile){
             padding-top: 130px;
-            padding-bottom: 60px;
         }
 
         h1 {

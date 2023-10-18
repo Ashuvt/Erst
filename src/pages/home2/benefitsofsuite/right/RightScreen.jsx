@@ -1,15 +1,15 @@
 import { icons, images } from "../../../../utils/images/images";
 import "./RightScreen.scss";
 
-const RightScreen = () => {
+const RightScreen = ({setSide}) => {
   return (
-    <section className="benefit_suite_right">
+    <section className="benefit_suite_right p_top p_bottom">
       <div className="content_wrap">
        
         <div className="box_card_side">
           <div className="box_card">
             <div className="btn_block">
-                <button type="button">
+                <button type="button" onClick={() => setSide(false)}>
                     <img src={icons.whiteArrow} alt="arrow" />
                 </button>
                 <h6>for business</h6>

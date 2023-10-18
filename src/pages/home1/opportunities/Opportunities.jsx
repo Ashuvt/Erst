@@ -9,7 +9,7 @@ const Opportunities = () => {
     wow.init();
   }, []);
   return (
-    <section className="home_opportunities">
+    <section className="home_opportunities p_bottom">
       <div className="content_wrap">
         <div className="detail">
           <h2 className="wow slideInUp">Discover New Opportunities</h2>

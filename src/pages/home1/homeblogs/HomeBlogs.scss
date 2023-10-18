@@ -5,16 +5,6 @@
 
 section.home_blog {
     padding-top: 0px;
-    padding-bottom: 130px;
-
-    @media only screen and (max-width:$tab) {
-        padding-bottom: 80px;
-    }
-
-    @media only screen and (max-width:$mobile) {
-        padding-bottom: 60px;
-    }
-
     .content_wrap {
         .home_blog_grid {
             display: grid;

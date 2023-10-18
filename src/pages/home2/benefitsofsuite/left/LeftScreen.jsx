@@ -1,9 +1,9 @@
 import { icons, images } from "../../../../utils/images/images";
 import "./LeftScreen.scss";
 
-const LeftScreen = () => {
+const LeftScreen = ({setSide}) => {
   return (
-    <section className="benefit_suite_left">
+    <section className="benefit_suite_left p_top p_bottom">
       <div className="content_wrap">
         <div className="text_content">
           <h2>Benefits Of The Intelligent Suite</h2>
@@ -23,7 +23,7 @@ const LeftScreen = () => {
         <div className="box_card_side">
           <div className="box_card">
             <div className="btn_block">
-                <button type="button">
+                <button type="button" onClick={() => setSide(true)}>
                     <img src={icons.whiteArrow} alt="arrow" />
                 </button>
                 <h6>for business</h6>

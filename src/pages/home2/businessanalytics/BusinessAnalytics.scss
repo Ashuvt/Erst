@@ -4,16 +4,6 @@
 @import "../../../scss/variables";
 
 section.business_analytics {
-    padding-top: 130px;
-
-    @media only screen and (max-width:$tab) {
-        padding-top: 80px;
-    }
-
-    @media only screen and (max-width:$mobile) {
-        padding-top: 60px;
-    }
-
     .content_wrap {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
