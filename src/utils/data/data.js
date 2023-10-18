@@ -38,7 +38,7 @@ export const menuList = [
             {
                 id:"07",
                 text:"blogdetail",
-                link:"/blog/:id"
+                link:"/blogs/id"
             },          
         ]
     },

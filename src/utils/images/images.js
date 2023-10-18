@@ -45,6 +45,7 @@ import benefitSuite from "../../assets/images/benefitofsuite.jpg";
 import crossConnect from "../../assets/images/crossconnector.webp";
 import earningA from "../../assets/images/earninga.webp";
 import earningB from "../../assets/images/earningb.webp";
+import blogView from "../../assets/images/blogview.jpg";
 
 
 
@@ -65,6 +66,7 @@ import whiteClose from "../../assets/images/whiteclose.svg";
 import whiteAngle from "../../assets/images/whiteangle.svg";
 import lightArrow from "../../assets/images/lightarrow.png";
 import zigZag from "../../assets/images/zigzag.webp";
+import whiteBigArrow from "../../assets/images/bigarrow.svg";
 
 
 export const logoImage = {
@@ -91,7 +93,8 @@ export const icons = {
     whiteClose,
     whiteAngle,
     lightArrow,
-    zigZag
+    zigZag,
+    whiteBigArrow
 };
 
 export const images = {
@@ -131,6 +134,7 @@ export const images = {
     crossConnect,
     earningA,
     earningB,
+    blogView,
 };
 
 

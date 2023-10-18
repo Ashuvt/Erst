@@ -1,0 +1,53 @@
+
+@import "../../../../scss/common";
+@import "../../../../scss/mixin";
+@import "../../../../scss/typography";
+@import "../../../../scss/variables";
+
+
+.date_wrap{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap:20px;
+    button{
+        border-style: none;
+        background-color:transparent;
+        @include font('Syne-Regular', 12px, 15.96px, 600, $white);
+        letter-spacing: 2.4px;
+        text-transform:uppercase;
+        transition:all 0.3s ease-in-out;
+        &:hover{
+           color:$lightBorder_1
+        }
+    }
+    .animated_line{
+        width:40px;
+        height:1px;
+        position:relative;
+        overflow: hidden;
+        .filler{
+            height:100%;
+            position:absolute;
+            top:0px;
+            left:0px;
+            width:100%;
+            background-color:$lightBorder_1;
+            animation:line 2s infinite;
+        }
+    }
+    p{
+        @include font('Syne-Regular', 12px, 15.96px, 600, $lightBorder_1);
+        letter-spacing: 2.4px;
+        text-transform:uppercase;
+    }
+}
+
+@keyframes line{
+    0%{
+      transform: translateX(-100%);
+    };
+    100%{
+      transform: translateX(100%);
+    }
+  }

@@ -2,3 +2,52 @@
 @import "../../../scss/mixin";
 @import "../../../scss/typography";
 @import "../../../scss/variables";
+
+section.blog_content {
+    .content_wrap {
+        h2 {
+            margin: 10px 0px 20px;
+        }
+
+        h3 {
+            margin: 40px 0px 30px;
+        }
+
+        p {
+            margin: 10px 0px;
+        }
+
+        .blog_image {
+            margin: 40px 0px;
+            border-radius: 12px;
+
+            img {
+                width: 100%;
+                border-radius: 12px;
+            }
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left:20px;
+            margin:30px 0px 40px;
+            li {
+                position: relative;
+                margin:8px 0px;
+                @include font('Syne-Regular', 17px, 23.8px, 400, $lightBorder_1);
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: 9px;
+                    left: -20px;
+                    height: 8px;
+                    width: 8px;
+                    border-radius: 50%;
+                    background-color:$primary;
+                }
+            }
+        }
+
+        ;
+    }
+}

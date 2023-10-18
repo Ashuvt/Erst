@@ -37,9 +37,11 @@ function App() {
 
   return (
     <Fragment>
-      {status && <Header />}
-      {status && <SideBar />}
+      {/* {status && <Header />}
+      {status && <SideBar />} */}
 
+<Header />
+<SideBar />
       <Routes>
         <Route path="/" element={<Home1 />} />
         <Route path="/home1" element={<Home1 />} />
@@ -48,11 +50,11 @@ function App() {
         <Route path="/contactus" element={<ContactUs />} />
         <Route path="/careers" element={<Careers />} />
         <Route path="/shop" element={<Shop />}></Route>
-        <Route path="/blog/:id" element={<BlogDetail />}></Route>
+        <Route path="/blogs/:id" element={<BlogDetail />}></Route>
         <Route path="/*" element={<ErrorPage />} />
       </Routes>
-
-      {status && <Footer />}
+      <Footer />
+      {/* {status && <Footer />} */}
     </Fragment>
   );
 };
