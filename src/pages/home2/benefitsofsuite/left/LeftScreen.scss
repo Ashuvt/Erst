@@ -1,0 +1,105 @@
+@import "../../../../scss/common";
+@import "../../../../scss/mixin";
+@import "../../../../scss/typography";
+@import "../../../../scss/variables";
+
+.benefit_suite_left {
+    padding-top: 130px;
+    padding-bottom: 130px;
+    position: relative;
+
+    @media only screen and (max-width:$tab) {
+        padding-top: 80px;
+    }
+
+    @media only screen and (max-width:$mobile) {
+        padding-top: 60px;
+    }
+
+    .content_wrap {
+        display: grid;
+        grid-template-columns: 0.8fr 1fr;
+        gap: 0px;
+
+        @media only screen and (max-width:$laptop){
+            display: flex;
+            flex-direction: column;
+        }
+
+        .text_content {
+            padding: 80px 100px 80px 0;
+            @media only screen and (max-width:$laptop){
+                padding: 0px 0px 0px 0px;
+            }
+            p {
+                margin: 30px 0px 40px;
+            }
+        }
+
+        .box_card_side {
+            .box_card {
+                position: absolute;
+                top: 100px;
+                right: 0px;
+                height: 700px;
+                width: 50%;
+                @media only screen and (max-width:$laptop){
+                    position:relative;
+                    width:100%;
+                }
+                .overlay {
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                    height: 100%;
+                    width: 100%;
+                    background-color: rgba(0, 0, 0, 0.5);
+                }
+
+                img.bg {
+                    object-fit: cover;
+                    min-height: 100%;
+                    min-width: 100%;
+                }
+
+                .btn_block {
+                    position: absolute;
+                    left: 50px;
+                    bottom: 50px;
+                    z-index: 5;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    gap: 20px;
+                    
+                    @media only screen and (max-width:$laptop){
+                        left:calc(100% - 200px);
+                        bottom:calc(100% - 80px);
+                    }
+                    button {
+                        height: 50px;
+                        width: 50px;
+                        border-radius: 50%;
+                        border: 1px solid rgba(255, 255, 255, 0.1);
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background-color: transparent;
+                        background-color: rgba(255, 255, 255, 0.1);
+                        transition: all 0.5s ease-in-out;
+
+                        &:hover {
+                            transform: scale(0.9);
+                            background-color: rgba(255, 255, 255, 0.2);
+                        }
+
+                        img {
+                            width: 12px !important;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}

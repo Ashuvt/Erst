@@ -14,7 +14,7 @@ const AboutServices = () => {
     return(
         <section className="about_services">
             <div className="content_wrap">
-            <div className="bottom_border wow zoomIn"></div>
+            <div className="bottom_line wow zoomIn"></div>
                 <div className="bisec_title">
                     <h2>Find Out Everything About Our Services</h2>
                     <p>SaaS has become a popular software delivery model that offers numerous benefits, including cost-effectiveness, easy access, scalability, and automatic updates.</p>

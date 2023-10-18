@@ -40,6 +40,12 @@ import teamC from "../../assets/images/teamc.jpg";
 import teamD from "../../assets/images/teamd.jpg";
 import videoBtnImage from "../../assets/images/videobtn.webp";
 import pinkPlay from "../../assets/images/pinkplaybtn.webp";
+import analyticBg from "../../assets/images/analyticbg.webp";
+import benefitSuite from "../../assets/images/benefitofsuite.jpg";
+import crossConnect from "../../assets/images/crossconnector.webp";
+import earningA from "../../assets/images/earninga.webp";
+import earningB from "../../assets/images/earningb.webp";
+
 
 
 
@@ -58,6 +64,7 @@ import star from "../../assets/images/star.webp";
 import whiteClose from "../../assets/images/whiteclose.svg";
 import whiteAngle from "../../assets/images/whiteangle.svg";
 import lightArrow from "../../assets/images/lightarrow.png";
+import zigZag from "../../assets/images/zigzag.webp";
 
 
 export const logoImage = {
@@ -83,7 +90,8 @@ export const icons = {
     star,
     whiteClose,
     whiteAngle,
-    lightArrow
+    lightArrow,
+    zigZag
 };
 
 export const images = {
@@ -117,7 +125,12 @@ export const images = {
     teamC,
     teamD,
     videoBtnImage,
-    pinkPlay
+    pinkPlay,
+    analyticBg,
+    benefitSuite,
+    crossConnect,
+    earningA,
+    earningB,
 };
 
 
