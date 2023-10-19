@@ -1,6 +1,4 @@
 // Logo
-import logo from "../../assets/images/logo.webp";
-
 import companyA from "../../assets/images/companya.webp";
 import companyB from "../../assets/images/companyb.webp";
 import companyC from "../../assets/images/companyc.webp";
@@ -67,10 +65,11 @@ import whiteAngle from "../../assets/images/whiteangle.svg";
 import lightArrow from "../../assets/images/lightarrow.png";
 import zigZag from "../../assets/images/zigzag.webp";
 import whiteBigArrow from "../../assets/images/bigarrow.svg";
+import whiteCheck from "../../assets/images/whitecheck.svg";
+import smallWhiteCheck from "../../assets/images/smallwhitecheck.webp";
 
 
 export const logoImage = {
-    logo,
     companyA,
     companyB,
     companyC,
@@ -94,7 +93,9 @@ export const icons = {
     whiteAngle,
     lightArrow,
     zigZag,
-    whiteBigArrow
+    whiteBigArrow,
+    whiteCheck,
+    smallWhiteCheck
 };
 
 export const images = {

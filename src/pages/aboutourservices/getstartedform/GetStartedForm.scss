@@ -1,0 +1,138 @@
+@import "../../../scss/common";
+@import "../../../scss/mixin";
+@import "../../../scss/typography";
+@import "../../../scss/variables";
+
+section.get_started_form {
+    .content_wrap {
+        display: grid;
+        grid-template-columns: 0.7fr 1fr;
+        gap: 100px;
+
+        @media only screen and (max-width:$laptop){
+            grid-template-columns:1fr;
+        }
+
+        .img_wraper {
+            align-self: center;
+
+            img {
+                max-width: 100%;
+
+            }
+        }
+
+        .form_wraper {
+            h6 {
+                letter-spacing: 4px;
+                margin-bottom: 20px;
+            }
+
+            input,
+            textarea {
+                min-height: 50px;
+                color: #fff;
+                background-color: rgba(0, 0, 0, 0);
+                border: 1px solid $primary;
+                border-radius: 12px;
+                margin-bottom: 0;
+                padding-top: 16px;
+                padding-bottom: 16px;
+                padding-left: 18px;
+                font-size: 17px;
+                font-weight: 400;
+                transition: all .5s cubic-bezier(.25, .46, .45, .94);
+                box-shadow: 0 0 20px rgba(153, 0, 255, .6);
+                width: calc(100% / 3);
+                @media only screen and (max-width:$tab){
+                    width:100%;
+                }
+                &:focus {
+                    box-shadow: none;
+                    padding: 16px 22px;
+                }
+            }
+
+            .field_line {
+                display: flex;
+                justify-content: space-between;
+                gap: 20px;
+                margin-bottom: 30px;
+                @media only screen and (max-width:$tab){
+                    flex-direction: column;
+                }
+            }
+
+            textarea {
+                width: 100%;
+                min-height: 250px;
+            }
+
+            .radio_line {
+                margin: 30px 0px 40px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .radio_field {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    gap: 10px;
+
+                    input[type="radio"] {
+                        max-height: 20px;
+                        min-height: 20px;
+                        width: 20px;
+                        border-radius: 50% !important;
+                        padding: 0px;
+                        border: 1px solid $primary;
+                        position: relative;
+
+                        &::before{
+                            position: absolute;
+                            content:url("../../../assets/images/smallwhitecheck.webp");
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            z-index:2;
+                            opacity:0;
+                        }
+
+                        &::after {
+                            position: absolute;
+                            content: "";
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            height: 25px;
+                            width: 25px;
+                            background-color: $dark;
+                            border-radius: 50%;
+                            border: 1px solid $primary;
+                            z-index:1;
+                           
+                        }
+
+                        &:checked {
+                            &::before{
+                               opacity:1;
+                            }
+                        }
+                    }
+
+                    label{
+                        letter-spacing: 2.4px;
+                        @include font('Syne-Regular', 12px, 14.4px, 400, $white);
+                        text-transform:uppercase;
+                        margin: 0px;
+                    }
+                }
+            }
+
+            button {
+                width: 100%;
+            }
+        }
+    }
+}

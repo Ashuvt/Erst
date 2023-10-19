@@ -39,6 +39,11 @@ export const menuList = [
                 id:"07",
                 text:"blogdetail",
                 link:"/blogs/id"
+            },   
+            {
+                id:"08",
+                text:"about our services",
+                link:"/about_our_services"
             },          
         ]
     },
@@ -143,4 +148,43 @@ export const faqData = [
         que:"Is the Intelligent Analytics Suite scalable?",
         ans:"Yes, the Intelligent Analytics Suite is scalable, allowing businesses to easily scale the solution as their business grows. This makes it a flexible and adaptable solution that can evolve with the changing needs of the business."
     },
-]
+];
+
+
+export const ourServicesPlanData = [
+    {
+        id:0,
+        type:"Beginner",
+        text:"Buy an annual subscription and save your money.",
+        price:9,
+        detail:"The Intelligent Analytics Suite pricing package offers predictable costs, which can help businesses plan their budget and avoid unexpected expenses. The pricing package can be customized to the needs of the business, allowing it to scale as the business grows.",
+        features:["Pricing package expands analytical capabilities", "Helps businesses gain a competitive advantage", "Includes real-time monitoring and alerting capabilities", "Optimizes its activities by analyzing data from sources", "Deep understanding of customer behavior"],
+    },
+
+    {
+        id:1,
+        type:"Freelancer",
+        text:"Buy an annual subscription and save your money.",
+        price:19,
+        detail:"The Intelligent Analytics Suite pricing package offers predictable costs, which can help businesses plan their budget and avoid unexpected expenses. The pricing package can be customized to the needs of the business, allowing it to scale as the business grows.",
+        features:["Pricing package expands analytical capabilities", "Helps businesses gain a competitive advantage", "Includes real-time monitoring and alerting capabilities", "Optimizes its activities by analyzing data from sources", "Deep understanding of customer behavior"],
+    },
+
+    {
+        id:2,
+        type:"Professional",
+        text:"Buy an annual subscription and save your money.",
+        price:39,
+        detail:"The Intelligent Analytics Suite pricing package offers predictable costs, which can help businesses plan their budget and avoid unexpected expenses. The pricing package can be customized to the needs of the business, allowing it to scale as the business grows.",
+        features:["Pricing package expands analytical capabilities", "Helps businesses gain a competitive advantage", "Includes real-time monitoring and alerting capabilities", "Optimizes its activities by analyzing data from sources", "Deep understanding of customer behavior"],
+    },
+
+    {
+        id:3,
+        type:"Company",
+        text:"Buy an annual subscription and save your money.",
+        price:59,
+        detail:"The Intelligent Analytics Suite pricing package offers predictable costs, which can help businesses plan their budget and avoid unexpected expenses. The pricing package can be customized to the needs of the business, allowing it to scale as the business grows.",
+        features:["Pricing package expands analytical capabilities", "Helps businesses gain a competitive advantage", "Includes real-time monitoring and alerting capabilities", "Optimizes its activities by analyzing data from sources", "Deep understanding of customer behavior"],
+    },
+];
