@@ -12,7 +12,7 @@ const AboutServices = () => {
 
 
     return(
-        <section className="about_services">
+        <section className="about_services" id="aboutService">
             <div className="content_wrap p_bottom p_top">
             <div className="bottom_line wow zoomIn"></div>
                 <div className="bisec_title">

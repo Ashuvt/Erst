@@ -44,6 +44,8 @@ import crossConnect from "../../assets/images/crossconnector.webp";
 import earningA from "../../assets/images/earninga.webp";
 import earningB from "../../assets/images/earningb.webp";
 import blogView from "../../assets/images/blogview.jpg";
+import squareBg from "../../assets/images/sqarebg.webp";
+
 
 
 
@@ -67,6 +69,9 @@ import zigZag from "../../assets/images/zigzag.webp";
 import whiteBigArrow from "../../assets/images/bigarrow.svg";
 import whiteCheck from "../../assets/images/whitecheck.svg";
 import smallWhiteCheck from "../../assets/images/smallwhitecheck.webp";
+import filledDate from "../../assets/images/filleddate.svg";
+import filledLocation from "../../assets/images/filledlocation.svg";
+import filledWatch from "../../assets/images/filledwatch.svg";
 
 
 export const logoImage = {
@@ -95,7 +100,10 @@ export const icons = {
     zigZag,
     whiteBigArrow,
     whiteCheck,
-    smallWhiteCheck
+    smallWhiteCheck,
+    filledDate,
+    filledLocation,
+    filledWatch
 };
 
 export const images = {
@@ -136,6 +144,7 @@ export const images = {
     earningA,
     earningB,
     blogView,
+    squareBg,
 };
 
 

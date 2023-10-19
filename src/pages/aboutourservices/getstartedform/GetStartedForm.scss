@@ -73,7 +73,16 @@ section.get_started_form {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-
+                @media only screen and (max-width:650px){
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap:20px;
+                }
+                @media only screen and (max-width:450px){
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    gap:20px;
+                }
                 .radio_field {
                     display: flex;
                     justify-content: flex-start;

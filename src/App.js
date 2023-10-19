@@ -15,6 +15,7 @@ import Careers from "./pages/careers/Careers";
 import Shop from "./pages/shop/Shop";
 import BlogDetail from "./pages/blogdetail/BlogDetail";
 import AboutOurServices from "./pages/aboutourservices/AboutOurServices";
+import SoftwareDeveloper from "./pages/softwaredeveloper/SoftwareDeveloper";
 
 function App() {
   var menu;
@@ -51,6 +52,7 @@ function App() {
         <Route path="/contactus" element={<ContactUs />} />
         <Route path="/careers" element={<Careers />} />
         <Route path="/about_our_services" element={<AboutOurServices />}></Route>
+        <Route path="/software_developer" element={<SoftwareDeveloper />}></Route>
         <Route path="/shop" element={<Shop />}></Route>
         <Route path="/blogs/:id" element={<BlogDetail />}></Route>
         <Route path="/*" element={<ErrorPage />} />
