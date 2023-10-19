@@ -1,0 +1,49 @@
+@import "../../scss/variables";
+
+section.symmentric_slider {
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+
+    .center_border {
+        width: 2px;
+        height: 100%;
+        background:#fff;
+    }
+
+    .slide_left {
+        width: calc(50% - 1px);
+    }
+
+    .slide_right {
+        width: calc(50% - 1px);
+        transform: rotateY(180deg);
+
+    }
+
+
+    .img_slides {
+        border: 1px solid $cardBorder;
+        display: flex;
+        justify-content: center !important;
+        align-items: center;
+
+        .img_wrap {
+            border: 1px solid $cardBorder;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 30px;
+            height: 85px;
+@media only screen and (max-width:$laptop){
+    padding: 10px 20px;
+}
+            img {
+                opacity: 0.3;
+            }
+        }
+
+    }
+}

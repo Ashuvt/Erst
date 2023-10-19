@@ -4,66 +4,105 @@
 
 
 section {
+  width: 100%;
+  background-color: $dark;
+
+  .content_wrap {
     width: 100%;
-    background-color:$dark;
-    .content_wrap{
-      width:100%;
-      max-width:1200px;
-      margin-left:auto;
-      margin-right:auto;    
-      padding-left:20px;
-      padding-right:20px;
-      @media only screen and(max-width:$mobile){
-        padding-left:15px;
-        padding-right:15px;
-      }
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    @media only screen and(max-width:$mobile) {
+      padding-left: 15px;
+      padding-right: 15px;
     }
+  }
+}
+
+.p_top {
+  padding-top: 130px;
+
+  @media only screen and (max-width:$tab) {
+    padding-top: 80px;
   }
 
-  .p_top{
-    padding-top:130px;
-    @media only screen and (max-width:$tab){
-      padding-top:80px;
-    }
-    @media only screen and (max-width:$mobile){
-      padding-top:60px;
-    }
+  @media only screen and (max-width:$mobile) {
+    padding-top: 60px;
+  }
+}
+
+.p_bottom {
+  padding-bottom: 130px;
+
+  @media only screen and (max-width:$tab) {
+    padding-bottom: 80px;
   }
 
-  .p_bottom{
-    padding-bottom:130px;
-    @media only screen and (max-width:$tab){
-      padding-bottom:80px;
-    }
-    @media only screen and (max-width:$mobile){
-      padding-bottom:60px;
-    }
+  @media only screen and (max-width:$mobile) {
+    padding-bottom: 60px;
+  }
+}
+
+.m_top {
+  margin-top: 130px;
+
+  @media only screen and (max-width:$tab) {
+    margin-top: 80px;
   }
 
-  .m_top{
-    margin-top:130px;
-    @media only screen and (max-width:$tab){
-      margin-top:80px;
-    }
-    @media only screen and (max-width:$mobile){
-      margin-top:60px;
-    }
+  @media only screen and (max-width:$mobile) {
+    margin-top: 60px;
+  }
+}
+
+.m_bottom {
+  margin-bottom: 130px;
+
+  @media only screen and (max-width:$tab) {
+    margin-bottom: 80px;
   }
 
-  .m_bottom{
-    margin-bottom:130px;
-    @media only screen and (max-width:$tab){
-      margin-bottom:80px;
-    }
-    @media only screen and (max-width:$mobile){
-      margin-bottom:60px;
-    }
+  @media only screen and (max-width:$mobile) {
+    margin-bottom: 60px;
+  }
+}
+
+button.primarybtn {
+  @include primaryBtn;
+}
+
+button.secondarybtn {
+  @include secondaryBtn;
+}
+
+
+
+input,
+textarea,
+.custom_dropdown {
+  width: 100%;
+  height: auto;
+  min-height: 50px;
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid $primary;
+  border-radius: 12px;
+  margin-bottom: 0;
+  padding: 16px 18px;
+  font-size: 17px;
+  box-shadow: 0 0 20px rgba(153, 0, 255, .6);
+  @include font('Syne-Regular', 17px, 17px, 400, $white);
+  transition: all .5s cubic-bezier(.25, .46, .45, .94);
+
+  &::placeholder {
+    color: rgba($white, 0.5);
+    text-transform: capitalize;
   }
 
-  button.primarybtn{
-    @include primaryBtn;
+  &:focus {
+    box-shadow: none;
+    padding: 16px 22px;
   }
-
-  button.secondarybtn{
-    @include secondaryBtn;
-  }
+}

@@ -37,26 +37,26 @@ section.contact_help {
 
                 }
 
-                input,
-                textarea,
-                .custom_dropdown {
-                    height: auto;
-                    min-height: 50px;
-                    background-color: rgba(0, 0, 0, 0);
-                    border: 1px solid $primary;
-                    border-radius: 12px;
-                    margin-bottom: 0;
-                    padding: 16px 18px;
-                    font-size: 17px;
-                    box-shadow: 0 0 20px rgba(153, 0, 255, .6);
-                    @include font('Syne-Regular', 17px, 17px, 400, $white);
-                    transition: all .5s cubic-bezier(.25, .46, .45, .94);
+                // input,
+                // textarea,
+                // .custom_dropdown {
+                //     height: auto;
+                //     min-height: 50px;
+                //     background-color: rgba(0, 0, 0, 0);
+                //     border: 1px solid $primary;
+                //     border-radius: 12px;
+                //     margin-bottom: 0;
+                //     padding: 16px 18px;
+                //     font-size: 17px;
+                //     box-shadow: 0 0 20px rgba(153, 0, 255, .6);
+                //     @include font('Syne-Regular', 17px, 17px, 400, $white);
+                //     transition: all .5s cubic-bezier(.25, .46, .45, .94);
 
-                    &:focus {
-                        box-shadow: none;
-                        padding: 16px 22px;
-                    }
-                }
+                //     &:focus {
+                //         box-shadow: none;
+                //         padding: 16px 22px;
+                //     }
+                // }
 
                 .custom_dropdown {
                     position: relative;
