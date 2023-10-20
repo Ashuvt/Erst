@@ -40,6 +40,14 @@ section.blog_banner {
         @media only screen and (max-width:$laptop){
             right:25px;
         }
+        @media only screen and (max-width:$tab){
+            height: 100px;
+            width: 100px;
+        }
+        @media only screen and (max-width:$mobile){
+            height:70px;
+            width: 70px;
+        }
 
         span {
             &.border {

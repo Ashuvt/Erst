@@ -31,6 +31,8 @@ const FeedGrid = () => {
           <div className="overlay"></div>
           <img src={images.feedPerson} alt="feed" className="person" />
         </div>
+        <div className="primary_blur first"></div>
+        <div className="primary_blur second"></div>
       </div>
     </Fragment>
   );

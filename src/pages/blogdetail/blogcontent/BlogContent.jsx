@@ -5,6 +5,7 @@ import "./BlogContent.scss";
 import WOW from "wow.js";
 
 const BlogContent = () => {
+  
   useEffect(() => {
     const wow = new WOW();
     wow.init();
@@ -92,9 +93,17 @@ const BlogContent = () => {
           application is available and running smoothly.
         </p>
         <div className="feed_grid_wrap">
-          <div className="border_line top wow zoomIn" data-wow-delay="0.5s" data-wow-duration="1.5s" ></div>
-        <FeedGrid />
-        <div className="border_line bottom wow zoomIn" data-wow-delay="0.5s" data-wow-duration="1.5s" ></div>
+          <div
+            className="border_line top wow zoomIn"
+            data-wow-delay="0.5s"
+            data-wow-duration="1.5s"
+          ></div>
+          <FeedGrid />
+          <div
+            className="border_line bottom wow zoomIn"
+            data-wow-delay="0.5s"
+            data-wow-duration="1.5s"
+          ></div>
         </div>
         <h3 className="wow slideInUp">Challenges Of SaaS</h3>
         <p className="wow slideInUp">
@@ -148,6 +157,30 @@ const BlogContent = () => {
           access to the application over the internet.
         </p>
       </div>
+      <div
+        className="primary_glass first wow zoomIn"
+        data-wow-delay="0.5s"
+        data-wow-duration="1.5s"
+      ></div>
+
+      <div
+        className="primary_glass second wow zoomIn"
+        data-wow-delay="0.5s"
+        data-wow-duration="1.5s"
+      ></div>
+
+      <div
+        className="primary_glass third wow zoomIn"
+        data-wow-delay="0.5s"
+        data-wow-duration="1.5s"
+      ></div>
+
+      <div
+        className="secondary_glass wow zoomIn"
+        data-wow-delay="0.5s"
+        data-wow-duration="1.5s"
+      ></div>
+      
     </section>
   );
 };

@@ -7,6 +7,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 100px;
+    position: relative;
 
     @media only screen and (max-width:$laptop) {
         display: flex;
@@ -14,11 +15,14 @@
         gap: 50px;
     }
 
-    @media only screen and (max-width:$tab) {     
+    @media only screen and (max-width:$tab) {
         gap: 30px;
     }
 
     .feed {
+        position: relative;
+        z-index: 3;
+
         h5 {
             margin-bottom: 10px;
         }
@@ -63,10 +67,11 @@
         border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 12px;
         padding: 12px;
-        position: relative;
         overflow: hidden;
         border-radius: 12px;
         padding: 10px;
+        position: relative;
+        z-index: 3;
 
         .overlay {
             background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
@@ -82,5 +87,42 @@
             border-radius: 12px;
         }
 
+    }
+
+    .primary_blur {
+        height: 300px;
+        width: 300px;
+        background-color: $primary;
+        border-radius: 50%;
+        position: absolute;
+        filter: blur(150px);
+        z-index: 0;
+        transition: all 0.6s ease-in-out;
+
+        @media only screen and (max-width:$tab) {
+            height: 250px;
+            width: 250px;
+        }
+
+        @media only screen and (max-width:$mobile) {
+            height: 100px;
+            width: 100px;
+            filter: blur(80px);
+        }
+
+
+        &.first {
+            bottom: 40%;
+            left: 0px;
+
+            @media only screen and (max-width:$tab) {
+                bottom: 50%;
+            }
+        }
+
+        &.second {
+            bottom: 0%;
+            right: 50px;
+        }
     }
 }
