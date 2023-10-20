@@ -4,70 +4,7 @@
 @import "../../../scss/variables";
 
 section.feed_back {
-    .content_wrap {
-        .feed_greed {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 100px;
-
-            @media only screen and (max-width:$laptop) {
-                display: flex;
-                flex-direction: column;
-                gap: 50px;
-            }
-
-            .feed {
-                h5 {
-                    margin-bottom: 10px;
-                }
-
-                p.feed_text {
-                    @include font('Syne-Regular', 22px, 33px, 500, $white);
-                }
-
-                .ratings {
-                    display: flex;
-                    justify-content: flex-start;
-                    align-items: center;
-                    gap: 5px;
-                    margin: 20px 0px 60px;
-
-                    img {
-                        width: 16px;
-                        margin: 0px;
-                    }
-                }
-            }
-
-            .feed_video {
-                backdrop-filter: blur(5px);
-                background-color: $lightBorder;
-                border: 1px solid rgba(255, 255, 255, 0.1);
-                border-radius: 12px;
-                padding: 12px;
-                position: relative;
-                overflow: hidden;
-                border-radius: 12px;
-                padding: 10px;
-
-                .overlay {
-                    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
-                    position: absolute;
-                    top: 0px;
-                    left: 0px;
-                    height: 100%;
-                    width: 100%;
-                }
-
-                img.person {
-                    width: 100%;
-                    border-radius: 12px;
-                }
-
-            }
-        }
-
-
+    .content_wrap {    
         .feedback_list {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr;
