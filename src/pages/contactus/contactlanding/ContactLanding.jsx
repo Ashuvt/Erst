@@ -1,6 +1,8 @@
 import "./ContactLanding.scss";
 import { useEffect } from "react";
 import { icons } from "../../../utils/images/images";
+import CircleArrowBtn from "../../../components/circlearrowbtn/CircleArrowBtn";
+import TextArrowBtn from "../../../components/textarrowbtn/TextArrowBtn"; 
 import WOW from "wow.js";
 
 
@@ -19,18 +21,8 @@ const ContactLanding = () => {
             We guarantee quality <br /> improvement and development!
           </p>
           <div className="btn_line wow slideInRight">
-            <button type="button" className="round">
-              <span>
-              <img src={icons.whiteArrow} alt="arrow" className="a" />
-              <img src={icons.whiteArrow} alt="arrow" className="b" />
-              </span>
-            </button>
-            <button type="button" className="normal">
-              watch video
-              <span className="arrow">
-              <img src={icons.whiteArrow} alt="arrow" />
-              </span>           
-            </button>
+           <CircleArrowBtn />
+           <TextArrowBtn text="start free trial" />
           </div>
         </div>
       </div>

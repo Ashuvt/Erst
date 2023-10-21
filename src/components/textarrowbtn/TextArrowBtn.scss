@@ -1,0 +1,73 @@
+@import "../../scss/variables";
+@import "../../scss/common";
+@import "../../scss/typography";
+@import "../../scss/mixin";
+
+
+button.text_arrowbtn {
+    height: 47px;
+    background-color: transparent;
+    border: 1px solid $lightBorder_1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+    border-radius: 100px;
+    padding: 15px 20px;
+
+    .text {
+        overflow: hidden;
+        height: 12px;
+
+        p {
+            @include font('Syne-Regular', 12px, 12px, 500, $white);
+            text-transform: uppercase;
+            letter-spacing: 2.4px;
+            transition: all 0.2s ease-in-out;
+        }
+    }
+
+    .arrow {
+        height: 20px;
+        width: 20px;
+        position: relative;
+        overflow: hidden;
+        transform: rotate(-45deg);
+
+        img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transition: all 0.2s ease-in-out;
+
+            &.a {
+                transform: translate(-50%, -50%);
+            }
+
+            &.b {
+                transform: translate(-200%, -50%);
+            }
+        }
+    }
+
+    &:hover {
+        .arrow {
+            img {
+                &.a {
+                    transform: translate(100%, -50%);
+                }
+
+                &.b {
+                    transform: translate(-50%, -50%);
+                }
+            }
+        }
+
+        .text {
+            p {
+                transform: translateY(-100%);
+            }
+        }
+    }
+}
