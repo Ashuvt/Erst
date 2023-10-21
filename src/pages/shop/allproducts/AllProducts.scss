@@ -9,21 +9,43 @@ section.all_products {
             display: flex;
             justify-content: space-between;
             align-items: center;
-           button{
-            border-style: none;
-            background-color: transparent;
-           }
-           .catrgories{
-            display: flex;
-            justify-content: flex-end;
-            align-items:center;
-            gap:20px;
 
             button{
-                color:$white;
+                border-style: none;
+                background-color: transparent;
+                @include font('Syne-Medium', 12px, 15.96px, 500, $white);
+                letter-spacing: 2.4px;
+                text-transform: uppercase;  
+                &.active{
+                    -webkit-text-fill-color: transparent;
+                    background-image: linear-gradient(135deg, #00eaff 30%, #b5f 70%);
+                    -webkit-background-clip: text;
+                    background-clip: text;
+                }
             }
-           }
 
+            .catrgories {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                gap: 20px;
+
+             
+            }
         }
+
+        .product_list{
+            margin-top:40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap:30px;
+            @media only screen and (max-width:$laptop){
+                grid-template-columns: 1fr 1fr;   
+            }
+            @media only screen and (max-width:$tab){
+                grid-template-columns: 1fr;   
+            }
+        }
+
     }
 }

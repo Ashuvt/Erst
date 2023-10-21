@@ -46,11 +46,6 @@ import earningB from "../../assets/images/earningb.webp";
 import blogView from "../../assets/images/blogview.jpg";
 import squareBg from "../../assets/images/sqarebg.webp";
 
-
-
-
-
-
 // Icons
 import instagram from "../../assets/images/instagram.svg";
 import fb from "../../assets/images/fb.svg";
@@ -72,79 +67,133 @@ import smallWhiteCheck from "../../assets/images/smallwhitecheck.webp";
 import filledDate from "../../assets/images/filleddate.svg";
 import filledLocation from "../../assets/images/filledlocation.svg";
 import filledWatch from "../../assets/images/filledwatch.svg";
+import addCart from "../../assets/images/addcart.svg";
+import discount from "../../assets/images/off.png";
 
+
+
+// Products
+import productAa from "../../assets/images/products/gamingaa.jpg";
+import productAb from "../../assets/images/products/gamingab.jpg";
+import productAc from "../../assets/images/products/gamingac.jpg";
+
+import productBa from "../../assets/images/products/gamingba.jpg";
+import productBb from "../../assets/images/products/gamingbb.jpg";
+import productBc from "../../assets/images/products/gamingbc.jpg";
+
+import productCa from "../../assets/images/products/headsetaa.jpg";
+import productCb from "../../assets/images/products/headsetab.jpg";
+import productCc from "../../assets/images/products/headsetac.jpg";
+
+import productDa from "../../assets/images/products/headsetba.jpg";
+import productDb from "../../assets/images/products/headsetbb.jpg";
+import productDc from "../../assets/images/products/headsetbc.jpg";
+
+import productEa from "../../assets/images/products/virtualaa.jpg";
+import productEb from "../../assets/images/products/virtualab.jpg";
+import productEc from "../../assets/images/products/virtualac.jpg";
+
+import productFa from "../../assets/images/products/virtualba.jpg";
+import productFb from "../../assets/images/products/virtualbb.jpg";
+import productFc from "../../assets/images/products/virtualbc.jpg";
 
 export const logoImage = {
-    companyA,
-    companyB,
-    companyC,
-    companyD,
-    companyE,
-    companyF,
+  companyA,
+  companyB,
+  companyC,
+  companyD,
+  companyE,
+  companyF,
 };
 
 export const icons = {
-    instagram,
-    fb,
-    twitter,
-    rightArrow,
-    whiteArrow,
-    mail,
-    location,
-    call,
-    whiteplay,
-    star,
-    whiteClose,
-    whiteAngle,
-    lightArrow,
-    zigZag,
-    whiteBigArrow,
-    whiteCheck,
-    smallWhiteCheck,
-    filledDate,
-    filledLocation,
-    filledWatch
+  instagram,
+  fb,
+  twitter,
+  rightArrow,
+  whiteArrow,
+  mail,
+  location,
+  call,
+  whiteplay,
+  star,
+  whiteClose,
+  whiteAngle,
+  lightArrow,
+  zigZag,
+  whiteBigArrow,
+  whiteCheck,
+  smallWhiteCheck,
+  filledDate,
+  filledLocation,
+  filledWatch,
+  addCart,
+  discount
 };
 
 export const images = {
-    home1landing: dashbord,
-    info,
-    pc,
-    playStore,
-    appStore,
-    mapImage,
-    mobiles,
-    contactUsBanner,
-    contactUsVideoBanner,
-    profilea,
-    profileb,
-    profilec,
-    profiled,
-    profilee,
-    profilef,
-    homeVideoBanner,
-    codeScreen,
-    businessMap,
-    mobile,
-    homeblogA,
-    homeblogB,
-    homeblogC,
-    homeblogD,
-    feedPerson,
-    whiteMap,
-    teamA,
-    teamB,
-    teamC,
-    teamD,
-    videoBtnImage,
-    pinkPlay,
-    analyticBg,
-    benefitSuite,
-    crossConnect,
-    earningA,
-    earningB,
-    blogView,
-    squareBg,
+  home1landing: dashbord,
+  info,
+  pc,
+  playStore,
+  appStore,
+  mapImage,
+  mobiles,
+  contactUsBanner,
+  contactUsVideoBanner,
+  profilea,
+  profileb,
+  profilec,
+  profiled,
+  profilee,
+  profilef,
+  homeVideoBanner,
+  codeScreen,
+  businessMap,
+  mobile,
+  homeblogA,
+  homeblogB,
+  homeblogC,
+  homeblogD,
+  feedPerson,
+  whiteMap,
+  teamA,
+  teamB,
+  teamC,
+  teamD,
+  videoBtnImage,
+  pinkPlay,
+  analyticBg,
+  benefitSuite,
+  crossConnect,
+  earningA,
+  earningB,
+  blogView,
+  squareBg,
 };
 
+export const products = {
+  productAa,
+  productAb,
+  productAc,
 
+  productBa,
+  productBb,
+  productBc,
+
+  productCa,
+  productCb,
+  productCc,
+
+  productDa,
+  productDb,
+  productDc,
+
+  productEa,
+  productEb,
+  productEc,
+
+  productFa,
+  productFb,
+  productFc,
+};
