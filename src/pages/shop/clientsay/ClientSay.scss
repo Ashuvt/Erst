@@ -5,7 +5,11 @@
 
 
 section.client_say{
+    overflow: hidden;
+    position:relative;
     .content_wrap{
+        position:relative;
+        z-index:5;
         .feed_grid{
             margin-top:40px;
             display:grid;
@@ -24,5 +28,40 @@ section.client_say{
             gap:30px;
            }
         }
+    }
+
+    .client_say_blur{
+        height: 250px;
+        width: 250px;
+        background-color: $primaryGlass;
+        border-radius: 50%;
+        position: absolute;
+        filter: blur(150px);
+        z-index: 0;
+        transition: all 0.6s ease-in-out;
+      &.a{
+        left:26%;
+        top:200px;
+        @media only screen and (max-width:$tab){
+            left:0px;
+        }
+      }
+
+      &.b{
+        right:23%;
+        bottom:310px;
+        @media only screen and (max-width:$tab){
+            right:0px;
+        }
+      }
+
+      &.c{
+        height:150px;
+        width:150px;
+        background-color:$secondary;
+        top:50px;
+        left:60%;
+        filter: blur(100px);
+      }
     }
 }

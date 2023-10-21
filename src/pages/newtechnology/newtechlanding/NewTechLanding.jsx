@@ -1,8 +1,9 @@
 import "./NewTechLanding.scss";
 const NewTechLanding = () => {
   return (
-    <section className="tech_landing p_bottom">
-      <div className="content_wrap">
+    <section className="tech_landing">
+      <div className="content_wrap p_bottom">
+      <div className="top_border"></div>
         <div className="title_wrap">
           <h1>New Technology</h1>
           <p>
@@ -12,6 +13,8 @@ const NewTechLanding = () => {
           </p>
         </div>
       </div>
+
+      
     </section>
   );
 };

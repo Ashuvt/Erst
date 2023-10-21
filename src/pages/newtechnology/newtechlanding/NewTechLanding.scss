@@ -5,8 +5,24 @@
 
 section.tech_landing {
     padding-top: 190px;
+    position:relative;
+    @media only screen and (max-width:$tab){
+        padding-top: 150px;
+    }
 
     .content_wrap {
+        overflow: hidden;
+        position: relative;
+        z-index:4;
+
+        .top_border {
+            position: absolute !important;
+            width: 100%;
+           bottom:0px;
+            height: 1px;
+            background-color: $lightBorder_2;
+            height: 1px;
+        }
 
         .title_wrap {
             max-width:680px;

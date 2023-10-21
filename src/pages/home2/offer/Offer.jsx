@@ -10,7 +10,7 @@ const Offer = ({title, text}) => {
   }, []);
 
   return (
-    <section className="Offer p_top p_bottom m_bottom">
+    <section className="Offer p_top p_bottom">
       <div className="top">
         <div className="float_fix wow zoomIn">
           <img src={images.profilea} alt="person" />

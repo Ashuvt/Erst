@@ -4,100 +4,177 @@
 @import "../../../scss/variables";
 
 section.tech_blog {
+    overflow: visible;
+    position:relative;
     .content_wrap {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap:30px;
-        .blog_wrap{
-            position:relative;
-            min-height:450px;
+        gap: 30px;
+        position: relative;
+        z-index:4;
+
+        @media only screen and (max-width:$laptop){
+            grid-template-columns: 1fr;
+        }
+
+        .blog_wrap {
+            position: relative;
+            min-height: 450px;
             border-radius: 12px;
             overflow: hidden;
-            .overlay{
+
+            .overlay {
                 background: linear-gradient(to top, rgba(0, 0, 0, .6) 25%, rgba(15, 53, 144, .05) 75%);
-                position:absolute;
-                top:0px;
-                left:0px;
-                width:100%;
-                height:100%;
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                width: 100%;
+                height: 100%;
                 z-index: 1;
             }
-            .overlay_color{
+
+            .overlay_color {
                 background-color: rgba(0, 0, 0, 0.45);
-                position:absolute;
-                top:0px;
-                left:0px;
-                width:100%;
-                height:100%;
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                width: 100%;
+                height: 100%;
                 z-index: 1;
             }
-            img.banner{
-                position:relative;
-                z-index:0;
-                min-height:100%;
-                min-width:100%;
-                object-fit: cover   ;
+
+            img.banner {
+                position: relative;
+                z-index: 0;
+                min-height: 100%;
+                min-width: 100%;
+                object-fit: cover;
             }
-            .content{
-                padding:25px;
-                height:100%;
-                width:100%;
-                position:absolute;
-                top:0px;
-                left:0px;
-                z-index:5;
+
+            .content {
+                padding: 25px;
+                height: 100%;
+                width: 100%;
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                z-index: 5;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
-                .top{
+
+                .top {
                     display: flex;
-                    justify-content: flex-end;                    
+                    justify-content: flex-end;
                 }
-                .bottom{
-                    .text{
-                        h5{
-                            margin-top:10px;
-                        }
-                        h6{
-                            letter-spacing: 4px;
-                        }
-                    }
-                    .btn_line{
-                       button{
-                        height:47px;
-                        width:47px;
-                        border-radius: 50%;
-                        border:1px solid $white;
-                        background-color: transparent;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                     
-                        span{
-                            height:13px;
-                            width: 13px;
-                            display: block;
-                            transform: rotate(45deg);
-                            overflow:hidden;     
-                            img{
-                                width:100%;
-                                transition:all 0.2s ease-in-out;
-                                &.a{
 
-                                }
-                                &.b{
-                                    
-                                }
-                            }              
-                            
-                            &:hover{
+                .bottom_wrap {
+                    overflow: hidden;
 
+                    .bottom {
+                        transform: translateY(50px);
+                        transition:all 1s ease-in-out;
+
+                        .text {
+                            h5 {
+                                margin-top: 10px;
+                            }
+
+                            h6 {
+                                letter-spacing: 4px;
+                                transition: all 1s ease-in-out;
                             }
                         }
-                       }
+
+                        .btn_line {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+
+                            .line {
+                                height: 2px;
+                                background-color: $lightBorder_1;
+                                width: 0px;
+                                transition: all 1s ease-in-out;
+                            }
+
+                            button {
+                                height: 47px;
+                                width: 47px;
+                                border-radius: 50%;
+                                border: 1px solid $white;
+                                background-color: transparent;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+
+                                span {
+                                    height: 12px;
+                                    width: 12px;
+                                    display: block;
+                                    position: relative;
+                                    transform: rotate(45deg);
+                                    overflow: hidden;
+
+                                    img {
+                                        width: 100%;
+                                        transition: all 0.2s ease-in-out;
+
+                                        &.a {
+                                            position: absolute;
+                                            left: -100%;
+                                        }
+
+                                        &.b {
+                                            position: absolute;
+                                            left: 0%;
+                                        }
+                                    }
+                                }
+
+                                &:hover {
+                                    span {
+                                        height: 13px;
+
+                                        img {
+                                            &.a {
+                                                left: 0%;
+                                            }
+
+                                            &.b {
+                                                left: 100%;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            &:hover {
+                .content {
+                    .bottom_wrap {
+                        .bottom {
+                            transform: translateY(0px);
+                            .text{                                
+                                h6{
+                                    transform: translateY(30px);
+                                    opacity:0;
+                                }
+                            }
+                            .btn_line {
+                                .line {
+                                    width: calc(100% - 70px);                                 
+                                }
+                            }
+                        }
                     }
                 }
             }
         }
     }
+
+   
 }

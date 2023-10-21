@@ -33,19 +33,29 @@ const TechBlogs = () => {
                   <div className="top">
                     <Pill text={data.flag} />
                   </div>
-                  <div className="bottom">
-                    <div className="text">
-                      <h6>{data.date}</h6>
-                      <h5>{data.title}</h5>
-                    </div>
-                    <div className="btn_line">
-                      <div className="line"></div>
-                      <button type="button">
-                        <span>
-                          <img src={icons.whiteArrow} alt="arrow" className="a" />
-                          <img src={icons.whiteArrow} alt="arrow" className="b" />
-                        </span>
-                      </button>
+                  <div className="bottom_wrap">
+                    <div className="bottom">
+                      <div className="text">
+                        <h6>{data.date}</h6>
+                        <h5>{data.title}</h5>
+                      </div>
+                      <div className="btn_line">
+                        <div className="line"></div>
+                        <button type="button">
+                          <span>
+                            <img
+                              src={icons.whiteArrow}
+                              alt="arrow"
+                              className="a"
+                            />
+                            <img
+                              src={icons.whiteArrow}
+                              alt="arrow"
+                              className="b"
+                            />
+                          </span>
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -53,6 +63,7 @@ const TechBlogs = () => {
             );
           })}
       </div>
+  
     </section>
   );
 };

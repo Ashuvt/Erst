@@ -5,7 +5,7 @@ import { images } from "../../../utils/images/images";
 
 export const ClientSay = () => {
   return (
-    <section className="client_say p_bottom">
+    <section className="client_say p_bottom p_top">
       <div className="content_wrap">
         <MidTitle
           title="What Our Client Say"
@@ -63,6 +63,9 @@ export const ClientSay = () => {
           </div>
         </div>
       </div>
+      <div className="client_say_blur a"></div>
+      <div className="client_say_blur b"></div>
+      <div className="client_say_blur c"></div>
     </section>
   );
 };
