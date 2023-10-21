@@ -5,8 +5,8 @@ import LeftScreen from "./left/LeftScreen";
 import RightScreen from "./right/RightScreen";
 
 const BenefitsOfSuite = () => {
-  // true : show Left Screen
-  // false : show Right Screen
+  // false : show Left Screen
+  // true : show Right Screen
   const [side, setSide] = useState(false);
   useEffect(() => {
     console.log(side);

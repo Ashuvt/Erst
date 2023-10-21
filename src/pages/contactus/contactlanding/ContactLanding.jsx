@@ -20,15 +20,21 @@ const ContactLanding = () => {
           </p>
           <div className="btn_line wow slideInRight">
             <button type="button" className="round">
-              <img src={icons.whiteArrow} alt="arrow" />
+              <span>
+              <img src={icons.whiteArrow} alt="arrow" className="a" />
+              <img src={icons.whiteArrow} alt="arrow" className="b" />
+              </span>
             </button>
             <button type="button" className="normal">
               watch video
+              <span className="arrow">
               <img src={icons.whiteArrow} alt="arrow" />
+              </span>           
             </button>
           </div>
         </div>
       </div>
+
       <div className="pink_blur first wow zoomIn" data-wow-delay="0.5s" data-wow-duration="1.5s"></div>
       <div className="pink_blur second wow zoomIn" data-wow-delay="0.5s" data-wow-duration="1.5s"></div>
       <div className="pink_blur third wow zoomIn" data-wow-delay="0.5s" data-wow-duration="1.5s"></div>

@@ -70,6 +70,10 @@ const JoinTeam = () => {
           </div>
         </div>
       </div>
+
+      <div className="join_team_glass a"></div>
+      <div className="join_team_glass b"></div>
+      <div className="join_team_glass c"></div>
     </section>
   );
 };

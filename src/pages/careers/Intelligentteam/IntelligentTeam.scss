@@ -11,8 +11,16 @@ section.intelligent_team {
             grid-template-columns: 1fr 1fr;
             gap: 200px;
             margin-bottom:30px;
+           
             h2, p{
                 align-self:center;
+            }
+            @media only screen and (max-width:$tab){
+                grid-template-columns: 1fr;
+                gap:30px;    
+                h2, p{
+                 text-align: center;
+                }
             }
         }
 
