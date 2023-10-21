@@ -18,16 +18,16 @@ const SuccessfulAnalytics = () => {
           </div>
           <div className="count_wrap">
             <div className="data_wrap">
-                <h3>37M+</h3>
-                <p>People using Intelligent Analytics</p>
+              <h3>37M+</h3>
+              <p>People using Intelligent Analytics</p>
             </div>
             <div className="data_wrap">
-                <h3>7900+</h3>
-                <p>People interested in Intelligent Analytics</p>
+              <h3>7900+</h3>
+              <p>People interested in Intelligent Analytics</p>
             </div>
             <div className="data_wrap">
-                <h3>60+</h3>
-                <p>We cooperate with famous companies</p>
+              <h3>60+</h3>
+              <p>We cooperate with famous companies</p>
             </div>
           </div>
         </div>
@@ -44,6 +44,7 @@ const SuccessfulAnalytics = () => {
           </button>
         </div>
       </div>
+      <div className="primary_class"></div>
     </section>
   );
 };

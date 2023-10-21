@@ -4,10 +4,13 @@
 @import "../../../scss/variables";
 
 section.success_analytics {
+    position:relative;
     .content_wrap {
         display: grid;
         grid-template-columns: 1fr 0.5fr;
         gap: 80px;
+        position:relative;
+        z-index: 3;
 
         @media only screen and (max-width:$laptop){
             display:flex;
@@ -84,6 +87,8 @@ section.success_analytics {
                 display: flex;
                 justify-content: space-between;
                 align-items: flex-start;
+                flex-wrap: wrap;
+                gap:10px;
                 .data_wrap{
                     max-width:170px;
                     h3{
@@ -97,6 +102,24 @@ section.success_analytics {
             p{
                 margin:30px 0px 40px;
             }
+        }
+    }
+
+    .primary_class{
+        height: 300px;
+        width: 300px;
+        background-color: $primaryGlass;
+        border-radius: 50%;
+        position: absolute;
+        filter: blur(150px);
+        z-index: 0;
+        transition: all 0.6s ease-in-out;
+        left: 200px;
+        top: 150px;
+        @media only screen and (max-width:$tab){
+            height:200px;
+            width:200px;
+            left:60px;
         }
     }
 }

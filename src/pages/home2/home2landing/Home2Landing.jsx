@@ -5,31 +5,22 @@ import WOW from "wow.js";
 const Home2Landing = () => {
   const [count, setCount] = useState(0);
 
-
-  useEffect(() => {   
-
+  useEffect(() => {
     const wow = new WOW();
     wow.init();
 
     const values = [0, 25, 50, 75, 50, 25];
     let currentIndex = 0;
 
-    const intervalId = setInterval(() => { 
-
+    const intervalId = setInterval(() => {
       setCount(values[currentIndex]);
-      currentIndex = (currentIndex + 1) % values.length;   
+      currentIndex = (currentIndex + 1) % values.length;
+    }, 2000);
 
-     }, 2000); 
-    
     return () => {
       clearInterval(intervalId);
     };
-
-
-
   }, []);
-  
-
 
   return (
     <section className="home2_landing p_bottom p_top">
@@ -70,6 +61,10 @@ const Home2Landing = () => {
           <button className="primarybtn">start free trial</button>
         </div>
       </div>
+      <div className="primary_glass first"></div>
+      <div className="primary_glass second"></div>
+      <div className="secondary_glass first"></div>
+      <div className="secondary_glass second"></div>
     </section>
   );
 };

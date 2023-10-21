@@ -49,6 +49,11 @@ export const menuList = [
                 id:"09",
                 text:"Software Developer",
                 link:"/software_developer"
+            },     
+            {
+                id:"10",
+                text:"New Technology",
+                link:"/new_technology"
             },          
         ]
     },

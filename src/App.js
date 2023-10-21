@@ -16,6 +16,7 @@ import Shop from "./pages/shop/Shop";
 import BlogDetail from "./pages/blogdetail/BlogDetail";
 import AboutOurServices from "./pages/aboutourservices/AboutOurServices";
 import SoftwareDeveloper from "./pages/softwaredeveloper/SoftwareDeveloper";
+import NewTechnology from "./pages/newtechnology/NewTechnology";
 
 function App() {
   var menu;
@@ -53,6 +54,7 @@ function App() {
         <Route path="/careers" element={<Careers />} />
         <Route path="/about_our_services" element={<AboutOurServices />}></Route>
         <Route path="/software_developer" element={<SoftwareDeveloper />}></Route>
+        <Route path="/new_technology" element={<NewTechnology />}></Route>
         <Route path="/shop" element={<Shop />}></Route>
         <Route path="/blogs/:id" element={<BlogDetail />}></Route>
         <Route path="/*" element={<ErrorPage />} />
