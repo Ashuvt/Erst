@@ -41,7 +41,7 @@ const FeedBack = () => {
 
   return (
     <section className="feed_back p_bottom">
-      <div className="content_wrap">
+      <div className="content_wrap p_top">
        <FeedGrid />
         <div className="feedback_list wow slideInUp">
         {feedbackData.map((data) => {

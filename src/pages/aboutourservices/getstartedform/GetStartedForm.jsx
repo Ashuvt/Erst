@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./GetStartedForm.scss";
 import { images } from "../../../utils/images/images";
+import WOW from "wow.js";
 
 const GetStartedForm = () => {
   const [formData, setFormData] = useState({
@@ -23,6 +24,11 @@ const formSubmitHandler = (e) => {
     console.log(formData)
 
 }
+
+useEffect(() => {
+  const wow = new WOW();
+  wow.init();
+}, []);
 
   return (
     <section className="get_started_form p_bottom">
@@ -114,6 +120,8 @@ const formSubmitHandler = (e) => {
           </form>
         </div>
       </div>
+      <div className="get_started_glass a wow zoomIn" data-wow-delay="0.5s" data-wow-duration="1.5s"></div>
+      <div className="get_started_glass b wow zoomIn" data-wow-delay="0.5s" data-wow-duration="1.5s"></div>
     </section>
   );
 };

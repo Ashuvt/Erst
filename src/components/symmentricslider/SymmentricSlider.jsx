@@ -72,9 +72,9 @@ const SymmentricSlider = () => {
     <section className="symmentric_slider">
       <div className="slide_left">
         <Slider {...settings}>
-          {logoData.map((data) => {
+          {logoData.map((data, i) => {
             return (
-              <div className="img_slides">
+              <div className="img_slides" key={i}>
                 <div className="img_wrap">
                   <img src={data.img} alt="logo" />
                 </div>
@@ -86,9 +86,9 @@ const SymmentricSlider = () => {
       <div className="center_border"></div>
       <div className="slide_right">
         <Slider {...settings}>
-          {logoData.map((data) => {
+          {logoData.map((data, k) => {
             return (
-              <div className="img_slides">
+              <div className="img_slides" key={k}>
                 <div className="img_wrap">
                   <img src={data.img} alt="logo" />
                 </div>

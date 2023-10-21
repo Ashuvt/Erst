@@ -60,9 +60,9 @@ const PlanDetails = () => {
           </div>
           <p className="detail">{activeData.detail}</p>
           <ul>
-            {activeData.features.map((listitem) => {
+            {activeData.features.map((listitem, k) => {
               return (
-                <li>
+                <li key={k}>
                   {listitem}
                   <img src={icons.smallWhiteCheck} alt="check" />
                 </li>

@@ -1,0 +1,47 @@
+@import "../../scss/common";
+@import "../../scss/mixin";
+@import "../../scss/typography";
+@import "../../scss/variables";
+
+
+
+.top_blur {
+    height: 300px;
+    width: 300px;
+    background-color: $primary;
+    border-radius: 50%;
+    position: absolute;
+    filter: blur(180px);
+    z-index: 1;
+    transition: all 0.6s ease-in-out;
+
+
+    @media only screen and (max-width:$mobile) {
+        height: 200px;
+        width: 200px;
+        background-color: $primaryGlass;
+    }
+
+    &.a {
+        left:150px;
+        top:150px;
+         @media only screen and (max-width:$mobile){
+            left:0px;
+         }
+    }
+
+    &.b {
+        right:0px;
+        top:350px;
+       
+    }
+
+    &.c {
+        right:400px;
+        top:350px;
+        background-color: $secondary;
+         @media only screen and (max-width:$mobile){
+ right:100px;
+         }
+    }
+}

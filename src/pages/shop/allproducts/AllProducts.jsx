@@ -73,6 +73,7 @@ const AllProducts = () => {
   return (
     <section className="all_products p_top p_bottom">
       <div className="content_wrap">
+        <div className="product_top_border"></div>
         <div className="top_btns">
           <button
             type="button"
@@ -119,6 +120,9 @@ const AllProducts = () => {
             })}
         </div>
       </div>
+      <div className="primary_blur a"></div>
+      <div className="primary_blur b"></div>
+      <div className="primary_blur c"></div>
     </section>
   );
 };

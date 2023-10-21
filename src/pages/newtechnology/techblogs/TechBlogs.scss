@@ -5,15 +5,16 @@
 
 section.tech_blog {
     overflow: visible;
-    position:relative;
+    position: relative;
+
     .content_wrap {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 30px;
         position: relative;
-        z-index:4;
+        z-index: 4;
 
-        @media only screen and (max-width:$laptop){
+        @media only screen and (max-width:$laptop) {
             grid-template-columns: 1fr;
         }
 
@@ -73,11 +74,15 @@ section.tech_blog {
 
                     .bottom {
                         transform: translateY(50px);
-                        transition:all 1s ease-in-out;
+                        transition: all 1s ease-in-out;
 
                         .text {
                             h5 {
-                                margin-top: 10px;
+                                transition: all 0.4s ease-in-out;
+
+                                &:hover {
+                                    color: $primary;
+                                }
                             }
 
                             h6 {
@@ -158,15 +163,17 @@ section.tech_blog {
                     .bottom_wrap {
                         .bottom {
                             transform: translateY(0px);
-                            .text{                                
-                                h6{
+
+                            .text {
+                                h6 {
                                     transform: translateY(30px);
-                                    opacity:0;
+                                    opacity: 0;
                                 }
                             }
+
                             .btn_line {
                                 .line {
-                                    width: calc(100% - 70px);                                 
+                                    width: calc(100% - 70px);
                                 }
                             }
                         }
@@ -176,5 +183,5 @@ section.tech_blog {
         }
     }
 
-   
+
 }

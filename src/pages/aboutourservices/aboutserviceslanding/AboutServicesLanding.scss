@@ -7,6 +7,12 @@
 section.about_services_landing {
     padding-top: 200px;
     padding-bottom: 130px;
+    @media only screen and (max-width:$tab){
+        padding-top:150px;
+    }
+    @media only screen and (max-width:$mobile){
+        padding-top:130px;
+    }
 
     .content_wrap {
         .title_content {

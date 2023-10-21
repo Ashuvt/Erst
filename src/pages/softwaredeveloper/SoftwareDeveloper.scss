@@ -7,6 +7,9 @@ section.software_developer_detail {
     .content_wrap {
         display: grid;
         gap: 40px;
-        grid-template-columns: 1fr 0.65fr
+        grid-template-columns: 1fr 0.65fr;
+        @media only screen and (max-width:$laptop){
+            grid-template-columns: 1fr;
+        }
     }
 }

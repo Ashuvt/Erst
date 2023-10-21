@@ -1,7 +1,14 @@
+import { useEffect, useState } from "react";
 import "./SuccessfulAnalytics.scss";
 import { images } from "../../../utils/images/images";
+import WOW from "wow.js";
 
 const SuccessfulAnalytics = () => {
+  useEffect(() => {
+    const wow = new WOW();
+    wow.init();
+  }, []);
+
   return (
     <section className="success_analytics p_top">
       <div className="content_wrap">
@@ -44,7 +51,11 @@ const SuccessfulAnalytics = () => {
           </button>
         </div>
       </div>
-      <div className="primary_class"></div>
+      <div
+        className="primary_class wow zoomIn"
+        data-wow-delay="0.5s"
+        data-wow-duration="1.5s"
+      ></div>
     </section>
   );
 };

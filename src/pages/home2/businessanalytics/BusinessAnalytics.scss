@@ -23,6 +23,23 @@ section.business_analytics {
             position: absolute;
             top: 20px;
             right: 20px;
+            overflow: hidden;
+
+            img {
+                transition: all 0.3s ease-in-out;
+
+                &.a {
+                    transform: translate(0%, 0%);
+                    transition: all 0.3s ease-in-out;
+                }
+
+                &.b {
+                    transform: translate(-100%, 0%);
+                    transition: all 0.3s ease-in-out;
+                }
+            }
+
+
         }
 
         .earning_flag {
@@ -91,6 +108,12 @@ section.business_analytics {
                 @media only screen and (max-width:600px) {
                     top: 38px;
                     left: 25px;
+                }
+            }
+            .person_wrap{
+                overflow:hidden;
+                img{
+                    transition:all 0.5s ease-in-out;
                 }
             }
 
@@ -177,6 +200,12 @@ section.business_analytics {
                     left: 50px;
                 }
             }
+            .person_wrap{
+                overflow:hidden;
+                img{
+                    transition:all 0.5s ease-in-out;
+                }
+            }
 
             img {
                 max-width: 100%;
@@ -187,6 +216,38 @@ section.business_analytics {
                     top: 225px;
                     bottom: auto;
                     left: -30px;
+                }
+            }
+        }
+
+        .card_b,
+        .card_c,
+        .card_d,
+        .card_f {
+            &:hover {
+                button.arrow {
+                    img {
+                        &.a {
+                            transform: translate(100%, -100%)
+                        }
+
+                        &.b {
+                            transform: translate(0%, -100%)
+                        }
+                    }
+
+
+                }
+            }
+        }
+
+        .card_b,
+        .card_f {
+            &:hover {
+                .person_wrap{
+                    img{
+                        transform: scale(1.02);
+                    }
                 }
             }
         }

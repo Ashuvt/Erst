@@ -23,9 +23,12 @@ const BusinessAnalytics = () => {
 
         <div className="card_b">
           <button type="button" className="arrow">
-            <img src={icons.lightArrow} alt="arrow" />
+            <img src={icons.lightArrow} alt="arrow" className="a" />
+            <img src={icons.lightArrow} alt="arrow" className="b" />
           </button>
-          <img src={images.earningA} alt="person" />
+          <div className="person_wrap">
+            <img src={images.earningA} alt="person" />
+          </div>
           <img
             src={images.crossConnect}
             alt="connector"
@@ -44,14 +47,16 @@ const BusinessAnalytics = () => {
 
         <div className="card_c">
           <button type="button" className="arrow">
-            <img src={icons.lightArrow} alt="arrow" />
+            <img src={icons.lightArrow} alt="arrow" className="a" />
+            <img src={icons.lightArrow} alt="arrow" className="b" />
           </button>
           <img src={images.mobile} alt="bg" />
         </div>
 
         <div className="card_d">
           <button type="button" className="arrow">
-            <img src={icons.lightArrow} alt="arrow" />
+            <img src={icons.lightArrow} alt="arrow" className="a" />
+            <img src={icons.lightArrow} alt="arrow" className="b" />
           </button>
           <img src={images.mobile} alt="bg" />
         </div>
@@ -67,9 +72,12 @@ const BusinessAnalytics = () => {
 
         <div className="card_f">
           <button type="button" className="arrow">
-            <img src={icons.lightArrow} alt="arrow" />
+            <img src={icons.lightArrow} alt="arrow" className="a" />
+            <img src={icons.lightArrow} alt="arrow" className="b" />
           </button>
-          <img src={images.earningB} alt="person" />
+          <div className="person_wrap">
+            <img src={images.earningB} alt="person" />
+          </div>
           <div className="earning_flag">
             <div className="ball">
               <img src={icons.zigZag} alt="line" />

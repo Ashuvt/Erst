@@ -65,9 +65,9 @@ const AboutServices = () => {
         </div>
       </div>
 
-      <div className="primary_light_glass"></div>
-      <div className="primary_class first"></div>
-      <div className="primary_class second"></div>
+      <div className="primary_light_glass wow zoomIn" data-wow-delay="0.5s" data-wow-duration="1.5s" ></div>
+      <div className="primary_class first wow zoomIn" data-wow-delay="0.5s" data-wow-duration="1.5s" ></div>
+      <div className="primary_class second wow zoomIn" data-wow-delay="0.5s" data-wow-duration="1.5s" ></div>
     </section>
   );
 };

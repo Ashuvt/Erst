@@ -22,7 +22,7 @@ export const menuList = [
     ],
   },
   {
-    id: 1,
+    id: 2,
     title: "company",
     submenu: [
       {
@@ -53,7 +53,7 @@ export const menuList = [
     ],
   },
   {
-    id: 2,
+    id: 3,
     title: "Services",
     submenu: [
       {
