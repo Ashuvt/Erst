@@ -13,9 +13,7 @@ const Home1Landing = () => {
 
   return (
     <section className="home1landing p_bottom">
-      <div className="purple_blur">
-
-      </div>
+      <div className="purple_blur wow zoomIn" data-wow-delay="0.5s" data-wow-duration="1.5s"></div>
       <div className="content_wrap">
         <h1 className="wow slideInUp">
           Improve Your Business With <br /> Intelligent Analytics Suite
@@ -34,9 +32,9 @@ const Home1Landing = () => {
 
         <div className="dahsboard">
         <img src={images.home1landing} alt="dashboard" />
-          <div className="primary_glass left"></div>
-          <div className="primary_glass right"></div>          
-          <div className="secondary_glass right"></div>
+          <div className="primary_glass left wow zoomIn" data-wow-delay="0.5s" data-wow-duration="1.5s"></div>
+          <div className="primary_glass right wow zoomIn" data-wow-delay="0.5s" data-wow-duration="1.5s"></div>          
+          <div className="secondary_glass right wow zoomIn" data-wow-delay="0.5s" data-wow-duration="1.5s"></div>
         </div>
       </div>
     </section>

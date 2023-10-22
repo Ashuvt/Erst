@@ -16,6 +16,14 @@ section.shop_landing {
 
     .content_wrap {
         position: relative;
+
+        .top_border{
+            position:absolute;
+            bottom:0px;
+            height:1px;
+            width:100%;
+            background-color:$lightBorder_1;
+        }
      
 
         .title {

@@ -5,11 +5,9 @@
 
 
 section.faq_landing {
-    overflow-x: hidden!important;
     .content_wrap {
         padding-top: 200px;
         position: relative;
-        overflow-x: hidden!important;
         @media only screen and (max-width:$tab){
             padding-top: 150px;
         }
@@ -42,8 +40,6 @@ section.faq_landing {
             background-color: rgba(255, 255, 255, .2);
             position: absolute;
             bottom: 0px;
-            left: 50%;
-            transform: translateX(-50%);
             transition: all 0.4s ease-in-out;
         }
     }

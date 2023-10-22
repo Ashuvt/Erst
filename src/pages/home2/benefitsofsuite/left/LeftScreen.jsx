@@ -1,11 +1,13 @@
+import { useEffect } from "react";
 import { icons, images } from "../../../../utils/images/images";
 import "./LeftScreen.scss";
 
-const LeftScreen = ({setSide}) => {
+const LeftScreen = ({ side, setSide }) => {
+
   return (
     <section className="benefit_suite_left p_top p_bottom">
       <div className="content_wrap">
-        <div className="text_content">
+        <div className={`text_content ${side ? 'goleft' : 'original'}`}>
           <h2>Benefits Of The Intelligent Suite</h2>
           <p>
             The Intelligent Analytics Suite is a powerful software solution that
@@ -23,10 +25,10 @@ const LeftScreen = ({setSide}) => {
         <div className="box_card_side">
           <div className="box_card">
             <div className="btn_block">
-                <button type="button" onClick={() => setSide(true)}>
-                    <img src={icons.whiteArrow} alt="arrow" />
-                </button>
-                <h6>for business</h6>
+              <button type="button" onClick={() => setSide(true)}>
+                <img src={icons.whiteArrow} alt="arrow" />
+              </button>
+              <h6>for business</h6>
             </div>
             <div className="overlay"></div>
             <img src={images.benefitSuite} className="bg" alt="bg" />

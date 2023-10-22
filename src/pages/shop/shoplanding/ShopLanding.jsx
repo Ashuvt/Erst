@@ -9,8 +9,9 @@ const ShopLanding = () => {
   }, []);
 
   return (
-    <section className="shop_landing p_bottom">
-      <div className="content_wrap">
+    <section className="shop_landing">
+      <div className="content_wrap p_bottom">
+        <div className="top_border wow zoomIn" ></div>
         <div className="title">
           <h1>Our Great Shop!</h1>
           <p>

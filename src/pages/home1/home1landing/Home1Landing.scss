@@ -6,18 +6,15 @@
 
 section.home1landing {
     padding-top: 220px;
-    // padding-bottom: 130px;
     position: relative;
     overflow-x: hidden;
 
     @media only screen and (max-width:$tab) {
         padding-top: 180px;
-        // padding-bottom: 80px;
     }
 
     @media only screen and (max-width:$mobile) {
         padding-top: 160px;
-        // padding-bottom: 60px;
     }
 
 
