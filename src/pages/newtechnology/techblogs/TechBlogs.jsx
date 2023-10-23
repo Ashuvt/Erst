@@ -1,6 +1,7 @@
 import "./TechBlogs.scss";
 import { icons, images } from "../../../utils/images/images";
 import Pill from "../../../components/pill/Pill";
+import CircleArrowBtn from "../../../components/circlearrowbtn/CircleArrowBtn";
 
 const TechBlogs = () => {
   const blogData = [
@@ -41,20 +42,7 @@ const TechBlogs = () => {
                       </div>
                       <div className="btn_line">
                         <div className="line"></div>
-                        <button type="button">
-                          <span>
-                            <img
-                              src={icons.whiteArrow}
-                              alt="arrow"
-                              className="a"
-                            />
-                            <img
-                              src={icons.whiteArrow}
-                              alt="arrow"
-                              className="b"
-                            />
-                          </span>
-                        </button>
+                        <CircleArrowBtn />
                       </div>
                     </div>
                   </div>

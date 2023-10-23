@@ -103,56 +103,7 @@ section.tech_blog {
                                 transition: all 1s ease-in-out;
                             }
 
-                            button {
-                                height: 47px;
-                                width: 47px;
-                                border-radius: 50%;
-                                border: 1px solid $white;
-                                background-color: transparent;
-                                display: flex;
-                                justify-content: center;
-                                align-items: center;
-
-                                span {
-                                    height: 12px;
-                                    width: 12px;
-                                    display: block;
-                                    position: relative;
-                                    transform: rotate(45deg);
-                                    overflow: hidden;
-
-                                    img {
-                                        width: 100%;
-                                        transition: all 0.2s ease-in-out;
-
-                                        &.a {
-                                            position: absolute;
-                                            left: -100%;
-                                        }
-
-                                        &.b {
-                                            position: absolute;
-                                            left: 0%;
-                                        }
-                                    }
-                                }
-
-                                &:hover {
-                                    span {
-                                        height: 13px;
-
-                                        img {
-                                            &.a {
-                                                left: 0%;
-                                            }
-
-                                            &.b {
-                                                left: 100%;
-                                            }
-                                        }
-                                    }
-                                }
-                            }
+                         
                         }
                     }
                 }

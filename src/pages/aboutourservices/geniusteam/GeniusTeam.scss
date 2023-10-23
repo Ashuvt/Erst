@@ -5,6 +5,9 @@
 
 
 .genius_slider_sec {
+    position:relative;
+    z-index:2;
+    background-color: $dark;
     .mobile_title {
         display: none;
         padding:0px 15px 30px;

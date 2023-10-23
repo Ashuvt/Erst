@@ -38,8 +38,10 @@ const AboutOurServices = () => {
       <ScrollBtn />
       <AboutServices />
       <SuccessfulAnalytics />
+      <div className="pralex_effect">
       <GeniusTeam />
       <Parallexsquares />
+      </div>
       <ChoosePlan />
       <GetStartedForm />
     </Fragment>

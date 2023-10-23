@@ -3,23 +3,7 @@ import "./GeniusTeam.scss";
 import Slider from "react-slick";
 import { icons, images } from "../../../utils/images/images";
 
-// const PrevArrow = () => {
-//   return (
-//     <button type="button" className="prev">
-//       <img src={icons.whiteArrow} alt="rrow" />
-//       PREV
-//     </button>
-//   );
-// };
 
-// const NextArrow = () => {
-//   return (
-//     <button type="button" className="next">
-//       NEXT
-//       <img src={icons.whiteArrow} alt="rrow" />
-//     </button>
-//   );
-// };
 
 const GeniusTeam = () => {
   const sliderRef = useRef(null);
@@ -77,7 +61,7 @@ const GeniusTeam = () => {
 
   var slideSettings = {
     dots: true,
-    infinite: false,
+    infinite: true,
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,

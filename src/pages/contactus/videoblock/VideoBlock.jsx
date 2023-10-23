@@ -1,6 +1,11 @@
 import "./VideoBlock.scss";
 import { icons, images } from "../../../utils/images/images";
 import ProfileList from "../../../components/profilelist/ProfileList";
+import CircleArrowBtn from "../../../components/circlearrowbtn/CircleArrowBtn";
+import TextArrowBtn from "../../../components/textarrowbtn/TextArrowBtn";
+import { transform } from "framer-motion";
+
+
 
 const VideoBlock = () => {
   const usersData = [
@@ -40,25 +45,11 @@ const VideoBlock = () => {
           <div className="img_wrap">
             <img src={images.contactUsVideoBanner} alt="video_banner" />
           </div>
-          <h5>"Discussing The Main Features And Benefits..."</h5>
-          {/* <div className="users_list">
-            {usersData.map((data) => {
-              return (
-                <div className="profile" key={data.id}>
-                  <img src={data.img} alt="avtar" />
-                </div>
-              );
-            })}
-          </div> */}
+          <h5>"Discussing The Main Features And Benefits..."</h5>         
           <ProfileList userList={usersData}  />
           <div className="btn_line">
-            <button type="button" className="round">
-              <img src={icons.whiteArrow} alt="arrow" />
-            </button>
-            <button type="button" className="normal">
-              watch video
-              <img src={icons.whiteplay} alt="play" />
-            </button>
+            <CircleArrowBtn />        
+            <TextArrowBtn text="watch video" icon={icons.whiteplay} style={{transform:'rotate(-45deg)'}} />
           </div>
         </div>
       </div>

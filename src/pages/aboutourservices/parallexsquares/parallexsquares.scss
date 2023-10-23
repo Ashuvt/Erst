@@ -4,7 +4,12 @@
 @import "../../../scss/variables";
 
 .squares_slider_wrap {
-    position:relative;
+    pointer-events: none;
+    position:sticky;
+    bottom:0px;
+    left:0px;
+    z-index:0;
+    
     .slider_blur{
         height: 200px;
         width: 200px;
