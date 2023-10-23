@@ -180,6 +180,7 @@ section.footer {
                   transition: all .5s;
                   width: 350px;
                   max-width: 100%;
+                  box-shadow: none;
 
                   @media only screen and (max-width:$mobile) {
                     width: 250px;

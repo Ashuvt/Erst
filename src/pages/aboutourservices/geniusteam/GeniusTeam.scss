@@ -1,0 +1,178 @@
+@import "../../../scss/common";
+@import "../../../scss/mixin";
+@import "../../../scss/typography";
+@import "../../../scss/variables";
+
+
+.genius_slider_sec {
+    .mobile_title {
+        display: none;
+        padding:0px 15px 30px;
+
+        p {
+            margin-top: 20px;
+        }
+
+        @media only screen and (max-width:$tab) {
+            display: block;
+        }
+    }
+
+    .bottom_btn_line {
+        display:none;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 30px;
+        margin-top: 30px;
+        padding-right: 20px;
+        @media only screen and (max-width:$tab) {
+            display: flex;
+        }
+
+        button {
+            border-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            background-color: transparent;
+            @include font('Syne-Regular', 13px, 15.6px, 500, $white);
+            letter-spacing: 4px;
+            transition: all 0.3s ease-in-out;
+
+            &.prev {
+                opacity: 0.5;
+
+                img {
+                    transform: rotate(180deg);
+                }
+
+                &:hover {
+                    opacity: 1
+                }
+            }
+
+            &.next {
+                opacity: 1;
+
+                &:hover {
+                    opacity: 0.5;
+                }
+            }
+        }
+    }
+
+    .genius_slider {
+        position: relative;
+
+        .title_card {
+            padding: 40px;
+            position: absolute;
+            right: calc(25% - 2px);
+            top: 0px;
+            z-index: 2;
+            width: calc((100vw / 4) - 1px);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background-color: $dark;
+            border: 1px solid $lightBorder_1;
+
+            @media only screen and (max-width:1500px) {
+                right: 0px;
+                width: calc((100vw / 3) - 1px);
+            }
+
+            @media only screen and (max-width:1200px) {
+                right: 0px;
+                width: calc((100vw / 2) - 1px);
+            }
+
+            @media only screen and (max-width:$tab) {
+                display: none;
+            }
+
+            .text {
+                max-width: 300px;
+
+                p {
+                    margin-top: 30px;
+                }
+            }
+
+            .btn_line {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                gap: 30px;
+
+                button {
+                    border-style: none;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 10px;
+                    background-color: transparent;
+                    @include font('Syne-Regular', 13px, 15.6px, 500, $white);
+                    letter-spacing: 4px;
+                    transition: all 0.3s ease-in-out;
+
+                    &.prev {
+                        opacity: 0.5;
+
+                        img {
+                            transform: rotate(180deg);
+                        }
+
+                        &:hover {
+                            opacity: 1
+                        }
+                    }
+
+                    &.next {
+                        opacity: 1;
+
+                        &:hover {
+                            opacity: 0.5;
+                        }
+                    }
+                }
+            }
+        }
+
+        .genius_card {
+            padding: 40px;
+            border: 1px solid $lightBorder_1;
+            @media only screen and (max-width:$tab){
+                padding:20px;
+            }
+            @media only screen and (max-width:$mobile){
+                padding:15px;
+            }
+
+            .img_wrap {
+                position: relative;
+                overflow: hidden;
+                border-radius: 12px;
+
+                .overlay {
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                    height: 100%;
+                    width: 100%;
+                    background-color: rgba(20, 20, 19, 0.2);
+                }
+            }
+
+            h5 {
+                margin: 20px 0px 10px;
+            }
+
+            h6 {
+                letter-spacing: 4px;
+            }
+        }
+    }
+}

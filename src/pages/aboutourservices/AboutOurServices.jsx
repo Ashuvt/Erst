@@ -8,10 +8,10 @@ import SuccessfulAnalytics from "../home2/successanalytics/SuccessfulAnalytics";
 import ChoosePlan from "./chooseplan/ChoosePlan";
 import GetStartedForm from "./getstartedform/GetStartedForm";
 import WOW from "wow.js";
-
+import GeniusTeam from "./geniusteam/GeniusTeam";
+import Parallexsquares from "./parallexsquares/parallexsquares";
 
 const AboutOurServices = () => {
-
   useEffect(() => {
     const wow = new WOW();
     wow.init();
@@ -19,14 +19,27 @@ const AboutOurServices = () => {
 
   return (
     <Fragment>
-      <div className="top_blur a wow zoomIn" data-wow-delay="0.5s" data-wow-duration="1.5s"></div>
-      <div className="top_blur b wow zoomIn" data-wow-delay="0.5s" data-wow-duration="1.5s"></div>
-      <div className="top_blur c wow zoomIn" data-wow-delay="0.5s" data-wow-duration="1.5s"></div>
+      <div
+        className="top_blur a wow zoomIn"
+        data-wow-delay="0.5s"
+        data-wow-duration="1.5s"
+      ></div>
+      <div
+        className="top_blur b wow zoomIn"
+        data-wow-delay="0.5s"
+        data-wow-duration="1.5s"
+      ></div>
+      <div
+        className="top_blur c wow zoomIn"
+        data-wow-delay="0.5s"
+        data-wow-duration="1.5s"
+      ></div>
       <AboutServicesLanding />
       <ScrollBtn />
       <AboutServices />
       <SuccessfulAnalytics />
-      {/* slider */}
+      <GeniusTeam />
+      <Parallexsquares />
       <ChoosePlan />
       <GetStartedForm />
     </Fragment>
