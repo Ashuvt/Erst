@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { Fragment, useEffect } from "react";
 import { images } from "../../../utils/images/images";
 import "./IntelligentTeam.scss";
 import TeamCard from "./teamcard/TeamCard";
@@ -53,7 +53,11 @@ const IntelligentTeam = () => {
           </p>
         </div>
         {teamData.map((data) => {
-         return <TeamCard {...data} />;
+         return(
+          <Fragment key={data.id}>
+             <TeamCard {...data} />;
+          </Fragment>
+         )
         })}
         <div className="bottom_line"></div>
       </div>

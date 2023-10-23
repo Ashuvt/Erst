@@ -18,14 +18,14 @@ const AddCartPopup = () => {
       count: 1,
     },
     {
-      id: 0,
+      id: 1,
       title: "Apple AirPods",
       price: 745,
       img: products.productBa,
       count: 4,
     },
     {
-      id: 0,
+      id: 2,
       title: "Headphones Sony WH",
       price: 1700,
       img: products.productAc,
@@ -41,6 +41,8 @@ const AddCartPopup = () => {
     e.stopPropagation();
   };
 
+  const inputHandler = () => {
+  }
   return (
     <div
       className={`add_cart_popup ${cartPopupStatus ? "open" : "close"}`}
@@ -57,7 +59,7 @@ const AddCartPopup = () => {
           {productsData &&
             productsData.map((data) => {
               return (
-                <div className="product_card">
+                <div className="product_card" key={data.id}>
                   <div className="info">
                     <div className="img_wrap">
                       <img src={data.img} alt="product" />
@@ -70,7 +72,9 @@ const AddCartPopup = () => {
                   </div>
                   <div className="count">
                     <button type="button">-</button>
-                    <input type="number" value={data.count} />
+                    <form>
+                    <input type="number" value={data.count} onChange={inputHandler} />
+                    </form>
                     <button type="button">+</button>
                     
                   </div>

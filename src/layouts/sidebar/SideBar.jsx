@@ -4,7 +4,7 @@ import { menuList } from "../../utils/data/data";
 import { icons, logoImage } from "../../utils/images/images";
 import { useDispatch, useSelector } from "react-redux";
 import { sidebarToggler } from "../../store/actions";
-import { NavLink } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 
 const SideBar = () => {
 
