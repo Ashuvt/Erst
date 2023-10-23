@@ -42,6 +42,10 @@ button.menubtn {
             display: flex;
             justify-content: flex-start;
             align-items: center;
+
+            &.active{
+                color:$primary;
+            }
             &:before{
                 content:"";
                 position:absolute;

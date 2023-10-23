@@ -2,15 +2,27 @@ import "./ProductCard.scss";
 import Pill from "../../../../components/pill/Pill";
 import { icons } from "../../../../utils/images/images";
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { cartPopupToggler } from "../../../../store/actions";
 
 export const ProductCard = ({ img, category, tag, price, mp, title, off }) => {
+  
   const [count, setCount] = useState(0);
+  const [wait, setWait] = useState(false);
 
- 
+  const dispatch = useDispatch();
+
+  const openCartPopup = () => {
+    setWait(true);
+
+    const timeoutFun = setTimeout(() => {
+      setWait(false);
+      dispatch({ type: cartPopupToggler(), payload: true });
+    }, 1000);
+  };
+
   return (
-    <div
-      className="product_card"
-    >
+    <div className="product_card">
       <div className="product_wraper">
         <img src={img[count]} alt="product" className="product" />
         <div className="overlay"></div>
@@ -19,8 +31,12 @@ export const ProductCard = ({ img, category, tag, price, mp, title, off }) => {
             <Pill text={category} />
           </div>
           <div className="add_cart">
-            <button type="button">
-              <img src={icons.addCart} alt="cart" />
+            <button type="button" onClick={openCartPopup}>
+              {wait ? (
+                <img src={icons.filledWatch} alt="clock" />
+              ) : (
+                <img src={icons.addCart} alt="cart" />
+              )}
             </button>
           </div>
           <div className="bottom_stript"></div>

@@ -17,6 +17,9 @@ import BlogDetail from "./pages/blogdetail/BlogDetail";
 import AboutOurServices from "./pages/aboutourservices/AboutOurServices";
 import SoftwareDeveloper from "./pages/softwaredeveloper/SoftwareDeveloper";
 import NewTechnology from "./pages/newtechnology/NewTechnology";
+import AddCartPopup from "./layouts/addcartpopup/AddCartPopup";
+import { Provider } from "react-redux";
+import store from "./store/store";
 
 function App() {
   var menu;
@@ -40,11 +43,14 @@ function App() {
 
   return (
     <Fragment>
+      <Provider store={store}>
       {/* {status && <Header />}
       {status && <SideBar />} */}
 
-<Header />
-<SideBar />
+      <AddCartPopup />
+
+      <Header />
+      <SideBar />
       <Routes>
         <Route path="/" element={<Home1 />} />
         <Route path="/home1" element={<Home1 />} />
@@ -52,8 +58,14 @@ function App() {
         <Route path="/faq" element={<Faq />} />
         <Route path="/contactus" element={<ContactUs />} />
         <Route path="/careers" element={<Careers />} />
-        <Route path="/about_our_services" element={<AboutOurServices />}></Route>
-        <Route path="/software_developer" element={<SoftwareDeveloper />}></Route>
+        <Route
+          path="/about_our_services"
+          element={<AboutOurServices />}
+        ></Route>
+        <Route
+          path="/software_developer"
+          element={<SoftwareDeveloper />}
+        ></Route>
         <Route path="/new_technology" element={<NewTechnology />}></Route>
         <Route path="/shop" element={<Shop />}></Route>
         <Route path="/blogs/:id" element={<BlogDetail />}></Route>
@@ -61,8 +73,10 @@ function App() {
       </Routes>
       <Footer />
       {/* {status && <Footer />} */}
+
+      </Provider>
     </Fragment>
   );
-};
+}
 
 export default App;
