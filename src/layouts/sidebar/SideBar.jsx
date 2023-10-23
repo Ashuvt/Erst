@@ -46,7 +46,7 @@ const SideBar = () => {
                 {data.submenu.map((ele) => {
                   return (
                     
-                    <NavLink href={ele.link} key={ele.id}>
+                    <NavLink to={ele.link} key={ele.id}>
                       {ele.text}
                     </NavLink>
                   );
