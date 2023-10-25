@@ -15,6 +15,7 @@ section.login_form {
         justify-content: center;
         align-items: center;
         min-height: calc(100vh - 220px);
+        transform: translateY(-50px);
 
         form {
             width: 380px;

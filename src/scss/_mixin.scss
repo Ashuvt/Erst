@@ -24,10 +24,9 @@
     border-radius: 12px;
     justify-content: center;
     padding: 15px 20px;
-     @include font('Syne-Regular', 12px, 16px, 500, $white);
+     @include font('SpaceGrotesk-Regular', 12px, 20px, 500, $white);
     transition: all .35s ease-in-out;
     display: flex;
-    box-shadow: 0 -1px 10px rgba(153, 0, 255, 0.15);
     &:hover{
         transform: translate3d(0px, 0px, 0px) scale3d(0.98, 0.98, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
         transform-style: preserve-3d;
@@ -48,7 +47,7 @@
     border-radius: 12px;
     justify-content: center;
     padding: 15px 20px;
-    @include font('Syne-Regular', 12px, 16px, 500, $white);
+    @include font('SpaceGrotesk-Regular', 12px, 20px, 500, $white);
     transition: all .35s ease-in-out;
     display: flex;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);

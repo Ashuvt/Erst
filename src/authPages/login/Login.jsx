@@ -1,11 +1,13 @@
-import { NavLink } from "react-bootstrap";
 import { useState } from "react";
 import "./Login.scss";
 import { Fragment } from "react";
 import LoginHeader from "../components/loginHeader/LoginHeader";
 import { icons } from "../../utils/images/icons";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
+
   const [eye, setEye] = useState(false);
   const [loginForm, setLoginForm] = useState({
     email: "",
@@ -23,6 +25,10 @@ const Login = () => {
     console.log(loginForm);
   };
 
+  const getStarted = () => {
+    navigate("/getStarted");
+  };
+
   return (
     <Fragment>
       <LoginHeader
@@ -38,7 +44,7 @@ const Login = () => {
               <h1 className="small_title">Login</h1>
               <div className="suggetion">
                 <p>New user?</p>
-                <button type="button">
+                <button type="button" onClick={getStarted}>
                   <p>Get started for free</p>
                 </button>
               </div>
@@ -86,7 +92,11 @@ const Login = () => {
               >
                 Login
               </button>
-              <button type="button" className="authbtn auth_secondary">
+              <button
+                type="button"
+                className="authbtn auth_secondary"
+                onClick={getStarted}
+              >
                 Get started for free
               </button>
             </div>

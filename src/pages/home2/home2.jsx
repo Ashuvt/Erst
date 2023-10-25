@@ -10,10 +10,13 @@ import TipsBlog from "./tipsblog/TipsBlog";
 import SuccessfulAnalytics from "./successanalytics/SuccessfulAnalytics";
 import BenefitsOfSuite from "./benefitsofsuite/BenefitsOfSuite";
 import BusinessAnalytics from "./businessanalytics/BusinessAnalytics";
+import Header from "../../layouts/header/Header";
+import Footer from "../../layouts/footer/Footer";
 
 const Home2 = () => {
   return (
     <Fragment>
+      <Header />
       <Home2Landing />
       <MarqueeText />
       <AboutServices />
@@ -30,6 +33,7 @@ const Home2 = () => {
       />
       <FeedBack />
       <TipsBlog />
+      <Footer />
     </Fragment>
   );
 };

@@ -1,0 +1,17 @@
+@import "../../scss/common";
+@import "../../scss/mixin";
+@import "../../scss/typography";
+@import "../../scss/variables";
+
+section.get_started {
+    padding-top:115px;
+    padding-bottom:30px;
+    .auth_container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        @media only screen and (max-width:$laptop){
+            grid-template-columns: 1fr;
+            gap:30px;
+        }
+    }
+}

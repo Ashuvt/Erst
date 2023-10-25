@@ -9,10 +9,13 @@ import Opportunities from "./opportunities/Opportunities";
 import ImproveBusiness from "./improvebusiness/ImproveBusiness";
 import HomeBlogs from "./homeblogs/HomeBlogs";
 import FeedBack from "./feedback/FeedBack";
+import Header from "../../layouts/header/Header";
+import Footer from "../../layouts/footer/Footer";
 
 const Home1 = () => {
   return (
     <Fragment>
+      <Header />
       <Home1Landing />
       <Services />
       <BusinessDecision />
@@ -23,6 +26,7 @@ const Home1 = () => {
       <ImproveBusiness />
       <HomeBlogs />
       <FeedBack />
+      <Footer />
     </Fragment>
   );
 };

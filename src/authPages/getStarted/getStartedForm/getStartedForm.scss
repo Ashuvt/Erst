@@ -1,0 +1,61 @@
+@import "../../../scss/common";
+@import "../../../scss/mixin";
+@import "../../../scss/typography";
+@import "../../../scss/variables";
+
+.get_started_form {
+    padding: 64px 100px;
+
+    @media only screen and (max-width:1250px){
+        padding: 30px 50px;
+    }
+    @media only screen and (max-width:$mobile){
+        padding: 30px 15px;
+    }
+
+    form {
+        .title {
+            margin-bottom: 32px;
+
+            .suggetion {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 4px;
+                margin-top: 10px;
+
+                button {
+                    border-style: none;
+                    background-color: transparent;
+
+                    p {
+                        color: $primary;
+                        text-decoration: 1px solid underline;
+                        text-underline-offset: 4px;
+                    }
+
+                }
+            }
+        }
+
+        .btns {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin: 52px 0px 32px;
+
+            button {
+                width: 100%;
+            }
+        }
+        p.notice{
+            @include font('Inter-Regular', 12px, 16px, 400, $textHint);
+            margin-top:8px;
+            span{
+                text-decoration: underline;
+                cursor:pointer;
+            }
+        }
+    }
+}

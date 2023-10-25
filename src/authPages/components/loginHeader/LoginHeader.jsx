@@ -16,7 +16,7 @@ export const LoginHeader = ({ left, right, progress, progressCount }) => {
             )}
           </div>
 
-          <NavLink>
+          <NavLink to="/">
             <img src={logoImage.logo} alt="logo" />
           </NavLink>
 
@@ -25,9 +25,11 @@ export const LoginHeader = ({ left, right, progress, progressCount }) => {
           </div>
         </header>
       </div>
-      <div className="onboarding_stepper">
-        <div className="filler" style={{width:`${progressCount}%`}}></div>
-      </div>
+      {progress && (
+        <div className="onboarding_stepper">
+          <div className="filler" style={{ width: `${progressCount}%` }}></div>
+        </div>
+      )}
     </section>
   );
 };

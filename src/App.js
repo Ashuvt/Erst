@@ -21,6 +21,7 @@ import AddCartPopup from "./layouts/addcartpopup/AddCartPopup";
 import { Provider } from "react-redux";
 import store from "./store/store";
 import Login from "./authPages/login/Login";
+import GetStarted from "./authPages/getStarted/GetStarted";
 
 function App() {
   var menu;
@@ -45,13 +46,10 @@ function App() {
   return (
     <Fragment>
       <Provider store={store}>
-        {/*{status && <SideBar />} */}
-
-
-
+   
 
         <AddCartPopup />
-        {/* <Header /> */}
+   
         <SideBar />
         <Routes>
           <Route path="/" element={<Home1 />} />
@@ -73,28 +71,12 @@ function App() {
           <Route path="/blogs/:id" element={<BlogDetail />}></Route>
           <Route path="/*" element={<ErrorPage />} />
 
-
-
-
           {/* Auth Routes */}
 
-
-
           <Route path="/login" element={<Login />} />
-
-
-
-
-
+          <Route path="/getstarted" element={<GetStarted />} />
         </Routes>
-        {/* <Footer /> */}
-
-
-
-
-
-
-
+       
       </Provider>
     </Fragment>
   );

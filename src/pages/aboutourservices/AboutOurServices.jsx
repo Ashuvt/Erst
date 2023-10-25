@@ -10,6 +10,8 @@ import GetStartedForm from "./getstartedform/GetStartedForm";
 import WOW from "wow.js";
 import GeniusTeam from "./geniusteam/GeniusTeam";
 import Parallexsquares from "./parallexsquares/parallexsquares";
+import Header from "../../layouts/header/Header";
+import Footer from "../../layouts/footer/Footer";
 
 const AboutOurServices = () => {
   useEffect(() => {
@@ -19,6 +21,7 @@ const AboutOurServices = () => {
 
   return (
     <Fragment>
+      <Header />
       <div
         className="top_blur a wow zoomIn"
         data-wow-delay="0.5s"
@@ -44,6 +47,7 @@ const AboutOurServices = () => {
       </div>
       <ChoosePlan />
       <GetStartedForm />
+      <Footer />
     </Fragment>
   );
 };
