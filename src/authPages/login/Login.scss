@@ -1,0 +1,65 @@
+@import "../../scss/common";
+@import "../../scss/mixin";
+@import "../../scss/typography";
+@import "../../scss/variables";
+
+
+section.login_form {
+    padding-top: 160px;
+    padding-bottom: 60px;
+    background:url("../../assets/images/bgpattern.svg") no-repeat, $bgGradient;
+    background-size:contain;
+    background-position: center center;
+    .auth_container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: calc(100vh - 220px);
+
+        form {
+            width: 380px;
+
+            .title {
+                margin-bottom: 50px;
+
+                h1 {
+                    text-align: center;
+                }
+
+                .suggetion {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 4px;
+                    margin-top: 10px;
+
+                    button {
+                        border-style: none;
+                        background-color: transparent;
+
+                        p {
+                            color: $primary;
+                            text-decoration: 1px solid underline;
+                            text-underline-offset: 4px;
+                        }
+
+                    }
+                }
+
+            }
+
+            .btns {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+                margin-top: 52px;
+
+                button {
+                    width: 100%;
+                }
+            }
+
+        }
+    }
+}

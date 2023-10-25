@@ -105,7 +105,7 @@
                         button {
                             margin: 0px;
                             padding: 0px;
-                            @include font('Syne-Regular', 12px, 12px, 500, $primary);
+                            @include font('Syne-Regular', 12px, 12px, 500, $secondary);
                             text-transform: uppercase;
                             letter-spacing: 2.4px;
                             border-style: none;

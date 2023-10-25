@@ -1,9 +1,80 @@
 @import "./mixin";
 @import "./variables";
 
+
 @font-face {
-    font-family: 'Syne-Regular';
-    src: url('../assets/fonts/Syne-Regular.woff') format('woff');
+    font-family: 'SpaceGrotesk-Light';
+    src: url('../assets/fonts/SpaceGrotesk-Light.woff') format('woff');
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SpaceGrotesk-Regular';
+    src: url('../assets/fonts/SpaceGrotesk-Regular.woff') format('woff');
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SpaceGrotesk-Medium';
+    src: url('../assets/fonts/SpaceGrotesk-Medium.woff') format('woff');
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SpaceGrotesk-SemiBold';
+    src: url('../assets/fonts/SpaceGrotesk-SemiBold.woff') format('woff');
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SpaceGrotesk-Bold';
+    src: url('../assets/fonts/SpaceGrotesk-Bold.woff') format('woff');
+    font-style: normal;
+    font-display: swap;
+}
+
+;
+
+
+
+
+// -------------------- Inter Fonts -------------------------------
+
+@font-face {
+    font-family: 'Inter-Light';
+    src: url('../assets/fonts/Inter-Light.woff') format('woff');
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter-Regular';
+    src: url('../assets/fonts/Inter-Regular.woff') format('woff');
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter-Medium';
+    src: url('../assets/fonts/Inter-Medium.woff') format('woff');
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter-SemiBold';
+    src: url('../assets/fonts/Inter-SemiBold.woff') format('woff');
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter-Bold';
+    src: url('../assets/fonts/Inter-Bold.woff') format('woff');
     font-style: normal;
     font-display: swap;
 }
@@ -11,126 +82,148 @@
 ;
 
 @font-face {
-    font-family: 'Syne-Medium';
-    src: url('../assets/fonts/Syne-Medium.woff') format('woff');
+    font-family: 'Inter-ExtraBold';
+    src: url('../assets/fonts/Inter-ExtraBold.woff') format('woff');
     font-style: normal;
     font-display: swap;
 }
 
 ;
 
-@font-face {
-    font-family: 'Syne-SemiBold';
-    src: url('../assets/fonts/Syne-SemiBold.woff') format('woff');
-    font-style: normal;
-    font-display: swap;
-}
 
-@font-face {
-    font-family: 'Syne-Bold';
-    src: url('../assets/fonts/Syne-Bold.woff') format('woff');
-    font-style: normal;
-    font-display: swap;
-}
+// @font-face {
+//     font-family: 'Syne-Regular';
+//     src: url('../assets/fonts/Syne-Regular.woff') format('woff');
+//     font-style: normal;
+//     font-display: swap;
+// }
 
-@font-face {
-    font-family: 'Syne-ExtraBold';
-    src: url('../assets/fonts/Syne-ExtraBold.woff') format('woff');
-    font-style: normal;
-    font-display: swap;
-};
+// @font-face {
+//     font-family: 'Syne-Medium';
+//     src: url('../assets/fonts/Syne-Medium.woff') format('woff');
+//     font-style: normal;
+//     font-display: swap;
+// }
+
+// @font-face {
+//     font-family: 'Syne-SemiBold';
+//     src: url('../assets/fonts/Syne-SemiBold.woff') format('woff');
+//     font-style: normal;
+//     font-display: swap;
+// }
+
+// @font-face {
+//     font-family: 'Syne-Bold';
+//     src: url('../assets/fonts/Syne-Bold.woff') format('woff');
+//     font-style: normal;
+//     font-display: swap;
+// }
+
+// @font-face {
+//     font-family: 'Syne-ExtraBold';
+//     src: url('../assets/fonts/Syne-ExtraBold.woff') format('woff');
+//     font-style: normal;
+//     font-display: swap;
+// };
 
 
 h1 {
-    @include font('Syne-Regular', 80px, 88px, 600, $white);
+    @include font('SpaceGrotesk-Regular', 80px, 88px, 600, $white);
     margin: 0px;
     text-transform: capitalize;
 
-    @media only screen and (max-width:1720px){
-        @include font('Syne-Regular', 60px, 66px, 500, $white);
+    @media only screen and (max-width:1720px) {
+        @include font('SpaceGrotesk-Regular', 60px, 66px, 500, $white);
     }
 
-    @media only screen and (max-width:1280px){
-        @include font('Syne-Regular', 55px, 60.5px, 500, $white);
+    @media only screen and (max-width:1280px) {
+        @include font('SpaceGrotesk-Regular', 55px, 60.5px, 500, $white);
     }
 
     @media only screen and (max-width:$mobile) {
-        @include font('Syne-Regular', 45px, 49.5px, 500, $white);
+        @include font('SpaceGrotesk-Regular', 45px, 49.5px, 500, $white);
+    }
+
+    &.small_title {
+        @include font('SpaceGrotesk-Regular', 24px, 28px, 400, $white);
     }
 }
 
 h2 {
-    @include font('Syne-Regular', 50px, 55px, 600, $white);
+    @include font('SpaceGrotesk-Regular', 50px, 55px, 600, $white);
     margin: 0px;
     text-transform: capitalize;
 
     @media only screen and (max-width:$tab) {
-        @include font('Syne-Regular', 45px, 49.5px, 600, $white);
+        @include font('SpaceGrotesk-Regular', 45px, 49.5px, 600, $white);
     }
 
     @media only screen and (max-width:$mobile) {
-        @include font('Syne-Regular', 35px, 38.5px, 600, $white);
+        @include font('SpaceGrotesk-Regular', 35px, 38.5px, 600, $white);
     }
 }
 
 h3 {
-    @include font('Syne-Regular', 40px, 44px, 600, $white);
+    @include font('SpaceGrotesk-Regular', 40px, 44px, 600, $white);
     margin: 0px;
     text-transform: capitalize;
 
     @media only screen and (max-width:$tab) {
-        @include font('Syne-Regular', 35px, 38.5px, 600, $white);
+        @include font('SpaceGrotesk-Regular', 35px, 38.5px, 600, $white);
     }
 
     @media only screen and (max-width:$mobile) {
-        @include font('Syne-Regular', 30px, 33px, 600, $white);
+        @include font('SpaceGrotesk-Regular', 30px, 33px, 600, $white);
     }
 }
 
 h4 {
-    @include font('Syne-Regular', 35px, 38.5px, 600, $white);
+    @include font('SpaceGrotesk-Regular', 35px, 38.5px, 600, $white);
     margin: 0px;
     text-transform: capitalize;
 
     @media only screen and (max-width:$tab) {
-        @include font('Syne-Regular', 30px, 33px, 600, $white);
+        @include font('SpaceGrotesk-Regular', 30px, 33px, 600, $white);
     }
 
     @media only screen and (max-width:$mobile) {
-        @include font('Syne-Regular', 25px, 27.5px, 600, $white);
+        @include font('SpaceGrotesk-Regular', 25px, 27.5px, 600, $white);
     }
 }
 
 h5 {
-    @include font('Syne-Regular', 30px, 33px, 600, $white);
+    @include font('SpaceGrotesk-Regular', 30px, 33px, 600, $white);
     margin: 0px;
     text-transform: capitalize;
 
     @media only screen and (max-width:$tab) {
-        @include font('Syne-Regular', 25px, 27.5px, 600, $white);
+        @include font('SpaceGrotesk-Regular', 25px, 27.5px, 600, $white);
     }
 
     @media only screen and (max-width:$mobile) {
-        @include font('Syne-Regular', 22px, 24.2px, 600, $white);
+        @include font('SpaceGrotesk-Regular', 22px, 24.2px, 600, $white);
     }
 }
 
 h6 {
-    @include font('Syne-Regular', 13px, 15.6px, 500, $white);
+    @include font('SpaceGrotesk-Regular', 13px, 15.6px, 500, $white);
     margin: 0px;
     text-transform: uppercase;
 
     @media only screen and (max-width:$tab) {
-        @include font('Syne-Regular', 13px, 15.6px, 500, $white);
+        @include font('SpaceGrotesk-Regular', 13px, 15.6px, 500, $white);
     }
 
     @media only screen and (max-width:$mobile) {
-        @include font('Syne-Regular', 13px, 15.6px, 500, $white);
+        @include font('SpaceGrotesk-Regular', 13px, 15.6px, 500, $white);
     }
 }
 
-p{
-    @include font('Syne-Regular', 17px, 25.5px, 400, rgba(255, 255, 255, 0.5));
+p {
+    @include font('Inter-Regular', 16px, 26px, 400, $textSecondary);
     margin: 0px;
     text-transform: capitalize;
+    letter-spacing: -0.16px;
 }
+
+

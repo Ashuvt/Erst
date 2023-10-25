@@ -35,6 +35,7 @@ import logout from "../../assets/images/icons/logout.svg";
 import profile from "../../assets/images/icons/profile.svg";
 import help from "../../assets/images/icons/help.svg";
 import playfill from "../../assets/images/icons/playfill.svg";
+import certificate from "../../assets/images/icons/certificate.svg";
 
 
 

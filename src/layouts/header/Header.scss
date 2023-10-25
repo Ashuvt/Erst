@@ -15,7 +15,7 @@ section.header {
     right: 0%;
     background-color: rgba(0, 0, 0, 0.65);
     height: 100px;
-    z-index: 999;
+    z-index: 9999;
 
     @media only screen and (max-width:$laptop) {
         height: 80px;

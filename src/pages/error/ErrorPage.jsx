@@ -18,7 +18,7 @@ const ErrorPage = () => {
         <div className="blur pink wow zoomIn" data-wow-delay="0.5s" data-wow-duration="1.5s"></div>
       <div className="content_wrap">
         <NavLink to="/">
-          <h5>CyberGain</h5>
+         <img src={logoImage.logo} alt="logo" />
         </NavLink>
         <div className="content">
           <h1 className="wow slideInUp">404</h1>

@@ -20,6 +20,7 @@ import NewTechnology from "./pages/newtechnology/NewTechnology";
 import AddCartPopup from "./layouts/addcartpopup/AddCartPopup";
 import { Provider } from "react-redux";
 import store from "./store/store";
+import Login from "./authPages/login/Login";
 
 function App() {
   var menu;
@@ -44,35 +45,55 @@ function App() {
   return (
     <Fragment>
       <Provider store={store}>
-      {/* {status && <Header />}
-      {status && <SideBar />} */}
+        {/*{status && <SideBar />} */}
 
-      <AddCartPopup />
 
-      <Header />
-      <SideBar />
-      <Routes>
-        <Route path="/" element={<Home1 />} />
-        <Route path="/home1" element={<Home1 />} />
-        <Route path="/home2" element={<Home2 />} />
-        <Route path="/faq" element={<Faq />} />
-        <Route path="/contactus" element={<ContactUs />} />
-        <Route path="/careers" element={<Careers />} />
-        <Route
-          path="/about_our_services"
-          element={<AboutOurServices />}
-        ></Route>
-        <Route
-          path="/software_developer"
-          element={<SoftwareDeveloper />}
-        ></Route>
-        <Route path="/new_technology" element={<NewTechnology />}></Route>
-        <Route path="/shop" element={<Shop />}></Route>
-        <Route path="/blogs/:id" element={<BlogDetail />}></Route>
-        <Route path="/*" element={<ErrorPage />} />
-      </Routes>
-      <Footer />
-      {/* {status && <Footer />} */}
+
+
+        <AddCartPopup />
+        {/* <Header /> */}
+        <SideBar />
+        <Routes>
+          <Route path="/" element={<Home1 />} />
+          <Route path="/home1" element={<Home1 />} />
+          <Route path="/home2" element={<Home2 />} />
+          <Route path="/faq" element={<Faq />} />
+          <Route path="/contactus" element={<ContactUs />} />
+          <Route path="/careers" element={<Careers />} />
+          <Route
+            path="/about_our_services"
+            element={<AboutOurServices />}
+          ></Route>
+          <Route
+            path="/software_developer"
+            element={<SoftwareDeveloper />}
+          ></Route>
+          <Route path="/new_technology" element={<NewTechnology />}></Route>
+          <Route path="/shop" element={<Shop />}></Route>
+          <Route path="/blogs/:id" element={<BlogDetail />}></Route>
+          <Route path="/*" element={<ErrorPage />} />
+
+
+
+
+          {/* Auth Routes */}
+
+
+
+          <Route path="/login" element={<Login />} />
+
+
+
+
+
+        </Routes>
+        {/* <Footer /> */}
+
+
+
+
+
+
 
       </Provider>
     </Fragment>

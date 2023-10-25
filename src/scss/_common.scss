@@ -8,20 +8,30 @@ section {
   background-color: $dark;
   padding-left: 20px;
   padding-right: 20px;
+
   @media only screen and(max-width:$mobile) {
     padding-left: 15px;
     padding-right: 15px;
   }
+
   .content_wrap {
     width: 100%;
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
-   
+  }
 
-   
+  .auth_container {
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    // border:1px solid rgb(255, 255, 255);
   }
 }
+
+
+
 
 .p_top {
   padding-top: 130px;
@@ -105,5 +115,96 @@ textarea,
   &:focus {
     box-shadow: none;
     padding: 16px 22px;
+  }
+}
+
+
+.auth_field {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+
+  &.mt {
+    margin-top: 24px;
+  }
+
+  &.mb {
+    margin-bottom: 24px;
+  }
+
+  label {
+    @include font('Inter-Regular', 14px, 20px, 400, $white);
+    text-transform: capitalize;
+    margin-bottom: 8px;
+  }
+
+  .input_wrap {
+    position: relative;
+
+    input {
+      padding: 16px 50px 16px 16px;
+      border-radius: 8px;
+      border: 1px solid #2E2E2E;
+      background: #0F0F0F;
+      box-shadow: none;
+      width: 100%;
+      @include font('Inter-Regular', 14px, 20px, 400, $white);
+      backdrop-filter: blur(28px);
+    }
+
+    img.field_icon {
+      position: absolute;
+      top: 50%;
+      right: 16px;
+      transform: translateY(-50%);
+      opacity: 0.4;
+      max-width: 20px;
+
+      &::placeholder {
+        @include font('Inter-Regular', 14px, 20px, 400, $textHint);
+      }
+    }
+
+    button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 16px;
+      height: 20px;
+      border-style: none;
+      background-color: transparent;
+
+      img {
+        opacity: 0.4;
+        max-width: 20px;
+      }
+    }
+  }
+}
+
+button.authbtn {
+  height: 40px;
+  padding: 8px 24px;
+  @include font('SpaceGrotesk-Regular', 14px, 20px, 500, $white);
+  border-radius: 8px;
+  height: 40px;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+
+  &.auth_primary {
+    background-color: $primary;
+    border-style: none;
+  }
+
+  &.auth_secondary {
+    border: 1px solid $bgLight;
+    background-color: transparent;
+  }
+
+  &:hover {
+    transform: scale3d(0.98, 0.98, 1);
+    transform-style: preserve-3d;
+    opacity: 0.7;
   }
 }

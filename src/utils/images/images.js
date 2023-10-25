@@ -1,4 +1,5 @@
 // Logo
+import logo from "../../assets/images/logos/logo.svg";
 import companyA from "../../assets/images/companya.webp";
 import companyB from "../../assets/images/companyb.webp";
 import companyC from "../../assets/images/companyc.webp";
@@ -45,6 +46,7 @@ import earningA from "../../assets/images/earninga.webp";
 import earningB from "../../assets/images/earningb.webp";
 import blogView from "../../assets/images/blogview.jpg";
 import squareBg from "../../assets/images/sqarebg.webp";
+import bgPatter from "../../assets/images/bgpattern.svg";
 
 // Icons
 import instagram from "../../assets/images/instagram.svg";
@@ -98,6 +100,7 @@ import productFb from "../../assets/images/products/virtualbb.jpg";
 import productFc from "../../assets/images/products/virtualbc.jpg";
 
 export const logoImage = {
+  logo,
   companyA,
   companyB,
   companyC,
@@ -170,6 +173,7 @@ export const images = {
   earningB,
   blogView,
   squareBg,
+  bgPatter
 };
 
 export const products = {

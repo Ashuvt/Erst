@@ -7,6 +7,8 @@ import HembergerMenu from "../../components/hembergerIcon/HembergerMenu";
 import { cartPopupToggler } from "../../store/actions";
 import { useDispatch } from "react-redux";
 
+import { useNavigate } from "react-router-dom";
+
 const Header = () => {
   const dispatch = useDispatch();
 
@@ -14,13 +16,14 @@ const Header = () => {
     dispatch({ type: cartPopupToggler(), payload: true });
   };
 
+  const navigate = useNavigate();
   return (
     <section className="header">
       <div className="content_wrap">
         <header>
           <div className="logo_wrap">
             <a href="/">
-              <h5>CyberGain</h5>
+              <img src={logoImage.logo} alt="logo" />
             </a>
           </div>
           <nav>
@@ -37,7 +40,7 @@ const Header = () => {
               <div className="notification">2</div>
               <img src={icons.addCart} alt="cart" />
             </button>
-            <button type="button" className="signin">
+            <button type="button" className="signin" onClick={() => navigate('/login')}>
               Sign in
             </button>
             <button type="button" className="signup">
