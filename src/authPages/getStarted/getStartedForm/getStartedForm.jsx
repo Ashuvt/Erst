@@ -95,7 +95,8 @@ const GetStartedForm = () => {
           <button
             type="button"
             className="authbtn auth_primary"
-            onClick={loginHandler}
+            onClick={() => navigate("/onborading")}
+
           >
             Get started for free
           </button>

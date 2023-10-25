@@ -3,8 +3,6 @@ import "./App.scss";
 import { menuList } from "./utils/data/data";
 import { useLocation } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
-import Header from "./layouts/header/Header";
-import Footer from "./layouts/footer/Footer";
 import Home1 from "./pages/home1/Home1";
 import Faq from "./pages/faq/Faq";
 import ErrorPage from "./pages/error/ErrorPage";
@@ -22,6 +20,7 @@ import { Provider } from "react-redux";
 import store from "./store/store";
 import Login from "./authPages/login/Login";
 import GetStarted from "./authPages/getStarted/GetStarted";
+import OnBoardingSteppers from "./authPages/onboardingstepper/OnBoardingSteppers";
 
 function App() {
   var menu;
@@ -30,26 +29,13 @@ function App() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    menu = menuList
-      .map((menuItem) =>
-        menuItem.submenu.map((submenuItem) => submenuItem.link)
-      )
-      .flat();
-    menu.push("/");
-    if (menu.includes(location.pathname)) {
-      setStatus(true);
-    } else {
-      setStatus(false);
-    }
   }, [location.pathname]);
 
   return (
     <Fragment>
       <Provider store={store}>
-   
-
         <AddCartPopup />
-   
+
         <SideBar />
         <Routes>
           <Route path="/" element={<Home1 />} />
@@ -75,8 +61,8 @@ function App() {
 
           <Route path="/login" element={<Login />} />
           <Route path="/getstarted" element={<GetStarted />} />
+          <Route path="/onborading" element={<OnBoardingSteppers />} />
         </Routes>
-       
       </Provider>
     </Fragment>
   );

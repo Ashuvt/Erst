@@ -36,11 +36,9 @@ import profile from "../../assets/images/icons/profile.svg";
 import help from "../../assets/images/icons/help.svg";
 import playfill from "../../assets/images/icons/playfill.svg";
 import certificate from "../../assets/images/icons/certificate.svg";
-
-
-
-
-
+import redTeam from "../../assets/images/icons/redteam.svg";
+import blueTeam from "../../assets/images/icons/blueteam.svg";
+import starYellow from "../../assets/images/icons/staryellow.svg";
 
 export const icons = {
   angleUp,
@@ -80,12 +78,9 @@ export const icons = {
   logout,
   profile,
   help,
+  redTeam,
+  starYellow,
+  blueTeam,
 
-
-
-
-
-
-  playfill
-
+  playfill,
 };

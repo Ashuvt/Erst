@@ -145,7 +145,7 @@ h1 {
     }
 
     &.small_title {
-        @include font('SpaceGrotesk-Regular', 24px, 28px, 400, $white);
+        @include font('SpaceGrotesk-Regular', 24px, 32px, 400, $white);
     }
 }
 

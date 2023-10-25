@@ -3,3 +3,48 @@
 @import "../../../scss/typography";
 @import "../../../scss/variables";
 
+.step_c {
+    width: 100%;
+    max-width: 400px;
+    padding-bottom: 30px;
+
+    h1 {
+        text-align: center;
+    }
+
+    p {
+        text-align: center;
+        margin: 16px 0px 40px;
+    }
+
+    .tags_wrap {
+        display: flex;
+        width:100%;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        gap: 16px 12px;
+        flex-wrap: wrap;
+        margin-bottom:40px;
+        button.tagbtn {
+            padding: 8px 12px;
+            border-radius: 4px;
+            border: 1px solid $borderLight;
+            background: $bgLight;
+            @include font('Inter-Regular', 14px, 20px, 400, $textSecondary);
+            text-align: center;
+
+        }
+    }
+
+    .btns {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        button {
+            width: 100%;
+        }
+    }
+
+}

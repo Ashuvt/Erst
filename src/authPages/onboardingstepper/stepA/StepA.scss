@@ -3,3 +3,45 @@
 @import "../../../scss/typography";
 @import "../../../scss/variables";
 
+.step_a {
+    width: 100%;
+    max-width: 400px;
+    padding-bottom: 106px;
+
+    @media only screen and (max-width:$mobile){
+        padding-bottom: 70px;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    p {
+        text-align: center;
+        margin: 16px 0px 40px;
+    }
+
+    .bottom_btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        padding: 32px;
+        background-color: $dark;
+        @media only screen and (max-width:$mobile){
+            padding: 15px;            
+        }
+
+        .btn_line {
+            max-width: 1200px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+
+        }
+    }
+}

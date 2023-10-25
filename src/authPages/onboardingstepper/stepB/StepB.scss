@@ -3,3 +3,32 @@
 @import "../../../scss/typography";
 @import "../../../scss/variables";
 
+.step_b {
+    width: 100%;
+    max-width: 400px;
+    padding-bottom: 30px;
+    padding-top:100px;
+    @media only screen and (max-width:$tab){
+        padding-top:50px;
+    }
+    @media only screen and (max-width:$mobile){
+        padding-top:0px;
+    }
+    h1 {
+        text-align: center;
+    }
+
+    p {
+        text-align: center;
+        margin: 16px 0px 40px;
+    }
+    .btns{
+        display: flex;
+        flex-direction: column;
+        gap:20px;
+        button {
+            width:100%;
+        }
+    }
+
+}
