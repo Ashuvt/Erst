@@ -1,4 +1,4 @@
-import { NavLink } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 import "./CoursesHeader.scss";
 import { images, logoImage } from "../../../utils/images/images";
 import { icon } from "../../../utils/images/icons";

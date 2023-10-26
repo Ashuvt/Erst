@@ -51,13 +51,17 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-.info{
-    display:flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap:8px;
-}
-        
+
+            .info {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                gap: 8px;
+                img{
+                    width:16px;
+                }
+            }
+
         }
 
         p {
@@ -65,13 +69,14 @@
 
             &.title {
                 @include font('SpaceGrotesk-Regular', 14px, 20px, 400, $textPrimary);
-                span{
+
+                span {
                     text-decoration: underline;
-                    margin-left:4px;
+                    margin-left: 4px;
                     @include font('Inter-Regular', 14px, 20px, 400, $textPrimary);
                 }
             }
-            
+
         }
     }
 }

@@ -1,12 +1,25 @@
-.module_title{
-    margin-top:40px;
+@import "../../../scss/variables";
+
+.module_title {
+    margin-top: 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap:20px;
-    .text_side{
-        p{
-            margin-top:8px;
+    gap: 20px;
+
+    .text_side {
+        p {
+            margin-top: 8px;
+        }
+    }
+
+    @media only screen and (max-width:$tab) {
+        flex-direction: column;
+        .text_side {
+            p, h5 {
+            text-align: center;
+            }
+            
         }
     }
 }

@@ -9,28 +9,42 @@
 
 section.home_content_screen {
     margin-top: 64px;
-    padding-bottom:60px;
+    padding-bottom: 60px;
 
     .screen_container {
 
         .content_grid {
             display: grid;
             grid-template-columns: 4fr 3fr;
-            gap: 82px;
+            gap: 80px;
+
+            @media only screen and (max-width:$laptop) {
+                gap: 40px;
+                grid-template-columns: 4fr;
+            }
 
             .left {}
 
             .right {
-                .in_progress{
-                    p{
-                        &.dark{
-                            color:$textPrimary;
-                            margin:32px 0px 12px;
+                border-left: 1px solid #262626;
+                padding-left: 80px;
+
+                @media only screen and (max-width:$laptop) {
+                    padding-left: 0px;
+                    border-style: none;
+                }
+
+                .in_progress {
+                    p {
+                        &.dark {
+                            color: $textPrimary;
+                            margin: 32px 0px 12px;
                         }
                     }
-                    button{
-                        width:100%;
-                        margin-top:20px;
+
+                    button {
+                        width: 100%;
+                        margin-top: 20px;
                     }
                 }
             }

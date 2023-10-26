@@ -1,0 +1,35 @@
+@import "../../../scss/common";
+@import "../../../scss/mixin";
+@import "../../../scss/typography";
+@import "../../../scss/variables";
+
+
+.home_explore_card{
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid $cardB;
+    background: linear-gradient(113deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.00) 110.84%);
+    backdrop-filter: blur(28px);
+    margin:40px 0px 40px;
+    .circle_path{
+        height:32px;
+        width:32px;
+        border-radius: 50%;
+        background:#373739;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    h5{
+        margin:25px 0px 16px;
+    }
+    p{
+        margin-bottom:24px;
+    }
+    button{
+        border-style: none;
+        background-color: transparent;
+        @include font('Inter-Regular', 24px, 28px, 400, $primary);
+        text-decoration: underline;
+    }
+}

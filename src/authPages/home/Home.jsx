@@ -7,6 +7,8 @@ import LiveSec from "./livesec/LiveSec";
 import PopularSkillPath from "./popularskillpath/PopularSkillPath";
 import BottomLive from "./bottomlive/BottomLive";
 import SavedList from "./savedlist/SavedList";
+import ExploreCard from "./explorecard/ExploreCard";
+import OfferCard from "./offercard/OfferCard";
 
 const Home = () => {
   return (
@@ -38,6 +40,8 @@ const Home = () => {
                 </button>
               </div>
               <SavedList />
+              <ExploreCard />
+              <OfferCard />
             </div>
           </div>
           <BottomLive />

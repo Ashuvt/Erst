@@ -46,7 +46,7 @@ const SavedList = () => {
               <p className="title">Module <span>{data.modules}</span></p>
               <div className="info">
                 <img src={icon.clock} alt="clock" />
-                <p>{data.duration}</p>
+                <p className="title">{data.duration}</p>
               </div>
             </div>
           </div>

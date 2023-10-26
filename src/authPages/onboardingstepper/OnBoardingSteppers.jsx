@@ -9,7 +9,7 @@ import { images } from "../../utils/images/images";
 import WOW from "wow.js";
 
 const OnBoardingSteppers = () => {
-  const [step, setStep] = useState(4);
+  const [step, setStep] = useState(1);
 
   useEffect(() => {
     const wow = new WOW();

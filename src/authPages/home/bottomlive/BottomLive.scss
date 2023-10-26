@@ -9,6 +9,9 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap:20px;
+    @media only screen and (max-width:$laptop){
+        grid-template-columns: 1fr 1fr;
+    }
     .live_card{
        
         .img_wrap{
