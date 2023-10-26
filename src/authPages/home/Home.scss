@@ -3,21 +3,37 @@
 @import "../../scss/typography";
 @import "../../scss/variables";
 
-.header_filler{
-    height:80px;
+.header_filler {
+    height: 80px;
 }
 
-section.home_content_screen{
-    margin-top:64px;
-    .screen_container{
-        display: grid;
-        grid-template-columns: 4fr 3fr;
-        gap:82px;
-        .left{
-            
-        }
+section.home_content_screen {
+    margin-top: 64px;
+    padding-bottom:60px;
 
-        .right{
+    .screen_container {
+
+        .content_grid {
+            display: grid;
+            grid-template-columns: 4fr 3fr;
+            gap: 82px;
+
+            .left {}
+
+            .right {
+                .in_progress{
+                    p{
+                        &.dark{
+                            color:$textPrimary;
+                            margin:32px 0px 12px;
+                        }
+                    }
+                    button{
+                        width:100%;
+                        margin-top:20px;
+                    }
+                }
+            }
         }
     }
 

@@ -3,16 +3,32 @@
 @import "../../../scss/typography";
 @import "../../../scss/variables";
 
-.live_card_info{
-    .img_wraper{
-        height:160px;
-        margin-bottom:20px;
-        img{
-            min-width:100%;
-            min-height:100%;
+.live_card_info {
+    .img_wraper {
+        height: 160px;
+        margin-bottom: 20px;
+        position:relative;
+
+        img {
+            min-width: 100%;
+            min-height: 100%;
 
         }
+        .free_pill {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            padding: 2px 8px;
+            background-color: $orange;
+            border-radius: 4px;
+
+            p {
+                @include font('SpaceGrotesk-Regular', 12px, 20px, 400, $textPrimary);
+                text-transform: uppercase;
+            }
+        }
     }
+
     p {
         @include font('Inter-Regular', 14px, 20px, 400, $textSecondary);
 

@@ -4,6 +4,9 @@ import "./Home.scss";
 import { Fragment } from "react";
 import RecommendedModules from "./recommendedmodules/RecommendedModules";
 import LiveSec from "./livesec/LiveSec";
+import PopularSkillPath from "./popularskillpath/PopularSkillPath";
+import BottomLive from "./bottomlive/BottomLive";
+import SavedList from "./savedlist/SavedList";
 
 const Home = () => {
   return (
@@ -16,12 +19,28 @@ const Home = () => {
       />
       <section className="home_content_screen">
         <div className="screen_container">
-          <div className="left">
-            <RecommendedModules />
-            <LiveSec />
-            
+          <div className="content_grid">
+            <div className="left">
+              <RecommendedModules />
+              <LiveSec />
+              <PopularSkillPath />
+            </div>
+            <div className="right">
+              <div className="in_progress">
+                <h5 className="title_class">In progress</h5>
+                <p className="dark">Pick a course and start learning</p>
+                <p>
+                  You’ve got limited access Cybergain courses, Choose a course
+                  and start your journey.
+                </p>
+                <button type="button" className="authbtn auth_primary">
+                  Cources
+                </button>
+              </div>
+              <SavedList />
+            </div>
           </div>
-          <div className="right"></div>
+          <BottomLive />
         </div>
       </section>
     </Fragment>

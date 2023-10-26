@@ -54,6 +54,12 @@ import getstartedD from "../../assets/images/getstartedD.png";
 import getstartedE from "../../assets/images/getstartedE.png";
 import getstartedF from "../../assets/images/getstartedF.png";
 import teacher from "../../assets/images/teacher.png";
+import skillPath from "../../assets/images/skillpath.png";
+import liveA from "../../assets/images/liveA.png";
+import liveB from "../../assets/images/liveB.png";
+import liveC from "../../assets/images/liveC.png";
+import liveD from "../../assets/images/liveD.png";
+
 
 // Icons
 import instagram from "../../assets/images/instagram.svg";
@@ -188,6 +194,11 @@ export const images = {
   getstartedE,
   getstartedF,
   teacher,
+  skillPath,
+  liveA,
+  liveB,
+  liveC,
+  liveD,
 };
 
 export const products = {

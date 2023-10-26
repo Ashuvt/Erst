@@ -1,7 +1,7 @@
 import BlueTextBtn from "../bluetextbtn/BlueTextBtn";
 import "./ModuleTitle.scss";
 
-const ModuleTitle = ({ title, text, icon }) => {
+const ModuleTitle = ({ title, text,btntext, icon }) => {
   return (
     <div className="module_title">
       <div className="text_side">
@@ -12,7 +12,7 @@ const ModuleTitle = ({ title, text, icon }) => {
         </p>
       </div>
 
-      <BlueTextBtn text="Explore Courses" icon={icon} />
+      <BlueTextBtn text={btntext} icon={icon} />
     </div>
   );
 };

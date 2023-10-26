@@ -1,0 +1,26 @@
+@import "../../../scss/common";
+@import "../../../scss/mixin";
+@import "../../../scss/typography";
+@import "../../../scss/variables";
+
+
+.home_bottom_live{
+    margin-top:50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap:20px;
+    .live_card{
+       
+        .img_wrap{
+            border-radius: 4px;
+            overflow: hidden;
+            img{
+                min-width:100%;
+                min-height:100%;
+            }
+        }
+        h5{
+            margin-top:5px;
+        }
+    }
+}
