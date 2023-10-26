@@ -1,0 +1,28 @@
+@import "../../../../scss/variables";
+@import "../../../../scss/typography";
+
+a.navbtns {
+    padding: 6px 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    @include font('Inter-Regular', 14px, 20px, 400, $white);
+    transition: all 0.3s ease-in-out;
+    border-radius: 16px;
+    text-transform: capitalize;
+    text-decoration: none;
+    img {
+        max-height: 16px;
+        max-width: 16px;
+    }
+    &.active{
+        background-color: $primary;
+        color:$white;        
+    }
+
+    &:hover {
+        background-color: $primary;
+        color:$white;        
+    }
+}

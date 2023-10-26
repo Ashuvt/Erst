@@ -1,5 +1,5 @@
 import "./StepA.scss";
-import { icons } from "../../../utils/images/icons";
+import { icon } from "../../../utils/images/icons";
 
 
 const StepA = ({setStep}) => {
@@ -22,7 +22,7 @@ const SkipHandler = () => {
         <div className="auth_field wow slideInUp">
           <div className="input_wrap">
             <input type="search" placeholder="search" name="search" autoComplete="off" />
-            <img className="field_icon" src={icons.search} alt="email" />
+            <img className="field_icon" src={icon.search} alt="email" />
           </div>
         </div>
 

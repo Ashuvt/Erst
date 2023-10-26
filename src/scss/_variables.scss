@@ -1,42 +1,41 @@
-
-
 // Colors
-$primary:#1477C9;
-$secondary:#ffc52c;
-$bgLight:#1D1E1F;
+$primary: #1477C9;
+$secondary: #ffc52c;
+$bgLight: #1D1E1F;
 $primaryGlass: #be43e4;
-$grey:#666666;
-$white:#ffffff;
-$dark:#000000;
-$lightDark:rgba(0, 0, 0, 0.1);
-$card:#222;
-$cardBorder:rgba(255, 255, 255, 0.1);
-$lightBorder:rgba(255, 255, 255, 0.05);
-$lightBorder_1:rgba(255, 255, 255, 0.5);
-$lightBorder_2:rgba(255, 255, 255, 0.2);
-$lightBorder_3:rgba(255, 255, 255, .15);
+$grey: #666666;
+$white: #ffffff;
+$dark: #000000;
+$lightDark: rgba(0, 0, 0, 0.1);
+$card: #222;
+$cardBorder: rgba(255, 255, 255, 0.1);
+$lightBorder: rgba(255, 255, 255, 0.05);
+$lightBorder_1: rgba(255, 255, 255, 0.5);
+$lightBorder_2: rgba(255, 255, 255, 0.2);
+$lightBorder_3: rgba(255, 255, 255, .15);
 
 // Text Color
-$textPrimary:#E5E5E6;
-$textSecondary:#828387; 
-$textHint:#505053;
-
-$borderLight:#2C2C2E;
-$textContrast:#171819;
+$textPrimary: #E5E5E6;
+$textSecondary: #828387;
+$textHint: #505053;
+$cardB: rgba(255, 255, 255, 0.70);
+$borderLight: #2C2C2E;
+$textContrast: #171819;
+$blackBg:rgba(0, 0, 0, 0.40);
 
 // Gradient
-$bgGradient:linear-gradient(106deg, rgba(20, 119, 201, 0.59) -132.28%, rgba(20, 119, 201, 0.00) 38.81%, rgba(255, 197, 44, 0.24) 112.21%);
-$primaryGradient:linear-gradient(315deg, $secondary, $primary);
-$primaryGradient_1:linear-gradient(135deg, $primary 30%, $secondary);
-$primaryGradient_2:linear-gradient(135deg, $secondary, $primary);
-$primaryGradient_3:linear-gradient(135deg, #9558bc 12%, $secondary);
-$primaryGradient_4:linear-gradient(225deg, $primary, $secondary);
-$primaryGradient_5:linear-gradient(135deg, $primary, $secondary);
+$bgGradient: linear-gradient(106deg, rgba(20, 119, 201, 0.59) -132.28%, rgba(20, 119, 201, 0.00) 38.81%, rgba(255, 197, 44, 0.24) 112.21%);
+$primaryGradient: linear-gradient(315deg, $secondary, $primary);
+$primaryGradient_1: linear-gradient(135deg, $primary 30%, $secondary);
+$primaryGradient_2: linear-gradient(135deg, $secondary, $primary);
+$primaryGradient_3: linear-gradient(135deg, #9558bc 12%, $secondary);
+$primaryGradient_4: linear-gradient(225deg, $primary, $secondary);
+$primaryGradient_5: linear-gradient(135deg, $primary, $secondary);
 $primaryGradient_6: linear-gradient(135deg, $primary 17%, $secondary);
 
-$secondaryGradient:linear-gradient(rgba(255, 255, 255, .1), rgba(255, 255, 255, .1));
+$secondaryGradient: linear-gradient(rgba(255, 255, 255, .1), rgba(255, 255, 255, .1));
 
 // Break Points
-$laptop:992px;
-$tab:767px;
-$mobile:479px;
+$laptop: 992px;
+$tab: 767px;
+$mobile: 479px;

@@ -1,0 +1,42 @@
+@import "../../../scss/common";
+@import "../../../scss/mixin";
+@import "../../../scss/typography";
+@import "../../../scss/variables";
+
+section.welcome_strip {
+    background: $bgGradient;
+    position: relative;
+    overflow: hidden;
+
+    .screen_container {
+        padding-top: 88px;
+        padding-bottom: 88px;
+
+        h1 {
+            @include font('SpaceGrotesk-Regular', 40px, 44px, 400, $white);
+        }
+
+        p {
+            margin-top: 12px;
+            max-width: 370px;
+            width: 100%;
+        }
+    }
+
+    img {
+        position: absolute;
+        width: 676.778px;
+        height: 547.681px;
+
+        &.left {
+            left: -20%;
+            bottom:-20%;
+        }
+
+        &.right {
+            right:0%;
+            top:0%;
+            transform: rotate(-45deg);
+        }
+    }
+}

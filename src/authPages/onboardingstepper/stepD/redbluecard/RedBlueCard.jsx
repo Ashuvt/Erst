@@ -1,5 +1,5 @@
 import "./RedBlueCard.scss";
-import { icons } from "../../../../utils/images/icons";
+import { icon } from "../../../../utils/images/icons";
 import { Fragment } from "react";
 
 const RedBlueCard = ({
@@ -18,7 +18,7 @@ const RedBlueCard = ({
         <div className="logo_wrap">
           <img src={img} alt="logo" />
           <div className="rating">
-            <img src={icons.starYellow} alt="star" />
+            <img src={icon.starYellow} alt="star" />
             <p>{rating}</p>
           </div>
         </div>
@@ -29,11 +29,11 @@ const RedBlueCard = ({
         <p className="description">{desc}</p>
         <div className="counts">
           <div className="info">
-            <img src={icons.students} alt="students" />
+            <img src={icon.students} alt="students" />
             <p>{students} Students</p>
           </div>
           <div className="info">
-            <img src={icons.clock} alt="clock" />
+            <img src={icon.clock} alt="clock" />
             <p>{duration}</p>
           </div>
         </div>

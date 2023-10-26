@@ -203,6 +203,10 @@ h5 {
     @media only screen and (max-width:$mobile) {
         @include font('SpaceGrotesk-Regular', 22px, 24.2px, 600, $white);
     }
+
+    &.small_title{
+        @include font('SpaceGrotesk-Regular', 20px, 24px, 400, $white);
+    }
 }
 
 h6 {

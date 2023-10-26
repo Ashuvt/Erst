@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import { icons } from "../../../utils/images/icons";
+import { icon } from "../../../utils/images/icons";
 import "./StepD.scss";
 import RedBlueCard from "./redbluecard/RedBlueCard";
 
@@ -7,7 +7,7 @@ const StepD = () => {
  const cardData = [
     {
       id: 111,
-      img: icons.redTeam,
+      img: icon.redTeam,
       rating: 4.5,
       color:"#CC0A0A",
       team: "RedTeam",
@@ -18,7 +18,7 @@ const StepD = () => {
     },
     {
       id: 222,
-      img: icons.blueTeam,
+      img: icon.blueTeam,
       rating: 4.5,
       color:"#0A1633",
       team: "BlueTeam",

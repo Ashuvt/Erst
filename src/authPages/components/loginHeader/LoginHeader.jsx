@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import "./LoginHeader.scss";
 import { logoImage } from "../../../utils/images/images";
-import { icons } from "../../../utils/images/icons";
+import { icon } from "../../../utils/images/icons";
 import { useNavigate } from "react-router-dom";
 
 export const LoginHeader = ({
@@ -30,7 +30,7 @@ export const LoginHeader = ({
           <div className="left">
             {left && (
               <button type="button" onClick={backBtnHandler}>
-                <img src={icons.arrowLeft} alt="leftArrow" />
+                <img src={icon.arrowLeft} alt="leftArrow" />
               </button>
             )}
           </div>

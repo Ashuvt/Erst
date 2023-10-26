@@ -1,0 +1,83 @@
+@import "../../../scss/common";
+@import "../../../scss/mixin";
+@import "../../../scss/typography";
+@import "../../../scss/variables";
+
+section.courses_header {
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0);
+    position: fixed;
+    top: 0%;
+    bottom: 0%;
+    left: 0%;
+    right: 0%;
+    background-color: rgba(0, 0, 0, 0.65);
+    height: 80px;
+    z-index: 9999;
+    .screen_container {
+        position:relative;
+        header {
+            padding: 24px 0px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+
+            a.brand {
+                img {
+                    height: 32px;
+                }
+            }
+
+            nav {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .profile {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                gap: 20px;
+
+                button {
+                    border-style: none;
+                    background-color: transparent;
+                    &.profile_btn{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        gap:8px;
+                    }
+
+                    .img_wrap {
+                        height: 32px;
+                        width: 32px;
+                        border-radius: 50%;
+                        overflow: hidden;
+
+                        img {
+                            min-height: 100%;
+                            min-width: 100%;
+                            border-radius: 50%;
+                            object-fit: cover;
+                        }
+                    }
+
+                    img{
+                        transition: 0.2s ease-in-out;
+                        &.open{
+                            transform: rotateX(0deg);
+                        }
+                        &.close{
+                            transform: rotateX(180deg);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

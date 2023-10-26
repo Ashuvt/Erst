@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "./Login.scss";
 import { Fragment } from "react";
 import LoginHeader from "../components/loginHeader/LoginHeader";
-import { icons } from "../../utils/images/icons";
+import { icon } from "../../utils/images/icons";
 import { useNavigate } from "react-router-dom";
 import WOW from "wow.js";
 
@@ -66,7 +66,7 @@ const Login = () => {
                   value={loginForm.email}
                   onChange={inputHandler}
                 />
-                <img className="field_icon" src={icons.email} alt="email" />
+                <img className="field_icon" src={icon.email} alt="email" />
               </div>
             </div>
 
@@ -82,9 +82,9 @@ const Login = () => {
                 />
                 <button type="button" onClick={() => setEye(!eye)}>
                   {eye ? (
-                    <img src={icons.eyeSlash} alt="email" />
+                    <img src={icon.eyeSlash} alt="email" />
                   ) : (
-                    <img src={icons.eye} alt="email" />
+                    <img src={icon.eye} alt="email" />
                   )}
                 </button>
               </div>

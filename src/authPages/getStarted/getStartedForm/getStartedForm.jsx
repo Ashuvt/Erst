@@ -1,7 +1,7 @@
 import "./getStartedForm.scss";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { icons } from "../../../utils/images/icons";
+import { icon } from "../../../utils/images/icons";
 import WOW from "wow.js";
 
 const GetStartedForm = () => {
@@ -70,7 +70,7 @@ const GetStartedForm = () => {
               value={getStartedForm.email}
               onChange={inputHandler}
             />
-            <img className="field_icon" src={icons.email} alt="email" />
+            <img className="field_icon" src={icon.email} alt="email" />
           </div>
         </div>
 
@@ -86,9 +86,9 @@ const GetStartedForm = () => {
             />
             <button type="button" onClick={() => setEye(!eye)}>
               {eye ? (
-                <img src={icons.eyeSlash} alt="email" />
+                <img src={icon.eyeSlash} alt="email" />
               ) : (
-                <img src={icons.eye} alt="email" />
+                <img src={icon.eye} alt="email" />
               )}
             </button>
           </div>

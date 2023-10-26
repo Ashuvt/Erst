@@ -40,7 +40,7 @@ import redTeam from "../../assets/images/icons/redteam.svg";
 import blueTeam from "../../assets/images/icons/blueteam.svg";
 import starYellow from "../../assets/images/icons/staryellow.svg";
 
-export const icons = {
+export const icon = {
   angleUp,
   angleRight,
   angleDown,

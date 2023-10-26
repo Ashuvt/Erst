@@ -46,14 +46,13 @@ import earningA from "../../assets/images/earninga.webp";
 import earningB from "../../assets/images/earningb.webp";
 import blogView from "../../assets/images/blogview.jpg";
 import squareBg from "../../assets/images/sqarebg.webp";
-import bgPatter from "../../assets/images/bgpattern.svg";
+import bgPattern from "../../assets/images/bgpattern.svg";
 import getstartedA from "../../assets/images/getstartedA.png";
 import getstartedB from "../../assets/images/getstartedB.png";
 import getstartedC from "../../assets/images/getstartedC.png";
 import getstartedD from "../../assets/images/getstartedD.png";
 import getstartedE from "../../assets/images/getstartedE.png";
 import getstartedF from "../../assets/images/getstartedF.png";
-
 
 // Icons
 import instagram from "../../assets/images/instagram.svg";
@@ -180,7 +179,7 @@ export const images = {
   earningB,
   blogView,
   squareBg,
-  bgPatter,
+  bgPattern,
   getstartedA,
   getstartedB,
   getstartedC,

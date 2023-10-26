@@ -21,6 +21,7 @@ import store from "./store/store";
 import Login from "./authPages/login/Login";
 import GetStarted from "./authPages/getStarted/GetStarted";
 import OnBoardingSteppers from "./authPages/onboardingstepper/OnBoardingSteppers";
+import Home from "./authPages/home/Home";
 
 function App() {
   var menu;
@@ -62,6 +63,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/getstarted" element={<GetStarted />} />
           <Route path="/onborading" element={<OnBoardingSteppers />} />
+
+          <Route path="/home" element={<Home />} />
         </Routes>
       </Provider>
     </Fragment>

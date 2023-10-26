@@ -1,0 +1,18 @@
+@import "../../../scss/variables";
+@import "../../../scss/typography";
+@import "../../../scss/mixin";
+
+
+
+button.blue_text_btn{
+    padding:8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:4px;
+    border-style: none;
+    background-color: transparent;
+    @include font('Inter-Regular', 20px, 24px, 400, $primary);
+    text-transform: capitalize;
+    
+}

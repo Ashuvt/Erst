@@ -1,0 +1,55 @@
+@import "../../../../scss/common";
+@import "../../../../scss/mixin";
+@import "../../../../scss/typography";
+@import "../../../../scss/variables";
+
+
+.profile_menu_card {
+    padding: 24px;
+    width: 240px;
+    border-radius: 8px;
+    border: 1px solid $cardB;
+    background: $blackBg;
+    box-shadow: 0px 16px 40px 0px $blackBg;
+    position: absolute;
+    top: 90px;
+    right: 0px;
+    transition: all 0.5s ease-in-out;
+
+    &.close {
+        opacity: 01;
+        display: none;
+    }
+
+    &.open {
+        opacity: 1;
+        display: block;
+    }
+
+    @media only screen and (max-width:$tab) {
+        padding: 15px;
+    }
+
+    @media only screen and (max-width:$mobile) {
+        width: 100%;
+    }
+
+    h1 {
+        @include font('SpaceGrotesk-Regular', 20px, 34px, 400, $textPrimary);
+        margin-bottom: 16px;
+    }
+
+    button {
+        padding:4px 0px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        border-style: none;
+        background: transparent;
+        gap:15px;
+        margin-top:8px;
+        p {
+            @include font('Inter-Regular', 14px, 20px, 400, $textPrimary);
+        }
+    }
+}

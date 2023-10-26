@@ -1,0 +1,67 @@
+@import "../../../../scss/variables";
+@import "../../../../scss/typography";
+
+.notification_card {
+    width: 480px;
+    padding: 24px;
+    border-radius: 8px;
+    border: 1px solid $cardB;
+    background:$blackBg;
+    box-shadow: 0px 16px 40px 0px $blackBg;
+    position: absolute;
+    top: 90px;
+    right: 0px;
+    transition: all 0.5s ease-in-out;
+    &.close {
+        opacity: 01;
+        display: none;
+    }
+    &.open {
+        opacity: 1;
+        display: block;
+    }
+   
+    @media only screen and (max-width:$tab) {
+        padding: 15px;
+    }
+
+    @media only screen and (max-width:500px) {
+        width: 100%;
+    }
+
+    h1 {
+        @include font('SpaceGrotesk-Regular', 20px, 34px, 400, $textPrimary);
+        margin-bottom: 32px;
+    }
+
+    .notification_data {
+        margin-top: 32px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 16px;
+
+        .text_content {
+            p {
+                @include font('Inter-Regular', 14px, 20px, 400, $textSecondary);
+
+                &.title {
+                    color: $textPrimary;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 8px;
+                    flex-wrap: wrap;
+                }
+
+                span {
+                    @include font('SpaceGrotesk-Regular', 12px, 16px, 400, $textHint);
+                }
+            }
+
+            button {
+                margin-top: 16px;
+            }
+        }
+    }
+}
