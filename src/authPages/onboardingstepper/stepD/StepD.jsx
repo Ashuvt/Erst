@@ -1,25 +1,51 @@
+import { Fragment } from "react";
 import { icons } from "../../../utils/images/icons";
 import "./StepD.scss";
+import RedBlueCard from "./redbluecard/RedBlueCard";
 
 const StepD = () => {
+ const cardData = [
+    {
+      id: 111,
+      img: icons.redTeam,
+      rating: 4.5,
+      color:"#CC0A0A",
+      team: "RedTeam",
+      desc: "Experience our Red Team Course, designed to enhance your personal skills and unleash...",
+      students: 1413,
+      duration: "18h 12m",
+      modules: ["item", "item", "item(Locked)", "item(Locked)", "item(Locked)", "item(Locked)", "item(Locked)", "item(Locked)", "item(Locked)", "item(Locked)", "item(Locked)"],
+    },
+    {
+      id: 222,
+      img: icons.blueTeam,
+      rating: 4.5,
+      color:"#0A1633",
+      team: "BlueTeam",
+      desc: "Introducing the Blue Team course, a comprehensive certification pathway ...",
+      students: 1413,
+      duration: "18h 12m",
+      modules: ["item", "item", "item(Locked)", "item(Locked)", "item(Locked)", "item(Locked)", "item(Locked)", "item(Locked)", "item(Locked)", "item(Locked)", "item(Locked)"],
+    },
+  ];
+
   return (
     <div className="step_d">
-      <h1 className="small_title">
-        Hey Rajat, tell us about your department profession
+      <h1 className="small_title wow slideInUp">
+        Start with our free expertly-curated lessons from courses
       </h1>
-      <p>
+      <p className="wow slideInUp">
         You can change and subscribe to other courses anytime in your learning
         journey.
       </p>
       <div className="cources_bigrid">
-        <div className="team red">
-          <div className="logo_wrap">
-            <img src={icons.redTeam} alt="teamLogo" />
-          </div>
-        </div>
-        <div className="team blue">
-          <img src={icons.blueTeam} alt="teamLogo" />
-        </div>
+        {cardData.map((data) => {
+          return (
+            <Fragment>
+              <RedBlueCard {...data} />
+            </Fragment>
+          );
+        })}
       </div>
     </div>
   );

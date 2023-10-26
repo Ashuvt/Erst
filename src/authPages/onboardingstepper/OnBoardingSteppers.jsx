@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment, useState, useEffect } from "react";
 import "./OnBoardingSteppers.scss";
 import LoginHeader from "../components/loginHeader/LoginHeader";
 import StepA from "./stepA/StepA";
@@ -6,9 +6,15 @@ import StepB from "./stepB/StepB";
 import StepC from "./stepC/StepC";
 import StepD from "./stepD/StepD";
 import { images } from "../../utils/images/images";
+import WOW from "wow.js";
 
 const OnBoardingSteppers = () => {
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(4);
+
+  useEffect(() => {
+    const wow = new WOW();
+    wow.init();
+  }, []);
 
    return (
     <Fragment>

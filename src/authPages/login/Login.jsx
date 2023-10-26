@@ -1,12 +1,18 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./Login.scss";
 import { Fragment } from "react";
 import LoginHeader from "../components/loginHeader/LoginHeader";
 import { icons } from "../../utils/images/icons";
 import { useNavigate } from "react-router-dom";
+import WOW from "wow.js";
 
 const Login = () => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const wow = new WOW();
+    wow.init();
+  }, []);
 
   const [eye, setEye] = useState(false);
   const [loginForm, setLoginForm] = useState({
@@ -41,8 +47,8 @@ const Login = () => {
         <div className="auth_container">
           <form>
             <div className="title">
-              <h1 className="small_title">Login</h1>
-              <div className="suggetion">
+              <h1 className="small_title wow slideInUp">Login</h1>
+              <div className="suggetion wow slideInUp">
                 <p>New user?</p>
                 <button type="button" onClick={getStarted}>
                   <p>Get started for free</p>
@@ -50,7 +56,7 @@ const Login = () => {
               </div>
             </div>
 
-            <div className="auth_field">
+            <div className="auth_field wow slideInUp">
               <label>email</label>
               <div className="input_wrap">
                 <input
@@ -64,7 +70,7 @@ const Login = () => {
               </div>
             </div>
 
-            <div className="auth_field mt">
+            <div className="auth_field mt wow slideInUp">
               <label>password</label>
               <div className="input_wrap">
                 <input
@@ -87,14 +93,14 @@ const Login = () => {
             <div className="btns">
               <button
                 type="button"
-                className="authbtn auth_primary"
+                className="authbtn auth_primary wow slideInUp"
                 onClick={loginHandler}
               >
                 Login
               </button>
               <button
                 type="button"
-                className="authbtn auth_secondary"
+                className="authbtn auth_secondary wow slideInUp"
                 onClick={getStarted}
               >
                 Get started for free

@@ -1,10 +1,16 @@
 import "./getStartedForm.scss";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { icons } from "../../../utils/images/icons";
+import WOW from "wow.js";
 
 const GetStartedForm = () => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const wow = new WOW();
+    wow.init();
+  }, []);
 
   const [eye, setEye] = useState(false);
   const [getStartedForm, setGetStartedForm] = useState({
@@ -32,8 +38,8 @@ const GetStartedForm = () => {
     <div className="get_started_form">
       <form>
         <div className="title">
-          <h1 className="small_title">Get started</h1>
-          <div className="suggetion">
+          <h1 className="small_title wow slideInUp">Get started</h1>
+          <div className="suggetion wow slideInUp">
             <p>Already have an account?</p>
             <button type="button" onClick={goToLogin}>
               <p>login</p>
@@ -41,7 +47,7 @@ const GetStartedForm = () => {
           </div>
         </div>
 
-        <div className="auth_field">
+        <div className="auth_field wow slideInUp">
           <label>name</label>
           <div className="input_wrap">
             <input
@@ -54,7 +60,7 @@ const GetStartedForm = () => {
           </div>
         </div>
 
-        <div className="auth_field mt">
+        <div className="auth_field mt wow slideInUp">
           <label>email</label>
           <div className="input_wrap">
             <input
@@ -68,7 +74,7 @@ const GetStartedForm = () => {
           </div>
         </div>
 
-        <div className="auth_field mt">
+        <div className="auth_field mt wow slideInUp">
           <label>password</label>
           <div className="input_wrap">
             <input
@@ -87,14 +93,14 @@ const GetStartedForm = () => {
             </button>
           </div>
         </div>
-        <p className="notice">
+        <p className="notice wow slideInUp">
         At least 8 characters, 1 number, 1 lowercase letter, 1 uppercase letter
         </p>
 
         <div className="btns">
           <button
             type="button"
-            className="authbtn auth_primary"
+            className="authbtn auth_primary wow slideInUp"
             onClick={() => navigate("/onborading")}
 
           >
@@ -102,13 +108,13 @@ const GetStartedForm = () => {
           </button>
           <button
             type="button"
-            className="authbtn auth_secondary"
+            className="authbtn auth_secondary wow slideInUp"
             onClick={goToLogin}
           >
             login
           </button>
         </div>
-        <p className="notice">
+        <p className="notice wow slideInUp">
         By creating an account, you agree to our <span>Terms of Service</span> and <span>Privacy Policy.</span>
         </p>
       </form>

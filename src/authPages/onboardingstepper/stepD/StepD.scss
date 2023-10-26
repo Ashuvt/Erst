@@ -11,7 +11,7 @@
     h1 {
         text-align: center;
         width: 100%;
-        max-width: 400px;
+        max-width: 500px;
         margin-left: auto;
         margin-right: auto;
     }
@@ -20,7 +20,7 @@
         text-align: center;
         margin: 16px 0px 40px;
         width: 100%;
-        max-width: 400px;
+        max-width: 500px;
         margin-left: auto;
         margin-right: auto;
     }
@@ -30,18 +30,8 @@
         grid-template-columns: 1fr 1fr;
         gap: 24px;
 
-        .team {
-            padding: 16px;
-            border-radius: 16px;
-            border: 1px solid var(--border-light, #2C2C2E);
-            background: var(--Card-fill, linear-gradient(113deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.00) 110.84%));
-            .logo_wrap{
-                padding:12px;
-                border-radius: 4px;
-                display: flex;
-                align-items: center;
-                justify-content:center;
-            }
-        }
+       @media only screen and (max-width:$tab){
+        grid-template-columns: 1fr;
+       }
     }
 }

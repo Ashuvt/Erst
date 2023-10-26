@@ -9,22 +9,22 @@ const StepB = ({ setStep }) => {
 
   return (
     <div className="step_b">
-      <h1 className="small_title">
+      <h1 className="small_title wow slideInUp">
         Hey Rajat, tell us about your department profession
       </h1>
-      <p>Let’s help you setup your learning path</p>
+      <p className="wow slideInUp">Let’s help you setup your learning path</p>
 
       <div className="btns">
         <button
           type="button"
-          className="authbtn auth_primary"
+          className="authbtn auth_primary wow slideInUp"
           onClick={continueHandler}
         >
           Continue
         </button>
         <button
           type="button"
-          className="authbtn auth_secondary"
+          className="authbtn auth_secondary wow slideInUp"
           onClick={SkipHandler}
         >
           Skip

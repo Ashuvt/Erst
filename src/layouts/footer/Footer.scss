@@ -4,7 +4,7 @@
 @import "../../scss/variables";
 
 section.footer {
-  background: linear-gradient(135deg, $primary 15%, $secondary);
+  background: $bgGradient;
   padding-top: 130px;
   padding-bottom: 80px;
 
@@ -71,7 +71,7 @@ section.footer {
           }
 
           a {
-            @include font("Syne-Medium", 12px, 15.96px, 500, $white);
+            @include font("Inter-Medium", 12px, 15.96px, 500, $white);
             text-transform: uppercase;
             text-decoration: none;
             letter-spacing: 2.4px;
@@ -103,8 +103,6 @@ section.footer {
         margin-bottom: 50px;
         padding-top: 50px;
         padding-bottom: 50px;
-        // border-top: 1px solid rgba(255, 255, 255, 0.2);
-        // border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         position:relative;
         @media only screen and (max-width:$tab) {
           margin-top: 30px;
@@ -149,7 +147,7 @@ section.footer {
 
           .grid_box {
             p {
-              @include font("Syne-Regular", 17px, 25.5px, 400, rgba(255, 255, 255, .7));
+              @include font("Inter-Regular", 17px, 25.5px, 400, rgba(255, 255, 255, .7));
               margin: 15px 0px 30px;
             }
 
@@ -176,7 +174,7 @@ section.footer {
                   border-style: none;
                   margin-right: 0;
                   padding-bottom: 6px;
-                  @include font("Syne-Regular", 17px, 24.28px, 400, $white);
+                  @include font("Inter-Regular", 17px, 24.28px, 400, $white);
                   transition: all .5s;
                   width: 350px;
                   max-width: 100%;
@@ -187,7 +185,7 @@ section.footer {
                   }
 
                   &::placeholder {
-                    @include font("Syne-Regular", 17px, 24.28px, 400, $white);
+                    @include font("Inter-Regular", 17px, 24.28px, 400, $white);
                   }
                 }
 
@@ -244,7 +242,7 @@ section.footer {
                 align-items: flex-start;
 
                 a {
-                  @include font("Syne-Medium", 14px, 18.62px, 500, $white);
+                  @include font("Inter-Medium", 14px, 18.62px, 500, $white);
                   text-decoration: none;
                   letter-spacing: 2.8px;
                 }
@@ -314,13 +312,13 @@ section.footer {
 
         .left {
           p {
-            @include font("Syne-Regular", 17px, 25.5px, 400, rgba(255, 255, 255, 0.7));
+            @include font("Inter-Regular", 17px, 25.5px, 400, rgba(255, 255, 255, 0.7));
           }
         }
 
         .right {
           p {
-            @include font("Syne-Regular", 17px, 25.5px, 400, rgba(255, 255, 255, 0.7));
+            @include font("Inter-Regular", 17px, 25.5px, 400, rgba(255, 255, 255, 0.7));
 
             span.white {
               color: $white;

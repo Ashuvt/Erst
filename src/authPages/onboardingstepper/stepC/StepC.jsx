@@ -93,16 +93,16 @@ const StepC = ({ setStep }) => {
 
   return (
     <div className="step_c">
-      <h1 className="small_title">
-        Hey Rajat, tell us about your department profession
+      <h1 className="small_title wow slideInUp">
+      Hey Rajat, tell us about fields of interests
       </h1>
-      <p>Let’s help you setup your learning path</p>
+      <p className="wow slideInUp">Let’s help you setup your learning path</p>
 
       <div className="tags_wrap">
         {tagsData.map((ele) => {
           return (
             <Fragment key={ele.id}>
-              <button type="button" className="tagbtn">{ele.text}</button>
+              <button type="button" className="tagbtn wow slideInUp">{ele.text}</button>
             </Fragment>
           );
         })}
@@ -111,14 +111,14 @@ const StepC = ({ setStep }) => {
       <div className="btns">
         <button
           type="button"
-          className="authbtn auth_primary"
+          className="authbtn auth_primary wow slideInUp"
           onClick={continueHandler}
         >
           Continue
         </button>
         <button
           type="button"
-          className="authbtn auth_secondary"
+          className="authbtn auth_secondary wow slideInUp"
           onClick={SkipHandler}
         >
           Skip

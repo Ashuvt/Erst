@@ -33,7 +33,11 @@
             background: $bgLight;
             @include font('Inter-Regular', 14px, 20px, 400, $textSecondary);
             text-align: center;
+            transition:all 0.3s ease-in-out;
 
+            &:hover{
+                border:1px solid $textSecondary;
+            }
         }
     }
 
