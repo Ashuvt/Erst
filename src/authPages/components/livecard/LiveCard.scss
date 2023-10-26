@@ -1,0 +1,24 @@
+@import "../../../scss/common";
+@import "../../../scss/mixin";
+@import "../../../scss/typography";
+@import "../../../scss/variables";
+
+.live_card_info{
+    .img_wraper{
+        height:160px;
+        margin-bottom:20px;
+        img{
+            min-width:100%;
+            min-height:100%;
+
+        }
+    }
+    p {
+        @include font('Inter-Regular', 14px, 20px, 400, $textSecondary);
+
+        &.title {
+            @include font('SpaceGrotesk-Regular', 16px, 20px, 400, $textPrimary);
+            margin-bottom: 8px;
+        }
+    }
+}

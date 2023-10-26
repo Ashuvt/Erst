@@ -39,6 +39,9 @@ import certificate from "../../assets/images/icons/certificate.svg";
 import redTeam from "../../assets/images/icons/redteam.svg";
 import blueTeam from "../../assets/images/icons/blueteam.svg";
 import starYellow from "../../assets/images/icons/staryellow.svg";
+import blueRightArrow from "../../assets/images/icons/bluearrowwright.svg";
+
+
 
 export const icon = {
   angleUp,
@@ -81,6 +84,7 @@ export const icon = {
   redTeam,
   starYellow,
   blueTeam,
+  blueRightArrow,
 
   playfill,
 };

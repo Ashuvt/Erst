@@ -53,6 +53,7 @@ import getstartedC from "../../assets/images/getstartedC.png";
 import getstartedD from "../../assets/images/getstartedD.png";
 import getstartedE from "../../assets/images/getstartedE.png";
 import getstartedF from "../../assets/images/getstartedF.png";
+import teacher from "../../assets/images/teacher.png";
 
 // Icons
 import instagram from "../../assets/images/instagram.svg";
@@ -186,6 +187,7 @@ export const images = {
   getstartedD,
   getstartedE,
   getstartedF,
+  teacher,
 };
 
 export const products = {

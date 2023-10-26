@@ -6,3 +6,19 @@
 .header_filler{
     height:80px;
 }
+
+section.home_content_screen{
+    margin-top:64px;
+    .screen_container{
+        display: grid;
+        grid-template-columns: 4fr 3fr;
+        gap:82px;
+        .left{
+            
+        }
+
+        .right{
+        }
+    }
+
+}
