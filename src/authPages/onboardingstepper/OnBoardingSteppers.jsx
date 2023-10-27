@@ -26,7 +26,7 @@ const OnBoardingSteppers = () => {
         setStep={setStep}
       />      
       <section className="onboarding_stepper">
-      <img src={images.bgPatter} alt="bg" className="bg" />
+      <img src={images.bgPattern} alt="bg" className="bg" />
         <div className="auth_container">
           {step == 1 && <StepA setStep={setStep} />}
           {step == 2 && <StepB setStep={setStep} />}

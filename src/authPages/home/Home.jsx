@@ -9,8 +9,37 @@ import BottomLive from "./bottomlive/BottomLive";
 import SavedList from "./savedlist/SavedList";
 import ExploreCard from "./explorecard/ExploreCard";
 import OfferCard from "./offercard/OfferCard";
+import FourBoxInfo from "../components/fourboxinfo/FourBoxInfo";
+import { icon } from "../../utils/images/icons";
 
 const Home = () => {
+
+  const fourInfoData = [
+    {
+      id:0,
+      icon:icon.module,
+      title:"36 Modules",
+      text:"Get a certificate on completing the course. You can share it on your LinkedIn."
+    },
+    {
+      id:1,
+      icon:icon.courses,
+      title:"09 Courses",
+      text:"Across courses, you’ll get to test yourself within 10 quizzes and 5 projects."
+    },
+    {
+      id:2,
+      icon:icon.clock,
+      title:"26h Learning Time",
+      text:"Get in groups with other students and exchange ideas."
+    },
+    {
+      id:3,
+      icon:icon.quizandproject,
+      title:"24 Quizzes",
+      text:"Across courses, you’ll get to test yourself within 10 quizzes and 5 projects."
+    },
+  ]
   return (
     <Fragment>
       <div className="header_filler"></div>
@@ -24,6 +53,7 @@ const Home = () => {
           <div className="content_grid">
             <div className="left">
               <RecommendedModules />
+              <FourBoxInfo title="Your Roadmap" data={fourInfoData} />
               <LiveSec />
               <PopularSkillPath />
             </div>

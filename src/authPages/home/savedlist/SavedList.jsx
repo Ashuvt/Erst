@@ -34,7 +34,7 @@ const SavedList = () => {
 
       {info.map((data) => {
         return (
-          <div className="saved_card">
+          <div className="saved_card" key={data.id}>
             <div className="title_line">
               <p className="title">Red Team</p>
               <button type="button">

@@ -28,7 +28,7 @@ const BottomLive = () => {
     <div className="home_bottom_live">
       {liveData.map((data) => {
         return (
-          <div className="live_card">
+          <div className="live_card" key={data.id}>
             <div className="img_wrap">
               <img src={data.img} alt="poster" />
             </div>

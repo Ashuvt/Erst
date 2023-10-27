@@ -46,7 +46,7 @@ const GetStartedInfo = () => {
 
   return (
     <div className="getstarted_info">
-      <img src={images.bgPatter} alt="bg" className="bg" />
+      <img src={images.bgPattern} alt="bg" className="bg" />
       <h1 className="small_title wow slideInUp">
         Become a cybersecurity hero with Cybergain
       </h1>

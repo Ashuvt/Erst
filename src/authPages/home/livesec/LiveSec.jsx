@@ -32,7 +32,7 @@ const LiveSec = () => {
       <div className="live_sec_module">
         {data.map((data) => {
           return (
-            <Fragment>
+            <Fragment key={data.id}>
               <LiveCard {...data} />
             </Fragment>
           );
