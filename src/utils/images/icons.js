@@ -40,6 +40,7 @@ import redTeam from "../../assets/images/icons/redteam.svg";
 import blueTeam from "../../assets/images/icons/blueteam.svg";
 import starYellow from "../../assets/images/icons/staryellow.svg";
 import blueRightArrow from "../../assets/images/icons/bluearrowwright.svg";
+import bgRibbin from "../../assets/images/icons/ribbinbg.svg";
 
 
 
@@ -85,6 +86,9 @@ export const icon = {
   starYellow,
   blueTeam,
   blueRightArrow,
+  bgRibbin,
+
+
 
   playfill,
 };

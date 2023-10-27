@@ -15,6 +15,7 @@ section.courses_header {
     background-color: rgba(0, 0, 0, 0.65);
     height: 80px;
     z-index: 9999;
+    border-bottom: 1px solid $borderSubtle;
     .screen_container {
         position:relative;
         header {

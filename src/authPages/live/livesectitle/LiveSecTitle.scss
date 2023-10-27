@@ -1,0 +1,15 @@
+@import "../../../scss/common";
+@import "../../../scss/mixin";
+@import "../../../scss/typography";
+@import "../../../scss/variables";
+
+
+.live_sec_title{
+    max-width:562px;
+    width:100%;
+    margin-top:44px;
+    h2{
+        @include font('SpaceGrotesk-Regular', 16px, 20px, 400, $textPrimary);
+        margin-bottom:8px;
+    }
+}

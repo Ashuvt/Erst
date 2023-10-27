@@ -1,0 +1,21 @@
+@import "../../../scss/common";
+@import "../../../scss/mixin";
+@import "../../../scss/typography";
+@import "../../../scss/variables";
+
+
+.live_video_grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap:16px;
+    margin-top:32px;
+    @media only screen and (max-width:$laptop){
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    @media only screen and (max-width:$tab){
+        grid-template-columns: 1fr 1fr;
+    }
+    @media only screen and (max-width:$mobile){
+        grid-template-columns: 1fr;
+    }
+}

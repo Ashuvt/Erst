@@ -22,6 +22,9 @@ import Login from "./authPages/login/Login";
 import GetStarted from "./authPages/getStarted/GetStarted";
 import OnBoardingSteppers from "./authPages/onboardingstepper/OnBoardingSteppers";
 import Home from "./authPages/home/Home";
+import Explore from "./authPages/explore/Explore";
+import Live from "./authPages/live/Live";
+import Groups from "./authPages/groups/Groups";
 
 function App() {
   var menu;
@@ -65,6 +68,11 @@ function App() {
           <Route path="/onborading" element={<OnBoardingSteppers />} />
 
           <Route path="/home" element={<Home />} />
+          <Route path="/explore" element={<Explore />} />
+          <Route path="/live" element={<Live />} />
+          <Route path="/groups" element={<Groups />} />
+
+
         </Routes>
       </Provider>
     </Fragment>

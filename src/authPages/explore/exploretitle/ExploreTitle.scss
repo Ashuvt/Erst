@@ -1,0 +1,30 @@
+@import "../../../scss/common";
+@import "../../../scss/mixin";
+@import "../../../scss/typography";
+@import "../../../scss/variables";
+
+
+.explore_title {
+
+    margin-top: 44px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:15px;
+
+    .left {
+        max-width: 562px;
+        width: 100%;
+
+        h2 {
+            @include font('SpaceGrotesk-Regular', 16px, 20px, 400, $textPrimary);
+            margin-bottom: 8px;
+        }
+    }
+    button{
+        border-style: none;
+        background: transparent;
+        text-decoration: underline;
+        @include font('Inter-Regular', 14px, 20px, 400, $primary);
+    }
+}

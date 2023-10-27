@@ -59,6 +59,8 @@ import liveA from "../../assets/images/liveA.png";
 import liveB from "../../assets/images/liveB.png";
 import liveC from "../../assets/images/liveC.png";
 import liveD from "../../assets/images/liveD.png";
+import groups from "../../assets/images/groups.png";
+import explore from "../../assets/images/explore.png";
 
 
 // Icons
@@ -199,6 +201,9 @@ export const images = {
   liveB,
   liveC,
   liveD,
+  groups,
+  explore,
+  
 };
 
 export const products = {

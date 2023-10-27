@@ -33,15 +33,17 @@ section {
     max-width: 1440px;
     margin-left: auto;
     margin-right: auto;
-    padding-left:120px;
-    padding-right:120px;
-    @media only screen and (max-width:$laptop){
-      padding-left:25px;
-      padding-right:25px;
+    padding-left: 120px;
+    padding-right: 120px;
+
+    @media only screen and (max-width:$laptop) {
+      padding-left: 25px;
+      padding-right: 25px;
     }
-    @media only screen and (max-width:$tab){
-      padding-left:0px;
-      padding-right:0px;
+
+    @media only screen and (max-width:$tab) {
+      padding-left: 0px;
+      padding-right: 0px;
     }
   }
 }
@@ -145,7 +147,7 @@ textarea,
     margin-top: 24px;
   }
 
-  &.mt_20{
+  &.mt_20 {
     margin-top: 20px;
   }
 
@@ -227,5 +229,17 @@ button.authbtn {
     transform: scale3d(0.98, 0.98, 1);
     transform-style: preserve-3d;
     opacity: 0.7;
+  }
+}
+
+button.white_btn {
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid $borderLight;
+  background: $bgLight;
+  @include font('Inter-Regular', 12px, 16px, 400, $textSecondary);
+  transition:all 0.3s ease-in-out;
+ &:hover, &.active{
+    border:1px solid $textHint;
   }
 }

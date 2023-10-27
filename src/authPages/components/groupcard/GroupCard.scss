@@ -1,0 +1,18 @@
+@import "../../../scss/common";
+@import "../../../scss/mixin";
+@import "../../../scss/typography";
+@import "../../../scss/variables";
+
+.group_card{
+    .postre_wrap{
+        height:197px;
+        border-radius: 4px;
+        overflow: hidden;
+        img{
+            min-height:100%;
+            min-width:100%;
+            object-fit: cover;
+        }        
+    }
+
+}

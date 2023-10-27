@@ -221,6 +221,7 @@ h6 {
     @media only screen and (max-width:$mobile) {
         @include font('SpaceGrotesk-Regular', 13px, 15.6px, 500, $white);
     }
+
 }
 
 p {
