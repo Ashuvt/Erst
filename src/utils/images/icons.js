@@ -44,6 +44,7 @@ import bgRibbin from "../../assets/images/icons/ribbinbg.svg";
 import userFill from "../../assets/images/icons/userfill.svg";
 import masterCard from "../../assets/images/icons/mastercard.svg";
 import checked from "../../assets/images/icons/checked.svg";
+import playCircle from "../../assets/images/icons/playcircle.svg";
 
 export const icon = {
   angleUp,
@@ -90,6 +91,8 @@ export const icon = {
   bgRibbin,
   masterCard,
   checked,
+  playCircle,
+  
 
 
 

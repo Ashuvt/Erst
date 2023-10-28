@@ -5,6 +5,8 @@ import ExploreTitle from "../explore/exploretitle/ExploreTitle";
 import { images } from "../../utils/images/images";
 import ExploreCard from "../components/explorecard/ExploreCard";
 import { icon } from "../../utils/images/icons";
+import { useDispatch } from "react-redux";
+import { resetAllToggler } from "../../store/actions";
 
 const Saved = () => {
   const courcesData = [
@@ -192,12 +194,18 @@ const Saved = () => {
     });
   };
 
+  const dispatch = useDispatch();
+
+  const resetToggler = () => {
+    dispatch({type:resetAllToggler()});
+  }
+
   return (
     <Fragment>
       <div className="header_filler"></div>
       <CoursesHeader />
 
-      <section className="saved_page">
+      <section className="saved_page" onClick={resetToggler}>
         <div className="screen_container">
           <div className="explore_grid">
             <div className="filter_options_sec">

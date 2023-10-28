@@ -27,6 +27,7 @@ import Profile from "./authPages/profile/Profile";
 import Saved from "./authPages/saved/Saved";
 import { useDispatch } from "react-redux";
 import { resetAllToggler } from "./store/actions";
+import ExploreDetail from "./authPages/exploredetail/ExploreDetail";
 
 function App() {
   var menu;
@@ -77,6 +78,8 @@ function App() {
           <Route path="/groups" element={<Groups />} />
           <Route path="/saved" element={<Saved />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/explore/:detail" element={<ExploreDetail />} />
+
      
 
 

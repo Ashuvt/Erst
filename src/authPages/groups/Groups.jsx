@@ -4,6 +4,8 @@ import CoursesHeader from "../components/coursesheader/CoursesHeader";
 import LiveSecTitle from "../live/livesectitle/LiveSecTitle";
 import { images } from "../../utils/images/images";
 import GroupCard from "../components/groupcard/GroupCard";
+import { useDispatch } from "react-redux";
+import { resetAllToggler } from "../../store/actions";
 
 const Groups = () => {
   const groupData = [
@@ -168,11 +170,19 @@ const Groups = () => {
       newpost: 2,
     },
   ];
+
+  const dispatch = useDispatch();
+
+  const resetToggler = () => {
+    dispatch({type:resetAllToggler()});
+  }
+
+
   return (
-    <Fragment>
-      <div className="header_filler"></div>
+    <Fragment>      
       <CoursesHeader />
-      <section className="groups_page">
+      <div className="header_filler"></div>
+      <section className="groups_page" onClick={resetToggler}>
         <div className="screen_container">
           <LiveSecTitle
             title="Recommended"

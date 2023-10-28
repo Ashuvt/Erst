@@ -7,7 +7,8 @@ import { Fragment } from "react";
 import NotificationCard from "./notificationcard/NotificationCard";
 import ProfileMenu from "./profilemenu/ProfileMenu";
 import { useDispatch, useSelector } from "react-redux";
-import {notificationToggler, profileToggler} from "../../../store/actions";
+import {notificationToggler, profileToggler, resetAllToggler} from "../../../store/actions";
+
 
 const CoursesHeader = () => {
 
@@ -55,15 +56,22 @@ const CoursesHeader = () => {
   const profileStatus = useSelector(data => data.toggleReducer.profileStatus);
 
 
-const notificationHandler = () => {
+const notificationHandler = (e) => {
+  e.stopPropagation();
   dispatch({type:notificationToggler(), payload:!notificationStatus});
 }
 
-const profileMenuHandler = () => {
+const profileMenuHandler = (e) => {
+  e.stopPropagation();
   dispatch({type:profileToggler(), payload:!profileStatus});
 }
+
+const resetToggle = () => {
+    dispatch({type:resetAllToggler()})
+}
+
   return (
-    <section className="courses_header">
+    <section className="courses_header" onClick={resetToggle}>
       <div className="screen_container">
         <header>
           <NavLink to="/" className="brand">

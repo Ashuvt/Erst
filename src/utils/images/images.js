@@ -64,6 +64,7 @@ import explore from "../../assets/images/explore.png";
 import offerBell from "../../assets/images/offerbell.png";
 import subscribedA from "../../assets/images/subscribeda.png";
 import subscribedB from "../../assets/images/subscribeda.png";
+import exploreDetail from "../../assets/images/exploredetail.png";
 
 
 // Icons
@@ -209,6 +210,7 @@ export const images = {
   offerBell,  
   subscribedA,
   subscribedB,
+  exploreDetail,
 };
 
 export const products = {

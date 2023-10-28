@@ -1,0 +1,85 @@
+@import "../../../scss/common";
+@import "../../../scss/mixin";
+@import "../../../scss/typography";
+@import "../../../scss/variables";
+
+section.explore_detail {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    background: $bgGradient;
+
+    .screen_container {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 48px;
+        @media only screen and (max-width:$laptop){
+            flex-direction: column;   
+        }
+
+        .video_wrapper {
+            position: relative;
+            width:460px;
+            @media only screen and (max-width:$tab){
+                width:100%; 
+            }
+            button {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                border-style: none;
+                background: transparent;
+            }
+        }
+
+        .info_wraper {
+            width:calc(100% - 460px);
+            @media only screen and (max-width:$laptop){
+                width:100%;
+            }
+            .info_line {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 24px;
+
+                .info {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    gap: 8px;
+                }
+
+                p {
+                    @include font('Inter-Regular', 18px, 24px, 400, $textPrimary);
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+
+                    span {
+                        height: 4px;
+                        width: 4px;
+                        border-radius: 50%;
+                        display: inline-block;
+                        background-color: $textPrimary;
+                        margin: 5px;
+                    }
+                }
+            }
+
+            h1 {
+                @include font('SpaceGrotesk-Regular', 32px, 36px, 400, $textPrimary);
+                margin: 16px 0px;
+            }
+            .btn_line{
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                gap:8px;
+                margin:8px 0px 40px;
+            }
+        }
+    }
+}

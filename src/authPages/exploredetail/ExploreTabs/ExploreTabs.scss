@@ -1,0 +1,28 @@
+@import "../../../scss/common";
+@import "../../../scss/mixin";
+@import "../../../scss/typography";
+@import "../../../scss/variables";
+
+
+section.tabs_sec{
+    border-bottom: 1px solid $borderSubtle;
+    padding-top:24px;
+    .scree_container{
+        display: flex;
+        justify-content: center;
+        align-items:center;
+        button.tab{
+            padding:16px;
+            width:220px;
+            border-style: none;
+            background-color: transparent;
+            @include font('SpaceGrotesk-Regular', 20px, 24px, 400, $textSecondary);
+            border-bottom:1px solid transparent;
+            transition:all 0.3s ease-in-out;            
+            &.active{
+                color:$white;
+                border-bottom: 1px solid $primary;
+            }
+        }
+    }
+}
