@@ -1,5 +1,5 @@
 import "./StepC.scss";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 
 const StepC = ({ setStep }) => {
   const tagsData = [
@@ -85,16 +85,28 @@ const StepC = ({ setStep }) => {
     },
   ];
 
+  const [selectedTags, setSelectedTags] = useState([]);
+
   const continueHandler = () => {};
 
   const SkipHandler = () => {
     setStep((prev) => prev + 1);
   };
 
+  const addTag = (selectedId) => {
+    setSelectedTags((prev) => {
+      if (selectedTags.includes(selectedId)) {
+        return selectedTags.filter((id) => id !== selectedId);
+      } else {
+        return [...selectedTags, selectedId];
+      }
+    });
+  };
+
   return (
     <div className="step_c">
       <h1 className="small_title wow slideInUp">
-      Hey Rajat, tell us about fields of interests
+        Hey Rajat, tell us about fields of interests
       </h1>
       <p className="wow slideInUp">Let’s help you setup your learning path</p>
 
@@ -102,7 +114,15 @@ const StepC = ({ setStep }) => {
         {tagsData.map((ele) => {
           return (
             <Fragment key={ele.id}>
-              <button type="button" className="tagbtn wow slideInUp">{ele.text}</button>
+              <button
+                type="button"
+                className={`tagbtn wow slideInUp ${
+                  selectedTags.includes(ele.id) ? "active" : ""
+                }`}
+                onClick={() => addTag(ele.id)}
+              >
+                {ele.text}
+              </button>
             </Fragment>
           );
         })}

@@ -3,6 +3,7 @@ import {
   ADD_CART_POPUP_TOGGLER,
   NOTIFICATION_TOGGLER,
   PROFILE_TOGGLER,
+  RESET_ALL,
 } from "../consts";
 
 const initialToggleState = {
@@ -25,6 +26,9 @@ export const toggleReducer = (state = initialToggleState, action) => {
 
     case PROFILE_TOGGLER:
       return { ...initialToggleState, profileStatus: action.payload };
+
+    case RESET_ALL:
+      return initialToggleState;
 
     default:
       return state;

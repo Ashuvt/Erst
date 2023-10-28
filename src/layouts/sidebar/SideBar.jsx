@@ -1,9 +1,9 @@
 import "./SideBar.scss";
 import { Fragment, useEffect, useState } from "react";
 import { menuList } from "../../utils/data/data";
-import { icons, logoImage } from "../../utils/images/images";
+import { icons, logoImage} from "../../utils/images/images";
 import { useDispatch, useSelector } from "react-redux";
-import { sidebarToggler } from "../../store/actions";
+import { resetAllToggler, sidebarToggler } from "../../store/actions";
 import { NavLink } from "react-router-dom";
 
 const SideBar = () => {
@@ -19,11 +19,13 @@ const SideBar = () => {
         setNum(count);
     }
   };
+  
+
 
   return (
     <div className={`side_bar ${sidebarStatus ? "open" : "close"}`}>
       <div className="logo_line">
-        <h5>CyberGain</h5>
+        <img src={logoImage.logo} alt="logo" className="logo" />
         <button className="button" onClick={() => dispatch({type:sidebarToggler(), payload:false})}>
           <img src={icons.whiteClose} alt="close" />
         </button>

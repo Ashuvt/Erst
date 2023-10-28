@@ -3,7 +3,12 @@ import {
   ADD_CART_POPUP_TOGGLER,
   NOTIFICATION_TOGGLER,
   PROFILE_TOGGLER,
+  RESET_ALL,
 } from "./consts";
+
+export const resetAllToggler = () => {
+  return RESET_ALL;
+};
 
 export const sidebarToggler = () => {
   return SIDEBAR_TOGGLER;

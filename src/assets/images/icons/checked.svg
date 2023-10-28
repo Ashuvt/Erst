@@ -1,0 +1,26 @@
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="16" height="16" fill="#262627"/>
+<g id="Explore" clip-path="url(#clip0_257_488)">
+<rect width="1440" height="1256" transform="translate(-122 -461)" fill="#0A0A0A"/>
+<g id="Sidebar">
+<g id="Types">
+<g id="List">
+<g id="Row - 2">
+<g id="Checkbox">
+<rect x="-2" y="-2" width="20" height="20" rx="4" fill="#1477C9"/>
+<g id="check">
+<path id="Vector" d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+</g>
+</g>
+</g>
+<path d="M261 -381V795H263V-381H261Z" fill="#262626" mask="url(#path-1-inside-1_257_488)"/>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_257_488">
+<rect width="1440" height="1256" fill="white" transform="translate(-122 -461)"/>
+</clipPath>
+</defs>
+</svg>

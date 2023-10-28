@@ -43,6 +43,7 @@ import blueRightArrow from "../../assets/images/icons/bluearrowwright.svg";
 import bgRibbin from "../../assets/images/icons/ribbinbg.svg";
 import userFill from "../../assets/images/icons/userfill.svg";
 import masterCard from "../../assets/images/icons/mastercard.svg";
+import checked from "../../assets/images/icons/checked.svg";
 
 export const icon = {
   angleUp,
@@ -88,6 +89,9 @@ export const icon = {
   blueRightArrow,
   bgRibbin,
   masterCard,
+  checked,
+
+
 
   playfill,
   userFill,

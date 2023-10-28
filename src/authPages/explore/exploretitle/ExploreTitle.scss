@@ -11,6 +11,11 @@
     justify-content: space-between;
     align-items: center;
     gap:15px;
+    @media only screen and (max-width:$tab){
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
 
     .left {
         max-width: 562px;

@@ -16,8 +16,6 @@ import AboutOurServices from "./pages/aboutourservices/AboutOurServices";
 import SoftwareDeveloper from "./pages/softwaredeveloper/SoftwareDeveloper";
 import NewTechnology from "./pages/newtechnology/NewTechnology";
 import AddCartPopup from "./layouts/addcartpopup/AddCartPopup";
-import { Provider } from "react-redux";
-import store from "./store/store";
 import Login from "./authPages/login/Login";
 import GetStarted from "./authPages/getStarted/GetStarted";
 import OnBoardingSteppers from "./authPages/onboardingstepper/OnBoardingSteppers";
@@ -26,19 +24,24 @@ import Explore from "./authPages/explore/Explore";
 import Live from "./authPages/live/Live";
 import Groups from "./authPages/groups/Groups";
 import Profile from "./authPages/profile/Profile";
+import Saved from "./authPages/saved/Saved";
+import { useDispatch } from "react-redux";
+import { resetAllToggler } from "./store/actions";
 
 function App() {
   var menu;
+  const dispatch = useDispatch();
   const location = useLocation();
   const [status, setStatus] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    dispatch({type:resetAllToggler()});
   }, [location.pathname]);
 
   return (
     <Fragment>
-      <Provider store={store}>
+     
         <AddCartPopup />
 
         <SideBar />
@@ -72,11 +75,12 @@ function App() {
           <Route path="/explore" element={<Explore />} />
           <Route path="/live" element={<Live />} />
           <Route path="/groups" element={<Groups />} />
+          <Route path="/saved" element={<Saved />} />
           <Route path="/profile" element={<Profile />} />
+     
 
 
         </Routes>
-      </Provider>
     </Fragment>
   );
 }

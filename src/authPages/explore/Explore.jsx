@@ -4,8 +4,37 @@ import CoursesHeader from "../components/coursesheader/CoursesHeader";
 import ExploreTitle from "./exploretitle/ExploreTitle";
 import { images } from "../../utils/images/images";
 import ExploreCard from "../components/explorecard/ExploreCard";
+import { icon } from "../../utils/images/icons";
 
 const Explore = () => {
+
+  const courcesData = [
+    {
+      id: 0,
+      img: images.explore,
+      title: "Course Name",
+      text: "A short description about the course, it can be in two lines.",
+      students: 800,
+      modules: 12,
+    },
+    {
+      id: 1,
+      img: images.explore,
+      title: "Course Name",
+      text: "A short description about the course, it can be in two lines.",
+      students: 800,
+      modules: 12,
+    },
+    {
+      id: 2,
+      img: images.explore,
+      title: "Course Name",
+      text: "A short description about the course, it can be in two lines.",
+      students: 800,
+      modules: 12,
+    },
+  ];
+  
   const filterOptions = [
     {
       id: 0,
@@ -48,7 +77,7 @@ const Explore = () => {
     },
     {
       id: 1,
-      text: "Penetration",
+      text: "Penetrations",
     },
     {
       id: 2,
@@ -76,30 +105,69 @@ const Explore = () => {
     },
   ];
 
-  const courcesData = [
+
+
+  const typesData = [
     {
-      id: 0,
-      img: images.explore,
-      title: "Course Name",
-      text: "A short description about the course, it can be in two lines.",
-      students: 800,
-      modules: 12,
+      id: "11",
+      text: "All",
+      count: 79,
     },
     {
-      id: 1,
-      img: images.explore,
-      title: "Course Name",
-      text: "A short description about the course, it can be in two lines.",
-      students: 800,
-      modules: 12,
+      id: "12",
+      text: "Modules",
+      count: 45,
     },
     {
-      id: 2,
-      img: images.explore,
-      title: "Course Name",
-      text: "A short description about the course, it can be in two lines.",
-      students: 800,
-      modules: 12,
+      id: "13",
+      text: "Courses",
+      count: 3,
+    },
+    {
+      id: "14",
+      text: "Skillpaths",
+      count: 31,
+    },
+  ];
+
+  const domainsData = [
+    {
+      id: "21",
+      text: "Defensive Security",
+      count: 42,
+    },
+    {
+      id: "22",
+      text: "Engineering and operations",
+      count: 12,
+    },
+    {
+      id: "23",
+      text: "Offensive security",
+      count: 31,
+    },
+  ];
+
+  const workLRolesData = [
+    {
+      id: "31",
+      text: "All source analyst",
+      count: 61,
+    },
+    {
+      id: "32",
+      text: "Authorizing Official/Designating Representative",
+      count: 15,
+    },
+    {
+      id: "33",
+      text: "Cyber Defense Forensics Analyst",
+      count: 16,
+    },
+    {
+      id: "34",
+      text: "Authorizing Official/Designating Representative",
+      count: 31,
     },
   ];
 
@@ -129,6 +197,35 @@ const Explore = () => {
     });
   };
 
+  const addTypes = (selectedId) => {
+    setCheckedTypes((prev) => {
+      if (checkedTypes.includes(selectedId)) {
+        return checkedTypes.filter((id) => id !== selectedId);
+      } else {
+        return [...prev, selectedId];
+      }
+    });
+  };
+
+  const addDomains = (selectedId) => {
+    setCheckedDomains((prev) => {
+      if (checkedDomains.includes(selectedId)) {
+        return checkedDomains.filter((id) => id !== selectedId);
+      } else {
+        return [...prev, selectedId];
+      }
+    });
+  };
+
+  const addWorkRolls = (selectedId) => {
+    setCheckedWorkRolles((prev) => {
+      if (checkedWorkRolles.includes(selectedId)) {
+        return checkedWorkRolles.filter((id) => id !== selectedId);
+      } else {
+        return [...prev, selectedId];
+      }
+    });
+  };
   return (
     <Fragment>
       <div className="header_filler"></div>
@@ -138,124 +235,144 @@ const Explore = () => {
         <div className="screen_container">
           <div className="explore_grid">
             <div className="filter_options_sec">
-              <h3 className="title">Filter</h3>
-              <div className="option_box">
-                {filterOptions.map((data) => {
-                  return (
-                    <Fragment key={data.id}>
-                      <button
-                        type="buton"
-                        className={`white_btn ${
-                          selectedFilter.includes(data.text) ? "active" : ""
-                        }`}
-                        onClick={() => addFilter(data.text)}
-                      >
-                        {data.text}
-                      </button>
-                    </Fragment>
-                  );
-                })}
-              </div>
-
-              <h3 className="title">Interests</h3>
-              <div className="option_box">
-                {interestOptions.map((data) => {
-                  return (
-                    <Fragment key={data.id}>
-                      <button
-                        type="buton"
-                        className={`white_btn  ${
-                          selectedInterest.includes(data.text) ? "active" : ""
-                        }`}
-                        onClick={() => addInterest(data.text)}
-                      >
-                        {data.text}
-                      </button>
-                    </Fragment>
-                  );
-                })}
-              </div>
-
-              <h3 className="title">Type</h3>
-              <div className="checkbox_card">
-                <div className="check_field">
-                  <input type="checkbox" />
-                  <label>
-                    all <span></span>79
-                  </label>
-                </div>
-                <div className="check_field">
-                  <input type="checkbox" />
-                  <label>
-                    Modules <span></span> 45
-                  </label>
-                </div>
-                <div className="check_field">
-                  <input type="checkbox" />
-                  <label>
-                    Courses <span></span> 3
-                  </label>
-                </div>
-                <div className="check_field">
-                  <input type="checkbox" />
-                  <label>
-                    Skillpaths <span></span> 31
-                  </label>
+              <div className="options_content">
+                <h3 className="title">Filter</h3>
+                <div className="option_box">
+                  {filterOptions.map((data) => {
+                    return (
+                      <Fragment key={data.id}>
+                        <button
+                          type="buton"
+                          className={`white_btn ${
+                            selectedFilter.includes(data.text) ? "active" : ""
+                          }`}
+                          onClick={() => addFilter(data.text)}
+                        >
+                          {data.text}
+                        </button>
+                      </Fragment>
+                    );
+                  })}
                 </div>
               </div>
 
-              <h3 className="title">Domains</h3>
-              <div className="checkbox_card">
-                <div className="check_field">
-                  <input type="checkbox" />
-                  <label>
-                    Defensive Security <span></span> 42
-                  </label>
-                </div>
-                <div className="check_field">
-                  <input type="checkbox" />
-                  <label>
-                    Engineering and operations <span></span> 12
-                  </label>
-                </div>
-                <div className="check_field">
-                  <input type="checkbox" />
-                  <label>
-                    Offensive security <span></span> 31
-                  </label>
+              <div className="options_content">
+                <h3 className="title">Interests</h3>
+                <div className="option_box">
+                  {interestOptions.map((data) => {
+                    return (
+                      <Fragment key={data.id}>
+                        <button
+                          type="buton"
+                          className={`white_btn  ${
+                            selectedInterest.includes(data.text) ? "active" : ""
+                          }`}
+                          onClick={() => addInterest(data.text)}
+                        >
+                          {data.text}
+                        </button>
+                      </Fragment>
+                    );
+                  })}
                 </div>
               </div>
 
-              <h3 className="title">Work roles</h3>
-              <div className="checkbox_card">
-                <div className="check_field">
-                  <input type="checkbox" />
-                  <label>
-                    All source analyst <span></span> 61
-                  </label>
+              <div className="options_content">
+                <h3 className="title">Type</h3>
+                <div className="checkbox_card">
+                  {typesData.map((data) => {
+                    return (
+                      <Fragment key={data.id}>
+                        <div className="check_field">
+                          <button
+                            type="button"
+                            className="checkbtn"
+                            onClick={() => addTypes(data.id)}
+                          >
+                            <img
+                              src={icon.checked}
+                              alt="checked"
+                              className={
+                                checkedTypes.includes(data.id) ? "active" : ""
+                              }
+                            />
+                          </button>
+                          <label>
+                            {data.text} <span></span>
+                            {data.count}
+                          </label>
+                        </div>
+                      </Fragment>
+                    );
+                  })}
                 </div>
-                <div className="check_field">
-                  <input type="checkbox" />
-                  <label>
-                    Authorizing Official/Designating Representative{" "}
-                    <span></span> 15
-                  </label>
+              </div>
+
+              <div className="options_content">
+                <h3 className="title">Domains</h3>
+                <div className="checkbox_card">
+                  {domainsData.map((data) => {
+                    return (
+                      <Fragment key={data.id}>
+                        <div className="check_field">
+                          <button
+                            type="button"
+                            className="checkbtn"
+                            onClick={() => addDomains(data.id)}
+                          >
+                            <img
+                              src={icon.checked}
+                              alt="checked"
+                              className={
+                                checkedDomains.includes(data.id) ? "active" : ""
+                              }
+                            />
+                          </button>
+                          <label>
+                            {data.text} <span></span>
+                            {data.count}
+                          </label>
+                        </div>
+                      </Fragment>
+                    );
+                  })}
                 </div>
-                <div className="check_field">
-                  <input type="checkbox" />
-                  <label>
-                    Cyber Defense Forensics Analyst <span></span> 16
-                  </label>
-                </div>
-                <div className="check_field">
-                  <input type="checkbox" />
-                  <label>
-                    Authorizing Official/Designating Representative{" "}
-                    <span></span> 31
-                  </label>
+              </div>
+
+              <div className="options_content">
+                <h3 className="title">Work roles</h3>
+                <div className="checkbox_card">
+                  {workLRolesData.map((data) => {
+                    return (
+                      <Fragment key={data.id}>
+                        <div className="check_field">
+                          <button
+                            type="button"
+                            className="checkbtn"
+                            onClick={() => addWorkRolls(data.id)}
+                          >
+                            <img
+                              src={icon.checked}
+                              alt="checked"
+                              className={
+                                checkedWorkRolles.includes(data.id)
+                                  ? "active"
+                                  : ""
+                              }
+                            />
+                          </button>
+                          <label>
+                            {data.text} <span></span>
+                            {data.count}
+                          </label>
+                        </div>
+                      </Fragment>
+                    );
+                  })}
                 </div>
               </div>
             </div>
+
             <div className="explore_videos_wrap">
               <ExploreTitle
                 title="Courses"

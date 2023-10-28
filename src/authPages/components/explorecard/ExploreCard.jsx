@@ -1,14 +1,15 @@
 import { icon } from "../../../utils/images/icons";
 import "./ExploreCard.scss";
 
-const ExploreCard = ({ img, title, text, students, modules }) => {
+const ExploreCard = ({ img, title, text, students, modules, saved }) => {
   return (
     <div className="explore_card">
       <div className="poster_wrap">
         <span>Cources</span>
         <img src={img} alt="poster" />
         <button type="button">
-            <img src={icon.save} alt="save" />
+          {saved ? <img src={icon.saved} alt="save" /> : <img src={icon.save} alt="save" />}
+            
         </button>
       </div>
       <h2>{title}</h2>

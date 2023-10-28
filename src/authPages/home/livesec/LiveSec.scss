@@ -1,8 +1,11 @@
+@import "../../../scss/variables";
 
-
-.live_sec_module{
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap:20px;
-margin-top:24px;
+.live_sec_module {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 24px;
+    @media only screen and (max-width:$mobile){
+        grid-template-columns: 1fr;
+    }
 }
