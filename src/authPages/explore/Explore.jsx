@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import "./Explore.scss";
 import CoursesHeader from "../components/coursesheader/CoursesHeader";
 import ExploreTitle from "./exploretitle/ExploreTitle";
@@ -103,6 +103,32 @@ const Explore = () => {
     },
   ];
 
+  const [selectedFilter, setSelectedFilter] = useState([]);
+  const [selectedInterest, setSelectedInterest] = useState([]);
+  const [checkedTypes, setCheckedTypes] = useState([]);
+  const [checkedDomains, setCheckedDomains] = useState([]);
+  const [checkedWorkRolles, setCheckedWorkRolles] = useState([]);
+
+  const addFilter = (value) => {
+    setSelectedFilter((prev) => {
+      if (selectedFilter.includes(value)) {
+        return selectedFilter.filter((data) => data !== value);
+      } else {
+        return [...prev, value];
+      }
+    });
+  };
+
+  const addInterest = (value) => {
+    setSelectedInterest((prev) => {
+      if (selectedInterest.includes(value)) {
+        return selectedInterest.filter((data) => data !== value);
+      } else {
+        return [...prev, value];
+      }
+    });
+  };
+
   return (
     <Fragment>
       <div className="header_filler"></div>
@@ -117,7 +143,13 @@ const Explore = () => {
                 {filterOptions.map((data) => {
                   return (
                     <Fragment key={data.id}>
-                      <button type="buton" className="white_btn">
+                      <button
+                        type="buton"
+                        className={`white_btn ${
+                          selectedFilter.includes(data.text) ? "active" : ""
+                        }`}
+                        onClick={() => addFilter(data.text)}
+                      >
                         {data.text}
                       </button>
                     </Fragment>
@@ -130,7 +162,13 @@ const Explore = () => {
                 {interestOptions.map((data) => {
                   return (
                     <Fragment key={data.id}>
-                      <button type="buton" className="white_btn">
+                      <button
+                        type="buton"
+                        className={`white_btn  ${
+                          selectedInterest.includes(data.text) ? "active" : ""
+                        }`}
+                        onClick={() => addInterest(data.text)}
+                      >
                         {data.text}
                       </button>
                     </Fragment>
@@ -192,22 +230,28 @@ const Explore = () => {
               <div className="checkbox_card">
                 <div className="check_field">
                   <input type="checkbox" />
-                  <label>All source analyst <span></span> 61</label>
-                </div>
-                <div className="check_field">
-                  <input type="checkbox" />
                   <label>
-                    Authorizing Official/Designating Representative <span></span> 15
+                    All source analyst <span></span> 61
                   </label>
                 </div>
                 <div className="check_field">
                   <input type="checkbox" />
-                  <label>Cyber Defense Forensics Analyst <span></span> 16</label>
+                  <label>
+                    Authorizing Official/Designating Representative{" "}
+                    <span></span> 15
+                  </label>
                 </div>
                 <div className="check_field">
                   <input type="checkbox" />
                   <label>
-                    Authorizing Official/Designating Representative <span></span> 31
+                    Cyber Defense Forensics Analyst <span></span> 16
+                  </label>
+                </div>
+                <div className="check_field">
+                  <input type="checkbox" />
+                  <label>
+                    Authorizing Official/Designating Representative{" "}
+                    <span></span> 31
                   </label>
                 </div>
               </div>

@@ -8,34 +8,44 @@
 
     .four_info_grid {
         display: grid;
-        grid-template-columns:repeat( auto-fit, minmax(250px, 1fr) );
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 16px;
-        margin-top:20px;
-        @media only screen and (max-width:$mobile){
+        margin-top: 20px;
+
+        @media only screen and (max-width:$mobile) {
             grid-template-columns: 1fr;
-            gap:15px;
+            gap: 15px;
         }
 
         .four_info_card {
             border-radius: 8px;
             border: 1px solid $cardB;
             padding: 32px 20px;
-            @media only screen and (max-width:$tab){
-            padding:15px;    
+            transition: all 0.3s ease-in-out;  
+            &:hover {
+                border-color: $lightBorder_1;
+                box-shadow: 0 0 20px rgba(255, 255, 255, 0.25);
+
             }
-            .icon_box{
-                height:56px;
-                width:56px;
+            @media only screen and (max-width:$tab) {
+                padding: 15px;
+                          
+            }
+
+            .icon_box {
+                height: 56px;
+                width: 56px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 border-radius: 4px;
                 background: var(--Card-fill, linear-gradient(113deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.00) 110.84%));
             }
-            p{
-                &.title{
+
+            p {
+                &.title {
                     @include font('Inter-Regular', 18px, 22px, 400, $textPrimary);
-                    margin:16px 0px 2px;
+                    margin: 16px 0px 2px;
                 }
             }
 

@@ -14,14 +14,39 @@ section.profile_screens{
         display:flex;
         justify-content: space-between;
         gap:40px;
+        @media only screen and (max-width:900px){
+            flex-direction: column;
+            gap:30px;
+        }
         .side_menu{
-            position:sticky!important;
+            position:sticky;
             top:100px;
             width:300px;
             background: $textContrast;
             min-height:400px;
             height:calc(100vh - 320px);
-         
+            @media only screen and (max-width:900px){
+                position:relative;
+                top:0px;
+                width:100%;
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                gap:15px;
+                min-height:115px;
+               height:115px;
+            }
+            @media only screen and (max-width:660px){
+                grid-template-columns: 1fr 1fr;
+                gap:10px;
+                min-height:170px;
+                height:170px;
+            }
+            @media only screen and (max-width:$mobile){
+                grid-template-columns:1fr;
+                gap:10px;
+                min-height:260px;
+                height:290px;
+            }
             button{
                 padding:16px 16px 16px 24px;
                 display: flex;
@@ -33,6 +58,10 @@ section.profile_screens{
                 @include font('SpaceGrotesk-Regular', 16px, 20px, 400, $textSecondary);
                 transition:all 0.3s ease-in-out;
                 width:100%;
+                @media only screen and (max-width:900px){
+                    height:50px;
+                    padding:12px;
+                }
                 img{
                     width:24px;
                    filter:invert(33%) sepia(96%) saturate(931%) hue-rotate(178deg) brightness(96%) contrast(93%);
@@ -50,7 +79,10 @@ section.profile_screens{
         .menu_screens{
             width:calc(100% - 340px);
             min-height:400px;
-            height:calc(100vh - 320px);
+            
+            @media only screen and (max-width:900px){
+                width:100%;
+            }
         }
     }
 }

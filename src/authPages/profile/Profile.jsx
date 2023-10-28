@@ -6,6 +6,8 @@ import { icon } from "../../utils/images/icons";
 import MyProfile from "./myprofile/MyProfile";
 import Accounts from "./accounts/Accounts";
 import Subscription from "./subscription/Subscription";
+import EmailNotification from "./emailnotification/EmailNotification";
+import Help from "./help/ProfileHelp";
 
 const Profile = () => {
   const optionData = [
@@ -65,6 +67,8 @@ const Profile = () => {
             {tab === 0 && <MyProfile />}
             {tab === 1 && <Accounts />}
             {tab === 2 && <Subscription />}
+            {tab === 3 && <EmailNotification />}
+            {tab === 4 && <Help />}
           </div>
         </div>
       </section>

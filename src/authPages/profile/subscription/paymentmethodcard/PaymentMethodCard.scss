@@ -8,11 +8,13 @@
     justify-content: space-between;
     align-items: center;
     padding:20px 0px;
+    flex-wrap: wrap;
     .info{
         display: flex;
         justify-content: flex-start;
         gap:16px;
         align-items: center;
+        flex-wrap: wrap;
         .img_box{
             display: flex;
             justify-content:center;

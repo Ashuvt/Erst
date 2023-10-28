@@ -243,6 +243,7 @@ button.white_btn {
   &:hover,
   &.active {
     border: 1px solid $textHint;
+    @include font('Inter-Regular', 12px, 16px, 400, $textPrimary);
   }
 }
 

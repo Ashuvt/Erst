@@ -237,6 +237,10 @@ p {
     &.t-g-16{
         @include font('SpaceGrotesk-Regular', 16px, 20px, 400, $textSecondary);
     }
+
+    &.t-i-12{
+        @include font('Inter-Regular', 12px, 16px, 400, $textSecondary);
+    }
 }
 
 

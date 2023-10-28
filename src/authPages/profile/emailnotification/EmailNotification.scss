@@ -3,18 +3,18 @@
 @import "../../../scss/typography";
 @import "../../../scss/variables";
 
-.profile_help{
+.email_notification {
     padding: 40px;
     border: 0.5px solid $primary;
     background: $textContrast;
     height: 100%;
-
     @media only screen and (max-width:$tab){
         padding:20px;
     }
     @media only screen and (max-width:$mobile){
         padding:15px;
     }
+
     .title {
         p {
             margin-top: 8px;
@@ -25,20 +25,22 @@
         }
     }
 
-    textarea{
-        box-shadow: none;
-        border-style: none;
-        padding: 8px;
-        border-radius: 8px;
-        border: 1px solid $borderSubtle;
-        background: $bgLight;
-        @include font('Inter-Regular', 14px, 20px, 400, $textPrimary);
-        margin:40px 0px 0px;
+    .check_wrap {
+        input[type="checkbox"] {
+            min-height: 20px;
+            width: 20px;
+            box-shadow: none;
+            margin:0px;
+            padding:0px;
+        }
+
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap:12px;
+        margin-top:16px;
     }
     button{
-        margin-top:24px;
-    }
-    p{
-        margin:0px;
+        margin-top:32px;
     }
 }
