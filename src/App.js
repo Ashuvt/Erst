@@ -25,6 +25,7 @@ import Home from "./authPages/home/Home";
 import Explore from "./authPages/explore/Explore";
 import Live from "./authPages/live/Live";
 import Groups from "./authPages/groups/Groups";
+import Profile from "./authPages/profile/Profile";
 
 function App() {
   var menu;
@@ -71,6 +72,7 @@ function App() {
           <Route path="/explore" element={<Explore />} />
           <Route path="/live" element={<Live />} />
           <Route path="/groups" element={<Groups />} />
+          <Route path="/profile" element={<Profile />} />
 
 
         </Routes>

@@ -1,0 +1,23 @@
+@import "../../../scss/common";
+@import "../../../scss/mixin";
+@import "../../../scss/typography";
+@import "../../../scss/variables";
+
+
+.my_profile_screen {
+    padding: 40px;
+    border: 0.5px solid $primary;
+    background: $textContrast;
+    padding-right:130px;
+    .title{
+        p{
+            margin-top:8px;
+        }
+        h5{
+            margin:0px;
+        }
+    }
+    h5{
+        margin-top:40px;
+    }
+}

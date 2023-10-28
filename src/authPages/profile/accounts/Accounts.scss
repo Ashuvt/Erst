@@ -1,0 +1,75 @@
+@import "../../../scss/common";
+@import "../../../scss/mixin";
+@import "../../../scss/typography";
+@import "../../../scss/variables";
+
+.profile_accounts {
+    padding: 40px;
+    border: 0.5px solid $primary;
+    background: $textContrast;
+height:100%;
+    .profile_info {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 16px;
+
+        .profile_wraper {
+            height: 64px;
+            width: 64px;
+            border-radius: 50%;
+            overflow: hidden;
+
+            img {
+                min-height: 100%;
+                min-width: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .text_info {
+            p {
+                margin-top: 8px;
+            }
+        }
+
+    }
+
+    form {
+        .bi_grid{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap:16px;
+        }
+        .profile_field {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top:24px;
+
+            label {
+                @include font('Inter-Regular', 14px, 20px, 400, $textSecondary);
+            }
+
+            input {
+                box-shadow: none;
+                border-style: none;
+                padding: 8px;
+                border-radius: 8px;
+                border: 1px solid $borderSubtle;
+                background: $bgLight;
+                @include font('Inter-Regular', 14px, 20px, 400, $textPrimary);
+            }
+        }
+
+        .btn_line{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        button{
+            margin-top:40px;     
+        }
+    }
+    }
+}

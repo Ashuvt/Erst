@@ -238,8 +238,28 @@ button.white_btn {
   border: 1px solid $borderLight;
   background: $bgLight;
   @include font('Inter-Regular', 12px, 16px, 400, $textSecondary);
-  transition:all 0.3s ease-in-out;
- &:hover, &.active{
-    border:1px solid $textHint;
+  transition: all 0.3s ease-in-out;
+
+  &:hover,
+  &.active {
+    border: 1px solid $textHint;
   }
+}
+
+button.grotesk_primary {
+  padding: 8px 24px;
+  border-style: none;
+  background-color: $primary;
+  border-radius: 8px;
+  @include font('SpaceGrotesk-Regular', 14px, 20px, 500, $white);
+}
+
+button.grotesk_secondary {
+  padding: 8px 24px;
+  border-style: none;
+  background-color: $primary;
+  background: rgba(232, 252, 253, 0.05);
+  border-radius: 8px;
+  text-transform: capitalize;
+  @include font('SpaceGrotesk-Regular', 14px, 20px, 400, $textPrimary);
 }

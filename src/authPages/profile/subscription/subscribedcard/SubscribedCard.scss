@@ -1,0 +1,34 @@
+@import "../../../../scss/common";
+@import "../../../../scss/mixin";
+@import "../../../../scss/typography";
+@import "../../../../scss/variables";
+
+.subscribed_card {
+    border-radius: 8px;
+    border: 1px solid $borderLight;
+    padding: 20px;
+    margin-top:16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:16px;
+    .info{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap:16px;
+        .text{
+            p{
+                span{
+                    @include font('Inter-Regular', 16px, 20px, 400, $textPrimary);
+                }
+            }
+        }
+    }
+    button{
+        border-style: none;
+        background:transparent;
+        color:$textSecondary;
+        padding:8px 20px;
+    }
+}

@@ -1,0 +1,61 @@
+@import "../../../../scss/common";
+@import "../../../../scss/mixin";
+@import "../../../../scss/typography";
+@import "../../../../scss/variables";
+
+.your_certificate {
+    border-radius: 8px;
+    border: 1px solid $borderLight;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-top: 16px;
+
+    .info {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 16px;
+
+        .img_wrap {
+            width: 94px;
+            height: 56px;
+            border-radius: 4px;
+
+            img {
+                min-width: 100%;
+                min-height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .text {
+            p {
+                color: $textPrimary;
+
+                &.small_text {
+                    color: $textSecondary;
+                }
+            }
+        }
+    }
+
+    .btns {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 16px;
+
+
+        button {
+            &.textbtn {
+                border-style: none;
+                background: transparent;
+                padding: 8px 24px;
+                @include font('Inter-Regular', 14px, 20px, 500, $textSecondary);
+            }
+        }
+    }
+}

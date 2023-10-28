@@ -1,0 +1,51 @@
+@import "../../../../scss/common";
+@import "../../../../scss/mixin";
+@import "../../../../scss/typography";
+@import "../../../../scss/variables";
+
+.payment_method_card{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:20px 0px;
+    .info{
+        display: flex;
+        justify-content: flex-start;
+        gap:16px;
+        align-items: center;
+        .img_box{
+            display: flex;
+            justify-content:center;
+            align-items: center;
+            height:48px;
+            width:48px;
+            border-radius: 4px;
+            background-color: $white;;
+        }
+        .text{
+            p{
+                &.title{
+                    color:$textPrimary;
+                }
+            }
+        }
+    }
+
+    .btn_line{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap:16px;
+        button{
+            padding:8px 20px;
+            border-style: none;
+            background:transparent;
+            &.light{
+                color:$textSecondary;
+            }
+            &.blue{
+                color:$primary;
+            }
+        }
+    }
+}

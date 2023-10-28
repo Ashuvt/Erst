@@ -41,8 +41,8 @@ import blueTeam from "../../assets/images/icons/blueteam.svg";
 import starYellow from "../../assets/images/icons/staryellow.svg";
 import blueRightArrow from "../../assets/images/icons/bluearrowwright.svg";
 import bgRibbin from "../../assets/images/icons/ribbinbg.svg";
-
-
+import userFill from "../../assets/images/icons/userfill.svg";
+import masterCard from "../../assets/images/icons/mastercard.svg";
 
 export const icon = {
   angleUp,
@@ -87,8 +87,8 @@ export const icon = {
   blueTeam,
   blueRightArrow,
   bgRibbin,
-
-
+  masterCard,
 
   playfill,
+  userFill,
 };

@@ -1,0 +1,66 @@
+@import "../../../scss/common";
+@import "../../../scss/mixin";
+@import "../../../scss/typography";
+@import "../../../scss/variables";
+
+.profile_subscription {
+    padding: 40px;
+    border: 0.5px solid $primary;
+    background: $textContrast;
+
+    .title {
+        p {
+            margin-top: 8px;
+
+            &.t-g-16 {
+                color: $white;
+            }
+        }
+
+        &.mt {
+            margin-top: 40px;
+        }
+    }
+
+    .offer_card {
+        border-radius: 8px;
+        background-color: $orange;
+        display: flex;
+        justify-content: space-between;
+        margin: 55px 0px;
+        overflow: hidden;
+
+        .text {
+            padding: 24px;
+
+            p {
+                color: $cardB;
+
+                &.t-g-16 {
+                    color: $white;
+                    margin-bottom: 8px;
+                }
+            }
+
+            button {
+                padding: 8px 24px;
+                margin-top: 40px;
+                border-radius: 8px;
+                background: $white;
+                border-style: none;
+                @include font('Inter-Medium', 14px, 18px, 500, $orange);
+
+            }
+        }
+
+        img {
+            min-height: 100%;
+        }
+    }
+
+    button {
+        &.add {
+            margin-top: 24px;
+        }
+    }
+}

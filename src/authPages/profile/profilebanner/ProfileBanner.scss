@@ -1,0 +1,52 @@
+@import "../../../scss/common";
+@import "../../../scss/mixin";
+@import "../../../scss/typography";
+@import "../../../scss/variables";
+
+
+section.profile_banner {
+    padding-top: 48px;
+    padding-bottom: 48px;
+    background: $bgGradient;
+    position: relative;
+
+    img.pattern {
+        position: absolute;
+
+        &.left {
+            left: 0px;
+            top: 0px;
+        }
+
+        &.right {
+            right: 0px;
+            top: 0px;
+        }
+    }
+
+    .screen_container {
+        .content {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 15px;
+
+            .icon_wrap {
+                height: 50px;
+                width: 50px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border: 1px solid $white;
+
+                img {
+                    width: 40px;
+                }
+            }
+
+            h3 {
+                @include font('Inter-Regular', 40px, 44px, 400, $white);
+            }
+        }
+    }
+}

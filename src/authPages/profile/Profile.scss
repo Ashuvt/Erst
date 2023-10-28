@@ -1,0 +1,56 @@
+@import "../../scss/common";
+@import "../../scss/mixin";
+@import "../../scss/typography";
+@import "../../scss/variables";
+
+.header_filler{
+    height:80px;
+}
+
+section.profile_screens{
+    .screen_container{
+        padding-top:40px;
+        padding-bottom:40px;
+        display:flex;
+        justify-content: space-between;
+        gap:40px;
+        .side_menu{
+            position:sticky!important;
+            top:100px;
+            width:300px;
+            background: $textContrast;
+            min-height:400px;
+            height:calc(100vh - 320px);
+         
+            button{
+                padding:16px 16px 16px 24px;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                border-style: none;
+                background-color:transparent;
+                gap:10px;
+                @include font('SpaceGrotesk-Regular', 16px, 20px, 400, $textSecondary);
+                transition:all 0.3s ease-in-out;
+                width:100%;
+                img{
+                    width:24px;
+                   filter:invert(33%) sepia(96%) saturate(931%) hue-rotate(178deg) brightness(96%) contrast(93%);
+                   margin:0px;
+                }
+                &:hover, &.active{
+                    color:$textPrimary;
+                    background-color:$primary;
+                    img{
+                        filter: none;
+                    }
+                }
+            }
+        }
+        .menu_screens{
+            width:calc(100% - 340px);
+            min-height:400px;
+            height:calc(100vh - 320px);
+        }
+    }
+}
