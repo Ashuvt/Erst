@@ -1,0 +1,18 @@
+@import "../../../../../scss/common";
+@import "../../../../../scss/mixin";
+@import "../../../../../scss/typography";
+@import "../../../../../scss/variables";
+
+
+.journey_slider {
+    margin-top:80px;
+    .title{
+        margin-bottom:36px;
+        p{
+            margin-top:8px;
+        }
+    }
+    .skillpath_side {
+        padding: 0px 10px;
+    }
+}

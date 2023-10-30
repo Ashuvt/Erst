@@ -1,6 +1,7 @@
 import { Fragment, useState } from "react";
 import "./ExploreTabs.scss";
 import ExploreAbout from "./exploreabout/ExploreAbout";
+import { transform } from "framer-motion";
 
 const ExploreTabs = () => {
   const tabData = [
@@ -43,12 +44,17 @@ const ExploreTabs = () => {
           })}
         </div>
       </section>
-      {tab === 0 && <ExploreAbout />}
-      {tab === 1 && <ExploreAbout />}
-      {tab === 2 && <ExploreAbout />}
-      {tab === 3 && <ExploreAbout />}
-      
-
+      <div className="tab_content_slidebox">
+        <div
+          className="tab_slide"
+          style={{ transform: `translateX(-${tab * 100}%)` }}
+        >
+          <ExploreAbout />
+          <ExploreAbout />
+          <ExploreAbout />
+          <ExploreAbout />
+        </div>
+      </div>
     </Fragment>
   );
 };

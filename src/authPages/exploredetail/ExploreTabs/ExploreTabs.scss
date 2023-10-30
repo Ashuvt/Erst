@@ -17,12 +17,12 @@ section.tabs_sec {
             @media only screen and (max-width:$laptop) {
                 display: grid;
                 grid-template-columns: 1fr 1fr;
-                gap:10px;
+                gap: 10px;
             }
 
             @media only screen and (max-width:$mobile) {
                 grid-template-columns: 1fr;
-                gap:10px;
+                gap: 10px;
             }
         }
 
@@ -34,12 +34,14 @@ section.tabs_sec {
             @include font('SpaceGrotesk-Regular', 20px, 24px, 400, $textSecondary);
             border-bottom: 1px solid transparent;
             transition: all 0.3s ease-in-out;
-            @media only screen and (max-width:$laptop){
-                width:100%;
+
+            @media only screen and (max-width:$laptop) {
+                width: 100%;
                 @include font('SpaceGrotesk-Regular', 16px, 20px, 400, $textSecondary);
             }
-            @media only screen and (max-width:$mobile){
-                padding:12px;
+
+            @media only screen and (max-width:$mobile) {
+                padding: 12px;
             }
 
             &.active {
@@ -47,5 +49,16 @@ section.tabs_sec {
                 border-bottom: 1px solid $primary;
             }
         }
+    }
+}
+
+.tab_content_slidebox {
+    overflow: hidden;
+    width: 100%;
+    .tab_slide {
+        margin: 0px;
+        padding: 0px;
+        display: flex;
+        transition: all 0.4s ease-in-out;
     }
 }

@@ -12,5 +12,52 @@
             margin-top:8px;
         }
     }
+    
+    .module_slide_wrap{
+        margin-top:40px;
 
+        .slide_card{
+            padding:70px 35px;
+            position:relative;
+            @media only screen and (max-width:1000px){
+              padding:70px 15px;
+            }
+
+            @media only screen and (max-width:550px){
+              padding:70px 0px;
+            }
+            .card_cover{
+                background:#000000;
+                position:relative;
+                z-index:2;
+            }
+            .v_line{
+                background: radial-gradient(302.54% 163.59% at 0% 0%, rgba(255, 255, 255, 0.70) 0%, rgba(255, 255, 255, 0.00) 100%);
+                position:absolute;
+                height:100%;
+                width:1px;
+                z-index:0;
+
+              &.a{
+                top:50%;
+                left:22%;
+                transform: translateY(-50%);
+              }
+              &.b{
+                top:50%;
+                left:50%;
+                transform: translate(-50%, -50%);
+              }
+              &.c{
+                top:50%;
+                right:22%;
+                transform: translateY(-50%);
+              }
+            }
+            .h_line{
+
+            }
+        }
+
+    }
 }

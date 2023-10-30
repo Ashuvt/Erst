@@ -5,6 +5,7 @@ import { icon } from "../../../../utils/images/icons";
 import InstructorCard from "../../../components/Instructorcard/InstructorCard";
 import { images } from "../../../../utils/images/images";
 import SubCoursesSlider from "./subcoursesslider/SubCoursesSlider";
+import JourneySlider from "./journeyslider/JourneySlider";
 
 const ExploreAbout = () => {
   const whiteBtnData = [
@@ -51,27 +52,28 @@ const ExploreAbout = () => {
 
   const instructorsData = [
     {
-      id:0,
-      img:images.profilea,
-      name:"David Biser",
-      text:"Incident Response Engineer at Iron Mountain",
-      students:4632,
-      courses:2
+      id: 0,
+      img: images.profilea,
+      name: "David Biser",
+      text: "Incident Response Engineer at Iron Mountain",
+      students: 4632,
+      courses: 2,
     },
     {
-      id:1,
-      img:images.profileb,
-      name:"David Biser",
-      text:"Incident Response Engineer at Iron Mountain",
-      students:4632,
-      courses:2
-    },{
-      id:2,
-      img:images.profilec,
-      name:"David Biser",
-      text:"Incident Response Engineer at Iron Mountain",
-      students:4632,
-      courses:2
+      id: 1,
+      img: images.profileb,
+      name: "David Biser",
+      text: "Incident Response Engineer at Iron Mountain",
+      students: 4632,
+      courses: 2,
+    },
+    {
+      id: 2,
+      img: images.profilec,
+      name: "David Biser",
+      text: "Incident Response Engineer at Iron Mountain",
+      students: 4632,
+      courses: 2,
     },
   ];
 
@@ -105,25 +107,25 @@ const ExploreAbout = () => {
             />
           </div>
           <div className="right">
-              <h5 className="small_title">Instructor</h5>
-              {
-                instructorsData.map((data) => {
-                  return(
-                    <Fragment key={data.id}>
-                        <InstructorCard {...data} />
-                    </Fragment>
-                  )
-                })
-              }
-              <div className="red_card">
-                <p className="t-g-16">Get 25% off on RedTeam</p>
-                <p>Get access to 50+ modules covering topics from basic to advance.</p>
-                <button>Subscribe</button>
-              </div>
-            
+            <h5 className="small_title">Instructor</h5>
+            {instructorsData.map((data) => {
+              return (
+                <Fragment key={data.id}>
+                  <InstructorCard {...data} />
+                </Fragment>
+              );
+            })}
+            <div className="red_card">
+              <p className="t-g-16">Get 25% off on RedTeam</p>
+              <p>
+                Get access to 50+ modules covering topics from basic to advance.
+              </p>
+              <button>Subscribe</button>
+            </div>
           </div>
         </div>
         <SubCoursesSlider />
+        <JourneySlider />
       </div>
     </section>
   );
