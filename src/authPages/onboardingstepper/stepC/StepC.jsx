@@ -87,7 +87,9 @@ const StepC = ({ setStep }) => {
 
   const [selectedTags, setSelectedTags] = useState([]);
 
-  const continueHandler = () => {};
+  const continueHandler = () => {
+    SkipHandler();
+  };
 
   const SkipHandler = () => {
     setStep((prev) => prev + 1);

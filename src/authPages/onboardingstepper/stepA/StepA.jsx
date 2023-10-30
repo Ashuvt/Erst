@@ -5,7 +5,9 @@ import { icon } from "../../../utils/images/icons";
 const StepA = ({setStep}) => {
 
 
-const continueHandler = () => {};
+const continueHandler = () => {
+  SkipHandler();
+};
 
 const SkipHandler = () => {
   setStep(prev => prev + 1);

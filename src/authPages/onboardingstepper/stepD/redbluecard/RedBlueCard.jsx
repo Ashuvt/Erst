@@ -11,6 +11,7 @@ const RedBlueCard = ({
   students,
   duration,
   modules,
+  clickHandler
 }) => {
   return (
     <div className="red_blue_card">
@@ -38,7 +39,7 @@ const RedBlueCard = ({
           </div>
         </div>
 
-        <button type="button" className="authbtn auth_primary">
+        <button type="button" className="authbtn auth_primary" onClick={clickHandler}>
           Explore Free Lessons
         </button>
 

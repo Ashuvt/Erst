@@ -1,7 +1,9 @@
 import "./StepB.scss";
 
 const StepB = ({ setStep }) => {
-  const continueHandler = () => {};
+  const continueHandler = () => {
+    SkipHandler();
+  };
 
   const SkipHandler = () => {
     setStep(prev=> prev + 1);
