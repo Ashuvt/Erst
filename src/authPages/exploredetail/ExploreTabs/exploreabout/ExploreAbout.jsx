@@ -6,6 +6,9 @@ import InstructorCard from "../../../components/Instructorcard/InstructorCard";
 import { images } from "../../../../utils/images/images";
 import SubCoursesSlider from "./subcoursesslider/SubCoursesSlider";
 import JourneySlider from "./journeyslider/JourneySlider";
+import { useDispatch } from "react-redux";
+import { resetAllToggler } from "../../../../store/actions";
+import ModulesSec from "./modulessec/ModulesSec";
 
 const ExploreAbout = () => {
   const whiteBtnData = [
@@ -77,8 +80,14 @@ const ExploreAbout = () => {
     },
   ];
 
+  const dispatch = useDispatch();
+
+  const resetToggler = () => {
+    dispatch({ type: resetAllToggler() });
+  };
+
   return (
-    <section className="explore_detail_content">
+    <section className="explore_detail_content" onClick={resetToggler}>
       <div className="screen_container">
         <div className="grid_content">
           <div className="left">
@@ -105,6 +114,7 @@ const ExploreAbout = () => {
               title="What does this course include"
               data={fourInfoData}
             />
+               <ModulesSec />
           </div>
           <div className="right">
             <h5 className="small_title">Instructor</h5>
@@ -124,6 +134,7 @@ const ExploreAbout = () => {
             </div>
           </div>
         </div>
+     
         <SubCoursesSlider />
         <JourneySlider />
       </div>

@@ -1,0 +1,295 @@
+@import "../../scss/common";
+@import "../../scss/mixin";
+@import "../../scss/typography";
+@import "../../scss/variables";
+
+section.explore_cources {
+    padding-bottom: 40px;
+
+    .screen_container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 140px;
+
+        @media only screen and (max-width:$laptop) {
+            flex-direction: column;
+            gap: 0px;
+        }
+
+        .left_info {
+            border-right: 1px solid $borderSubtle;
+            width: 400px;
+            position: sticky;
+            top: 80px;
+
+            @media only screen and (max-width:$laptop) {
+                top: 0px;
+                position: relative;
+                width: 100%;
+            }
+
+            .top_title {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 16px 20px 16px 4px;
+            }
+
+            .video_wrap {
+                width: 270px;
+                height: 164px;
+                position: relative;
+                margin-bottom: 16px;
+
+                img {
+                    min-height: 100%;
+                    min-width: 100%;
+                    object-fit: cover;
+                }
+
+                .progress_bar {
+                    position: absolute;
+                    bottom: 0px;
+                    left: 0px;
+                    width: 100%;
+                    justify-content: flex-start;
+                    align-items: center;
+
+                    height: 4px;
+
+                    .filler {
+                        height: 100%;
+                        background-color: $primary;
+                    }
+                }
+
+                p.percent {
+                    position: absolute;
+                    left: 8px;
+                    bottom: 10px;
+                    @include font('Inter-Regular', 12px, 16px, 400, $textPrimary);
+                }
+
+            }
+
+            p.t-g-18 {
+                color: $white;
+            }
+
+            .module_count {
+                margin: 8px 0px 18px 0px;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 8px;
+
+                img {
+                    margin: 0px;
+                }
+
+                p {
+                    color: $textPrimary;
+                }
+
+
+            }
+        }
+
+
+
+
+
+        .course_detail {
+            width: calc(100% - 540px);
+
+            @media only screen and (max-width:$laptop) {
+                width: 100%;
+            }
+
+            h1 {
+                @include font('SpaceGrotesk-Regular', 24px, 32px, 500, $white);
+
+                &.mt-48 {
+                    margin-top: 48px;
+                }
+
+                &.title {
+                    margin-top: 40px;
+                }
+            }
+
+            p {
+                color: $textPrimary;
+
+                &.m-t-16 {
+                    margin-top: 16px;
+                }
+            }
+
+            .img_wrap {
+                width: 100%;
+                margin: 24px 0px;
+
+                img {
+                    width: 100%;
+                }
+
+            }
+
+            .section {
+                padding-bottom: 30px;
+                border-bottom: 1px solid $borderSubtle;
+
+                p {
+                    &.section_name {
+                        color: $white;
+                        margin-bottom: 24px;
+                    }
+
+                }
+
+                ol {
+                    padding-left: 0px;
+                    list-style-type: none;
+
+                    li {
+                        p {
+                            display: flex;
+                            justify-content: flex-start;
+                        }
+                    }
+                }
+            }
+
+            .question {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 8px;
+                margin-top: 40px;
+
+                img {
+                    margin: 0px;
+                }
+            }
+
+            p {
+                &.primary {
+                    color: $textPrimary;
+                    margin: 8px 0px 4px 0px;
+                }
+
+                &.thin {
+                    color: $textHint;
+                }
+            }
+
+            ul {
+                list-style-type: none;
+                padding-left: 0px;
+
+                li {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    gap: 16px;
+                    margin-top: 20px;
+
+                    img {
+                        margin: 0px;
+                    }
+                }
+            }
+
+            button {
+                margin-top: 20px;
+            }
+
+            .assignment_wrap {
+                padding-top: 48px;
+                margin-top: 100px;
+                border-top: 1px solid $borderSubtle;
+
+                @media only screen and (max-width:$laptop) {
+                    padding-top: 30px;
+                    margin-top: 60px;
+                }
+
+                @media only screen and (max-width:$laptop) {
+                    margin-top: 30px;
+                }
+
+                h1 {
+                    margin-bottom: 40px;
+                    @media only screen and (max-width:$tab) {
+                        margin-top: 30px;
+                    }
+                }
+
+                p {
+                    color: $white;
+
+                    &.primary {
+                        color: $textPrimary
+                    }
+
+                    &.small_text {
+                        color: $textSecondary;
+                        margin-top: 8px;
+                    }
+                }
+
+                .upload_wrap {
+                    position: relative;
+                    border-radius: 12px;
+                    border: 1px dashed $primary;
+                    background: $bgLight;
+                    padding: 30px;
+                    height: 150px;
+                    margin-top: 32px;
+
+                    input[type="file"] {
+                        position: absolute;
+                        height: 100%;
+                        width: 100%;
+                        left: 0px;
+                        top: 0px;
+                        opacity: 0;
+                        z-index: 2;
+                    }
+
+                    .content {
+                        position: absolute;
+                        height: 100%;
+                        width: 100%;
+                        left: 0px;
+                        top: 0px;
+                        z-index: 2;
+                        padding: 30px;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+
+                        p {
+                            text-align: center;
+
+                            &.small_text {
+                                color: $textPrimary
+                            }
+
+                            ;
+
+                            &.t-i-12 {
+                                color: $textSecondary;
+                                margin-top: 4px;
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+}

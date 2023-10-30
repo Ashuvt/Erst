@@ -29,6 +29,8 @@ import { useDispatch } from "react-redux";
 import { resetAllToggler } from "./store/actions";
 import ExploreDetail from "./authPages/exploredetail/ExploreDetail";
 import CourseSidebar from "./layouts/coursesidebar/CourseSidebar";
+import ExploreCourses from "./authPages/explorecourses/ExploreCourses";
+
 
 function App() {
   var menu;
@@ -81,6 +83,7 @@ function App() {
           <Route path="/groups" element={<Groups />} />
           <Route path="/saved" element={<Saved />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/explore/course" element={<ExploreCourses />} />
           <Route path="/explore/:detail" element={<ExploreDetail />} />
 
      

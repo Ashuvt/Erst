@@ -45,6 +45,12 @@ import userFill from "../../assets/images/icons/userfill.svg";
 import masterCard from "../../assets/images/icons/mastercard.svg";
 import checked from "../../assets/images/icons/checked.svg";
 import playCircle from "../../assets/images/icons/playcircle.svg";
+import video from "../../assets/images/icons/video.svg";
+import docs from "../../assets/images/icons/docs.svg";
+import dobleleftangle from "../../assets/images/icons/dobleleftangle.svg";
+import darkAngleDown from "../../assets/images/icons/darkangledown.svg";
+import whiteCheck from "../../assets/images/icons/whitecheck.svg";
+import lightLock from "../../assets/images/icons/lightlock.svg";
 
 export const icon = {
   angleUp,
@@ -92,9 +98,12 @@ export const icon = {
   masterCard,
   checked,
   playCircle,
-  
-
-
+  video,
+  docs,
+  dobleleftangle,
+  darkAngleDown,
+  whiteCheck,
+  lightLock,
 
   playfill,
   userFill,

@@ -34,6 +34,7 @@ const ProfileMenu = ({ menuStatus }) => {
     {
       id: 4,
       icon: icon.logout,
+      text:"Logout",
       clickHandler:() => {}
     },
   ];

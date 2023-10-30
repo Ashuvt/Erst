@@ -65,6 +65,10 @@ import offerBell from "../../assets/images/offerbell.png";
 import subscribedA from "../../assets/images/subscribeda.png";
 import subscribedB from "../../assets/images/subscribeda.png";
 import exploreDetail from "../../assets/images/exploredetail.png";
+import uploadedA from "../../assets/images/uploadedA.png";
+import uploadedB from "../../assets/images/uploadedB.png";
+import uploadedC from "../../assets/images/uploadedC.png";
+import uploadedD from "../../assets/images/uploadedD.png";
 
 
 // Icons
@@ -211,6 +215,10 @@ export const images = {
   subscribedA,
   subscribedB,
   exploreDetail,
+  uploadedA,
+  uploadedB,
+  uploadedC,
+  uploadedD,
 };
 
 export const products = {

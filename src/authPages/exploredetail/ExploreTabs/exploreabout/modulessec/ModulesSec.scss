@@ -1,0 +1,51 @@
+@import "../../../../../scss/common";
+@import "../../../../../scss/mixin";
+@import "../../../../../scss/typography";
+@import "../../../../../scss/variables";
+
+.module_sec {
+    margin-top: 40px;
+
+    .module_info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 24px 20px;
+        border-bottom: 1px solid $borderLight;
+        flex-wrap: wrap;
+        gap:15px;
+
+        img {
+            margin: 0px;
+        }
+
+        .left {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+
+            .info {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 12px;
+                flex-wrap: wrap;
+                p.small_text{
+                    &.text{
+                        color:$textPrimary;
+                    }
+                }
+                button.free_btn{
+                    padding:2px 8px;
+                    border-radius: 4px;
+                    background-color:$primary;
+                    text-transform: capitalize;
+                    border-style: none;
+                    @include font('Inter-Regular', 12px, 16px, 400, $white);
+                }
+            }
+        }
+    }
+}

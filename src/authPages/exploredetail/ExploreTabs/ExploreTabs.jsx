@@ -2,6 +2,8 @@ import { Fragment, useState } from "react";
 import "./ExploreTabs.scss";
 import ExploreAbout from "./exploreabout/ExploreAbout";
 import { transform } from "framer-motion";
+import { useDispatch } from "react-redux";
+import { resetAllToggler } from "../../../store/actions";
 
 const ExploreTabs = () => {
   const tabData = [
@@ -25,9 +27,15 @@ const ExploreTabs = () => {
 
   const [tab, setTab] = useState(tabData[0].id);
 
+  const dispatch = useDispatch();
+
+  const resetToggler = () => {
+    dispatch({ type: resetAllToggler() });
+  };
+
   return (
     <Fragment>
-      <section className="tabs_sec">
+      <section className="tabs_sec" onClick={resetToggler}>
         <div className="scree_container tabs_btns">
           {tabData.map((data) => {
             return (

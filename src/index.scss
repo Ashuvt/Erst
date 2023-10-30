@@ -1,4 +1,5 @@
 @import "./scss/variables";
+@import "./scss/mixin";
 
 * {
   margin: 0px;
@@ -171,4 +172,97 @@ span.wpcf7-spinner {
 
 button.slick-arrow{
   display: none!important;
+}
+
+#side_accord{
+  .accordion-item{
+    border-style: none;
+    border-radius: none!important;
+  }
+  button.accordion-button{
+      background-color:$dark!important;
+      border-style: none;
+      padding:0px;
+      border-style: none!important;
+      box-shadow: none!important;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: none!important;
+      border-bottom: 1px solid $borderSubtle!important;
+      padding:16px 20px 16px 4px;
+       @include font('Inter-Regular', 12px, 16px, 400, $textSecondary);
+      &::after{
+        display: none!important;
+      }
+      img{
+        margin:0px;
+        transform:rotate(-180deg);
+        transition:all 0.3s ease-in-out;
+      }
+
+      &.collapsed{
+        img{
+          transform:rotate(-0deg);
+        }
+      }
+  }
+  .accordion-body{
+    background-color:$dark!important;
+    padding:24px 10px 24px 0px!important;
+    .icon_info{
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap:8px;
+      margin-top:12px;
+      img{
+        margin:0px;
+      }
+      .green_circle{
+        height:16px;
+        width:16px;
+        border-radius: 50%;
+        background-color:$green;
+        display: flex;
+        justify-content:center;
+        align-items: center;
+      }
+      p{
+        &.small_text{
+          color:$textPrimary;
+        }
+        &.t-i-12{
+          color:$textHint;
+        }
+      }
+
+      &.between{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        img{
+          margin:0px;
+        }
+        .left{
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          gap:8px;
+        }
+       
+        p{
+          &.small_text{
+            color:$textPrimary;
+          }
+          &.t-i-12{
+            color:$textHint;
+          }
+        }
+
+      }
+
+    }
+  }
 }

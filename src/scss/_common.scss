@@ -264,3 +264,8 @@ button.grotesk_secondary {
   text-transform: capitalize;
   @include font('SpaceGrotesk-Regular', 14px, 20px, 400, $textPrimary);
 }
+
+button.iconbtn{
+  border-style: none;
+  background-color: transparent;
+}

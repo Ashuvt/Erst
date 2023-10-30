@@ -76,7 +76,7 @@ const CoursesHeader = () => {
   };
 
   const notificationHandler = (e) => {
-
+    e.stopPropagation();
     dispatch({ type: notificationToggler(), payload: !notificationStatus });
   };
 

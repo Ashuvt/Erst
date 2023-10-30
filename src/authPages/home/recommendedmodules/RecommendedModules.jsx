@@ -43,7 +43,7 @@ const RecommendedModules = () => {
         title="Recommended modules"
         text="Hi Rajat, Based on your intersect in ComTIA security 
          we suggest you some of personally curated modules"
-        btntext="Explore Cources"
+        btntext="Explore Courses"
         icon={icon.blueRightArrow}
         redirectTo="/explore/courses"
       />

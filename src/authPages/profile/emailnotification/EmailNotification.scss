@@ -26,19 +26,49 @@
     }
 
     .check_wrap {
-        input[type="checkbox"] {
-            min-height: 20px;
-            width: 20px;
-            box-shadow: none;
-            margin:0px;
-            padding:0px;
-        }
+      
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin-top: 13px;
+            gap: 7px;
 
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        gap:12px;
-        margin-top:16px;
+            button.checkbtn {
+                height: 20px;
+                width: 20px;
+                border-radius: 4px;
+                border: 1px solid $borderSubtle;
+                background: $bgLight;
+                display: block;
+                transition: all 0.3s ease-in-out;
+                margin:0px;
+
+                &.active {
+                    background-color: $primary;
+                }
+
+                img {
+                    opacity: 0;
+                    display: none;                    
+                    height:100%;
+                    width:100%;
+                    border-radius: 4px;
+                    transition: all 0.3s ease-in-out;
+
+                    &.active {
+                        display: block;
+                        opacity: 1;
+                    }
+                }
+
+
+
+            }
+
+          
+      
+
+      
     }
     button{
         margin-top:32px;
