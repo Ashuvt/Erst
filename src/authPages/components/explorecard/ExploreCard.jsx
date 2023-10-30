@@ -8,8 +8,11 @@ const ExploreCard = ({ img, title, text, students, modules, saved }) => {
         <span>Cources</span>
         <img src={img} alt="poster" />
         <button type="button">
-          {saved ? <img src={icon.saved} alt="save" /> : <img src={icon.save} alt="save" />}
-            
+          {saved ? (
+            <img src={icon.saved} alt="save" />
+          ) : (
+            <img src={icon.save} alt="save" />
+          )}
         </button>
       </div>
       <h2>{title}</h2>
