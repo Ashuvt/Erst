@@ -1,9 +1,11 @@
 import {
   SIDEBAR_TOGGLER,
+  COURSE_SIDEBAR_TOGGLER,
   ADD_CART_POPUP_TOGGLER,
   NOTIFICATION_TOGGLER,
   PROFILE_TOGGLER,
   RESET_ALL,
+  
 } from "./consts";
 
 export const resetAllToggler = () => {
@@ -12,6 +14,10 @@ export const resetAllToggler = () => {
 
 export const sidebarToggler = () => {
   return SIDEBAR_TOGGLER;
+};
+
+export const courseSidebarToggler = () => {
+  return COURSE_SIDEBAR_TOGGLER;
 };
 
 export const cartPopupToggler = () => {

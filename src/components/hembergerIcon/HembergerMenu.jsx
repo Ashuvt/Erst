@@ -1,26 +1,17 @@
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import "./HembergerMenu.scss";
-import { useDispatch, useSelector } from "react-redux";
-import { sidebarToggler } from "../../store/actions";
 
-const HembergerMenu = () => {
+const HembergerMenu = ({ clickHandler, status }) => {
 
-  const dispatch = useDispatch();
-  const sidebarStatus = useSelector((state) => state.toggleReducer.sidebarStatus);
-
-  const menuToggler = () => {
-
-    if (sidebarStatus) {
-      dispatch({ type: sidebarToggler(), payload: false });
-    } else {
-      dispatch({ type: sidebarToggler(), payload: true });
-    }
+  const menuToggler = (e) => {
+    e.stopPropagation();
+    clickHandler();
   };
 
   return (
     <Fragment>
       <div
-        className={`hemberger_menu ${sidebarStatus ? "open" : ""}`}
+        className={`hemberger_menu ${status ? "open" : ""}`}
         onClick={menuToggler}
       >
         <div className="bar"></div>

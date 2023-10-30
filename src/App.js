@@ -28,6 +28,7 @@ import Saved from "./authPages/saved/Saved";
 import { useDispatch } from "react-redux";
 import { resetAllToggler } from "./store/actions";
 import ExploreDetail from "./authPages/exploredetail/ExploreDetail";
+import CourseSidebar from "./layouts/coursesidebar/CourseSidebar";
 
 function App() {
   var menu;
@@ -46,6 +47,8 @@ function App() {
         <AddCartPopup />
 
         <SideBar />
+        <CourseSidebar />
+        
         <Routes>
           <Route path="/" element={<Home1 />} />
           <Route path="/home1" element={<Home1 />} />

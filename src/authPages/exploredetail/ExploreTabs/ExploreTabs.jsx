@@ -1,8 +1,8 @@
 import { Fragment, useState } from "react";
 import "./ExploreTabs.scss";
+import ExploreAbout from "./exploreabout/ExploreAbout";
 
 const ExploreTabs = () => {
-   
   const tabData = [
     {
       id: 0,
@@ -27,11 +27,15 @@ const ExploreTabs = () => {
   return (
     <Fragment>
       <section className="tabs_sec">
-        <div className="scree_container">
+        <div className="scree_container tabs_btns">
           {tabData.map((data) => {
             return (
               <Fragment key={data.id}>
-                <button type="button" className={`tab ${tab === data.id ? 'active' : ''}`} onClick={() => setTab(data.id)}>
+                <button
+                  type="button"
+                  className={`tab ${tab === data.id ? "active" : ""}`}
+                  onClick={() => setTab(data.id)}
+                >
                   {data.tab}
                 </button>
               </Fragment>
@@ -39,6 +43,12 @@ const ExploreTabs = () => {
           })}
         </div>
       </section>
+      {tab === 0 && <ExploreAbout />}
+      {tab === 1 && <ExploreAbout />}
+      {tab === 2 && <ExploreAbout />}
+      {tab === 3 && <ExploreAbout />}
+      
+
     </Fragment>
   );
 };

@@ -15,6 +15,7 @@ a.navbtns {
     img {
         max-height: 16px;
         max-width: 16px;
+        margin:0px;
     }
     &.active{
         background-color: $primary;

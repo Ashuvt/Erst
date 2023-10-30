@@ -7,11 +7,15 @@ import { Fragment } from "react";
 import NotificationCard from "./notificationcard/NotificationCard";
 import ProfileMenu from "./profilemenu/ProfileMenu";
 import { useDispatch, useSelector } from "react-redux";
-import {notificationToggler, profileToggler, resetAllToggler} from "../../../store/actions";
-
+import {
+  courseSidebarToggler,
+  notificationToggler,
+  profileToggler,
+  resetAllToggler,
+} from "../../../store/actions";
+import HembergerMenu from "../../../components/hembergerIcon/HembergerMenu";
 
 const CoursesHeader = () => {
-
   const menuData = [
     {
       id: 0,
@@ -52,23 +56,38 @@ const CoursesHeader = () => {
   ];
 
   const dispatch = useDispatch();
-  const notificationStatus = useSelector(data => data.toggleReducer.notificationStatus);
-  const profileStatus = useSelector(data => data.toggleReducer.profileStatus);
+  const notificationStatus = useSelector(
+    (data) => data.toggleReducer.notificationStatus
+  );
 
+  const profileStatus = useSelector((data) => data.toggleReducer.profileStatus);
 
-const notificationHandler = (e) => {
-  e.stopPropagation();
-  dispatch({type:notificationToggler(), payload:!notificationStatus});
-}
+  const courseSidebarStatus = useSelector(
+    (state) => state.toggleReducer.courseSidebarStatus
+  );
 
-const profileMenuHandler = (e) => {
-  e.stopPropagation();
-  dispatch({type:profileToggler(), payload:!profileStatus});
-}
+  const courseMenuToggler = (e) => {     
+  
+    if (courseSidebarStatus) {
+      dispatch({ type: courseSidebarToggler(), payload: false });
+    } else {
+      dispatch({ type: courseSidebarToggler(), payload: true });
+    }
+  };
 
-const resetToggle = () => {
-    dispatch({type:resetAllToggler()})
-}
+  const notificationHandler = (e) => {
+
+    dispatch({ type: notificationToggler(), payload: !notificationStatus });
+  };
+
+  const profileMenuHandler = (e) => {
+    e.stopPropagation();
+    dispatch({ type: profileToggler(), payload: !profileStatus });
+  };
+
+  const resetToggle = () => {
+    dispatch({ type: resetAllToggler() });
+  };
 
   return (
     <section className="courses_header" onClick={resetToggle}>
@@ -93,15 +112,27 @@ const resetToggle = () => {
             <button type="button" onClick={notificationHandler}>
               <img src={icon.notification} alt="notification" />
             </button>
-            <button type="button" className="profile_btn" onClick={profileMenuHandler}>
+            <button
+              type="button"
+              className="profile_btn"
+              onClick={profileMenuHandler}
+            >
               <div className="img_wrap">
                 <img src={images.profilef} alt="profile" />
               </div>
-              <img src={icon.angleDown} alt="arrow" className={profileStatus ? 'close' : 'open'} />
+              <img
+                src={icon.angleDown}
+                alt="arrow"
+                className={profileStatus ? "close" : "open"}
+              />
             </button>
+            <HembergerMenu
+              clickHandler={courseMenuToggler}
+              status={courseSidebarStatus}
+            />
           </div>
         </header>
-        <NotificationCard status={notificationStatus}/>
+        <NotificationCard status={notificationStatus} />
         <ProfileMenu menuStatus={profileStatus} />
       </div>
     </section>

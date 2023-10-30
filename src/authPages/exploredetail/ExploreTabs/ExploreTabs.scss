@@ -4,23 +4,46 @@
 @import "../../../scss/variables";
 
 
-section.tabs_sec{
+section.tabs_sec {
     border-bottom: 1px solid $borderSubtle;
-    padding-top:24px;
-    .scree_container{
+    padding-top: 24px;
+
+    .scree_container {
         display: flex;
         justify-content: center;
-        align-items:center;
-        button.tab{
-            padding:16px;
-            width:220px;
+        align-items: center;
+
+        &.tabs_btns {
+            @media only screen and (max-width:$laptop) {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap:10px;
+            }
+
+            @media only screen and (max-width:$mobile) {
+                grid-template-columns: 1fr;
+                gap:10px;
+            }
+        }
+
+        button.tab {
+            padding: 16px;
+            width: 220px;
             border-style: none;
             background-color: transparent;
             @include font('SpaceGrotesk-Regular', 20px, 24px, 400, $textSecondary);
-            border-bottom:1px solid transparent;
-            transition:all 0.3s ease-in-out;            
-            &.active{
-                color:$white;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease-in-out;
+            @media only screen and (max-width:$laptop){
+                width:100%;
+                @include font('SpaceGrotesk-Regular', 16px, 20px, 400, $textSecondary);
+            }
+            @media only screen and (max-width:$mobile){
+                padding:12px;
+            }
+
+            &.active {
+                color: $white;
                 border-bottom: 1px solid $primary;
             }
         }

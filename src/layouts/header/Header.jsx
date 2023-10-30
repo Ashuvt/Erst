@@ -5,8 +5,8 @@ import MenuBtn from "./menu/MenuBtn";
 import { menuList } from "../../utils/data/data";
 import HembergerMenu from "../../components/hembergerIcon/HembergerMenu";
 import { cartPopupToggler } from "../../store/actions";
-import { useDispatch } from "react-redux";
-
+import { useDispatch, useSelector } from "react-redux";
+import { sidebarToggler } from "../../store/actions";
 import { useNavigate } from "react-router-dom";
 
 const Header = () => {
@@ -14,6 +14,18 @@ const Header = () => {
 
   const openCartPopup = () => {
     dispatch({ type: cartPopupToggler(), payload: true });
+  };
+
+  const sidebarStatus = useSelector(
+    (state) => state.toggleReducer.sidebarStatus
+  );
+
+  const menuToggler = () => {
+    if (sidebarStatus) {
+      dispatch({ type: sidebarToggler(), payload: false });
+    } else {
+      dispatch({ type: sidebarToggler(), payload: true });
+    }
   };
 
   const navigate = useNavigate();
@@ -40,14 +52,17 @@ const Header = () => {
               <div className="notification">2</div>
               <img src={icons.addCart} alt="cart" />
             </button>
-            <button type="button" className="signin" onClick={() => navigate('/login')}>
+            <button
+              type="button"
+              className="signin"
+              onClick={() => navigate("/login")}
+            >
               Sign in
             </button>
             <button type="button" className="signup">
               Sign up
             </button>
-
-            <HembergerMenu />
+            <HembergerMenu clickHandler={menuToggler} status={sidebarStatus} />
           </div>
         </header>
       </div>

@@ -45,6 +45,7 @@ const RecommendedModules = () => {
          we suggest you some of personally curated modules"
         btntext="Explore Cources"
         icon={icon.blueRightArrow}
+        redirectTo="/explore/courses"
       />
       {data.map((info) => {
         return (

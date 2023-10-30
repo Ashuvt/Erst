@@ -1,0 +1,66 @@
+@import "../../../../scss/common";
+@import "../../../../scss/mixin";
+@import "../../../../scss/typography";
+@import "../../../../scss/variables";
+
+section.explore_detail_content {
+    padding-bottom:40px;
+    .screen_container {
+        padding-top: 50px;
+
+        .grid_content {
+            display: grid;
+            grid-template-columns: 4fr 3fr;
+            gap: 80px;
+
+            @media only screen and (max-width:$laptop) {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .left {
+                .btn_line {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    gap: 8px;
+                    margin-bottom: 20px;                
+                }
+
+            }
+
+            .right {
+                padding-left: 80px;
+
+                @media only screen and (max-width : 1200px) {
+                    padding-left: 0px;
+                }
+
+                .red_card {
+                    padding: 24px;
+                    background-color: $orange;
+                    border-radius: 8px;
+                    margin-top: 40px;
+
+                    p {
+                        color: $cardB;
+
+                        &.t-g-16 {
+                            color: $white;
+                            margin-bottom: 8px;
+                        }
+                    }
+
+                    button {
+                        margin-top: 20px;
+                        border-style: none;
+                        background-color: $white;
+                        padding: 8px 24px;
+                        border-radius: 8px;
+                        @include font('SpaceGrotesk-Medium', 14px, 18px, 500, $orange);
+                    }
+                }
+            }
+        }
+    }
+}

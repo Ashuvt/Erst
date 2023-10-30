@@ -21,15 +21,17 @@
             border-radius: 8px;
             border: 1px solid $cardB;
             padding: 32px 20px;
-            transition: all 0.3s ease-in-out;  
+            transition: all 0.3s ease-in-out;
+
             &:hover {
                 border-color: $lightBorder_1;
                 box-shadow: 0 0 20px rgba(255, 255, 255, 0.25);
 
             }
+
             @media only screen and (max-width:$tab) {
                 padding: 15px;
-                          
+
             }
 
             .icon_box {
@@ -40,6 +42,10 @@
                 align-items: center;
                 border-radius: 4px;
                 background: var(--Card-fill, linear-gradient(113deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.00) 110.84%));
+
+                img {
+                    width: 32px;
+                }
             }
 
             p {

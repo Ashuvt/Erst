@@ -1,0 +1,95 @@
+@import "../../scss/common";
+@import "../../scss/mixin";
+@import "../../scss/typography";
+@import "../../scss/variables";
+
+
+.course_side_bar {
+    height: 100vh;
+    min-height: 500px;
+    background-color: $dark;
+    padding: 15px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 300px;
+    z-index: 999999;
+    overflow: hidden;
+    transition: all 0.2s ease-in-out;
+
+    &.open {
+        left: 0px;
+    }
+
+    &.close {
+        left: -300px;
+
+    }
+
+
+    .logo_line {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0px;
+
+        img.logo {
+            margin: 0px;
+            width: 60px;
+        }
+
+        button {
+            border-style: none;
+            background-color: transparent;
+        }
+    }
+
+    .course_screen_links {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        a {
+            text-decoration: none;
+
+            button {
+                padding: 15px 16px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap:10px;
+                @include font('Inter-Regular', 14px, 20px, 400, $white);
+                transition: all 0.3s ease-in-out;
+                border-radius: 16px;
+                text-transform: capitalize;
+                text-decoration: none;
+                width: 100%;
+                background-color: transparent;
+                border-style: none;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+
+                img {
+                    max-height: 20px;
+                    max-width: 20px;
+                    margin: 0px;
+                }
+
+
+                &:hover {
+                    background-color: $primary;
+                    color: $white;
+                }
+            }
+
+            &.active {
+                button {
+                    background-color: $primary;
+                    color: $white;
+                }
+            }
+        }
+    }
+
+}
