@@ -13,7 +13,11 @@ section.welcome_strip {
         padding-bottom: 88px;
 
         h1 {
+            border-right: 1px solid $white;
             @include font('SpaceGrotesk-Regular', 40px, 44px, 400, $white);
+            animation: blink-caret 0.75s step-end infinite;
+            display: inline-block;
+            padding-right:5px;
         }
 
         p {
@@ -40,3 +44,12 @@ section.welcome_strip {
         }
     }
 }
+
+@keyframes blink-caret {
+    0% {
+      border-color: transparent;
+    }
+    50% {
+      border-color: #fff;;
+    }
+  }
