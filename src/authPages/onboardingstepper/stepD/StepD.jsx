@@ -62,10 +62,10 @@ const StepD = () => {
 
   return (
     <div className="step_d">
-      <h1 className="small_title wow slideInUp">
+      <h1 className="small_title wow fadeInUp">
         Start with our free expertly-curated lessons from courses
       </h1>
-      <p className="wow slideInUp">
+      <p className="wow fadeInUp">
         You can change and subscribe to other courses anytime in your learning
         journey.
       </p>

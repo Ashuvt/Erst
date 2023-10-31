@@ -1,17 +1,54 @@
+import { Fragment, useState } from "react";
 import "./StepA.scss";
 import { icon } from "../../../utils/images/icons";
 
+const StepA = ({ setStep }) => {
+  const [selectedOption, setSelectedOption] = useState([]);
 
-const StepA = ({setStep}) => {
+  const continueHandler = () => {
+    SkipHandler();
+  };
 
+  const SkipHandler = () => {
+    setStep((prev) => prev + 1);
+  };
 
-const continueHandler = () => {
-  SkipHandler();
-};
+  const optionsData = [
+    {
+      id: 0,
+      text: "Student",
+    },
+    {
+      id: 1,
+      text: "Data science",
+    },
+    {
+      id: 2,
+      text: "IT",
+    },
+    {
+      id: 3,
+      text: "Learning and development ",
+    },
+    {
+      id: 4,
+      text: "Operations",
+    },
+    {
+      id: 5,
+      text: "Risk and compliance",
+    },
+  ];
 
-const SkipHandler = () => {
-  setStep(prev => prev + 1);
-}
+  const addSelection = (selectedId) => {
+    setSelectedOption((prev) => {
+      if (selectedOption.includes(selectedId)) {
+        return prev.filter((id) => id !== selectedId);
+      } else {
+        return [...prev, selectedId];
+      }
+    });
+  };
 
   return (
     <div className="step_a">
@@ -23,53 +60,47 @@ const SkipHandler = () => {
       <form>
         <div className="auth_field wow slideInUp">
           <div className="input_wrap">
-            <input type="search" placeholder="search" name="search" autoComplete="off" />
+            <input
+              type="search"
+              placeholder="search"
+              name="search"
+              autoComplete="off"
+            />
             <img className="field_icon" src={icon.search} alt="email" />
           </div>
         </div>
 
-        <div className="auth_field mt_20 wow slideInUp">
-          <div className="input_wrap">
-            <input type="search" placeholder="student" />
-          </div>
-        </div>
-
-        <div className="auth_field mt_20 wow slideInUp">
-          <div className="input_wrap">
-            <input type="search" placeholder="data science" />
-          </div>
-        </div>
-
-        <div className="auth_field mt_20 wow slideInUp">
-          <div className="input_wrap">
-            <input type="search" placeholder="IT" />
-          </div>
-        </div>
-
-        <div className="auth_field mt_20 wow slideInUp">
-          <div className="input_wrap">
-            <input type="search" placeholder="Learning and development " />
-          </div>
-        </div>
-
-        <div className="auth_field mt_20 wow slideInUp">
-          <div className="input_wrap">
-            <input type="search" placeholder="Operations" />
-          </div>
-        </div>
-        <div className="auth_field mt_20 wow slideInUp">
-          <div className="input_wrap">
-            <input type="search" placeholder="Risk and compliance" />
-          </div>
-        </div>
+        {optionsData.map((data) => {
+          return (
+            <Fragment key={data.id}>
+              <div
+                className={`select_field ${selectedOption.includes(data.id) ? "active" : ''} wow fadeInUp `}
+                onClick={() => addSelection(data.id)}
+              >
+                <p className="small_text">{data.text}</p>
+                <div className="check_box">
+                  <img src={icon.checked} alt="checked" className={selectedOption.includes(data.id) ? "active" : ''} />
+                </div>
+              </div>
+            </Fragment>
+          );
+        })}
       </form>
 
       <div className="bottom_btn">
         <div className="btn_line">
-          <button type="button" className="authbtn auth_primary wow slideInUp" onClick={continueHandler}>
+          <button
+            type="button"
+            className="authbtn auth_primary wow slideInUp"
+            onClick={continueHandler}
+          >
             Continue
           </button>
-          <button type="button" className="authbtn auth_secondary wow slideInUp" onClick={SkipHandler}>
+          <button
+            type="button"
+            className="authbtn auth_secondary wow slideInUp"
+            onClick={SkipHandler}
+          >
             Skip
           </button>
         </div>

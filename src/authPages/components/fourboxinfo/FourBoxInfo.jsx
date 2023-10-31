@@ -8,7 +8,11 @@ const FourBoxInfo = ({ title, data = [] }) => {
         {data.length > 0 &&
           data.map((item, k) => {
             return (
-              <div className="four_info_card wow fadeInUp" key={item.id} data-wow-delay={`${k*0.1}s`}>
+              <div
+                className="four_info_card wow fadeInUp"
+                key={item.id}
+                data-wow-delay={`${k * 0.1}s`}
+              >          
                 <div className="icon_box">
                   <img src={item.icon} alt="icon" />
                 </div>

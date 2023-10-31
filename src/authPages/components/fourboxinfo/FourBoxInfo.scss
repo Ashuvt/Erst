@@ -19,10 +19,13 @@
 
         .four_info_card {
             border-radius: 8px;
-            border: 1px solid $cardB;
+            // border: 1px solid $cardB;
             padding: 32px 20px;
             transition: all 0.3s ease-in-out;
-
+            border-radius: 12px;
+            border: 1px solid var(--Card-border, rgba(255, 255, 255, 0.70));
+            background: var(--Card-fill, linear-gradient(113deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.00) 110.84%));
+            backdrop-filter: blur(28px);
            
 
             @media only screen and (max-width:$tab) {
@@ -52,15 +55,15 @@
                 }
             }
             
-            &:hover {
-                border-color: $lightBorder_1;
-                box-shadow: 0 0 20px rgba(255, 255, 255, 0.25);
-                .icon_box{
-                    img{
-                        transform:rotateY(180deg);
-                    }
-                }
-            }
+            // &:hover {
+            //     border-color: $lightBorder_1;
+            //     box-shadow: 0 0 20px rgba(255, 255, 255, 0.25);
+            //     .icon_box{
+            //         img{
+            //             transform:rotateY(180deg);
+            //         }
+            //     }
+            // }
         }
     }
 }

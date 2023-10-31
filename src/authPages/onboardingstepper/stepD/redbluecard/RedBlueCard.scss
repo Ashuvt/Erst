@@ -32,7 +32,10 @@
             justify-content: center;
             align-items: center;
             padding: 12px;
-            position: relative;
+            position:sticky;
+            left:0px;
+            top:0px;
+
 
             .rating {
                 padding: 6px 8px;

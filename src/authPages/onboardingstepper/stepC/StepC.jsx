@@ -107,10 +107,10 @@ const StepC = ({ setStep }) => {
 
   return (
     <div className="step_c">
-      <h1 className="small_title wow slideInUp">
+      <h1 className="small_title wow fadeInUp">
         Hey Rajat, tell us about fields of interests
       </h1>
-      <p className="wow slideInUp">Let’s help you setup your learning path</p>
+      <p className="wow fadeInUp">Let’s help you setup your learning path</p>
 
       <div className="tags_wrap">
         {tagsData.map((ele) => {
@@ -118,7 +118,7 @@ const StepC = ({ setStep }) => {
             <Fragment key={ele.id}>
               <button
                 type="button"
-                className={`tagbtn wow slideInUp ${
+                className={`tagbtn wow fadeInUp ${
                   selectedTags.includes(ele.id) ? "active" : ""
                 }`}
                 onClick={() => addTag(ele.id)}
@@ -133,14 +133,14 @@ const StepC = ({ setStep }) => {
       <div className="btns">
         <button
           type="button"
-          className="authbtn auth_primary wow slideInUp"
+          className="authbtn auth_primary wow fadeInUp"
           onClick={continueHandler}
         >
           Continue
         </button>
         <button
           type="button"
-          className="authbtn auth_secondary wow slideInUp"
+          className="authbtn auth_secondary wow fadeInUp"
           onClick={SkipHandler}
         >
           Skip

@@ -7,8 +7,9 @@
     width: 100%;
     max-width: 400px;
     padding-bottom: 106px;
-    padding-top:50px;
-    @media only screen and (max-width:$mobile){
+    padding-top: 50px;
+
+    @media only screen and (max-width:$mobile) {
         padding-bottom: 70px;
     }
 
@@ -31,8 +32,9 @@
         right: 0px;
         padding: 32px;
         background-color: $dark;
-        @media only screen and (max-width:$mobile){
-            padding: 15px;            
+
+        @media only screen and (max-width:$mobile) {
+            padding: 15px;
         }
 
         .btn_line {
@@ -42,6 +44,47 @@
             grid-template-columns: 1fr 1fr;
             gap: 24px;
 
+        }
+    }
+
+    .select_field {
+        padding: 16px;
+        border-radius: 8px;
+        border: 1px solid #2E2E2E;
+        background: #0F0F0F;
+        -webkit-backdrop-filter: blur(28px);
+        backdrop-filter: blur(28px);
+        background: linear-gradient(113deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 110.84%);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 20px;
+
+        &.active {
+            border-color: $textSecondary;
+        }
+
+        p {
+            margin: 0px;
+            color: $textPrimary;
+        }
+
+        .check_box {
+            height: 16px;
+            width: 16px;
+            border-radius: 4px;
+            border: 1px solid var(--border-dark, #373739);
+            background: var(--background-light, #1D1E1F);
+            box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.35);
+            overflow: hidden;
+
+            img {
+                display: none;
+
+                &.active {
+                    display: block;
+                }
+            }
         }
     }
 }
