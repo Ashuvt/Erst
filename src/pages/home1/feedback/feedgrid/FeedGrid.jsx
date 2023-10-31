@@ -7,18 +7,18 @@ const FeedGrid = () => {
     <Fragment>
       <div className="feed_greed">
         <div className="feed">
-          <h5 className="wow slideInUp">Sofia</h5>
-          <p className="wow slideInUp">
+          <h5 className="wow fadeInUp">Sofia</h5>
+          <p className="wow fadeInUp">
             Independent Visual Designer & Art Director
           </p>
-          <div className="ratings wow slideInUp">
+          <div className="ratings wow fadeInUp">
             <img src={icons.star} alt="star" />
             <img src={icons.star} alt="star" />
             <img src={icons.star} alt="star" />
             <img src={icons.star} alt="star" />
             <img src={icons.star} alt="star" />
           </div>
-          <p className="feed_text wow slideInUp">
+          <p className="feed_text wow fadeInUp">
             "One of the best things about the Intelligent Analytics Suite is its
             user-friendly interface. Even team members with limited technical
             expertise can easily navigate and use the suite to analyze data and
@@ -27,7 +27,7 @@ const FeedGrid = () => {
             of our organization."
           </p>
         </div>
-        <div className="feed_video wow slideInUp">
+        <div className="feed_video wow fadeInUp">
           <div className="overlay"></div>
           <img src={images.feedPerson} alt="feed" className="person" />
         </div>

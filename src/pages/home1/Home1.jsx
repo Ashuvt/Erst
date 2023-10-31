@@ -11,8 +11,16 @@ import HomeBlogs from "./homeblogs/HomeBlogs";
 import FeedBack from "./feedback/FeedBack";
 import Header from "../../layouts/header/Header";
 import Footer from "../../layouts/footer/Footer";
+import WOW from "wow.js";
 
 const Home1 = () => {
+
+  useEffect(() => {
+    const wow = new WOW();
+    wow.init();
+  }, []);
+
+
   return (
     <Fragment>
       <Header />

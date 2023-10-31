@@ -1,8 +1,7 @@
 import { Fragment, useEffect } from "react";
-import { icons, images } from "../../../utils/images/images";
+import {images } from "../../../utils/images/images";
 import "./FeedBack.scss";
 import FeedBackCard from "./feedbackcard/FeedBackCard";
-import WOW from "wow.js";
 import FeedGrid from "./feedgrid/FeedGrid";
 
 const FeedBack = () => {
@@ -33,21 +32,17 @@ const FeedBack = () => {
     },
   ];
 
-  useEffect(() => {
-    const wow = new WOW();
-    wow.init();
-  }, []);
 
 
   return (
     <section className="feed_back p_bottom">
       <div className="content_wrap p_top">
        <FeedGrid />
-        <div className="feedback_list wow slideInUp">
-        {feedbackData.map((data) => {
+        <div className="feedback_list">
+        {feedbackData.map((data, j) => {
           return (
             <Fragment key={data.id}>
-              <FeedBackCard {...data} />
+              <FeedBackCard {...data} index={j} />
             </Fragment>
           );
         })}

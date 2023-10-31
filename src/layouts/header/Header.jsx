@@ -48,10 +48,7 @@ const Header = () => {
             })}
           </nav>
           <div className="btns">
-            <button type="button" className="cartbtn" onClick={openCartPopup}>
-              <div className="notification">2</div>
-              <img src={icons.addCart} alt="cart" />
-            </button>
+          
             <button
               type="button"
               className="signin"
@@ -62,6 +59,13 @@ const Header = () => {
             <button type="button" className="signup">
               Sign up
             </button>
+
+            <button type="button" className="cartbtn" onClick={openCartPopup}>
+              <div className="notification">2</div>
+              <img src={icons.addCart} alt="cart" />
+            </button>
+
+            
             <HembergerMenu clickHandler={menuToggler} status={sidebarStatus} />
           </div>
         </header>

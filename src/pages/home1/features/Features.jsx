@@ -12,7 +12,7 @@ const Features = () => {
   return (
     <section className="features p_top p_bottom">
       <div className="content_wrap">
-        <div className="card active a wow slideInUp">
+        <div className="card active a wow fadeInUp">
           <h5>Data Management</h5>
           <p>
             The platform should offer robust data management capabilities that
@@ -21,7 +21,7 @@ const Features = () => {
             normalization, and data transformation.
           </p>
         </div>
-        <div className="card b wow slideInUp">
+        <div className="card b wow fadeInUp">
           <h5>Data Mining</h5>
           <p>
             Offer sophisticated data mining capabilities that allow users to
@@ -31,7 +31,7 @@ const Features = () => {
           </p>
         </div>
 
-        <div className="card c wow slideInUp">
+        <div className="card c wow fadeInUp">
           <h5>Data Security</h5>
           <p>
             Offer robust data security features to protect sensitive data and
@@ -40,7 +40,7 @@ const Features = () => {
             recovery.
           </p>
         </div>
-        <div className="card d wow slideInUp">
+        <div className="card d wow fadeInUp">
           <h5>Data Visualization</h5>
           <p>
             Provide a range of data visualization tools that allow users to

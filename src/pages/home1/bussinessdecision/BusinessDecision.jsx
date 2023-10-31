@@ -12,14 +12,14 @@ const BusinessDecision = () => {
     <section className="business_decision">
       <div className="content_wrap">
         <div className="text_wrap">
-          <h2 className="wow slideInUp">Always Analytical Business Decisions</h2>
-          <p className="wow slideInUp">
+          <h2 className="wow fadeInUp">Always Analytical Business Decisions</h2>
+          <p className="wow fadeInUp">
             Predictive analytics is the practice of using data, statistical
             algorithms, and machine learning techniques to identify the
             likelihood of future outcomes based on historical data. With
             predictive analytics, businesses can to improve performance.
           </p>
-          <div className="btn_line wow slideInUp">
+          <div className="btn_line wow fadeInUp">
             
             <button type="button" className="secondarybtn">testimonials</button>
             <button type="button" className="primarybtn">wo we are</button>

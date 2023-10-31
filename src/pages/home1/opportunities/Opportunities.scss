@@ -27,7 +27,7 @@ section.home_opportunities {
             button {
                 width: 100%;
                 padding: 30px 0px;
-                @include font('Syne-Medium', 30px, 33px, 600, $white);
+                @include font('SpaceGrotesk-Medium', 30px, 33px, 600, $white);
                 background-color: transparent;
                 border-style: none;
                 text-align: left;
@@ -39,11 +39,11 @@ section.home_opportunities {
 
                 @media only screen and (max-width:$tab) {
                     padding: 20px 0px;
-                    @include font('Syne-Medium', 25px, 27.5px, 600, $white);
+                    @include font('SpaceGrotesk-Medium', 25px, 27.5px, 600, $white);
                 }
 
                 @media only screen and (max-width:$mobile) {
-                    @include font('Syne-Medium', 22px, 24.2px, 600, $white);
+                    @include font('SpaceGrotesk-Medium', 22px, 24.2px, 600, $white);
                 }
 
                 .icon_box {

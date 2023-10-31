@@ -79,53 +79,12 @@
     font-display: swap;
 }
 
-;
-
 @font-face {
     font-family: 'Inter-ExtraBold';
     src: url('../assets/fonts/Inter-ExtraBold.woff') format('woff');
     font-style: normal;
     font-display: swap;
 }
-
-;
-
-
-// @font-face {
-//     font-family: 'Syne-Regular';
-//     src: url('../assets/fonts/Syne-Regular.woff') format('woff');
-//     font-style: normal;
-//     font-display: swap;
-// }
-
-// @font-face {
-//     font-family: 'Syne-Medium';
-//     src: url('../assets/fonts/Syne-Medium.woff') format('woff');
-//     font-style: normal;
-//     font-display: swap;
-// }
-
-// @font-face {
-//     font-family: 'Syne-SemiBold';
-//     src: url('../assets/fonts/Syne-SemiBold.woff') format('woff');
-//     font-style: normal;
-//     font-display: swap;
-// }
-
-// @font-face {
-//     font-family: 'Syne-Bold';
-//     src: url('../assets/fonts/Syne-Bold.woff') format('woff');
-//     font-style: normal;
-//     font-display: swap;
-// }
-
-// @font-face {
-//     font-family: 'Syne-ExtraBold';
-//     src: url('../assets/fonts/Syne-ExtraBold.woff') format('woff');
-//     font-style: normal;
-//     font-display: swap;
-// };
-
 
 h1 {
     @include font('SpaceGrotesk-Regular', 80px, 88px, 600, $white);

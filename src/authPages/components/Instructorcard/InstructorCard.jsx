@@ -2,7 +2,7 @@ import "./InstructorCard.scss";
 
 const InstructorCard = ({img, name, text, students, courses}) => {
     return(
-        <div className="instructors_card">
+        <div className="instructors_card wow fadeInUp">
             <div className="profile_wrap">
                     <img src={img} alt="profile" />
             </div>

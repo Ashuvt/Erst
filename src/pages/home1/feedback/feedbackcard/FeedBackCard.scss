@@ -30,11 +30,11 @@
     .info{
         width:calc(100% - 80px);
         h5{
-            @include font('Syne-Regular', 22px, 24.2px, 600, $white);
+            @include font('SpaceGrotesk-Regular', 22px, 24.2px, 600, $white);
             margin-bottom:10px;
         }
         p{
-            @include font('Syne-Regular', 15px, 22.5px, 400, $lightBorder_1);
+            @include font('SpaceGrotesk-Regular', 15px, 22.5px, 400, $lightBorder_1);
         }
     }
 

@@ -12,7 +12,7 @@ const InfoCard = ({ count, title, text, index }) => {
 
   return (
     <Fragment>
-      <div className="info_card wow slideInUp">
+      <div className="info_card wow fadeInUp">
         <div className="step_icon">
           <p>{count}</p>
         </div>
@@ -28,7 +28,7 @@ const InfoCard = ({ count, title, text, index }) => {
             index === 3 ? "last" : ""
           }`}
         >
-          <div className="out_circle wow wow zoomIn" data-wow-delay="0.4s" >
+          <div className="out_circle wow zoomIn" data-wow-delay="0.4s" >
           </div>
         </div>
       </div>

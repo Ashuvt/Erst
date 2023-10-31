@@ -25,7 +25,7 @@ const Services = () => {
           </div>
 
           <div className="info_wrap">
-            <div className="line wow slideInUp"></div>
+            <div className="line wow fadeInUp"></div>
             {cardData &&
               cardData.map((data, k) => {
                 return (

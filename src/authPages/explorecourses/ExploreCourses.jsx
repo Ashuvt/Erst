@@ -367,7 +367,7 @@ const ExploreCourses = () => {
               {
                 uploadFileData.map((data) => {
                   return(
-                    <Fragment kry={data.id}>
+                    <Fragment key={data.id}>
                       <UploadedFileCard {...data} />
                     </Fragment>
                   )

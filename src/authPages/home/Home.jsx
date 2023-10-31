@@ -13,6 +13,7 @@ import FourBoxInfo from "../components/fourboxinfo/FourBoxInfo";
 import { icon } from "../../utils/images/icons";
 import { useDispatch } from "react-redux";
 import { resetAllToggler } from "../../store/actions";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const fourInfoData = [
@@ -42,6 +43,7 @@ const Home = () => {
     },
   ];
 
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
 const resetToggler = () => {
@@ -73,7 +75,7 @@ const resetToggler = () => {
                   You’ve got limited access Cybergain courses, Choose a course
                   and start your journey.
                 </p>
-                <button type="button" className="authbtn auth_primary wow fadeInRight" data-wow-delay="0.4s">
+                <button type="button" className="authbtn auth_primary wow fadeInRight" data-wow-delay="0.4s" onClick={() => navigate("/explore/course")}>
                   Cources
                 </button>
               </div>

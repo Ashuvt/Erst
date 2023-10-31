@@ -1,22 +1,16 @@
-import { useEffect } from "react";
 import "./Footer.scss";
-import { images } from "../../utils/images/images";
 import { icons } from "../../utils/images/images";
-import WOW from "wow.js";
 
 const Footer = () => {
-  useEffect(() => {
-    const wow = new WOW();
-    wow.init();
-  }, []);
+
   return (
     <section className="footer">
       <div className="content_wrap">
         <footer>
-          <h2 className="wow slideInUp">
+          <h2 className="wow fadeInUp">
             Supercharge Your Business With Intelligent Analytics Suite!
           </h2>
-          <div className="link_social wow slideInUp">
+          <div className="link_social wow fadeInUp">
             <div className="links_container">
               <a href="/">home</a>
               <a href="/">our pricing</a>
@@ -44,7 +38,7 @@ const Footer = () => {
             <div className="anim_border bottom wow zoomIn" data-wow-delay="0.5s" data-wow-duration="1.5s"></div>
 
             <div className="footer_grid">
-              <div className="grid_box footer_form wow slideInUp">
+              <div className="grid_box footer_form wow fadeInUp">
                 <h5>Get In Touch</h5>
                 <p>
                   Contact us today to see the power of Intelligent Analytics
@@ -58,7 +52,7 @@ const Footer = () => {
                 </form>
               </div>
 
-              <div className="grid_box footer_connect wow slideInUp">
+              <div className="grid_box footer_connect wow fadeInUp">
                 <h5>Stay Connect</h5>
                 <p>2118 Thornridge Cir. Syracuse, Connecticut 35624</p>
                 <div className="stay_connect">
@@ -67,7 +61,7 @@ const Footer = () => {
                 </div>
               </div>
 
-              <div className="grid_box footer_download wow slideInUp">
+              <div className="grid_box footer_download wow fadeInUp">
                 <h5>Login And Signup</h5>
                 <p>We suggest login to our portal</p>
 
@@ -83,7 +77,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="footer_bottom wow slideInUp">
+          <div className="footer_bottom wow fadeInUp">
             <div className="left">
               <p>© All Rights Reserved 2023. Licensing</p>
             </div>

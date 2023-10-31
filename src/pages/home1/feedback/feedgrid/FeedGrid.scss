@@ -28,18 +28,18 @@
         }
 
         p.feed_text {
-            @include font('Syne-Regular', 22px, 33px, 500, $white);
+            @include font('Inter-Regular', 22px, 33px, 500, $textPrimary);
 
             @media only screen and (max-width:$laptop) {
-                @include font('Syne-Regular', 18px, 22px, 500, $white);
+                @include font('Inter-Regular', 18px, 22px, 500, $textPrimary);
             }
 
             @media only screen and (max-width:$tab) {
-                @include font('Syne-Regular', 16px, 20px, 500, $white);
+                @include font('Inter-Regular', 16px, 20px, 500, $textPrimary);
             }
 
             @media only screen and (max-width:$mobile) {
-                @include font('Syne-Regular', 14px, 18px, 500, $white);
+                @include font('Inter-Regular', 14px, 18px, 500, $textPrimary);
             }
         }
 

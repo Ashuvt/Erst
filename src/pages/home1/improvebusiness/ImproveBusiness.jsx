@@ -1,10 +1,8 @@
-import { useEffect } from "react";
 import "./ImproveBusiness.scss";
 import MidTitle from "../../../components/midtitle/MidTitle";
 import { icons, images } from "../../../utils/images/images";
 import Pill from "../../../components/pill/Pill";
 import ProfileList from "../../../components/profilelist/ProfileList";
-import WOW from "wow.js";
 
 const ImproveBusiness = () => {
   const userData = [
@@ -30,11 +28,6 @@ const ImproveBusiness = () => {
     },
   ];
 
-  useEffect(() => {
-    const wow = new WOW();
-    wow.init();
-  }, []);
-
   return (
     <section className="improve p_bottom">
       <div className="content_wrap">
@@ -44,7 +37,7 @@ const ImproveBusiness = () => {
         />
         <div className="tri_gridsec">
           {/* left */}
-          <div className="app_sec wow slideInUp">
+          <div className="app_sec wow fadeInUp">
             <div className="top_line">
               <h6>success</h6>
               <Pill text="The Best" />
@@ -66,14 +59,14 @@ const ImproveBusiness = () => {
             </div>
           </div>
           {/* Mid */}
-          <div className="mobile_sec wow slideInUp">
+          <div className="mobile_sec wow fadeInUp" data-wow-delay="0.2s">
             <img src={images.mobile} alt="mobile" />
           </div>
           {/* Right */}
-          <div className="graph_sec wow slideInUp">
+          <div className="graph_sec wow fadeInUp" data-wow-delay="0.4s">
             <div className="text">
-              <h3 className="wow slideInUp">Improve Financial Performance</h3>
-              <p className="wow slideInUp">
+              <h3 className="wow fadeInUp">Improve Financial Performance</h3>
+              <p className="wow fadeInUp">
                 Intelligent Analytics Suite can be integrated with other SaaS
                 products, such as CRM and marketing automation tools, to provide
                 a comprehensive view of business performance.

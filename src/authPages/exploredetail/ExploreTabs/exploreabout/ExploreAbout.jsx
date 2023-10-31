@@ -117,7 +117,7 @@ const ExploreAbout = () => {
                <ModulesSec />
           </div>
           <div className="right">
-            <h5 className="small_title">Instructor</h5>
+            <h5 className="small_title wow fadeInUp">Instructor</h5>
             {instructorsData.map((data) => {
               return (
                 <Fragment key={data.id}>
@@ -125,7 +125,7 @@ const ExploreAbout = () => {
                 </Fragment>
               );
             })}
-            <div className="red_card">
+            <div className="red_card wow fadeInUp">
               <p className="t-g-16">Get 25% off on RedTeam</p>
               <p>
                 Get access to 50+ modules covering topics from basic to advance.
