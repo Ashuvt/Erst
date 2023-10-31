@@ -47,8 +47,8 @@ const Login = () => {
         <div className="auth_container">
           <form>
             <div className="title">
-              <h1 className="small_title wow slideInUp">Login</h1>
-              <div className="suggetion wow slideInUp">
+              <h1 className="small_title wow fadeInUp">Login</h1>
+              <div className="suggetion wow fadeInUp">
                 <p>New user?</p>
                 <button type="button" onClick={getStarted}>
                   <p>Get started for free</p>
@@ -56,7 +56,7 @@ const Login = () => {
               </div>
             </div>
 
-            <div className="auth_field wow slideInUp">
+            <div className="auth_field wow fadeInUp">
               <label>email</label>
               <div className="input_wrap">
                 <input
@@ -70,7 +70,7 @@ const Login = () => {
               </div>
             </div>
 
-            <div className="auth_field mt wow slideInUp">
+            <div className="auth_field mt wow fadeInUp">
               <label>password</label>
               <div className="input_wrap">
                 <input
@@ -93,14 +93,14 @@ const Login = () => {
             <div className="btns">
               <button
                 type="button"
-                className="authbtn auth_primary wow slideInUp"
+                className="authbtn auth_primary wow fadeInUp"
                 onClick={loginHandler}
               >
                 Login
               </button>
               <button
                 type="button"
-                className="authbtn auth_secondary wow slideInUp"
+                className="authbtn auth_secondary wow fadeInUp"
                 onClick={getStarted}
               >
                 Get started for free

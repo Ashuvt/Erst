@@ -27,9 +27,8 @@ section.text_slider{
     align-items:center;
     gap:60px;
     h2{
-        @include font('Syne-Regular', 30px, 33px, 600, $white);
+        @include font('SpaceGrotesk-Regular', 30px, 33px, 600, $white);
     }
-   
 }
 }
 

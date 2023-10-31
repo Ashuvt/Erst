@@ -1,16 +1,9 @@
-import { Fragment, useEffect } from "react";
+import { Fragment } from "react";
 import { images } from "../../../utils/images/images";
 import "./TipsBlog.scss";
 import TipsBlogCard from "./tipsblogcard/TipsBlogCard";
-import WOW from "wow.js";
 
 const TipsBlog = () => {
-
-  useEffect(() => {
-    const wow = new WOW();
-    wow.init();
-  }, []);
-
 
   const blogData = [
     {
@@ -40,14 +33,14 @@ const TipsBlog = () => {
     <section className="tips_blog p_bottom">
       <div className="content_wrap">
         <div className="left">
-          <h2 className="wow slideInUp">Find Useful Tips In Our Blog Posts</h2>
-          <p className="wow slideInUp">
+          <h2 className="wow fadeInUp">Find Useful Tips In Our Blog Posts</h2>
+          <p className="wow fadeInUp">
             Our publications can provide quality and useful tips and advice for
             companies on how to evaluate SaaS providers and choose the best one
             for their needs, taking into account factors such as price, features
             and support.
           </p>
-          <button type="button" className="primarybtn wow slideInUp">
+          <button type="button" className="primarybtn wow fadeInUp">
             view all post
           </button>
         </div>

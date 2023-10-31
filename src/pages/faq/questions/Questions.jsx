@@ -1,18 +1,12 @@
-import { Fragment, useEffect } from "react";
+import { Fragment} from "react";
 import "./Questions.scss";
 import QuestionCard from "./questioncard/QuestionCard";
 import { faqData } from "../../../utils/data/data";
 import Map from "../../../components/map/Map";
 import MidTitle from "../../../components/midtitle/MidTitle";
-import WOW from "wow.js";
+
 
 const Questions = () => {
-
-  useEffect(() => {
-    const wow = new WOW();
-    wow.init();
-  }, []);
-
   return (
     <section className="que_ans p_top p_bottom">
       <div className="content_wrap">

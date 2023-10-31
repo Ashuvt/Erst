@@ -18,13 +18,14 @@ const PlanDetails = () => {
     <div className="choose_plan_grid">
       <div className="plan_btns">
         {ourServicesPlanData &&
-          ourServicesPlanData.map((data) => {
+          ourServicesPlanData.map((data, k) => {
             return (
               <Fragment key={data.id}>
                 <button
                   type="button"
-                  className={activeData.id === data.id ? "active" : ""}
+                  className={`${activeData.id === data.id ? "active" : ""} wow fadeInUp`}
                   onClick={() => setDataHandler(data)}
+                  data-wow-delay={`${0.15*k}}s`}
                 >
                   <span className="round">
                     {activeData.id === data.id ? (
@@ -52,17 +53,17 @@ const PlanDetails = () => {
         <div className="plan_content_wrap">
           <div className="left_border"></div>
           <div className="price_line">
-            <h3>
+            <h3 className="wow fadeInUp">
               ${activeData.price}
               <span>/Month</span>
             </h3>
             <Pill text="Choose The Best" />
           </div>
-          <p className="detail">{activeData.detail}</p>
+          <p className="detail wow fadeInUp">{activeData.detail}</p>
           <ul>
             {activeData.features.map((listitem, k) => {
               return (
-                <li key={k}>
+                <li key={k} className="wow fadeInUp">
                   {listitem}
                   <img src={icons.smallWhiteCheck} alt="check" />
                 </li>
@@ -70,10 +71,10 @@ const PlanDetails = () => {
             })}
           </ul>
           <div className="btn_line">
-            <button type="button" className="secondarybtn">
+            <button type="button" className="secondarybtn wow fadeInUp">
               start free trial
             </button>
-            <button type="button" className="primarybtn">
+            <button type="button" className="primarybtn wow fadeInUp">
               select plan
             </button>
           </div>

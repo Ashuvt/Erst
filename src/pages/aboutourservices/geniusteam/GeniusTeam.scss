@@ -39,7 +39,7 @@
             align-items: center;
             gap: 10px;
             background-color: transparent;
-            @include font('Syne-Regular', 13px, 15.6px, 500, $white);
+            @include font('Inter-Regular', 13px, 15.6px, 500, $white);
             letter-spacing: 4px;
             transition: all 0.3s ease-in-out;
 
@@ -117,7 +117,7 @@
                     align-items: center;
                     gap: 10px;
                     background-color: transparent;
-                    @include font('Syne-Regular', 13px, 15.6px, 500, $white);
+                    @include font('Inter-Regular', 13px, 15.6px, 500, $white);
                     letter-spacing: 4px;
                     transition: all 0.3s ease-in-out;
 

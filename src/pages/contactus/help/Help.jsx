@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./Help.scss";
 import Map from "../../../components/map/Map";
 import MidTitle from "../../../components/midtitle/MidTitle";
-import WOW from "wow.js";
 import { helpForm } from "../../../utils/data/forms";
 
 const Help = () => {
@@ -10,11 +9,6 @@ const Help = () => {
   const [selectedProblem, setSelectedProblem] = useState('');
   const [ddStatus, setDdStatus] = useState(false);
   const [help, setHelp] = useState(helpForm);
-
-  useEffect(() => {
-    const wow = new WOW();
-    wow.init();
-  }, []);
 
   const formHandler = (e) => {
     const name = e.target.name;

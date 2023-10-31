@@ -1,6 +1,5 @@
 import { useEffect, useState, useRef } from "react";
 import "./ContactServiceCard.scss";
-import WOW from "wow.js";
 
 const ContactServiceCard = ({ title, text, btn1, btn2, id, setAngle }) => {
   const cardRef = useRef(null);
@@ -8,10 +7,7 @@ const ContactServiceCard = ({ title, text, btn1, btn2, id, setAngle }) => {
 
 let viewArray;
 
-  useEffect(() => {
-    const wow = new WOW();
-    wow.init();
-    
+  useEffect(() => {   
 
     const options = {
         root: null,
@@ -41,8 +37,7 @@ let viewArray;
         if (cardRef.current) {
           observer.unobserve(cardRef.current);
         }
-      };
-   
+      };  
 
   }, []);
 
@@ -50,13 +45,13 @@ let viewArray;
 
   return (
     <div className="contact_service_card" ref={cardRef} id={id} style={{opacity : isVisible ? 1 : 0}} >
-      <h2 className="wow slideInUp">{title}</h2>
-      <p className="wow slideInUp">{text}</p>
-      <div className="btn_line wow slideInUp">
-        <button type="button" className="secondarybtn">
+      <h2 className="wow fadeInUp">{title}</h2>
+      <p className="wow fadeInUp">{text}</p>
+      <div className="btn_line">
+        <button type="button" className="secondarybtn wow fadeInUp">
           {btn1}
         </button>
-        <button type="button" className="primarybtn">
+        <button type="button" className="primarybtn wow fadeInUp">
           {btn2}
         </button>
       </div>

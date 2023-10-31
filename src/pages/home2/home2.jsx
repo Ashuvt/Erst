@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import Home2Landing from "./home2landing/Home2Landing";
 import MarqueeText from "./marqueetext/MarqueeText";
 import AboutServices from "./aboutservices/AboutServices";
@@ -12,8 +12,14 @@ import BenefitsOfSuite from "./benefitsofsuite/BenefitsOfSuite";
 import BusinessAnalytics from "./businessanalytics/BusinessAnalytics";
 import Header from "../../layouts/header/Header";
 import Footer from "../../layouts/footer/Footer";
+import WOW from "wow.js";
 
 const Home2 = () => {
+  useEffect(() => {
+    const wow = new WOW();
+    wow.init();
+  }, []);
+
   return (
     <Fragment>
       <Header />

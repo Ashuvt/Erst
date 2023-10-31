@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import "./Shop.scss"
 import ShopLanding from "./shoplanding/ShopLanding";
 import AllProducts from "./allproducts/AllProducts";
@@ -6,8 +6,14 @@ import Offer from "../home2/offer/Offer";
 import ClientSay from "./clientsay/ClientSay";
 import Header from "../../layouts/header/Header";
 import Footer from "../../layouts/footer/Footer";
+import WOW from "wow.js";
 
 const Shop = () => {
+  useEffect(() => {
+    const wow = new WOW();
+    wow.init();
+  }, []);
+
   return (
     <Fragment>
       <Header />

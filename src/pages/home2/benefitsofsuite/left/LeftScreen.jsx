@@ -8,8 +8,8 @@ const LeftScreen = ({ side, setSide }) => {
     <section className="benefit_suite_left p_top p_bottom">
       <div className="content_wrap">
         <div className={`text_content ${side ? 'goleft' : 'original'}`}>
-          <h2>Benefits Of The Intelligent Suite</h2>
-          <p>
+          <h2 className="wow fadeInUp">Benefits Of The Intelligent Suite</h2>
+          <p className="wow fadeInUp">
             The Intelligent Analytics Suite is a powerful software solution that
             offers advanced analytics capabilities to businesses. It provides
             valuable insights and actionable intelligence based on data
@@ -18,7 +18,7 @@ const LeftScreen = ({ side, setSide }) => {
             benefits of using the Intelligent Analytics Suite and when and why
             businesses should consider implementing it.
           </p>
-          <button type="button" className="primarybtn">
+          <button type="button" className="primarybtn wow fadeInUp">
             start free trial
           </button>
         </div>

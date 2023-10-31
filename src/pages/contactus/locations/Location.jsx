@@ -37,10 +37,10 @@ const Locations = () => {
   return (
     <section className="locations">
       <div className="content_wrap">
-        {locationData.map((data) => {
+        {locationData.map((data, j) => {
           return (
             <Fragment key={data.id}>
-              <LocationCard {...data} />
+              <LocationCard {...data} index={j} />
             </Fragment>
           );
         })}

@@ -1,17 +1,10 @@
 import "./getStartedForm.scss";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { icon } from "../../../utils/images/icons";
-import WOW from "wow.js";
 
 const GetStartedForm = () => {
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const wow = new WOW();
-    wow.init();
-  }, []);
-
   const [eye, setEye] = useState(false);
   const [getStartedForm, setGetStartedForm] = useState({
     name: "",
@@ -38,8 +31,8 @@ const GetStartedForm = () => {
     <div className="get_started_form">
       <form>
         <div className="title">
-          <h1 className="small_title wow slideInUp">Get started</h1>
-          <div className="suggetion wow slideInUp">
+          <h1 className="small_title wow fadeInUp">Get started</h1>
+          <div className="suggetion wow fadeInUp">
             <p>Already have an account?</p>
             <button type="button" onClick={goToLogin}>
               <p>login</p>
@@ -47,7 +40,7 @@ const GetStartedForm = () => {
           </div>
         </div>
 
-        <div className="auth_field wow slideInUp">
+        <div className="auth_field wow fadeInUp">
           <label>name</label>
           <div className="input_wrap">
             <input
@@ -60,7 +53,7 @@ const GetStartedForm = () => {
           </div>
         </div>
 
-        <div className="auth_field mt wow slideInUp">
+        <div className="auth_field mt wow fadeInUp">
           <label>email</label>
           <div className="input_wrap">
             <input
@@ -74,7 +67,7 @@ const GetStartedForm = () => {
           </div>
         </div>
 
-        <div className="auth_field mt wow slideInUp">
+        <div className="auth_field mt wow fadeInUp">
           <label>password</label>
           <div className="input_wrap">
             <input
@@ -93,14 +86,14 @@ const GetStartedForm = () => {
             </button>
           </div>
         </div>
-        <p className="notice wow slideInUp">
+        <p className="notice wow fadeInUp">
         At least 8 characters, 1 number, 1 lowercase letter, 1 uppercase letter
         </p>
 
         <div className="btns">
           <button
             type="button"
-            className="authbtn auth_primary wow slideInUp"
+            className="authbtn auth_primary wow fadeInUp"
             onClick={() => navigate("/onborading")}
 
           >
@@ -108,13 +101,13 @@ const GetStartedForm = () => {
           </button>
           <button
             type="button"
-            className="authbtn auth_secondary wow slideInUp"
+            className="authbtn auth_secondary wow fadeInUp"
             onClick={goToLogin}
           >
             login
           </button>
         </div>
-        <p className="notice wow slideInUp">
+        <p className="notice wow fadeInUp">
         By creating an account, you agree to our <span>Terms of Service</span> and <span>Privacy Policy.</span>
         </p>
       </form>

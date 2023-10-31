@@ -1,17 +1,10 @@
 import "./LocationCard.scss";
 import { icons } from "../../../../utils/images/images";
-import { useEffect } from "react";
 import CircleArrowBtn from "../../../../components/circlearrowbtn/CircleArrowBtn";
-import WOW from "wow.js";
 
-const LocationCard = ({ country, location, call, mail }) => {
-  useEffect(() => {
-    const wow = new WOW();
-    wow.init();
-  }, []);
-
+const LocationCard = ({ country, location, call, mail, index }) => {
   return (
-    <div className="location_card wow fadeIn">
+    <div className="location_card wow fadeInUp" data-wow-delay={`${0.15*index}s`}>
       <div className="location_wrap">
         <h5>{country}</h5>
         <CircleArrowBtn />

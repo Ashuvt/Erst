@@ -133,7 +133,7 @@
                 h5 {
                     margin-bottom: 10px;
                     text-align: left;
-                    @include font('Syne-Regular', 22px, 24.2px, 500, $white);
+                    @include font('SpaceGrotesk-Regular', 22px, 24.2px, 500, $white);
                 }
 
                 p {
@@ -196,7 +196,7 @@
             list-style-type: none;
 
             li {
-                @include font('Syne-Regular', 17px, 25.5px, 400, $lightBorder_1);
+                @include font('Inter-Regular', 17px, 25.5px, 400, $lightBorder_1);
                 margin: 8px 0px;
                 position: relative;
 

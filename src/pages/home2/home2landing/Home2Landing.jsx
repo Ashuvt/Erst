@@ -26,7 +26,7 @@ const Home2Landing = () => {
     <section className="home2_landing p_bottom p_top">
       <div className="content_wrap">
         <div className="text_content">
-          <div className="dynamic wow slideInUp">
+          <div className="dynamic wow fadeInUp">
             <h1>Your</h1>
             <div className="text_box">
               <div
@@ -41,8 +41,8 @@ const Home2Landing = () => {
             </div>
           </div>
 
-          <h1 className="wow slideInUp">Business Strategy!</h1>
-          <p className="wow slideInUp">
+          <h1 className="wow fadeInUp">Business Strategy!</h1>
+          <p className="wow fadeInUp">
             This AI-powered tool can help businesses make data-driven decisions
             by providing deep insights into their operations, customers, and
             market trends. The Intelligent Analytics Suite can analyze large
@@ -51,7 +51,7 @@ const Home2Landing = () => {
             revenue.
           </p>
         </div>
-        <div className="btn_line wow slideInUp">
+        <div className="btn_line wow fadeInUp">
           <div className="left">
             <div className="left_beam"></div>
             <h6>

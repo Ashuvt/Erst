@@ -13,7 +13,7 @@
     button{
         border-style: none;
         background-color:transparent;
-        @include font('Syne-Regular', 12px, 15.96px, 600, $white);
+        @include font('Inter-Regular', 12px, 15.96px, 600, $white);
         letter-spacing: 2.4px;
         text-transform:uppercase;
         transition:all 0.3s ease-in-out;
@@ -37,7 +37,7 @@
         }
     }
     p{
-        @include font('Syne-Regular', 12px, 15.96px, 600, $lightBorder_1);
+        @include font('Inter-Regular', 12px, 15.96px, 600, $lightBorder_1);
         letter-spacing: 2.4px;
         text-transform:uppercase;
     }

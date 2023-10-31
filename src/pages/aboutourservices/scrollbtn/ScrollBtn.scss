@@ -24,6 +24,17 @@ section.rotate_sqares{
         justify-content: center;
         align-items: center;
         transform: translate(50%, -50%);
+
+        @media only screen and (max-width:$laptop){
+            height: 100px;
+            width: 100px;
+        }
+      
+      
+        @media only screen and (max-width:$mobile){
+            height: 90px;
+            width: 90px;
+        }
         span {
             &.border {
                 height: 100%;

@@ -21,7 +21,7 @@ button.text_arrowbtn {
         height: 12px;
 
         p {
-            @include font('Syne-Regular', 12px, 12px, 500, $white);
+            @include font('Inter-Regular', 12px, 12px, 500, $white);
             text-transform: uppercase;
             letter-spacing: 2.4px;
             transition: all 0.2s ease-in-out;

@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./GetStartedForm.scss";
 import { images } from "../../../utils/images/images";
-import WOW from "wow.js";
 
 const GetStartedForm = () => {
   const [formData, setFormData] = useState({
@@ -25,12 +24,7 @@ const formSubmitHandler = (e) => {
 
 }
 
-useEffect(() => {
-  const wow = new WOW();
-  wow.init();
-}, []);
-
-  return (
+ return (
     <section className="get_started_form p_bottom">
       <div className="content_wrap">
         <div className="img_wraper">
@@ -38,7 +32,7 @@ useEffect(() => {
         </div>
         <div className="form_wraper">
           <form>
-            <h6>PERSONAL DATA</h6>
+            <h6 className="wow fadeInUp">PERSONAL DATA</h6>
             <div className="field_line">
               <input
                 type="text"
@@ -46,6 +40,7 @@ useEffect(() => {
                 value={formData.name}
                 name="name"
                 onChange={formHandler}
+                className="wow fadeInUp"
               />
               <input
                 type="email"
@@ -53,6 +48,7 @@ useEffect(() => {
                 value={formData.mail}
                 name="mail"
                 onChange={formHandler}
+                className="wow fadeInUp"
               />
               <input
                 type="number"
@@ -60,17 +56,19 @@ useEffect(() => {
                 value={formData.phone}
                 name="phone"
                 onChange={formHandler}
+                className="wow fadeInUp"
               />
             </div>
-            <h6>message</h6>
+            <h6 className="wow fadeInUp">message</h6>
             <textarea
               placeholder="write about your needs"
               value={formData.message}
               name="message"
               onChange={formHandler}
+              className="wow fadeInUp"
             ></textarea>
             <div className="radio_line">
-              <div className="radio_field">
+              <div className="radio_field wow fadeInUp">
                 <input
                   type="radio"
                   value="free demo"
@@ -81,7 +79,7 @@ useEffect(() => {
                 <label htmlFor="first">free demo</label>
               </div>
 
-              <div className="radio_field">
+              <div className="radio_field wow fadeInUp">
                 <input
                   type="radio"
                   value="buy for 1 mo"
@@ -92,7 +90,7 @@ useEffect(() => {
                 <label htmlFor="second">buy for 1 mo</label>
               </div>
 
-              <div className="radio_field">
+              <div className="radio_field wow fadeInUp">
                 <input
                   type="radio"
                   value="buy for 1-6 mo"
@@ -103,7 +101,7 @@ useEffect(() => {
                 <label htmlFor="third">buy for 3-6 mo</label>
               </div>
 
-              <div className="radio_field">
+              <div className="radio_field wow fadeInUp">
                 <input
                   type="radio"
                   value="unlimited"
@@ -114,7 +112,7 @@ useEffect(() => {
                 <label htmlFor="fourth">unlimited</label>
               </div>
             </div>
-            <button type="button" className="primarybtn" onClick={formSubmitHandler} >
+            <button type="button" className="primarybtn wow fadeInUp" onClick={formSubmitHandler} >
               let's get started
             </button>
           </form>

@@ -22,14 +22,14 @@ section.about_services_landing {
                 width: 100%;
                 margin-left: auto;
                 margin-right: auto;
-                @include font('Syne-Regular', 60px, 66px, 600, $white);             
+                @include font('SpaceGrotesk-Regular', 60px, 66px, 600, $white);             
             
                 @media only screen and (max-width:1280px){
-                    @include font('Syne-Regular', 55px, 60.5px, 600, $white);
+                    @include font('SpaceGrotesk-Regular', 55px, 60.5px, 600, $white);
                 }
             
                 @media only screen and (max-width:$mobile) {
-                    @include font('Syne-Regular', 45px, 49.5px, 600, $white);
+                    @include font('SpaceGrotesk-Regular', 45px, 49.5px, 600, $white);
                 }
             }
 

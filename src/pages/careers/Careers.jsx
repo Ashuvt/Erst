@@ -1,12 +1,20 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import MapLanding from "../../components/maplanding/MapLanding";
 import JoinTeam from "./jointeam/JoinTeam";
 import IntelligentTeam from "./Intelligentteam/IntelligentTeam";
 import SymmentricSlider from "../../components/symmentricslider/SymmentricSlider";
 import Header from "../../layouts/header/Header";
 import Footer from "../../layouts/footer/Footer";
+import WOW from "wow.js";
 
 const Careers = () => {
+
+  useEffect(() => {
+    const wow = new WOW();
+    wow.init();
+  }, []);
+
+
   return (
     <Fragment>
       <Header />

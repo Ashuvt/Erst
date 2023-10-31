@@ -3,9 +3,6 @@ import { icons, images } from "../../../utils/images/images";
 import ProfileList from "../../../components/profilelist/ProfileList";
 import CircleArrowBtn from "../../../components/circlearrowbtn/CircleArrowBtn";
 import TextArrowBtn from "../../../components/textarrowbtn/TextArrowBtn";
-import { transform } from "framer-motion";
-
-
 
 const VideoBlock = () => {
   const usersData = [
@@ -38,9 +35,9 @@ const VideoBlock = () => {
     <section className="video_block">
       <div className="video_block">
         <div className="image_overlay"></div>
-        <img src={images.contactUsBanner} alt="banner" />
+        <img src={images.contactUsBanner} alt="banner" className="wow zoomIn" data-wow-duration="2s" />
 
-        {/* Video Card */}
+      
         <div className="video_card">
           <div className="img_wrap">
             <img src={images.contactUsVideoBanner} alt="video_banner" />

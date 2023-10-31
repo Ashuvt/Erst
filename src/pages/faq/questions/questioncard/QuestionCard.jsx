@@ -11,7 +11,7 @@ const QuestionCard = ({que, ans}) => {
 
   return (
     <Fragment>
-      <div className="accordian_box">
+      <div className="accordian_box wow fadeInUp">
 
       <button
         type="button"

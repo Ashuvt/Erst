@@ -13,9 +13,8 @@
         align-items: center;
         border-style: none;
         border-top: 1px solid rgba(255, 255, 255, 0.2);
-        // border-bottom: 1px solid rgba(255, 255, 255, .2);
         background-color: transparent;
-        @include font('Syne-Regular', 20px, 24px, 400, $white);
+        @include font('Inter-Regular', 20px, 24px, 400, $white);
         position: relative;
         transition: all 0.4s ease-in-out;
         padding-right:20px;
@@ -76,7 +75,7 @@
 
         p {
             padding: 40px 0px;
-            @include font('Syne-Regular', 17px, 25.5px, 400, $white);
+            @include font('Inter-Regular', 17px, 25.5px, 400, $white);
         }
     }
 }

@@ -1,8 +1,6 @@
-import { useEffect } from "react";
 import "./GetStartedInfo.scss";
 import { images } from "../../../utils/images/images";
 import TestimonialCard from "../../components/testimonialcard/TestimonialCard";
-import WOW from "wow.js";
 
 const GetStartedInfo = () => {
   const data = [
@@ -38,19 +36,14 @@ const GetStartedInfo = () => {
     },
   ];
 
-  useEffect(() => {
-    const wow = new WOW();
-    wow.init();
-  }, []);
-
 
   return (
     <div className="getstarted_info">
       <img src={images.bgPattern} alt="bg" className="bg" />
-      <h1 className="small_title wow slideInUp">
+      <h1 className="small_title wow fadeInUp">
         Become a cybersecurity hero with Cybergain
       </h1>
-      <p className="wow slideInUp">
+      <p className="wow fadeInUp">
         Explain how Cybergain can help students and professionals to learn and
         develop cybersecurity skills.{" "}
       </p>
@@ -58,7 +51,7 @@ const GetStartedInfo = () => {
       <div className="info_grid">
         {data.map((data) => {
           return (
-            <div className="features_card wow slideInUp" key={data.id}>
+            <div className="features_card wow fadeInUp" key={data.id}>
               <div className="img_wraper">
                 <img src={data.img} alt="poster" />
               </div>

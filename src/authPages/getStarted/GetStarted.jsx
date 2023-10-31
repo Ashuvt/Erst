@@ -1,10 +1,18 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import LoginHeader from "../components/loginHeader/LoginHeader";
 import "./GetStarted.scss";
 import GetStartedInfo from "./getstartedinfo/GetStartedInfo";
 import GetStartedForm from "./getStartedForm/getStartedForm";
+import WOW from "wow.js";
 
 const GetStarted = () => {
+
+  useEffect(() => {
+    const wow = new WOW();
+    wow.init();
+  }, []);
+
+
   return (
     <Fragment>
       <LoginHeader

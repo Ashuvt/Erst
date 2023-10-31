@@ -1,14 +1,7 @@
-import { useEffect, useState } from "react";
 import "./SuccessfulAnalytics.scss";
 import { images } from "../../../utils/images/images";
-import WOW from "wow.js";
 
 const SuccessfulAnalytics = () => {
-  useEffect(() => {
-    const wow = new WOW();
-    wow.init();
-  }, []);
-
   return (
     <section className="success_analytics p_top">
       <div className="content_wrap">
@@ -39,14 +32,14 @@ const SuccessfulAnalytics = () => {
           </div>
         </div>
         <div className="content_sec">
-          <h2>Successful Analytics</h2>
-          <p>
+          <h2 className="wow fadeInUp">Successful Analytics</h2>
+          <p className="wow fadeInUp">
             Predictive analytics is the practice of using data, statistical
             algorithms, and machine learning techniques to identify the
             likelihood of future outcomes based on historical data. With
             predictive analytics, businesses can to improve performance.
           </p>
-          <button type="button" className="secondarybtn">
+          <button type="button" className="secondarybtn wow fadeInUp">
             learn more about us
           </button>
         </div>

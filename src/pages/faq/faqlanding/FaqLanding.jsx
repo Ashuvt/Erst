@@ -16,13 +16,13 @@ const FaqLanding = () => {
       <div className="smallpink wow zoomIn" data-wow-delay="0.5s" data-wow-duration="1.5s"></div>
       <div className="blue_blur wow zoomIn" data-wow-delay="0.5s" data-wow-duration="1.5s"></div>
       <div className="content_wrap p_bottom">
-        <h1 className="wow slideInUp">Frequently Asked Questions</h1>
-        <p className="wow slideInUp" data-wow-delay="0.3s">
+        <h1 className="wow fadeInUp">Frequently Asked Questions</h1>
+        <p className="wow fadeInUp" data-wow-delay="0.3s">
           The Smart Sales Assistant can also provide insights into customer
           behavior and preferences, allowing you to optimize your marketing and
           sales strategies.
         </p>
-        <div className="border_line wow zoomIn"></div>
+        <div className="border_line wow zoomIn" data-wow-delay="0.4s"></div>
       </div>
     </section>
   );

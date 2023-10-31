@@ -1,7 +1,5 @@
-import { useEffect } from "react";
 import "./MapLanding.scss";
 import { images } from "../../utils/images/images";
-import WOW from "wow.js";
 
 const CareersLanding = ({title, text}) => {
     const circleData = [
@@ -82,13 +80,6 @@ const CareersLanding = ({title, text}) => {
           class: "s",
         },
       ];
-
-      useEffect(() => {
-        const wow = new WOW();
-        wow.init();
-      }, []);
-
-
     return(
         <section className="careers_landing" >
             <div className="overlay"></div>
@@ -103,8 +94,8 @@ const CareersLanding = ({title, text}) => {
           );
         })}
             <div className="text_content">
-                <h1 className="wow slideInUp">{title}</h1>
-                <p className="wow slideInUp">{text}</p>
+                <h1 className="wow fadeInUp">{title}</h1>
+                <p className="wow fadeInUp">{text}</p>
             </div>
         </section>
     )

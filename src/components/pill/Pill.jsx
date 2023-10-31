@@ -2,7 +2,7 @@ import "./Pill.scss";
 
 const Pill = ({text}) => {
     return(
-        <div className="pill_box">
+        <div className="pill_box wow fadeInUp">
             <p className="pill_text">{text}</p>
         </div>
     )

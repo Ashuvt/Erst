@@ -1,15 +1,9 @@
-import { Fragment, useEffect } from "react";
+import { Fragment } from "react";
 import { images } from "../../../utils/images/images";
 import "./IntelligentTeam.scss";
 import TeamCard from "./teamcard/TeamCard";
-import WOW from "wow.js";
 
 const IntelligentTeam = () => {
-  useEffect(() => {
-    const wow = new WOW();
-    wow.init();
-  }, []);
-
   const teamData = [
     {
       id: 0,
@@ -45,8 +39,8 @@ const IntelligentTeam = () => {
     <section className="intelligent_team p_top p_bottom">
       <div className="content_wrap">
         <div className="title_content">
-          <h2 className="wow slideInUp">Join The Intelligent Analytics Suite Team</h2>
-          <p className="wow slideInUp">
+          <h2 className="wow fadeInLeft">Join The Intelligent Analytics Suite Team</h2>
+          <p className="wow fadeInRight">
             Are you ready to take your career to the next level and be part of a
             cutting-edge technology revolution? Look no further than the
             Intelligent Analytics Suite team!
