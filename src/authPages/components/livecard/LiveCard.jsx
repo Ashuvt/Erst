@@ -1,8 +1,8 @@
 import "./LiveCard.scss";
 
-const LiveCard = ({ text, title, img }) => {
+const LiveCard = ({ text, title, img, index }) => {
   return (
-    <div className="live_card_info">
+    <div className="live_card_info wow fadeInUp" data-wow-delay={`${0.1*index}s`}>
       <div className="img_wraper">
         <img src={img} alt="poster" />
         <div className="free_pill">

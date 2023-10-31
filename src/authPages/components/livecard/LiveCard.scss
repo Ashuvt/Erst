@@ -4,6 +4,7 @@
 @import "../../../scss/variables";
 
 .live_card_info {
+    transition:all 0.3s ease-in-out;
     .img_wraper {
         height: 160px;
         margin-bottom: 20px;
@@ -35,6 +36,14 @@
         &.title {
             @include font('SpaceGrotesk-Regular', 16px, 20px, 400, $textPrimary);
             margin-bottom: 8px;
+            transition:all 0.3s ease-in-out;
+        }
+    }
+
+    &:hover{
+        transform: scale(1.01);
+        p.title{
+            color:$white;
         }
     }
 }

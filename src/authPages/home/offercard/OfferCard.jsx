@@ -2,7 +2,7 @@ import "./OfferCard.scss";
 
 const OfferCard = () => {
     return(
-<div className="home_offer_card">
+<div className="home_offer_card wow fadeInRight">
     <div className="top_box">
 
     </div>

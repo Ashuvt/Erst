@@ -10,8 +10,8 @@ const MidTitle = ({ title, text }) => {
 
   return (
     <div className="mid_title">
-      <h2 className="wow slideInUp">{title}</h2>
-      <p className="wow slideInUp">{text}</p>
+      <h2 className="wow FadeInUp">{title}</h2>
+      <p className="wow FadeInUp">{text}</p>
     </div>
   );
 };

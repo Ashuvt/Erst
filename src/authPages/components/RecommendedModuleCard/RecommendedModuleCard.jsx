@@ -9,9 +9,10 @@ const RecommendedModuleCard = ({
   duration,
   rating,
   count,
+  index
 }) => {
   return (
-    <div className="recommended_module_card">
+    <div className="recommended_module_card wow fadeInLeft" data-wow-delay={`${0.3*index}s`} >
       <div className="poster_wrap">
         <img src={img} alt="poster" />
         <div className="free_pill">

@@ -6,10 +6,10 @@ const LiveVideoGrid = ({ videoData }) => {
   return (
     <div className="live_video_grid">
       {videoData &&
-        videoData.map((data) => {
+        videoData.map((data, k) => {
           return (
             <Fragment key={data.id}>
-              <LiveCard {...data}/>
+              <LiveCard {...data} index={k} />
             </Fragment>
           );
         })}

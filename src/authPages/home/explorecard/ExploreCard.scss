@@ -11,6 +11,8 @@
     background: linear-gradient(113deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.00) 110.84%);
     backdrop-filter: blur(28px);
     margin:40px 0px 40px;
+    transition:all 0.3s ease-in-out;
+ 
     .circle_path{
         height:32px;
         width:32px;
@@ -19,6 +21,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        transition:all 0.3s ease-in-out;
     }
     h5{
         margin:25px 0px 16px;
@@ -29,7 +32,15 @@
     button{
         border-style: none;
         background-color: transparent;
-        @include font('Inter-Regular', 24px, 28px, 400, $primary);
+        @include font('Inter-Regular', 20px, 24px, 400, $primary);
         text-decoration: underline;
+    }
+
+    &:hover{
+        border-color: $lightBorder_1;
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.25);
+        .circle_path{
+            transform: rotateY(180deg);
+        }
     }
 }

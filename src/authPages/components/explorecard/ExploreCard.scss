@@ -9,6 +9,10 @@
     border-radius: 8px;
     border: 1px solid $cardB;
     background: $cardFill;
+    transition:all 0.3s ease-in-out;
+    @media only screen and (max-width:$tab){
+        padding:15px;
+    }
 
     .poster_wrap{
         height:148px;
@@ -67,5 +71,11 @@
                 @include font('Inter-Regular', 14px, 20px, 400, $textPrimary);
             }
         }
+    }
+
+    &:hover{
+        border-color: $lightBorder_1;
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.25);
+        transform:scale(1.01);
     }
 }

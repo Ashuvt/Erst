@@ -21,15 +21,20 @@
         }
     }
 
-    .saved_card {
+    .saved_card_wrap {
         padding: 16px;
         border-radius: 12px;
         border: 1px solid $cardB;
         background: linear-gradient(113deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.00) 110.84%);
         backdrop-filter: blur(28px);
         margin-top: 24px;
+        transition:all 0.3s ease-in-out;
+        &:hover{
+            border-color: $lightBorder_1;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.25);
+        }
 
-        .title_line {
+        .title_line_wrap {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -67,7 +72,7 @@
         p {
             @include font('Inter-Regular', 14px, 20px, 400, $textSecondary);
 
-            &.title {
+            &.title_text {
                 @include font('SpaceGrotesk-Regular', 14px, 20px, 400, $textPrimary);
 
                 span {

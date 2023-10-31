@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import "./Live.scss";
 import CoursesHeader from "../components/coursesheader/CoursesHeader";
 import LiveSecTitle from "./livesectitle/LiveSecTitle";
@@ -6,8 +6,14 @@ import { images } from "../../utils/images/images";
 import LiveVideoGrid from "./livevideogrid/LiveVideoGrid";
 import { resetAllToggler } from "../../store/actions";
 import { useDispatch } from "react-redux";
+import WOW from "wow.js";
 
 const Live = () => {
+  useEffect(() => {
+    const wow = new WOW();
+    wow.init();
+  }, []);
+
   const liveData = [
     {
       id:0,

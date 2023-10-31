@@ -4,10 +4,10 @@ const ExploreTitle = ({ title, text }) => {
   return (
     <div className="explore_title">
       <div className="left">
-      <h2>{title}</h2>
-      <p className="small_text">{text}</p>
+      <h2 className="wow fadeInUp">{title}</h2>
+      <p className="small_text wow fadeInUp">{text}</p>
       </div>
-      <button type="button">
+      <button type="button" className="wow fadeInUp">
         View all
       </button>
     </div>

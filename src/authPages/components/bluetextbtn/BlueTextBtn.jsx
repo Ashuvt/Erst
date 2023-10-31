@@ -10,7 +10,7 @@ const goTo = () => {
 }
 
   return (
-    <button className="blue_text_btn" onClick={goTo}>
+    <button className="blue_text_btn wow fadeInRight" onClick={goTo}>
       {text}
       {icon && <img src={icon} alt="icon" />}
     </button>

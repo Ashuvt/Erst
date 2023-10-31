@@ -3,12 +3,12 @@ import "./FourBoxInfo.scss";
 const FourBoxInfo = ({ title, data = [] }) => {
   return (
     <div className="four_box_info">
-      <h5 className="small_title">{title}</h5>
+      <h5 className="small_title wow fadeInLeft">{title}</h5>
       <div className="four_info_grid">
         {data.length > 0 &&
-          data.map((item) => {
+          data.map((item, k) => {
             return (
-              <div className="four_info_card" key={item.id}>
+              <div className="four_info_card wow fadeInUp" key={item.id} data-wow-delay={`${k*0.1}s`}>
                 <div className="icon_box">
                   <img src={item.icon} alt="icon" />
                 </div>

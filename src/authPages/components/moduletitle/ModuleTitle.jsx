@@ -1,12 +1,20 @@
+import { useEffect } from "react";
 import BlueTextBtn from "../bluetextbtn/BlueTextBtn";
 import "./ModuleTitle.scss";
+import WOW from "wow.js";
 
 const ModuleTitle = ({ title, text,btntext, icon, redirectTo }) => {
+
+  useEffect(() => {
+    const wow = new WOW();
+    wow.init();
+  }, []);
+
   return (
     <div className="module_title">
       <div className="text_side">
-        <h5 className="small_title">{title}</h5>
-        <p>
+        <h5 className="small_title wow fadeInLeft">{title}</h5>
+        <p className="wow fadeInLeft" data-wow-delay="0.2s">
           Hi Rajat, Based on your intersect in ComTIA security we suggest you
           some of personally curated modules
         </p>

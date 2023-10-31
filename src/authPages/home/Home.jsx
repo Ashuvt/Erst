@@ -67,13 +67,13 @@ const resetToggler = () => {
             </div>
             <div className="right">
               <div className="in_progress">
-                <h5 className="title_class">In progress</h5>
-                <p className="dark">Pick a course and start learning</p>
-                <p>
+                <h5 className="title_class wow fadeInRight">In progress</h5>
+                <p className="dark wow fadeInRight" data-wow-delay="0.2s">Pick a course and start learning</p>
+                <p className="wow fadeInRight" data-wow-delay="0.3s">
                   You’ve got limited access Cybergain courses, Choose a course
                   and start your journey.
                 </p>
-                <button type="button" className="authbtn auth_primary">
+                <button type="button" className="authbtn auth_primary wow fadeInRight" data-wow-delay="0.4s">
                   Cources
                 </button>
               </div>

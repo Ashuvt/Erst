@@ -23,11 +23,7 @@
             padding: 32px 20px;
             transition: all 0.3s ease-in-out;
 
-            &:hover {
-                border-color: $lightBorder_1;
-                box-shadow: 0 0 20px rgba(255, 255, 255, 0.25);
-
-            }
+           
 
             @media only screen and (max-width:$tab) {
                 padding: 15px;
@@ -45,6 +41,7 @@
 
                 img {
                     width: 32px;
+                    transition:all 0.5s ease-in-out;
                 }
             }
 
@@ -54,7 +51,16 @@
                     margin: 16px 0px 2px;
                 }
             }
-
+            
+            &:hover {
+                border-color: $lightBorder_1;
+                box-shadow: 0 0 20px rgba(255, 255, 255, 0.25);
+                .icon_box{
+                    img{
+                        transform:rotateY(180deg);
+                    }
+                }
+            }
         }
     }
 }

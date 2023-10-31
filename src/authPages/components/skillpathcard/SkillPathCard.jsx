@@ -11,7 +11,7 @@ const SkillPathCard = ({
   count,
 }) => {
   return (
-    <div className="recommended_module_card">
+    <div className="recommended_module_card wow fadeInLeft">
       <div className="poster_wrap">
         <img src={img} alt="poster" />
         <button type="button">

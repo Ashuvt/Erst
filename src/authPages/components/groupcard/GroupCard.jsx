@@ -1,8 +1,8 @@
 import "./GroupCard.scss";
 
-const GroupCard = ({ img, title, text, members, newpost }) => {
+const GroupCard = ({ img, title, text, members, newpost, index }) => {
   return (
-    <div className="group_card">
+    <div className="group_card wow SlideInUp">
       <div className="postre_wrap">
         <img src={img} alt="" />
       </div>

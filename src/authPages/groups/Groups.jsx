@@ -189,10 +189,10 @@ const Groups = () => {
             text="There are some live webinars happening right now, Tune in to learn and exchange ideas with professional."
           />
           <div className="groups_grid">
-            {groupData.map((data) => {
+            {groupData.map((data, k) => {
               return (
                 <Fragment key={data.id}>
-                  <GroupCard {...data} />
+                  <GroupCard {...data} index={k} />
                 </Fragment>
               );
             })}

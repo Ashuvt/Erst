@@ -1,5 +1,6 @@
 import "./BottomLive.scss";
 import { images } from "../../../utils/images/images";
+import { Fragment } from "react";
 
 const BottomLive = () => {
   const liveData = [
@@ -26,14 +27,16 @@ const BottomLive = () => {
   ];
   return (
     <div className="home_bottom_live">
-      {liveData.map((data) => {
+      {liveData.map((data, k) => {
         return (
-          <div className="live_card" key={data.id}>
+          <Fragment key={data.id}>
+          <div className="live_card wow fadeInUp" data-wow-delay={`${0.15*k}s`} >
             <div className="img_wrap">
               <img src={data.img} alt="poster" />
             </div>
             <h5 className="small_title">{data.title}</h5>
           </div>
+          </Fragment>
         );
       })}
     </div>

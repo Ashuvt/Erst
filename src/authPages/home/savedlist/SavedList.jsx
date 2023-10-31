@@ -28,15 +28,15 @@ const SavedList = () => {
   return (
     <div className="home_saved_list">
       <div className="title">
-        <h5 className="small_title">Saved</h5>
-        <button type="button">show all</button>
+        <h5 className="small_title wow fadeInLeft">Saved</h5>
+        <button type="button" className="wow fadeInRight">show all</button>
       </div>
 
       {info.map((data) => {
         return (
-          <div className="saved_card" key={data.id}>
-            <div className="title_line">
-              <p className="title">Red Team</p>
+          <div className="saved_card_wrap wow fadeInRight" key={data.id}>
+            <div className="title_line_wrap">
+              <p className="title_text">Red Team</p>
               <button type="button">
                 <img src={icon.save} alt="saveicon" />
               </button>

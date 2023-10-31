@@ -47,10 +47,10 @@ const RecommendedModules = () => {
         icon={icon.blueRightArrow}
         redirectTo="/explore/courses"
       />
-      {data.map((info) => {
+      {data.map((info, i) => {
         return (
           <Fragment key={info.id}>
-            <RecommendedModuleCard {...info} />
+            <RecommendedModuleCard {...info} index={i} />
           </Fragment>
         );
       })}

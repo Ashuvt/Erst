@@ -3,7 +3,7 @@ import "./ExploreCard.scss";
 
 const ExploreCard = () => {
   return (
-    <div className="home_explore_card">
+    <div className="home_explore_card wow fadeInRight">
       <div className="circle_path">
         <img src={icon.skillpath} alt="skillpath" />
       </div>
