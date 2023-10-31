@@ -395,10 +395,10 @@ const Explore = () => {
                 text="Elevate your capabilities with insights and training from cybersecurity frontrunners."
               />
               <div className="explore_video_grid">
-                {courcesData.map((data) => {
+                {courcesData.map((data, k) => {
                   return (
                     <Fragment key={data.id}>
-                      <ExploreCard {...data}/>
+                      <ExploreCard {...data} index={k} />
                     </Fragment>
                   );
                 })}
@@ -409,10 +409,10 @@ const Explore = () => {
                 text="Embrace career advancement pathways customized for high-demand cybersecurity careers."
               />
               <div className="explore_video_grid">
-                {courcesData.map((data) => {
+                {courcesData.map((data, k) => {
                   return (
                     <Fragment key={data.id}>
-                      <ExploreCard {...data} />
+                      <ExploreCard {...data} index={k} />
                     </Fragment>
                   );
                 })}
@@ -423,10 +423,10 @@ const Explore = () => {
                 text="Embrace career advancement pathways customized for high-demand cybersecurity careers."
               />
               <div className="explore_video_grid">
-                {courcesData.map((data) => {
+                {courcesData.map((data, k) => {
                   return (
                     <Fragment key={data.id}>
-                      <ExploreCard {...data} />
+                      <ExploreCard {...data}  index={k} />
                     </Fragment>
                   );
                 })}

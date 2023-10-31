@@ -51,12 +51,12 @@ const MyProfile = () => {
   return (
     <div className="my_profile_screen">
       <div className="title">
-        <h5 className="small_title">My Profile</h5>
-        <p>Manage your progress and certificates</p>
+        <h5 className="small_title wow fadeInUp">My Profile</h5>
+        <p className=" wow fadeInUp">Manage your progress and certificates</p>
       </div>
       <FourBoxInfo title="Your Roadmap" data={fourBoxData} />
 
-      <h5 className="small_title">Your Certificates</h5>
+      <h5 className="small_title wow fadeInUp">Your Certificates</h5>
 
       {certificateData &&
         certificateData.map((data) => {

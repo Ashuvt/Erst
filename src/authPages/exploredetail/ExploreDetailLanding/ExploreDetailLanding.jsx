@@ -33,28 +33,28 @@ const ExploreDetailLanding = ({
         <div className="info_wraper">
           <div className="info_line">
             {students && (
-              <div className="info">
+              <div className="info wow fadeInUp">
                 <img src={icon.students} alt="students" />
                 <p>{students} students</p>
               </div>
             )}
 
             {courses && (
-              <div className="info">
+              <div className="info wow fadeInUp" data-wow-delay="0.15s">
                 <img src={icon.courses} alt="courses" />
                 <p>{courses} courses</p>
               </div>
             )}
 
             {duration && (
-              <div className="info">
+              <div className="info wow fadeInUp" data-wow-delay="0.30s">
                 <img src={icon.clock} alt="duration" />
                 <p>{duration}</p>
               </div>
             )}
 
             {rating && (
-              <div className="info">
+              <div className="info wow fadeInUp" data-wow-delay="0.35s">
                 <img src={icon.star} alt="rating" />
                 <p>
                   {rating} <span></span> {rateCount}
@@ -63,26 +63,26 @@ const ExploreDetailLanding = ({
             )}
 
             {saved && (
-              <div className="info">
+              <div className="info wow fadeInUp" data-wow-delay="0.40s">
                 <img src={icon.save} alt="save" />
                 <p>Save</p>
               </div>
             )}
           </div>
-          <h1>{title}</h1>
+          <h1 className="wow fadeInUp">{title}</h1>
 
-          <p>{text}</p>
+          <p className="wow fadeInUp">{text}</p>
 
           <div className="btn_line">
             {options.map((data) => {
               return (
-                <button type="button" className="white_btn">
+                <button type="button" className="white_btn wow fadeInUp" key={data}>
                   {data}
                 </button>
               );
             })}
           </div>
-          <button type="button" className="authbtn auth_primary">
+          <button type="button" className="authbtn auth_primary wow fadeInUp">
             Enroll For Free
           </button>
         </div>

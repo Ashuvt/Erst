@@ -1,7 +1,8 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import ExploreDetailLanding from "./ExploreDetailLanding/ExploreDetailLanding";
 import CoursesHeader from "../components/coursesheader/CoursesHeader";
 import ExploreTabs from "./ExploreTabs/ExploreTabs";
+import WOW from "wow.js";
 
 const ExploreDetail = () => {
   const landingData = {
@@ -15,6 +16,11 @@ const ExploreDetail = () => {
     text: "This is a short description about course. This is a short description about course. This is a short description about course. This is a short description about course.This is a short description about course. ",
     options: ["Medium", "Penetration", "CEH"],
   };
+
+  useEffect(() => {
+    const wow = new WOW();
+    wow.init();
+  }, []);
   return (
     <Fragment>
       <CoursesHeader />

@@ -3,7 +3,7 @@ import "./FourBoxInfo.scss";
 const FourBoxInfo = ({ title, data = [] }) => {
   return (
     <div className="four_box_info">
-      <h5 className="small_title wow fadeInLeft">{title}</h5>
+      <h5 className="small_title wow fadeInUp">{title}</h5>
       <div className="four_info_grid">
         {data.length > 0 &&
           data.map((item, k) => {

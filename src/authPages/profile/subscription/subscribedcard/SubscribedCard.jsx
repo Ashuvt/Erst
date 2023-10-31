@@ -2,7 +2,7 @@ import "./SubscribedCard.scss";
 
 const SubscribedCard = ({ img, title, started, price }) => {
   return (
-    <div className="subscribed_card">
+    <div className="subscribed_card wow fadeInUp">
       <div className="info">
         <div className="img_wrap">
           <img src={img} alt="poster" />

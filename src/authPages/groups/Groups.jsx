@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import "./Groups.scss";
 import CoursesHeader from "../components/coursesheader/CoursesHeader";
 import LiveSecTitle from "../live/livesectitle/LiveSecTitle";
@@ -6,8 +6,16 @@ import { images } from "../../utils/images/images";
 import GroupCard from "../components/groupcard/GroupCard";
 import { useDispatch } from "react-redux";
 import { resetAllToggler } from "../../store/actions";
+import WOW from "wow.js";
 
 const Groups = () => {
+
+  useEffect(() => {
+    const wow = new WOW();
+    wow.init();
+  }, []);
+
+
   const groupData = [
     {
       id: 0,

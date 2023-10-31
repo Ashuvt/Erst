@@ -95,7 +95,7 @@ const ExploreAbout = () => {
               {whiteBtnData.map((data) => {
                 return (
                   <Fragment key={data.id}>
-                    <button type="button" className="white_btn active">
+                    <button type="button" className="white_btn active wow fadeInUp">
                       {data.text}
                     </button>
                   </Fragment>
@@ -103,7 +103,7 @@ const ExploreAbout = () => {
               })}
             </div>
 
-            <p className="small_text">
+            <p className="small_text wow fadeInUp">
               Master the art of cyber adversarial tactics with our Red Team
               course. Learn to simulate real-world attacks and bolster your
               organization's security posture. Become a skilled ethical hacker

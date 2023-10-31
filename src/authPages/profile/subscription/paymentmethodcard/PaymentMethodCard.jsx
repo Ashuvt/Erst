@@ -3,7 +3,7 @@ import { icon } from "../../../../utils/images/icons";
 
 const PaymentMethodCard = ({ title, text }) => {
   return (
-    <div className="payment_method_card">
+    <div className="payment_method_card wow fadeInUp">
       <div className="info">
         <div className="img_box">
           <img src={icon.masterCard} alt="icon" />

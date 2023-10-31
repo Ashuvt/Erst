@@ -37,11 +37,6 @@ const WelComeStrip = ({ title, text }) => {
 
   }, []);
 
-
-
-
-
-
   const dispatch = useDispatch();
 
   const resetToggler = () => {
@@ -51,8 +46,8 @@ const WelComeStrip = ({ title, text }) => {
   return (
     <section className="welcome_strip" onClick={resetToggler}>
       <div className="screen_container">
-        <h1 className="wow slideInUp">{titleText}</h1>
-        <p className="wow slideInUp">{text}</p>
+        <h1 className="wow fadeInUp">{titleText}</h1>
+        <p className="wow fadeInUp">{text}</p>
       </div>
       <img src={images.bgPattern} alt="pattern" className="left" />
       <img src={images.bgPattern} alt="pattern" className="right" />

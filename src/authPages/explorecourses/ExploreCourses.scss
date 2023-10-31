@@ -10,7 +10,7 @@ section.explore_cources {
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
-        gap: 140px;
+        gap:80px;
 
         @media only screen and (max-width:$laptop) {
             flex-direction: column;
@@ -101,7 +101,7 @@ section.explore_cources {
 
 
         .course_detail {
-            width: calc(100% - 540px);
+            width: calc(100% - 480px);
 
             @media only screen and (max-width:$laptop) {
                 width: 100%;
@@ -120,7 +120,7 @@ section.explore_cources {
             }
 
             p {
-                color: $textPrimary;
+                color: $textSecondary;
 
                 &.m-t-16 {
                     margin-top: 16px;
@@ -207,13 +207,13 @@ section.explore_cources {
             }
 
             .assignment_wrap {
-                padding-top: 48px;
-                margin-top: 100px;
+                padding-top: 40px;
+                margin-top: 40px;
                 border-top: 1px solid $borderSubtle;
 
                 @media only screen and (max-width:$laptop) {
                     padding-top: 30px;
-                    margin-top: 60px;
+                    margin-top: 30px;
                 }
 
                 @media only screen and (max-width:$laptop) {

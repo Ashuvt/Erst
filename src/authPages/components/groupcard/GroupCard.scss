@@ -4,6 +4,7 @@
 @import "../../../scss/variables";
 
 .group_card{
+    transition:all 0.3s ease-in-out;
     .postre_wrap{
         height:197px;
         border-radius: 4px;
@@ -14,5 +15,7 @@
             object-fit: cover;
         }        
     }
-
+&:hover{
+    transform: scale(1.02);
+}
 }

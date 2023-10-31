@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment, useState, useEffect } from "react";
 import "./Profile.scss";
 import ProfileBanner from "./profilebanner/ProfileBanner";
 import CoursesHeader from "../components/coursesheader/CoursesHeader";
@@ -8,6 +8,7 @@ import Accounts from "./accounts/Accounts";
 import Subscription from "./subscription/Subscription";
 import EmailNotification from "./emailnotification/EmailNotification";
 import Help from "./help/ProfileHelp";
+import WOW from "wow.js";
 
 const Profile = () => {
   const optionData = [
@@ -37,6 +38,11 @@ const Profile = () => {
       text: "Help",
     },
   ];
+
+  useEffect(() => {
+    const wow = new WOW();
+    wow.init();
+  }, []);
 
   const [tab, setTab] = useState(0);
 

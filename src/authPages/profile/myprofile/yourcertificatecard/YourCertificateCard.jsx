@@ -2,7 +2,7 @@ import "./YourCertificateCard.scss";
 
 
 const YourCertificateCard = ({img, title, text}) => {
-  return <div className="your_certificate">
+  return <div className="your_certificate wow fadeInUp">
     <div className="info">
       <div className="img_wrap">
         <img src={img} alt="img" />        

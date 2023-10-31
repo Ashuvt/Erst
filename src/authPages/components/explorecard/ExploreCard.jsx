@@ -1,9 +1,9 @@
 import { icon } from "../../../utils/images/icons";
 import "./ExploreCard.scss";
 
-const ExploreCard = ({ img, title, text, students, modules, saved }) => {
+const ExploreCard = ({ img, title, text, students, modules, saved, index }) => {
   return (
-    <div className="explore_card">
+    <div className="explore_card wow zoomIn" data-wow-delay={`${(0.2*index%3)}s`}>
       <div className="poster_wrap">
         <span>Cources</span>
         <img src={img} alt="poster" />

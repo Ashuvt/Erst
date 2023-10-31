@@ -41,14 +41,14 @@ const EmailNotification = () => {
   return (
     <div className="email_notification">
       <div className="title">
-        <h5 className="small_title">Email Notifications</h5>
-        <p>Manage your communication from Cybergain</p>
+        <h5 className="small_title wow fadeInUp">Email Notifications</h5>
+        <p className="wow fadeInUp">Manage your communication from Cybergain</p>
 
         <form>
           {optionData.map((data) => {
             return (
               <Fragment key={data.id}>
-                <div className="check_wrap">
+                <div className="check_wrap wow fadeInUp">
                   <button type="button" className={`checkbtn ${selectOption.includes(data.id) ? 'active' : ''}`}  onClick={() => addToSelected(data.id)}>
                     <img src={icon.checked} alt="checked" className={selectOption.includes(data.id) ? 'active' : ''} />
                   </button>
@@ -58,7 +58,7 @@ const EmailNotification = () => {
             );
           })}
 
-          <button type="button" className="authbtn auth_primary">
+          <button type="button" className="authbtn auth_primary wow fadeInUp">
             Save
           </button>
         </form>

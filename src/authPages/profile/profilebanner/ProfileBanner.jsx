@@ -8,10 +8,10 @@ const ProfileBanner = () => {
             <img src={images.bgPattern} alt="patter" className="pattern" />
             <div className="screen_container">
                     <div className="content">
-                        <div className="icon_wrap">
+                        <div className="icon_wrap wow fadeInUp">
                             <img src={icon.userFill} alt="user" />
                         </div>
-                        <h3>Profile</h3>
+                        <h3 className=" wow fadeInUp">Profile</h3>
                     </div>
             </div>
         </section>

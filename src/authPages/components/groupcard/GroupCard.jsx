@@ -2,7 +2,7 @@ import "./GroupCard.scss";
 
 const GroupCard = ({ img, title, text, members, newpost, index }) => {
   return (
-    <div className="group_card wow SlideInUp">
+    <div className="group_card wow fadeInUp" data-wow-delay={`${(0.1*(index % 4))}s`} >
       <div className="postre_wrap">
         <img src={img} alt="" />
       </div>

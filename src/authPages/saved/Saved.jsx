@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment, useState, useEffect } from "react";
 import "./Saved.scss";
 import CoursesHeader from "../components/coursesheader/CoursesHeader";
 import ExploreTitle from "../explore/exploretitle/ExploreTitle";
@@ -7,8 +7,14 @@ import ExploreCard from "../components/explorecard/ExploreCard";
 import { icon } from "../../utils/images/icons";
 import { useDispatch } from "react-redux";
 import { resetAllToggler } from "../../store/actions";
+import WOW from "wow.js";
 
 const Saved = () => {
+  useEffect(() => {
+    const wow = new WOW();
+    wow.init();
+  }, []);
+
   const courcesData = [
     {
       id: 0,
@@ -144,8 +150,6 @@ const Saved = () => {
     },
   ];
 
-
-
   const typesData = [
     {
       id: "11",
@@ -209,11 +213,9 @@ const Saved = () => {
         <div className="screen_container">
           <div className="explore_grid">
             <div className="filter_options_sec">
-             
-
               <div className="options_content">
-                <h3 className="title">Interests</h3>
-                <div className="option_box">
+                <h3 className="title wow fadeInUp">Interests</h3>
+                <div className="option_box wow fadeInUp">
                   {interestOptions.map((data) => {
                     return (
                       <Fragment key={data.id}>
@@ -233,8 +235,8 @@ const Saved = () => {
               </div>
 
               <div className="options_content">
-                <h3 className="title">Type</h3>
-                <div className="checkbox_card">
+                <h3 className="title wow fadeInUp">Type</h3>
+                <div className="checkbox_card wow fadeInUp">
                   {typesData.map((data) => {
                     return (
                       <Fragment key={data.id}>

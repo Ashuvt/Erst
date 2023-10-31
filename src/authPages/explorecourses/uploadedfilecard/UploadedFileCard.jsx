@@ -5,7 +5,7 @@ import "./UploadedFileCard.scss";
 
 const UploadedFileCard = ({img, name, info, upload, cancel, replace, reviewed, submit }) => {
     return(
-        <div className="uploaded_file_card">
+        <div className="uploaded_file_card wow fadeInUp">
             <div className="left">
                 <div className="img_wraper">
                     <img src={img} alt="poster" />

@@ -54,8 +54,8 @@ const ModulesSec = () => {
         <h5 className="small_title">Modules</h5>
         {module_data.map((data) => {
           return (
-            <Fragment>
-              <div className="module_info">
+            <Fragment key={data.id}>
+              <div className="module_info wow fadeInUp">
                 <div className="left">
                   <img
                     src={data.type === "video" ? icon.video : icon.docs}

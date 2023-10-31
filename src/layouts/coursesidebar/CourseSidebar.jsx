@@ -55,7 +55,6 @@ const dispatch = useDispatch();
     (state) => state.toggleReducer.courseSidebarStatus
   );
 
-  console.log(courseSidebarStatus);
   return (
     <div className={`course_side_bar ${courseSidebarStatus ? "open" : "close"}`}>
       <div className="logo_line">

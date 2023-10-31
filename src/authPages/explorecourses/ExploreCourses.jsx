@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import "./ExploreCourses.scss";
 import CoursesHeader from "../components/coursesheader/CoursesHeader";
 import { icon } from "../../utils/images/icons";
@@ -7,8 +7,16 @@ import Accordion from "react-bootstrap/Accordion";
 import UploadedFileCard from "./uploadedfilecard/UploadedFileCard";
 import { useDispatch } from "react-redux";
 import { resetAllToggler } from "../../store/actions";
+import WOW from "wow.js";
+
 
 const ExploreCourses = () => {
+  useEffect(() => {
+    const wow = new WOW();
+    wow.init();
+  }, []);
+
+
   const uploadFileData = [
     {
       id: 0,
@@ -176,8 +184,8 @@ const ExploreCourses = () => {
             </div>
           </div>
           <div className="course_detail">
-            <h1 className="title">Chapter Title</h1>
-            <p className="small_text m-t-16">
+            <h1 className="title wow fadeInUp">Chapter Title</h1>
+            <p className="small_text m-t-16 wow fadeInUp">
               Risk is inevitable. While it would be remarkable to eliminate all
               risk associated with protecting information assets, doing so is
               impossible. A determined adversary with enough time and resources
@@ -187,13 +195,13 @@ const ExploreCourses = () => {
               of cybersecurity is to reduce risk to an acceptable level through
               countermeasures and mitigations.
             </p>
-            <div className="img_wrap">
+            <div className="img_wrap wow fadeIn">
               <img src={images.exploreDetail} alt="poster" />
             </div>
             <div className="section">
-              <p className="section_name">Section</p>
+              <p className="section_name wow fadeInUp">Section</p>
 
-              <p className="small_text">
+              <p className="small_text wow fadeInUp">
                 Cyber Risk Managers/Analysts or Auditors will often conduct a
                 quantitative Cyber Risk Analysis that assigns factual data and
                 monetary terms to express the level of risk and loss that may
@@ -230,21 +238,21 @@ const ExploreCourses = () => {
               </ol>
             </div>
 
-            <h1 className="mt-48">Quiz</h1>
+            <h1 className="mt-48 wow fadeInUp">Quiz</h1>
             <div className="question_wrap">
-              <div className="question">
+              <div className="question wow fadeInUp">
                 <img src={icon.question} alt="question" />
                 <p>QUESTION 1</p>
               </div>
-              <p className="primary">
+              <p className="primary wow fadeInUp">
                 What is the purpose of a quantitative Cyber Risk Analysis, and
                 what are the key terms used in this analysis?
               </p>
-              <p className="small_text thin">
+              <p className="small_text thin wow fadeInUp">
                 Points will be added to the certificate
               </p>
               <ul>
-                <li>
+                <li className="wow fadeInUp">
                   <img src={icon.unselectedRadio} alt="radiobtn" />
                   <p>
                     To estimate cyberattack likelihood and financial impact. Key
@@ -252,7 +260,7 @@ const ExploreCourses = () => {
                     Annual Rate of Occurrence.
                   </p>
                 </li>
-                <li>
+                <li className="wow fadeInUp">
                   <img src={icon.selectedRadio} alt="radiobtn" />
                   <p>
                     To identify cybersecurity vulnerabilities. Key terms:
@@ -260,7 +268,7 @@ const ExploreCourses = () => {
                     Audit, Attack Vector Analysis.
                   </p>
                 </li>
-                <li>
+                <li className="wow fadeInUp">
                   <img src={icon.unselectedRadio} alt="radiobtn" />
                   <p>
                     To calculate cybersecurity investment costs. Key terms:
@@ -268,7 +276,7 @@ const ExploreCourses = () => {
                     ROI Analysis.
                   </p>
                 </li>
-                <li>
+                <li className="wow fadeInUp">
                   <img src={icon.unselectedRadio} alt="radiobtn" />
                   <p>
                     To assess company reputation after a cyber incident. Key
@@ -277,25 +285,25 @@ const ExploreCourses = () => {
                   </p>
                 </li>
               </ul>
-              <button type="button" className="authbtn auth_primary">
+              <button type="button" className="authbtn auth_primary wow fadeInUp">
                 Submit
               </button>
             </div>
 
             <div className="question_wrap">
-              <div className="question">
+              <div className="question wow fadeInUp">
                 <img src={icon.question} alt="question" />
                 <p>QUESTION 1</p>
               </div>
-              <p className="primary">
+              <p className="primary wow fadeInUp">
                 What is the purpose of a quantitative Cyber Risk Analysis, and
                 what are the key terms used in this analysis?
               </p>
-              <p className="small_text thin">
+              <p className="small_text thin wow fadeInUp">
                 Points will be added to the certificate
               </p>
               <ul>
-                <li>
+                <li className="wow fadeInUp">
                   <img src={icon.unselectedRadio} alt="radiobtn" />
                   <p>
                     To estimate cyberattack likelihood and financial impact. Key
@@ -303,7 +311,7 @@ const ExploreCourses = () => {
                     Annual Rate of Occurrence.
                   </p>
                 </li>
-                <li>
+                <li className="wow fadeInUp">
                   <img src={icon.selectedRadio} alt="radiobtn" />
                   <p>
                     To identify cybersecurity vulnerabilities. Key terms:
@@ -311,7 +319,7 @@ const ExploreCourses = () => {
                     Audit, Attack Vector Analysis.
                   </p>
                 </li>
-                <li>
+                <li className="wow fadeInUp">
                   <img src={icon.unselectedRadio} alt="radiobtn" />
                   <p>
                     To calculate cybersecurity investment costs. Key terms:
@@ -319,7 +327,7 @@ const ExploreCourses = () => {
                     ROI Analysis.
                   </p>
                 </li>
-                <li>
+                <li className="wow fadeInUp">
                   <img src={icon.unselectedRadio} alt="radiobtn" />
                   <p>
                     To assess company reputation after a cyber incident. Key
@@ -328,24 +336,24 @@ const ExploreCourses = () => {
                   </p>
                 </li>
               </ul>
-              <button type="button" className="authbtn auth_primary">
+              <button type="button" className="authbtn auth_primary wow fadeInUp">
                 Submit
               </button>
             </div>
 
             <div className="assignment_wrap">
-              <h1>Assignment</h1>
-              <p className="primary">
+              <h1 className="wow fadeInUp">Assignment</h1>
+              <p className="primary wow fadeInUp">
                 What is the purpose of a quantitative Cyber Risk Analysis, and
                 what are the key terms used in this analysis?
               </p>
-              <p className="small_text">
+              <p className="small_text wow fadeInUp">
                 Additional description about the assignment. Additional
                 description about the assignment. Additional description about
                 the assignment.{" "}
               </p>
 
-              <div className="upload_wrap">
+              <div className="upload_wrap wow fadeInUp">
                 <input type="file" />
                 <div className="content">
                   <img src={icon.upload} alt="upload" />
