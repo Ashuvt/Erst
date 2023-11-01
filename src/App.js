@@ -1,6 +1,5 @@
 import { Fragment, useEffect, useState } from "react";
 import "./App.scss";
-import { menuList } from "./utils/data/data";
 import { useLocation } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
 import Home1 from "./pages/home1/Home1";
@@ -50,8 +49,8 @@ function App() {
 
         <SideBar />
         <CourseSidebar />
-        
         <Routes>
+         
           <Route path="/" element={<Home1 />} />
           <Route path="/home1" element={<Home1 />} />
           <Route path="/home2" element={<Home2 />} />

@@ -24,17 +24,47 @@
     .saved_card_wrap {
         padding: 16px;
         border-radius: 12px;
-        border: 1px solid $cardB;
-        background: linear-gradient(113deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.00) 110.84%);
-        backdrop-filter: blur(28px);
         margin-top: 24px;
         transition:all 0.3s ease-in-out;
+        position:relative;
+        &::after {
+            position: absolute;
+            content: "";
+            top: 1px;
+            left: 1px;
+            height: calc(100% - 2px);
+            width: calc(100% - 2px);
+            border-radius: 12px;
+            overflow: hidden;
+            background-color: $dark;
+            z-index: 1;
+        }
+
+        &::before {
+            position: absolute;
+            content: "";
+            top: 0px;
+            left: 0px;
+            height: 100%;
+            width: 100%;
+            border-radius: 12px;
+            background: linear-gradient(130deg, #ffffff66, #ffffff17);
+            padding: 1px;
+            backdrop-filter: blur(28px);
+            transition: all 0.3s ease-in-out;
+            width: 100%;
+            z-index: 0;
+        }
         &:hover{
-            border-color: $lightBorder_1;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.25);
+            &::before {
+                background: linear-gradient(130deg, #ffffffa0, #ffffffa0);
+            }
         }
 
         .title_line_wrap {
+            position: relative;
+            z-index: 3;
+            pointer-events: none;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -52,6 +82,9 @@
         }
 
         .bottom_line {
+            position: relative;
+            z-index: 3;
+            pointer-events: none;
             margin-top: 16px;
             display: flex;
             justify-content: space-between;
@@ -70,6 +103,9 @@
         }
 
         p {
+            position: relative;
+            z-index: 3;
+            pointer-events: none;
             @include font('Inter-Regular', 14px, 20px, 400, $textSecondary);
 
             &.title_text {

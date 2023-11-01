@@ -42,6 +42,7 @@ const ProfileMenu = ({ menuStatus }) => {
   const navigate = useNavigate();
   return (
     <div className={`profile_menu_card ${menuStatus ? "open" : "close"}`}>
+       <div className="bg_card_overlay"></div>
       <h1>Rajat</h1>
 
       {menuData.map((data) => {

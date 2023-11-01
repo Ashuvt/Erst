@@ -4,6 +4,7 @@
 @import "../../scss/variables";
 
 section.explore_page {
+    scroll-behavior:unset;
     .screen_container {
         .explore_grid {
             display: flex;

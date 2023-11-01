@@ -4,6 +4,7 @@ import "./ExploreCard.scss";
 const ExploreCard = () => {
   return (
     <div className="home_explore_card wow fadeInRight">
+       <div className="bg_card_overlay"></div>
       <div className="circle_path">
         <img src={icon.skillpath} alt="skillpath" />
       </div>

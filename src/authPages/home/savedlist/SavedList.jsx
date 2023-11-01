@@ -35,6 +35,7 @@ const SavedList = () => {
       {info.map((data) => {
         return (
           <div className="saved_card_wrap wow fadeInRight" key={data.id}>
+             <div className="bg_card_overlay"></div>
             <div className="title_line_wrap">
               <p className="title_text">Red Team</p>
               <button type="button">

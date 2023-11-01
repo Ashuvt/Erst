@@ -8,6 +8,7 @@
   outline: none !important;
   user-select: none;
   -webkit-user-drag: none;
+  scroll-behavior:auto!important;
 }
 
 
@@ -20,6 +21,7 @@ input::-webkit-inner-spin-button {
 
 body {
   background-color: #000;
+  scroll-behavior: unset;
 }
 
 *::-moz-selection {

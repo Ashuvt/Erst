@@ -12,7 +12,8 @@ const FourBoxInfo = ({ title, data = [] }) => {
                 className="four_info_card wow fadeInUp"
                 key={item.id}
                 data-wow-delay={`${k * 0.1}s`}
-              >          
+              >
+                <div className="bg_card_overlay"></div>
                 <div className="icon_box">
                   <img src={item.icon} alt="icon" />
                 </div>

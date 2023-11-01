@@ -8,6 +8,7 @@ section {
   background-color: $dark;
   padding-left: 20px;
   padding-right: 20px;
+  scroll-behavior: unset;
 
   @media only screen and(max-width:$mobile) {
     padding-left: 15px;
@@ -266,8 +267,27 @@ button.grotesk_secondary {
   @include font('SpaceGrotesk-Regular', 14px, 20px, 400, $textPrimary);
 }
 
-button.iconbtn{
+button.iconbtn {
   border-style: none;
   background-color: transparent;
 }
 
+
+.bg_card_overlay{
+  position:absolute;
+  top:1px;
+  left:1px;
+  height:calc(100% - 2px);
+  width:calc(100% - 2px);
+  background: linear-gradient(113deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.00) 110.84%);
+  z-index:2;
+  transition:all 0.3s ease-in-out;
+  border-radius: 12px;
+  backdrop-filter: blur(28px);
+  &:hover{    
+    background: linear-gradient(253deg, rgba(255, 255, 255, 0.08) -7.53%, rgba(255, 255, 255, 0.00) 97.04%);
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.06);
+    backdrop-filter: blur(1.75px);
+  }
+
+}

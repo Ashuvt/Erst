@@ -12,6 +12,7 @@ const SkillPathCard = ({
 }) => {
   return (
     <div className="recommended_module_card wow fadeInLeft">
+           <div className="bg_card_overlay"></div>
       <div className="poster_wrap">
         <img src={img} alt="poster" />
         <button type="button">

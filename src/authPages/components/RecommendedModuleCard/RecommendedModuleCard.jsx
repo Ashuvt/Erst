@@ -9,10 +9,14 @@ const RecommendedModuleCard = ({
   duration,
   rating,
   count,
-  index
+  index,
 }) => {
   return (
-    <div className="recommended_module_card wow fadeInLeft" data-wow-delay={`${0.3*index}s`} >
+    <div
+      className="recommended_module_cards wow fadeInLeft"
+      data-wow-delay={`${0.3 * index}s`}
+    >
+      <div className="bg_card_overlay"></div>
       <div className="poster_wrap">
         <img src={img} alt="poster" />
         <div className="free_pill">
@@ -33,7 +37,10 @@ const RecommendedModuleCard = ({
           </div>
           <div className="info">
             <img src={icon.star} alt="star" />
-            <p>{rating} <span></span>{count}</p>
+            <p>
+              {rating} <span></span>
+              {count}
+            </p>
           </div>
         </div>
       </div>

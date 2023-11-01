@@ -31,6 +31,7 @@ const NotificationCard = ({status}) => {
   ];
   return (
     <div className={`notification_card ${status ? 'open' : 'close'}`}>
+       <div className="bg_card_overlay"></div>
       <h1>Notifications</h1>
       {notificationData.map((data) => {
         return (
