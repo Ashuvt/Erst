@@ -8,7 +8,7 @@ const ContactLanding = () => {
   return (
     <section className="contact_landing">
       <div className="content_wrap">
-        <h1 className="wow fadeInLeft">We Will Be Glad To See You In Our Locations</h1>
+        <h1 className="wow fadeInLeft">Lorem ipsum dolor sit amet consectetur.</h1>
 
         <div className="trial_wrap">
           <p className="wow fadeInRight">

@@ -19,7 +19,7 @@ const SoftwareDeveloper = () => {
             <Header />
             <MapLanding 
                 title="Software Developer"
-                text="The Smart Sales Assistant can also provide insights into customer behavior and preferences, allowing you to optimize your marketing and sales strategies."
+                text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Id beatae, facere reiciendis esse aliquam expedita ipsa cum atque laudantium eaque!"
             />
            <SymmentricSlider />
             <section className="software_developer_detail p_top p_bottom" >

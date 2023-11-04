@@ -18,7 +18,7 @@ const ChoosePlan = () => {
             <section className="choose_plan p_top p_bottom">
                 <div className="choose_plan_glass a wow zoomIn" data-wow-delay="0.5s" data-wow-duration="1.5s"></div>
                 <div className="choose_plan_glass b wow zoomIn" data-wow-delay="0.5s" data-wow-duration="1.5s"></div>
-                <div className="choose_plan_glass c wow zoomIn" data-wow-delay="0.5s" data-wow-duration="1.5s"></div>
+                {/* <div className="choose_plan_glass c wow zoomIn" data-wow-delay="0.5s" data-wow-duration="1.5s"></div> */}
                 <div className="content_wrap">
                     <MidTitle 
                     title="Choose Your Plan Now"

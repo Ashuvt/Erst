@@ -1,14 +1,14 @@
 import "./FeedBackCard.scss";
 
-const FeedBackCard = ({profile, name, text, index }) => {
+const FeedBackCard = ({data, index, setView}) => {
     return(
-        <div className="feedback_card wow fadeInUp" data-wow-delay={`${0.15*index}s`}>
+        <div className="feedback_card wow fadeInUp" data-wow-delay={`${0.15*index}s`} onClick={() => setView(data)}>
             <div className="profile">
-                <img src={profile} alt="profile" />
+                <img src={data.profile} alt="profile" />
             </div>
             <div className="info">
-                <h5>{name}</h5>
-                <p>{text}</p>
+                <h5>{data.name}</h5>
+                <p>{data.text}</p>
             </div>
         </div>
     )

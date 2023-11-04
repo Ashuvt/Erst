@@ -24,7 +24,7 @@ const Shop = () => {
       <AllProducts />
       <Offer
         title="Subscribe To Us And Get A 10% Discount"
-        text="The SaaS model is the absence of costs for the purchase and maintenance of computer equipment on which you need to install “stationary” software. The stability of the system is maintained by the developer."
+        text="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta, earum! Blanditiis, animi maiores! Aperiam veritatis facere animi? Distinctio architecto dignissimos eveniet, quibusdam id fugit suscipit? At reprehenderit pariatur saepe cupiditate."
       />
       <ClientSay />
       <Footer />

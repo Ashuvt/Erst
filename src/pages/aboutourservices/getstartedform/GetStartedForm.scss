@@ -47,7 +47,7 @@ section.get_started_form {
                 font-size: 17px;
                 font-weight: 400;
                 transition: all .5s cubic-bezier(.25, .46, .45, .94);
-                box-shadow: 0 0 20px rgba(153, 0, 255, .6);
+                box-shadow: 0 0 20px rgba($primary, 0.6);
                 width: calc(100% / 3);
 
                 @media only screen and (max-width:$tab) {

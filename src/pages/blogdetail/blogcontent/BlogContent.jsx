@@ -1,89 +1,75 @@
 import { images } from "../../../utils/images/images";
 import FeedGrid from "../../home1/feedback/feedgrid/FeedGrid";
 import "./BlogContent.scss";
+import { blogsData } from "../../../utils/data/data";
+import { Fragment } from "react";
 
-const BlogContent = () => {
-
+const BlogContent = ({ para }) => {
   return (
     <section className="blog_content p_top" id="blogContent">
       <div className="content_wrap">
         <h2 className="wow fadeInUp">
-          How To Maximize The ROI Of Your SaaS Investment
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit?
         </h2>
         <p className="wow fadeInUp">
-          Software as a Service (SaaS) has become a popular delivery model for
-          software applications. In this article, we'll explore what SaaS is,
-          how it works, and the benefits and drawbacks of using it.What is
-          SaaS?SaaS is a software delivery model where a third-party provider
-          hosts an application and makes it available to customers over the
-          internet. Users can access the application from anywhere with an
-          internet connection, using a web browser or a mobile app. SaaS is
-          typically offered on a subscription basis, where customers pay a
-          recurring fee to access the software.
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde, sit.
+          Cupiditate, suscipit maxime impedit totam vero quos adipisci ut quas
+          labore eum hic dolor quibusdam necessitatibus? Libero vero ea
+          laboriosam quasi dolorum pariatur. Cum nam quisquam cupiditate vel
+          porro velit enim obcaecati voluptate quia ullam!
         </p>
-        <h3 className="wow fadeInUp">How Does SaaS Work?</h3>
+        <h3 className="wow fadeInUp">Lorem ipsum dolor, sit amet</h3>
         <p className="wow fadeInUp">
-          SaaS providers manage the infrastructure, security, and maintenance of
-          the software application, which allows customers to focus on using the
-          application rather than managing it. The provider hosts the
-          application on their servers and provides access to the application
-          over the internet. The provider is responsible for ensuring that the
-          application is available and running smoothly. SaaS providers manage
-          the infrastructure, security, and maintenance of the software
-          application, which allows customers to focus on using the application
-          rather than managing it. The provider hosts the application on their
-          servers and provides access to the application over the internet. The
-          provider is responsible for ensuring that the application is available
-          and running smoothly.
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde, sit.
+          Cupiditate, suscipit maxime impedit totam vero quos adipisci ut quas
+          labore eum hic dolor quibusdam necessitatibus? Libero vero ea
+          laboriosam quasi dolorum pariatur. Cum nam quisquam cupiditate vel
+          porro velit enim obcaecati voluptate quia ullam!
         </p>
         <div className="blog_image wow fadeInUp">
           <img src={images.benefitSuite} alt="banner" />
         </div>
         <p className="wow fadeInUp">
-          Software as a Service (SaaS) has become a popular delivery model for
-          software applications. In this article, we'll explore what SaaS is,
-          how it works, and the benefits and drawbacks of using it.What is
-          SaaS?SaaS is a software delivery model where a third-party provider
-          hosts an application and makes it available to customers over the
-          internet. Users can access the application from anywhere with an
-          internet connection, using a web browser or a mobile app. SaaS is
-          typically offered on a subscription basis, where customers pay a
-          recurring fee to access the software. Benefits of SaaS. SaaS offers
-          several benefits over traditional software delivery models, including:
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde, sit.
+          Cupiditate, suscipit maxime impedit totam vero quos adipisci ut quas
+          labore eum hic dolor quibusdam necessitatibus? Libero vero ea
+          laboriosam quasi dolorum pariatur. Cum nam quisquam cupiditate vel
+          porro velit enim obcaecati voluptate quia ullam!
         </p>
 
         <ul className="wow fadeInUp">
           <li>
-            Lower upfront costs: SaaS eliminates the need for businesses to
-            purchase and maintain expensive hardware and software
-            infrastructure.
+            Lorem ipsum, dolor sit: Lorem ipsum, dolor sit amet consectetur
+            adipisicing elit. Unde, sit. Cupiditate, suscipit maxime impedit
+            totam.
           </li>
           <li>
-            Scalability: SaaS providers can easily scale their infrastructure to
-            meet the needs of growing businesses.
+            Lorem ipsum, dolor sit: Lorem ipsum, dolor sit amet consectetur
+            adipisicing elit. Unde, sit. Cupiditate, suscipit maxime impedit
+            totam.
           </li>
           <li>
-            Accessibility: Users can access SaaS applications from anywhere, on
-            any device with an internet connection.
+            Lorem ipsum, dolor sit: Lorem ipsum, dolor sit amet consectetur
+            adipisicing elit. Unde, sit. Cupiditate, suscipit maxime impedit
+            totam.
           </li>
           <li>
-            Automatic updates: SaaS providers can quickly roll out updates and
-            new features to all users without requiring any action on the user's
-            part.
+            Lorem ipsum, dolor sit: Lorem ipsum, dolor sit amet consectetur
+            adipisicing elit. Unde, sit. Cupiditate, suscipit maxime impedit
+            totam.
           </li>
           <li>
-            Predictable costs: With SaaS, businesses pay a predictable,
-            recurring fee for access to the software, which can help with
-            budgeting and planning.
+            Lorem ipsum, dolor sit: Lorem ipsum, dolor sit amet consectetur
+            adipisicing elit. Unde, sit. Cupiditate, suscipit maxime impedit
+            totam.
           </li>
         </ul>
         <p className="wow fadeInUp">
-          SaaS providers manage the infrastructure, security, and maintenance of
-          the software application, which allows customers to focus on using the
-          application rather than managing it. The provider hosts the
-          application on their servers and provides access to the application
-          over the internet. The provider is responsible for ensuring that the
-          application is available and running smoothly.
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde, sit.
+          Cupiditate, suscipit maxime impedit totam vero quos adipisci ut quas
+          labore eum hic dolor quibusdam necessitatibus? Libero vero ea
+          laboriosam quasi dolorum pariatur. Cum nam quisquam cupiditate vel
+          porro velit enim obcaecati voluptate quia ullam!
         </p>
         <div className="feed_grid_wrap">
           <div
@@ -91,63 +77,37 @@ const BlogContent = () => {
             data-wow-delay="0.5s"
             data-wow-duration="1.5s"
           ></div>
-          <FeedGrid />
+          <FeedGrid
+            data={{
+              id: 0,
+              name: "Alaa",
+              text: "SOC Analyst at Kan11",
+              profile: images.profilea,
+              testimonial:
+                "My experience with them was truly incredible. Over the course of a year with the company, I had the opportunity to immerse myself in the world of real-life cybersecurity attacks. Despite the complexity of the field, they skillfully guided us through the learning process, breaking it down into manageable steps as we progressed to an advanced level.",
+            }}
+          />
           <div
             className="border_line bottom wow zoomIn"
             data-wow-delay="0.5s"
             data-wow-duration="1.5s"
           ></div>
         </div>
-        <h3 className="wow fadeInUp">Challenges Of SaaS</h3>
+        <h3 className="wow fadeInUp">Lorem ipsum dolor sit.</h3>
         <p className="wow fadeInUp">
-          SaaS is a software delivery model where a third-party provider hosts
-          an application and makes it available to customers over the internet.
-          Users can access the application from anywhere with an internet
-          connection, using a web browser or a mobile app. SaaS is typically
-          offered on a subscription basis, where customers pay a recurring fee
-          to access the software. SaaS providers manage the infrastructure,
-          security, and maintenance of the software application, which allows
-          customers to focus on using the application rather than managing it.
-          The provider hosts the application on their servers and provides
-          access to the application over the internet. The provider is
-          responsible for ensuring that the application is available and running
-          smoothly. SaaS providers manage the infrastructure, security, and
-          maintenance of the software application, which allows customers to
-          focus on using the application rather than managing it. The provider
-          hosts the application on their servers and provides access to the
-          application over the internet. The provider is responsible for
-          ensuring that the application is available and running smoothly.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, reprehenderit! Eos saepe animi soluta cupiditate, ipsum aspernatur deleniti inventore quos eum vero modi fugit mollitia officia repudiandae ut. Magnam quidem maxime ut aliquam rerum amet nemo odit veniam itaque porro. Repellat consequatur ea minima modi ipsa! Expedita autem animi ipsa!
         </p>
         <ul className="wow fadeInUp">
-          <li>
-            Data security: Storing sensitive data on third-party servers raises
-            concerns about data privacy and security.
-          </li>
-          <li>
-            Dependence on the internet: SaaS applications require a reliable
-            internet connection, and downtime can disrupt business operations.
-          </li>
-          <li>
-            Vendor lock-in: Switching SaaS providers can be challenging, as
-            businesses may need to migrate data and retrain users.
-          </li>
-          <li>
-            Customization limitations: SaaS applications may not offer the same
-            level of customization as on-premises solutions.
-          </li>
+          <li>Lorem ipsum dolor: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae, ut.</li>
+          <li>Lorem ipsum dolor: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae, ut.</li>
+          <li>Lorem ipsum dolor: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae, ut.</li>
+          <li>Lorem ipsum dolor: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae, ut.</li>
+          <li>Lorem ipsum dolor: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae, ut.</li>          
         </ul>
-        <h3 className="wow fadeInUp">Best Practices For SaaS Adoption</h3>
+
+        <h3 className="wow fadeInUp">Lorem ipsum dolor sit amet, consectetur</h3>
         <p className="wow fadeInUp">
-          SaaS is a software delivery model where a third-party provider hosts
-          an application and makes it available to customers over the internet.
-          Users can access the application from anywhere with an internet
-          connection, using a web browser or a mobile app. SaaS is typically
-          offered on a subscription basis, where customers pay a recurring fee
-          to access the software. SaaS providers manage the infrastructure,
-          security, and maintenance of the software application, which allows
-          customers to focus on using the application rather than managing it.
-          The provider hosts the application on their servers and provides
-          access to the application over the internet.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, reprehenderit! Eos saepe animi soluta cupiditate, ipsum aspernatur deleniti inventore quos eum vero modi fugit mollitia officia repudiandae ut. Magnam quidem maxime ut aliquam rerum amet nemo odit veniam itaque porro. Repellat consequatur ea minima modi ipsa! Expedita autem animi ipsa!
         </p>
       </div>
       <div
@@ -173,7 +133,6 @@ const BlogContent = () => {
         data-wow-delay="0.5s"
         data-wow-duration="1.5s"
       ></div>
-      
     </section>
   );
 };

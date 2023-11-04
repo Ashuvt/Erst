@@ -13,22 +13,22 @@ const Services = () => {
   const contactServiceData = [
     {
       id: "first",
-      title: "Our Advantages Are Availability",
-      text: "The Intelligent Analytics Suite provides real-time monitoring and alerts, allowing businesses to track their key performance indicators (KPIs) in real-time and receive alerts when KPIs deviate from predefined thresholds. This enables businesses to react quickly to any changes or issues that arise, reducing the risk of any potential negative impact on their operations or customers.",
+      title: "Lorem ipsum dolor sit amet consectetur.",
+      text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia placeat nostrum, ullam iure inventore eos nisi temporibus est sed sit cumque officia assumenda omnis, consequuntur illum dolorem ex quam at amet? Perferendis, molestias fugit facere voluptas nisi facilis quis asperiores iste et. Quaerat, minus pariatur!",
       btn1: "view our pricing",
       btn2: "try free now",
     },
     {
       id: "second",
-      title: "Improved Interface Usability",
-      text: "The Intelligent Analytics Suite allows businesses to analyze data from various sources to identify bottlenecks, inefficiencies, and areas for improvement in their processes, supply chain, and operations. This leads to improved operational efficiency, cost savings, and faster delivery times. This enables businesses to react quickly to any changes or issues that arise, reducing the risk of any potential negative impact on their operations or customers.",
+      title: "Lorem ipsum dolor sit amet consectetur.",
+      text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia placeat nostrum, ullam iure inventore eos nisi temporibus est sed sit cumque officia assumenda omnis, consequuntur illum dolorem ex quam at amet? Perferendis, molestias fugit facere voluptas nisi facilis quis asperiores iste et. Quaerat, minus pariatur!",
       btn1: "testimonials",
       btn2: "join our team",
     },
     {
       id: "third",
-      title: "Real-Time Decision Making",
-      text: "The Intelligent Analytics Suite provides businesses with real-time insights and intelligence, allowing them to make informed decisions in real-time based on actual data rather than relying on historical data or assumptions. This enables businesses to react quickly to any changes or issues that arise, reducing the risk of any potential negative impact on their operations or customers.",
+      title: "Lorem ipsum dolor sit amet consectetur.",
+      text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia placeat nostrum, ullam iure inventore eos nisi temporibus est sed sit cumque officia assumenda omnis, consequuntur illum dolorem ex quam at amet? Perferendis, molestias fugit facere voluptas nisi facilis quis asperiores iste et. Quaerat, minus pariatur!",
       btn1: "how we work",
       btn2: "help and support",
     },
@@ -37,8 +37,7 @@ const Services = () => {
   useEffect(() => {
     const handleScroll = () => {
       const div = divRef.current;
-      if (div) {
-        console.log(window.scrollY);
+      if (div) {   
 
         if (window.scrollY < 600) {
           setDegree(0);

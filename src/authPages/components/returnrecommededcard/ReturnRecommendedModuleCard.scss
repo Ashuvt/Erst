@@ -1,0 +1,179 @@
+@import "../../../scss/common";
+@import "../../../scss/mixin";
+@import "../../../scss/typography";
+@import "../../../scss/variables";
+
+
+
+
+.return_module_cards {
+    overflow: hidden;
+    margin-top:20px;
+    width: 100%;
+    border-radius: 12px;
+    padding: 16px;
+    background: $cardFill;
+    backdrop-filter: blur(28px);
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    gap: 20px;
+    transition: all 1s ease-in-out;
+    position:relative;
+    &::after {
+        position: absolute;
+        content: "";
+        top: 1px;
+        left: 1px;
+        height:calc(100% - 2px);
+        width: calc(100% - 2px);
+        border-radius: 12px;
+        overflow: hidden;
+        background-color:$dark;
+        z-index: 1;
+    }
+
+    &::before{
+        position: absolute;
+        content: "";
+        top: 0px;
+        left: 0px;
+        height: 100%;
+        width: 100%;
+        border-radius: 12px;
+        background:$borderGradient;
+        padding: 1px;
+        backdrop-filter: blur(28px);
+        transition: all 0.3s ease-in-out;
+        width: 100%;
+        z-index:0;
+    }
+
+    &:hover {
+        &::before{
+            background: linear-gradient(130deg, #ffffffa0, #ffffffa0);
+            backdrop-filter: blur(1.75px);
+        }
+      
+    }
+
+    @media only screen and (max-width:$mobile) {
+        flex-direction: column;
+    }
+
+    .poster_wrap {        
+        width: 172px;
+        height: 104px;
+        position: relative;
+        z-index: 3;
+        pointer-events: none;
+
+        @media only screen and (max-width:$mobile) {
+            width: 100% !important;
+            height: auto;
+        }
+
+        img {
+            min-height: 100%;
+            min-width: 100%;
+            object-fit: cover;
+            position: relative;
+            z-index: 0;
+        }
+
+        .free_pill {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            padding: 2px 8px;
+            background-color: $primary;
+            border-radius: 4px;
+
+            p {
+                @include font('SpaceGrotesk-Regular', 12px, 20px, 400, $textPrimary);
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    .text_info {
+        // width: calc(100% - 136px);
+        position: relative;
+        z-index: 3;
+        pointer-events: none;
+        @media only screen and (max-width:$mobile) {
+            width: 100%;
+        }
+        .btn_line{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap:15px;
+        }
+
+        p {
+            @include font('Inter-Regular', 14px, 20px, 400, $textSecondary);
+
+            &.title {
+                @include font('SpaceGrotesk-Regular', 16px, 20px, 400, $textPrimary);
+                margin-bottom: 8px;
+            }
+        }
+
+        .info_line {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-wrap: wrap;
+            column-gap: 24px;
+            row-gap: 10px;;
+            margin-top: 16px;
+
+            @media only screen and (max-width:$mobile) {
+                gap: 15px;
+            }
+
+
+            .info {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 8px;
+                
+
+                p {
+                    display: flex;
+                    align-items: center;
+
+                    span {
+                        display: inline-block;
+                        height: 4px;
+                        width: 4px;
+                        border-radius: 50%;
+                        background-color: $textSecondary;
+                        margin: 5px;
+                    }
+                }
+            }
+
+        }
+    }
+
+    .progress_wrap{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        height:4px;
+        background:#373739;
+        position:absolute;
+        bottom:0px;
+        left:0px;
+width:100%;
+z-index:3;
+        .filler{
+            height:100%;
+            background-color: $primary;;
+        }
+    }
+    
+}

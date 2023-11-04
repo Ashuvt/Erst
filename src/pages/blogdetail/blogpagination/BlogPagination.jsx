@@ -2,7 +2,7 @@ import { icons } from "../../../utils/images/images";
 import "./BlogPagination.scss";
 
 const BlogPagination = () => {
-  
+    
   return (
     <section className="blog_pagination p_top p_bottom">
       <div className="content_wrap">

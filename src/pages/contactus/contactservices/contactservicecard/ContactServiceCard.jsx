@@ -19,11 +19,9 @@ let viewArray;
         ([entry]) => {                
           if (entry.isIntersecting) {
             setIsVisible(true);
-            console.log("true");
           
           } else {
             setIsVisible(false);
-            console.log("false");
           }
         },
         options

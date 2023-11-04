@@ -17,9 +17,7 @@ const NewTechLanding = () => {
         <div className="title_wrap">
           <h1 className="wow fadeInUp">New Technology</h1>
           <p className="wow fadeInUp">
-            Welcome to our SaaS blog, where we make complex concepts simple and
-            easy to understand. Our blog is dedicated to providing insights and
-            updates f SaaS.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum impedit, officiis aperiam perferendis soluta optio. Amet sapiente blanditiis repellendus voluptatum!
           </p>
         </div>
       </div>

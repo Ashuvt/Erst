@@ -10,10 +10,8 @@ const Services = () => {
     <section className="services p_bottom">
       <div className="content_wrap">
           <MidTitle 
-          title="Flexible Digital Services For Your Needs" 
-          text="  The Smart Sales Assistant can also provide insights into customer
-          behavior and preferences, allowing you to optimize your marketing
-          and sales strategies."
+          title="Lorem ipsum dolor sit amet consectetur." 
+          text="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo praesentium harum consectetur beatae veniam itaque ut! Ea, natus. Reiciendis excepturi amet similique."
           />
         <div className="grid_sec">
           <div className="img_wrap">

@@ -77,8 +77,7 @@
                 }
 
                 &.flash {
-                    box-shadow: 0 0 50px rgba(153, 0, 255, 0.45);
-
+                    box-shadow: 0 0 50px rgba($primary, 0.45);
                 }
 
                 img {

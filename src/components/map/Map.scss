@@ -7,9 +7,12 @@ section.map {
     .content_wrap {
         position: relative;
         overflow: hidden;
-        img{
-            max-width:100%;
+
+        img {
+            max-width: 100%;
+            filter: invert(35%) sepia(73%) saturate(1136%) hue-rotate(177deg) brightness(95%) contrast(93%);
         }
+
         .circle {
             animation: scaleAnimation 2s ease-in-out infinite;
 
@@ -20,7 +23,7 @@ section.map {
             .white_circle {
                 width: 40px;
                 height: 40px;
-                background-color: rgba(255, 255, 255, .1);
+                background-color: rgba(255, 255, 255, 0.1);
                 border-radius: 100%;
                 display: flex;
                 justify-content: center;
@@ -35,7 +38,7 @@ section.map {
                     height: 10px;
                     width: 10px;
                     border-radius: 50%;
-                    background-color: #ce88fd;
+                    background-color: $primary;
 
                     @media only screen and (max-width:$mobile) {
                         width: 6px;

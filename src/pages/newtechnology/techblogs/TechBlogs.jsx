@@ -9,14 +9,14 @@ const TechBlogs = () => {
       id: 0,
       flag: "new technology",
       date: "April 18, 2023",
-      title: "SasS Vs Software",
+      title: "Lorem vs Ipsom",
       img: images.blogView,
     },
     {
       id: 1,
       flag: "new technology",
       date: "April 18, 2023",
-      title: "SasS Vs Software",
+      title: "Lorem vs Ipsom",
       img: images.homeblogC,
     },
   ];

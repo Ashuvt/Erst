@@ -9,18 +9,18 @@ export const ClientSay = () => {
       <div className="content_wrap">
         <MidTitle
           title="What Our Client Say"
-          text="We are proud to work with these incredible companies and grateful for their positive feedback, suggestions and incredible support."
+          text="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi numquam atque doloremque maxime consequatur provident laboriosam adipisci fugiat. Similique, magni!."
         />
 
         <div className="feed_grid">
           <div className="feed_column">
             <FeedCard
-              text='“I just wanted to let you know that your team has been doing a tremendous job on our requests."'
+              text='“Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione velit veniam expedita nisi facere fugiat ea enim mollitia cupiditate perspiciatis?'
               name="Ethan Black"
               img={images.profilea}
             />
              <FeedCard
-              text='“The Intelligent Analytics Suite exceeded our expectations for its ability to process big data.“'
+              text='Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam qui reprehenderit, pariatur in illum est ut laborum, necessitatibus, iste inventore iusto. Eaque expedita a, ullam consectetur nobis autem, ad voluptatibus error culpa corporis optio odio!'
               name="Orest Tink"
               img={images.profileb}
             />
@@ -32,7 +32,7 @@ export const ClientSay = () => {
               img={images.profilec}
             />
                 <FeedCard
-              text='“The perfect tool for our ‘Service with Passion’ motto. From day one, Monday has inspired our trust and amazement. People often tell us that they love the chat and think it’s modern – something they have expected from a company.“'
+              text='Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi quod distinctio a suscipit laboriosam. Corrupti nisi quaerat deserunt. Asperiores eveniet explicabo sit iure, voluptas voluptates?'
               name="Amelia Silver"
               img={images.profiled}
             />
@@ -65,7 +65,7 @@ export const ClientSay = () => {
       </div>
       <div className="client_say_blur a"></div>
       <div className="client_say_blur b"></div>
-      <div className="client_say_blur c"></div>
+      {/* <div className="client_say_blur c"></div> */}
     </section>
   );
 };

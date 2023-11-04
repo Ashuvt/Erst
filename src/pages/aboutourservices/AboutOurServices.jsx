@@ -32,11 +32,11 @@ const AboutOurServices = () => {
         data-wow-delay="0.5s"
         data-wow-duration="1.5s"
       ></div>
-      <div
+      {/* <div
         className="top_blur c wow zoomIn"
         data-wow-delay="0.5s"
         data-wow-duration="1.5s"
-      ></div>
+      ></div> */}
       <AboutServicesLanding />
       <ScrollBtn />
       <AboutServices />

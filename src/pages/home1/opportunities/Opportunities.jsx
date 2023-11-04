@@ -6,29 +6,27 @@ const Opportunities = () => {
     <section className="home_opportunities p_bottom">
       <div className="content_wrap">
         <div className="detail">
-          <h2 className="wow fadeInUp">Discover New Opportunities</h2>
+          <h2 className="wow fadeInUp">Lorem ipsum dolor sit amet.</h2>
           <p className="wow fadeInUp">
-            Intelligent Analytics Suite can be integrated with other SaaS
-            products, such as CRM and marketing automation tools, to provide a
-            comprehensive view of business performance.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus in aperiam iure laborum consequatur laboriosam nihil esse, porro architecto voluptates pariatur fugit quibusdam tenetur. Magni beatae eius temporibus!
           </p>
 
           <button type="button" className="wow fadeInUp">
-            Provide support or help
+          Lorem ipsum dolor sit.
             <div className="icon_box">
               <img src={icons.whiteArrow} alt="arrow" />
             </div>
           </button>
 
           <button type="button" className="wow fadeInUp">
-            Install the demo version now
+          Lorem ipsum dolor sit.
             <div className="icon_box">
               <img src={icons.whiteArrow} alt="arrow" />
             </div>
           </button>
 
           <button type="button" className="wow fadeInUp">
-            Install the demo version now
+          Lorem ipsum dolor sit.
             <div className="icon_box">
               <img src={icons.whiteArrow} alt="arrow" />
             </div>

@@ -11,14 +11,11 @@ const Home1Landing = () => {
       ></div>
       <div className="content_wrap">
         <h1 className="wow fadeInUp">
-          Improve Your Business With <br /> Intelligent Analytics Suite
+        True Cyber Security Is Preparing For What's Next, Not What Was Last
         </h1>
         <p className="wow fadeInUp" data-wow-delay="0.2s">
-          This AI-powered tool can help businesses make data-driven decisions by
-          providing deep insights into their operations, customers, and market
-          trends. The Intelligent Analytics Suite can analyze large volumes of
-          data in real-time and provide actionable recommendations that can help
-          businesses optimize their processes and increase their revenue.
+        Enter "Platform Name," your gateway to the cutting-edge realm of cybersecurity training. Immerse in our diverse range of hands-on training labs and rich learning resources, designed to empower tech enthusiasts from all backgrounds to master the art of cybersecurity and stay one step ahead in this ever-evolving landscape.
+
         </p>
 
         <button
@@ -26,7 +23,7 @@ const Home1Landing = () => {
           className="primarybtn wow fadeInUp"
           data-wow-delay="0.4s"
         >
-          Request your trial today
+          Sign Up
         </button>
 
         <div className="dahsboard">

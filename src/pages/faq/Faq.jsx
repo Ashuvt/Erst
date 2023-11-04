@@ -13,8 +13,6 @@ const Faq = () => {
         wow.init();
       }, []);
 
-
-
     return(
         <Fragment>
             <Header />

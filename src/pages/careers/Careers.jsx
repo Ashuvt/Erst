@@ -20,7 +20,7 @@ const Careers = () => {
       <Header />
       <MapLanding
         title="Join Our Team"
-        text="The Smart Sales Assistant can also provide insights into customer behavior and preferences, allowing you to optimize your marketing and sales strategies."
+        text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati necessitatibus officiis cupiditate, consectetur eos praesentium similique nulla est illo quos?"
       />
       <SymmentricSlider />
       <JoinTeam />

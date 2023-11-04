@@ -13,41 +13,21 @@ const Features = () => {
     <section className="features p_top p_bottom">
       <div className="content_wrap">
         <div className="card active a wow fadeInUp">
-          <h5>Data Management</h5>
-          <p>
-            The platform should offer robust data management capabilities that
-            allow users to import, store, and manage data from a variety of
-            sources. This could include features like data cleansing, data
-            normalization, and data transformation.
-          </p>
+          <h5>Lorem, ipsum dolor.</h5>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque eligendi magnam facere inventore cumque doloribus aliquam magni nesciunt, necessitatibus fuga recusandae quod ut. Pariatur nostrum eveniet ratione veniam dignissimos amet? Harum, impedit!</p>
         </div>
         <div className="card b wow fadeInUp">
-          <h5>Data Mining</h5>
-          <p>
-            Offer sophisticated data mining capabilities that allow users to
-            extract valuable insights from large and complex datasets. This
-            could include algorithms for clustering, association analysis, and
-            text mining.
-          </p>
+          <h5>Lorem, ipsum dolor.</h5>
+          <p>Lorem ipsum dolor sit, sciunt, necessitatibus fuga recusandae quod ut. Pariatur nostrum eveniet ratione veniam dignissimos amet? Harum, impedit!</p>
         </div>
 
         <div className="card c wow fadeInUp">
-          <h5>Data Security</h5>
-          <p>
-            Offer robust data security features to protect sensitive data and
-            ensure compliance with relevant regulations. This could include
-            features like encryption, access controls, and data backup and
-            recovery.
-          </p>
+          <h5>Lorem, ipsum dolor.</h5>
+          <p>Lorem ipsum dolor sit, e cumque doloribus aliquam magni nesciunt, necessitatibus fuga recusandae quod ut. Pariatur nostrum eveniet ratione veniam dignissimos amet? Harum, impedit!</p>
         </div>
         <div className="card d wow fadeInUp">
-          <h5>Data Visualization</h5>
-          <p>
-            Provide a range of data visualization tools that allow users to
-            explore and analyze data in a visually appealing way. This could
-            include interactive charts, graphs, and maps that users can
-            customize and share.
-          </p>
+          <h5>Lorem, ipsum dolor.</h5>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque eligendi magnam facere inventore cumque doloribus aliquam magni nesciunt, necessitatibus fuga recusandae quod ut. Pariatur nostrum eveniet ratione veniam dignissimos amet? Harum, impedit!</p>
         </div>
       </div>
     </section>

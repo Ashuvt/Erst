@@ -13,9 +13,7 @@ const Questions = () => {
         <div className="content">
           <MidTitle
             title="We're The Best And We Can Explain Why"
-            text="The Smart Sales Assistant can also provide insights into customer
-            behavior and preferences, allowing you to optimize your marketing
-            and sales strategies."
+            text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga distinctio voluptatem adipisci assumenda. Assumenda iure aperiam corporis, odit reiciendis fuga. Cupiditate, nostrum placeat."
           />
         </div>
         <div className="accodian_grid wow slideInUp">

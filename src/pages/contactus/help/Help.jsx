@@ -58,9 +58,7 @@ const Help = () => {
         <div className="filler"></div>
         <MidTitle
           title="Still Need Help?"
-          text="The Smart Sales Assistant can also provide insights into customer
-          behavior and preferences, allowing you to optimize your marketing
-          and sales strategies."
+          text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur nemo eveniet neque facere ratione? Modi eligendi voluptate libero esse aperiam."
         />
         <div className="help_form">
           <form>

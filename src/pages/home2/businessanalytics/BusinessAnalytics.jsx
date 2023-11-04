@@ -9,8 +9,7 @@ const BusinessAnalytics = () => {
         <div className="card_a wow fadeInUp">
           <h2>Business Analytics</h2>
           <p>
-            Predictive analytics is the practice of using data, statistical
-            algorithms, and machine learning.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse culpa pariatur voluptatibus!
           </p>
           <div className="btn_line">
             <button type="button" className="secondarybtn">
@@ -59,11 +58,9 @@ const BusinessAnalytics = () => {
         </div>
 
         <div className="card_e wow fadeInUp" data-wow-delay="0.15s">
-          <h5>Customizable And Scalable</h5>
+          <h5>Lorem ipsum dolor sit amet </h5>
           <p>
-            The Intelligent Analytics Suite is highly customizable and scalable,
-            allowing businesses to configure and tailor the analytics solution
-            to their specific requirements.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse culpa pariatur voluptatibus!Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse culpa pariatur voluptatibus!
           </p>
         </div>
 

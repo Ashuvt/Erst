@@ -5,7 +5,7 @@
 
 section.locations {
   min-height: 400px;
-  background-image: linear-gradient(rgba(0, 0, 0, .35), rgba(0, 0, 0, .35)), linear-gradient(135deg, #90f 23%, #3f0efa);
+  background-image: linear-gradient(rgba(0, 0, 0, .35), rgba(0, 0, 0, .35)), linear-gradient(135deg, $primary 23%, $secondary);
   border-top: 1px $cardBorder;
   border-bottom: 1px $cardBorder;
   padding-top: 80px;

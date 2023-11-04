@@ -7,11 +7,9 @@ const AboutServices = () => {
       <div className="content_wrap p_bottom p_top">
         <div className="bottom_line wow zoomIn"></div>
         <div className="bisec_title">
-          <h2 className="wow fadeInUp">Find Out Everything About Our Services</h2>
+          <h2 className="wow fadeInUp">Lorem ipsum dolor sit amet.</h2>
           <p className="wow fadeInUp">
-            SaaS has become a popular software delivery model that offers
-            numerous benefits, including cost-effectiveness, easy access,
-            scalability, and automatic updates.
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi assumenda ipsam iusto non ea dolores praesentium? Error officiis vero facilis assumenda omnis!
           </p>
         </div>
         <div className="bi_grid">
@@ -20,7 +18,7 @@ const AboutServices = () => {
           </div>
           <div className="cards_wrap">
             <div className="content_card wow fadeInUp">
-              <div className="video_btn">
+              {/* <div className="video_btn">
                 <img
                   src={images.videoBtnImage}
                   alt="person"
@@ -29,29 +27,24 @@ const AboutServices = () => {
                 <button>
                   <img src={images.primaryPlay} alt="play" />
                 </button>
-              </div>
-              <h5>Expert Support</h5>
+              </div> */}
+              <h5>Mission</h5>
               <p>
-                Smart Sales Assistant can quickly provide reliable information
-                about customer behavior and preferences.
+              In our fast-changing world, where technology has seamlessly integrated into our everyday activities, it possesses great power and immense influence. However, this great power also exposes us to various risks that require our immediate attention. These risks include data leaks, crafty email tricks, the menace of malicious software, the weaknesses of feeble passwords, and the looming threat of identity theft, among others.
+
               </p>
             </div>
             <div className="content_card wow fadeInUp">
-              <h5>Data Management</h5>
+              <h5>Vision</h5>
               <p>
-                Offer sophisticated data mining capabilities that allow users to
-                extract valuable insights from large and complex datasets. This
-                could include algorithms for clustering, association analysis,
-                and text mining.
+              Our vision is to be a global leader in cybersecurity education, making it accessible to everyone. We aim to empower individuals from all backgrounds to become skilled defenders in the digital realm.
+
               </p>
             </div>
             <div className="content_card wow fadeInUp">
-              <h5>Data Warehousing</h5>
+              <h5>Leadership</h5>
               <p>
-                Offer sophisticated data mining capabilities that allow users to
-                extract valuable insights from large and complex datasets. This
-                could include algorithms for clustering, association analysis,
-                and text mining.
+              EDUCATE, EMPOWER, SPREAD AWARENESS AND PROMOTE GLOBAL SECURITY. 
               </p>
             </div>
           </div>

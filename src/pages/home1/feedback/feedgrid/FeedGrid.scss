@@ -28,18 +28,18 @@
         }
 
         p.feed_text {
-            @include font('Inter-Regular', 22px, 33px, 500, $textPrimary);
+            @include font('Inter-Regular', 22px, 33px, 400, $textPrimary);
 
             @media only screen and (max-width:$laptop) {
-                @include font('Inter-Regular', 18px, 22px, 500, $textPrimary);
+                @include font('Inter-Regular', 18px, 22px, 400, $textPrimary);
             }
 
             @media only screen and (max-width:$tab) {
-                @include font('Inter-Regular', 16px, 20px, 500, $textPrimary);
+                @include font('Inter-Regular', 16px, 20px, 400, $textPrimary);
             }
 
             @media only screen and (max-width:$mobile) {
-                @include font('Inter-Regular', 14px, 18px, 500, $textPrimary);
+                @include font('Inter-Regular', 14px, 18px, 400, $textPrimary);
             }
         }
 
@@ -62,31 +62,38 @@
     }
 
     .feed_video {
-        backdrop-filter: blur(5px);
-        background-color: $lightBorder;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 12px;
-        padding: 12px;
-        overflow: hidden;
-        border-radius: 12px;
-        padding: 10px;
-        position: relative;
-        z-index: 3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-        .overlay {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            height: 100%;
-            width: 100%;
-        }
-
-        img.person {
-            width: 100%;
+        .img_wrap {
+            backdrop-filter: blur(5px);
+            background-color: $lightBorder;
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 12px;
-        }
+            padding: 12px;
+            overflow: hidden;
+            border-radius: 12px;
+            padding: 10px;
+            position: relative;
+            z-index: 3;
 
+            .overlay {
+                background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                height: 100%;
+                width: 100%;
+            }
+
+            img.person {
+                width: 100%;
+                border-radius: 12px;
+                max-height: 500px;
+                object-fit: contain;
+            }
+        }
     }
 
     .primary_blur {

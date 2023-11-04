@@ -114,11 +114,7 @@ const GeniusTeam = () => {
       <div className="mobile_title">
         <h2>Meet The Genius Team</h2>
         <p>
-          The team behind the Intelligent Analytics Suite comprises a diverse
-          group of professionals with backgrounds in data science, software
-          engineering, and business intelligence. They share a passion for
-          developing innovative solutions that enable organizations to extract
-          meaningful insights from their data.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus explicabo, odio fugiat eligendi ea neque nesciunt quaerat libero, esse sint dignissimos et tempore nemo aliquam dolorem quos nisi, numquam velit incidunt omnis illum aliquid. Sunt!
         </p>
       </div>
 
@@ -127,11 +123,7 @@ const GeniusTeam = () => {
           <div className="text">
             <h2>Meet The Genius Team</h2>
             <p>
-              The team behind the Intelligent Analytics Suite comprises a
-              diverse group of professionals with backgrounds in data science,
-              software engineering, and business intelligence. They share a
-              passion for developing innovative solutions that enable
-              organizations to extract meaningful insights from their data.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus explicabo, odio fugiat eligendi ea neque nesciunt quaerat libero, esse sint dignissimos et tempore nemo aliquam dolorem quos nisi, numquam velit incidunt omnis illum aliquid. Sunt!
             </p>
           </div>
           <div className="btn_line">

@@ -23,11 +23,12 @@ section.blogdetail_landing {
         z-index: 3;
 
         .text_content {
-            max-width: 650px;
-            width: 100%;
-
             h1 {
                 margin: 30px 0px 20px;
+                width: 100%;
+            }
+            p{
+                width: 100%;
             }
         }
     }

@@ -3,6 +3,7 @@ import RecommendedModuleCard from "../../components/RecommendedModuleCard/Recomm
 import { images } from "../../../utils/images/images";
 import ModuleTitle from "../../components/moduletitle/ModuleTitle";
 import { icon } from "../../../utils/images/icons";
+import ReturnRecommendedModuleCard from "../../components/returnrecommededcard/ReturnRecommendedModuleCard";
 
 const RecommendedModules = () => {
   const data = [
@@ -51,6 +52,14 @@ const RecommendedModules = () => {
         return (
           <Fragment key={info.id}>
             <RecommendedModuleCard {...info} index={i} />
+          </Fragment>
+        );
+      })}
+
+{data.map((info, i) => {
+        return (
+          <Fragment key={info.id}>
+            <ReturnRecommendedModuleCard {...info} index={i} />
           </Fragment>
         );
       })}

@@ -19,25 +19,22 @@ const SuccessfulAnalytics = () => {
           <div className="count_wrap">
             <div className="data_wrap">
               <h3>37M+</h3>
-              <p>People using Intelligent Analytics</p>
+              <p>Lorem ipsum dolor sit.</p>
             </div>
             <div className="data_wrap">
               <h3>7900+</h3>
-              <p>People interested in Intelligent Analytics</p>
+              <p>Lorem ipsum dolor sit.</p>
             </div>
             <div className="data_wrap">
               <h3>60+</h3>
-              <p>We cooperate with famous companies</p>
+              <p>Lorem ipsum dolor sit.</p>
             </div>
           </div>
         </div>
         <div className="content_sec">
           <h2 className="wow fadeInUp">Successful Analytics</h2>
           <p className="wow fadeInUp">
-            Predictive analytics is the practice of using data, statistical
-            algorithms, and machine learning techniques to identify the
-            likelihood of future outcomes based on historical data. With
-            predictive analytics, businesses can to improve performance.
+          Lorem ipsum, dolor sit amet consectt quis possimus veniam recusandae. Ut maxime ipsam iste incidunt. Maxime quasi asperiores repellendus cum odit voluptate eius itaque fugiat est, fugit nobis amet corrupti sit. Repellat obcaecati rem id blanditiis.
           </p>
           <button type="button" className="secondarybtn wow fadeInUp">
             learn more about us

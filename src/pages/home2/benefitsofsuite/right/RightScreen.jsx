@@ -19,9 +19,9 @@ const RightScreen = ({side, setSide}) => {
           </div>
         </div>
         <div className={`text_content ${!side ? 'goright' : 'original'}`}>
-          <h2 className="wow fadeInUp">Business With Intelligent Suite</h2>
+          <h2 className="wow fadeInUp">Lorem ipsum dolor sit amet consectetur.</h2>
           <p className="wow fadeInUp">
-          The Intelligent Analytics Suite is a powerful software solution that offers advanced analytics capabilities to businesses. It provides valuable insights and actionable intelligence based on data collected from various sources, helping businesses make informed decisions and drive growth. In this blog post, we will discuss the benefits of using the Intelligent Analytics Suite and when and why businesses should consider implementing it.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore animi, rerum consectetur cumque, vel voluptatem quas temporibus reprehenderit accusantium doloribus modi tempore obcaecati necessitatibus architecto iusto earum nemo, nobis iure ex explicabo voluptate? Eveniet repellat ullam unde? Deleniti a, commodi sint, eaque nesciunt quam numquam fugit dicta ab labore ducimus!
           </p>
           <button type="button" className="primarybtn wow fadeInUp">
             buy package now

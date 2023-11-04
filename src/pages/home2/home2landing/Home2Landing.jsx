@@ -9,7 +9,7 @@ const Home2Landing = () => {
     const wow = new WOW();
     wow.init();
 
-    const values = [0, 25, 50, 75, 50, 25];
+    const values = [0, 50, 0];
     let currentIndex = 0;
 
     const intervalId = setInterval(() => {
@@ -27,28 +27,19 @@ const Home2Landing = () => {
       <div className="content_wrap">
         <div className="text_content">
           <div className="dynamic wow fadeInUp">
-            <h1>Your</h1>
+            <h1>True Cyber Security Is Preparing For</h1>
             <div className="text_box">
               <div
                 className="gradient_wrap"
                 style={{ transform: `translateY(${-count}%)` }}
               >
-                <h1>Successful</h1>
-                <h1>Analytical</h1>
-                <h1>Thoughtful</h1>
-                <h1>Successful</h1>
+                <h1>What's Next.</h1>
+                <h1>Not What Was Last.</h1>
               </div>
             </div>
           </div>
-
-          <h1 className="wow fadeInUp">Business Strategy!</h1>
           <p className="wow fadeInUp">
-            This AI-powered tool can help businesses make data-driven decisions
-            by providing deep insights into their operations, customers, and
-            market trends. The Intelligent Analytics Suite can analyze large
-            volumes of data in real-time and provide actionable recommendations
-            that can help businesses optimize their processes and increase their
-            revenue.
+          Enter "Platform Name," your gateway to the cutting-edge realm of cybersecurity training. Immerse in our diverse range of hands-on training labs and rich learning resources, designed to empower tech enthusiasts from all backgrounds to master the art of cybersecurity and stay one step ahead in this ever-evolving landscape.
           </p>
         </div>
         <div className="btn_line wow fadeInUp">
@@ -58,13 +49,13 @@ const Home2Landing = () => {
               15 DAYS FREE TRIAL NO <br /> CREDIT CARD REQUIRED
             </h6>
           </div>
-          <button className="primarybtn">start free trial</button>
+          <button className="primarybtn">signup</button>
         </div>
       </div>
       <div className="primary_glass first"></div>
       <div className="primary_glass second"></div>
-      <div className="secondary_glass first"></div>
-      <div className="secondary_glass second"></div>
+      {/* <div className="secondary_glass first"></div> */}
+      {/* <div className="secondary_glass second"></div> */}
     </section>
   );
 };

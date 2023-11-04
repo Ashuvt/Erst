@@ -7,12 +7,7 @@ const AboutServicesLanding = () => {
         <div className="title_content">
           <h1 className="wow fadeInUp">Learn More About Us And Our Business Product</h1>
           <p className="wow fadeInUp">
-            This AI-powered tool can help businesses make data-driven decisions
-            by providing deep insights into their operations, customers, and
-            market trends. The Intelligent Analytics Suite can analyze large
-            volumes of data in real-time and provide actionable recommendations
-            that can help businesses optimize their processes and increase their
-            revenue.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit nesciunt obcaecati asperiores! Error, fugit! Laudantium sequi nisi nobis, adipisci assumenda cumque natus aspernatur, doloribus excepturi, expedita quisquam aliquid suscipit reprehenderit?
           </p>
         </div>
       </div>

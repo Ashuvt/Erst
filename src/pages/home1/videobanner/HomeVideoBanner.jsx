@@ -16,13 +16,9 @@ const HomeVideoBanner = () => {
       <div className="overlay">
         <div className="text_content">
           <div className="content">
-            <h2 className="wow slideInUp">The Future Of SaaS:<br /> Trends To Watch Out For</h2>
+            <h2 className="wow slideInUp">Lorem, ipsum dolor.:<br />Lorem ipsum dolor sit amet.</h2>
             <p className="wow slideInUp">
-              Additionally, the Intelligent Analytics Suite can be integrated
-              with other SaaS products, such as CRM and marketing automation
-              tools, to provide a comprehensive view of business performance.
-              This can help businesses identify new opportunities, optimize
-              their marketing campaigns, and improve customer engagement.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit impedit non molestiae reiciendis nulla suscipit dignissimos eveniet tenetur. Maiores incidunt dolorum nulla itaque ratione dolor reprehenderit explicabo, libero officiis eius minima nostrum obcaecati, repudiandae facilis id ullam omnis magni harum?
             </p>
             <button className="primarybtn wow slideInUp">
               watch video

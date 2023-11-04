@@ -37,10 +37,7 @@ const JoinTeam = () => {
         <div className="text_content">
           <h2 className="wow fadeInUp">We Invite New Workers To The Team!</h2>
           <p className="wow fadeInUp">
-            Predictive analytics is the practice of using data, statistical
-            algorithms, and machine learning techniques to identify the
-            likelihood of future outcomes based on historical data. With
-            predictive analytics, businesses can to improve performance.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa voluptatibus quisquam quia error ullam blanditiis. Accusantium ut rem ratione expedita sequi saepe, repellat dicta voluptatibus voluptatum quisquam illum libero corrupti.
           </p>
           <div className="rating_box">
             <div className="top_line"></div>

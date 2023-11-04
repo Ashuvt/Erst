@@ -20,9 +20,7 @@ const Plan = () => {
       <div className="content_wrap">
         <MidTitle
           title="Choose Your Plan Now"
-          text=" The Smart Sales Assistant can also provide insights into customer
-          behavior and preferences, allowing you to optimize your marketing
-          and sales strategies."
+          text="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto ab dicta voluptas quae ipsum sint, provident fugiat, perferendis, vero aperiam dolores illo soluta nulla!."
         />
 
         <div className="btn_line">

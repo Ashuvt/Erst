@@ -13,6 +13,10 @@
         @include font('Inter-Regular', 14px, 18px, 500, $white);
         letter-spacing: 2.4px;
         text-transform:uppercase;
+        display: -webkit-box;
+        -webkit-line-clamp:1;
+        -webkit-box-orient: vertical;  
+        overflow: hidden;
 
     }
 }

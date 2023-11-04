@@ -58,7 +58,7 @@ section.careers_landing {
         .white_circle {
             width: 40px;
             height: 40px;
-            background-color: rgba(255, 255, 255, .1);
+            background-color: rgba($primary, 0.1);
             border-radius: 100%;
             display: flex;
             justify-content: center;
@@ -73,7 +73,7 @@ section.careers_landing {
                 height: 10px;
                 width: 10px;
                 border-radius: 50%;
-                background-color: #ce88fd;
+                background-color: $primary;
 
                 @media only screen and (max-width:$mobile) {
                     width: 6px;

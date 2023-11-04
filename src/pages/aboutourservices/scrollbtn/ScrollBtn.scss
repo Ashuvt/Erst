@@ -62,7 +62,7 @@ section.rotate_sqares{
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-                background: $primaryGradient_1;
+                background: $bgGradient;
                 height: 0px;
                 width: 0px;
                 border-radius: 50%;
@@ -96,12 +96,12 @@ section.rotate_sqares{
         .sqare{
             width: 20vw;
             height: 20vw;
-            background-image: radial-gradient(circle, #90f 37%, #3f0efa);
-            border: 1px solid #90f;
+            background-image: radial-gradient(circle, $primary 37%, $secondary);
+            border: 1px solid $primary;
             border-radius: 12px;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 0 20px #90f;
+            box-shadow: 0 0 20px $primary;
             overflow: hidden;
             transition:all 1s ease-in-out;
             transform:rotate(45deg) scale(0.65);

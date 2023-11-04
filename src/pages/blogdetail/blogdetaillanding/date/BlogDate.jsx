@@ -1,13 +1,13 @@
 import "./BlogDate.scss";
 
-const BlogDate = () => {
+const BlogDate = ({tag, date}) => {
     return(
         <div className="date_wrap wow fadeInUp">
-        <button>new technology</button>
+        <button>{tag}</button>
         <div className="animated_line">
             <div className="filler"></div>
         </div>
-        <p>April 18, 2023</p>
+        <p>{date}</p>
     </div>
     )
 };

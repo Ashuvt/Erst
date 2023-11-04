@@ -17,10 +17,10 @@ import mapImage from "../../assets/images/map.png";
 import mobiles from "../../assets/images/contactmobile.webp";
 import contactUsBanner from "../../assets/images/contactusbanner.jpg";
 import contactUsVideoBanner from "../../assets/images/contactusvideobanner.jpg";
-import profilea from "../../assets/images/profilea.webp";
-import profileb from "../../assets/images/profileb.webp";
-import profilec from "../../assets/images/profilec.webp";
-import profiled from "../../assets/images/profiled.webp";
+import profilea from "../../assets/images/profilea.jpg";
+import profileb from "../../assets/images/profileb.jpg";
+import profilec from "../../assets/images/profilec.jpg";
+import profiled from "../../assets/images/profiled.jpg";
 import profilee from "../../assets/images/profilee.webp";
 import profilef from "../../assets/images/profilef.webp";
 import homeVideoBanner from "../../assets/images/homevideobanner.jpg";
@@ -69,6 +69,10 @@ import uploadedA from "../../assets/images/uploadedA.png";
 import uploadedB from "../../assets/images/uploadedB.png";
 import uploadedC from "../../assets/images/uploadedC.png";
 import uploadedD from "../../assets/images/uploadedD.png";
+import blogA from "../../assets/images/blogA.jpg";
+import blogB from "../../assets/images/blogB.jpg";
+import blogC from "../../assets/images/blogC.jpg";
+import blogD from "../../assets/images/blogD.jpg";
 
 
 // Icons
@@ -219,6 +223,15 @@ export const images = {
   uploadedB,
   uploadedC,
   uploadedD,
+
+
+  blogA,
+  blogB,
+  blogC,
+  blogD
+
+
+
 };
 
 export const products = {

@@ -39,11 +39,9 @@ const IntelligentTeam = () => {
     <section className="intelligent_team p_top p_bottom">
       <div className="content_wrap">
         <div className="title_content">
-          <h2 className="wow fadeInLeft">Join The Intelligent Analytics Suite Team</h2>
-          <p className="wow fadeInRight">
-            Are you ready to take your career to the next level and be part of a
-            cutting-edge technology revolution? Look no further than the
-            Intelligent Analytics Suite team!
+          <h2 className="wow fadeInUp">Join The Intelligent Team</h2>
+          <p className="wow fadeInUp">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit cumque incidunt, ducimus voluptate possimus soluta, eum quae aspernatur suscipit non fugit quia distinctio, quis aliquam!
           </p>
         </div>
         {teamData.map((data) => {

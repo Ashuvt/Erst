@@ -10,7 +10,7 @@ const Footer = () => {
       <div className="content_wrap">
         <footer>
           <h2 className="wow fadeInUp">
-            Supercharge Your Business With Intelligent Analytics Suite!
+          Lorem ipsum dolor sit amet consectetur adipis.
           </h2>
           <div className="link_social wow fadeInUp">
             <div className="links_container">
@@ -43,8 +43,7 @@ const Footer = () => {
               <div className="grid_box footer_form wow fadeInUp">
                 <h5>Get In Touch</h5>
                 <p>
-                  Contact us today to see the power of Intelligent Analytics
-                  Suite in action!
+                Lorem ipsum dolor sit amet consectetur adipis. sit amet consectetur adipis.
                 </p>
                 <form>
                   <input type="email" placeholder="Your e-mail" />
@@ -56,7 +55,7 @@ const Footer = () => {
 
               <div className="grid_box footer_connect wow fadeInUp">
                 <h5>Stay Connect</h5>
-                <p>2118 Thornridge Cir. Syracuse, Connecticut 35624</p>
+                <p>Lorem ipsum dolor sit amet.</p>
                 <div className="stay_connect">
                   <a href="tel:(239)555-0108">(239) 555-0108</a>
                   <a href="tel:(406)555-0120">(406) 555-0120</a>

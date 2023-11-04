@@ -40,12 +40,12 @@
         }
 
         p {
-            @include font('Syne-Regular', 17px, 25.5px, 400, rgba(255, 255, 255, 0.5));
+            @include font('Inter-Regular', 17px, 25.5px, 400, $textPrimary);
         }
 
         a {
             text-decoration: none;
-            @include font('Syne-Medium', 12px, 15.96px, 500, $white);
+            @include font('Inter-Medium', 12px, 15.96px, 500, $white);
             letter-spacing: 2.4px;
         }
     }

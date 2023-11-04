@@ -33,7 +33,7 @@ const ImproveBusiness = () => {
       <div className="content_wrap">
         <MidTitle
           title="Improve Your Business"
-          text="The Smart Sales Assistant can also provide insights into customer behavior and preferences, allowing you to optimize your marketing and sales strategies."
+          text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi amet ad earum nihil adipisci asperiores quidem, beatae molestiae voluptatum aliquid rem non."
         />
         <div className="tri_gridsec">
           {/* left */}
@@ -67,9 +67,7 @@ const ImproveBusiness = () => {
             <div className="text">
               <h3 className="wow fadeInUp">Improve Financial Performance</h3>
               <p className="wow fadeInUp">
-                Intelligent Analytics Suite can be integrated with other SaaS
-                products, such as CRM and marketing automation tools, to provide
-                a comprehensive view of business performance.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi iste dignissimos mollitia? Maxime similique doloribus quae, voluptatum facilis cupiditate hic nisi natus, reiciendis ducimus cumque soluta voluptates?
               </p>
             </div>
             <img src={images.businessMap} alt="graph" />

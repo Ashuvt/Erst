@@ -32,10 +32,7 @@ const Home2 = () => {
       <Plan />
       <Offer
         title="Get Started A 15-Days Free Trial"
-        text="The SaaS model is the absence of costs for the purchase and
-      maintenance of computer equipment on which you need to install
-      “stationary” software. The stability of the system is maintained by
-      the developer."
+        text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, veritatis perferendis. Aperiam dolor facere sed? Labore, id quod delectus modi amet sequi ratione veritatis sint sed, voluptatum, architecto aperiam saepe."
       />
       <FeedBack />
       <TipsBlog />
