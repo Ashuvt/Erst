@@ -5,29 +5,33 @@
 
     section.home2_landing {
         position: relative;
-        min-height:100vh;
+        min-height: 100vh;
+
         .content_wrap {
             position: relative;
             z-index: 3;
 
             .text_content {
-                padding-top:150px;
+                padding-top: 150px;
                 max-width: 800px;
                 width: 100%;
-                @media only screen and (max-width:$laptop){
-                    padding-top:60px;
+
+                @media only screen and (max-width:$laptop) {
+                    padding-top: 60px;
                 }
+
                 .dynamic {
                     display: flex;
                     align-items: center;
                     flex-wrap: wrap;
-                    h1{
+
+                    h1 {
                         margin-right: 15px;
                     }
+
                     .text_box {
                         height: 88px;
                         overflow: hidden;
-          
 
                         @media only screen and (max-width:1720px) {
                             @include font('Syne-Regular', 60px, 66px, 600, $white);
@@ -46,15 +50,14 @@
                             transition: all 0.9s ease-in-out;
 
                             h1 {
-                                background-image: linear-gradient(135deg, #00eaff, #b5f 72%);
+                                background-image: linear-gradient(135deg, $primary, $secondary 72%);
                                 background-clip: text;
                                 color: transparent;
-                                margin-right:0px;
+                                margin-right: 0px;
                             }
                         }
                     }
                 }
-
 
                 p {
                     margin-top: 30px;
@@ -83,17 +86,16 @@
                         width: 6px;
                         height: 40px;
                         border-radius: 2px;
-                        background: linear-gradient(#34cefc, #b149f9)
+                        background: linear-gradient($primary, $secondary)
                     }
                 }
             }
         }
 
-
         .primary_glass {
             height: 250px;
             width: 250px;
-            background-color: $primaryGlass;
+            background-color: $primary;
             border-radius: 50%;
             position: absolute;
             filter: blur(180px);
@@ -114,7 +116,7 @@
         .secondary_glass {
             height: 250px;
             width: 250px;
-            background-color: $secondary;
+            background-color: $primary;
             border-radius: 50%;
             position: absolute;
             filter: blur(180px);

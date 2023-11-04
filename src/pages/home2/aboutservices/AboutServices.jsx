@@ -7,8 +7,8 @@ const AboutServices = () => {
       <div className="content_wrap p_bottom p_top">
         <div className="bottom_line wow zoomIn"></div>
         <div className="bisec_title">
-          <h2 className="wow fadeInLeft">Find Out Everything About Our Services</h2>
-          <p className="wow fadeInRight">
+          <h2 className="wow fadeInUp">Find Out Everything About Our Services</h2>
+          <p className="wow fadeInUp">
             SaaS has become a popular software delivery model that offers
             numerous benefits, including cost-effectiveness, easy access,
             scalability, and automatic updates.
@@ -27,7 +27,7 @@ const AboutServices = () => {
                   className="person"
                 />
                 <button>
-                  <img src={images.pinkPlay} alt="play" />
+                  <img src={images.primaryPlay} alt="play" />
                 </button>
               </div>
               <h5>Expert Support</h5>

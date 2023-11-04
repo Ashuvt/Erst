@@ -104,14 +104,13 @@ section.about_services {
                         border-radius: 50%;
                         background-color: rgba(255, 255, 255, .2);
                         padding: 3px;
-                        position: relative;
+                        position: relative;;
 
                         img.person {
                             min-width: 100%;
                             min-height: 100%;
                             object-fit: cover;
                             border-radius: 50%;
-                            ;
                         }
 
                         button {
@@ -128,8 +127,8 @@ section.about_services {
                             align-items: center;
 
                             img {
-                                width: 14px;
-                            }
+                                margin:0px;
+                                margin-left:2px;                            }
                         }
                     }
 
@@ -148,7 +147,7 @@ section.about_services {
     .primary_light_glass {
         height: 250px;
         width: 250px;
-        background-color: $primaryGlass;
+        background-color: $primary;
         border-radius: 50%;
         position: absolute;
         filter: blur(180px);

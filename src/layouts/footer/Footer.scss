@@ -7,6 +7,8 @@ section.footer {
   background: $bgGradient;
   padding-top: 130px;
   padding-bottom: 80px;
+  position: relative;
+  overflow:hidden;
 
   @media only screen and (max-width:$tab) {
     padding-top: 80px;
@@ -20,7 +22,21 @@ section.footer {
 
   }
 
+  img.pattern {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 0;
+    &.right{
+      right:-50%;
+      bottom:0px;
+    }
+  }
+
   .content_wrap {
+    position: relative;
+    z-index: 1;
+
     footer {
       width: 100%;
 
@@ -103,7 +119,8 @@ section.footer {
         margin-bottom: 50px;
         padding-top: 50px;
         padding-bottom: 50px;
-        position:relative;
+        position: relative;
+
         @media only screen and (max-width:$tab) {
           margin-top: 30px;
           margin-bottom: 30px;
@@ -111,23 +128,25 @@ section.footer {
           padding-bottom: 30px;
         }
 
-        .anim_border{
-          position:absolute;         
-          height:1px;         
-          width:100%;
-          &.top{
-            top:0px;
-            left:0px;
-            border-top:1px solid rgba(255, 255, 255, 0.2)
+        .anim_border {
+          position: absolute;
+          height: 1px;
+          width: 100%;
+
+          &.top {
+            top: 0px;
+            left: 0px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2)
           }
-          &.bottom{
-            bottom:0px;
-            left:0px;
-            border-bottom:1px solid rgba(255, 255, 255, 0.2)
+
+          &.bottom {
+            bottom: 0px;
+            left: 0px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2)
           }
 
         }
-    
+
         .footer_grid {
           display: grid;
           grid-template-columns: 1fr 1fr 1fr;
@@ -167,7 +186,8 @@ section.footer {
                 justify-content: flex-start;
                 align-items: center;
                 border-bottom: 1px solid $cardBorder;
-                padding-bottom:6px;
+                padding-bottom: 6px;
+
                 input {
                   color: $white;
                   background-color: rgba(0, 0, 0, 0);
@@ -198,7 +218,7 @@ section.footer {
                   transition: all 0.3s ease-in-out;
                   display: flex;
                   justify-content: center;
-                  align-items: center;              
+                  align-items: center;
 
                   img {
                     width: 15px;
@@ -215,7 +235,7 @@ section.footer {
               padding: 0px 30px 0px;
               border-left: 1px solid rgba(255, 255, 255, 0.2);
               border-right: 1px solid rgba(255, 255, 255, 0.2);
-              
+
               @media only screen and (max-width:$laptop) {
                 border-right: none;
                 padding-right: 0px;

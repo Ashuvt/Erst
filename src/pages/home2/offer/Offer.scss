@@ -41,7 +41,7 @@ section.Offer {
                 position: relative;
 
                 input {
-                    @include font('Syne-Regular', 17px, 24.28px, 400, $white);
+                    @include font('Inter-Regular', 17px, 24.28px, 400, $white);
                     border-style: none;
                     background-color: transparent;
                     border-bottom: 1px solid $lightBorder_2;

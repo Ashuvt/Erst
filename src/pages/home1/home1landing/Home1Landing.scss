@@ -22,7 +22,7 @@ section.home1landing {
         height: 100px;
         width: 400px;
         background-color: $primary;
-        border-radius: 30%;
+        border-radius:50%!important;
         filter: blur(180px);
         position: absolute;
         top: 100px;
@@ -64,10 +64,12 @@ section.home1landing {
 
             @media only screen and (max-width:$tab) {
                 margin-top: 80px;
+                border-width: 30px;
             }
 
             @media only screen and (max-width:$mobile) {
                 margin-top: 60px;
+                border-width:20px;
             }
 
             img {
@@ -80,7 +82,7 @@ section.home1landing {
                 height: 300px;
                 width: 300px;
                 background-color: $primary;
-                border-radius: 50%;
+                border-radius: 50%!important;
                 filter: blur(180px);
                 position: absolute;
                 z-index:0;
@@ -88,13 +90,28 @@ section.home1landing {
                     top: -30%;
                     left: -25%;
                     z-index: 0;
+                    @media only screen and(max-width:$tab){
+                        display: none;
+                    }
                 }
 
                 &.right {
                     top: -10%;
                     right: -25%;
                     z-index: 0;
+                    @media only screen and(max-width:$tab){
+                        height: 150px;
+                        width: 150px;
+                        filter: blur(80px);
+                        top: -70%;
+                        right:25%;
+                    }
                 }
+                &.zoomIn{
+                    border-radius: 50%!important;
+                }
+
+                
             }
 
             .secondary_glass {

@@ -56,11 +56,14 @@ section.services {
                         height: 200px;
                         width: 200px;
                         filter: blur(180px);
-                        background-color: $secondary;
+                        background-color: $primary;
                         position: absolute;
                         right: 0%;
-                        bottom: 0%;
+                        bottom: 30%;
                         z-index: 0;
+                        @media only screen and (max-width:$laptop){
+                            display:none;
+                        }
                     }
                 }
             }

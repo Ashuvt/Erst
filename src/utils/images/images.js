@@ -38,7 +38,7 @@ import teamB from "../../assets/images/teamb.jpg";
 import teamC from "../../assets/images/teamc.jpg";
 import teamD from "../../assets/images/teamd.jpg";
 import videoBtnImage from "../../assets/images/videobtn.webp";
-import pinkPlay from "../../assets/images/pinkplaybtn.webp";
+import primaryPlay from "../../assets/images/primaryplaybtn.png";
 import analyticBg from "../../assets/images/analyticbg.webp";
 import benefitSuite from "../../assets/images/benefitofsuite.jpg";
 import crossConnect from "../../assets/images/crossconnector.webp";
@@ -188,7 +188,7 @@ export const images = {
   teamC,
   teamD,
   videoBtnImage,
-  pinkPlay,
+  primaryPlay,
   analyticBg,
   benefitSuite,
   crossConnect,

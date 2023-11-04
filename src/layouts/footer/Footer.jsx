@@ -1,10 +1,12 @@
 import "./Footer.scss";
-import { icons } from "../../utils/images/images";
+import { icons, images } from "../../utils/images/images";
 
 const Footer = () => {
 
   return (
     <section className="footer">
+      <img src={images.bgPattern} alt="bg" className="pattern" />
+      <img src={images.bgPattern} alt="bg" className="pattern right" />
       <div className="content_wrap">
         <footer>
           <h2 className="wow fadeInUp">

@@ -45,7 +45,7 @@ const SuccessfulAnalytics = () => {
         </div>
       </div>
       <div
-        className="primary_class wow zoomIn"
+        className="primary_glass wow zoomIn"
         data-wow-delay="0.5s"
         data-wow-duration="1.5s"
       ></div>

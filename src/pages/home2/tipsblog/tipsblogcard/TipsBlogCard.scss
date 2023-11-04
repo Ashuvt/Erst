@@ -52,7 +52,7 @@
                 max-width:100%;
             }
             &.date {
-                @include font('Syne-Regular', 12px, 15.96px, 400, $white);
+                @include font('Inter-Regular', 12px, 15.96px, 400, $white);
                 letter-spacing: 2.4px;
             }
         }

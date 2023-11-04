@@ -48,7 +48,7 @@
         justify-content: space-between;
         gap:15px;
         h5{
-            @include font('Syne-Regular', 20px, 22px, 600, $white);
+            @include font('SpaceGrotesk-Medium', 20px, 22px, 500, $white);
         }
     }
 

@@ -10,16 +10,16 @@ const PlanCard = ({
   btnText,
   offer,
   planType,
-  index
+  index,
 }) => {
   return (
-    <div className={`plan_card ${level === "PRO" ? "active" : ""} wow fadeInUp`} data-wow-delay={`${0.1*index}s`}>
+    <div
+      className={`plan_card ${level === "PRO" ? "active" : ""} wow fadeInUp`}
+      data-wow-delay={`${0.1 * index}s`}
+    >
       <div className="offer">
         <h6>{level}</h6>
-        {planType === "yearly" && (
-        
-          <Pill text={`save $${offer}`} />
-        )}
+        {planType === "yearly" && <Pill text={`save $${offer}`} />}
       </div>
 
       <p>{word}</p>

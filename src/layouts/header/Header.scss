@@ -34,8 +34,14 @@ section.header {
             }
 
             .logo_wrap {
+            
                 a {
                     text-decoration: none;
+                    img{
+                        @media only screen and (max-width:$tab){
+                            width:80px;
+                        }
+                    }
                 }
             }
 
