@@ -1,9 +1,13 @@
 import { icon } from "../../../utils/images/icons";
 import "./ExploreCard.scss";
+import { useNavigate } from "react-router-dom";
 
-const ExploreCard = ({ img, title, text, students, modules, saved, index }) => {
+
+const ExploreCard = ({ img, title, text, students, modules, saved, index, redirectTo }) => {
+const navigate = useNavigate();
+
   return (
-    <div className="explore_card wow zoomIn" data-wow-delay={`${(0.2*index%3)}s`}>
+    <div className="explore_card wow zoomIn" data-wow-delay={`${(0.2*index%3)}s`} onClick={() => navigate(redirectTo)}>
        <div className="bg_card_overlay"></div>
       <div className="poster_wrap">
         <span>Cources</span>

@@ -9,6 +9,8 @@ import Subscription from "./subscription/Subscription";
 import EmailNotification from "./emailnotification/EmailNotification";
 import Help from "./help/ProfileHelp";
 import WOW from "wow.js";
+import { useDispatch } from "react-redux";
+import { resetAllToggler } from "../../store/actions";
 
 const Profile = () => {
   const optionData = [
@@ -46,12 +48,18 @@ const Profile = () => {
 
   const [tab, setTab] = useState(0);
 
+  const dispatch = useDispatch();
+
+  const resetToggler = () => {
+    dispatch({ type: resetAllToggler() });
+  };
+
   return (
     <Fragment>
       <CoursesHeader />
       <div className="header_filler"></div>
       <ProfileBanner />
-      <section className="profile_screens">
+      <section className="profile_screens" onClick={resetToggler}>
         <div className="screen_container">
           <div className="side_menu">
             {optionData.map((data) => {

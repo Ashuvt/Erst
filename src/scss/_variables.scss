@@ -28,10 +28,15 @@ $cardFill:linear-gradient(113deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 2
 $textAccent:#799AFF;
 $brandPrimary:#3B64E1;
 $borderSubtle:#262626;
-
+$borderGradient: linear-gradient(130deg, #ffffff44, #ffffff17);
 
 // Gradient
-$bgGradient: linear-gradient(106deg, rgba(20, 119, 201, 0.59) -132.28%, rgba(20, 119, 201, 0.00) 38.81%, rgba(255, 197, 44, 0.24) 112.21%);
+// $bgGradient: linear-gradient(106deg, rgba(20, 119, 201, 0.59) -132.28%, rgba(20, 119, 201, 0.00) 38.81%, rgba(255, 197, 44, 0.24) 112.21%);
+
+
+$bgGradient: linear-gradient(106deg, rgba(20, 119, 201, 0.80) -90.28%, rgba(20, 119, 201, 0.00) 25.81%, rgba(255, 197, 44, 0.1) 112.21%);
+
+
 $primaryGradient: linear-gradient(315deg, $secondary, $primary);
 $primaryGradient_1: linear-gradient(135deg, $primary 30%, $secondary);
 $primaryGradient_2: linear-gradient(135deg, $secondary, $primary);

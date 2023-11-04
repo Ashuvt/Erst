@@ -16,6 +16,7 @@ const RedBlueCard = ({
   return (
     <div className="red_blue_card">
       <div className="content_wraper">
+
         <div className="logo_wrap">
           <img src={img} alt="logo" />
           <div className="rating">
@@ -23,6 +24,7 @@ const RedBlueCard = ({
             <p>{rating}</p>
           </div>
         </div>
+        <div className="content">
         <div className="team_name">
           <div className="box" style={{ backgroundColor: `${color}` }}></div>
           <p>{team}</p>
@@ -54,6 +56,7 @@ const RedBlueCard = ({
           })}
         </ol>
         <p>25+ More</p>
+      </div>
       </div>
       <div className="overlay"></div>
     </div>

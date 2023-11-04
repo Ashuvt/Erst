@@ -10,7 +10,6 @@ import { resetAllToggler } from "../../store/actions";
 import WOW from "wow.js";
 
 const Explore = () => {
-
   const courcesData = [
     {
       id: 0,
@@ -37,7 +36,7 @@ const Explore = () => {
       modules: 12,
     },
   ];
-  
+
   const filterOptions = [
     {
       id: 0,
@@ -107,8 +106,6 @@ const Explore = () => {
       text: "Another keyword",
     },
   ];
-
-
 
   const typesData = [
     {
@@ -238,9 +235,8 @@ const Explore = () => {
   const dispatch = useDispatch();
 
   const resetToggler = () => {
-    dispatch({type:resetAllToggler()});
-  }
-
+    dispatch({ type: resetAllToggler() });
+  };
 
   return (
     <Fragment>
@@ -397,7 +393,11 @@ const Explore = () => {
                 {courcesData.map((data, k) => {
                   return (
                     <Fragment key={data.id}>
-                      <ExploreCard {...data} index={k} />
+                      <ExploreCard
+                        {...data}
+                        index={k}
+                        redirectTo="/explore/courses"
+                      />
                     </Fragment>
                   );
                 })}
@@ -425,7 +425,11 @@ const Explore = () => {
                 {courcesData.map((data, k) => {
                   return (
                     <Fragment key={data.id}>
-                      <ExploreCard {...data}  index={k} />
+                      <ExploreCard
+                        {...data}
+                        index={k}
+                        redirectTo="/explore/course"
+                      />
                     </Fragment>
                   );
                 })}

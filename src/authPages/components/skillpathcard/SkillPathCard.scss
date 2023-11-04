@@ -34,7 +34,7 @@
         height: 100%;
         width: 100%;
         border-radius: 12px;
-        background: linear-gradient(130deg, #ffffff66, #ffffff17);
+        background:$borderGradient;
         padding: 1px;
         backdrop-filter: blur(28px);
         transition: all 0.3s ease-in-out;
