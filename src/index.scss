@@ -86,8 +86,6 @@ body h6:last-child {
 img {
   display: block;
   margin: 0 auto;
-  max-width: 100%;
-  max-height: 100%;
   width: auto;
   height: auto;
 }
@@ -177,9 +175,12 @@ button.slick-arrow{
 }
 
 #side_accord{
+  border-radius: 0px!important;
   .accordion-item{
     border-style: none;
     border-radius: none!important;
+    border-radius: 0px!important;
+    background-color:#000!important;
   }
   button.accordion-button{
       background-color:$dark!important;
@@ -194,6 +195,7 @@ button.slick-arrow{
       border-bottom: 1px solid $borderSubtle!important;
       padding:16px 20px 16px 4px;
        @include font('Inter-Regular', 12px, 16px, 400, $textSecondary);
+       border-radius: 0px!important;
       &::after{
         display: none!important;
       }

@@ -4,18 +4,44 @@ import Slider from "react-slick";
 
 const SymmentricSlider = () => {
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
-    slidesToShow: 5,
+    slidesToShow: 4,
     slidesToScroll: 1,
     autoplay: true,
     speed: 3000,
     autoplaySpeed: 0,
     cssEase: "linear",
-    breakpoint: 1600,
     settings: {
       slidesToShow: 3,
     },
+
+    responsive: [
+      {
+        breakpoint: 1000,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll:1,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 700,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll:2,
+          initialSlide:1
+        }
+      },
+      {
+        breakpoint: 500,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
   };
 
   const logoData = [

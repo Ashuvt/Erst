@@ -47,7 +47,7 @@ const IntelligentTeam = () => {
         {teamData.map((data) => {
          return(
           <Fragment key={data.id}>
-             <TeamCard {...data} />;
+             <TeamCard {...data} />
           </Fragment>
          )
         })}

@@ -59,7 +59,7 @@ const Profile = () => {
       <CoursesHeader />
       <div className="header_filler"></div>
       <ProfileBanner />
-      <section className="profile_screens" onClick={resetToggler}>
+      <section className="profile_screens" onClick={resetToggler} >
         <div className="screen_container">
           <div className="side_menu">
             {optionData.map((data) => {

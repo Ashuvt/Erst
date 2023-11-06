@@ -6,7 +6,7 @@ const Accounts = () => {
     <div className="profile_accounts">
       <div className="profile_info wow fadeInUp">
         <div className="profile_wraper">
-          <img src={images.profileb} alt="" />
+          <img src={images.profileb} alt="profile" />
         </div>
         <div className="text_info">
           <h5 className="small_title">Account</h5>

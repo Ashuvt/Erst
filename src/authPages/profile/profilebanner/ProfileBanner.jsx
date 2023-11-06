@@ -19,7 +19,8 @@ const ProfileBanner = () => {
             <div className="screen_container">
                     <div className="content">
                         <div className="icon_wrap wow fadeInUp">
-                            <img src={icon.userFill} alt="user" />
+                            <img src={icon.bgGlass} alt="glass" className="bg" />
+                            <img src={icon.userFill} alt="user" className="user" />
                         </div>
                         <h3 className=" wow fadeInUp">Profile</h3>
                     </div>

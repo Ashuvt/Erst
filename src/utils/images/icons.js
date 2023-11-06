@@ -51,6 +51,7 @@ import dobleleftangle from "../../assets/images/icons/dobleleftangle.svg";
 import darkAngleDown from "../../assets/images/icons/darkangledown.svg";
 import whiteCheck from "../../assets/images/icons/whitecheck.svg";
 import lightLock from "../../assets/images/icons/lightlock.svg";
+import bgGlass from "../../assets/images/icons/userglass.svg";
 
 export const icon = {
   angleUp,
@@ -104,6 +105,8 @@ export const icon = {
   darkAngleDown,
   whiteCheck,
   lightLock,
+  bgGlass,
+  
 
   playfill,
   userFill,

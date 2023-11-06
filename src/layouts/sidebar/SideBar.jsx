@@ -3,7 +3,7 @@ import { Fragment, useEffect, useState } from "react";
 import { menuList } from "../../utils/data/data";
 import { icons, logoImage} from "../../utils/images/images";
 import { useDispatch, useSelector } from "react-redux";
-import { sidebarToggler } from "../../store/actions";
+import { resetAllToggler, sidebarToggler } from "../../store/actions";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
@@ -25,6 +25,7 @@ const SideBar = () => {
 
 
   return (
+    <Fragment>
     <div className={`side_bar ${sidebarStatus ? "open" : "close"}`}>
       <div className="logo_line">
         <img src={logoImage.logo} alt="logo" className="logo" />
@@ -69,6 +70,8 @@ const SideBar = () => {
       </button>
       </div>
     </div>
+    <div className={`blur_overlay ${sidebarStatus ? "open" : "close"}`} onClick={() => dispatch({type:resetAllToggler()})}></div>
+    </Fragment>
   );
 };
 

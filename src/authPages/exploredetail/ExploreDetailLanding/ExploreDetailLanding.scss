@@ -23,7 +23,11 @@ section.explore_detail {
 
         .video_wrapper {
             position: relative;
-            width:460px;
+            max-width:460px;
+            width:100%;
+            img{
+                max-width:100%;
+            }
             @media only screen and (max-width:$tab){
                 width:100%; 
             }

@@ -93,6 +93,7 @@ section.rotate_sqares{
         display: flex;
         justify-content: center;
         align-items: center;
+        overflow: hidden;
         .sqare{
             width: 20vw;
             height: 20vw;
@@ -105,9 +106,19 @@ section.rotate_sqares{
             overflow: hidden;
             transition:all 1s ease-in-out;
             transform:rotate(45deg) scale(0.65);
+            @media only screen and (max-width:$tab){
+                width: 33vw;
+            height:33vw;
+            }
             img{
                 object-fit: cover;
                 min-width:100%;
+            }
+
+            &.d, &.e{
+                @media only screen and (max-width:$tab){
+                    display: none;
+                }
             }
         }
     }

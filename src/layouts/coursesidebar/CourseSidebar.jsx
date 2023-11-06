@@ -3,13 +3,15 @@ import { Fragment, useEffect, useState } from "react";
 import { menuList } from "../../utils/data/data";
 import { icons, logoImage } from "../../utils/images/images";
 import { useDispatch, useSelector } from "react-redux";
-import { courseSidebarToggler, resetAllToggler, sidebarToggler } from "../../store/actions";
+import {
+  courseSidebarToggler,
+  resetAllToggler,
+  sidebarToggler,
+} from "../../store/actions";
 import { icon } from "../../utils/images/icons";
 import { NavLink } from "react-router-dom";
 
 const CourseSidebar = () => {
- 
-
   const menuData = [
     {
       id: 0,
@@ -49,39 +51,46 @@ const CourseSidebar = () => {
     },
   ];
 
-const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const courseSidebarStatus = useSelector(
     (state) => state.toggleReducer.courseSidebarStatus
   );
 
   return (
-    <div className={`course_side_bar ${courseSidebarStatus ? "open" : "close"}`}>
-      <div className="logo_line">
-        <img src={logoImage.logo} alt="logo" className="logo" />
-        <button
-          className="button"
-          onClick={() => dispatch({ type: courseSidebarToggler(), payload: false })}
-        >
-          <img src={icons.whiteClose} alt="close" />
-        </button>
-      </div>
-      <div className="course_screen_links">
-      {menuData &&
-              menuData.map((data) => {
-                return (
-                  <Fragment key={data.id}>
-                    <NavLink to={data.path}>
-                      <button type="button" className="navbtn">
-                    <img src={data.img} alt="icon" />
-                    {data.text}
+    <Fragment>
+      <div
+        className={`course_side_bar ${courseSidebarStatus ? "open" : "close"}`}
+      >
+        <div className="logo_line">
+          <img src={logoImage.logo} alt="logo" className="logo" />
+          <button
+            className="button"
+            onClick={() =>
+              dispatch({ type: courseSidebarToggler(), payload: false })
+            }
+          >
+            <img src={icons.whiteClose} alt="close" />
+          </button>
+        </div>
+        <div className="course_screen_links">
+          {menuData &&
+            menuData.map((data) => {
+              return (
+                <Fragment key={data.id}>
+                  <NavLink to={data.path}>
+                    <button type="button" className="navbtn">
+                      <img src={data.img} alt="icon" />
+                      {data.text}
                     </button>
-                    </NavLink>
-                  </Fragment>
-                );
-              })}
+                  </NavLink>
+                </Fragment>
+              );
+            })}
+        </div>
       </div>
-    </div>
+     
+    </Fragment>
   );
 };
 

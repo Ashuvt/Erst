@@ -28,6 +28,8 @@ const Home2Landing = () => {
         <div className="text_content">
           <div className="dynamic wow fadeInUp">
             <h1>True Cyber Security Is Preparing For</h1>
+
+
             <div className="text_box">
               <div
                 className="gradient_wrap"
@@ -35,8 +37,16 @@ const Home2Landing = () => {
               >
                 <h1>What's Next.</h1>
                 <h1>Not What Was Last.</h1>
-              </div>
+              </div>             
             </div>
+
+
+            <div
+                className="mobile_gradient"                
+              >
+                <h1>What's Next,</h1>
+                <h1>Not What Was Last.</h1>
+              </div>
           </div>
           <p className="wow fadeInUp">
           Enter "Platform Name," your gateway to the cutting-edge realm of cybersecurity training. Immerse in our diverse range of hands-on training labs and rich learning resources, designed to empower tech enthusiasts from all backgrounds to master the art of cybersecurity and stay one step ahead in this ever-evolving landscape.

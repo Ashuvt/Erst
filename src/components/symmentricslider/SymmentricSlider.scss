@@ -8,7 +8,7 @@ section.symmentric_slider {
     .center_border {
         width: 2px;
         height: 100%;
-        background:#fff;
+        background: #fff;
     }
 
     .slide_left {
@@ -37,11 +37,15 @@ section.symmentric_slider {
             align-items: center;
             padding: 20px 30px;
             height: 85px;
-@media only screen and (max-width:$laptop){
-    padding: 10px 20px;
-}
+
+
+            @media only screen and (max-width:$laptop) {
+                padding: 10px 10px;
+            }
+
             img {
                 opacity: 0.3;
+                width: 95%;
             }
         }
 

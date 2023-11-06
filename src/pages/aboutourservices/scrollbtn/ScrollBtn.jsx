@@ -12,23 +12,23 @@ const ScrollBtn = () => {
       </a>
 
       <div className="sqare_wrap">
-        <div className="sqare">
+        <div className="sqare a">
           <img src={images.squareBg} alt="bg" />
         </div>
 
-        <div className="sqare">
+        <div className="sqare b">
           <img src={images.squareBg} alt="bg" />
         </div>
 
-        <div className="sqare">
+        <div className="sqare c">
           <img src={images.squareBg} alt="bg" />
         </div>
 
-        <div className="sqare">
+        <div className="sqare d">
           <img src={images.squareBg} alt="bg" />
         </div>
 
-        <div className="sqare">
+        <div className="sqare e">
           <img src={images.squareBg} alt="bg" />
         </div>
       </div>

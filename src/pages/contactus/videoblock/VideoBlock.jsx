@@ -35,7 +35,7 @@ const VideoBlock = () => {
     <section className="video_block">
       <div className="video_block">
         <div className="image_overlay"></div>
-        <img src={images.contactUsBanner} alt="banner" className="wow zoomIn" data-wow-duration="2s" />
+        <img src={images.contactUsBanner} alt="banner" className="bg wow zoomIn" data-wow-duration="2s" />
 
       
         <div className="video_card">

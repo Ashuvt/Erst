@@ -27,11 +27,14 @@ section.error_page {
 
             h1 {
                 text-align: center;
-                @include font('Syne-Regular', 180px, 198px, 600, $white);
+                @include font('Inter-Regular', 180px, 198px, 600, $white);
                 -webkit-text-fill-color: transparent;
                 background-image: linear-gradient(135deg, $primary 40%, $secondary 60%);
                 -webkit-background-clip: text;
                 color: transparent;
+                @media only screen and (max-width:$tab){
+                    @include font('Inter-Regular', 80px, 80px, 600, $white);
+                }
                 @media only screen and (max-width:$mobile){
                     font-size:130px;
                     line-height: 155px;;
@@ -68,7 +71,7 @@ section.error_page {
     .blur {
         height: 250px;
         width: 250px;
-        background-color: $secondary;
+        background-color: $primary;
         border-radius: 50%;
         position: absolute;
         filter: blur(130px);
@@ -85,6 +88,9 @@ section.error_page {
         &.left {
             left: 100px;
             top: 150px;
+            @media only screen and (max-width:$tab){
+                display: none;
+            }
         }
 
         &.right {

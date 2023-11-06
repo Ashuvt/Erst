@@ -37,8 +37,7 @@ const Services = () => {
   useEffect(() => {
     const handleScroll = () => {
       const div = divRef.current;
-      if (div) {   
-
+      if (div) {
         if (window.scrollY < 600) {
           setDegree(0);
           setNum(0);
@@ -46,32 +45,32 @@ const Services = () => {
 
         if (window.scrollY > 600 && window.scrollY < 1200) {
           setDegree(15);
-          setNum(15)
+          setNum(15);
         }
 
         if (window.scrollY > 1200 && window.scrollY < 1500) {
           setDegree(30);
-          setNum(30)
+          setNum(30);
         }
 
         if (window.scrollY > 1500 && window.scrollY < 1800) {
           setDegree(45);
-          setNum(45)
+          setNum(45);
         }
 
         if (window.scrollY > 1800 && window.scrollY < 2000) {
           setDegree(60);
-          setNum(65)
+          setNum(65);
         }
 
         if (window.scrollY > 2000 && window.scrollY < 2200) {
           setDegree(75);
-          setNum(80)
+          setNum(80);
         }
 
         if (window.scrollY > 2200 && window.scrollY < 2600) {
           setDegree(90);
-          setNum(100)
+          setNum(100);
         }
       }
     };
@@ -91,18 +90,20 @@ const Services = () => {
             className="bg"
             style={{ transform: `translate(-50%, -50%) rotate(${degree}deg)` }}
           ></div>
+               <div
+            className="tab_bg"            
+          ></div>
           <img src={images.mobiles} alt="mobiles" />
 
           <div className="scroll_progress">
-              <p>SERVICES</p>
-              <div className="progress_line">
-                <div className="filler" style={{width:`${num}%`}}>
-
-                </div>
-              </div>
-              <a href="#map"> skip
-                <img src={icons.whiteArrow} alt="arrow" />
-                </a>
+            <p>SERVICES</p>
+            <div className="progress_line">
+              <div className="filler" style={{ width: `${num}%` }}></div>
+            </div>
+            <a href="#map">
+              skip
+              <img src={icons.whiteArrow} alt="arrow" />
+            </a>
           </div>
         </div>
         <div className="service_list">

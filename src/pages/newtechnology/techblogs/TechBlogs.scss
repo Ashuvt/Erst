@@ -20,7 +20,7 @@ section.tech_blog {
 
         .blog_wrap {
             position: relative;
-            min-height: 450px;
+        height: 450px;
             border-radius: 12px;
             overflow: hidden;
 
@@ -50,6 +50,7 @@ section.tech_blog {
                 min-height: 100%;
                 min-width: 100%;
                 object-fit: cover;
+                max-height:100%;
             }
 
             .content {

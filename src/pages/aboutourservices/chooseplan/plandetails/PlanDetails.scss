@@ -169,7 +169,7 @@
             bottom: auto;
             left: 0%;
             right: auto;
-            box-shadow: 0 0 20px rgba(153, 0, 255, .6);
+            box-shadow: 0 0 20px rgba($primary, .6);
 
             @media only screen and (max-width:$laptop) {
                 display: none;
@@ -180,7 +180,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-
+            flex-wrap: wrap;
+            gap:10px;
             h3 {
                 span {
                     font-size: 20px;

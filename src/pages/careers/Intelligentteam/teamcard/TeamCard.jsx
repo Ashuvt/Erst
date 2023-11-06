@@ -28,6 +28,6 @@ const TeamCard = ({position, time, location, img}) => {
             </div>
         </div>
     )
-};
+}
 
 export default TeamCard;

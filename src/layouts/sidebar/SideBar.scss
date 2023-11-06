@@ -64,7 +64,7 @@
         }
 
         p {
-            @include font('Syne-Regular', 12px, 18px, 500, $white);
+            @include font('Inter-Regular', 12px, 18px, 500, $white);
             letter-spacing: 2.4px;
             text-transform: uppercase;
             transition:all 0.3s ease-in-out;
@@ -82,7 +82,7 @@
         transition: all 0.3s ease-in-out;
         a {
             text-decoration: none;
-            @include font('Syne-Regular', 12px, 16px, 500, $white);
+            @include font('Inter-Regular', 12px, 16px, 500, $white);
             letter-spacing: 2.4px;
             text-transform: uppercase;
             padding: 5px 0px;
@@ -113,4 +113,21 @@
         }
     }
 
+}
+
+.blur_overlay{
+    height: 100vh;
+    background-color: rgba($dark, 0.5);
+    position:fixed;
+    top: 0px;
+    left: 0px;
+    width:100%;
+    z-index: 999997;
+    overflow: hidden;
+    &.open{
+        width:100%;
+    }
+    &.close{
+        width:0%;
+    }
 }
