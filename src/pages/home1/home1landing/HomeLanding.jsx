@@ -4,6 +4,7 @@ import { images } from "../../../utils/images/images";
 const Home1Landing = () => {
   return (
     <section className="home1landing p_bottom">
+       
       <div
         className="purple_blur wow zoomIn"
         data-wow-delay="0.5s"

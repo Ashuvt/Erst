@@ -13,6 +13,8 @@ import Header from "../../layouts/header/Header";
 import Footer from "../../layouts/footer/Footer";
 import WOW from "wow.js";
 
+
+
 const Home1 = () => {
 
   useEffect(() => {

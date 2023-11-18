@@ -29,9 +29,18 @@ import { resetAllToggler } from "./store/actions";
 import ExploreDetail from "./authPages/exploredetail/ExploreDetail";
 import CourseSidebar from "./layouts/coursesidebar/CourseSidebar";
 import ExploreCourses from "./authPages/explorecourses/ExploreCourses";
+import RoadMap from "./pages/roadmap/RoadMap";
+
+
 
 
 function App() {
+
+
+
+
+
+
   var menu;
   const dispatch = useDispatch();
   const location = useLocation();
@@ -43,10 +52,9 @@ function App() {
   }, [location.pathname]);
 
   return (
-    <Fragment>
-     
-        <AddCartPopup />
+    <Fragment>       
 
+        <AddCartPopup />
         <SideBar />
         <CourseSidebar />
         <Routes>
@@ -57,6 +65,8 @@ function App() {
           <Route path="/faq" element={<Faq />} />
           <Route path="/contactus" element={<ContactUs />} />
           <Route path="/careers" element={<Careers />} />
+          <Route path="/roadmap" element={<RoadMap />} />
+
           <Route
             path="/about_our_services"
             element={<AboutOurServices />}
