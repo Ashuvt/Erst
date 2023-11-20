@@ -9,7 +9,7 @@ const BusinessDecision = () => {
     wow.init();
   }, []);
   return (
-    <section className="business_decision">
+    <section className="business_decision p_top">
       <div className="content_wrap">
         <div className="text_wrap">
           <h2 className="wow fadeInUp">Lorem ipsum dolor sit amet.</h2>

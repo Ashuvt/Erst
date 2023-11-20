@@ -7,8 +7,7 @@ section.join_team {
     padding-top: 130px;
     padding-bottom: 130px;
     position:relative;
-    z-index:0;
-
+    z-index:1;
     @media only screen and (max-width:$tab) {
         padding-top: 80px;
         padding-bottom: 80px;

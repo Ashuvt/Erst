@@ -4,6 +4,8 @@
 @import "../../../scss/variables";
 
 section.intelligent_team {
+    position:relative;
+    z-index:1;
     .content_wrap {
         position:relative;
         .title_content {

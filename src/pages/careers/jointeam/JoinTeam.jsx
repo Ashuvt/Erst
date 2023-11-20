@@ -1,6 +1,8 @@
 import "./JoinTeam.scss";
+import { Fragment } from "react";
 import { icons, images } from "../../../utils/images/images";
 import ProfileList from "../../../components/profilelist/ProfileList";
+import ParticlesBg from "../../../components/particlesbg/ParticlesBg";
 
 const JoinTeam = () => {
   const userData = [
@@ -22,7 +24,10 @@ const JoinTeam = () => {
     },
   ];
   return (
+    <Fragment>
+    <ParticlesBg />
     <section className="join_team">
+     
       <div className="content_wrap">
         <div className="main_circle">
           <div className="overlay"></div>
@@ -64,6 +69,7 @@ const JoinTeam = () => {
       <div className="join_team_glass b"></div>
       <div className="join_team_glass c"></div>
     </section>
+    </Fragment>
   );
 };
 
