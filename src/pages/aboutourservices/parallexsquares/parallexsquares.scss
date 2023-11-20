@@ -5,12 +5,13 @@
 
 .squares_slider_wrap {
     pointer-events: none;
-    position:sticky;
-    bottom:0px;
-    left:0px;
-    z-index:0;
-    
-    .slider_blur{
+    position: sticky;
+    bottom: 0px;
+    left: 0px;
+    z-index: 1;
+    background-color: $dark;
+
+    .slider_blur {
         height: 200px;
         width: 200px;
         background-color: $primary;
@@ -19,25 +20,31 @@
         filter: blur(150px);
         z-index: 0;
         transition: all 0.6s ease-in-out;
-        &.left{
-            left:450px;
-            top:0px;
-            @media only screen and (max-width:$laptop){
-                left:100px;
+
+        &.left {
+            left: 450px;
+            top: 0px;
+
+            @media only screen and (max-width:$laptop) {
+                left: 100px;
             }
-            @media only screen and (max-width:$tab){
-                left:0px;
+
+            @media only screen and (max-width:$tab) {
+                left: 0px;
             }
         }
-        &.right{
-            background-color:$secondary;
-            right:400px;
-            top:0px;
-            @media only screen and (max-width:$laptop){
-                right:100px;
+
+        &.right {
+            background-color: $secondary;
+            right: 400px;
+            top: 0px;
+
+            @media only screen and (max-width:$laptop) {
+                right: 100px;
             }
-            @media only screen and (max-width:$tab){
-                right:0px;
+
+            @media only screen and (max-width:$tab) {
+                right: 0px;
             }
         }
     }

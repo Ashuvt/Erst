@@ -4,6 +4,8 @@ section.symmentric_slider {
     pointer-events: none;
     display: flex;
     justify-content: center;
+    position:relative;
+    z-index:1;
 
     .center_border {
         width: 2px;

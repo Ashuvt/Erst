@@ -4,6 +4,9 @@
 @import "../../../scss/variables";
 
 .developer_details{
+    z-index:1;
+    position:relative;
+    background-color:$dark;
     h2 {
         margin: 10px 0px 20px;
     }

@@ -1,6 +1,6 @@
 import "./MapLanding.scss";
 import { images } from "../../utils/images/images";
-
+import ParticlesBg from "../particlesbg/ParticlesBg";
 const CareersLanding = ({title, text}) => {
     const circleData = [
         {
@@ -82,6 +82,7 @@ const CareersLanding = ({title, text}) => {
       ];
     return(
         <section className="careers_landing" >
+    
             <div className="overlay"></div>
             <img src={images.whiteMap} alt="map" />
             {circleData.map((data, i) => {

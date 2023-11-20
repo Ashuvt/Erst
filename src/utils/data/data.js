@@ -66,7 +66,12 @@ export const menuList = [
       {
         id: "10",
         text: "blogdetail",
-        link: "/blogs/id",
+        link: "/blogs/2",
+      },
+      {
+        id: "11",
+        text: "roadmap",
+        link: "/roadmap",
       },
     ],
   },

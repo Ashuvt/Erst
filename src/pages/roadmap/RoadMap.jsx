@@ -51,7 +51,7 @@ const RoadMap = () => {
   return (
     <Fragment>
       <Header />
-      <h3 className="text_count">{scrollY}</h3>
+      {/* <h3 className="text_count">{scrollY}</h3> */}
       <section className="road_map p_top p_bottom">
         <div className="content_wrap">
           <div className="title">

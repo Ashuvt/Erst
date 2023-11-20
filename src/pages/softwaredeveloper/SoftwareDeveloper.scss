@@ -4,6 +4,8 @@
 @import "../../scss/variables";
 
 section.software_developer_detail {
+    position:relative;
+    z-index:1;
     .content_wrap {
         display: grid;
         gap: 40px;

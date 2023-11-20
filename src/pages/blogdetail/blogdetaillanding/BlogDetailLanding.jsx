@@ -1,3 +1,4 @@
+import ParticlesBg from "../../../components/particlesbg/ParticlesBg";
 import "./BlogDetailLanding.scss";
 import BlogDate from "./date/BlogDate";
 
@@ -5,6 +6,7 @@ const BlogDetailLanding = ({tag, date, title, text}) => {
 
     return(
         <section className="blogdetail_landing">
+        <ParticlesBg />
             <div className="content_wrap">
                     <BlogDate tag={tag} date={date} />
                     <div className="text_content ">

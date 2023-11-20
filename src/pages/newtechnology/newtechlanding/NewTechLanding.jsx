@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import "./NewTechLanding.scss";
 import WOW from "wow.js";
+import ParticlesBg from "../../../components/particlesbg/ParticlesBg";
 
 const NewTechLanding = () => {
 
@@ -12,6 +13,7 @@ const NewTechLanding = () => {
 
   return (
     <section className="tech_landing">
+      <ParticlesBg />
       <div className="content_wrap p_bottom">
       <div className="top_border"></div>
         <div className="title_wrap">

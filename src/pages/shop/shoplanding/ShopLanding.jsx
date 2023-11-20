@@ -1,8 +1,10 @@
+import ParticlesBg from "../../../components/particlesbg/ParticlesBg";
 import "./ShopLanding.scss";
 
 const ShopLanding = () => {
   return (
     <section className="shop_landing">
+      <ParticlesBg />
       <div className="content_wrap p_bottom">
         <div className="top_border wow zoomIn" ></div>
         <div className="title">

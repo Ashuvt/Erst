@@ -7,6 +7,7 @@ import ApplyForm from "./applyform/ApplyForm";
 import Header from "../../layouts/header/Header";
 import Footer from "../../layouts/footer/Footer";
 import WOW from "wow.js";
+import ParticlesBg from "../../components/particlesbg/ParticlesBg";
 
 const SoftwareDeveloper = () => {
     useEffect(() => {
@@ -22,7 +23,9 @@ const SoftwareDeveloper = () => {
                 text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Id beatae, facere reiciendis esse aliquam expedita ipsa cum atque laudantium eaque!"
             />
            <SymmentricSlider />
+           <ParticlesBg />
             <section className="software_developer_detail p_top p_bottom" >
+          
                 <div className="content_wrap">
                     <DevelopersDetail />
                     <ApplyForm />
