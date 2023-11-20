@@ -10,9 +10,12 @@ section.locations {
   border-bottom: 1px $cardBorder;
   padding-top: 80px;
   padding-bottom: 80px;
-  @media only screen and (max-width:$tab){
+  position: relative;
+  z-index: 1;
+
+  @media only screen and (max-width:$tab) {
     padding-top: 60px;
-  padding-bottom: 60px;
+    padding-bottom: 60px;
   }
 
   .content_wrap {
@@ -28,6 +31,7 @@ section.locations {
     @media only screen and (max-width:$tab) {
       grid-template-columns: 1fr 1fr;
     }
+
     @media only screen and (max-width:550px) {
       grid-template-columns: 1fr;
     }

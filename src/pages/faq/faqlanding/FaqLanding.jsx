@@ -1,5 +1,6 @@
 import "./FaqLanding.scss";
 import { useEffect, useState } from "react";
+import ParticlesBg from "../../../components/particlesbg/ParticlesBg";
 
 const FaqLanding = () => {
   const [status, setStatus] = useState(false);
@@ -12,6 +13,7 @@ const FaqLanding = () => {
 
   return (
     <section className="faq_landing">
+      <ParticlesBg />
       <div className="pink_blur wow zoomIn" data-wow-delay="0.5s" data-wow-duration="1.5s"></div>
       <div className="smallpink wow zoomIn" data-wow-delay="0.5s" data-wow-duration="1.5s"></div>
       <div className="blue_blur wow zoomIn" data-wow-delay="0.5s" data-wow-duration="1.5s"></div>
@@ -20,7 +22,7 @@ const FaqLanding = () => {
         <p className="wow fadeInUp" data-wow-delay="0.3s">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga distinctio voluptatem adipisci assumenda. Assumenda iure aperiam corporis, odit reiciendis fuga. Cupiditate, nostrum placeat.
         </p>
-        <div className="border_line wow zoomIn" data-wow-delay="0.4s"></div>
+        {/* <div className="border_line wow zoomIn" data-wow-delay="0.4s"></div> */}
       </div>
     </section>
   );

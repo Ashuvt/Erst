@@ -5,6 +5,8 @@
 
 
 section.business_decision {
+    z-index:1;
+    position:relative;
     .content_wrap {
         display: grid;
         grid-template-columns: 1fr 1fr;

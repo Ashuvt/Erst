@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "./Home2Landing.scss";
 import WOW from "wow.js";
+import ParticlesBg from "../../../components/particlesbg/ParticlesBg";
 
 const Home2Landing = () => {
   const [count, setCount] = useState(0);
@@ -24,6 +25,7 @@ const Home2Landing = () => {
 
   return (
     <section className="home2_landing p_bottom p_top">
+    <ParticlesBg />
       <div className="content_wrap">
         <div className="text_content">
           <div className="dynamic wow fadeInUp">

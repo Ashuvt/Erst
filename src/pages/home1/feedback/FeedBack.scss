@@ -4,6 +4,8 @@
 @import "../../../scss/variables";
 
 section.feed_back {
+    z-index:1;
+    position:relative;
     .content_wrap {    
         .feedback_list {
             display: grid;

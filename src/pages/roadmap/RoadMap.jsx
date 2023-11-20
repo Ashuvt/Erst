@@ -63,7 +63,7 @@ const RoadMap = () => {
             </p>
           </div>
 
-         <OneFourFloat scrollY={scrollY} />
+          <OneFourFloat scrollY={scrollY} />
 
           <div className="frame_grid">
             {framData.map((data) => {
@@ -81,24 +81,46 @@ const RoadMap = () => {
               );
             })}
           </div>
-          
+
           <FourOneFloat scrollY={scrollY} />
 
-          <div className="single_box">
-            <div className="t_line"></div>
-            <div className="b_line"></div>
-            <div className="bg_card_overlay"></div>
+          <div className="four_info_card single">
+            <div className="icon_box">
+              <img src={icon.certificate} alt="icon" />
+            </div>
+            <h5>Lorem ipsum amet.</h5>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed quo
+              distinctio magni et iusto, eum molestias velit perferendis
+              officiis placeat.
+            </p>
           </div>
 
           <OneTwoFloat scrollY={scrollY} />
 
           <div className="bi_flex">
-            <div className="single_box">
-              <div className="bg_card_overlay"></div>
+          <div className="four_info_card single">
+            <div className="icon_box">
+              <img src={icon.certificate} alt="icon" />
             </div>
-            <div className="single_box">
-              <div className="bg_card_overlay"></div>
+            <h5>Lorem ipsum amet.</h5>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed quo
+              distinctio magni et iusto, eum molestias velit perferendis
+              officiis placeat.
+            </p>
+          </div>
+          <div className="four_info_card single">
+            <div className="icon_box">
+              <img src={icon.certificate} alt="icon" />
             </div>
+            <h5>Lorem ipsum amet.</h5>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed quo
+              distinctio magni et iusto, eum molestias velit perferendis
+              officiis placeat.
+            </p>
+          </div>
           </div>
         </div>
       </section>

@@ -6,9 +6,12 @@
 section.contact_services {
     padding-top: 130px;
     padding-bottom: 150px;
-    @media only screen and (max-width:$tab){
-        padding-top:60px;
-    padding-bottom:60px;
+    position: relative;
+    z-index: 1;
+
+    @media only screen and (max-width:$tab) {
+        padding-top: 60px;
+        padding-bottom: 60px;
     }
 
 
@@ -38,20 +41,20 @@ section.contact_services {
                 top: 0px;
             }
 
-            @media only screen and (max-width:$tab){
-                margin:50px 0px;
-                padding:50px 20px;
+            @media only screen and (max-width:$tab) {
+                margin: 50px 0px;
+                padding: 50px 20px;
             }
 
-            @media only screen and (max-width:$mobile){
-                margin:0px 0px;
+            @media only screen and (max-width:$mobile) {
+                margin: 0px 0px;
             }
 
             img {
                 position: relative;
                 z-index: 2;
                 max-width: 212px;
-                width:100%;
+                width: 100%;
 
             }
 
@@ -64,26 +67,29 @@ section.contact_services {
                 top: 50%;
                 left: 50%;
                 transition: all 0.7s ease-in-out;
-                @media only screen and (max-width:$tab){
+
+                @media only screen and (max-width:$tab) {
                     display: none;
                 }
             }
-            
-            .tab_bg{
-                opacity:0;
-                width:80%;
-                height:100%;
+
+            .tab_bg {
+                opacity: 0;
+                width: 80%;
+                height: 100%;
                 background: $primaryGradient;
                 border-radius: 12px;
                 position: absolute;
                 top: 50%;
                 left: 50%;
-                transform:translate(-50%, -50%);
-                @media only screen and (max-width:$tab){
-                    opacity:1;
+                transform: translate(-50%, -50%);
+
+                @media only screen and (max-width:$tab) {
+                    opacity: 1;
                 }
-                @media only screen and (max-width:$mobile){
-                    width:100%;
+
+                @media only screen and (max-width:$mobile) {
+                    width: 100%;
                 }
 
             }
@@ -98,8 +104,9 @@ section.contact_services {
                 justify-content: space-between;
                 align-items: center;
                 gap: 10px;
-                @media only screen and (max-width:$tab){
-                    display:none;
+
+                @media only screen and (max-width:$tab) {
+                    display: none;
                 }
 
                 p {

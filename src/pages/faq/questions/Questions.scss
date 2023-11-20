@@ -4,6 +4,8 @@
 @import "../../../scss/variables";
 
 section.que_ans {
+    position: relative;
+        z-index:1;
     .content_wrap {
         .content {
             width: 100%;

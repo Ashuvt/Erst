@@ -4,6 +4,8 @@
 @import "../../../scss/variables";
 
 section.home_plan {
+    z-index:1;
+    position:relative;
     .content_wrap {     
         .btn_line {
             display: flex;

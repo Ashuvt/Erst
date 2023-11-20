@@ -4,6 +4,8 @@
 @import "../../../scss/variables";
 
 section.business_analytics {
+    position: relative;
+        z-index:1;
     .content_wrap {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;

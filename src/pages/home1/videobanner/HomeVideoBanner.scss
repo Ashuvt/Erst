@@ -4,6 +4,8 @@
 @import "../../../scss/variables";
 
 section.home_video_banner {
+    z-index:1;
+    position:relative;
     max-height: 700px;
     overflow: hidden;
     position: relative;   

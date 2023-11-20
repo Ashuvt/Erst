@@ -5,6 +5,8 @@
 
 
 section.tips_blog {
+    position: relative;
+        z-index:1;
    .content_wrap {
         display: grid;
         grid-template-columns: 0.5fr 1fr;

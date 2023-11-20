@@ -3,13 +3,13 @@
 @import "../../scss/typography";
 @import "../../scss/variables";
 
-section.footer {
+section.footer {  
+  position:relative;
   background: $bgGradient;
   padding-top: 130px;
   padding-bottom: 80px;
-  position: relative;
   overflow:hidden;
-
+  z-index:5;
   @media only screen and (max-width:$tab) {
     padding-top: 80px;
     padding-top: 80px;

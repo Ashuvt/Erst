@@ -4,6 +4,8 @@
 @import "../../../scss/variables";
 
 section.home_blog {
+    z-index:1;
+    position:relative;
     padding-top: 0px;
     .content_wrap {
         .home_blog_grid {

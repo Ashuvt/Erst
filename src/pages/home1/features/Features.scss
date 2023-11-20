@@ -5,6 +5,8 @@
 
 
 section.features {
+    z-index:1;
+    position:relative;
     .content_wrap {
         display: flex;
         flex-wrap: wrap;

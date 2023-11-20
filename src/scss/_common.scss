@@ -2,7 +2,13 @@
 @import "./variables";
 @import "./typography";
 
-
+#tsparticles{
+  position:relative;
+  z-index: 0!important;
+  canvas{
+    border:0px solid #fff;
+  }
+}
 section {
   width: 100%;
   background-color: $dark;

@@ -4,6 +4,8 @@
 @import "../../../scss/variables";
 
 section.services {
+    z-index:1;
+    position:relative;
     .content_wrap {
         .grid_sec {
             display: grid;

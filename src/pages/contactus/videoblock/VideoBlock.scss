@@ -7,6 +7,8 @@
 section.video_block {
     background-image: $primaryGradient_1;
     padding: 20px;
+    position:relative;
+    z-index:1;
 
     .video_block {
         min-height: 100vh;

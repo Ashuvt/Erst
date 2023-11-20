@@ -1,4 +1,6 @@
-.screen_wrap {
+.screen_wrap {   
+    position: relative;
+        z-index:1;
     width: 100%;
     overflow: hidden;
     margin:0px;

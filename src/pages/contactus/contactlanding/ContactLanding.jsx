@@ -2,11 +2,13 @@ import "./ContactLanding.scss";
 import { icons } from "../../../utils/images/images";
 import CircleArrowBtn from "../../../components/circlearrowbtn/CircleArrowBtn";
 import TextArrowBtn from "../../../components/textarrowbtn/TextArrowBtn"; 
+import ParticlesBg from "../../../components/particlesbg/ParticlesBg";
 
 const ContactLanding = () => {
 
   return (
     <section className="contact_landing">
+      <ParticlesBg />
       <div className="content_wrap">
         <h1 className="wow fadeInLeft">Lorem ipsum dolor sit amet consectetur.</h1>
 

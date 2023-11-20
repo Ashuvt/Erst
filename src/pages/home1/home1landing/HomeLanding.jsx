@@ -1,9 +1,12 @@
 import "./Home1Landing.scss";
 import { images } from "../../../utils/images/images";
+import ParticlesBg from "../../../components/particlesbg/ParticlesBg";
 
 const Home1Landing = () => {
   return (
     <section className="home1landing p_bottom">
+
+<ParticlesBg />
        
       <div
         className="purple_blur wow zoomIn"

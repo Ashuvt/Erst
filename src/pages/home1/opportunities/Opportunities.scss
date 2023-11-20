@@ -4,6 +4,8 @@
 @import "../../../scss/variables";
 
 section.home_opportunities {
+    z-index:1;
+    position:relative;
     .content_wrap {
         display: grid;
         grid-template-columns: 1fr 1fr;

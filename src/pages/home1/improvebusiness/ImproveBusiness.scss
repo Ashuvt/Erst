@@ -4,6 +4,8 @@
 @import "../../../scss/variables";
 
 section.improve {
+    z-index:1;
+    position:relative;
     .content_wrap {
         .tri_gridsec {
             display: grid;
