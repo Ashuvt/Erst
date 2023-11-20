@@ -3,7 +3,10 @@ import Footer from "../../layouts/footer/Footer";
 import Header from "../../layouts/header/Header";
 import "./RoadMap.scss";
 import { icon } from "../../utils/images/icons";
-import { motion, scroll, transform, useScroll } from "framer-motion";
+
+import OneFourFloat from "./onefourfloat/OneFourFloat";
+import FourOneFloat from "./fouronefloat/FourOneFloat";
+import OneTwoFloat from "./onetwofloat/OneTwoFloat";
 const RoadMap = () => {
   const framData = [
     {
@@ -45,15 +48,6 @@ const RoadMap = () => {
     };
   }, []);
 
-  const d = scrollY > 250 && scrollY < 300 ? 33 : 50;
-
-  const distance =
-    scrollY > 250 && scrollY < 400
-      ? ((400 - scrollY) / 400) * 100
-      : scrollY >= 400
-      ? 0
-      : 50;
-
   return (
     <Fragment>
       <Header />
@@ -69,59 +63,15 @@ const RoadMap = () => {
             </p>
           </div>
 
+         <OneFourFloat scrollY={scrollY} />
 
-          <div className="first_floating">
-            <div className="top_line"></div>
-            <div
-              className="float_line"
-              style={{
-                transform: `translateY(${scrollY - 100}px)`,
-                transition: "all 1s ease-in-out",
-              }}
-            >
-              <img
-                src={icon.float}
-                alt="float"
-                style={{
-                  left: `${distance}%`,
-                  transform: `translateX(${scrollY > 250 ? 0 : -50}%)`,
-                }}
-              />
-              <div className="float_line_in">
-                <img
-                  src={icon.float}
-                  alt="float"
-                  style={{
-                    left: `${distance}%`,
-                    transform: `translateX(${scrollY > 250 ? 0 : -50}%)`,
-                  }}
-                />
-                <img
-                  src={icon.float}
-                  alt="float"
-                  style={{
-                    left: `${100 - distance}%`,
-                    transform: `translateX(${scrollY > 250 ? -100 : -50}%)`,
-                  }}
-                />
-              </div>
-              <img
-                src={icon.float}
-                alt="float"
-                style={{
-                  left: `${100 - distance}%`,
-                  transform: `translateX(${scrollY > 250 ? -100 : -50}%)`,
-                }}
-              />
-            </div>
-          </div>
           <div className="frame_grid">
             {framData.map((data) => {
               return (
                 <div className="four_info_card" key={data.id}>
                   <div className="v_top_line"></div>
                   <div className="v_bottom_line"></div>
-                 
+
                   <div className="icon_box">
                     <img src={data.icon} alt="" />
                   </div>
@@ -131,13 +81,16 @@ const RoadMap = () => {
               );
             })}
           </div>
+          
+          <FourOneFloat scrollY={scrollY} />
 
-      
           <div className="single_box">
+            <div className="t_line"></div>
+            <div className="b_line"></div>
             <div className="bg_card_overlay"></div>
           </div>
 
-     
+          <OneTwoFloat scrollY={scrollY} />
 
           <div className="bi_flex">
             <div className="single_box">

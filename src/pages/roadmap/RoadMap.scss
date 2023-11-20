@@ -3,14 +3,15 @@
 @import "../../scss/typography";
 @import "../../scss/variables";
 
-h3.text_count{
-    position:sticky;
-    top:200px;
-    left:100px;
+h3.text_count {
+    position: sticky;
+    top: 200px;
+    left: 100px;
 }
+
 section.road_map {
     .content_wrap {
-        position:relative;
+        position: relative;
 
 
         .title {
@@ -19,8 +20,8 @@ section.road_map {
             margin-left: auto;
             margin-right: auto;
             margin-top: 100px;
-            position:relative;
-            z-index:1;
+            position: relative;
+            z-index: 1;
 
             h2 {
                 text-align: center;
@@ -28,67 +29,20 @@ section.road_map {
 
             p {
                 text-align: center;
-                margin-top:8px;
+                margin-top: 8px;
             }
         }
 
-        .first_floating{
-
-   
-            height:400px;
-            position:relative;
-            overflow: hidden;
-      
-            .top_line{
-                position:absolute;
-                top:20px;
-                left:50%;
-                transform:translateX(-50%);
-                height:80px;
-                width:1px;
-                background-color:$lightBorder_3;
-
-            }
-            .float_line{
-               position:relative;               
-                overflow: hidden;
-                margin-left:auto;
-                margin-right:auto;
-                height:30px;
-                width:calc(75% + 45px);
-                img{
-                    margin:0px;
-                    transition:all 0.8s ease-in-out;
-                    z-index:0;
-                   position:absolute;
-                   top:0px;
-                }
-            }
-
-            .float_line_in{
-                position:relative;               
-                 overflow: hidden;
-                 margin-left:auto;
-                 margin-right:auto;
-                 height:30px;
-                 width:calc(33.33% + 20px);
-                 img{
-                     margin:0px;
-                     transition:all 0.8s ease-in-out;
-                     z-index:0;
-                    position:absolute;
-                    top:0px;
-                 }
-             }
-        }
+    
 
         .frame_grid {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr;
             gap: 20px;
-            position:relative;
-            z-index:1;
-            background: $dark;;
+            position: relative;
+            z-index: 1;
+            background: $dark;
+            ;
 
             .four_info_card {
                 border-radius: 8px;
@@ -133,23 +87,25 @@ section.road_map {
                     width: 100%;
                     z-index: 0;
                 }
-                .v_top_line{
-                    position:absolute;
-                    bottom:100%;
-                    left:50%;
-                    transform:translateX(-50%);
-                    height:85px;
-                    width:1px;
-                    background-color:$lightBorder_3;
+
+                .v_top_line {
+                    position: absolute;
+                    bottom: 100%;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    height:150px;
+                    width: 1px;
+                    background-color: $lightBorder_3;
                 }
-                .v_bottom_line{
-                    position:absolute;
-                    top:100%;
-                    left:50%;
-                    transform:translateX(-50%);
-                    height:85px;
-                    width:1px;
-                    background-color:$lightBorder_3;
+
+                .v_bottom_line {
+                    position: absolute;
+                    top: 100%;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    height:150px;
+                    width: 1px;
+                    background-color: $lightBorder_3;
                 }
 
 
@@ -212,28 +168,28 @@ section.road_map {
             }
         }
 
-        .single_box {  
-            margin-top:400px;          
+        .single_box {
             height: 300px;
             width: 300px;
             position: relative;
-            margin-left:auto;
-            margin-right:auto;
-            overflow:hidden;            
+            margin-left: auto;
+            margin-right: auto;
+            overflow: hidden;
+
             &::after {
                 position: absolute;
                 content: "";
                 top: 1px;
                 left: 1px;
-                height:calc(100% - 2px);
+                height: calc(100% - 2px);
                 width: calc(100% - 2px);
                 border-radius: 12px;
                 overflow: hidden;
-                background-color:$dark;
+                background-color: $dark;
                 z-index: 1;
             }
-        
-            &::before{
+
+            &::before {
                 position: absolute;
                 content: "";
                 top: 0px;
@@ -241,56 +197,59 @@ section.road_map {
                 height: 100%;
                 width: 100%;
                 border-radius: 12px;
-                background:$borderGradient;
+                background: $borderGradient;
                 padding: 1px;
                 backdrop-filter: blur(28px);
                 transition: all 0.3s ease-in-out;
                 width: 100%;
-                z-index:0;
+                z-index: 0;
             }
-        }
-
-       
-        .second_floating{   
-            height:400px;
-            position:relative;
-            overflow: hidden;
-      
-            .top_line{
-                position:absolute;
-                top:20px;
-                left:50%;
-                transform:translateX(-50%);
-                height:80px;
-                width:1px;
-                background-color:$lightBorder_3;
-
-            }
-            .second_float_line{
-               position:relative;               
-                overflow: hidden;
-                margin-left:auto;
-                margin-right:auto;
-                height:30px;
-                width:50%;
-                img{
-                    margin:0px;
-                    transition:all 0.8s ease-in-out;
-                    z-index:0;
-                   position:absolute;
-                   top:0px;
-                }
-            }
-
            
         }
 
 
-        .bi_flex{
-            display:flex;
+        .second_floating {
+            height: 400px;
+            position: relative;
+            overflow: hidden;
+
+            .top_line {
+                position: absolute;
+                top: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                height: 80px;
+                width: 1px;
+                background-color: $lightBorder_3;
+
+            }
+
+            .second_float_line {
+                position: relative;
+                overflow: hidden;
+                margin-left: auto;
+                margin-right: auto;
+                height: 30px;
+                width: 50%;
+
+                img {
+                    margin: 0px;
+                    transition: all 0.8s ease-in-out;
+                    z-index: 0;
+                    position: absolute;
+                    top: 0px;
+                }
+            }
+
+
+        }
+
+
+        .bi_flex {
+            display: flex;
             justify-content: center;
             align-items: center;
-            gap:100px;
+            gap: 100px;
         }
 
     }

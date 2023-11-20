@@ -1,0 +1,86 @@
+@import "../../../scss/common";
+@import "../../../scss/mixin";
+@import "../../../scss/typography";
+@import "../../../scss/variables";
+
+
+.four_one_float{
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+    
+    .h_line{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, calc(-50% - 2px));
+        height: 1px;
+        width:calc(75% + 20px);
+        background-color: $lightBorder_3;
+      
+    }
+
+    .bottom_line {
+        position: absolute;
+        bottom: 0px;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 150px;
+        width: 1px;
+        background-color: $lightBorder_3;
+
+   }
+   .floating_line{
+    width:calc(75% + 16px);
+    margin-left:auto;
+    margin-right:auto;
+    position:relative;
+
+   }
+   .inner_float_box{
+    width:calc(33.33% + 2px);
+    margin-left:auto;
+    margin-right:auto;
+    position:relative;
+   }
+
+   .circle {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: $dark;
+    display: grid;
+    place-items: center;
+    z-index: 0;
+    position: absolute;
+   transform:translateX(-50%);
+    top: 0px;
+
+    .a {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        background-color: rgba($primary, 0.3);
+        display: grid;
+        place-items: center;
+
+        .b {
+            height: 18px;
+            width: 18px;
+            border-radius: 50%;
+            background-color: rgba($primary, 0.5);
+            display: grid;
+            place-items: center;
+
+            .c {
+                height: 8px;
+                width: 8px;
+                border-radius: 50%;
+                background-color: rgba($primary, 1);
+                display: grid;
+                place-items: center;
+            }
+        }
+    }
+}
+}
