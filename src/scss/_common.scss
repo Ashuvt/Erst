@@ -129,7 +129,7 @@ textarea,
   margin-bottom: 0;
   padding: 16px 18px;
   font-size: 17px;
-  box-shadow: 0 0 20px rgba($primary, .6);
+  box-shadow: 0 0 20px rgba($primary, 0.6);
   @include font('Inter-Regular', 17px, 17px, 400, $white);
   transition: all .5s cubic-bezier(.25, .46, .45, .94);
 
@@ -145,7 +145,7 @@ textarea,
 }
 
 
-.auth_field {
+.auth_field, .form_field {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -167,12 +167,13 @@ textarea,
     @include font('Inter-Regular', 14px, 20px, 400, $white);
     text-transform: capitalize;
     margin-bottom: 8px;
+    letter-spacing: 1px;
   }
 
   .input_wrap {
     position: relative;
 
-    input {
+    input, textarea{
       padding: 16px 50px 16px 16px;
       border-radius: 8px;
       border: 1px solid #2E2E2E;
@@ -182,6 +183,9 @@ textarea,
       @include font('Inter-Regular', 14px, 20px, 400, $white);
       backdrop-filter: blur(28px);
       background: linear-gradient(113deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.00) 110.84%);
+      &::placeholder {
+        @include font('Inter-Regular', 14px, 20px, 400, $textHint);
+      }
     }
 
     img.field_icon {
@@ -192,9 +196,7 @@ textarea,
       opacity: 0.4;
       max-width: 20px;
 
-      &::placeholder {
-        @include font('Inter-Regular', 14px, 20px, 400, $textHint);
-      }
+    
     }
 
     button {

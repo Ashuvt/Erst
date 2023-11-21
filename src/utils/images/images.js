@@ -42,6 +42,13 @@ import teamA from "../../assets/images/teama.jpg";
 import teamB from "../../assets/images/teamb.jpg";
 import teamC from "../../assets/images/teamc.jpg";
 import teamD from "../../assets/images/teamd.jpg";
+
+
+import teamMemberA from "../../assets/images/ali-zenaty-img.webp";
+import teamMemberB from "../../assets/images/najeeb-ibrahem-img.webp";
+import teamMemberC from "../../assets/images/yara-rammal.webp";
+import teamMemberD from "../../assets/images/divya.webp";
+
 import videoBtnImage from "../../assets/images/videobtn.webp";
 import primaryPlay from "../../assets/images/primaryplaybtn.png";
 import analyticBg from "../../assets/images/analyticbg.webp";
@@ -83,6 +90,7 @@ import blogD from "../../assets/images/blogD.jpg";
 // Icons
 import instagram from "../../assets/images/instagram.svg";
 import fb from "../../assets/images/fb.svg";
+import linkedin from "../../assets/images/icons/linkedin.svg"
 import twitter from "../../assets/images/twitter.svg";
 import rightArrow from "../../assets/images/rightarrow.svg";
 import whiteArrow from "../../assets/images/whitearrow.webp";
@@ -151,6 +159,7 @@ export const icons = {
   instagram,
   fb,
   twitter,
+  linkedin,
   rightArrow,
   whiteArrow,
   mail,
@@ -239,8 +248,12 @@ export const images = {
   blogA,
   blogB,
   blogC,
-  blogD
+  blogD,
 
+  teamMemberA,
+  teamMemberB,
+  teamMemberC,
+  teamMemberD,
 
 
 };

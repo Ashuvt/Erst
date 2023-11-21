@@ -42,7 +42,8 @@ const JoinTeam = () => {
         <div className="text_content">
           <h2 className="wow fadeInUp">We Invite New Workers To The Team!</h2>
           <p className="wow fadeInUp">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa voluptatibus quisquam quia error ullam blanditiis. Accusantium ut rem ratione expedita sequi saepe, repellat dicta voluptatibus voluptatum quisquam illum libero corrupti.
+          While CyberGain Academy currently doesn't have any vacant positions, we welcome individuals with a technical background in cybersecurity to submit their CVs. In cases where a suitable position is not immediately available, we are open to creating roles based on the qualifications and expertise of exceptional candidates. With the right blend of passion, skills, and experience, CyberGain Academy envisions expanding alongside a diverse team of experts from around the globe. Your unique talents could be the catalyst for our collective growth.
+
           </p>
           <div className="rating_box">
             <div className="top_line"></div>

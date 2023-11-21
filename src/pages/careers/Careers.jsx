@@ -6,6 +6,7 @@ import SymmentricSlider from "../../components/symmentricslider/SymmentricSlider
 import Header from "../../layouts/header/Header";
 import Footer from "../../layouts/footer/Footer";
 import WOW from "wow.js";
+import CvForm from "./cvform/CvForm";
 
 const Careers = () => {
 
@@ -24,7 +25,8 @@ const Careers = () => {
       />
       <SymmentricSlider />
       <JoinTeam />
-      <IntelligentTeam />
+      <CvForm />
+      {/* <IntelligentTeam /> */}
       <Footer />
     </Fragment>
   );

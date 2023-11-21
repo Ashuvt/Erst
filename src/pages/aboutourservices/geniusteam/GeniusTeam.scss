@@ -158,7 +158,10 @@
                 position: relative;
                 overflow: hidden;
                 border-radius: 12px;
-
+        img{
+            position:relative;
+            z-index:1;
+        }
                 .overlay {
                     position: absolute;
                     top: 0px;
@@ -166,15 +169,59 @@
                     height: 100%;
                     width: 100%;
                     background-color: rgba(20, 20, 19, 0.2);
+                    z-index:1;
+
+                }
+                .info_overlay{
+                    background-color:rgba(#000, 0.5);
+                    backdrop-filter: blur(25px);
+                    position: absolute;
+                    top: -110%;
+                    left: 0px;
+                    height:100%;
+                    width: 100%;
+                    padding:15px;
+                    z-index:2;
+                    transition:all 0.3s ease-in-out;
+                    padding:15px;
+                    overflow: hidden;
+                    display:flex;
+                    flex-direction: column;
+                    justify-content:space-between;
+                    p{
+                        color:$white;
+                        text-align: center;
+                        margin-top:50px;
+                    }
+                    .social_line{
+                            display:flex;
+                            justify-content:space-around;
+                            align-items:center;
+                            img{
+                                max-width:35px;
+                                max-height:35px;
+                            }
+                    }
+                }
+                &:hover{
+                    .info_overlay{
+                        top:0%;
+                    }
                 }
             }
 
             h5 {
                 margin: 20px 0px 10px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;    
             }
 
             h6 {
                 letter-spacing: 4px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;    
             }
         }
     }

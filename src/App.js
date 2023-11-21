@@ -31,6 +31,7 @@ import CourseSidebar from "./layouts/coursesidebar/CourseSidebar";
 import ExploreCourses from "./authPages/explorecourses/ExploreCourses";
 import RoadMap from "./pages/roadmap/RoadMap";
 import About from "./pages/about/About";
+import Blogs from "./pages/blogs/Blogs";
 
 
 
@@ -69,6 +70,12 @@ function App() {
           <Route path="/" element={<Home1 />} />          
           <Route path="/home1" element={<Home1 />} />
           <Route path="/about" element={<About />} />
+          <Route path="/blogs" element={<Blogs />} />
+
+
+
+
+
           <Route path="/home2" element={<Home2 />} />
           <Route path="/faq" element={<Faq />} />
           <Route path="/contactus" element={<ContactUs />} />
