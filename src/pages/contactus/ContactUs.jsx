@@ -22,8 +22,8 @@ const ContactUs = () => {
             <Header />
             <ContactLanding />
             <Locations />
-            <Services />
-            <VideoBlock />
+            {/* <Services /> */}
+            {/* <VideoBlock /> */}
             <Help />
             <Footer />
         </Fragment>

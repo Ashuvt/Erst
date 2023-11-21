@@ -15,7 +15,8 @@ import Footer from "../../layouts/footer/Footer";
 import WOW from "wow.js";
 import Partners from "./plan/partners/Partners";
 import Offer from "../home2/offer/Offer";
-
+import RoadMap from "../roadmap/RoadMap";
+ 
 const Home1 = () => {
   useEffect(() => {
     const wow = new WOW();
@@ -26,6 +27,7 @@ const Home1 = () => {
     <Fragment>
       <Header />
       <Home1Landing />
+      <RoadMap />
       <BenefitsOfSuite />
       <Partners />
       <FeedBack />

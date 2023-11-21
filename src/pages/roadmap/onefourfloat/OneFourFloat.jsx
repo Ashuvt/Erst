@@ -1,28 +1,23 @@
 import "./OneFourFloat.scss";
 
 const OneFourBox = ({ scrollY }) => {
+  let start = 300;
+
   let moveY =
-    scrollY < 130
-      ? scrollY
-      : scrollY >= 130 && scrollY < 250
-      ? 130
-      : scrollY - 120;
+    scrollY > start && scrollY <= start + 180
+      ? scrollY - start
+      : scrollY > start + 180 && scrollY <= start + 300
+      ? 180
+      : scrollY > start + 300
+      ? scrollY - 400
+      : -15;
 
-
-
-      
   let leftXA =
-    scrollY >= 130 && scrollY < 250
-      ? (250 - scrollY) / (scrollY - 125)
-      : scrollY > 250
+    scrollY > (start + 190) && scrollY < 600
+      ? (600 - scrollY) / (scrollY - (start + 190))
+      : scrollY >= 600
       ? 0
       : 50;
-      let leftXB =
-      scrollY >= 130 && scrollY < 250
-        ? (250 - scrollY) / (scrollY - 125)
-        : scrollY > 250
-        ? 0
-        : 50;
 
   return (
     <div className="one_four_float">
@@ -31,7 +26,7 @@ const OneFourBox = ({ scrollY }) => {
 
       <div
         className="floating_line"
-        style={{ transform: `translateY(${moveY}px)` }}
+        style={{ transform: `translateY(${moveY}px)`, display:`${scrollY > 800 ? 'none' : 'block'}` }}
       >
         <div
           className="circle left_a"
@@ -46,32 +41,31 @@ const OneFourBox = ({ scrollY }) => {
           </div>
         </div>
         <div className="inner_line">
-
-        <div
-          className="circle left_b"
-          style={{
-            left: `${leftXB}%`,
-          }}
-        >
-          <div className="a">
-            <div className="b">
-              <div className="c"></div>
+          <div
+            className="circle left_b"
+            style={{
+              left: `${leftXA}%`,
+            }}
+          >
+            <div className="a">
+              <div className="b">
+                <div className="c"></div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div
-          className="circle right_b"
-          style={{
-            left: `${100 - leftXB}%`,
-          }}
-        >
-          <div className="a">
-            <div className="b">
-              <div className="c"></div>
+          <div
+            className="circle right_b"
+            style={{
+              left: `${100 - leftXA}%`,
+            }}
+          >
+            <div className="a">
+              <div className="b">
+                <div className="c"></div>
+              </div>
             </div>
           </div>
-        </div>
         </div>
         <div
           className="circle right_a"

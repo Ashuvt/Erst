@@ -31,7 +31,7 @@
                     }
 
                     .text_box {
-                        height: 88px;
+                        height: 68px;
                         overflow: hidden;
                         margin-top: 10px;
                         @media only screen and (max-width:$tab) {
@@ -39,12 +39,11 @@
                         }
 
                         @media only screen and (max-width:1720px) {
-                            @include font('Syne-Regular', 60px, 66px, 600, $white);
-                            height: 66px;
+                            height: 60.5px;
                         }
 
                         @media only screen and (max-width:1280px) {
-                            height: 60.5px;
+                            height:55px;
                         }
 
                         @media only screen and (max-width:$mobile) {

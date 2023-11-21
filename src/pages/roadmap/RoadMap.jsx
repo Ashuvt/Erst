@@ -8,7 +8,8 @@ import OneFourFloat from "./onefourfloat/OneFourFloat";
 import FourOneFloat from "./fouronefloat/FourOneFloat";
 import OneTwoFloat from "./onetwofloat/OneTwoFloat";
 import ParticlesBg from "../../components/particlesbg/ParticlesBg";
-import { logoImage } from "../../utils/images/images";
+import {logoImage } from "../../utils/images/images";
+import CourseCard from "./courcecard/CourseCard";
 const RoadMap = () => {
   const framData = [
     {
@@ -37,6 +38,22 @@ const RoadMap = () => {
     },
   ];
 
+  const courseData = [
+    {
+      id:"000",
+      name:"Red Team",
+      img:icon.redTeam,
+      type:"#CC0A0A",
+      about:"Experience our Red Team Course, designed to enhance your personal skills and unleash your creativity, equipping you with valuable skills for a successful career in Cyber Security.",
+    },
+    {
+      id:"111",
+      name:"Blue Team",
+      img:icon.blueTeam,
+      type:"#0A1633",
+      about:"Introducing the Blue Team course, a comprehensive certification pathway designed to empower you with practical defensive security skills. Gain expertise in incident response, network security, vulnerability assessment, and more, as you develop a solid understanding of defensive security practices. Through hands-on exercises and immersive training, analyze information systems, fortify digital environments, and ensure ongoing protection against evolving threats.",
+    }
+  ]
   const [scrollY, setScrollY] = useState(0);
 
   const handleScroll = () => {
@@ -52,10 +69,9 @@ const RoadMap = () => {
 
   return (
     <Fragment>
-         <ParticlesBg />
-      <Header />
-      <section className="road_map p_top p_bottom">
-   
+  
+      <section className="road_map p_bottom">
+   <h3 className="indicator">{scrollY}</h3>
         <div className="content_wrap">
           <div className="small_screen_map">
             <div className="moving_circle" style={{top:`${scrollY + 100}px`}}>
@@ -66,14 +82,14 @@ const RoadMap = () => {
               </div>
             </div>
           </div>
-          <div className="title">
+          {/* <div className="title">
             <h2>Cources Road Map</h2>
             <p>
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed
               ducimus soluta totam alias quia repellendus neque suscipit rerum
               maxime ipsa?
             </p>
-          </div>
+          </div> */}
 
           <OneFourFloat scrollY={scrollY} />
 
@@ -106,32 +122,19 @@ const RoadMap = () => {
           <OneTwoFloat scrollY={scrollY} />
 
           <div className="bi_flex">
-          <div className="team_card">
-            <div className="icon_box">
-              <img src={icon.redTeam} alt="icon" />
-            </div>
-            <h5>RedTeam</h5>
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed quo
-              distinctio magni et iusto, eum molestias velit perferendis
-              officiis placeat.
-            </p>
-          </div>
-          <div className="team_card">
-            <div className="icon_box">
-              <img src={icon.blueTeam} alt="icon" />
-            </div>
-            <h5>BlueTeam</h5>
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed quo
-              distinctio magni et iusto, eum molestias velit perferendis
-              officiis placeat.
-            </p>
-          </div>
+          {
+            courseData.map((data) => {
+              return(
+                <Fragment key={data.id}>
+                  <CourseCard {...data} />
+                </Fragment>
+              )
+            })
+          }
           </div>
         </div>
       </section>
-      <Footer />
+      {/* <Footer /> */}
     </Fragment>
   );
 };

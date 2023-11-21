@@ -87,16 +87,16 @@
 }
 
 h1 {
-    @include font('SpaceGrotesk-Regular', 80px, 88px, 600, $white);
+    @include font('SpaceGrotesk-Regular', 60px, 68px, 600, $white);
     margin: 0px;
     text-transform: capitalize;
 
     @media only screen and (max-width:1720px) {
-        @include font('SpaceGrotesk-Regular', 60px, 66px, 500, $white);
+        @include font('SpaceGrotesk-Regular', 55px, 60.5px, 500, $white);
     }
 
     @media only screen and (max-width:1280px) {
-        @include font('SpaceGrotesk-Regular', 55px, 60.5px, 500, $white);
+        @include font('SpaceGrotesk-Regular', 50px, 55px, 500, $white);
     }
 
     @media only screen and (max-width:$mobile) {
