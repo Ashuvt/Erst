@@ -30,7 +30,7 @@ const TipsBlog = () => {
   ];
 
   return (
-    <section className="tips_blog p_bottom">
+    <section className="tips_blog p_bottom p_top">
       <div className="content_wrap">
         <div className="left">
           <h2 className="wow fadeInUp">Lorem ipsumonsectetur adipisicing.</h2>

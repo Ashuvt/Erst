@@ -3,7 +3,7 @@ import "./Plan.scss";
 import { Fragment, useState } from "react";
 import { planData } from "../../../utils/data/data";
 import PlanCard from "./plancard/PlanCard";
-import LogoSpace from "./logospace/LogoSpace";
+import LogoSpace from "./partners/Partners";
 import MidTitle from "../../../components/midtitle/MidTitle";
 
 const Plan = () => {

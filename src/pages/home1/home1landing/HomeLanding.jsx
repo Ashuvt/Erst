@@ -30,7 +30,7 @@ const Home1Landing = () => {
           Sign Up
         </button>
 
-        <div className="dahsboard">
+        {/* <div className="dahsboard">
           <img src={images.home1landing} alt="dashboard" />
           <div
             className="primary_glass left wow zoomIn"
@@ -42,12 +42,8 @@ const Home1Landing = () => {
             data-wow-delay="0.5s"
             data-wow-duration="1.5s"
           ></div>
-          {/* <div
-            className="secondary_glass right wow zoomIn"
-            data-wow-delay="0.5s"
-            data-wow-duration="1.5s"
-          ></div> */}
-        </div>
+    
+        </div> */}
       </div>
     </section>
   );

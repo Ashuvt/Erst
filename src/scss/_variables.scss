@@ -1,6 +1,8 @@
 // Colors
-$primary: #1477C9;
-$secondary: #ffc52c;
+// $primary: #1477C9;
+// $secondary: #ffc52c;
+$primary: #0077C2;
+$secondary: rgba(1, 73, 158, 0.61);
 $bgLight: #1D1E1F;
 $primaryGlass: #be43e4;
 $green:#24BC61;
@@ -34,8 +36,8 @@ $borderGradient: linear-gradient(130deg, #ffffff44, #ffffff17);
 // $bgGradient: linear-gradient(106deg, rgba(20, 119, 201, 0.59) -132.28%, rgba(20, 119, 201, 0.00) 38.81%, rgba(255, 197, 44, 0.24) 112.21%);
 
 
-$bgGradient: linear-gradient(106deg, rgba(20, 119, 201, 0.80) -90.28%, rgba(20, 119, 201, 0.00) 25.81%, rgba(255, 197, 44, 0.1) 112.21%);
-
+// $bgGradient: linear-gradient(106deg, rgba(20, 119, 201, 0.80) -90.28%, rgba(20, 119, 201, 0.00) 25.81%, rgba(255, 197, 44, 0.1) 112.21%);
+$bgGradient:linear-gradient(104deg, #0077C2 0%, rgba(1, 73, 158, 0.61) 49.66%, rgba(2, 27, 121, 0.22) 100%);
 
 $primaryGradient: linear-gradient(315deg, $secondary, $primary);
 $primaryGradient_1: linear-gradient(135deg, $primary 30%, $secondary);

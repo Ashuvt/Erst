@@ -60,10 +60,10 @@ const Header = () => {
               Sign up
             </button>
 
-            <button type="button" className="cartbtn" onClick={openCartPopup}>
+            {/* <button type="button" className="cartbtn" onClick={openCartPopup}>
               <div className="notification">2</div>
               <img src={icons.addCart} alt="cart" />
-            </button>
+            </button> */}
 
             
             <HembergerMenu clickHandler={menuToggler} status={sidebarStatus} />

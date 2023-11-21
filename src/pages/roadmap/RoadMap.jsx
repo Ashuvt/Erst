@@ -8,6 +8,7 @@ import OneFourFloat from "./onefourfloat/OneFourFloat";
 import FourOneFloat from "./fouronefloat/FourOneFloat";
 import OneTwoFloat from "./onetwofloat/OneTwoFloat";
 import ParticlesBg from "../../components/particlesbg/ParticlesBg";
+import { logoImage } from "../../utils/images/images";
 const RoadMap = () => {
   const framData = [
     {
@@ -96,36 +97,31 @@ const RoadMap = () => {
           <FourOneFloat scrollY={scrollY} />
 
           <div className="four_info_card single">
-            <div className="icon_box">
-              <img src={icon.certificate} alt="icon" />
-            </div>
-            <h5>Lorem ipsum amet.</h5>
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed quo
-              distinctio magni et iusto, eum molestias velit perferendis
-              officiis placeat.
-            </p>
+              <img src={logoImage.logo} alt="icon" />
+              <h4>Cybergain</h4>
+
+          
           </div>
 
           <OneTwoFloat scrollY={scrollY} />
 
           <div className="bi_flex">
-          <div className="four_info_card single">
+          <div className="team_card">
             <div className="icon_box">
-              <img src={icon.certificate} alt="icon" />
+              <img src={icon.redTeam} alt="icon" />
             </div>
-            <h5>Lorem ipsum amet.</h5>
+            <h5>RedTeam</h5>
             <p>
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed quo
               distinctio magni et iusto, eum molestias velit perferendis
               officiis placeat.
             </p>
           </div>
-          <div className="four_info_card single">
+          <div className="team_card">
             <div className="icon_box">
-              <img src={icon.certificate} alt="icon" />
+              <img src={icon.blueTeam} alt="icon" />
             </div>
-            <h5>Lorem ipsum amet.</h5>
+            <h5>BlueTeam</h5>
             <p>
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed quo
               distinctio magni et iusto, eum molestias velit perferendis

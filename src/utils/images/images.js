@@ -7,6 +7,11 @@ import companyD from "../../assets/images/companyd.webp";
 import companyE from "../../assets/images/companye.webp";
 import companyF from "../../assets/images/companyf.webp";
 
+import partnerC from "../../assets/images/logos/Aiesec_logo.webp";
+import partnerD from "../../assets/images/logos/Circle-Logo.webp";
+import partnerE from "../../assets/images/logos/Supagrow-Logo.webp";
+import partnerA from "../../assets/images/logos/ThinkCyber_Logo.webp";
+import partnerB from "../../assets/images/logos/ec_council_logo.webp";
 // Images
 import dashbord from "../../assets/images/home1landing.svg";
 import info from "../../assets/images/info.svg";
@@ -134,6 +139,12 @@ export const logoImage = {
   companyD,
   companyE,
   companyF,
+
+  partnerA,
+  partnerB,
+  partnerC,
+  partnerD,
+  partnerE
 };
 
 export const icons = {

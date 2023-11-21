@@ -12,6 +12,11 @@ export const menuList = [
         link: "/home1",
       },
       {
+        id: "022",
+        text: "About",
+        link: "/about",
+      },
+      {
         id: "02",
         text: "Home2",
         link: "/home2",
@@ -58,11 +63,11 @@ export const menuList = [
     id: 3,
     title: "Services",
     submenu: [
-      {
-        id: "09",
-        text: "shop",
-        link: "/shop",
-      },
+      // {
+      //   id: "09",
+      //   text: "shop",
+      //   link: "/shop",
+      // },
       {
         id: "10",
         text: "blogdetail",

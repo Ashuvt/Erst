@@ -13,8 +13,8 @@ const HomeBlogs = () => {
 
 
   return (
-    <section className="home_blog p_bottom">
-      <div className="content_wrap">
+    <section className="home_blog p_bottom ">
+      <div className="content_wrap p_top">
         <MidTitle
           title="Read Our Interesting Blog Posts"
           text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi iste dignissimos mollitia? Maxime similique doloribus quae, voluptatum facilis cupiditate hic nisi natus, reiciendis ducimus cumque soluta voluptates?"

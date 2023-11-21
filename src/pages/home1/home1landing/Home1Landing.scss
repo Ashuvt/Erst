@@ -54,86 +54,86 @@ z-index:1;
             margin: 0px auto 0px;
         }
 
-        .dahsboard {
-            margin-top: 130px;
-            width: 100%;
-            -webkit-backdrop-filter: blur(5px);
-            backdrop-filter: blur(5px);
-            outline-offset: 0px;
-            border: 40px solid rgba(255, 255, 255, .05);
-            border-radius: 12px;
-            outline: 1px solid rgba(255, 255, 255, .1);
-            position: relative;
-            z-index: 1;
-            background-color:$dark;
+        // .dahsboard {
+        //     margin-top: 130px;
+        //     width: 100%;
+        //     -webkit-backdrop-filter: blur(5px);
+        //     backdrop-filter: blur(5px);
+        //     outline-offset: 0px;
+        //     border: 40px solid rgba(255, 255, 255, .05);
+        //     border-radius: 12px;
+        //     outline: 1px solid rgba(255, 255, 255, .1);
+        //     position: relative;
+        //     z-index: 1;
+        //     background-color:$dark;
 
-            @media only screen and (max-width:$tab) {
-                margin-top: 80px;
-                border-width: 30px;
-            }
+        //     @media only screen and (max-width:$tab) {
+        //         margin-top: 80px;
+        //         border-width: 30px;
+        //     }
 
-            @media only screen and (max-width:$mobile) {
-                margin-top: 60px;
-                border-width:20px;
-            }
+        //     @media only screen and (max-width:$mobile) {
+        //         margin-top: 60px;
+        //         border-width:20px;
+        //     }
 
-            img {
-                width: 100%;
-                position:relative;
-                z-index:2;
-            }
+        //     img {
+        //         width: 100%;
+        //         position:relative;
+        //         z-index:2;
+        //     }
 
-            .primary_glass {
-                height: 300px;
-                width: 300px;
-                background-color: $primary;
-                border-radius: 50%!important;
-                filter: blur(180px);
-                position: absolute;
-                z-index:0;
-                &.left {
-                    top: -30%;
-                    left: -25%;
-                    z-index: 0;
-                    @media only screen and(max-width:$tab){
-                        display: none;
-                    }
-                }
+        //     .primary_glass {
+        //         height: 300px;
+        //         width: 300px;
+        //         background-color: $primary;
+        //         border-radius: 50%!important;
+        //         filter: blur(180px);
+        //         position: absolute;
+        //         z-index:0;
+        //         &.left {
+        //             top: -30%;
+        //             left: -25%;
+        //             z-index: 0;
+        //             @media only screen and(max-width:$tab){
+        //                 display: none;
+        //             }
+        //         }
 
-                &.right {
-                    top: -10%;
-                    right: -25%;
-                    z-index: 0;
-                    @media only screen and(max-width:$tab){
-                        height: 150px;
-                        width: 150px;
-                        filter: blur(80px);
-                        top: -70%;
-                        right:25%;
-                    }
-                }
-                &.zoomIn{
-                    border-radius: 50%!important;
-                }
+        //         &.right {
+        //             top: -10%;
+        //             right: -25%;
+        //             z-index: 0;
+        //             @media only screen and(max-width:$tab){
+        //                 height: 150px;
+        //                 width: 150px;
+        //                 filter: blur(80px);
+        //                 top: -70%;
+        //                 right:25%;
+        //             }
+        //         }
+        //         &.zoomIn{
+        //             border-radius: 50%!important;
+        //         }
 
                 
-            }
+        //     }
 
-            .secondary_glass {
-                height: 300px;
-                width: 300px;
-                background-color: $secondary;
-                border-radius: 50%;
-                filter: blur(180px);
-                position: absolute;
-                z-index:0;
+        //     .secondary_glass {
+        //         height: 300px;
+        //         width: 300px;
+        //         background-color: $secondary;
+        //         border-radius: 50%;
+        //         filter: blur(180px);
+        //         position: absolute;
+        //         z-index:0;
 
-                &.right {
-                    top: 30%;
-                    right: -25%;
-                    z-index: 0;
-                }
-            }
-        }
+        //         &.right {
+        //             top: 30%;
+        //             right: -25%;
+        //             z-index: 0;
+        //         }
+        //     }
+        // }
     }
 }

@@ -30,6 +30,7 @@ import ExploreDetail from "./authPages/exploredetail/ExploreDetail";
 import CourseSidebar from "./layouts/coursesidebar/CourseSidebar";
 import ExploreCourses from "./authPages/explorecourses/ExploreCourses";
 import RoadMap from "./pages/roadmap/RoadMap";
+import About from "./pages/about/About";
 
 
 
@@ -65,8 +66,9 @@ function App() {
         <CourseSidebar />
         <Routes>
          
-          <Route path="/" element={<Home1 />} />
+          <Route path="/" element={<Home1 />} />          
           <Route path="/home1" element={<Home1 />} />
+          <Route path="/about" element={<About />} />
           <Route path="/home2" element={<Home2 />} />
           <Route path="/faq" element={<Faq />} />
           <Route path="/contactus" element={<ContactUs />} />
@@ -82,7 +84,7 @@ function App() {
             element={<SoftwareDeveloper />}
           ></Route>
           <Route path="/new_technology" element={<NewTechnology />}></Route>
-          <Route path="/shop" element={<Shop />}></Route>
+          {/* <Route path="/shop" element={<Shop />}></Route> */}
           <Route path="/blogs/:id" element={<BlogDetail />}></Route>
           <Route path="/*" element={<ErrorPage />} />
 

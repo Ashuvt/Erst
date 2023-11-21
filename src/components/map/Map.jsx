@@ -8,83 +8,19 @@ const Map = () => {
     {
       id: 0,
       class: "a",
-    },
-    {
-      id: 1,
-      class: "b",
+      name:"India"
     },
     {
       id: 2,
       class: "c",
+      name: "UAE",
     },
     {
-      id: 3,
-      class: "d",
-    },
-    {
-      id: 4,
-      class: "e",
-    },
-    {
-      id: 5,
-      class: "f",
-    },
-    {
-      id: 6,
-      class: "g",
-    },
-    {
-      id: 7,
-      class: "h",
-    },
-    {
-      id: 8,
-      class: "i",
-    },
-    {
-      id: 9,
-      class: "j",
-    },
-    {
-      id: 10,
-      class: "k",
-    },
-    {
-      id: 11,
-      class: "l",
-    },
-    {
-      id: 12,
-      class: "m",
-    },
-    {
-      id: 13,
-      class: "n",
-    },
-    {
-      id: 14,
-      class: "o",
-    },
-    {
-      id: 15,
-      class: "p",
-    },
-    {
-      id: 16,
-      class: "q",
-    },
-    {
-      id: 17,
-      class: "r",
-    },
-    {
-      id: 18,
-      class: "s",
-    },
-    // {
-    //   id: 19,
-    //   class: "t",
-    // },
+      id: 1,
+      class: "b",
+      name:"Israel"
+    },  
+   
   ];
 
   useEffect(() => {

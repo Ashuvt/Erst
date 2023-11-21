@@ -4,13 +4,15 @@
 @import "../../scss/typography";
 
 section.map {
+    position:relative;
+    z-index:2;
     .content_wrap {
         position: relative;
         overflow: hidden;
 
         img {
             max-width: 100%;
-            filter: invert(35%) sepia(73%) saturate(1136%) hue-rotate(177deg) brightness(95%) contrast(93%);
+            filter: invert(30%) sepia(96%) saturate(5065%) hue-rotate(188deg) brightness(98%) contrast(101%);
         }
 
         .circle {
@@ -49,117 +51,23 @@ section.map {
 
             &.a {
                 position: absolute;
-                top: 20px;
-                left: 5%;
+                top: 105px;
+                left: 60%;
             }
 
             &.b {
                 position: absolute;
-                top: 25px;
-                left: 15%;
+                top: 110px;
+                left:49%;
             }
 
             &.c {
                 position: absolute;
-                top: 150px;
-                left: 25%;
+                top: 110px;
+                left:55%;
             }
 
-            &.d {
-                position: absolute;
-                top: 255px;
-                left: 55%;
-            }
-
-            &.e {
-                position: absolute;
-                top: 20px;
-                left: 85%;
-            }
-
-            &.f {
-                position: absolute;
-                top: 50%;
-                left: 35%;
-            }
-
-            &.g {
-                position: absolute;
-                top: 70%;
-                left: 45%;
-            }
-
-            &.h {
-                position: absolute;
-                top: 35%;
-                left: 65%;
-            }
-
-            &.i {
-                position: absolute;
-                top: 45%;
-                left: 50%;
-            }
-
-            &.j {
-                position: absolute;
-                top: 75%;
-                left: 10%;
-            }
-
-            &.k {
-                position: absolute;
-                top: 10%;
-                left: 50%;
-            }
-
-            &.l {
-                position: absolute;
-                top: 10%;
-                left: 35%;
-            }
-
-            &.m {
-                position: absolute;
-                top: 80%;
-                left: 95%;
-            }
-
-            &.n {
-                position: absolute;
-                top: 40%;
-                left: 85%;
-            }
-
-            &.o {
-                position: absolute;
-                top: 30%;
-                left: 12%;
-            }
-
-            &.p {
-                position: absolute;
-                top: 10%;
-                left: 62%;
-            }
-
-            &.q {
-                position: absolute;
-                top: 60%;
-                left: 6%;
-            }
-
-            &.r {
-                position: absolute;
-                top: 60%;
-                left: 66%;
-            }
-
-            &.s {
-                position: absolute;
-                top: 65%;
-                left: 22%;
-            }
+          
         }
     }
 }

@@ -1,35 +1,34 @@
 
-import "./LogoSpace.scss";
+import "./Partners.scss";
 import { logoImage } from "../../../../utils/images/images";
 
-const LogoSpace = () => {
+const Partners = () => {
   const logoData = [
     {
       id: "00",
-      img: logoImage.companyA,
+      img: logoImage.partnerA,
     },
     {
       id: "02",
-      img: logoImage.companyB,
+      img: logoImage.partnerB,
     },
     {
       id: "03",
-      img: logoImage.companyC,
+      img: logoImage.partnerC,
     },
     {
       id: "04",
-      img: logoImage.companyD,
+      img: logoImage.partnerD,
     },
     {
       id: "05",
-      img: logoImage.companyE,
+      img: logoImage.partnerE,
     },
-    {
-      id: "06",
-      img: logoImage.companyF,
-    },
+  
   ];
   return (
+    <section className="our_partners">
+      <div className="content_wrap">
     <div className="logo_space wow fadeInUp">
       {logoData.map((data) => {
         return (
@@ -40,7 +39,9 @@ const LogoSpace = () => {
       })}
       
     </div>
+    </div>
+    </section>
   );
 };
 
-export default LogoSpace;
+export default Partners;
