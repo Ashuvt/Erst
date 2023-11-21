@@ -1,7 +1,7 @@
 import "./ProductCard.scss";
 import Pill from "../../../../components/pill/Pill";
 import { icons } from "../../../../utils/images/images";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { cartPopupToggler } from "../../../../store/actions";
 

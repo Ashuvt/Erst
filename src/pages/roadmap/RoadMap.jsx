@@ -7,6 +7,7 @@ import { icon } from "../../utils/images/icons";
 import OneFourFloat from "./onefourfloat/OneFourFloat";
 import FourOneFloat from "./fouronefloat/FourOneFloat";
 import OneTwoFloat from "./onetwofloat/OneTwoFloat";
+import ParticlesBg from "../../components/particlesbg/ParticlesBg";
 const RoadMap = () => {
   const framData = [
     {
@@ -50,10 +51,20 @@ const RoadMap = () => {
 
   return (
     <Fragment>
+         <ParticlesBg />
       <Header />
-      {/* <h3 className="text_count">{scrollY}</h3> */}
       <section className="road_map p_top p_bottom">
+   
         <div className="content_wrap">
+          <div className="small_screen_map">
+            <div className="moving_circle" style={{top:`${scrollY + 100}px`}}>
+              <div className="a">
+                <div className="b">
+                  <div className="c"></div>
+                </div>
+              </div>
+            </div>
+          </div>
           <div className="title">
             <h2>Cources Road Map</h2>
             <p>

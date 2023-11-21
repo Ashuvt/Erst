@@ -3,8 +3,9 @@
 @import "../../scss/typography";
 @import "../../scss/variables";
 
-section.footer {  
+section.footer { 
   position:relative;
+  z-index:1;
   background: $bgGradient;
   padding-top: 130px;
   padding-bottom: 80px;
@@ -13,7 +14,6 @@ section.footer {
   @media only screen and (max-width:$tab) {
     padding-top: 80px;
     padding-top: 80px;
-
   }
 
   @media only screen and (max-width:$mobile) {
@@ -34,8 +34,12 @@ section.footer {
   }
 
   .content_wrap {
+    border-radius: 4px;
     position: relative;
-    z-index: 1;
+    z-index: 2;
+background-color:rgba($white, 0.05);
+backdrop-filter: blur(10px);
+padding:15px;
 
     footer {
       width: 100%;
