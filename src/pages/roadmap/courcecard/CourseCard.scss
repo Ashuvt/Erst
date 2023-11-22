@@ -14,6 +14,7 @@
     width: 400px;    
     overflow: auto;
     height:650px;
+    position:relative;
     @media only screen and (max-width:$mobile){
         width:100%;
     }
@@ -31,8 +32,8 @@
         left: 0px;
         padding:20px;
         background-color:$dark;
-        border-radius: 12px;
-
+        border-radius: 12px 12px 0px 0px;
+        border-bottom:1px solid $lightBorder_1;
 
         .img_wrap {
             padding: 25px;
@@ -45,7 +46,7 @@
             justify-content: flex-start;
             align-items: center;
             gap:8px;
-            margin:15px 0px 0px;
+            margin:20px 0px 0px;
             p.t-g-18{
                 color:$white;
                 letter-spacing: 0.5px;
@@ -55,40 +56,34 @@
                 width:20px;
             }
         }
-        .counts_info {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            gap: 16px;
-            margin: 20px 0px;
+        // .counts_info {
+        //     display: flex;
+        //     justify-content: flex-start;
+        //     align-items: center;
+        //     gap: 16px;
+        //     margin: 20px 0px;
 
-            .info {
-                display: flex;
-                justify-content: flex-start;
-                align-items: center;
-                gap: 4px;
+        //     .info {
+        //         display: flex;
+        //         justify-content: flex-start;
+        //         align-items: center;
+        //         gap: 4px;
 
-                img {
-                    max-width: 20px;
-                    max-height: 20px;
-                }
+        //         img {
+        //             max-width: 20px;
+        //             max-height: 20px;
+        //         }
 
-                p {
-                    color: $textPrimary;
-                }
-            }
-        }
-        button{
-            margin-top:15px;
-            width:100%;
-            &.primarybtn{
-                padding:10 15px;
-            }           
-        }
+        //         p {
+        //             color: $textPrimary;
+        //         }
+        //     }
+        // }
+       
     }
 
     .courses_list{
-        padding:0px 20px 20px;
+        padding:15px 20px 20px;
         p.t-g-18{
             color:$white;
             letter-spacing: 0.5px;
@@ -102,5 +97,24 @@
                 margin-bottom:5px;
             }
         }
+        button{
+            margin-top:15px;
+            width:100%;
+            position:relative;
+            z-index:2;
+            &.primarybtn{
+                padding:10 15px;
+            }           
+        }
+    }
+
+    .bottom_shad{
+        position:sticky;
+        bottom:0px;
+        left:0px;
+        height:150px;
+        width:100%;
+        background:linear-gradient( to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
+        z-index: 1;
     }
 }

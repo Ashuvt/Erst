@@ -22,7 +22,7 @@ const Locations = () => {
     {
       id: 2,
       country: "India",
-      location: "Lorem ipsum amet, Delhi",
+      location: "Cybergain Educenter Private Limited, 2-a/3 S/f Front Side, Asaf Ali Rd, Turkman Gt., Darya Ganj, New Delhi, Delhi, India, 110002",
       call: "+1 212 425 8617",
       mail: "helloabc@gmail.com",
     },    

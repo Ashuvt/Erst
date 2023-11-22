@@ -3,6 +3,8 @@ import "./OneFourFloat.scss";
 const OneFourBox = ({ scrollY }) => {
   let start = 300;
 
+  
+
   let moveY =
     scrollY > start && scrollY <= start + 180
       ? scrollY - start
@@ -12,12 +14,13 @@ const OneFourBox = ({ scrollY }) => {
       ? scrollY - 400
       : -15;
 
-  let leftXA =
-    scrollY > (start + 190) && scrollY < 600
-      ? (600 - scrollY) / (scrollY - (start + 190))
-      : scrollY >= 600
-      ? 0
-      : 50;
+      let leftXA = scrollY > start + 180 && scrollY <= start + 300
+        ? 50 + (0 - 50)*((scrollY - 480)/(600 - 480))
+        : scrollY >= 600
+        ? 0
+        : 50;
+
+
 
   return (
     <div className="one_four_float">

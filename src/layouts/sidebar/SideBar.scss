@@ -114,7 +114,7 @@
             align-items: flex-start;
 
             a {
-                @include font('Inter-Regular', 16px, 20px, 400, $white);
+                @include font('Inter-Regular', 14px, 18px, 400, $white);
                 text-decoration: none;
                 position: relative;
                 transition: all 0.4s ease-in-out;
@@ -126,8 +126,8 @@
                     &::after {
                         position: absolute;
                         content: "";
-                        height: 20px;
-                        width:4px;
+                        height:15px;
+                        width:2px;
                         border-radius: 15px;
                         background-color: $white;
                         top: 50%;
