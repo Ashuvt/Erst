@@ -176,7 +176,7 @@
                     background-color:rgba(#000, 0.5);
                     backdrop-filter: blur(25px);
                     position: absolute;
-                    top: -110%;
+                    bottom: -110%;
                     left: 0px;
                     height:100%;
                     width: 100%;
@@ -205,7 +205,7 @@
                 }
                 &:hover{
                     .info_overlay{
-                        top:0%;
+                       bottom:0%;
                     }
                 }
             }

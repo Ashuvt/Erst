@@ -8,7 +8,7 @@ const LeftScreen = ({ side, setSide }) => {
     <section className="benefit_suite_left p_top p_bottom">
       <div className="content_wrap">
         <div className={`text_content ${side ? 'goleft' : 'original'}`}>
-          <h2 className="wow fadeInUp">Lorem ipsum dolor sit amet consectetur.</h2>
+          <h2 className="wow fadeInUp">About Cyber Gain Center.</h2>
           <p className="wow fadeInUp">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore animi, rerum consectetur cumque, vel voluptatem quas temporibus reprehenderit accusantium doloribus modi tempore obcaecati necessitatibus architecto iusto earum nemo, nobis iure ex explicabo voluptate? Eveniet repellat ullam unde? Deleniti a, commodi sint, eaque nesciunt quam numquam fugit dicta ab labore ducimus!
           </p>
@@ -22,7 +22,7 @@ const LeftScreen = ({ side, setSide }) => {
               <button type="button" onClick={() => setSide(true)}>
                 <img src={icons.whiteArrow} alt="arrow" />
               </button>
-              <h6>for business</h6>
+              <h6>For Universities</h6>
             </div>
             <div className="overlay"></div>
             <img src={images.benefitSuite} className="bg" alt="bg" />

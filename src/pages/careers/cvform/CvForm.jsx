@@ -58,7 +58,7 @@ const CvForm = () => {
                 <input type="file" />
                 <div className="upload_content">
                   <img src={icon.upload} alt="upload" />
-                  <p className="t-11">Upload Portfolio</p>
+                  <p className="t-11">Upload CV / Resume</p>
                 </div>
               </div>
             </div>

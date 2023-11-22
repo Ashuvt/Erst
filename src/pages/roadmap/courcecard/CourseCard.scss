@@ -6,14 +6,20 @@
 
 .course_card {
     border-radius: 8px;
-    padding: 20px;
     transition: all 0.3s ease-in-out;
     border-radius: 12px;
     position: relative;
     border: 1px solid $lightBorder_1;
     z-index: 2;
-    width: 400px;
-    
+    width: 400px;    
+    overflow: auto;
+    height:650px;
+    @media only screen and (max-width:$mobile){
+        width:100%;
+    }
+    &::-webkit-scrollbar {
+        display: none;
+      }
     &:hover{
         box-shadow: 0 0 20px rgba(245, 245, 245, 0.25);
     }
@@ -21,11 +27,15 @@
     .sticky_content {
         width: 100%;
         position: sticky;
-        top: 20px;
+        top:0px;
         left: 0px;
+        padding:20px;
+        background-color:$dark;
+        border-radius: 12px;
+
 
         .img_wrap {
-            padding: 20px;
+            padding: 25px;
             width: 100%;
             border-radius: 4px;
             background: $textContrast;         
@@ -35,10 +45,61 @@
             justify-content: flex-start;
             align-items: center;
             gap:8px;
-            margin:10px 0px;
+            margin:15px 0px 0px;
+            p.t-g-18{
+                color:$white;
+                letter-spacing: 0.5px;
+            }
             .box{
                 height:20px;
                 width:20px;
+            }
+        }
+        .counts_info {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 16px;
+            margin: 20px 0px;
+
+            .info {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 4px;
+
+                img {
+                    max-width: 20px;
+                    max-height: 20px;
+                }
+
+                p {
+                    color: $textPrimary;
+                }
+            }
+        }
+        button{
+            margin-top:15px;
+            width:100%;
+            &.primarybtn{
+                padding:10 15px;
+            }           
+        }
+    }
+
+    .courses_list{
+        padding:0px 20px 20px;
+        p.t-g-18{
+            color:$white;
+            letter-spacing: 0.5px;
+            margin-top:15px;
+        }
+        ol{
+            margin-top:15px;
+            padding-left:15px;
+            li{
+                @include font('Inter-Regular', 16px, 20px, 400, $textSecondary);
+                margin-bottom:5px;
             }
         }
     }

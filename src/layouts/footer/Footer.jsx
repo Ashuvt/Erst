@@ -1,5 +1,6 @@
 import "./Footer.scss";
 import { icons, images } from "../../utils/images/images";
+import { NavLink } from "react-router-dom";
 
 const Footer = () => {
 
@@ -14,12 +15,16 @@ const Footer = () => {
           </h2>
           <div className="link_social wow fadeInUp">
             <div className="links_container">
-              <a href="/">home</a>
-              <a href="/">our pricing</a>
-              <a href="/">blog</a>
-              <a href="/">shop</a>
-              <a href="/">support</a>
-            </div>
+          <NavLink to="/">Home</NavLink>
+          <NavLink to="/about">About</NavLink>
+          <NavLink to="/careers">Career</NavLink>
+          <NavLink to="/contactus">Contact Us</NavLink>
+          <NavLink to="/blogs">Blogs</NavLink>
+          <NavLink to="/faq">FAQ</NavLink>
+        
+         
+
+                     </div>
             <div className="social_networks">
               <a href="https://www.instagram.com/" target="_blank">
                 <img src={icons.instagram} alt="instagram" />
@@ -63,7 +68,7 @@ const Footer = () => {
               </div>
 
               <div className="grid_box footer_download wow fadeInUp">
-                <h5>Login And Signup</h5>
+                <h5>Login And Sign Up</h5>
                 <p>We suggest login to our portal</p>
 
                 <div className="app_wrap">
@@ -72,7 +77,7 @@ const Footer = () => {
                   </a>
 
                   <a href="#" target="_blank">
-                    SignUp
+                    Sign Up
                   </a>
                 </div>
               </div>

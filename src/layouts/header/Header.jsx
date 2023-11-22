@@ -7,7 +7,7 @@ import HembergerMenu from "../../components/hembergerIcon/HembergerMenu";
 import { cartPopupToggler } from "../../store/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { sidebarToggler } from "../../store/actions";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -39,13 +39,19 @@ const Header = () => {
             </a>
           </div>
           <nav>
-            {menuList.map((ele) => {
+            <NavLink to="/">Home</NavLink>
+            <NavLink to="/about">About</NavLink>
+            <NavLink to="/careers">Careers</NavLink>
+            <NavLink to="/contact">Contact</NavLink>          
+            <NavLink to="/faq">FAQ</NavLink>
+          
+            {/* {menuList.map((ele) => {
               return (
                 <Fragment key={ele.id}>
                   <MenuBtn title={ele.title} linkdata={ele.submenu} />
                 </Fragment>
               );
-            })}
+            })} */}
           </nav>
           <div className="btns">
           

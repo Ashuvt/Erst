@@ -33,12 +33,12 @@ const TipsBlog = () => {
     <section className="tips_blog p_bottom p_top">
       <div className="content_wrap">
         <div className="left">
-          <h2 className="wow fadeInUp">Lorem ipsumonsectetur adipisicing.</h2>
+          <h2 className="wow fadeInUp">Events</h2>
           <p className="wow fadeInUp">
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita fugit consequatur dolor provident ipsam minima, harum illo id, dolores blanditiis fuga sit natus quis sapiente assumenda! Nam, dolores facilis! Id.
           </p>
           <button type="button" className="primarybtn wow fadeInUp">
-            view all post
+            view all Events
           </button>
         </div>
         <div className="blog_column">

@@ -7,32 +7,25 @@ const Locations = () => {
   const locationData = [
     {
       id: 0,
-      country: "London",
-      location: "14 Tottenham Road, London, England",
+      country: "Israel",
+      location: "Lorem ipsum amet, Israel",
       call: "+1 212 425 8617",
       mail: "helloabc@gmail.com",
     },
     {
       id: 1,
-      country: "Paris",
-      location: "27 Run de Berrlamur, Paris, France",
+      country: "UAE",
+      location: "Lorem ipsum amet, Dubai",
       call: "+1 212 425 8617",
       mail: "helloabc@gmail.com",
     },
     {
       id: 2,
-      country: "New York",
-      location: "5 Washington Square, NY, USA",
+      country: "India",
+      location: "Lorem ipsum amet, Delhi",
       call: "+1 212 425 8617",
       mail: "helloabc@gmail.com",
-    },
-    {
-      id: 3,
-      country: "Hamburg",
-      location: "12 Ueberseering, Hamburg, Germany",
-      call: "+1 212 425 8617",
-      mail: "helloabc@gmail.com",
-    },
+    },    
   ];
   return (
     <section className="locations">

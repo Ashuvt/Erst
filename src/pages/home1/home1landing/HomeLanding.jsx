@@ -18,8 +18,7 @@ const Home1Landing = () => {
         True Cyber Security Is Preparing For What's Next, Not What Was Last
         </h1>
         <p className="wow fadeInUp" data-wow-delay="0.2s">
-        Enter "Platform Name," your gateway to the cutting-edge realm of cybersecurity training. Immerse in our diverse range of hands-on training labs and rich learning resources, designed to empower tech enthusiasts from all backgrounds to master the art of cybersecurity and stay one step ahead in this ever-evolving landscape.
-
+        Enter CyberGain Academy your gateway to the cutting-edge realm of cybersecurity training. Immerse in our diverse range of hands-on training labs and rich learning resources, designed to empower tech enthusiasts from all backgrounds to master the art of cybersecurity and stay one step ahead in this ever-evolving landscape.
         </p>
 
         <button

@@ -104,7 +104,7 @@ const GeniusTeam = () => {
   };
 
   return (
-    <div className="genius_slider_sec p_top p_bottom">
+    <div className="genius_slider_sec p_bottom">
       <div className="mobile_title">
         <h2>Meet The Genius Team</h2>
         <p>

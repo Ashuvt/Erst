@@ -49,6 +49,30 @@ section.header {
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap:25px;
+                a{
+                    @include font('Inter-Regular', 16px, 20px, 400, $white);
+                    text-decoration: none;
+                    position:relative;
+                    transition:all 0.4s ease-in-out;
+
+                    &.active, &:hover{
+                        &::after{
+                            position:absolute;
+                            content:"";
+                            height:3px;
+                            width:15px;
+                            border-radius:15px;
+                            background-color:$white;
+                            bottom:-7px;
+                            left:50%;
+                            transform:translateX(-50%)
+                        }
+                    }
+                }
             }
 
             .btns {

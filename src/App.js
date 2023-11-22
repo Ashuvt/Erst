@@ -68,8 +68,11 @@ function App() {
         <Routes>
          
           <Route path="/" element={<Home1 />} />          
-          <Route path="/home1" element={<Home1 />} />
+          <Route path="/home" element={<Home1 />} />
           <Route path="/about" element={<About />} />
+          <Route path="/careers" element={<Careers />} />
+          <Route path="/contact" element={<ContactUs />} />
+          <Route path="/faq" element={<Faq />} />
           <Route path="/blogs" element={<Blogs />} />
 
 
@@ -101,7 +104,7 @@ function App() {
           <Route path="/getstarted" element={<GetStarted />} />
           <Route path="/onborading" element={<OnBoardingSteppers />} />
 
-          <Route path="/home" element={<Home />} />
+          <Route path="account/home" element={<Home />} />
           <Route path="/explore" element={<Explore />} />
           <Route path="/live" element={<Live />} />
           <Route path="/groups" element={<Groups />} />
