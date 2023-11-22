@@ -42,6 +42,7 @@ import teamA from "../../assets/images/teama.jpg";
 import teamB from "../../assets/images/teamb.jpg";
 import teamC from "../../assets/images/teamc.jpg";
 import teamD from "../../assets/images/teamd.jpg";
+import avtar from "../../assets/images/avtarprofile.jpg";
 
 
 import teamMemberA from "../../assets/images/ali-zenaty-img.webp";
@@ -255,7 +256,7 @@ export const images = {
   teamMemberC,
   teamMemberD,
 
-
+  avtar
 };
 
 export const products = {
