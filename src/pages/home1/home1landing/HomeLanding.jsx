@@ -9,7 +9,12 @@ const Home1Landing = () => {
 <ParticlesBg />
        
       <div
-        className="purple_blur wow zoomIn"
+        className="purple_blur a wow zoomIn"
+        data-wow-delay="0.5s"
+        data-wow-duration="1.5s"
+      ></div>
+       <div
+        className="purple_blur b wow zoomIn"
         data-wow-delay="0.5s"
         data-wow-duration="1.5s"
       ></div>
@@ -27,22 +32,7 @@ const Home1Landing = () => {
           data-wow-delay="0.4s"
         >
           Sign Up
-        </button>
-
-        {/* <div className="dahsboard">
-          <img src={images.home1landing} alt="dashboard" />
-          <div
-            className="primary_glass left wow zoomIn"
-            data-wow-delay="0.5s"
-            data-wow-duration="1.5s"
-          ></div>
-          <div
-            className="primary_glass right wow zoomIn"
-            data-wow-delay="0.5s"
-            data-wow-duration="1.5s"
-          ></div>
-    
-        </div> */}
+        </button>       
       </div>
     </section>
   );

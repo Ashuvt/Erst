@@ -83,11 +83,11 @@ section.header {
 
                 button {
                     &.signin {
-                        @include primaryBtn;
+                        @include secondaryBtn;
                     }
 
-                    &.signup {
-                        @include secondaryBtn;
+                    &.signup {                        
+                        @include primaryBtn;
                     }
 
                     &.cartbtn {

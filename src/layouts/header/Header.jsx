@@ -41,10 +41,10 @@ const Header = () => {
           <nav>
             <NavLink to="/">Home</NavLink>
             <NavLink to="/about">About</NavLink>
-            <NavLink to="/careers">Careers</NavLink>
-            <NavLink to="/contact">Contact</NavLink>     
-            <NavLink to="blogs">Blogs</NavLink>     
+            <NavLink to="/careers">Careers</NavLink>               
+            <NavLink to="/blogs">Blogs</NavLink>     
             <NavLink to="/faq">FAQ</NavLink>
+            <NavLink to="/contact">Contact</NavLink> 
           
             {/* {menuList.map((ele) => {
               return (
@@ -55,7 +55,9 @@ const Header = () => {
             })} */}
           </nav>
           <div className="btns">
-          
+          <button type="button" className="signup">
+              Sign up
+            </button>
             <button
               type="button"
               className="signin"
@@ -63,9 +65,7 @@ const Header = () => {
             >
               Sign in
             </button>
-            <button type="button" className="signup">
-              Sign up
-            </button>
+           
 
             {/* <button type="button" className="cartbtn" onClick={openCartPopup}>
               <div className="notification">2</div>

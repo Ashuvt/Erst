@@ -15,6 +15,7 @@
     overflow: auto;
     height:650px;
     position:relative;
+    background:$dark;
     @media only screen and (max-width:$mobile){
         width:100%;
     }
@@ -56,30 +57,7 @@
                 width:20px;
             }
         }
-        // .counts_info {
-        //     display: flex;
-        //     justify-content: flex-start;
-        //     align-items: center;
-        //     gap: 16px;
-        //     margin: 20px 0px;
-
-        //     .info {
-        //         display: flex;
-        //         justify-content: flex-start;
-        //         align-items: center;
-        //         gap: 4px;
-
-        //         img {
-        //             max-width: 20px;
-        //             max-height: 20px;
-        //         }
-
-        //         p {
-        //             color: $textPrimary;
-        //         }
-        //     }
-        // }
-       
+      
     }
 
     .courses_list{
@@ -110,11 +88,21 @@
 
     .bottom_shad{
         position:sticky;
+        height:0px;
+        width:100%;
         bottom:0px;
         left:0px;
-        height:150px;
-        width:100%;
-        background:linear-gradient( to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
-        z-index: 1;
+        &::after{
+            position:absolute;
+            content:"";
+            bottom:0px;
+            left:0px;
+            height:200px;
+            width:100%;
+            background:linear-gradient( to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
+            z-index: 1;
+        }
     }
+
+   
 }

@@ -8,18 +8,16 @@ section.footer {
   z-index:1;
   background: $bgGradient;
   padding-top: 130px;
-  padding-bottom: 80px;
+  padding-bottom:50px;
   overflow:hidden;
   z-index:5;
   @media only screen and (max-width:$tab) {
     padding-top: 80px;
-    padding-top: 80px;
+    padding-bottom:30px;
   }
 
   @media only screen and (max-width:$mobile) {
     padding-top: 60px;
-    padding-bottom: 60px;
-
   }
 
   img.pattern {

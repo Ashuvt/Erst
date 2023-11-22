@@ -4,7 +4,6 @@ import { icon } from "../../../utils/images/icons";
 import { useNavigate } from "react-router-dom";
 
 const CourseCard = ({ name, img, type, about, courses }) => {
-
   const navigate = useNavigate();
 
   return (
@@ -17,17 +16,6 @@ const CourseCard = ({ name, img, type, about, courses }) => {
           <div className="box" style={{ background: `${type}` }}></div>
           <p className="t-g-18">{name}</p>
         </div>
-        {/* <div className="counts_info">
-          <div className="info">
-            <img src={icon.students} alt="students" />
-            <p>1413 Students</p>
-          </div>
-          <div className="info">
-            <img src={icon.clock} alt="clock" />
-            <p>18h 12m</p>
-          </div>
-        </div> */}
-      
       </div>
       <div className="courses_list">
         <p>{about}</p>
@@ -41,11 +29,19 @@ const CourseCard = ({ name, img, type, about, courses }) => {
             );
           })}
         </ol>
-        <button type="buttton" className="primarybtn" onClick={() => navigate("/contact")}>
+        <button
+          type="buttton"
+          className="primarybtn"
+          onClick={() => navigate("/contact")}
+        >
           Explore Free Lessons
         </button>
       </div>
-      <div className="bottom_shad"></div>
+      <div
+        className="bottom_shad wow zoomIn"
+        data-wow-delay="0.5s"
+        data-wow-duration="1.5s"
+      ></div>
     </div>
   );
 };

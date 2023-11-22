@@ -183,10 +183,13 @@ const RoadMap = () => {
 
           <FourOneFloat scrollY={scrollY} />
 
-          <div className="four_info_card circle">
-            <img src={logoImage.logo} alt="icon" />
-            <h4>Cyber Gain</h4>
-            <h6>Center</h6>
+          <div className="center_logo">
+            <div className="content_circle">
+              <img src={logoImage.logo} alt="icon" />
+              <h4>Cyber Gain</h4>
+              <h6>Center</h6>
+            </div>
+            <div className="glass_shad"></div>
           </div>
 
           <OneTwoFloat scrollY={scrollY} />
@@ -201,6 +204,26 @@ const RoadMap = () => {
             })}
           </div>
         </div>
+        <div
+          className="roadmap_glass a wow zoomIn"
+          data-wow-delay="0.5s"
+          data-wow-duration="1.5s"
+        ></div>
+        <div
+          className="roadmap_glass b wow zoomIn"
+          data-wow-delay="0.5s"
+          data-wow-duration="1.5s"
+        ></div>
+        <div
+          className="roadmap_glass c wow zoomIn"
+          data-wow-delay="0.5s"
+          data-wow-duration="1.5s"
+        ></div>
+        <div
+          className="roadmap_glass d wow zoomIn"
+          data-wow-delay="0.5s"
+          data-wow-duration="1.5s"
+        ></div>
       </section>
     </Fragment>
   );
