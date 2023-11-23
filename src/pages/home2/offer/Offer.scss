@@ -68,6 +68,7 @@ section.Offer {
                     position: absolute;
                     top: 50%;
                     right: 0px;
+                    -webkit-transform: translateY(-50%);
                     transform: translateY(-50%);
 
                     img {
@@ -77,6 +78,7 @@ section.Offer {
 
                     &:hover {
                         img {
+                            -webkit-transform: rotate(-45deg);
                             transform: rotate(-45deg);
                         }
                     }

@@ -4,6 +4,7 @@ import {
   ADD_CART_POPUP_TOGGLER,
   NOTIFICATION_TOGGLER,
   PROFILE_TOGGLER,
+  HELP_FORM_DD_TOGGLER,
   RESET_ALL,
   
 } from "./consts";
@@ -27,6 +28,10 @@ export const cartPopupToggler = () => {
 export const notificationToggler = () => {
   return NOTIFICATION_TOGGLER;
 };
+
+export const helpDdToggler = () => {
+  return HELP_FORM_DD_TOGGLER;
+}
 
 export const profileToggler = () => {
   return PROFILE_TOGGLER;

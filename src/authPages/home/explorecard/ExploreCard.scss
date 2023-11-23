@@ -78,6 +78,7 @@
             background: linear-gradient(130deg, #ffffffa0, #ffffffa0);
         }
         .circle_path{
+            -webkit-transform: rotateY(180deg);
             transform: rotateY(180deg);
         }
     }

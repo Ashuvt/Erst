@@ -82,6 +82,7 @@ section.contact_services {
                 position: absolute;
                 top: 50%;
                 left: 50%;
+                -webkit-transform: translate(-50%, -50%);
                 transform: translate(-50%, -50%);
 
                 @media only screen and (max-width:$tab) {
@@ -99,6 +100,7 @@ section.contact_services {
                 position: absolute;
                 bottom: -150px;
                 left: 50%;
+                -webkit-transform: translateX(-50%);
                 transform: translateX(-50%);
                 display: flex;
                 justify-content: space-between;
@@ -143,6 +145,7 @@ section.contact_services {
                     gap: 5px;
 
                     img {
+                        -webkit-transform: rotate(90deg);
                         transform: rotate(90deg);
                     }
                 }

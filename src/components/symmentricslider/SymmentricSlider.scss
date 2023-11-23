@@ -19,6 +19,7 @@ section.symmentric_slider {
 
     .slide_right {
         width: calc(50% - 1px);
+        -webkit-transform: rotateY(180deg);
         transform: rotateY(180deg);
 
     }

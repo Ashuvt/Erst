@@ -16,6 +16,7 @@
         position: absolute;
         top: 50%;
         left: 50%;
+        -webkit-transform: translate(-50%, calc(-50% - 2px));
         transform: translate(-50%, calc(-50% - 2px));
         height: 1px;
         width:calc(75% + 20px);
@@ -27,6 +28,7 @@
         position: absolute;
         bottom: 0px;
         left: 50%;
+        -webkit-transform: translateX(-50%);
         transform: translateX(-50%);
         height: 150px;
         width: 1px;
@@ -57,6 +59,7 @@
     place-items: center;
     z-index: 0;
     position: absolute;
+    -webkit-transform:translateX(-50%);
    transform:translateX(-50%);
     top: 0px;
 

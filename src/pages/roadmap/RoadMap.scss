@@ -30,6 +30,7 @@ section.road_map {
                 left: 50%;
                 height: 100%;
                 width: 1px;
+                -webkit-transform: translateX(-50%);
                 transform: translateX(-50%);
                 background-color: $lightBorder_3;
 
@@ -44,6 +45,7 @@ section.road_map {
                 place-items: center;
                 z-index: 0;
                 position: absolute;
+                -webkit-transform: translateX(-50%);
                 transform: translateX(-50%);
                 left: 50%;
 
@@ -116,6 +118,7 @@ section.road_map {
                 position: absolute;
                 bottom: 100%;
                 left: 50%;
+                -webkit-transform: translateX(-50%);
                 transform: translateX(-50%);
                 height: 150px;
                 width: 1px;
@@ -130,6 +133,7 @@ section.road_map {
                 position: absolute;
                 top: 100%;
                 left: 50%;
+                -webkit-transform: translateX(-50%);
                 transform: translateX(-50%);
                 height: 150px;
                 width: 1px;
@@ -190,6 +194,7 @@ section.road_map {
 
                 .icon_box {
                     img {
+                        -webkit-transform: rotateY(180deg);
                         transform: rotateY(180deg);
                     }
                 }
@@ -231,6 +236,7 @@ section.road_map {
                 content:"";
                 left:50%;
                 top:50%;
+                -webkit-transform:translate(-50%, -50%);
                 transform:translate(-50%, -50%);
                 background-color:$primary;
                 z-index:0;
@@ -258,6 +264,7 @@ section.road_map {
                 box-shadow: 0 0 20px rgba(245, 245, 245, 0.25);
 
                 img {
+                    -webkit-transform: rotateY(180deg);
                     transform: rotateY(180deg);
                 }
 
@@ -320,6 +327,7 @@ section.road_map {
             left:15%;
             @media only screen and (max-width:$tab){
                 left:50%;
+                -webkit-transform: translateX(-50%);
                 transform: translateX(-50%);
             }
         }
@@ -337,6 +345,7 @@ section.road_map {
             left:15%;
             @media only screen and (max-width:$tab){
                 left:50%;
+                -webkit-transform: translateX(-50%);
                 transform: translateX(-50%);
             }
         }

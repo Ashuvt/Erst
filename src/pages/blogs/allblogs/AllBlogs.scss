@@ -74,6 +74,7 @@ section.tech_blog {
                     overflow: hidden;
 
                     .bottom {
+                        -webkit-transform: translateY(50px);
                         transform: translateY(50px);
                         transition: all 1s ease-in-out;
 
@@ -114,10 +115,12 @@ section.tech_blog {
                 .content {
                     .bottom_wrap {
                         .bottom {
+                            -webkit-transform: translateY(0px);
                             transform: translateY(0px);
 
                             .text {
                                 h6 {
+                                    -webkit-transform: translateY(30px);
                                     transform: translateY(30px);
                                     opacity: 0;
                                 }

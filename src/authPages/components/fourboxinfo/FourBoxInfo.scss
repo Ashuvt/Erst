@@ -101,7 +101,9 @@
                 .icon_box{
                     img{
                         transform:rotateY(180deg);
+                        -webkit-transform:rotateY(180deg);
                     }
+                    
                 }
             }
 

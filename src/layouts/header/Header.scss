@@ -69,7 +69,8 @@ section.header {
                             background-color:$white;
                             bottom:-7px;
                             left:50%;
-                            transform:translateX(-50%)
+                            -webkit-transform:translateX(-50%);
+                            transform:translateX(-50%);
                         }
                     }
                 }

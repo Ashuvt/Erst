@@ -33,6 +33,7 @@ button.text_arrowbtn {
         width: 20px;
         position: relative;
         overflow: hidden;
+        -webkit-transform: rotate(-45deg);
         transform: rotate(-45deg);
 
         img {
@@ -42,10 +43,12 @@ button.text_arrowbtn {
             transition: all 0.2s ease-in-out;
 
             &.a {
+                -webkit-transform: translate(-50%, -50%);
                 transform: translate(-50%, -50%);
             }
 
             &.b {
+                -webkit-transform: translate(-200%, -50%);
                 transform: translate(-200%, -50%);
             }
         }
@@ -55,10 +58,12 @@ button.text_arrowbtn {
         .arrow {
             img {
                 &.a {
+                    -webkit-transform: translate(100%, -50%);
                     transform: translate(100%, -50%);
                 }
 
                 &.b {
+                    -webkit-transform: translate(-50%, -50%);
                     transform: translate(-50%, -50%);
                 }
             }
@@ -66,6 +71,7 @@ button.text_arrowbtn {
 
         .text {
             p {
+                -webkit-transform: translateY(-100%);
                 transform: translateY(-100%);
             }
         }

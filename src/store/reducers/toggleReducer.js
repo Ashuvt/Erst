@@ -5,6 +5,7 @@ import {
   NOTIFICATION_TOGGLER,
   PROFILE_TOGGLER,
   RESET_ALL,
+  HELP_FORM_DD_TOGGLER
 } from "../consts";
 
 const initialToggleState = {
@@ -13,6 +14,7 @@ const initialToggleState = {
   cartPopupStatus: false,
   notificationStatus: false,
   profileStatus: false,
+  helpFormDdStatus:false,
 };
 
 export const toggleReducer = (state = initialToggleState, action) => {
@@ -31,6 +33,9 @@ export const toggleReducer = (state = initialToggleState, action) => {
 
     case PROFILE_TOGGLER:
       return { ...initialToggleState, profileStatus: action.payload };
+
+      case HELP_FORM_DD_TOGGLER:
+        return { ...initialToggleState, helpFormDdStatus: action.payload };
 
     case RESET_ALL:
       return initialToggleState;

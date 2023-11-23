@@ -12,6 +12,7 @@
     }
 
     @media only screen and (max-width:$mobile){
+        -webkit-transform: scale(0.8);
         transform: scale(0.8);
     }
     .bar{
@@ -37,6 +38,7 @@
     &.open{
         .bar{
             &:nth-child(1){
+                -webkit-transform: translateY(8px) rotate(-45deg);
                 transform: translateY(8px) rotate(-45deg);
             }
     
@@ -45,6 +47,7 @@
             }
             
             &:nth-child(3) {
+                -webkit-transform: translateY(-8px) rotate(45deg);
                 transform: translateY(-8px) rotate(45deg);
             }
         }

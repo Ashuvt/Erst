@@ -31,11 +31,13 @@ section.business_analytics {
                 transition: all 0.3s ease-in-out;
 
                 &.a {
+                    -webkit-transform: translate(0%, 0%);
                     transform: translate(0%, 0%);
                     transition: all 0.3s ease-in-out;
                 }
 
                 &.b {
+                    -webkit-transform: translate(-100%, 0%);
                     transform: translate(-100%, 0%);
                     transition: all 0.3s ease-in-out;
                 }
@@ -221,11 +223,13 @@ section.business_analytics {
                 button.arrow {
                     img {
                         &.a {
-                            transform: translate(100%, -100%)
+                            -webkit-transform: translate(100%, -100%);
+                            transform: translate(100%, -100%);
                         }
 
                         &.b {
-                            transform: translate(0%, -100%)
+                            -webkit-transform: translate(0%, -100%);
+                            transform: translate(0%, -100%);
                         }
                     }
 
@@ -239,6 +243,7 @@ section.business_analytics {
             &:hover {
                 .person_wrap{
                     img{
+                        -webkit-transform: scale(1.02);
                         transform: scale(1.02);
                     }
                 }

@@ -58,9 +58,11 @@
     }
 
     &:hover{
+        -webkit-transform: scale(1.02);
         transform: scale(1.02);
         .blogimg_wrap{
             img{
+                -webkit-transform: scale(1.02);   
                 transform: scale(1.02);   
             }
         }

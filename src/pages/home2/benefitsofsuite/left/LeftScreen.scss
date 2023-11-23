@@ -29,6 +29,7 @@
             }
 
             &.goleft{
+                -webkit-transform:translateX(-400px);
                 transform:translateX(-400px);
                 opacity:0;
             }
@@ -94,6 +95,7 @@
                         transition: all 0.5s ease-in-out;
 
                         &:hover {
+                            -webkit-transform: scale(0.9);
                             transform: scale(0.9);
                             background-color: rgba(255, 255, 255, 0.2);
                         }
@@ -115,11 +117,13 @@
 
 @keyframes slide {
     0% {
+        -webkit-transform: translateX(-500px);
       transform: translateX(-500px);
       opacity: 0;
     }
    
     100% {
+        -webkit-transform: translateX(0px);
       transform: translateX(0px);
       opacity:1;
     }

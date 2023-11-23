@@ -76,9 +76,11 @@ section.courses_header {
                         transition: 0.2s ease-in-out;
                         &.open{
                             transform: rotateX(0deg);
+                            -webkit-transform: rotateX(0deg);
                         }
                         &.close{
                             transform: rotateX(180deg);
+                            -webkit-transform: rotateX(180deg);
                         }
                     }
                 }

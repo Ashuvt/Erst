@@ -47,6 +47,7 @@ section.video_block {
             @media only screen and (max-width:$tab){
                 right:50%;
                 bottom:50%;
+                -webkit-transform: translate(50%, 50%);
                 transform: translate(50%, 50%);
             }
 

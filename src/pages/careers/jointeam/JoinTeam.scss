@@ -224,10 +224,12 @@ section.join_team {
 
 @keyframes continuous-rotation {
     0% {
+        -webkit-transform: translate(-50%, -50%) rotate(0deg);
         transform: translate(-50%, -50%) rotate(0deg);
     }
 
     100% {
+        -webkit-transform: translate(-50%, -50%) rotate(360deg);
         transform: translate(-50%, -50%) rotate(360deg);
     }
 }

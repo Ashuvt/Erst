@@ -36,6 +36,7 @@ section.blog_banner {
         display: flex;
         justify-content: center;
         align-items: center;
+        -webkit-transform: translateY(-50%);
         transform: translateY(-50%);
 
         @media only screen and (max-width:$laptop){
@@ -63,6 +64,7 @@ section.blog_banner {
 
                 img {
                     width: 25px;
+                    -webkit-transform: rotate(45deg);
                     transform: rotate(45deg);
                     transition: all 0.4s ease-in-out;
                 }
@@ -72,6 +74,7 @@ section.blog_banner {
                 position: absolute;
                 top: 50%;
                 left: 50%;
+                -webkit-transform: translate(-50%, -50%);
                 transform: translate(-50%, -50%);
                 background: $primaryGradient_1;
                 height: 0px;
@@ -85,6 +88,7 @@ section.blog_banner {
             span {
                 &.border {
                     img {
+                        -webkit-transform: rotate(90deg);
                         transform: rotate(90deg);
                     }
                 }

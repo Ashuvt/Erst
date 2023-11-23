@@ -3,11 +3,15 @@ import "./Help.scss";
 import Map from "../../../components/map/Map";
 import MidTitle from "../../../components/midtitle/MidTitle";
 import { helpForm } from "../../../utils/data/forms";
+import { useDispatch, useSelector } from "react-redux";
+import { helpDdToggler, resetAllToggler } from "../../../store/actions";
 
 const Help = () => {
 
+  const dispatch = useDispatch();
+  const ddStatus = useSelector(state => state.toggleReducer.helpFormDdStatus);
+
   const [selectedProblem, setSelectedProblem] = useState('');
-  const [ddStatus, setDdStatus] = useState(false);
   const [help, setHelp] = useState(helpForm);
 
   const formHandler = (e) => {
@@ -20,8 +24,9 @@ const Help = () => {
     console.log(help);
   };
 
-  const ddToggler = () => {
-    setDdStatus(!ddStatus);
+  const ddToggler = (e) => {
+    e.stopPropagation();
+    dispatch({type:helpDdToggler(), payload:!ddStatus});
   };
 
   const proglemList = [
@@ -51,8 +56,12 @@ const Help = () => {
     setSelectedProblem(data.option);
   }
 
+  const fullPageClick = () => {
+    dispatch({type:resetAllToggler()})
+  }
+
   return (
-    <section className="contact_help p_top p_bottom">
+    <section className="contact_help p_top p_bottom" onClick={fullPageClick}>
       <div className="content_wrap">
         <Map />
         <div className="filler"></div>
@@ -86,7 +95,7 @@ const Help = () => {
               />
             
               <div className="custom_dropdown" onClick={ddToggler}>
-               <p>{selectedProblem ? selectedProblem : 'select Problem'}</p>
+                {selectedProblem ? <p>{selectedProblem}</p> : <p className="light">select Problem</p>}
                 <div className={`option_list ${ddStatus ? 'open' : 'close'}`}>
               {
                 proglemList.map((data) => {

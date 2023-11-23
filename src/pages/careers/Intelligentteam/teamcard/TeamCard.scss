@@ -24,6 +24,7 @@
         position:absolute;
         top:50%;
         right:0px;
+        -webkit-transform: translateY(-50%);
         transform: translateY(-50%);
         border-style: none;
         background-color:transparent;

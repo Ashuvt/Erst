@@ -17,6 +17,7 @@ section.onboarding_stepper{
         top:0px;
         width:100%;
         left:50%;
+        -webkit-transform: translateX(-50%) rotate(-15deg);
         transform: translateX(-50%) rotate(-15deg);
         top:150px;
         z-index:0;

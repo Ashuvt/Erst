@@ -56,10 +56,12 @@
             transition: all 0.2s ease-in-out;
 
             &.open {
+                -webkit-transform: rotate(-90deg);
                 transform: rotate(-90deg);
             }
 
             &.close {
+                -webkit-transform: rotate(90deg);
                 transform: rotate(90deg);
             }
         }
@@ -132,7 +134,8 @@
                         background-color: $white;
                         top: 50%;
                         left: -10px;
-                        transform: translatey(-50%)
+                        -webkit-transform: translatey(-50%);
+                        transform: translatey(-50%);
                     }
                 }
             }

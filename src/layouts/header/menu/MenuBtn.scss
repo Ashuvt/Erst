@@ -54,6 +54,7 @@ button.menubtn {
                 background-color: $primary;    
                 top:50%;
                 left:0px;
+                -webkit-transform:translateY(-50%);
                 transform:translateY(-50%);            
                 transition:all 0.3s ease-in-out;
             }

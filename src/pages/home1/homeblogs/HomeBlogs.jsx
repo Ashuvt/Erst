@@ -5,12 +5,11 @@ import Pill from "../../../components/pill/Pill";
 import { images } from "../../../utils/images/images";
 import HomeBlogCard from "./blogcard/HomeBlogCard";
 import { blogsData } from "../../../utils/data/data";
+import { useNavigate } from "react-router-dom";
 
 const HomeBlogs = () => {
 
-
-
-
+const navigate = useNavigate();
 
   return (
     <section className="home_blog p_bottom ">
@@ -35,7 +34,7 @@ const HomeBlogs = () => {
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut mollitia dolore repellendus neque! Voluptatum pariatur eveniet ea beatae ratione, deleniti enim aspernatur, doloribus quisquam iure veniam tenetur laborum at natus, fugiat ducimus laboriosam odit et!
               </p>
               <div className="btn_line">
-                <button type="buton" className="secondarybtn">
+                <button type="buton" className="secondarybtn" onClick={() => navigate("/blogs")}>
                   view all blogs
                 </button>
               </div>

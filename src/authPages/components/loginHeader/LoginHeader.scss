@@ -35,6 +35,7 @@ section.login_header {
                     left:0px;
                     top:50%;
                     transform: translateY(-50%);
+                    -webkit-transform: translateY(-50%);
                 }
             }
 
@@ -54,6 +55,7 @@ section.login_header {
                     right:0px;
                     top:50%;
                     transform: translateY(-50%);
+                    -webkit-transform: translateY(-50%);
                     &:hover{
                         color:$white;
                     }

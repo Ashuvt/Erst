@@ -71,6 +71,7 @@
 
             .img_wraper {
                 border-radius: 12px;
+                -webkit-transform: rotate(45deg);
                 transform: rotate(45deg);
                 object-fit: cover;
                 height: 190px;

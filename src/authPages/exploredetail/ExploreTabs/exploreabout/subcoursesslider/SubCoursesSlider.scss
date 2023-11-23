@@ -41,16 +41,19 @@
               &.a{
                 top:50%;
                 left:22%;
+                -webkit-transform: translateY(-50%);
                 transform: translateY(-50%);
               }
               &.b{
                 top:50%;
                 left:50%;
+                -webkit-transform: translate(-50%, -50%);
                 transform: translate(-50%, -50%);
               }
               &.c{
                 top:50%;
                 right:22%;
+                -webkit-transform: translateY(-50%);
                 transform: translateY(-50%);
               }
             }
