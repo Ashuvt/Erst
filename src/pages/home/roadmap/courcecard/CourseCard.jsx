@@ -1,6 +1,6 @@
 import "./CourseCard.scss";
 import { Fragment } from "react";
-import { icon } from "../../../utils/images/icons";
+import { icon } from "../../../../utils/images/icons";
 import { useNavigate } from "react-router-dom";
 
 const CourseCard = ({ name, img, type, about, courses }) => {

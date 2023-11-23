@@ -1,7 +1,7 @@
 import { Fragment, useEffect } from "react";
 import MapLanding from "../../components/maplanding/MapLanding";
 import JoinTeam from "./jointeam/JoinTeam";
-import IntelligentTeam from "./Intelligentteam/IntelligentTeam";
+// import IntelligentTeam from "./Intelligentteam/IntelligentTeam";
 import SymmentricSlider from "../../components/symmentricslider/SymmentricSlider";
 import Header from "../../layouts/header/Header";
 import Footer from "../../layouts/footer/Footer";
@@ -26,7 +26,6 @@ const Careers = () => {
       <SymmentricSlider />
       <JoinTeam />
       <CvForm />
-      {/* <IntelligentTeam /> */}
       <Footer />
     </Fragment>
   );

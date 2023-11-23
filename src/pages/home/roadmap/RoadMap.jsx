@@ -1,15 +1,12 @@
-import { Fragment, useEffect, useState, useRef } from "react";
-import Footer from "../../layouts/footer/Footer";
-import Header from "../../layouts/header/Header";
+import { Fragment, useEffect, useState} from "react";
 import "./RoadMap.scss";
-import { icon } from "../../utils/images/icons";
-
+import { icon } from "../../../utils/images/icons";
 import OneFourFloat from "./onefourfloat/OneFourFloat";
 import FourOneFloat from "./fouronefloat/FourOneFloat";
 import OneTwoFloat from "./onetwofloat/OneTwoFloat";
-import ParticlesBg from "../../components/particlesbg/ParticlesBg";
-import { logoImage } from "../../utils/images/images";
+import { logoImage } from "../../../utils/images/images"
 import CourseCard from "./courcecard/CourseCard";
+
 const RoadMap = () => {
   const framData = [
     {
@@ -145,8 +142,7 @@ const RoadMap = () => {
 
   return (
     <Fragment>
-      <section className="road_map">
-        {/* <h3 className="indicator">{scrollY}</h3> */}
+      <section className="road_map">    
         <div className="content_wrap">
           <div className="small_screen_map">
             <div className="center_line"></div>

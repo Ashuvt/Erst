@@ -5,7 +5,7 @@ import WOW from "wow.js";
 import Home2Landing from "../home2/home2landing/Home2Landing";
 import MarqueeText from "../home2/marqueetext/MarqueeText";
 import AboutServices from "../home2/aboutservices/AboutServices";
-import Partners from "../home1/plan/partners/Partners";
+import Partners from "../home/plan/partners/Partners";
 import GeniusTeam from "../aboutourservices/geniusteam/GeniusTeam";
 import TipsBlog from "../home2/tipsblog/TipsBlog";
 import Map from "../../components/map/Map";
@@ -17,20 +17,16 @@ const About = () => {
         wow.init();
       }, []);
 
-
-
     return(
         <Fragment>
             <Header />
-
             <Home2Landing />
             <MarqueeText />
             <AboutServices />
             <Partners />
             <GeniusTeam />
             <Map />
-            <TipsBlog />
-
+            <TipsBlog />            
             <Footer />
         </Fragment>
     )

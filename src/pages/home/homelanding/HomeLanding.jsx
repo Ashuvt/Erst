@@ -1,8 +1,8 @@
-import "./Home1Landing.scss";
+import "./HomeLanding.scss";
 import { images } from "../../../utils/images/images";
 import ParticlesBg from "../../../components/particlesbg/ParticlesBg";
 
-const Home1Landing = () => {
+const HomeLanding = () => {
   return (
     <section className="home1landing p_bottom">
 
@@ -37,4 +37,4 @@ const Home1Landing = () => {
     </section>
   );
 };
-export default Home1Landing;
+export default HomeLanding;

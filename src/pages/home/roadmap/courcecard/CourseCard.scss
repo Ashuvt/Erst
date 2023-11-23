@@ -1,12 +1,11 @@
-@import "../../../scss/common";
-@import "../../../scss/mixin";
-@import "../../../scss/typography";
-@import "../../../scss/variables";
+@import "../../../../scss/common";
+@import "../../../../scss/mixin";
+@import "../../../../scss/typography";
+@import "../../../../scss/variables";
 
 
 .course_card {
-    border-radius: 8px;
-    transition: all 0.3s ease-in-out;
+    border-radius: 8px;    
     border-radius: 12px;
     position: relative;
     border: 1px solid $lightBorder_1;

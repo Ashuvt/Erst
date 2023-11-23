@@ -1,6 +1,6 @@
 import CoursesHeader from "../components/coursesheader/CoursesHeader";
 import WelComeStrip from "../components/welcomestrip/WelComeStrip";
-import "./Home.scss";
+import "./Home1.scss";
 import { Fragment } from "react";
 import RecommendedModules from "./recommendedmodules/RecommendedModules";
 import LiveSec from "./livesec/LiveSec";
@@ -15,7 +15,7 @@ import { useDispatch } from "react-redux";
 import { resetAllToggler } from "../../store/actions";
 import { useNavigate } from "react-router-dom";
 
-const Home = () => {
+const Home1 = () => {
   const fourInfoData = [
     {
       id: 0,
@@ -91,4 +91,4 @@ const resetToggler = () => {
   );
 };
 
-export default Home;
+export default Home1;

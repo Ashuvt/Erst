@@ -2,7 +2,7 @@ import { Fragment, useEffect, useState } from "react";
 import "./App.scss";
 import { useLocation } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
-import Home1 from "./pages/home1/Home1";
+import Home from "./pages/home/Home";
 import Faq from "./pages/faq/Faq";
 import ErrorPage from "./pages/error/ErrorPage";
 import ContactUs from "./pages/contactus/ContactUs";
@@ -18,7 +18,7 @@ import AddCartPopup from "./layouts/addcartpopup/AddCartPopup";
 import Login from "./authPages/login/Login";
 import GetStarted from "./authPages/getStarted/GetStarted";
 import OnBoardingSteppers from "./authPages/onboardingstepper/OnBoardingSteppers";
-import Home from "./authPages/home/Home";
+import Home1 from "./authPages/home1/Home1";
 import Explore from "./authPages/explore/Explore";
 import Live from "./authPages/live/Live";
 import Groups from "./authPages/groups/Groups";
@@ -29,7 +29,6 @@ import { resetAllToggler } from "./store/actions";
 import ExploreDetail from "./authPages/exploredetail/ExploreDetail";
 import CourseSidebar from "./layouts/coursesidebar/CourseSidebar";
 import ExploreCourses from "./authPages/explorecourses/ExploreCourses";
-import RoadMap from "./pages/roadmap/RoadMap";
 import About from "./pages/about/About";
 import Blogs from "./pages/blogs/Blogs";
 
@@ -58,58 +57,55 @@ function App() {
   }, [location.pathname]);
 
   return (
-    <Fragment>       
-
-
-
+    <Fragment>     
+      
         <AddCartPopup />
         <SideBar />
         <CourseSidebar />
+
         <Routes>
          
-          <Route path="/" element={<Home1 />} />          
-          <Route path="/home" element={<Home1 />} />
+          <Route path="/" element={<Home />} />          
+          <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/careers" element={<Careers />} />
-          <Route path="/contact" element={<ContactUs />} />
-          <Route path="/faq" element={<Faq />} />
           <Route path="/blogs" element={<Blogs />} />
-
-
-
-
-
-          <Route path="/home2" element={<Home2 />} />
+          <Route path="/blogs/:id" element={<BlogDetail />} />
           <Route path="/faq" element={<Faq />} />
-          <Route path="/contactus" element={<ContactUs />} />
-          <Route path="/careers" element={<Careers />} />
-          <Route path="/roadmap" element={<RoadMap />} />
+          <Route path="/contact" element={<ContactUs />} />
+          <Route path="/*" element={<ErrorPage />} />
+         
+         
 
-          <Route
+
+
+
+          {/* <Route path="/home2" element={<Home2 />} /> */}
+
+          {/* <Route
             path="/about_our_services"
             element={<AboutOurServices />}
-          ></Route>
-          <Route
+          ></Route> */}
+          {/* <Route
             path="/software_developer"
             element={<SoftwareDeveloper />}
-          ></Route>
-          <Route path="/new_technology" element={<NewTechnology />}></Route>
+          ></Route> */}
+          {/* <Route path="/new_technology" element={<NewTechnology />}></Route> */}
           {/* <Route path="/shop" element={<Shop />}></Route> */}
-          <Route path="/blogs/:id" element={<BlogDetail />}></Route>
-          <Route path="/*" element={<ErrorPage />} />
+         
 
           {/* Auth Routes */}
 
-          <Route path="/login" element={<Login />} />
-          <Route path="/getstarted" element={<GetStarted />} />
-          <Route path="/onborading" element={<OnBoardingSteppers />} />
+          <Route path="/auth/login" element={<Login />} />
+          <Route path="/auth/getstarted" element={<GetStarted />} />
+          <Route path="/auth/onborading" element={<OnBoardingSteppers />} />
 
-          <Route path="account/home" element={<Home />} />
-          <Route path="/explore" element={<Explore />} />
-          <Route path="/live" element={<Live />} />
-          <Route path="/groups" element={<Groups />} />
-          <Route path="/saved" element={<Saved />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/auth/home" element={<Home />} />
+          <Route path="/auth/explore" element={<Explore />} />
+          <Route path="/auth/live" element={<Live />} />
+          <Route path="/auth/groups" element={<Groups />} />
+          <Route path="/auth/saved" element={<Saved />} />
+          <Route path="/auth/profile" element={<Profile />} />
           <Route path="/explore/course" element={<ExploreCourses />} />
           <Route path="/explore/:detail" element={<ExploreDetail />} />
 

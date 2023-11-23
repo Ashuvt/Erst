@@ -1,7 +1,7 @@
-@import "../../scss/common";
-@import "../../scss/mixin";
-@import "../../scss/typography";
-@import "../../scss/variables";
+@import "../../../scss/common";
+@import "../../../scss/mixin";
+@import "../../../scss/typography";
+@import "../../../scss/variables";
 
 section.road_map {
     position: relative;
@@ -9,8 +9,6 @@ section.road_map {
 
     .content_wrap {
         position: relative;
-        // overflow: hidden;
-
         .small_screen_map {
             position: absolute;
             top: -200px;
@@ -190,22 +188,9 @@ section.road_map {
             }
 
             &:hover {
-                box-shadow: 0 0 20px rgba(245, 245, 245, 0.25);
-
-                // .icon_box {
-                //     img {
-                //         -webkit-transform: rotateY(180deg);
-                //         transform: rotateY(180deg);
-                //     }
-                // }
+                box-shadow: 0 0 20px rgba(245, 245, 245, 0.25);                
             }
-
-
-
         }
-
-
-
         .center_logo {
             height: 250px;
             width: 250px;
@@ -357,10 +342,4 @@ section.road_map {
             }
         }
     }
-}
-
-h3.indicator {
-    position: fixed;
-    top: 100px;
-    left: 100px;
 }

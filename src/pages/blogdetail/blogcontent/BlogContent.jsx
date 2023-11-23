@@ -1,12 +1,12 @@
 import { images } from "../../../utils/images/images";
-import FeedGrid from "../../home1/feedback/feedgrid/FeedGrid";
+import FeedGrid from "../../home/feedback/feedgrid/FeedGrid";
 import "./BlogContent.scss";
 import { blogsData } from "../../../utils/data/data";
 import { Fragment } from "react";
 
 const BlogContent = ({ para }) => {
   return (
-    <section className="blog_content p_top" id="blogContent">
+    <section className="blog_content p_top" id="blogContent" >
       <div className="content_wrap">
         <h2 className="wow fadeInUp">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit?
