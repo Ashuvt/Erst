@@ -21,7 +21,7 @@ const CoursesHeader = () => {
       id: 0,
       img: icon.home,
       text: "home",
-      path: "/home",
+      path: "/account/home",
     },
     {
       id: 1,
