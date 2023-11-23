@@ -100,7 +100,7 @@ function App() {
           <Route path="/auth/getstarted" element={<GetStarted />} />
           <Route path="/auth/onborading" element={<OnBoardingSteppers />} />
 
-          <Route path="/auth/home" element={<Home />} />
+          <Route path="/auth/home" element={<Home1 />} />
           <Route path="/auth/explore" element={<Explore />} />
           <Route path="/auth/live" element={<Live />} />
           <Route path="/auth/groups" element={<Groups />} />

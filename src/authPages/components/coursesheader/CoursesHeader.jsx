@@ -21,37 +21,37 @@ const CoursesHeader = () => {
       id: 0,
       img: icon.home,
       text: "home",
-      path: "/account/home",
+      path: "/auth/home",
     },
     {
       id: 1,
       img: icon.explore,
       text: "explore",
-      path: "/explore",
+      path: "/auth/explore",
     },
     {
       id: 2,
       img: icon.skillpath,
       text: "skill paths",
-      path: "/skill_paths",
+      path: "/auth/skill_paths",
     },
     {
       id: 3,
       img: icon.live,
       text: "live",
-      path: "/live",
+      path: "/auth/live",
     },
     {
       id: 4,
       img: icon.group,
       text: "groups",
-      path: "/groups",
+      path: "/auth/groups",
     },
     {
       id: 5,
       img: icon.save,
       text: "saved",
-      path: "/saved",
+      path: "/auth/saved",
     },
   ];
 

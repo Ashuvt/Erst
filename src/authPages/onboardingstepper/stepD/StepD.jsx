@@ -57,7 +57,7 @@ const StepD = () => {
   const navigate = useNavigate();
 
   const goHome = () => {
-    navigate("/account/home")
+    navigate("/auth/home")
   }
 
   return (

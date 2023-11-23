@@ -32,7 +32,7 @@ const Login = () => {
   };
 
   const getStarted = () => {
-    navigate("/getStarted");
+    navigate("/auth/getStarted");
   };
 
   return (

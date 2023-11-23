@@ -24,7 +24,7 @@ const GetStartedForm = () => {
   };
 
   const goToLogin = () => {
-    navigate("/login");
+    navigate("/auth/login");
   };
 
   return (
@@ -94,7 +94,7 @@ const GetStartedForm = () => {
           <button
             type="button"
             className="authbtn auth_primary wow fadeInUp"
-            onClick={() => navigate("/onborading")}
+            onClick={() => navigate("/auth/onborading")}
 
           >
             Get started for free

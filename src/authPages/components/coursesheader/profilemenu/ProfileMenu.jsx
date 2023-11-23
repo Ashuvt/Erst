@@ -10,7 +10,7 @@ const ProfileMenu = ({ menuStatus }) => {
       icon: icon.user,
       text: "My Profile",
       clickHandler:() => {
-        navigate("/profile");
+        navigate("/auth/profile");
       }
     },
     {

@@ -61,7 +61,7 @@ const Header = () => {
             <button
               type="button"
               className="signin"
-              onClick={() => navigate("/login")}
+              onClick={() => navigate("/auth/login")}
             >
               Sign in
             </button>

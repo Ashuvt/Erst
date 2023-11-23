@@ -27,7 +27,7 @@ const ErrorPage = () => {
           </h2>
           <p className="wow slideInUp" data-wow-delay="0.50s">We can’t find the page your are looking for.</p>
           <NavLink to="/">
-          <button className="primarybtn wow slideInUp" data-wow-delay="0.75s">back to homepage</button>
+          <button className="primarybtn wow slideInUp" data-wow-delay="0.75s">back to home</button>
           </NavLink>
         </div>
       </div>
