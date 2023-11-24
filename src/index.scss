@@ -6,9 +6,13 @@
   padding: 0px;
   box-sizing: border-box;
   outline: none !important;
-  user-select: none;
   -webkit-user-drag: none;
   scroll-behavior:auto!important;
+}
+
+::selection {
+  color:$primary;
+  background:$white;
 }
 
 

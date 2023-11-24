@@ -14,20 +14,10 @@ const AboutServices = () => {
         </div>
         <div className="bi_grid">
           <div className="img_wrap wow fadeInUp">
-            <img src={images.mobile} alt="mobile" />
+            <img src={images.about} alt="mobile" />
           </div>
           <div className="cards_wrap">
-            <div className="content_card wow fadeInUp">
-              {/* <div className="video_btn">
-                <img
-                  src={images.videoBtnImage}
-                  alt="person"
-                  className="person"
-                />
-                <button>
-                  <img src={images.primaryPlay} alt="play" />
-                </button>
-              </div> */}
+            <div className="content_card wow fadeInUp">             
               <h5>Mission</h5>
               <p>
               In our fast-changing world, where technology has seamlessly integrated into our everyday activities, it possesses great power and immense influence. However, this great power also exposes us to various risks that require our immediate attention. These risks include data leaks, crafty email tricks, the menace of malicious software, the weaknesses of feeble passwords, and the looming threat of identity theft, among others.

@@ -45,18 +45,17 @@ import teamD from "../../assets/images/teamd.jpg";
 import avtar from "../../assets/images/avtarprofile.jpg";
 
 
-import teamMemberA from "../../assets/images/ali-zenaty-img.webp";
-import teamMemberB from "../../assets/images/najeeb-ibrahem-img.webp";
-import teamMemberC from "../../assets/images/yara-rammal.webp";
-import teamMemberD from "../../assets/images/saleh.jpg";
-import teamMemberE from "../../assets/images/saleh.jpg";
-import teamMemberF from "../../assets/images/saleh.jpg";
+import teamMemberA from "../../assets/images/team/ali-zenaty-img.webp";
+import teamMemberB from "../../assets/images/team/najeeb-ibrahem-img.webp";
+import teamMemberC from "../../assets/images/team/yara-rammal.webp";
+import teamMemberD from "../../assets/images/team/saleh.jpeg";
+import teamMemberE from "../../assets/images/team/taleen.jpeg";
+import teamMemberF from "../../assets/images/team/salman.jpeg";
 
 import videoBtnImage from "../../assets/images/videobtn.webp";
 import primaryPlay from "../../assets/images/primaryplaybtn.png";
 import analyticBg from "../../assets/images/analyticbg.webp";
 import benefitSuite from "../../assets/images/benefitofsuite.jpg";
-import crossConnect from "../../assets/images/crossconnector.webp";
 import earningA from "../../assets/images/earninga.webp";
 import earningB from "../../assets/images/earningb.webp";
 import blogView from "../../assets/images/blogview.jpg";
@@ -88,6 +87,15 @@ import blogA from "../../assets/images/blogA.jpg";
 import blogB from "../../assets/images/blogB.jpg";
 import blogC from "../../assets/images/blogC.jpg";
 import blogD from "../../assets/images/blogD.jpg";
+
+
+import left from "../../assets/images/homeleft.jpeg";
+import right from "../../assets/images/homeright.jpeg";
+import eventA from "../../assets/images/eventa.jpeg";
+import eventB from "../../assets/images/eventb.jpeg";
+import eventC from "../../assets/images/eventc.jpeg";
+
+import about from "../../assets/images/about.jpeg";
 
 
 // Icons
@@ -218,7 +226,6 @@ export const images = {
   primaryPlay,
   analyticBg,
   benefitSuite,
-  crossConnect,
   earningA,
   earningB,
   blogView,
@@ -260,7 +267,14 @@ export const images = {
   teamMemberE,
   teamMemberF,
 
-  avtar
+  avtar,
+  left,
+  right,
+  eventA,
+  eventB,
+  eventC,
+  about
+  
 };
 
 export const products = {

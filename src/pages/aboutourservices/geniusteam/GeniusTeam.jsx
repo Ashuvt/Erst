@@ -4,6 +4,10 @@ import Slider from "react-slick";
 import { icons, images } from "../../../utils/images/images";
 
 const GeniusTeam = () => {
+
+  let title="Meet The Genius Team";
+  let para = "At Cyber Gain Center, Our Team Is More Than A Collective Of Experts—It's A Dedicated Force Committed To Your Cybersecurity Journey. From Seasoned Professionals To Innovative Minds, Each Member Brings Unique Perspectives And Deep Industry Knowledge. Together, We Thrive On Collaboration, Ensuring That Every Learner Receives Personalized Guidance And Support. Meet Our Passionate Team—Driven To Empower You In Mastering The Essentials Of Cybersecurity."
+
   const sliderRef = useRef(null);
 
   const teamData = [
@@ -45,7 +49,7 @@ const GeniusTeam = () => {
       name: "Saleh Ahmed",
       post: "IT and Cloud Security Instructor",
       about:"With a comprehensive background in information security and cyber administration, Saleh has served in key roles, including Cloud Support Engineer and IT Support. Experienced in technologies such as GCP, Microsoft Azure, MongoDB, and virtualization tools like Docker and Kubernetes. His commitment to delivering exceptional technical support, combined with his managerial acumen, makes him a valuable asset in shaping the learning journey of our students",        
-      img: images.teamMemberD,
+      img:images.teamMemberD,
       insta: "",
       fb: "",
       ln: "https://www.linkedin.com/in/saleh-ahmed-8983a6188",
@@ -56,7 +60,7 @@ const GeniusTeam = () => {
       post: "Cybersecurity Developer",
       about:
         "A proficient expert in conducting technical online workshops and immersive Red Team Training sessions. Specializing in Active Directory security, with expertise that extends to threat intelligence, and incident response. Responsible for designing realistic lab environments, introducing vulnerabilities for hands-on learning, and engaging in penetration testing and network assessments.",
-      img:"",
+      img:images.teamMemberE,
       insta: "",
       fb: "",
       ln: "https://www.linkedin.com/in/taleen-skafi-b69104215",
@@ -67,7 +71,7 @@ const GeniusTeam = () => {
       post: "Cybersecurity Developer",
       about:
         "Salman Alwan, an innovative Cybersecurity Specialist, excelled as a former student in our Blue Team course with CSA certification. Specializes in lab design and knowledge transfer and is proficient in Bash, and Python. Salman is actively involved in cybersecurity and programming, currently working on a Dork Generator with upcoming projects focused on a Dork Scanner and an SQL Injection Vulnerable Scanner/Tester.",
-      img:"",
+      img:images.teamMemberF,
       insta: "",
       fb: "",
       ln: "https://www.linkedin.com/in/salmanalwan/",
@@ -127,22 +131,15 @@ const GeniusTeam = () => {
   return (
     <div className="genius_slider_sec p_bottom">
       <div className="mobile_title">
-        <h2>Meet The Genius Team</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus
-          explicabo, odio fugiat eligendi ea neque nesciunt quaerat libero, esse
-          sint dignissimos et tempore nemo aliquam dolorem quos nisi, numquam
-          velit incidunt omnis illum aliquid. Sunt!
-        </p>
+        <h2>{title}</h2>
+        <p>{para}</p>
       </div>
 
       <div className="genius_slider">
         <div className="title_card">
           <div className="text">
-            <h2>Meet The Genius Team</h2>
-            <p>
-            At Cyber Gain Center, our team is more than a collective of experts—it's a dedicated force committed to your cybersecurity journey. From seasoned professionals to innovative minds, each member brings unique perspectives and deep industry knowledge. Together, we thrive on collaboration, ensuring that every learner receives personalized guidance and support. Meet our passionate team—driven to empower you in mastering the essentials of cybersecurity.
-            </p>
+          <h2>{title}</h2>
+        <p>{para}</p>
           </div>
           <div className="btn_line">
             <button type="button" className="prev" onClick={goToPrev}>

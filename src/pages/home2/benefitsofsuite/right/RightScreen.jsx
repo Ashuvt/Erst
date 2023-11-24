@@ -19,7 +19,7 @@ const RightScreen = ({side, setSide}) => {
                 <h6>For Universities</h6>
             </div>
             <div className="overlay"></div>
-            <img src={images.contactUsBanner} className="bg" alt="bg" />
+            <img src={images.right} className="bg" alt="bg" />
           </div>
         </div>
         <div className={`text_content ${!side ? 'goright' : 'original'}`}>

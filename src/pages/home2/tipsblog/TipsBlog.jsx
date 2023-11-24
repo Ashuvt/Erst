@@ -9,7 +9,7 @@ const TipsBlog = () => {
       id: 0,
       title: "Cybersecurity youth program",
       text: "During the previous year, Cyber Gain Center conducted a youth program for the Arab middle schools. The center received offers from 10 different schools to teach cybersecurity. In total, Cyber Gain Center reached out to 20 different classes, with an average of 25 students per class",
-      img: images.homeblogA,
+      img: images.eventA,
       date: "april 18, 2023",
       url:"https://lnkd.in/dwqNidss"
     },
@@ -17,7 +17,7 @@ const TipsBlog = () => {
       id: 1,
       title: "event at a Dubai University",
       text: "Mr.Ali(founder) paid a visit to the Birla Institute of Technology and Science, Pilani Dubai Campus! University where he hosted a Cybersecurity.",
-      img: images.homeblogB,
+      img: images.eventB,
       date: "april 18, 2023",
       url:"https://www.linkedin.com/feed/update/urn:li:activity:7066764071139778560"
     },
@@ -25,7 +25,7 @@ const TipsBlog = () => {
       id: 2,
       title: "Upcomming Event",
       text: "GISEC In Dubai",
-      img: images.homeblogC,
+      img: images.eventC,
       date: "april 18, 2023",
       url:"#"
     },

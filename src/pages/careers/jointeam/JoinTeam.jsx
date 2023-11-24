@@ -32,12 +32,7 @@ const JoinTeam = () => {
         <div className="main_circle">
           <div className="overlay"></div>
           <img src={images.homeVideoBanner} alt="video_banner" />
-          <div className="inner_circle">
-            <div className="border-circle">
-              <h1 className="wow fadeInUp">9.9K</h1>
-              <h6 className="wow fadeInUp">Joined Our Team</h6>
-            </div>
-          </div>
+        
         </div>
         <div className="text_content">
           <h2 className="wow fadeInUp">We Invite New Talents To join are Team!</h2>

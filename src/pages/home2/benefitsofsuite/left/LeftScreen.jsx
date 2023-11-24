@@ -25,7 +25,7 @@ const LeftScreen = ({ side, setSide }) => {
               <h6>For Universities</h6>
             </div>
             <div className="overlay"></div>
-            <img src={images.benefitSuite} className="bg" alt="bg" />
+            <img src={images.left} className="bg" alt="bg" />
           </div>
         </div>
       </div>
