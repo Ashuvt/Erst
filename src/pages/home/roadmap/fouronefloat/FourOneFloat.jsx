@@ -3,10 +3,10 @@ import "./FourOneFloat.scss";
 const FourOneFloat = ({ scrollY }) => {
 
 
-let start = 1000;
+let start = 1200;
 
 let moveY = (scrollY > start && scrollY < start + 135) ? scrollY - start : (scrollY >= (start + 135) && scrollY <= (start + 250)) ? 135 : scrollY > (start + 250) ?  (scrollY - start - 110) : -35;
-let fromLeft = (scrollY >= (start + 135) && scrollY <= (start + 250)) ? 50*((scrollY - 1135)/(1250 - 1135)) : scrollY >= start + 250 ? 50 : 0;
+let fromLeft = (scrollY >= (start + 135) && scrollY <= (start + 250)) ? 50*((scrollY - 1335)/(1450 - 1335)) : scrollY >= start + 250 ? 50 : 0;
 
   return (
     <div className="four_one_float">

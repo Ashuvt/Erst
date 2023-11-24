@@ -142,7 +142,7 @@ const RoadMap = () => {
 
   return (
     <Fragment>
-      <section className="road_map">    
+      <section className="road_map">  
         <div className="content_wrap">
           <div className="small_screen_map">
             <div className="center_line"></div>
@@ -157,6 +157,7 @@ const RoadMap = () => {
               </div>
             </div>
           </div>
+       
 
           <OneFourFloat scrollY={scrollY} />
 

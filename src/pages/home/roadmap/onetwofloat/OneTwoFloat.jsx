@@ -1,11 +1,11 @@
 import "./OneTwoFloat.scss";
 
 const OneTwoFloat = ({ scrollY }) => {
-  let startPoint = 1500;
+  let startPoint = 1700;
 
-  let fromLeft = scrollY >= 1630 && scrollY <= 1700 ? 
-  50 + (0 - 50)*((scrollY - 1630)/(1700 - 1630)) 
-   : scrollY > 1700 ? 0 : 50;
+  let fromLeft = scrollY >= 1830 && scrollY <= 1900 ? 
+  50 + (0 - 50)*((scrollY - 1830)/(1900 - 1830)) 
+   : scrollY > 1900 ? 0 : 50;
 
   let moveY = scrollY > startPoint && scrollY < startPoint + 130
       ? scrollY - startPoint
