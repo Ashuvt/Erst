@@ -1,8 +1,10 @@
 import "./Footer.scss";
 import { icons, images } from "../../utils/images/images";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Footer = () => {
+
+const navigate = useNavigate();
 
   return (
     <section className="footer">
@@ -11,20 +13,17 @@ const Footer = () => {
       <div className="content_wrap">
         <footer>
           <h2 className="wow fadeInUp">
-          Lorem ipsum dolor sit amet consectetur adipis.
+          Discover more about cybersecurity with Cyber Gain Center!
           </h2>
           <div className="link_social wow fadeInUp">
             <div className="links_container">
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/about">About</NavLink>
-          <NavLink to="/careers">Career</NavLink>          
-          <NavLink to="/blogs">Blogs</NavLink>
-          <NavLink to="/faq">FAQ</NavLink>
-          <NavLink to="/contactus">Contact</NavLink>
-        
-         
-
-                     </div>
+              <NavLink to="/">Home</NavLink>
+              <NavLink to="/about">About</NavLink>
+              <NavLink to="/careers">Career</NavLink>
+              <NavLink to="/blogs">Blogs</NavLink>
+              {/* <NavLink to="/faq">FAQ</NavLink> */}
+              <NavLink to="/contactus">Contact</NavLink>
+            </div>
             <div className="social_networks">
               <a href="https://www.instagram.com/" target="_blank">
                 <img src={icons.instagram} alt="instagram" />
@@ -40,15 +39,22 @@ const Footer = () => {
           </div>
           {/* center Sec */}
           <div className="footer_center">
-
-            <div className="anim_border top wow zoomIn" data-wow-delay="0.5s" data-wow-duration="1.5s"></div>
-            <div className="anim_border bottom wow zoomIn" data-wow-delay="0.5s" data-wow-duration="1.5s"></div>
+            <div
+              className="anim_border top wow zoomIn"
+              data-wow-delay="0.5s"
+              data-wow-duration="1.5s"
+            ></div>
+            <div
+              className="anim_border bottom wow zoomIn"
+              data-wow-delay="0.5s"
+              data-wow-duration="1.5s"
+            ></div>
 
             <div className="footer_grid">
               <div className="grid_box footer_form wow fadeInUp">
                 <h5>Get In Touch</h5>
                 <p>
-                Lorem ipsum dolor sit amet consectetur adipis. sit amet consectetur adipis.
+                Reach out now and level up your cybersecurity
                 </p>
                 <form>
                   <input type="email" placeholder="Your e-mail" />
@@ -60,25 +66,24 @@ const Footer = () => {
 
               <div className="grid_box footer_connect wow fadeInUp">
                 <h5>Stay Connect</h5>
-                <p>Lorem ipsum dolor sit amet.</p>
+                <p>Reach out to us at :</p>
                 <div className="stay_connect">
-                  <a href="tel:(239)555-0108">(239) 555-0108</a>
-                  <a href="tel:(406)555-0120">(406) 555-0120</a>
+                  <a href="tel:04-876-6326">04-876-6326</a>
                 </div>
               </div>
 
               <div className="grid_box footer_download wow fadeInUp">
-                <h5>Login And Sign Up</h5>
-                <p>We suggest login to our portal</p>
+                <h5>Sign In And Sign Up</h5>
+                <p>We suggest signing in our portal</p>
 
                 <div className="app_wrap">
-                  <a href="#" target="_blank">
-                    Login
-                  </a>
-
-                  <a href="#" target="_blank">
+                  <button type="button" onClick={() => navigate("/auth/getStarted")}>
                     Sign Up
-                  </a>
+                  </button>
+
+                  <button type="button" onClick={() => navigate("/auth/login")}>
+                    Sign In
+                  </button>
                 </div>
               </div>
             </div>

@@ -47,51 +47,51 @@ const SymmentricSlider = () => {
   const logoData = [
     {
       id: 0,
-      img: logoImage.companyA,
+      img: logoImage.partnerA,
     },
     {
       id: 1,
-      img: logoImage.companyB,
+      img: logoImage.partnerB,
     },
     {
       id: 2,
-      img: logoImage.companyC,
+      img: logoImage.partnerC,
     },
     {
       id: 3,
-      img: logoImage.companyD,
+      img: logoImage.partnerD,
     },
     {
       id: 4,
-      img: logoImage.companyE,
+      img: logoImage.partnerE,
     },
     {
       id: 5,
-      img: logoImage.companyF,
+      img: logoImage.partnerA,
     },
     {
       id: 6,
-      img: logoImage.companyA,
+      img: logoImage.partnerB,
     },
     {
       id: 7,
-      img: logoImage.companyB,
+      img: logoImage.partnerC,
     },
     {
       id: 8,
-      img: logoImage.companyC,
+      img: logoImage.partnerD,
     },
     {
       id: 9,
-      img: logoImage.companyD,
+      img: logoImage.partnerE,
     },
     {
       id: 10,
-      img: logoImage.companyE,
+      img: logoImage.partnerA,
     },
     {
       id: 11,
-      img: logoImage.companyF,
+      img: logoImage.partnerB,
     },
   ];
   return (

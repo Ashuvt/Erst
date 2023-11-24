@@ -4,28 +4,30 @@ import "./TipsBlog.scss";
 import TipsBlogCard from "./tipsblogcard/TipsBlogCard";
 
 const TipsBlog = () => {
-
   const blogData = [
     {
-      id:0,
-      title: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-      text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat, ex placeat rem, nulla minus harum quaerat eveniet voluptate natus dolore quas quae debitis? Eum harum qui nam.",
+      id: 0,
+      title: "Cybersecurity youth program",
+      text: "During the previous year, Cyber Gain Center conducted a youth program for the Arab middle schools. The center received offers from 10 different schools to teach cybersecurity. In total, Cyber Gain Center reached out to 20 different classes, with an average of 25 students per class",
       img: images.homeblogA,
       date: "april 18, 2023",
+      url:"https://lnkd.in/dwqNidss"
     },
     {
-      id:1,
-      title: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-      text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat, ex placeat rem, nulla minus harum quaerat eveniet voluptate natus dolore quas quae debitis? Eum harum qui nam.",
+      id: 1,
+      title: "event at a Dubai University",
+      text: "Mr.Ali(founder) paid a visit to the Birla Institute of Technology and Science, Pilani Dubai Campus! University where he hosted a Cybersecurity.",
       img: images.homeblogB,
       date: "april 18, 2023",
+      url:"https://www.linkedin.com/feed/update/urn:li:activity:7066764071139778560"
     },
     {
-      id:2,
-      title: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-      text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat, ex placeat rem, nulla minus harum quaerat eveniet voluptate natus dolore quas quae debitis? Eum harum qui nam.",
+      id: 2,
+      title: "Upcomming Event",
+      text: "GISEC In Dubai",
       img: images.homeblogC,
       date: "april 18, 2023",
+      url:"#"
     },
   ];
 
@@ -35,22 +37,23 @@ const TipsBlog = () => {
         <div className="left">
           <h2 className="wow fadeInUp">Events</h2>
           <p className="wow fadeInUp">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita fugit consequatur dolor provident ipsam minima, harum illo id, dolores blanditiis fuga sit natus quis sapiente assumenda! Nam, dolores facilis! Id.
+            Discover our latest and upcoming webinars, diverse cybersecurity
+            programs, and our active participation in notable events. Stay
+            informed, learn, and engage as we contribute to and collaborate
+            within the dynamic field of cybersecurity.
           </p>
-          <button type="button" className="primarybtn wow fadeInUp">
+          {/* <button type="button" className="primarybtn wow fadeInUp">
             view all Events
-          </button>
+          </button> */}
         </div>
         <div className="blog_column">
-            {
-                blogData.map((data) => {
-                    return(
-                      <Fragment key={data.id}>
-                        <TipsBlogCard {...data} />
-                        </Fragment>
-                    )
-                })
-            }
+          {blogData.map((data) => {
+            return (
+              <Fragment key={data.id}>
+                <TipsBlogCard {...data} />
+              </Fragment>
+            );
+          })}
         </div>
       </div>
     </section>

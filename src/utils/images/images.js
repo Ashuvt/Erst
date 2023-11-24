@@ -48,7 +48,9 @@ import avtar from "../../assets/images/avtarprofile.jpg";
 import teamMemberA from "../../assets/images/ali-zenaty-img.webp";
 import teamMemberB from "../../assets/images/najeeb-ibrahem-img.webp";
 import teamMemberC from "../../assets/images/yara-rammal.webp";
-import teamMemberD from "../../assets/images/divya.webp";
+import teamMemberD from "../../assets/images/saleh.jpg";
+import teamMemberE from "../../assets/images/saleh.jpg";
+import teamMemberF from "../../assets/images/saleh.jpg";
 
 import videoBtnImage from "../../assets/images/videobtn.webp";
 import primaryPlay from "../../assets/images/primaryplaybtn.png";
@@ -255,6 +257,8 @@ export const images = {
   teamMemberB,
   teamMemberC,
   teamMemberD,
+  teamMemberE,
+  teamMemberF,
 
   avtar
 };

@@ -3,22 +3,25 @@ import { icons } from "../../../utils/images/images";
 import CircleArrowBtn from "../../../components/circlearrowbtn/CircleArrowBtn";
 import TextArrowBtn from "../../../components/textarrowbtn/TextArrowBtn"; 
 import ParticlesBg from "../../../components/particlesbg/ParticlesBg";
+import { useNavigate } from "react-router-dom";
 
 const ContactLanding = () => {
+
+  const navigate = useNavigate();
 
   return (
     <section className="contact_landing">
       <ParticlesBg />
       <div className="content_wrap">
-        <h1 className="wow fadeInLeft">Lorem ipsum dolor sit amet consectetur.</h1>
+        <h1 className="wow fadeInLeft">Connecting is Key: Reach Out to Cyber Gain Center Today.</h1>
 
         <div className="trial_wrap">
           <p className="wow fadeInRight">
-            We guarantee quality <br /> improvement and development!
+          Build a Safer Future
           </p>
           <div className="btn_line wow fadeInRight">
            <CircleArrowBtn />
-           <TextArrowBtn text="start free trial" />
+           <TextArrowBtn text="start free trial" clickHandler={() => navigate("/auth/getstarted")} />
           </div>
         </div>
       </div>

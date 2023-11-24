@@ -66,8 +66,8 @@ const Help = () => {
         <Map />
         <div className="filler"></div>
         <MidTitle
-          title="Still Need Help?"
-          text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur nemo eveniet neque facere ratione? Modi eligendi voluptate libero esse aperiam."
+          title="Need Assistance?"
+          text="We're Here to Help! Reach Out for Expert Support at Cyber Gain Center."
         />
         <div className="help_form">
           <form>

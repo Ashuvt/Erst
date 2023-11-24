@@ -2,21 +2,34 @@ import { Fragment, useEffect, useState } from "react";
 import "./App.scss";
 import { useLocation } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
+
 import Home from "./pages/home/Home";
-import Faq from "./pages/faq/Faq";
-import ErrorPage from "./pages/error/ErrorPage";
-import ContactUs from "./pages/contactus/ContactUs";
-import SideBar from "./layouts/sidebar/SideBar";
-import Home2 from "./pages/home2/home2";
+import About from "./pages/about/About";
 import Careers from "./pages/careers/Careers";
-import Shop from "./pages/shop/Shop";
+import Blogs from "./pages/blogs/Blogs";
+import Faq from "./pages/faq/Faq";
 import BlogDetail from "./pages/blogdetail/BlogDetail";
+import ContactUs from "./pages/contactus/ContactUs";
+
+import Login from "./authPages/login/Login";
+import GetStarted from "./authPages/getStarted/GetStarted";
+
+import ErrorPage from "./pages/error/ErrorPage";
+import SideBar from "./layouts/sidebar/SideBar";
+
+
+
+
+import Home2 from "./pages/home2/home2";
+
+import Shop from "./pages/shop/Shop";
+
 import AboutOurServices from "./pages/aboutourservices/AboutOurServices";
 import SoftwareDeveloper from "./pages/softwaredeveloper/SoftwareDeveloper";
 import NewTechnology from "./pages/newtechnology/NewTechnology";
 import AddCartPopup from "./layouts/addcartpopup/AddCartPopup";
-import Login from "./authPages/login/Login";
-import GetStarted from "./authPages/getStarted/GetStarted";
+
+
 import OnBoardingSteppers from "./authPages/onboardingstepper/OnBoardingSteppers";
 import Home1 from "./authPages/home1/Home1";
 import Explore from "./authPages/explore/Explore";
@@ -29,8 +42,7 @@ import { resetAllToggler } from "./store/actions";
 import ExploreDetail from "./authPages/exploredetail/ExploreDetail";
 import CourseSidebar from "./layouts/coursesidebar/CourseSidebar";
 import ExploreCourses from "./authPages/explorecourses/ExploreCourses";
-import About from "./pages/about/About";
-import Blogs from "./pages/blogs/Blogs";
+
 
 
 

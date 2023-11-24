@@ -47,7 +47,7 @@ const Login = () => {
         <div className="auth_container">
           <form>
             <div className="title">
-              <h1 className="small_title wow fadeInUp">Login</h1>
+              <h1 className="small_title wow fadeInUp">Sign In</h1>
               <div className="suggetion wow fadeInUp">
                 <p>New user?</p>
                 <button type="button" onClick={getStarted}>
@@ -96,7 +96,7 @@ const Login = () => {
                 className="authbtn auth_primary wow fadeInUp"
                 onClick={loginHandler}
               >
-                Login
+               Sign In
               </button>
               <button
                 type="button"

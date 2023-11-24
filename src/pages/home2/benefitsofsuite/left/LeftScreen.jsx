@@ -10,10 +10,10 @@ const LeftScreen = ({ side, setSide }) => {
         <div className={`text_content ${side ? 'goleft' : 'original'}`}>
           <h2 className="wow fadeInUp">About Cyber Gain Center.</h2>
           <p className="wow fadeInUp">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore animi, rerum consectetur cumque, vel voluptatem quas temporibus reprehenderit accusantium doloribus modi tempore obcaecati necessitatibus architecto iusto earum nemo, nobis iure ex explicabo voluptate? Eveniet repellat ullam unde? Deleniti a, commodi sint, eaque nesciunt quam numquam fugit dicta ab labore ducimus!
+          Established in 2022, our cybersecurity training company, headquartered in Israel with additional branches in Dubai and India, stands as a beacon of comprehensive learning in the ever-evolving digital landscape. With over six generations of trainers, our center offers a dynamic fusion of expertise and innovation. We empower learners through hands-on labs and simulations, immersing them in real-life scenarios drawn from past incidents. This immersive approach fosters a deep understanding of cybersecurity, equipping our trainees with the skills and foresight needed to navigate and safeguard against modern threats.
           </p>
-          <button type="button" className="primarybtn wow fadeInUp">
-            start free trial
+          <button type="button" className="primarybtn wow fadeInUp" onClick={() => setSide(true)}>
+            know More
           </button>
         </div>
         <div className="box_card_side">

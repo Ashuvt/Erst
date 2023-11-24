@@ -7,9 +7,9 @@ const AboutServices = () => {
       <div className="content_wrap p_bottom p_top">
         <div className="bottom_line wow zoomIn"></div>
         <div className="bisec_title">
-          <h2 className="wow fadeInUp">Lorem ipsum dolor sit amet.</h2>
+          <h2 className="wow fadeInUp">Building a Safer Future</h2>
           <p className="wow fadeInUp">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi assumenda ipsam iusto non ea dolores praesentium? Error officiis vero facilis assumenda omnis!
+          Read More on Our Commitment to Protecting and Empowering in the World of Cybersecurity. Discover How We Drive Change, Foster Innovation, and Safeguard Tomorrow's Digital Landscape.
           </p>
         </div>
         <div className="bi_grid">
@@ -42,7 +42,7 @@ const AboutServices = () => {
               </p>
             </div>
             <div className="content_card wow fadeInUp">
-              <h5>Leadership</h5>
+              <h5>Purpose.</h5>
               <p>
               EDUCATE, EMPOWER, SPREAD AWARENESS AND PROMOTE GLOBAL SECURITY. 
               </p>

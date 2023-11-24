@@ -21,7 +21,7 @@ const Careers = () => {
       <Header />
       <MapLanding
         title="Join Our Team"
-        text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati necessitatibus officiis cupiditate, consectetur eos praesentium similique nulla est illo quos?"
+        text="The team at Cyber Gain Center — a group of passionate experts committed to excellence in the cybersecurity world. With diverse expertise and personalized support, we're here to empower every learner."
       />
       <SymmentricSlider />
       <JoinTeam />

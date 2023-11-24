@@ -42,7 +42,7 @@ $bgGradient:linear-gradient(104deg, #0077C2 0%, rgba(1, 73, 158, 0.61) 49.66%, r
 $primaryGradient: linear-gradient(315deg, $secondary, $primary);
 $primaryGradient_1: linear-gradient(135deg, $primary 30%, $secondary);
 $primaryGradient_2: linear-gradient(135deg, $secondary, $primary);
-$primaryGradient_3: linear-gradient(135deg, #9558bc 12%, $secondary);
+$primaryGradient_3: linear-gradient(135deg, $primary 45%, $secondary);
 $primaryGradient_4: linear-gradient(225deg, $primary, $secondary);
 $primaryGradient_5: linear-gradient(135deg, $primary, $secondary);
 $primaryGradient_6: linear-gradient(135deg, $primary 17%, $secondary);

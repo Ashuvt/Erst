@@ -36,41 +36,15 @@ const SideBar = () => {
             <img src={icons.whiteClose} alt="close" />
           </button>
         </div>
-        {/* {menuList &&
-        menuList.map((data) => {
-          return (
-            <Fragment key={data.id}>
-              <div className="main_menu" onClick={() => openSubmenu(data.id)}>
-                <p>{data.title}</p>
-                <img
-                  src={icons.whiteAngle}
-                  className={num === data.id ? "open" : "close"}
-                  alt="arrow"
-                />
-              </div>
-              <div
-                className={`sub_menus ${num === data.id ? "open" : "close"}`}
-              >
-                {data.submenu.map((ele) => {
-                  return (
-                    
-                    <NavLink to={ele.link} key={ele.id}>
-                      {ele.text}
-                    </NavLink>
-                  );
-                })}
-              </div>
-            </Fragment>
-          );
-        })} */}
 
         <div className="side_links_wrap">
           <nav>
             <NavLink to="/">Home</NavLink>
             <NavLink to="/about">About</NavLink>
             <NavLink to="/careers">Careers</NavLink>
+            <NavLink to="/blogs">Blogs</NavLink>
             <NavLink to="/contact">Contact</NavLink>
-            <NavLink to="/faq">FAQ</NavLink>
+            {/* <NavLink to="/faq">FAQ</NavLink> */}
           </nav>
         </div>
 
@@ -78,11 +52,15 @@ const SideBar = () => {
           <button
             type="button"
             className="primarybtn"
-            onClick={() => navigate("/login")}
+            onClick={() => navigate("/auth/login")}
           >
             sign in
           </button>
-          <button type="button" className="secondarybtn">
+          <button 
+            type="button" 
+            className="secondarybtn"
+            onClick={() => navigate("/auth/getStarted")}
+            >
             sign up
           </button>
         </div>

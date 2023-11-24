@@ -1,7 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import { icons, images } from "../../../../utils/images/images";
 import "./RightScreen.scss";
 
 const RightScreen = ({side, setSide}) => {
+
+  const navigate = useNavigate();
+
   return (
     <section className="benefit_suite_right p_top p_bottom">
       <div className="content_wrap">
@@ -19,13 +23,14 @@ const RightScreen = ({side, setSide}) => {
           </div>
         </div>
         <div className={`text_content ${!side ? 'goright' : 'original'}`}>
-          <h2 className="wow fadeInUp">About Cyber Gain Center.</h2>
+          <h2 className="wow fadeInUp">Universities</h2>
           <p className="wow fadeInUp">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore animi, rerum consectetur cumque, vel voluptatem quas temporibus reprehenderit accusantium doloribus modi tempore obcaecati necessitatibus architecto iusto earum nemo, nobis iure ex explicabo voluptate? Eveniet repellat ullam unde? Deleniti a, commodi sint, eaque nesciunt quam numquam fugit dicta ab labore ducimus!
+          Our enterprise program is meticulously crafted to meet each business's unique requirements. Tailoring a customized plan, we provide a range of options—online or in-person training, lab access, video resources, CyberGain Certification, and international certifications—to align with their specific preferences. Clients have the flexibility to select from our diverse course catalog or request a bespoke curriculum. Simply reach out, and we'll collaboratively build a plan that perfectly fits your needs. We offer complete flexibility—everything is up for discussion.
           </p>
-          <button type="button" className="primarybtn wow fadeInUp">
-            buy package now
-          </button>
+          
+          <a href="https://calendly.com/cybergain/meeting-with-ali-zinaty-ceo-of-cyber-gain-center" target="_blank" className="wow fadeInUp">
+            By Package Now
+          </a>
         </div>
       </div>
     </section>

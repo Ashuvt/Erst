@@ -19,7 +19,7 @@ const BlogsLanding = () => {
         <div className="title_wrap">
           <h1 className="wow fadeInUp">All Blogs</h1>
           <p className="wow fadeInUp">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum impedit, officiis aperiam perferendis soluta optio. Amet sapiente blanditiis repellendus voluptatum!
+          Explore our blog for the latest in cybersecurity—essential tips, training updates, and industry news. Get valuable insights on staying secure online, whether you're new to cybersecurity or a seasoned pro. Join us to stay informed and ready to face digital challenges.
           </p>
         </div>
       </div>

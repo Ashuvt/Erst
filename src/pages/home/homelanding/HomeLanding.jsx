@@ -1,8 +1,12 @@
 import "./HomeLanding.scss";
 import { images } from "../../../utils/images/images";
 import ParticlesBg from "../../../components/particlesbg/ParticlesBg";
+import { useNavigate } from "react-router-dom";
 
 const HomeLanding = () => {
+
+const navigate = useNavigate();
+
   return (
     <section className="home1landing p_bottom">
 
@@ -30,6 +34,7 @@ const HomeLanding = () => {
           type="button"
           className="primarybtn wow fadeInUp"
           data-wow-delay="0.4s"
+          onClick={() => navigate("/auth/getStarted")}
         >
           Sign Up
         </button>       

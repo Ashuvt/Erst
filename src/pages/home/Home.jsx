@@ -33,8 +33,8 @@ const Home = () => {
       <Partners />
       <FeedBack />
       <Offer
-        title="Get Started A 15-Days Free Trial"
-        text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, veritatis perferendis. Aperiam dolor facere sed? Labore, id quod delectus modi amet sequi ratione veritatis sint sed, voluptatum, architecto aperiam saepe."
+        title="Get started a 15 days free trial."
+        text="Explore our blog for the latest in cybersecurity—essential tips, training updates, and industry news. Get valuable insights on staying secure online, whether you're new to cybersecurity or a seasoned pro. Join us to stay informed and ready to face digital challenges."
       />
       <HomeBlogs />
 

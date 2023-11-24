@@ -43,7 +43,7 @@ const Header = () => {
             <NavLink to="/about">About</NavLink>
             <NavLink to="/careers">Careers</NavLink>               
             <NavLink to="/blogs">Blogs</NavLink>     
-            <NavLink to="/faq">FAQ</NavLink>
+            {/* <NavLink to="/faq">FAQ</NavLink> */}
             <NavLink to="/contact">Contact</NavLink> 
           
             {/* {menuList.map((ele) => {
@@ -55,7 +55,11 @@ const Header = () => {
             })} */}
           </nav>
           <div className="btns">
-          <button type="button" className="signup">
+          <button 
+            type="button" 
+            className="signup"
+            onClick={() => navigate("/auth/getStarted")}  
+          >
               Sign up
             </button>
             <button

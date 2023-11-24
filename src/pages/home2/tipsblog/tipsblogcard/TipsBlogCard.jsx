@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./TipsBlogCard.scss";
 
-const TipsBlogCard = ({ date, title, text, img }) => {
+const TipsBlogCard = ({ date, title, text, img, url }) => {
   const [side, setSide] = useState(false);
   const [width, setWidth] = useState(0);
 
@@ -39,6 +39,7 @@ const TipsBlogCard = ({ date, title, text, img }) => {
           style={{ width: `${width}%` }}
         ></div>
       </div>
+      <a href={url} target="_blank" className="link_overlay"></a>
     </div>
   );
 };

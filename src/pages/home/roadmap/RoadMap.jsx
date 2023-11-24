@@ -13,25 +13,25 @@ const RoadMap = () => {
       id: 0,
       icon: icon.certificate,
       title: "Beginner",
-      text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed quo distinctio magni et iusto, eum molestias velit perferendis officiis placeat.",
+      text: "Just starting out in cybersecurity, eager to learn and explore, equipped with foundational knowledge in networking and security principles. Actively pursuing education, and certifications, and engaging in various cybersecurity domains.",
     },
     {
       id: 1,
       icon: icon.certificate,
       title: "Intermediate",
-      text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed quo distinctio magni et iusto, eum molestias velit perferendis officiis placeat.",
+      text: "Passionate about expanding knowledge and improving skills beyond the basics. Possesses a solid foundation in networking, system security, and practical experience. Actively advancing education with specialized courses and certifications.",
     },
     {
       id: 2,
       icon: icon.certificate,
       title: "Professional",
-      text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed quo distinctio magni et iusto, eum molestias velit perferendis officiis placeat.",
+      text: " Driven to excel and enhance expertise. Have extensive knowledge in networking, system security, and hands-on experience. Continuously enhances skills through advanced courses and certifications, exploring detailed areas of cybersecurity domains.",
     },
     {
       id: 3,
       icon: icon.certificate,
       title: "Master",
-      text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed quo distinctio magni et iusto, eum molestias velit perferendis officiis placeat.",
+      text: "Dedicated to pushing boundaries and innovating in the field. Holds an unmatched depth of knowledge in networking, system security, and extensive practical expertise. Pursues cutting-edge advancements through groundbreaking research, leading-edge certifications, and spearheading advancements in diverse cybersecurity realms.",
     },
   ];
 

@@ -35,7 +35,7 @@ const GetStartedForm = () => {
           <div className="suggetion wow fadeInUp">
             <p>Already have an account?</p>
             <button type="button" onClick={goToLogin}>
-              <p>login</p>
+              <p>Sign In</p>
             </button>
           </div>
         </div>
@@ -104,7 +104,7 @@ const GetStartedForm = () => {
             className="authbtn auth_secondary wow fadeInUp"
             onClick={goToLogin}
           >
-            login
+            Sign In
           </button>
         </div>
         <p className="notice wow fadeInUp">

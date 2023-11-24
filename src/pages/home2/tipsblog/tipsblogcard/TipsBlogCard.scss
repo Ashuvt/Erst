@@ -6,9 +6,20 @@
 .tips_blog_card {
     padding: 60px 0px;
     position: relative;
+    min-height:400px;
     @media only screen and (max-width:$laptop){
         padding: 40px 0px;
 
+    }
+    a.link_overlay{
+        position:absolute;
+        cursor:pointer;
+        top:25px;
+        left:0px;
+        display: inline-block;
+        height:calc(100% - 50px);
+        width:100%;
+        z-index:44;
     }
     .bottom_border{
         background:$lightBorder_2;

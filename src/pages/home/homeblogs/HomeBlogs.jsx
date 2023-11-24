@@ -16,7 +16,7 @@ const navigate = useNavigate();
       <div className="content_wrap p_top">
         <MidTitle
           title="Read Our Interesting Blog Posts"
-          text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi iste dignissimos mollitia? Maxime similique doloribus quae, voluptatum facilis cupiditate hic nisi natus, reiciendis ducimus cumque soluta voluptates?"
+          text=""
         />
         {/* Blog Grid */}
         <div className="home_blog_grid">
@@ -26,12 +26,12 @@ const navigate = useNavigate();
               <img src={images.homeblogD} alt="banner" />
             </div>
             <div className="blog_content_box">
-              <Pill text="AI Development" />
+              <Pill text="Deep Learning" />
               <h4>
-              Lorem ipsum dolor sit amet consectetur <br /> adipisicing elit.
+              Revealing the Hidden Threat: Deep Learning Unlocks Acoustic Side Channel Attacks on Keyboards
               </h4>
-              <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut mollitia dolore repellendus neque! Voluptatum pariatur eveniet ea beatae ratione, deleniti enim aspernatur, doloribus quisquam iure veniam tenetur laborum at natus, fugiat ducimus laboriosam odit et!
+              <p>              
+              In our increasingly interconnected world, where technology's reach spans from personal devices to online services, the threat landscape continues to evolve. One emerging threat that has caught the attention of cybersecurity researchers is acoustic side channel attacks (ASCA) on keyboards.
               </p>
               <div className="btn_line">
                 <button type="buton" className="secondarybtn" onClick={() => navigate("/blogs")}>

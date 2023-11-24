@@ -2,8 +2,11 @@ import { useState, useEffect } from "react";
 import "./Home2Landing.scss";
 import WOW from "wow.js";
 import ParticlesBg from "../../../components/particlesbg/ParticlesBg";
+import { useNavigate } from "react-router-dom";
 
 const Home2Landing = () => {
+const navigate = useNavigate();
+
   const [count, setCount] = useState(0);
 
   useEffect(() => {
@@ -30,8 +33,6 @@ const Home2Landing = () => {
         <div className="text_content">
           <div className="dynamic wow fadeInUp">
             <h1>True Cyber Security Is Preparing For</h1>
-
-
             <div className="text_box">
               <div
                 className="gradient_wrap"
@@ -51,7 +52,7 @@ const Home2Landing = () => {
               </div>
           </div>
           <p className="wow fadeInUp">
-          Enter "Platform Name," your gateway to the cutting-edge realm of cybersecurity training. Immerse in our diverse range of hands-on training labs and rich learning resources, designed to empower tech enthusiasts from all backgrounds to master the art of cybersecurity and stay one step ahead in this ever-evolving landscape.
+          Your gateway to the cutting-edge realm of cybersecurity training. Immerse in our diverse range of hands-on training labs and rich learning resources, designed to empower tech enthusiasts from all backgrounds to master the art of cybersecurity and stay one step ahead in this ever-evolving landscape.
           </p>
         </div>
         <div className="btn_line wow fadeInUp">
@@ -61,13 +62,14 @@ const Home2Landing = () => {
               15 DAYS FREE TRIAL NO <br /> CREDIT CARD REQUIRED
             </h6>
           </div>
-          <button className="primarybtn">signup</button>
+          <button
+           className="primarybtn"
+           onClick={() => navigate("/auth/getstarted")}
+           >signup</button>
         </div>
       </div>
       <div className="primary_glass first"></div>
       <div className="primary_glass second"></div>
-      {/* <div className="secondary_glass first"></div> */}
-      {/* <div className="secondary_glass second"></div> */}
     </section>
   );
 };

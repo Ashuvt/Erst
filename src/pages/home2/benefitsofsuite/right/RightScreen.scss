@@ -38,6 +38,29 @@
                 animation:slideFromRight 1s linear ;
                 animation-delay: 0.5s;
             }
+            a{
+                display: inline-block;
+                text-decoration: none;
+                border-style: none;
+                height: auto;
+                min-height: 47px;
+                text-align: center;
+                letter-spacing: .2em;
+                text-transform: uppercase;    
+                background:$primaryGradient;
+                border-radius: 12px;
+                justify-content: center;
+                padding: 15px 20px;
+                 @include font('SpaceGrotesk-Regular', 12px, 20px, 500, $white);
+                transition: all .35s ease-in-out;
+                display: flex;
+                width:180px;
+                &:hover{
+                    transform: translate3d(0px, 0px, 0px) scale3d(0.98, 0.98, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+                    transform-style: preserve-3d;
+                    opacity:0.7;
+                }
+            }
         }
 
         .box_card_side {
