@@ -25,11 +25,11 @@ const navigate = useNavigate();
               <NavLink to="/contactus">Contact</NavLink>
             </div>
             <div className="social_networks">
-              <a href="https://www.instagram.com/" target="_blank">
+              <a href="https://www.instagram.com/cyber_gain_center/" target="_blank">
                 <img src={icons.instagram} alt="instagram" />
               </a>
 
-              <a href="https://www.facebook.com/" target="_blank">
+              <a href="https://www.facebook.com/CyberGainCenter" target="_blank">
                 <img src={icons.fb} alt="facevbook" />
               </a>
               <a href="https://twitter.com/" target="_blank">
