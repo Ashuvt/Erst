@@ -6,32 +6,36 @@ import FourOneFloat from "./fouronefloat/FourOneFloat";
 import OneTwoFloat from "./onetwofloat/OneTwoFloat";
 import { logoImage } from "../../../utils/images/images"
 import CourseCard from "./courcecard/CourseCard";
+import { useTranslation } from 'react-i18next';
+
+
 
 const RoadMap = () => {
+  const { t } = useTranslation();
   const framData = [
     {
       id: 0,
       icon: icon.certificate,
-      title: "Beginner",
-      text: "Just starting out in cybersecurity, eager to learn and explore, equipped with foundational knowledge in networking and security principles. Actively pursuing education, and certifications, and engaging in various cybersecurity domains.",
+      title:t('courseCardOneTitle'),
+      text:t('courseCardOnePara'),
     },
     {
       id: 1,
       icon: icon.certificate,
-      title: "Intermediate",
-      text: "Passionate about expanding knowledge and improving skills beyond the basics. Possesses a solid foundation in networking, system security, and practical experience. Actively advancing education with specialized courses and certifications.",
+      title:t('courseCardTwoTitle'),
+      text:t('courseCardTwoPara'),
     },
     {
       id: 2,
       icon: icon.certificate,
-      title: "Professional",
-      text: " Driven to excel and enhance expertise. Have extensive knowledge in networking, system security, and hands-on experience. Continuously enhances skills through advanced courses and certifications, exploring detailed areas of cybersecurity domains.",
+      title:t('courseCardThreeTitle'),
+      text:t('courseCardThreePara'),
     },
     {
       id: 3,
       icon: icon.certificate,
-      title: "Master",
-      text: "Dedicated to pushing boundaries and innovating in the field. Holds an unmatched depth of knowledge in networking, system security, and extensive practical expertise. Pursues cutting-edge advancements through groundbreaking research, leading-edge certifications, and spearheading advancements in diverse cybersecurity realms.",
+      title:t('courseCardFourTitle'),
+      text:t('courseCardFourPara'),
     },
   ];
 
@@ -41,8 +45,7 @@ const RoadMap = () => {
       name: " Red Team Field - Cyber Attack.",
       img: icon.redTeam,
       type: "#CC0A0A",
-      about:
-        "Experience our Red Team Course, designed to enhance your personal skills and unleash your creativity, equipping you with valuable skills for a successful career in Cyber Security.",
+      about:t('redPara'),
       courses: [
         {
           id: "r1",
@@ -87,8 +90,7 @@ const RoadMap = () => {
       name: "Blue Team Field - Cyber Defense.",
       img: icon.blueTeam,
       type: "#0A1633",
-      about:
-        "Introducing the Blue Team course, a comprehensive certification pathway designed to empower you with practical defensive security skills. Gain expertise in incident response, network security, vulnerability assessment, and more, as you develop a solid understanding of defensive security practices. Through hands-on exercises and immersive training, analyze information systems, fortify digital environments, and ensure ongoing protection against evolving threats.",
+      about:t('bluePara'),        
       courses: [
         {
           id: "b1",
@@ -183,8 +185,8 @@ const RoadMap = () => {
           <div className="center_logo">
             <div className="content_circle">
               <img src={logoImage.logo} alt="icon" />
-              <h4>Cyber Gain</h4>
-              <h6>Center</h6>
+              <h4>{t('singlecardTitle')}</h4>
+              <h6>{t('singlecardText')}</h6>
             </div>
             <div className="glass_shad"></div>
           </div>

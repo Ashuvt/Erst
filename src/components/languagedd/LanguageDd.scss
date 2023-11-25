@@ -1,0 +1,48 @@
+@import "../../scss/common";
+@import "../../scss/mixin";
+@import "../../scss/variables";
+@import "../../scss/typography";
+
+
+.language_dd {
+    position: relative;
+
+    .option_list {
+        position: absolute;
+        top:52px;
+        left:0px;
+        width:100%;
+        height:auto;
+        transform-origin:top center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 12px;
+        overflow: hidden;
+        border:1px solid $lightBorder_1;
+        transition:all 0.3s ease-in-out;
+        
+
+        &.open{
+            transform: scaleY(1);
+            -webkit-transform: scaleY(1);
+        }   
+        &.close{
+            transform: scaleY(0);
+            -webkit-transform: scaleY(0);
+        }
+        button{
+            padding:10px 12px;
+            border-style: none;
+            background: $dark;
+            @include font('SpaceGrotesk-Regular', 14px, 16px, 500, $white);
+            width:100%;
+            letter-spacing: 1.5px;
+            transition:all 0.3s ease-in-out;
+            &:hover{
+                background-color:$primary;
+            }
+
+        }
+    }
+}

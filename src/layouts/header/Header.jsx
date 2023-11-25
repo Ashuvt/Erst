@@ -8,13 +8,14 @@ import { cartPopupToggler } from "../../store/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { sidebarToggler } from "../../store/actions";
 import { useNavigate, NavLink } from "react-router-dom";
+import LanguageDd from "../../components/languagedd/LanguageDd";
 
 const Header = () => {
   const dispatch = useDispatch();
 
-  const openCartPopup = () => {
-    dispatch({ type: cartPopupToggler(), payload: true });
-  };
+  // const openCartPopup = () => {
+  //   dispatch({ type: cartPopupToggler(), payload: true });
+  // };
 
   const sidebarStatus = useSelector(
     (state) => state.toggleReducer.sidebarStatus
@@ -78,6 +79,8 @@ const Header = () => {
 
             
             <HembergerMenu clickHandler={menuToggler} status={sidebarStatus} />
+            <LanguageDd />
+
           </div>
         </header>
       </div>

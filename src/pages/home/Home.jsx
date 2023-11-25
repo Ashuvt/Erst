@@ -10,6 +10,9 @@ import HomeBlogs from "./homeblogs/HomeBlogs";
 import Footer from "../../layouts/footer/Footer";
 import WOW from "wow.js";
 
+import { useTranslation } from 'react-i18next';
+import PreLoginLayout from "../../layouts/preloginlayout/PreLoginLayout";
+
 // import Services from "./home1services/Services";
 // import BusinessDecision from "./bussinessdecision/BusinessDecision";
 // import Features from "./features/Features";
@@ -19,24 +22,32 @@ import WOW from "wow.js";
 // import ImproveBusiness from "./improvebusiness/ImproveBusiness";
  
 const Home = () => {
+
+  const { t } = useTranslation();
+  
+
+  
   useEffect(() => {
     const wow = new WOW();
     wow.init();
   }, []);
 
+
+
+
   return (
-    <Fragment>
-      <Header />
-      <HomeLanding />
-      <RoadMap />
-      <BenefitsOfSuite />
+    <Fragment>      
+      <PreLoginLayout>
+      <HomeLanding t={t} />
+      <RoadMap t={t} />
+      <BenefitsOfSuite t={t} />
       <Partners />
-      <FeedBack />
+      <FeedBack t={t} />
       <Offer
-        title="Get started a 15 days free trial."
-        text="Explore our blog for the latest in cybersecurity—essential tips, training updates, and industry news. Get valuable insights on staying secure online, whether you're new to cybersecurity or a seasoned pro. Join us to stay informed and ready to face digital challenges."
+        title={t('homeOfferTitle')}
+        text={t('homeOfferPara')}
       />
-      <HomeBlogs />
+      <HomeBlogs t={t} />
 
 
 
@@ -52,7 +63,7 @@ const Home = () => {
 
 
 
-      <Footer />
+      </PreLoginLayout>
     </Fragment>
   );
 };

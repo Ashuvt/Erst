@@ -7,7 +7,7 @@ import HomeBlogCard from "./blogcard/HomeBlogCard";
 import { blogsData } from "../../../utils/data/data";
 import { useNavigate } from "react-router-dom";
 
-const HomeBlogs = () => {
+const HomeBlogs = ({t}) => {
 
 const navigate = useNavigate();
 
@@ -15,7 +15,7 @@ const navigate = useNavigate();
     <section className="home_blog p_bottom ">
       <div className="content_wrap p_top">
         <MidTitle
-          title="Read Our Interesting Blog Posts"
+          title={t('homeBlogTopTitle')}
           text=""
         />
         {/* Blog Grid */}
@@ -26,16 +26,14 @@ const navigate = useNavigate();
               <img src={images.homeblogD} alt="banner" />
             </div>
             <div className="blog_content_box">
-              <Pill text="Deep Learning" />
+              <Pill text={t('homeBlogMainLabel')} />
               <h4>
-              Revealing the Hidden Threat: Deep Learning Unlocks Acoustic Side Channel Attacks on Keyboards
+              {t('homeBlogMainTitle')}
               </h4>
-              <p>              
-              In our increasingly interconnected world, where technology's reach spans from personal devices to online services, the threat landscape continues to evolve. One emerging threat that has caught the attention of cybersecurity researchers is acoustic side channel attacks (ASCA) on keyboards.
-              </p>
+             <p>{t('homeBlogMainPara')}</p>
               <div className="btn_line">
                 <button type="buton" className="secondarybtn" onClick={() => navigate("/blogs")}>
-                  view all blogs
+                <p>{t('homeBlogMainBtn')}</p>
                 </button>
               </div>
             </div>

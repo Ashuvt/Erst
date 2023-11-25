@@ -5,16 +5,18 @@ import {
   NOTIFICATION_TOGGLER,
   PROFILE_TOGGLER,
   RESET_ALL,
-  HELP_FORM_DD_TOGGLER
+  HELP_FORM_DD_TOGGLER,
+  MULTILANG_TOGGLER,
 } from "../consts";
 
 const initialToggleState = {
   sidebarStatus: false,
-  courseSidebarStatus:false,
+  courseSidebarStatus: false,
   cartPopupStatus: false,
   notificationStatus: false,
   profileStatus: false,
-  helpFormDdStatus:false,
+  helpFormDdStatus: false,
+  multilangDdStatus: false,
 };
 
 export const toggleReducer = (state = initialToggleState, action) => {
@@ -34,8 +36,11 @@ export const toggleReducer = (state = initialToggleState, action) => {
     case PROFILE_TOGGLER:
       return { ...initialToggleState, profileStatus: action.payload };
 
-      case HELP_FORM_DD_TOGGLER:
-        return { ...initialToggleState, helpFormDdStatus: action.payload };
+    case HELP_FORM_DD_TOGGLER:
+      return { ...initialToggleState, helpFormDdStatus: action.payload };
+
+    case MULTILANG_TOGGLER:
+      return { ...initialToggleState, multilangDdStatus: action.payload };
 
     case RESET_ALL:
       return initialToggleState;
