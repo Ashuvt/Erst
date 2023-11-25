@@ -88,7 +88,7 @@ useEffect(() => {
         } 
 
         {error && <h4>{error}...</h4>}
-       <Loader />
+        {loading && <h4>Loading...</h4>}
       </div>
   
     </section>
