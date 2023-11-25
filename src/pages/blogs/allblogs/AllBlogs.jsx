@@ -4,8 +4,6 @@ import { useState, useEffect } from "react";
 import Pill from "../../../components/pill/Pill";
 import CircleArrowBtn from "../../../components/circlearrowbtn/CircleArrowBtn";
 import axios from "axios";
-import {baseUrl} from "../../../utils/baseurl";
-import Loader from "../../../layouts/loader/Loader";
 
 const AllBlogs = () => {
   // const blogData = [
@@ -50,7 +48,7 @@ const AllBlogs = () => {
 
 
 useEffect(() => {
-  getBlogs();
+  // getBlogs();
 }, [])
 
 

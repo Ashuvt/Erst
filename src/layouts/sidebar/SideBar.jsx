@@ -6,8 +6,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { resetAllToggler, sidebarToggler } from "../../store/actions";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-
+import { useTranslation } from 'react-i18next';
 const SideBar = () => {
+
+  const { t } = useTranslation();
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -39,11 +42,11 @@ const SideBar = () => {
 
         <div className="side_links_wrap">
           <nav>
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="/about">About</NavLink>
-            <NavLink to="/careers">Careers</NavLink>
-            <NavLink to="/blogs">Blogs</NavLink>
-            <NavLink to="/contact">Contact</NavLink>
+            <NavLink to="/">{t('Home')}</NavLink>
+            <NavLink to="/about">{t('About')}</NavLink>
+            <NavLink to="/careers">{t('Careers')}</NavLink>
+            <NavLink to="/blogs">{t('Blogs')}</NavLink>
+            <NavLink to="/contact">{t('Contact')}</NavLink>
             {/* <NavLink to="/faq">FAQ</NavLink> */}
           </nav>
         </div>

@@ -1,1 +1,0 @@
-const baseUrl = "https://cybergainbackend.supagrow.in";
