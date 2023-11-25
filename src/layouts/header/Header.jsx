@@ -10,13 +10,9 @@ import { sidebarToggler } from "../../store/actions";
 import { useNavigate, NavLink } from "react-router-dom";
 import LanguageDd from "../../components/languagedd/LanguageDd";
 
-const Header = () => {
+const Header = ({t}) => {
   const dispatch = useDispatch();
-
-  // const openCartPopup = () => {
-  //   dispatch({ type: cartPopupToggler(), payload: true });
-  // };
-
+  
   const sidebarStatus = useSelector(
     (state) => state.toggleReducer.sidebarStatus
   );
@@ -40,12 +36,12 @@ const Header = () => {
             </a>
           </div>
           <nav>
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="/about">About</NavLink>
-            <NavLink to="/careers">Careers</NavLink>               
-            <NavLink to="/blogs">Blogs</NavLink>     
+            <NavLink to="/">{t('Home')}</NavLink>
+            <NavLink to="/about">{t('About')}</NavLink>
+            <NavLink to="/careers">{t('Careers')}</NavLink>               
+            <NavLink to="/blogs">{t('Blogs')}</NavLink>     
             {/* <NavLink to="/faq">FAQ</NavLink> */}
-            <NavLink to="/contact">Contact</NavLink> 
+            <NavLink to="/contact">{t('Contact')}</NavLink> 
           
             {/* {menuList.map((ele) => {
               return (

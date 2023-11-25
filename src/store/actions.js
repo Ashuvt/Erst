@@ -6,7 +6,8 @@ import {
   PROFILE_TOGGLER,
   HELP_FORM_DD_TOGGLER,
   RESET_ALL,
-  MULTILANG_TOGGLER
+  MULTILANG_TOGGLER,
+  LANG
   
 } from "./consts";
 
@@ -40,4 +41,10 @@ export const profileToggler = () => {
 
 export const multilangToggler = () => {
   return MULTILANG_TOGGLER;
+}
+
+
+
+export const languageChanges = () => {
+  return LANG;
 }

@@ -10,7 +10,12 @@ import GeniusTeam from "../aboutourservices/geniusteam/GeniusTeam";
 import TipsBlog from "../home2/tipsblog/TipsBlog";
 import Map from "../../components/map/Map";
 
+import { useTranslation } from 'react-i18next';
+import PreLoginLayout from "../../layouts/preloginlayout/PreLoginLayout";
+
 const About = () => {
+
+    const { t } = useTranslation();
 
     useEffect(() => {
         const wow = new WOW();
@@ -19,15 +24,15 @@ const About = () => {
 
     return(
         <Fragment>
-            <Header />
-            <Home2Landing />
-            <MarqueeText />
-            <AboutServices />
+            <PreLoginLayout>
+            <Home2Landing t={t} />
+            <MarqueeText t={t} />
+            <AboutServices t={t} />
             <Partners />
-            <GeniusTeam />
+            <GeniusTeam t={t} />
             <Map />
-            <TipsBlog />            
-            <Footer />
+            <TipsBlog t={t} />            
+            </PreLoginLayout>
         </Fragment>
     )
 };

@@ -7,6 +7,7 @@ import {
   RESET_ALL,
   HELP_FORM_DD_TOGGLER,
   MULTILANG_TOGGLER,
+  LANG,
 } from "../consts";
 
 const initialToggleState = {
@@ -44,6 +45,20 @@ export const toggleReducer = (state = initialToggleState, action) => {
 
     case RESET_ALL:
       return initialToggleState;
+
+    default:
+      return state;
+  }
+};
+
+const langState = {
+  lang: "en",
+};
+
+export const langReducer = (state = langState, action) => {
+  switch (action.type) {
+    case LANG:
+      return { ...state, lang: action.payload };
 
     default:
       return state;

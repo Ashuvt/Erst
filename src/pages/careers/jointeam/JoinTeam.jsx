@@ -4,7 +4,7 @@ import { icons, images } from "../../../utils/images/images";
 import ProfileList from "../../../components/profilelist/ProfileList";
 import ParticlesBg from "../../../components/particlesbg/ParticlesBg";
 
-const JoinTeam = () => {
+const JoinTeam = ({t}) => {
   const userData = [
     {
       id: 0,
@@ -35,11 +35,8 @@ const JoinTeam = () => {
         
         </div>
         <div className="text_content">
-          <h2 className="wow fadeInUp">We Invite New Talents To join are Team!</h2>
-          <p className="wow fadeInUp">
-          While CyberGain Academy currently doesn't have any vacant positions, we welcome individuals with a technical background in cybersecurity to submit their CVs. In cases where a suitable position is not immediately available, we are open to creating roles based on the qualifications and expertise of exceptional candidates. With the right blend of passion, skills, and experience, CyberGain Academy envisions expanding alongside a diverse team of experts from around the globe. Your unique talents could be the catalyst for our collective growth.
-
-          </p>
+          <h2 className="wow fadeInUp">{t('inviteTitle')}</h2>
+          <p className="wow fadeInUp">{t('invitePara')}</p>
           <div className="rating_box">
             <div className="top_line"></div>
             <div className="rating wow fadeInUp">
@@ -50,9 +47,7 @@ const JoinTeam = () => {
                 <img src={icons.star} alt="star" />
                 <img src={icons.star} alt="star" />
               </div>
-              <p>
-                Based on reviews
-              </p>
+              <p>{t('reviewText')}</p>
             </div>
             <div className="user_stack wow fadeInUp">
               <ProfileList userList={userData} />

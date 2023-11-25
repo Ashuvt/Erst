@@ -1,31 +1,28 @@
 import { Fragment, useEffect } from "react";
 import ContactLanding from "./contactlanding/ContactLanding";
 import Locations from "./locations/Location";
-// import Services from "./contactservices/ContactServices";
-// import VideoBlock from "./videoblock/VideoBlock";
 import Help from "./help/Help";
-import Header from "../../layouts/header/Header";
-import Footer from "../../layouts/footer/Footer";
 import WOW from "wow.js";
-
+import { useTranslation } from "react-i18next";
+import PreLoginLayout from "../../layouts/preloginlayout/PreLoginLayout";
 
 const ContactUs = () => {
-    useEffect(() => {
-        const wow = new WOW();
-        wow.init();
-      }, []);
-      
-    return(
-        <Fragment>
-            <Header />
-            <ContactLanding />
-            <Locations />
-            {/* <Services /> */}
-            {/* <VideoBlock /> */}
-            <Help />
-            <Footer />
-        </Fragment>
-    )
+  const { t } = useTranslation();
+
+  useEffect(() => {
+    const wow = new WOW();
+    wow.init();
+  }, []);
+
+  return (
+    <Fragment>
+      <PreLoginLayout>
+        <ContactLanding t={t} />
+        <Locations t={t} />
+        <Help t={t} />
+      </PreLoginLayout>
+    </Fragment>
+  );
 };
 
 export default ContactUs;

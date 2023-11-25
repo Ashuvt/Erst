@@ -5,10 +5,14 @@ import Footer from "../footer/Footer";
 import { useDispatch } from "react-redux";
 import { resetAllToggler } from "../../store/actions";
 
-
+import { useTranslation } from 'react-i18next';
 
 
 const PreLoginLayout = (props) => {
+
+    const { t } = useTranslation();
+
+
     const dispatch = useDispatch();
 
 const resetAll = () => {
@@ -17,9 +21,9 @@ const resetAll = () => {
     return(
         <Fragment>
         <div className="prelogin_layout" onClick={resetAll}>
-            <Header />
+            <Header t={t} />
                 {props.children}
-            <Footer />    
+            <Footer t={t} />    
         </div>
     </Fragment>
     );

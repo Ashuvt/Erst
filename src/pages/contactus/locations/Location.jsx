@@ -3,26 +3,26 @@ import "./Locations.scss";
 
 import LocationCard from "./locationcard/LocationCard";
 
-const Locations = () => {
+const Locations = ({t}) => {
   const locationData = [
     {
       id: 0,
-      country: "Israel",
-      location: "Beit Ha'am, Abu Snan, 2490500",
+      country:t('Israel'),
+      location:t('IsraelAdd'),
       call: "04-876-6326",
       mail: "info@cybergain.co.il",
     },
     {
       id: 1,
-      country: "UAE",
-      location: "Lorem ipsum amet, Dubai",
+      country:t('UAE'),
+      location:t('UAEAdd'),
       call: "+1 212 425 8617",
       mail: "helloabc@gmail.com",
     },
     {
       id: 2,
-      country: "India",
-      location: "Cybergain Educenter Private Limited, 2-a/3 S/f Front Side, Asaf Ali Rd, Turkman Gt., Darya Ganj, New Delhi, Delhi, India, 110002",
+      country:t('India'),
+      location:t('IndiaAdd'),
       call: "04-876-6326",
       mail: "info@cybergain.co.il",
     },    

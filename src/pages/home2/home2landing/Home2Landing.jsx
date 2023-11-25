@@ -4,7 +4,7 @@ import WOW from "wow.js";
 import ParticlesBg from "../../../components/particlesbg/ParticlesBg";
 import { useNavigate } from "react-router-dom";
 
-const Home2Landing = () => {
+const Home2Landing = ({t}) => {
 const navigate = useNavigate();
 
   const [count, setCount] = useState(0);
@@ -32,14 +32,14 @@ const navigate = useNavigate();
       <div className="content_wrap">
         <div className="text_content">
           <div className="dynamic wow fadeInUp">
-            <h1>True Cyber Security Is Preparing For</h1>
+            <h1>{t('aboutLandingTitle')}</h1>
             <div className="text_box">
               <div
                 className="gradient_wrap"
                 style={{ transform: `translateY(${-count}%)` }}
               >
-                <h1>What's Next.</h1>
-                <h1>Not What Was Last.</h1>
+                <h1>{t('aboutmovingTitle1')}</h1>
+                <h1>{t('aboutmovingTitle2')}</h1>
               </div>             
             </div>
 
@@ -47,25 +47,23 @@ const navigate = useNavigate();
             <div
                 className="mobile_gradient"                
               >
-                <h1>What's Next,</h1>
-                <h1>Not What Was Last.</h1>
+                      <h1>{t('aboutmovingTitle1')}</h1>
+                <h1>{t('aboutmovingTitle2')}</h1>
               </div>
           </div>
-          <p className="wow fadeInUp">
-          Your gateway to the cutting-edge realm of cybersecurity training. Immerse in our diverse range of hands-on training labs and rich learning resources, designed to empower tech enthusiasts from all backgrounds to master the art of cybersecurity and stay one step ahead in this ever-evolving landscape.
-          </p>
+          <p className="wow fadeInUp">{t('aboutLandingText')}</p>
         </div>
         <div className="btn_line wow fadeInUp">
           <div className="left">
             <div className="left_beam"></div>
             <h6>
-              15 DAYS FREE TRIAL NO <br /> CREDIT CARD REQUIRED
+            {t('aboutLandingOfferText1')} <br />  {t('aboutLandingOfferText2')}
             </h6>
           </div>
           <button
            className="primarybtn"
            onClick={() => navigate("/auth/getstarted")}
-           >signup</button>
+           >{t('aboutLandingBtn')}</button>
         </div>
       </div>
       <div className="primary_glass first"></div>

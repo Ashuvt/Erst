@@ -2,7 +2,7 @@ import "./Footer.scss";
 import { icons, images } from "../../utils/images/images";
 import { NavLink, useNavigate } from "react-router-dom";
 
-const Footer = () => {
+const Footer = ({t}) => {
 
 const navigate = useNavigate();
 
@@ -13,16 +13,16 @@ const navigate = useNavigate();
       <div className="content_wrap">
         <footer>
           <h2 className="wow fadeInUp">
-          Discover more about cybersecurity with Cyber Gain Center!
+          {t('footerTitle')}
           </h2>
           <div className="link_social wow fadeInUp">
             <div className="links_container">
-              <NavLink to="/">Home</NavLink>
-              <NavLink to="/about">About</NavLink>
-              <NavLink to="/careers">Career</NavLink>
-              <NavLink to="/blogs">Blogs</NavLink>
+              <NavLink to="/">{t('Home')}</NavLink>
+              <NavLink to="/about">{t('About')}</NavLink>
+              <NavLink to="/careers">{t('Careers')}</NavLink>
+              <NavLink to="/blogs">{t('Blogs')}</NavLink>
               {/* <NavLink to="/faq">FAQ</NavLink> */}
-              <NavLink to="/contactus">Contact</NavLink>
+              <NavLink to="/contactus">{t('Contact')}</NavLink>
             </div>
             <div className="social_networks">
               <a href="https://www.instagram.com/cyber_gain_center/" target="_blank">
@@ -52,12 +52,10 @@ const navigate = useNavigate();
 
             <div className="footer_grid">
               <div className="grid_box footer_form wow fadeInUp">
-                <h5>Get In Touch</h5>
-                <p>
-                Reach out now and level up your cybersecurity
-                </p>
+                <h5>{t('title1')}</h5>
+                <p>{t('text1')}</p>
                 <form>
-                  <input type="email" placeholder="Your e-mail" />
+                  <input type="email" placeholder={t('email')} />
                   <button type="submit" className="submit">
                     <img src={icons.rightArrow} alt="arrow" />
                   </button>
@@ -65,24 +63,24 @@ const navigate = useNavigate();
               </div>
 
               <div className="grid_box footer_connect wow fadeInUp">
-                <h5>Stay Connect</h5>
-                <p>Reach out to us at :</p>
+                <h5>{t('title2')}</h5>
+                <p>{t('text2')}</p>
                 <div className="stay_connect">
                   <a href="tel:04-876-6326">04-876-6326</a>
                 </div>
               </div>
 
               <div className="grid_box footer_download wow fadeInUp">
-                <h5>Sign In And Sign Up</h5>
-                <p>We suggest signing in our portal</p>
+                <h5>{t('title3')}</h5>
+                <p>{t('text3')}</p>
 
                 <div className="app_wrap">
                   <button type="button" onClick={() => navigate("/auth/getStarted")}>
-                    Sign Up
+                  {t('signUp')}
                   </button>
 
                   <button type="button" onClick={() => navigate("/auth/login")}>
-                    Sign In
+                  {t('signIn')}
                   </button>
                 </div>
               </div>
@@ -90,11 +88,11 @@ const navigate = useNavigate();
           </div>
           <div className="footer_bottom wow fadeInUp">
             <div className="left">
-              <p>© All Rights Reserved 2023. Licensing</p>
+              <p>{t('copyRight1')}</p>
             </div>
             <div className="right">
               <p>
-                Powered by <span className="white">Supagrow</span>
+              <p>{t('copyRight2')}</p>
               </p>
             </div>
           </div>

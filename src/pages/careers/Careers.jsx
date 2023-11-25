@@ -7,8 +7,12 @@ import Header from "../../layouts/header/Header";
 import Footer from "../../layouts/footer/Footer";
 import WOW from "wow.js";
 import CvForm from "./cvform/CvForm";
+import { useTranslation } from 'react-i18next';
+import PreLoginLayout from "../../layouts/preloginlayout/PreLoginLayout";
 
 const Careers = () => {
+
+  const { t } = useTranslation();
 
   useEffect(() => {
     const wow = new WOW();
@@ -18,15 +22,15 @@ const Careers = () => {
 
   return (
     <Fragment>
-      <Header />
+      <PreLoginLayout>
       <MapLanding
-        title="Join Our Team"
-        text="The team at Cyber Gain Center — a group of passionate experts committed to excellence in the cybersecurity world. With diverse expertise and personalized support, we're here to empower every learner."
+        title={t('careerLandingTitle')}
+        text={t('careerLandingPara')}
       />
       <SymmentricSlider />
-      <JoinTeam />
-      <CvForm />
-      <Footer />
+      <JoinTeam t={t} />
+      <CvForm t={t} />
+      </PreLoginLayout>
     </Fragment>
   );
 };

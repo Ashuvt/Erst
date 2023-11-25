@@ -6,12 +6,9 @@ import FourOneFloat from "./fouronefloat/FourOneFloat";
 import OneTwoFloat from "./onetwofloat/OneTwoFloat";
 import { logoImage } from "../../../utils/images/images"
 import CourseCard from "./courcecard/CourseCard";
-import { useTranslation } from 'react-i18next';
 
 
-
-const RoadMap = () => {
-  const { t } = useTranslation();
+const RoadMap = ({t}) => {
   const framData = [
     {
       id: 0,
@@ -42,87 +39,87 @@ const RoadMap = () => {
   const courseData = [
     {
       id: "000",
-      name: " Red Team Field - Cyber Attack.",
+      name:t('redTitle'),
       img: icon.redTeam,
       type: "#CC0A0A",
       about:t('redPara'),
       courses: [
         {
           id: "r1",
-          course: "Ethical Hacking Course.",
+          course:t('redC1'),
         },
         {
           id: "r2",
-          course: "Open Source Intelligence – OSINT Course.",
+          course:t('redC2'),
         },
         {
           id: "r3",
-          course: "Python For Networking and Hacking Course",
+          course:t('redC3'),
         },
         {
           id: "r4",
-          course: "Active Directory Pentesting Course.",
+          course:t('redC4'),
         },
         {
           id: "r5",
-          course: "External Penetration Testing Course.",
+          course:t('redC5'),
         },
         {
           id: "r6",
-          course: "Web Application Penetration Testing Course.",
+          course:t('redC6'),
         },
         {
           id: "r7",
-          course: "How to Build a Checklist for Red Team Course.",
+          course:t('redC7'),
         },
         {
           id: "r8",
-          course: "Bash Scripting for Red Team Course.",
+          course:t('redC8'),
         },
         {
           id: "r9",
-          course: "Powershell For Penetration Testing Course.",
+          course:t('redC9'),
         },
       ],
     },
     {
       id: "111",
-      name: "Blue Team Field - Cyber Defense.",
+      name:t('blueTitle'),
       img: icon.blueTeam,
       type: "#0A1633",
       about:t('bluePara'),        
       courses: [
         {
           id: "b1",
-          course: "SOC Analyst Tier 1 Course.",
+          course:t('blueC1'),
         },
         {
           id: "b2",
-          course: "SOC Analyst Tier 2 + 3 Course.",
+          course:t('blueC2'),
         },
         {
           id: "b3",
-          course: "Digital Forensics Course.",
+          course:t('blueC3'),
         },
         {
           id: "b4",
-          course: "Linux Forensics Course.",
+          course:t('blueC4'),
         },
         {
           id: "b5",
-          course: "Windows Forensics Course.",
+          course:t('blueC5'),
         },
         {
           id: "b6",
-          course: "Splunk for Monitoring and Detecting Course.",
+          course:t('blueC6'),
         },
         {
           id: "b7",
-          course: " How to Build a Checklist for Blue Team Course",
+          course:t('blueC7'),
         },
         {
           id: "b8",
-          course: "Bash Scripting for Blue Team Course.",
+          course:t('blueC8'),
         },
       ],
     },
@@ -197,7 +194,7 @@ const RoadMap = () => {
             {courseData.map((data) => {
               return (
                 <Fragment key={data.id}>
-                  <CourseCard {...data} />
+                  <CourseCard {...data} t={t} />
                 </Fragment>
               );
             })}

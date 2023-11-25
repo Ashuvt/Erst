@@ -4,7 +4,7 @@ import { icon } from "../../../utils/images/icons";
 import { useEffect, useState } from "react";
 import ErrorMessageLine from "../../../components/errormessageline/ErrorMessageLine";
 
-const CvForm = () => {
+const CvForm = ({t}) => {
   const [progress, setProgress] = useState(false);
 
   const [nameError, setNameError] = useState("");
@@ -15,7 +15,7 @@ const CvForm = () => {
   const validation = (name, value) => {
     if (name === "name") {
       if (value.trim().length === 0) {
-        setNameError("field is required!");
+        setNameError(t('errorFieldRequired'));
       } else {
         setNameError("");
       }
@@ -25,9 +25,9 @@ const CvForm = () => {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
       if (value.trim().length === 0) {
-        setMailError("field is required!");
+        setMailError(t('errorFieldRequired'));
       } else if (!emailRegex.test(value)) {
-        setMailError("Please Enter Valid Email formate!");
+        setMailError(t('errorFieldEmail'));
       } else {
         setMailError("");
       }
@@ -35,7 +35,7 @@ const CvForm = () => {
 
     if (name === "phone") {
       if (value.trim().length === 0) {
-        setPhoneError("this field is required!");
+        setPhoneError(t('errorFieldRequired'));
       } else {
         setPhoneError("");
       }
@@ -43,7 +43,7 @@ const CvForm = () => {
 
     if (name === "file") {
       if (!value) {
-        setFileError("this field is required!");
+        setFileError(t('errorFieldRequired'));
       } else {
         setFileError("");
       }
@@ -110,20 +110,20 @@ const CvForm = () => {
       <div className="cv_form_glass b"></div>
       <div className="content_wrap p_top p_bottom">
         <MidTitle
-          title="Send us Your CV"
-          text="Leave your resume if you are interested in a vacancy. We will definitely contact you."
+          title={t('careerFormTitle')}
+          text={t('careerFormPara')}
         />
 
         <div className="form_wraper">
           <form>
             <div className="bi_grid">
               <div className="form_field mt_20">
-                <label className="wow fadeInUp">name</label>
+                <label className="wow fadeInUp">{t('careerFormName')}</label>
 
                 <input
                   className="wow fadeInUp"
                   type="text"
-                  placeholder="your name"
+                  placeholder={t('careerFormNamePlace')}
                   value={formData.name}
                   name="name"
                   onChange={fieldChange}
@@ -132,11 +132,11 @@ const CvForm = () => {
                 {nameError && <ErrorMessageLine text={nameError} />}
               </div>
               <div className="form_field mt_20">
-                <label className="wow fadeInUp">email</label>
+                <label className="wow fadeInUp">{t('careerFormEmail')}</label>
                 <input
                   className="wow fadeInUp"
                   type="email"
-                  placeholder="your email"
+                  placeholder={t('careerFormEmailPlace')}
                   value={formData.email}
                   name="email"
                   onChange={fieldChange}
@@ -147,11 +147,11 @@ const CvForm = () => {
             </div>
 
             <div className="form_field mt_20">
-              <label className="wow fadeInUp">Phone</label>
+              <label className="wow fadeInUp">{t('careerFormPhone')}</label>
               <input
                 className="wow fadeInUp"
                 type="number"
-                placeholder="your phone"
+                placeholder={t('careerFormPhonePlace')}
                 value={formData.phone}
                 name="phone"
                 onChange={fieldChange}
@@ -163,7 +163,7 @@ const CvForm = () => {
             <div className="form_field mt">
               <textarea
                 className="wow fadeInUp"
-                placeholder="tell about your skill"
+                placeholder={t('careerFormTextarea')}
                 value={formData.message}
                 name="message"
                 onChange={fieldChange}
@@ -172,7 +172,7 @@ const CvForm = () => {
 
             <div className="form_field mt_20">
               <label className="wow fadeInUp">
-                Upload Your CV / Resume Here
+              {t('careerFormFileTitle')}
               </label>
               <div className="file_uploader wow fadeInUp">
                 {progress && (
@@ -188,7 +188,7 @@ const CvForm = () => {
                 />
                 <div className="upload_content">
                   <img src={icon.upload} alt="upload" />
-                  <p className="t-11">Upload CV / Resume</p>
+                  <p className="t-11"> {t('careerFormFileContent')}</p>
                 </div>
               </div>
               {fileError && <ErrorMessageLine text={fileError} />}
@@ -198,7 +198,7 @@ const CvForm = () => {
               className="primarybtn wow fadeInUp"
               onClick={onSubmit}
             >
-              Leave A CV
+             {t('careerFormBtn')}
             </button>
           </form>
         </div>

@@ -3,20 +3,19 @@ import "./GeniusTeam.scss";
 import Slider from "react-slick";
 import { icons, images } from "../../../utils/images/images";
 
-const GeniusTeam = () => {
+const GeniusTeam = ({t}) => {
 
-  let title="Meet The Genius Team";
-  let para = "At Cyber Gain Center, Our Team Is More Than A Collective Of Experts—It's A Dedicated Force Committed To Your Cybersecurity Journey. From Seasoned Professionals To Innovative Minds, Each Member Brings Unique Perspectives And Deep Industry Knowledge. Together, We Thrive On Collaboration, Ensuring That Every Learner Receives Personalized Guidance And Support. Meet Our Passionate Team—Driven To Empower You In Mastering The Essentials Of Cybersecurity."
+  let title = t('geniusTeemTitle');
+  let para = t('geniusTeemPara');
 
   const sliderRef = useRef(null);
 
   const teamData = [
     {
       id: 0,
-      name: "Ali Zenaty",
-      post: "Co-Founder & CEO",
-      about:
-        "Brings extensive expertise in software engineering and cybersecurity. With practical experience in various areas such as Incident Response, SOC Team (Blue Team), Red Teaming, and penetration testing, Ali ensures that our training programs provide the latest insights and techniques. Their expertise in business development also contributes to the growth and success of our center.",
+      name:t('aliName'),
+      post:t('aliPost'),
+      about:t('aliDes'),       
       img: images.teamMemberA,
       insta: "http://www.instagram.com/ali_zinaty94/",
       fb: "http://www.facebook.com/ale.zenaty",
@@ -24,10 +23,9 @@ const GeniusTeam = () => {
     },
     {
       id: 1,
-      name: "Najeeb Ibrahem",
-      post: "Blue Team Leader",
-      about:
-        "Najeeb Ibrahem has experience as a Cyber Security Analyst, responsible for assisting in the operation and maintenance of the installations computer network and to provide technical assistance also Conduct analysis, cyber threats, the discovery of it vulnerabilities, monitoring for cyber intrusions, troubleshoot and response to security incidents detected from hp arcsight or related SIEM. IDS/IPS, and other security applications.",
+      name:t('najeebName'),
+      post:t('najeebPost'),
+      about:t('najeebDes'),
       img: images.teamMemberB,
       insta: "http://www.instagram.com/najeeb.ibrahimm1/",
       fb: "http://www.facebook.com/najeeb.ibrahimm",
@@ -35,10 +33,9 @@ const GeniusTeam = () => {
     },
     {
       id: 2,
-      name: "Yara Rammal",
-      post: "HR - Human Resource & Office Manager",
-      about:
-        "Holds a master's degree in human services. The role involves a wide range of responsibilities, including recruitment, and managing administrative tasks. This entails creating impressive resumes, conducting interview preparations, and optimizing LinkedIn profiles. Additionally, it plays a crucial role in supervising marketing and advertising efforts to effectively promote the center's services.",
+      name:t('yaraName'),
+      post:t('yaraPost'),
+      about:t('yaraDes'),
       img: images.teamMemberC,
       insta: "",
       fb: "",
@@ -46,9 +43,9 @@ const GeniusTeam = () => {
     },
     {
       id: 3,
-      name: "Saleh Ahmed",
-      post: "IT and Cloud Security Instructor",
-      about:"With a comprehensive background in information security and cyber administration, Saleh has served in key roles, including Cloud Support Engineer and IT Support. Experienced in technologies such as GCP, Microsoft Azure, MongoDB, and virtualization tools like Docker and Kubernetes. His commitment to delivering exceptional technical support, combined with his managerial acumen, makes him a valuable asset in shaping the learning journey of our students",        
+      name:t('salehName'),
+      post:t('salehPost'),
+      about:t('salehDes'),
       img:images.teamMemberD,
       insta: "",
       fb: "",
@@ -56,10 +53,9 @@ const GeniusTeam = () => {
     },
     {
       id: 4,
-      name: "Taleen Skafi",
-      post: "Cybersecurity Developer",
-      about:
-        "A proficient expert in conducting technical online workshops and immersive Red Team Training sessions. Specializing in Active Directory security, with expertise that extends to threat intelligence, and incident response. Responsible for designing realistic lab environments, introducing vulnerabilities for hands-on learning, and engaging in penetration testing and network assessments.",
+      name:t('taleenName'),
+      post:t('taleenPost'),
+      about:t('taleenDes'),
       img:images.teamMemberE,
       insta: "",
       fb: "",
@@ -67,10 +63,9 @@ const GeniusTeam = () => {
     },
     {
       id: 5,
-      name: "Salman",
-      post: "Cybersecurity Developer",
-      about:
-        "Salman Alwan, an innovative Cybersecurity Specialist, excelled as a former student in our Blue Team course with CSA certification. Specializes in lab design and knowledge transfer and is proficient in Bash, and Python. Salman is actively involved in cybersecurity and programming, currently working on a Dork Generator with upcoming projects focused on a Dork Scanner and an SQL Injection Vulnerable Scanner/Tester.",
+      name:t('salmanName'),
+      post:t('salmanPost'),
+      about:t('salmanDes'),
       img:images.teamMemberF,
       insta: "",
       fb: "",
@@ -144,10 +139,10 @@ const GeniusTeam = () => {
           <div className="btn_line">
             <button type="button" className="prev" onClick={goToPrev}>
               <img src={icons.whiteArrow} alt="arow" />
-              PREV
+              {t('prev')}
             </button>
             <button type="button" className="next" onClick={goToNext}>
-              NEXT
+            {t('next')}
               <img src={icons.whiteArrow} alt="arow" />
             </button>
           </div>
@@ -195,10 +190,10 @@ const GeniusTeam = () => {
       <div className="bottom_btn_line">
         <button type="button" className="prev" onClick={goToPrev}>
           <img src={icons.whiteArrow} alt="arow" />
-          PREV
+          {t('prev')}
         </button>
         <button type="button" className="next" onClick={goToNext}>
-          NEXT
+        {t('next')}
           <img src={icons.whiteArrow} alt="arow" />
         </button>
       </div>

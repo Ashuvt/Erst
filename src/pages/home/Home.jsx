@@ -1,5 +1,4 @@
 import { Fragment, useEffect } from "react";
-import Header from "../../layouts/header/Header";
 import HomeLanding from "./homelanding/HomeLanding";
 import RoadMap from "./roadmap/RoadMap";
 import BenefitsOfSuite from "../home2/benefitsofsuite/BenefitsOfSuite";
@@ -7,7 +6,6 @@ import Partners from "./plan/partners/Partners";
 import FeedBack from "./feedback/FeedBack";
 import Offer from "../home2/offer/Offer";
 import HomeBlogs from "./homeblogs/HomeBlogs";
-import Footer from "../../layouts/footer/Footer";
 import WOW from "wow.js";
 
 import { useTranslation } from 'react-i18next';

@@ -1,22 +1,27 @@
 import { Fragment } from "react";
 import "./Blogs.scss";
-import Header from "../../layouts/header/Header";
-import Footer from "../../layouts/footer/Footer";
 import BlogsLanding from "./bloglanding/BlogsLanding";
 import AllBlogs from "./allblogs/AllBlogs";
 
+import { useTranslation } from 'react-i18next';
+
+import PreLoginLayout from "../../layouts/preloginlayout/PreLoginLayout";
+
 const Blogs = () => {
+
+  const { t } = useTranslation();
+
   return (
     <Fragment>
-      <Header />
-      <BlogsLanding />
+<PreLoginLayout>
+      <BlogsLanding t={t} />
       <AllBlogs />
       <div className="tech_blur a"></div>
       <div className="tech_blur b"></div>
       <div className="tech_blur c"></div>
       <div className="tech_blur d"></div>
       <div className="techb_blur"></div>
-      <Footer />
+      </PreLoginLayout>
     </Fragment>
   );
 };

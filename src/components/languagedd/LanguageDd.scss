@@ -7,6 +7,9 @@
 .language_dd {
     position: relative;
 
+    button.primarybtn{
+        width:100px;     
+    }
     .option_list {
         position: absolute;
         top:52px;
@@ -39,7 +42,8 @@
             width:100%;
             letter-spacing: 1.5px;
             transition:all 0.3s ease-in-out;
-            &:hover{
+         
+            &:hover, &.active{
                 background-color:$primary;
             }
 

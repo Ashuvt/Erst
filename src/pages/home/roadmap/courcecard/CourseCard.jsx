@@ -3,7 +3,7 @@ import { Fragment } from "react";
 import { icon } from "../../../../utils/images/icons";
 import { useNavigate } from "react-router-dom";
 
-const CourseCard = ({ name, img, type, about, courses }) => {
+const CourseCard = ({ name, img, type, about, courses, t }) => {
   const navigate = useNavigate();
 
   return (
@@ -19,7 +19,7 @@ const CourseCard = ({ name, img, type, about, courses }) => {
       </div>
       <div className="courses_list">
         <p>{about}</p>
-        <p className="t-g-18">Available Courses</p>
+        <p className="t-g-18">{t('availTitle')}</p>
         <ol>
           {courses.map((ele) => {
             return (

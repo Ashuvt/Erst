@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { helpDdToggler, resetAllToggler } from "../../../store/actions";
 import ErrorMessageLine from "../../../components/errormessageline/ErrorMessageLine";
 
-const Help = () => {
+const Help = ({t}) => {
   const dispatch = useDispatch();
   const ddStatus = useSelector((state) => state.toggleReducer.helpFormDdStatus);
 
@@ -28,7 +28,7 @@ const Help = () => {
 
     if (name === "name") {
       if (value.trim().length === 0) {
-        setNameError("field is required!");
+        setNameError(t('errorFieldRequired'));
       }else{
         setNameError("");
       }
@@ -39,9 +39,9 @@ const Help = () => {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
       if (value.trim().length === 0) {
-        setMailError("field is required!");
+        setMailError(t('errorFieldRequired'));
       }else if(!emailRegex.test(value)) {
-        setMailError("Please Enter Valid Email formate!");
+        setMailError(t('errorFieldEmail'));
       }else{
         setMailError("");
       }
@@ -49,7 +49,7 @@ const Help = () => {
 
     if (name === "number") {
       if (value.trim().length === 0) {
-        setNumError("field is required!");
+        setNumError(t('errorFieldRequired'));
       }else{
         setNumError("");
       }
@@ -119,8 +119,8 @@ const Help = () => {
         <Map />
         <div className="filler"></div>
         <MidTitle
-          title="Need Assistance?"
-          text="We're Here to Help! Reach Out for Expert Support at Cyber Gain Center."
+          title={t('contactFormTitle')}
+          text={t('contactFormPara')}
         />
         <div className="help_form">
           <form>
@@ -128,7 +128,7 @@ const Help = () => {
               <div className="field_box">
               <input
                 type="text"
-                placeholder="Your name"
+                placeholder={t('contactFormName')}
                 name="name"
                 value={help.name}
                 onChange={formHandler}
@@ -140,7 +140,7 @@ const Help = () => {
               <div className="field_box">
               <input
                 type="email"
-                placeholder="Email"
+                placeholder={t('contactFormEmail')}
                 name="email"
                 value={help.email}
                 onChange={formHandler}
@@ -151,7 +151,7 @@ const Help = () => {
               <div className="field_box">
               <input
                 type="number"
-                placeholder="Number"
+                placeholder={t('contactFormNumber')}
                 name="number"
                 value={help.number}
                 onChange={formHandler}
@@ -174,7 +174,7 @@ const Help = () => {
               </div> */}
             </div>
             <textarea
-              placeholder="Message"
+              placeholder={t('contactFormMessage')}
               className="wow slideInUp"
               name="message"
               value={help.message}
@@ -186,7 +186,7 @@ const Help = () => {
               className="primarybtn wow slideInUp"
               onClick={formSubmitHandler}
             >
-              send message
+             {t('contactFormBtn')}
             </button>
           </form>
         </div>

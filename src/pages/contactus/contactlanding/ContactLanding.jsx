@@ -5,7 +5,7 @@ import TextArrowBtn from "../../../components/textarrowbtn/TextArrowBtn";
 import ParticlesBg from "../../../components/particlesbg/ParticlesBg";
 import { useNavigate } from "react-router-dom";
 
-const ContactLanding = () => {
+const ContactLanding = ({t}) => {
 
   const navigate = useNavigate();
 
@@ -13,15 +13,15 @@ const ContactLanding = () => {
     <section className="contact_landing">
       <ParticlesBg />
       <div className="content_wrap">
-        <h1 className="wow fadeInLeft">Connecting is Key: Reach Out to Cyber Gain Center Today.</h1>
+        <h1 className="wow fadeInLeft">{t('constactLandingTitle')}</h1>
 
         <div className="trial_wrap">
           <p className="wow fadeInRight">
-          Build a Safer Future
+          {t('constactLandingPara')}
           </p>
           <div className="btn_line wow fadeInRight">
            <CircleArrowBtn />
-           <TextArrowBtn text="start free trial" clickHandler={() => navigate("/auth/getstarted")} />
+           <TextArrowBtn text={t('constactLandingBtn')} clickHandler={() => navigate("/auth/getstarted")} />
           </div>
         </div>
       </div>
