@@ -21,13 +21,16 @@ section.header {
         height: 80px;
     }
 
-    .content_wrap {
+    .content_wrap {       
         header {
             width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             height: 100px;
+            &.flip{
+                flex-direction: row-reverse;
+            }
 
             @media only screen and (max-width:$laptop) {
                 height: 80px;
@@ -53,6 +56,9 @@ section.header {
                 justify-content: center;
                 align-items: center;
                 gap:25px;
+                &.flip{
+                    flex-direction: row-reverse;
+                }
                 a{
                     @include font('Inter-Regular', 16px, 20px, 400, $white);
                     text-decoration: none;

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./TipsBlogCard.scss";
+import {useSelector } from "react-redux";
 
 const TipsBlogCard = ({ date, title, text, img, url }) => {
   const [side, setSide] = useState(false);
@@ -15,6 +16,8 @@ const TipsBlogCard = ({ date, title, text, img, url }) => {
     setWidth(0);
   };
 
+  const l = useSelector(state => state.langReducer.lang);
+
   return (
     <div
       className="tips_blog_card wow fadeInUp"
@@ -27,7 +30,9 @@ const TipsBlogCard = ({ date, title, text, img, url }) => {
         <h3>{title}</h3>
         <p>{text}</p>
       </div>
-      <div className="img_wrap">
+      <div className="img_wrap"
+       style={['ar', 'he'].includes(l) ? {left:'0px'} : {right:'0px'}}
+      >
         <div className="content_box">
           <div className="overlay"></div>
           <img src={img} alt="blogbanner" />

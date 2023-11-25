@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import { images } from "../../../utils/images/images";
 import "./TipsBlog.scss";
 import TipsBlogCard from "./tipsblogcard/TipsBlogCard";
+import { useSelector } from "react-redux";
 
 const TipsBlog = ({t}) => {
   const blogData = [
@@ -31,9 +32,11 @@ const TipsBlog = ({t}) => {
     },
   ];
 
+  const l = useSelector(state => state.langReducer.lang);
+
   return (
     <section className="tips_blog p_bottom p_top">
-      <div className="content_wrap">
+      <div className={`content_wrap  ${['ar', 'he'].includes(l) ? 'flip' : ''}`}>
         <div className="left">
           <h2 className="wow fadeInUp">{t('eventHeader')}</h2>
           <p className="wow fadeInUp">{t('eventDes')}</p>

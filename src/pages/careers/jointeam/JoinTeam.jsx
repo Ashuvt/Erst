@@ -3,6 +3,7 @@ import { Fragment } from "react";
 import { icons, images } from "../../../utils/images/images";
 import ProfileList from "../../../components/profilelist/ProfileList";
 import ParticlesBg from "../../../components/particlesbg/ParticlesBg";
+import { useSelector } from "react-redux";
 
 const JoinTeam = ({t}) => {
   const userData = [
@@ -23,12 +24,16 @@ const JoinTeam = ({t}) => {
       img: images.profiled,
     },
   ];
+
+  const l = useSelector(state => state.langReducer.lang);
+
+
   return (
     <Fragment>
     <ParticlesBg />
     <section className="join_team">
      
-      <div className="content_wrap">
+      <div className={`content_wrap ${['ar', 'he'].includes(l) ? 'flip' : ''}`}>
         <div className="main_circle">
           <div className="overlay"></div>
           <img src={images.JoinTeam} alt="video_banner" />

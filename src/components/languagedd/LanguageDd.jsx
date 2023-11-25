@@ -1,10 +1,13 @@
 import "./LanguageDd.scss";
-import { useState, Fragment } from "react";
+import { useState, Fragment, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { multilangToggler } from "../../store/actions";
+import { languageChanges, multilangToggler } from "../../store/actions";
 import { useTranslation } from "react-i18next";
 
 const LanguageDd = () => {
+
+
+
   const AllLanguages = [
     {
       id: "English",
@@ -31,6 +34,7 @@ const LanguageDd = () => {
   const btnClickHandler = (e) => {
     e.stopPropagation();
     dispatch({ type: multilangToggler(), payload: !status });
+
   };
 
   const { t, i18n } = useTranslation();
@@ -38,6 +42,10 @@ const LanguageDd = () => {
   const changeLanguage = (lng, selected) => {
     i18n.changeLanguage(lng);
     setLang(selected);
+    
+    dispatch({type:languageChanges(), payload:lng});
+
+
   };
 
   return (

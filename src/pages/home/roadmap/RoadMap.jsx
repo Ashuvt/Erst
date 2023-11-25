@@ -6,7 +6,7 @@ import FourOneFloat from "./fouronefloat/FourOneFloat";
 import OneTwoFloat from "./onetwofloat/OneTwoFloat";
 import { logoImage } from "../../../utils/images/images"
 import CourseCard from "./courcecard/CourseCard";
-
+import { useDispatch, useSelector } from "react-redux";
 
 const RoadMap = ({t}) => {
   const framData = [
@@ -125,6 +125,7 @@ const RoadMap = ({t}) => {
     },
   ];
   const [scrollY, setScrollY] = useState(0);
+  const l = useSelector(state => state.langReducer.lang);
 
   const handleScroll = () => {
     setScrollY(window.scrollY);
@@ -190,7 +191,7 @@ const RoadMap = ({t}) => {
 
           <OneTwoFloat scrollY={scrollY} />
 
-          <div className="bi_flex">
+          <div className={`bi_flex ${['ar', 'he'].includes(l) ? 'flip' : ''}`}>
             {courseData.map((data) => {
               return (
                 <Fragment key={data.id}>

@@ -12,6 +12,8 @@ import LanguageDd from "../../components/languagedd/LanguageDd";
 
 const Header = ({t}) => {
   const dispatch = useDispatch();
+
+  const l = useSelector(state => state.langReducer.lang);
   
   const sidebarStatus = useSelector(
     (state) => state.toggleReducer.sidebarStatus
@@ -29,13 +31,13 @@ const Header = ({t}) => {
   return (
     <section className="header">
       <div className="content_wrap">
-        <header>
+        <header className={['ar', 'he'].includes(l) ? 'flip' : ''} >
           <div className="logo_wrap">
             <a href="/">
               <img src={logoImage.logo} alt="logo" />
             </a>
           </div>
-          <nav>
+          <nav className={['ar', 'he'].includes(l) ? 'flip' : ''}>
             <NavLink to="/">{t('Home')}</NavLink>
             <NavLink to="/about">{t('About')}</NavLink>
             <NavLink to="/careers">{t('Careers')}</NavLink>               
@@ -57,14 +59,14 @@ const Header = ({t}) => {
             className="signup"
             onClick={() => navigate("/auth/getStarted")}  
           >
-              Sign up
+              {t('signIn')}
             </button>
             <button
               type="button"
               className="signin"
               onClick={() => navigate("/auth/login")}
             >
-              Sign in
+              {t('signUp')}
             </button>
            
 

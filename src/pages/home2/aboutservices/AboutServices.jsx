@@ -1,16 +1,18 @@
 import "./AboutServices.scss";
 import { images } from "../../../utils/images/images";
+import { useSelector } from "react-redux";
 
 const AboutServices = ({t}) => {
+  const l = useSelector(state => state.langReducer.lang);
   return (
     <section className="about_services" id="aboutService">
       <div className="content_wrap p_bottom p_top">
         <div className="bottom_line wow zoomIn"></div>
         <div className="bisec_title">
           <h2 className="wow fadeInUp">{t('aboutMissionHeading')}</h2>
-          <p className="wow fadeInUp">{t('aboutMissionPara')}</p>
+          <p className="wow fadeInUp" style={{order:0}}>{t('aboutMissionPara')}</p>
         </div>
-        <div className="bi_grid">
+        <div className={`bi_grid ${['ar', 'he'].includes(l) ? 'flip' : ''}`}>
           <div className="img_wrap wow fadeInUp">
             <img src={images.about} alt="mobile" />
           </div>

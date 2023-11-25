@@ -4,15 +4,17 @@ import CircleArrowBtn from "../../../components/circlearrowbtn/CircleArrowBtn";
 import TextArrowBtn from "../../../components/textarrowbtn/TextArrowBtn"; 
 import ParticlesBg from "../../../components/particlesbg/ParticlesBg";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const ContactLanding = ({t}) => {
 
   const navigate = useNavigate();
+  const l = useSelector(state => state.langReducer.lang);
 
   return (
     <section className="contact_landing">
       <ParticlesBg />
-      <div className="content_wrap">
+      <div className={`content_wrap ${['ar', 'he'].includes(l) ? 'flip' : ''}`}>
         <h1 className="wow fadeInLeft">{t('constactLandingTitle')}</h1>
 
         <div className="trial_wrap">

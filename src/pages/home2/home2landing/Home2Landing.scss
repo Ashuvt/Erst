@@ -16,6 +16,9 @@
                 padding-top: 150px;
                 max-width: 800px;
                 width: 100%;
+                &.flip{
+                  margin-left:auto;
+                }
 
                 @media only screen and (max-width:$laptop) {
                     padding-top: 60px;
@@ -94,6 +97,9 @@
                 align-items: center;
                 gap: 30px;
                 flex-wrap: wrap;
+                &.flip{
+                    justify-content: flex-end;
+                }
 
                 @media only screen and (max-width:$mobile) {
                     margin-top: 30px;

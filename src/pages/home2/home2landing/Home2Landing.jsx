@@ -3,6 +3,8 @@ import "./Home2Landing.scss";
 import WOW from "wow.js";
 import ParticlesBg from "../../../components/particlesbg/ParticlesBg";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+
 
 const Home2Landing = ({t}) => {
 const navigate = useNavigate();
@@ -26,11 +28,13 @@ const navigate = useNavigate();
     };
   }, []);
 
+  const l = useSelector(state => state.langReducer.lang);
+
   return (
     <section className="home2_landing p_bottom p_top">
     <ParticlesBg />
       <div className="content_wrap">
-        <div className="text_content">
+        <div className={`text_content ${['ar', 'he'].includes(l) ? 'flip' : ''}`}> 
           <div className="dynamic wow fadeInUp">
             <h1>{t('aboutLandingTitle')}</h1>
             <div className="text_box">
@@ -53,7 +57,7 @@ const navigate = useNavigate();
           </div>
           <p className="wow fadeInUp">{t('aboutLandingText')}</p>
         </div>
-        <div className="btn_line wow fadeInUp">
+        <div className={`btn_line wow fadeInUp ${['ar', 'he'].includes(l) ? 'flip' : ''}`}>
           <div className="left">
             <div className="left_beam"></div>
             <h6>

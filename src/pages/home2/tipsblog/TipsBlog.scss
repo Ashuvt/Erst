@@ -11,7 +11,10 @@ section.tips_blog {
         display: grid;
         grid-template-columns: 0.5fr 1fr;
         gap: 100px;
-
+        &.flip{
+            direction: rtl;
+        }
+        
         @media only screen and (max-width:$laptop) {
             display: flex;
             flex-direction: column;

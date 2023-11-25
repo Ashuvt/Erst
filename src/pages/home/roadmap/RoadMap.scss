@@ -280,6 +280,9 @@ section.road_map {
             align-items: flex-start;
             position: relative;
             z-index: 2;
+            &.flip{
+                flex-direction: row-reverse;
+            }
 
             @media only screen and (max-width:900px) {
                 gap: 60px;

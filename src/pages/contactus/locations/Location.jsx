@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import "./Locations.scss";
+import { useSelector } from "react-redux";
 
 import LocationCard from "./locationcard/LocationCard";
 
@@ -27,9 +28,12 @@ const Locations = ({t}) => {
       mail: "info@cybergain.co.il",
     },    
   ];
+
+  const l = useSelector(state => state.langReducer.lang);
+
   return (
     <section className="locations">
-      <div className="content_wrap">
+      <div className={`content_wrap ${['ar', 'he'].includes(l) ? 'flip' : ''}`}>
         {locationData.map((data, j) => {
           return (
             <Fragment key={data.id}>

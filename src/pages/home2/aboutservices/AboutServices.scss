@@ -25,7 +25,9 @@ section.about_services {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 200px;
-
+&.flip{
+    direction: rtl;
+}
             h2,
             p {
                 align-self: center;
@@ -51,7 +53,9 @@ section.about_services {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 100px;
-
+            &.flip{
+                direction: rtl;
+            }
             @media only screen and (max-width:$laptop) {
                 display: flex;
                 flex-direction: column;

@@ -3,17 +3,18 @@
 @import "../../scss/typography";
 @import "../../scss/variables";
 
-section.footer { 
-  position:relative;
-  z-index:1;
+section.footer {
+  position: relative;
+  z-index: 1;
   background: $bgGradient;
   padding-top: 130px;
-  padding-bottom:50px;
-  overflow:hidden;
-  z-index:5;
+  padding-bottom: 50px;
+  overflow: hidden;
+  z-index: 5;
+
   @media only screen and (max-width:$tab) {
     padding-top: 80px;
-    padding-bottom:30px;
+    padding-bottom: 30px;
   }
 
   @media only screen and (max-width:$mobile) {
@@ -25,9 +26,10 @@ section.footer {
     left: 0px;
     top: 0px;
     z-index: 0;
-    &.right{
-      right:-50%;
-      bottom:0px;
+
+    &.right {
+      right: -50%;
+      bottom: 0px;
     }
   }
 
@@ -42,6 +44,11 @@ section.footer {
         width: 100%;
         max-width: 800px;
         margin-bottom: 50px;
+
+        &.flip {
+          margin-left: auto;
+          text-align: right;
+        }
 
         @media only screen and (max-width:$laptop) {
           text-align: center;
@@ -59,8 +66,12 @@ section.footer {
         align-items: center;
         gap: 25px;
 
+        &.flip {
+          flex-direction: row-reverse;
+        }
+
         @media only screen and (max-width:$laptop) {
-          flex-direction: column;
+          flex-direction: column!important;
         }
 
         @media only screen and (max-width:$tab) {
@@ -149,6 +160,11 @@ section.footer {
           display: grid;
           grid-template-columns: 1fr 1fr 1fr;
           gap: 40px;
+
+          &.flip{
+            transform: rotateY(180deg);
+            -webkit-transform: rotateY(180deg);
+          }
 
           @media only screen and (max-width:$laptop) {
             grid-template-columns: 1fr 1fr;
@@ -320,9 +336,12 @@ section.footer {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        &.flip{
+        flex-direction:row-reverse;
+        }
 
         @media only screen and (max-width:$laptop) {
-          flex-direction: column;
+          flex-direction: column!important;
 
           p {
             text-align: center;

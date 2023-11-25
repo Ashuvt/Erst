@@ -2,11 +2,13 @@ import "./HomeLanding.scss";
 import { images } from "../../../utils/images/images";
 import ParticlesBg from "../../../components/particlesbg/ParticlesBg";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 
 const HomeLanding = ({t}) => {
 
-  
+ 
+
 
 
 const navigate = useNavigate();

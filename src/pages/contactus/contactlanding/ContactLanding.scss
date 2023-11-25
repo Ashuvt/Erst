@@ -11,6 +11,9 @@ section.contact_landing {
         padding-bottom: 130px;
         display: grid;
         grid-template-columns: 1fr 0.4fr;
+        &.flip{
+            direction: rtl;
+        }
 
         @media only screen and (max-width:$laptop) {
             display: flex;
