@@ -1,7 +1,10 @@
 import "./AllBlogs.scss";
 import { icons, images } from "../../../utils/images/images";
+import { useState, useEffect } from "react";
 import Pill from "../../../components/pill/Pill";
 import CircleArrowBtn from "../../../components/circlearrowbtn/CircleArrowBtn";
+import axios from "axios";
+import {baseUrl} from "../../../utils/baseurl";
 
 const AllBlogs = () => {
   const blogData = [
@@ -20,10 +23,24 @@ const AllBlogs = () => {
       img: images.homeblogC,
     },
   ];
+
+
+  // const getBlogs = async() => {
+  //   const blogs = await axios.get(`https://cybergainbackend.supagrow.in/getblogs`);
+  //   setBlogData(blogs);    
+  // } 
+
+
+  // useEffect(() => {
+  //   getBlogs();
+  // },[]);
+
+
+
   return (
     <section className="tech_blog p_top p_bottom">
       <div className="content_wrap">
-        {blogData &&
+        {blogData.length > 0 ?
           blogData.map((data) => {
             return (
               <div className="blog_wrap" key={data.id}>
@@ -49,7 +66,9 @@ const AllBlogs = () => {
                 </div>
               </div>
             );
-          })}
+          })
+          : <h4>Data No Found...</h4>
+        } 
       </div>
   
     </section>

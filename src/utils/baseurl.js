@@ -1,1 +1,1 @@
-const baseUrl = "https://cybergainbackend.supagrow.in/";
+const baseUrl = "https://cybergainbackend.supagrow.in";

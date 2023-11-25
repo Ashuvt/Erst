@@ -83,7 +83,7 @@ section.contact_help {
                     border-style: none;
                     border-bottom:1px solid $cardBorder;
                     transition:all 0.3s ease-in-out;
-                    &:hover{
+                    &:hover, &.active{
                     background-color:$primary;
                     }
                 }

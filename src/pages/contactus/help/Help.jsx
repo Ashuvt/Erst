@@ -1,8 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Help.scss";
 import Map from "../../../components/map/Map";
 import MidTitle from "../../../components/midtitle/MidTitle";
-import { helpForm } from "../../../utils/data/forms";
 import { useDispatch, useSelector } from "react-redux";
 import { helpDdToggler, resetAllToggler } from "../../../store/actions";
 
@@ -12,22 +11,33 @@ const Help = () => {
   const ddStatus = useSelector(state => state.toggleReducer.helpFormDdStatus);
 
   const [selectedProblem, setSelectedProblem] = useState('');
-  const [help, setHelp] = useState(helpForm);
+
+
+  const [help, setHelp] = useState({
+    name:"",
+    email:"",
+    number:"",
+    problem:"",
+    message:""
+  });
+
 
   const formHandler = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
+    const {name, value} = e.target;
     setHelp(values => ({...values, [name]: value}))
   };   
+
 
   const formSubmitHandler = () => {
     console.log(help);
   };
 
+
   const ddToggler = (e) => {
     e.stopPropagation();
     dispatch({type:helpDdToggler(), payload:!ddStatus});
   };
+
 
   const proglemList = [
     {
@@ -50,10 +60,12 @@ const Help = () => {
       id:"555",
       option:"Option E"
     },
+    
   ];
 
   const selectOption = (data) => {    
     setSelectedProblem(data.option);
+    setHelp(values => ({...values, problem:data.option}))
   }
 
   const fullPageClick = () => {
@@ -100,7 +112,7 @@ const Help = () => {
               {
                 proglemList.map((data) => {
                   return(
-                    <button type="button" className="optionbtn" key={data.id} onClick={() => selectOption(data)} >{data.option}</button>
+                    <button type="button" className={`optionbtn ${selectedProblem === data.option ? 'active' : ''}`} key={data.id} onClick={() => selectOption(data)} >{data.option}</button>
                   )
                 })
               }
