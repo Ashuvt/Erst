@@ -4,73 +4,114 @@ import Map from "../../../components/map/Map";
 import MidTitle from "../../../components/midtitle/MidTitle";
 import { useDispatch, useSelector } from "react-redux";
 import { helpDdToggler, resetAllToggler } from "../../../store/actions";
+import ErrorMessageLine from "../../../components/errormessageline/ErrorMessageLine";
 
 const Help = () => {
-
   const dispatch = useDispatch();
-  const ddStatus = useSelector(state => state.toggleReducer.helpFormDdStatus);
+  const ddStatus = useSelector((state) => state.toggleReducer.helpFormDdStatus);
 
-  const [selectedProblem, setSelectedProblem] = useState('');
+  // const [selectedProblem, setSelectedProblem] = useState("");
 
+  const [nameError, setNameError] = useState("");
+  const [numError, setNumError] = useState("");
+  const [mailError, setMailError] = useState("");
 
   const [help, setHelp] = useState({
-    name:"",
-    email:"",
-    number:"",
-    problem:"",
-    message:""
+    name: "",
+    email: "",
+    number: "",
+    message: "",
   });
 
 
-  const formHandler = (e) => {
-    const {name, value} = e.target;
-    setHelp(values => ({...values, [name]: value}))
-  };   
+  const validation = (name, value) => {
 
+    if (name === "name") {
+      if (value.trim().length === 0) {
+        setNameError("field is required!");
+      }else{
+        setNameError("");
+      }
+    }
+
+    if (name === "email") {
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (value.trim().length === 0) {
+        setMailError("field is required!");
+      }else if(!emailRegex.test(value)) {
+        setMailError("Please Enter Valid Email formate!");
+      }else{
+        setMailError("");
+      }
+    }
+
+    if (name === "number") {
+      if (value.trim().length === 0) {
+        setNumError("field is required!");
+      }else{
+        setNumError("");
+      }
+    }
+
+  }
+  const blurHandler = (e) => {
+    
+    const { name, value } = e.target;
+    validation(name, value);
+    
+  };
+
+
+
+  const formHandler = (e) => {
+    const { name, value } = e.target;
+    setHelp((values) => ({ ...values, [name]: value }));
+
+    validation(name, value);
+  };
 
   const formSubmitHandler = () => {
     console.log(help);
   };
 
-
-  const ddToggler = (e) => {
-    e.stopPropagation();
-    dispatch({type:helpDdToggler(), payload:!ddStatus});
-  };
-
+  // const ddToggler = (e) => {
+  //   e.stopPropagation();
+  //   dispatch({type:helpDdToggler(), payload:!ddStatus});
+  // };
 
   const proglemList = [
     {
-      id:"111",
-      option:"Option A"
+      id: "111",
+      option: "Option A",
     },
     {
-      id:"222",
-      option:"Option B"
+      id: "222",
+      option: "Option B",
     },
     {
-      id:"333",
-      option:"Option C"
+      id: "333",
+      option: "Option C",
     },
     {
-      id:"444",
-      option:"Option D"
+      id: "444",
+      option: "Option D",
     },
     {
-      id:"555",
-      option:"Option E"
+      id: "555",
+      option: "Option E",
     },
-    
   ];
 
-  const selectOption = (data) => {    
-    setSelectedProblem(data.option);
-    setHelp(values => ({...values, problem:data.option}))
-  }
+  // const selectOption = (data) => {
+  //   setSelectedProblem(data.option);
+  //   setHelp(values => ({...values, problem:data.option}))
+  // }
 
   const fullPageClick = () => {
-    dispatch({type:resetAllToggler()})
-  }
+    dispatch({ type: resetAllToggler() });
+  };
 
   return (
     <section className="contact_help p_top p_bottom" onClick={fullPageClick}>
@@ -84,29 +125,42 @@ const Help = () => {
         <div className="help_form">
           <form>
             <div className="info_fields wow slideInUp">
+              <div className="field_box">
               <input
                 type="text"
                 placeholder="Your name"
                 name="name"
                 value={help.name}
                 onChange={formHandler}
+                onBlur={blurHandler}
               />
+                    { nameError && <ErrorMessageLine text={nameError} /> }
+              </div>
+        
+              <div className="field_box">
               <input
                 type="email"
                 placeholder="Email"
                 name="email"
                 value={help.email}
                 onChange={formHandler}
+                onBlur={blurHandler}
               />
+              { mailError && <ErrorMessageLine text={mailError} /> }
+              </div>
+              <div className="field_box">
               <input
                 type="number"
                 placeholder="Number"
                 name="number"
                 value={help.number}
                 onChange={formHandler}
+                onBlur={blurHandler}
               />
-            
-              <div className="custom_dropdown" onClick={ddToggler}>
+               { numError && <ErrorMessageLine text={numError} /> }
+              </div>
+
+              {/* <div className="custom_dropdown" onClick={ddToggler}>
                 {selectedProblem ? <p>{selectedProblem}</p> : <p className="light">select Problem</p>}
                 <div className={`option_list ${ddStatus ? 'open' : 'close'}`}>
               {
@@ -117,17 +171,21 @@ const Help = () => {
                 })
               }
                 </div>
-              </div>
+              </div> */}
             </div>
             <textarea
               placeholder="Message"
               className="wow slideInUp"
-              name="message"              
+              name="message"
               value={help.message}
               onChange={formHandler}
             ></textarea>
 
-            <button type="button" className="primarybtn wow slideInUp" onClick={formSubmitHandler}>
+            <button
+              type="button"
+              className="primarybtn wow slideInUp"
+              onClick={formSubmitHandler}
+            >
               send message
             </button>
           </form>

@@ -31,7 +31,7 @@ const JoinTeam = () => {
       <div className="content_wrap">
         <div className="main_circle">
           <div className="overlay"></div>
-          <img src={images.homeVideoBanner} alt="video_banner" />
+          <img src={images.JoinTeam} alt="video_banner" />
         
         </div>
         <div className="text_content">

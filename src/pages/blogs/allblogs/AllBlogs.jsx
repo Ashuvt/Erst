@@ -5,42 +5,60 @@ import Pill from "../../../components/pill/Pill";
 import CircleArrowBtn from "../../../components/circlearrowbtn/CircleArrowBtn";
 import axios from "axios";
 import {baseUrl} from "../../../utils/baseurl";
+import Loader from "../../../layouts/loader/Loader";
 
 const AllBlogs = () => {
-  const blogData = [
-    {
-      id: 0,
-      flag: "new blog",
-      date: "April 18, 2023",
-      title: "Lorem vs Ipsom",
-      img: images.blogView,
-    },
-    {
-      id: 1,
-      flag: "new blog",
-      date: "April 18, 2023",
-      title: "Lorem vs Ipsom",
-      img: images.homeblogC,
-    },
-  ];
+  // const blogData = [
+  //   {
+  //     id: 0,
+  //     flag: "new blog",
+  //     date: "April 18, 2023",
+  //     title: "Lorem vs Ipsom",
+  //     img: images.blogView,
+  //   },
+  //   {
+  //     id: 1,
+  //     flag: "new blog",
+  //     date: "April 18, 2023",
+  //     title: "Lorem vs Ipsom",
+  //     img: images.homeblogC,
+  //   },
+  // ];
 
 
-  // const getBlogs = async() => {
-  //   const blogs = await axios.get(`https://cybergainbackend.supagrow.in/getblogs`);
-  //   setBlogData(blogs);    
-  // } 
+
+  const [blogData, setBlogData] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  const getBlogs = async () => {
+    try {
+      setLoading(true);
+      setError(null);
+
+      const response = await axios.get('https://cybergainbackend.supagrow.in/getblogs');
+      setBlogData(response.data);
+
+      // You can do more with the response if needed
+
+    } catch (error) {
+      setError(error.message || 'An error occurred');
+    } finally {
+      setLoading(false);
+    }
+  };
 
 
-  // useEffect(() => {
-  //   getBlogs();
-  // },[]);
+useEffect(() => {
+  getBlogs();
+}, [])
 
 
 
   return (
     <section className="tech_blog p_top p_bottom">
       <div className="content_wrap">
-        {blogData.length > 0 ?
+        {blogData &&
           blogData.map((data) => {
             return (
               <div className="blog_wrap" key={data.id}>
@@ -67,8 +85,10 @@ const AllBlogs = () => {
               </div>
             );
           })
-          : <h4>Data No Found...</h4>
         } 
+
+        {error && <h4>{error}...</h4>}
+       <Loader />
       </div>
   
     </section>

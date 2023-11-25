@@ -96,6 +96,7 @@ import eventB from "../../assets/images/eventb.jpeg";
 import eventC from "../../assets/images/eventc.jpeg";
 
 import about from "../../assets/images/about.jpeg";
+import JoinTeam from "../../assets/images/jointeam.jpeg";
 
 
 // Icons
@@ -273,7 +274,8 @@ export const images = {
   eventA,
   eventB,
   eventC,
-  about
+  about,
+  JoinTeam
   
 };
 
