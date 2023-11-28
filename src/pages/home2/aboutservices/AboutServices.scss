@@ -77,10 +77,16 @@ section.about_services {
                 max-height:630px;
                 box-shadow: 0 0 20px rgba(255, 255, 255, .25);
                 @media only screen and (max-width:$mobile){
+                    max-height:400px;
+                }
+                @media only screen and (max-width:$mobile){
                     padding:25px;
                 }
                 img {
-                    object-fit: contain;
+                   object-fit: contain;
+                   @media only screen and (max-width:$mobile){
+                    max-width:100%;
+                   }
                 }
 
                 &:hover {

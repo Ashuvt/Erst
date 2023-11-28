@@ -37,7 +37,7 @@ section.join_team {
         .main_circle {
             height: 500px;
             width: 500px;
-            border-radius: 50%;
+            border-radius: 12px;
             position: relative;
             overflow: hidden;
             display: flex;
@@ -70,8 +70,7 @@ section.join_team {
             .overlay {
                 height: 100%;
                 width: 100%;
-                border-radius: 50%;
-                background-color: rgba(0, 0, 0, 0.5);
+                background-color: rgba(0, 0, 0, 0.3);
                 position: absolute;
                 top: 0px;
                 left: 0px;
@@ -81,7 +80,7 @@ section.join_team {
 
             &:hover{
                 .overlay{
-                    background-color: rgba(0, 0, 0, .3);
+                    background-color: rgba(0, 0, 0, 0);
                 }
             }
 

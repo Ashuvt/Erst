@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import "./BlogsLanding.scss";
 import WOW from "wow.js";
 import ParticlesBg from "../../../components/particlesbg/ParticlesBg";
+import { t } from "i18next";
 
 const BlogsLanding = ({t}) => {
 

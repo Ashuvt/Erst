@@ -8,9 +8,16 @@ import Footer from "../../layouts/footer/Footer";
 import WOW from "wow.js";
 import { useParams } from "react-router-dom";
 import { images } from "../../utils/images/images";
+import { useTranslation } from 'react-i18next';
+import axios from "axios";
 
-const BlogDetail = () => {
-
+const BlogDetail = async () => {
+  
+  const { id } = useParams();
+  
+  
+  
+  const { t } = useTranslation();
     const blogsData = [
         {
           id:"0",
@@ -224,15 +231,16 @@ const BlogDetail = () => {
 
   return (
     <Fragment>
-      <Header />
-      <BlogDetailLanding tag={data.tag} date={data?.date} title={data.title} text={text}/>
-      <BlogBanner />
-      <BlogContent />
-      <BlogPagination />    
+      <Header t={t}/>
+      <BlogDetailLanding title={data.title} text={text} t={t}/>
+      <BlogBanner t={t}/>
+      <BlogContent t={t}/>
+      <BlogPagination  t={t}/>    
       
      
-      <Footer />
+      <Footer t={t}/>
     </Fragment>
+    
   );
 };
 

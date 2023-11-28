@@ -35,7 +35,10 @@ import logout from "../../assets/images/icons/logout.svg";
 import profile from "../../assets/images/icons/profile.svg";
 import help from "../../assets/images/icons/help.svg";
 import playfill from "../../assets/images/icons/playfill.svg";
-import certificate from "../../assets/images/icons/certificate.svg";
+import certificate1 from "../../assets/images/home/Cybergain-icons_beginner.png";
+import certificate2 from "../../assets/images/home/Cybergain-icons_intermediate.png";
+import certificate3 from "../../assets/images/home/Cybergain-icons_master.png";
+import certificate4 from "../../assets/images/home/Cybergain-icons_professional.png";
 import redTeam from "../../assets/images/icons/redteam.svg";
 import blueTeam from "../../assets/images/icons/blueteam.svg";
 import starYellow from "../../assets/images/icons/staryellow.svg";
@@ -53,6 +56,7 @@ import whiteCheck from "../../assets/images/icons/whitecheck.svg";
 import lightLock from "../../assets/images/icons/lightlock.svg";
 import bgGlass from "../../assets/images/icons/userglass.svg";
 import float from "../../assets/images/icons/floating.svg";
+
 
 export const icon = {
   angleUp,
@@ -84,7 +88,10 @@ export const icon = {
   explore,
   module,
   courses,
-  certificate,
+  certificate1,
+  certificate2,
+  certificate3,
+  certificate4,
   quizandproject,
   question,
   upload,

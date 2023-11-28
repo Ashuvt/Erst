@@ -34,7 +34,9 @@ const navigate = useNavigate();
     <section className="home2_landing p_bottom p_top">
     <ParticlesBg />
       <div className="content_wrap">
-        <div className={`text_content ${['ar', 'he'].includes(l) ? 'flip' : ''}`}> 
+
+         <div className={`title_wraper ${['ar', 'he'].includes(l) ? 'flip' : ''}`}>
+        <div className="text_content"> 
           <div className="dynamic wow fadeInUp">
             <h1>{t('aboutLandingTitle')}</h1>
             <div className="text_box">
@@ -57,7 +59,8 @@ const navigate = useNavigate();
           </div>
           <p className="wow fadeInUp">{t('aboutLandingText')}</p>
         </div>
-        <div className={`btn_line wow fadeInUp ${['ar', 'he'].includes(l) ? 'flip' : ''}`}>
+        </div> 
+        <div className={`btn_line wow fadeInUp`} style={['ar', 'he'].includes(l) ? {justifyContent:'flex-end'} : {justifyContent:"flex-start"}}>
           <div className="left">
             <div className="left_beam"></div>
             <h6>
@@ -66,7 +69,7 @@ const navigate = useNavigate();
           </div>
           <button
            className="primarybtn"
-           onClick={() => navigate("/auth/getstarted")}
+           onClick={() => navigate("/commingsoon")}
            >{t('aboutLandingBtn')}</button>
         </div>
       </div>

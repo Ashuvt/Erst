@@ -12,21 +12,21 @@ const LanguageDd = () => {
     {
       id: "English",
       lang: "en",
-      text: "English",
+      text: "En",
     },
-    {
-      id: "Hebrew",
-      lang: "he",
-      text: "עִברִית",
-    },
+    // {
+    //   id: "Hebrew",
+    //   lang: "he",
+    //   text: "עִברִית",
+    // },
     {
       id: "Arabic",
       lang: "ar",
-      text: "عربي",
+      text: "عر",
     },
   ];
 
-  const [lang, setLang] = useState("English");
+  const [lang, setLang] = useState("En");
 
   const dispatch = useDispatch();
   const status = useSelector((state) => state.toggleReducer.multilangDdStatus);

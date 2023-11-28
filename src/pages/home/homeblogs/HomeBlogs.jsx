@@ -1,13 +1,64 @@
-import { Fragment } from "react";
+import { useState,Fragment,useEffect } from "react";
 import "./HomeBlogs.scss";
 import MidTitle from "../../../components/midtitle/MidTitle";
 import Pill from "../../../components/pill/Pill";
 import { images } from "../../../utils/images/images";
 import HomeBlogCard from "./blogcard/HomeBlogCard";
-import { blogsData } from "../../../utils/data/data";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const HomeBlogs = ({t}) => {
+
+  const [blogDatas, setBlogData] = useState([]);
+  const [blogsData, setallBlogData] = useState([]);
+  
+
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  const baseUrl = 'https://cybergainbackend.supagrow.in/';
+
+  const getMainBlog = async () => {
+    try {
+      
+      setError(null);
+
+      const response = await axios.get('https://cybergainbackend.supagrow.in/homemainblog');
+      
+      setBlogData(response.data.data);
+
+      // You can do more with the response if needed
+
+    } catch (error) {
+      setError(error.message || 'An error occurred');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const getallBlogs = async () => {
+    try {
+      
+      setError(null);
+
+      const response = await axios.get('https://cybergainbackend.supagrow.in/homeblog');
+      
+      setallBlogData(response.data.data);
+
+      // You can do more with the response if needed
+
+    } catch (error) {
+      setError(error.message || 'An error occurred');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  
+useEffect(() => {
+  getMainBlog();
+  getallBlogs();
+}, [])
 
 const navigate = useNavigate();
 
@@ -28,9 +79,10 @@ const navigate = useNavigate();
             <div className="blog_content_box">
               <Pill text={t('homeBlogMainLabel')} />
               <h4>
-              {t('homeBlogMainTitle')}
+              {blogDatas.title}
               </h4>
-             <p>{t('homeBlogMainPara')}</p>
+              <div dangerouslySetInnerHTML={{ __html: blogDatas.small_description }} />
+             {/* <p>{blogDatas.small_description}</p> */}
               <div className="btn_line">
                 <button type="buton" className="secondarybtn" onClick={() => navigate("/blogs")}>
                 <p>{t('homeBlogMainBtn')}</p>
@@ -42,7 +94,7 @@ const navigate = useNavigate();
             {
             blogsData && blogsData.map((data, k) => {
                 return(
-                  <Fragment key={data.id}>
+                  <Fragment key={data._id}>
                     <HomeBlogCard {...data} index={k} />
                   </Fragment>
                 )

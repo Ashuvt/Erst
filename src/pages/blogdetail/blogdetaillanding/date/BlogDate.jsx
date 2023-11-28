@@ -3,7 +3,7 @@ import "./BlogDate.scss";
 const BlogDate = ({tag, date}) => {
     return(
         <div className="date_wrap wow fadeInUp">
-        <button>{tag}</button>
+        <button>Blog</button>
         <div className="animated_line">
             <div className="filler"></div>
         </div>

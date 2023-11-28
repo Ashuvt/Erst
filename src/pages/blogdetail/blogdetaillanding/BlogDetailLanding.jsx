@@ -8,7 +8,7 @@ const BlogDetailLanding = ({tag, date, title, text}) => {
         <section className="blogdetail_landing">
         <ParticlesBg />
             <div className="content_wrap">
-                    <BlogDate tag={tag} date={date} />
+                    <BlogDate />
                     <div className="text_content ">
                     <h1 className="wow fadeInUp">{title}</h1>
                     <p className="wow fadeInUp">{text}</p>

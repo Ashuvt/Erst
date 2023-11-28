@@ -23,7 +23,7 @@ const ContactLanding = ({t}) => {
           </p>
           <div className="btn_line wow fadeInRight">
            <CircleArrowBtn />
-           <TextArrowBtn text={t('constactLandingBtn')} clickHandler={() => navigate("/auth/getstarted")} />
+           <TextArrowBtn text={t('constactLandingBtn')} clickHandler={() => navigate("/commingsoon")} />
           </div>
         </div>
       </div>

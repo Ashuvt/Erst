@@ -39,37 +39,37 @@ section.footer {
 
     footer {
       width: 100%;
-
-      h2 {
-        width: 100%;
-        max-width: 800px;
-        margin-bottom: 50px;
-
-        &.flip {
-          margin-left: auto;
-          text-align: right;
+      .footer_title{
+        display: flex;
+        justify-content: flex-start;
+        &.flip{
+          justify-content:flex-end;
         }
-
-        @media only screen and (max-width:$laptop) {
-          text-align: center;
-          margin: 0px auto 50px;
-        }
-
-        @media only screen and (max-width:$tab) {
-          margin: 0px auto 30px;
+        h2 {
+          width: 100%;
+          max-width: 800px;
+          margin-bottom: 50px;        
+  
+          @media only screen and (max-width:$laptop) {
+            text-align: center;
+            margin: 0px auto 50px;
+          }
+  
+          @media only screen and (max-width:$tab) {
+            margin: 0px auto 30px;
+          }
         }
       }
 
+
+      
+
       .link_social {
-        display: flex;
+        display: flex;       
         justify-content: space-between;
         align-items: center;
         gap: 25px;
-
-        &.flip {
-          flex-direction: row-reverse;
-        }
-
+            
         @media only screen and (max-width:$laptop) {
           flex-direction: column!important;
         }
@@ -108,6 +108,7 @@ section.footer {
           justify-content: flex-end;
           align-items: center;
           gap: 30px;
+       
 
           a {
             width: 40px;
@@ -336,9 +337,7 @@ section.footer {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        &.flip{
-        flex-direction:row-reverse;
-        }
+     
 
         @media only screen and (max-width:$laptop) {
           flex-direction: column!important;
@@ -349,12 +348,16 @@ section.footer {
         }
 
         .left {
+          
           p {
             @include font("Inter-Regular", 17px, 25.5px, 400, rgba(255, 255, 255, 0.7));
           }
         }
 
         .right {
+          &.flip{
+            order:0;
+          }
           p {
             @include font("Inter-Regular", 17px, 25.5px, 400, rgba(255, 255, 255, 0.7));
 

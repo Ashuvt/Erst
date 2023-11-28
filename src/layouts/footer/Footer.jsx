@@ -15,10 +15,12 @@ const l = useSelector(state => state.langReducer.lang);
       <img src={images.bgPattern} alt="bg" className="pattern right" />
       <div className="content_wrap">
         <footer>
-          <h2 className={`wow fadeInUp ${['ar', 'he'].includes(l) ? 'flip' : ''}`} >
+          <div className={`footer_title ${['ar', 'he'].includes(l) ? 'flip' : ''}`}>
+          <h2 className="wow fadeInUp" >
           {t('footerTitle')}
           </h2>
-          <div className={`link_social wow fadeInUp ${['ar', 'he'].includes(l) ? 'flip' : ''}`}>
+          </div>
+          <div className="link_social wow fadeInUp">
             <div className="links_container">
               <NavLink to="/">{t('Home')}</NavLink>
               <NavLink to="/about">{t('About')}</NavLink>
@@ -27,7 +29,7 @@ const l = useSelector(state => state.langReducer.lang);
               {/* <NavLink to="/faq">FAQ</NavLink> */}
               <NavLink to="/contactus">{t('Contact')}</NavLink>
             </div>
-            <div className="social_networks">
+            <div className="social_networks" style={['ar', 'he'].includes(l) ? {order:"-1"} : {}}>
               <a href="https://www.instagram.com/cyber_gain_center/" target="_blank">
                 <img src={icons.instagram} alt="instagram" />
               </a>
@@ -78,22 +80,22 @@ const l = useSelector(state => state.langReducer.lang);
                 <p>{t('text3')}</p>
 
                 <div className="app_wrap">
-                  <button type="button" onClick={() => navigate("/auth/getStarted")}>
+                  <button type="button" onClick={() => navigate("/commingsoon")}>
                   {t('signUp')}
                   </button>
 
-                  <button type="button" onClick={() => navigate("/auth/login")}>
+                  <button type="button" onClick={() => navigate("/commingsoon")}>
                   {t('signIn')}
                   </button>
                 </div>
               </div>
             </div>
           </div>
-          <div className={`footer_bottom wow fadeInUp ${['ar', 'he'].includes(l) ? 'flip' : ''}`}>
+          <div className="footer_bottom wow fadeInUp">
             <div className="left">
               <p>{t('copyRight1')}</p>
             </div>
-            <div className="right">
+            <div className={`right ${['ar', 'he'].includes(l) ? 'flip' : ''}`}>
               <p>
               <p>{t('copyRight2')}</p>
               </p>

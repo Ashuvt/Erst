@@ -8,29 +8,30 @@ import { logoImage } from "../../../utils/images/images"
 import CourseCard from "./courcecard/CourseCard";
 import { useDispatch, useSelector } from "react-redux";
 
+
 const RoadMap = ({t}) => {
   const framData = [
     {
       id: 0,
-      icon: icon.certificate,
+      icon: icon.certificate1,
       title:t('courseCardOneTitle'),
       text:t('courseCardOnePara'),
     },
     {
       id: 1,
-      icon: icon.certificate,
+      icon: icon.certificate2,
       title:t('courseCardTwoTitle'),
       text:t('courseCardTwoPara'),
     },
     {
       id: 2,
-      icon: icon.certificate,
+      icon: icon.certificate3,
       title:t('courseCardThreeTitle'),
       text:t('courseCardThreePara'),
     },
     {
       id: 3,
-      icon: icon.certificate,
+      icon: icon.certificate4,
       title:t('courseCardFourTitle'),
       text:t('courseCardFourPara'),
     },
@@ -182,9 +183,11 @@ const RoadMap = ({t}) => {
 
           <div className="center_logo">
             <div className="content_circle">
-              <img src={logoImage.logo} alt="icon" />
-              <h4>{t('singlecardTitle')}</h4>
-              <h6>{t('singlecardText')}</h6>
+            <img src={logoImage.fulllogo} alt="icon" />
+              {/* <img src={logoImage.logo} alt="icon" /> */}
+              {/* <h4 className="single_card_title">{t('singlecardTitle')}</h4>
+              
+              <h6>{t('singlecardText')}</h6> */}
             </div>
             <div className="glass_shad"></div>
           </div>

@@ -57,14 +57,14 @@ const Header = ({t}) => {
           <button 
             type="button" 
             className="signup"
-            onClick={() => navigate("/auth/getStarted")}  
+            onClick={() => navigate("/commingsoon")}  
           >
               {t('signIn')}
             </button>
             <button
               type="button"
               className="signin"
-              onClick={() => navigate("/auth/login")}
+              onClick={() => navigate("/commingsoon")}
             >
               {t('signUp')}
             </button>

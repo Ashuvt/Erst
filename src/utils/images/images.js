@@ -1,5 +1,6 @@
 // Logo
 import logo from "../../assets/images/logos/logo.svg";
+import fulllogo from "../../assets/images/Cybergain-logo.svg";
 import companyA from "../../assets/images/companya.webp";
 import companyB from "../../assets/images/companyb.webp";
 import companyC from "../../assets/images/companyc.webp";
@@ -35,7 +36,7 @@ import mobile from "../../assets/images/mobile.webp";
 import homeblogA from "../../assets/images/homebloga.jpg";
 import homeblogB from "../../assets/images/homeblogb.jpg";
 import homeblogC from "../../assets/images/homeblogc.jpg";
-import homeblogD from "../../assets/images/homeblogd.jpg";
+import homeblogD from "../../assets/images/career-8.png";
 import feedPerson from "../../assets/images/feedperson.webp";
 import whiteMap from "../../assets/images/whitemap.png";
 import teamA from "../../assets/images/teama.jpg";
@@ -89,14 +90,14 @@ import blogC from "../../assets/images/blogC.jpg";
 import blogD from "../../assets/images/blogD.jpg";
 
 
-import left from "../../assets/images/homeleft.jpeg";
-import right from "../../assets/images/homeright.jpeg";
+import left from "../../assets/images/homeright.jpeg";
+import right from "../../assets/images/homeleft.jpeg";
 import eventA from "../../assets/images/eventa.jpeg";
 import eventB from "../../assets/images/eventb.jpeg";
 import eventC from "../../assets/images/eventc.jpeg";
 
-import about from "../../assets/images/about.jpeg";
-import JoinTeam from "../../assets/images/jointeam.jpeg";
+import about from "../../assets/images/about-8.png";
+import JoinTeam from "../../assets/images/career-8.png";
 
 
 // Icons
@@ -153,6 +154,7 @@ import productFc from "../../assets/images/products/virtualbc.jpg";
 
 export const logoImage = {
   logo,
+  fulllogo,
   companyA,
   companyB,
   companyC,

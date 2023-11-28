@@ -3,6 +3,7 @@ import { images } from "../../../utils/images/images";
 import "./TipsBlog.scss";
 import TipsBlogCard from "./tipsblogcard/TipsBlogCard";
 import { useSelector } from "react-redux";
+import { t } from "i18next";
 
 const TipsBlog = ({t}) => {
   const blogData = [

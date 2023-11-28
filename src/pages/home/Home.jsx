@@ -22,16 +22,11 @@ import PreLoginLayout from "../../layouts/preloginlayout/PreLoginLayout";
 const Home = () => {
 
   const { t } = useTranslation();
-  
 
-  
   useEffect(() => {
     const wow = new WOW();
     wow.init();
   }, []);
-
-
-
 
   return (
     <Fragment>      

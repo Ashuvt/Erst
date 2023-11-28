@@ -3,6 +3,7 @@ import {images } from "../../../utils/images/images";
 import "./FeedBack.scss";
 import FeedBackCard from "./feedbackcard/FeedBackCard";
 import FeedGrid from "./feedgrid/FeedGrid";
+import { useSelector } from "react-redux";
 
 const FeedBack = ({t}) => {
   const testimonialsData = [
@@ -36,13 +37,18 @@ const FeedBack = ({t}) => {
     },
   ];
 
+  const l = useSelector(state => state.langReducer.lang);
+
   const [view, setView] = useState(testimonialsData[0]);
 
+  useEffect(() => {
+    setView(testimonialsData[0]);
+  }, [l])
 
   return (
     <section className="feed_back p_bottom">
       <div className="content_wrap p_top">
-       <FeedGrid data={view} />
+       <FeedGrid data={view} t={t} />
         <div className="feedback_list">
         {testimonialsData.map((data, j) => {
           return (

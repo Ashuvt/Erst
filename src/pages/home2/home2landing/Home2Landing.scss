@@ -5,58 +5,83 @@
 
     section.home2_landing {
         position: relative;
-        z-index:1;
+        z-index: 1;
         min-height: 100vh;
 
         .content_wrap {
             position: relative;
             z-index: 3;
 
-            .text_content {
-                padding-top: 150px;
-                max-width: 800px;
-                width: 100%;
-                &.flip{
-                  margin-left:auto;
+            .title_wraper {
+                display: flex;
+                justify-content: flex-start;
+
+                &.flip {
+                    justify-content: flex-end;
                 }
 
-                @media only screen and (max-width:$laptop) {
-                    padding-top: 60px;
-                }
+                .text_content {
+                    padding-top: 150px;
+                    max-width: 800px;
+                    width: 100%;
 
-                .dynamic {
-                    display: flex;
-                    align-items: center;
-                    flex-wrap: wrap;
-
-                    h1 {
-                        margin-right: 15px;
+                    @media only screen and (max-width:$laptop) {
+                        padding-top: 60px;
                     }
 
-                    .text_box {
-                        height: 68px;
-                        overflow: hidden;
-                        margin-top: 10px;
-                        @media only screen and (max-width:$tab) {
+                    .dynamic {
+                        display: flex;
+                        align-items: center;
+                        flex-wrap: wrap;
+
+                        h1 {
+                            margin-right: 15px;
+                        }
+
+                        .text_box {
+                            height: 68px;
+                            overflow: hidden;
+                            margin-top: 10px;
+
+                            @media only screen and (max-width:$tab) {
+                                display: none;
+                            }
+
+                            @media only screen and (max-width:1720px) {
+                                height: 60.5px;
+                            }
+
+                            @media only screen and (max-width:1280px) {
+                                height: 55px;
+                            }
+
+                            @media only screen and (max-width:$mobile) {
+                                height: 49.5px;
+                            }
+
+                            .gradient_wrap {
+                                transition: all 0.9s ease-in-out;
+
+
+
+                                h1 {
+                                    background-image: linear-gradient(135deg, $primary, $secondary 72%);
+                                    background-clip: text;
+                                    color: transparent;
+                                    margin-right: 0px;
+                                }
+                            }
+
+
+                        }
+
+                        .mobile_gradient {
                             display: none;
-                        }
-
-                        @media only screen and (max-width:1720px) {
-                            height: 60.5px;
-                        }
-
-                        @media only screen and (max-width:1280px) {
-                            height:55px;
-                        }
-
-                        @media only screen and (max-width:$mobile) {
-                            height: 49.5px;
-                        }
-
-                        .gradient_wrap {
                             transition: all 0.9s ease-in-out;
 
-                           
+                            @media only screen and (max-width:$tab) {
+                                display: block;
+                            }
 
                             h1 {
                                 background-image: linear-gradient(135deg, $primary, $secondary 72%);
@@ -65,41 +90,22 @@
                                 margin-right: 0px;
                             }
                         }
-
-                        
-                }
-                .mobile_gradient {
-                    display: none;
-                    transition: all 0.9s ease-in-out;
-
-                    @media only screen and (max-width:$tab) {
-                        display: block;
                     }
 
-                    h1 {
-                        background-image: linear-gradient(135deg, $primary, $secondary 72%);
-                        background-clip: text;
-                        color: transparent;
-                        margin-right: 0px;
+                    p {
+                        margin-top: 30px;
                     }
                 }
-            }
 
-                p {
-                    margin-top: 30px;
-                }
             }
 
             .btn_line {
                 margin-top: 50px;
                 display: flex;
-                justify-content: flex-start;
                 align-items: center;
                 gap: 30px;
-                flex-wrap: wrap;
-                &.flip{
-                    justify-content: flex-end;
-                }
+               flex-wrap: wrap;
+
 
                 @media only screen and (max-width:$mobile) {
                     margin-top: 30px;
