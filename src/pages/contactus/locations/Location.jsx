@@ -17,8 +17,8 @@ const Locations = ({t}) => {
       id: 1,
       country:t('UAE'),
       location:t('UAEAdd'),
-      call: "+1 212 425 8617",
-      mail: "helloabc@gmail.com",
+      call: "04-876-6326",
+      mail: "info@cybergain.co.il",
     },
     {
       id: 2,
