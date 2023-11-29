@@ -32,12 +32,12 @@
             top:0px;
             left:0px;
             width:100%;
-            background-color:$lightBorder_1;
+            background-color:$white;
             animation:line 2s infinite;
         }
     }
     p{
-        @include font('Inter-Regular', 12px, 15.96px, 600, $lightBorder_1);
+        @include font('Inter-Regular', 12px, 15.96px, 600, $white);
         letter-spacing: 2.4px;
         text-transform:uppercase;
     }

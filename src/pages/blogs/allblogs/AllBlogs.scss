@@ -76,7 +76,7 @@ section.tech_blog {
                     .bottom {
                         -webkit-transform: translateY(50px);
                         transform: translateY(50px);
-                        transition: all 1s ease-in-out;
+                        transition: all 0.4s ease-in-out;
 
                         .text {
                             h5 {
@@ -89,7 +89,7 @@ section.tech_blog {
 
                             h6 {
                                 letter-spacing: 4px;
-                                transition: all 1s ease-in-out;
+                                transition: all 0.4s ease-in-out;
                             }
                         }
 
@@ -102,7 +102,7 @@ section.tech_blog {
                                 height: 2px;
                                 background-color: $lightBorder_1;
                                 width: 0px;
-                                transition: all 1s ease-in-out;
+                                transition: all 0.4s ease-in-out;
                             }
 
                          

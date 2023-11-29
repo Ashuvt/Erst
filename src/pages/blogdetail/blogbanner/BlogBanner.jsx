@@ -3,7 +3,7 @@ import { icons, images } from "../../../utils/images/images";
 import "./BlogBanner.scss";
 
 
-const BlogBanner = () => {
+const BlogBanner = ({title, text, img}) => {
 
 
  const scrollToSection = (sectionId) => {
@@ -19,7 +19,7 @@ const BlogBanner = () => {
 
   return (
     <section className="blog_banner">
-      <img src={images.blogView} alt="banner" />
+      <img src={img} alt="banner" />
       <div className="overlayer"></div>
       <button href="#blogContent" onClick={() => scrollToSection('blogContent')}>
         <span className="border">

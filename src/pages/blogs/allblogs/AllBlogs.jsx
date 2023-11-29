@@ -1,44 +1,27 @@
 import "./AllBlogs.scss";
 import { icons, images } from "../../../utils/images/images";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Pill from "../../../components/pill/Pill";
 import CircleArrowBtn from "../../../components/circlearrowbtn/CircleArrowBtn";
 import axios from "axios";
+import { baseUrl } from "../../../utils/data/data";
+import { redirectContext } from "../../../context/RoutingContext";
+import Loader from "../../../components/loader/Loader";
 
 const AllBlogs = () => {
-  // const blogData = [
-  //   {
-  //     id: 0,
-  //     flag: "new blog",
-  //     date: "April 18, 2023",
-  //     title: "Lorem vs Ipsom",
-  //     img: images.blogView,
-  //   },
-  //   {
-  //     id: 1,
-  //     flag: "new blog",
-  //     date: "April 18, 2023",
-  //     title: "Lorem vs Ipsom",
-  //     img: images.homeblogC,
-  //   },
-  // ];
 
-
+  const {goToBlogDetail} = useContext(redirectContext);
 
   const [blogData, setBlogData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const baseUrl = 'https://cybergainbackend.supagrow.in/';
+
   const getBlogs = async () => {
     try {
       setLoading(true);
       setError(null);
-
-      const response = await axios.get('https://cybergainbackend.supagrow.in/getblogs');
+      const response = await axios.get(`${baseUrl}/getblogs`);
       setBlogData(response.data.data);
-
-      // You can do more with the response if needed
-
     } catch (error) {
       setError(error.message || 'An error occurred');
     } finally {
@@ -51,18 +34,16 @@ useEffect(() => {
   getBlogs();
 }, [])
 
-
-
   return (
     <section className="tech_blog p_top p_bottom">
       <div className="content_wrap">
         {blogData &&
           blogData.map((data) => {
             return (
-              <div className="blog_wrap" key={data.id}>
+              <div className="blog_wrap" key={data._id}>
                 <div className="overlay"></div>
                 <div className="overlay_color"></div>
-                <img src={`${baseUrl}${data.image}`} alt="blogBanner" className="banner" />
+                <img src={`${baseUrl}/${data.image}`} alt="blogBanner" className="banner" />
                 <div className="content">
                   <div className="top">
                     <Pill text={data.flag} />
@@ -75,7 +56,7 @@ useEffect(() => {
                       </div>
                       <div className="btn_line">
                         <div className="line"></div>
-                        <CircleArrowBtn />
+                        <CircleArrowBtn clickHandler={() => goToBlogDetail(data._id)} />
                       </div>
                     </div>
                   </div>
@@ -85,8 +66,7 @@ useEffect(() => {
           })
         } 
 
-        {/* {error && <h4>{error}...</h4>} */}
-        {loading && <h4>Loading...</h4>}
+        {loading && <Loader />}
       </div>
   
     </section>

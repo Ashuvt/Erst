@@ -72,6 +72,7 @@ function App() {
         <AddCartPopup />
         <SideBar />
         <CourseSidebar />
+        
 
         <Routes>
          

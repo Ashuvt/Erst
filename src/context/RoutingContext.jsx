@@ -22,6 +22,11 @@ const RoutingContextProvider = ({ children }) => {
     navigation("/home");
   }
 
+  // blog/:id  View Blog Detail
+  const goToBlogDetail = (id) => {
+    navigation(`/blogs/${id}`);
+  }
+
   // Post Login OnBoarding Stepper
   const goToOnBoarding = () => {
     navigation("/auth/onboarding");
@@ -36,6 +41,7 @@ const RoutingContextProvider = ({ children }) => {
     signInHandler,
     signUpHandler,
     goToHome,
+    goToBlogDetail,
     goToOnBoarding,
     goToAuthHome
   };

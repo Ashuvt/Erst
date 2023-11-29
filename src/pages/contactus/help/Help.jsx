@@ -5,75 +5,92 @@ import MidTitle from "../../../components/midtitle/MidTitle";
 import { useDispatch, useSelector } from "react-redux";
 import { helpDdToggler, resetAllToggler } from "../../../store/actions";
 import ErrorMessageLine from "../../../components/errormessageline/ErrorMessageLine";
+import { baseUrl } from "../../../utils/data/data";
+import axios from "axios";
 
-const Help = ({t}) => {
+const Help = ({ t }) => {
   const dispatch = useDispatch();
   const ddStatus = useSelector((state) => state.toggleReducer.helpFormDdStatus);
+
+  const [success, setSuccess] = useState(false);
+
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   // const [selectedProblem, setSelectedProblem] = useState("");
 
   const [nameError, setNameError] = useState("");
   const [numError, setNumError] = useState("");
   const [mailError, setMailError] = useState("");
+  const [messageError, setMessageError] = useState();
 
-  const [help, setHelp] = useState({
+  const initialState = {
     name: "",
     email: "",
     number: "",
     message: "",
+    problem: "test",
+  };
+
+  const [help, setHelp] = useState({
+    ...initialState,
   });
 
-
   const validation = (name, value) => {
-
     if (name === "name") {
       if (value.trim().length === 0) {
-        setNameError(t('errorFieldRequired'));
-      }else{
+        setNameError(t("errorFieldRequired"));
+      } else {
         setNameError("");
       }
     }
 
     if (name === "email") {
-
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
       if (value.trim().length === 0) {
-        setMailError(t('errorFieldRequired'));
-      }else if(!emailRegex.test(value)) {
-        setMailError(t('errorFieldEmail'));
-      }else{
+        setMailError(t("errorFieldRequired"));
+      } else if (!emailRegex.test(value)) {
+        setMailError(t("errorFieldEmail"));
+      } else {
         setMailError("");
       }
     }
 
     if (name === "number") {
       if (value.trim().length === 0) {
-        setNumError(t('errorFieldRequired'));
-      }else{
+        setNumError(t("errorFieldRequired"));
+      } else {
         setNumError("");
       }
     }
 
-  }
+    if (name === "message") {
+      if (value.trim().length === 0) {
+        setMessageError(t("errorFieldRequired"));
+      } else {
+        setMessageError("");
+      }
+    }
+  };
   const blurHandler = (e) => {
-    
     const { name, value } = e.target;
     validation(name, value);
-    
   };
 
-
+  const isValid = () => {
+    if (!help.name || !help.email || !help.number || !help.message) {
+      return false;
+    } else {
+      return true;
+    }
+  };
 
   const formHandler = (e) => {
     const { name, value } = e.target;
     setHelp((values) => ({ ...values, [name]: value }));
 
     validation(name, value);
-  };
-
-  const formSubmitHandler = () => {
-    console.log(help);
   };
 
   // const ddToggler = (e) => {
@@ -113,51 +130,78 @@ const Help = ({t}) => {
     dispatch({ type: resetAllToggler() });
   };
 
+  const contactApi = async () => {
+    try {
+      setLoading(true);
+      setError(null);
+      const response = await axios.post(`${baseUrl}/storecontactapi`, {
+        ...help,
+      });
+      if (response.status === 200) {
+        setLoading(false);
+        setSuccess(true);
+        setHelp({ ...initialState });
+        setTimeout(() => {
+          setSuccess(false);
+        }, [2000]);
+      }
+      console.log(response);
+    } catch (error) {
+      setError(error.message || "An error occurred");
+    }
+  };
+
+  const formSubmitHandler = (e) => {
+    e.preventDefault();
+    contactApi();
+  };
+
   return (
     <section className="contact_help p_top p_bottom" onClick={fullPageClick}>
       <div className="content_wrap">
         <Map />
         <div className="filler"></div>
-        <MidTitle
-          title={t('contactFormTitle')}
-          text={t('contactFormPara')}
-        />
+        <MidTitle title={t("contactFormTitle")} text={t("contactFormPara")} />
         <div className="help_form">
           <form>
+            <div className={`success_message ${success ? "open" : "close"}`}>
+              <h4>Message Send Successfully!</h4>
+              <p>Data You have Submitted has been saved!</p>
+            </div>
             <div className="info_fields wow slideInUp">
               <div className="field_box">
-              <input
-                type="text"
-                placeholder={t('contactFormName')}
-                name="name"
-                value={help.name}
-                onChange={formHandler}
-                onBlur={blurHandler}
-              />
-                    { nameError && <ErrorMessageLine text={nameError} /> }
+                <input
+                  type="text"
+                  placeholder={t("contactFormName")}
+                  name="name"
+                  value={help.name}
+                  onChange={formHandler}
+                  onBlur={blurHandler}
+                />
+                {nameError && <ErrorMessageLine text={nameError} />}
               </div>
-        
+
               <div className="field_box">
-              <input
-                type="email"
-                placeholder={t('contactFormEmail')}
-                name="email"
-                value={help.email}
-                onChange={formHandler}
-                onBlur={blurHandler}
-              />
-              { mailError && <ErrorMessageLine text={mailError} /> }
+                <input
+                  type="email"
+                  placeholder={t("contactFormEmail")}
+                  name="email"
+                  value={help.email}
+                  onChange={formHandler}
+                  onBlur={blurHandler}
+                />
+                {mailError && <ErrorMessageLine text={mailError} />}
               </div>
               <div className="field_box">
-              <input
-                type="number"
-                placeholder={t('contactFormNumber')}
-                name="number"
-                value={help.number}
-                onChange={formHandler}
-                onBlur={blurHandler}
-              />
-               { numError && <ErrorMessageLine text={numError} /> }
+                <input
+                  type="number"
+                  placeholder={t("contactFormNumber")}
+                  name="number"
+                  value={help.number}
+                  onChange={formHandler}
+                  onBlur={blurHandler}
+                />
+                {numError && <ErrorMessageLine text={numError} />}
               </div>
 
               {/* <div className="custom_dropdown" onClick={ddToggler}>
@@ -174,19 +218,21 @@ const Help = ({t}) => {
               </div> */}
             </div>
             <textarea
-              placeholder={t('contactFormMessage')}
+              placeholder={t("contactFormMessage")}
               className="wow slideInUp"
               name="message"
               value={help.message}
               onChange={formHandler}
+              onBlur={blurHandler}
             ></textarea>
-
+            {messageError && <ErrorMessageLine text={messageError} />}
             <button
               type="button"
-              className="primarybtn wow slideInUp"
+              className={`primarybtn wow slideInUp}`}
               onClick={formSubmitHandler}
+              disabled={!isValid() || loading}
             >
-             {t('contactFormBtn')}
+              {loading ? "loading..." : t("contactFormBtn")}
             </button>
           </form>
         </div>

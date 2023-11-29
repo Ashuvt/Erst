@@ -3,14 +3,23 @@ import "./CvForm.scss";
 import { icon } from "../../../utils/images/icons";
 import { useEffect, useState } from "react";
 import ErrorMessageLine from "../../../components/errormessageline/ErrorMessageLine";
+import { baseUrl } from "../../../utils/data/data";
+import axios from "axios";
 
 const CvForm = ({t}) => {
   const [progress, setProgress] = useState(false);
 
+  const [success, setSuccess] = useState(false);
+
+  const [submittedRes, setSubmittedRes] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+
   const [nameError, setNameError] = useState("");
   const [phoneError, setPhoneError] = useState("");
   const [mailError, setMailError] = useState("");
-  const [fileError, setFileError] = useState("");
+  const [pdfError, setPdfError] = useState("");
 
   const validation = (name, value) => {
     if (name === "name") {
@@ -41,27 +50,31 @@ const CvForm = ({t}) => {
       }
     }
 
-    if (name === "file") {
+    if (name === "pdf") {
       if (!value) {
-        setFileError(t('errorFieldRequired'));
+        setPdfError(t('errorFieldRequired'));
       } else {
-        setFileError("");
+        setPdfError("");
       }
     }
   };
 
+const initialState = {
+  name: "",
+  email: "",
+  phone: "",
+  skill: "",
+  pdf: null,
+}
+
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
-    file: null,
+   ...initialState,
   });
 
   const fieldChange = (e) => {
     const { name, value } = e.target;
-    if (name === "file") {
-      setFormData((prev) => ({ ...prev, file: e.target.files[0] }));
+    if (name === "pdf") {
+      setFormData((prev) => ({ ...prev, pdf: e.target.files[0] }));
     } else {
       setFormData((prev) => ({ ...prev, [name]: value }));
     }
@@ -70,7 +83,7 @@ const CvForm = ({t}) => {
   };
 
   useEffect(() => {
-    if(formData.file){
+    if(formData.pdf){
     setProgress(true);
 
     setTimeout(() => {
@@ -79,7 +92,35 @@ const CvForm = ({t}) => {
   }else{
     setProgress(false);
   }
-  }, [formData.file]);
+  }, [formData.pdf]);
+
+
+
+  const blurHandler = (e) => {
+    const { name, value } = e.target;
+    validation(name, value);
+  };
+
+  const cvApi = async (data) => {
+    try {
+      setLoading(true);
+      setError(null);
+      const response = await axios.post(`${baseUrl}/storecarrerapi`, {...data});
+      if(response.status === 200){
+        setLoading(false);
+        setSuccess(true);
+        setFormData({...initialState});
+        setTimeout(() => {
+          setSuccess(false);
+        }, [2000]);
+      }
+      console.log(response);
+      setSubmittedRes(response);
+    } catch (error) {
+      setError(error.message || 'An error occurred');
+    }
+  };
+
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -90,20 +131,17 @@ const CvForm = ({t}) => {
     formDataToSend.append("email", formData.email);
     formDataToSend.append("phone", formData.phone);
     formDataToSend.append("message", formData.message);
-    formDataToSend.append("file", formData.file);
+    formDataToSend.append("pdf", formData.pdf);
 
-    const formDataObject = {};
-    formDataToSend.forEach((value, key) => {
-      formDataObject[key] = value;
-    });
-
-    console.log(formDataObject);
+    // const formDataObject = {};
+    // formDataToSend.forEach((value, key) => {
+    //   formDataObject[key] = value;
+    // });    
+    // console.log(formDataObject);
+    
+    cvApi(formDataToSend);
   };
 
-  const blurHandler = (e) => {
-    const { name, value } = e.target;
-    validation(name, value);
-  };
   return (
     <section className="cv_form">
       <div className="cv_form_glass a"></div>
@@ -164,8 +202,8 @@ const CvForm = ({t}) => {
               <textarea
                 className="wow fadeInUp"
                 placeholder={t('careerFormTextarea')}
-                value={formData.message}
-                name="message"
+                value={formData.skill}
+                name="skill"
                 onChange={fieldChange}
               />
             </div>
@@ -182,16 +220,17 @@ const CvForm = ({t}) => {
                 )}
                 <input
                   type="file"
-                  name="file"
+                  name="pdf"
                   onChange={fieldChange}
                   onBlur={blurHandler}
                 />
                 <div className="upload_content">
                   <img src={icon.upload} alt="upload" />
-                  <p className="t-11"> {t('careerFormFileContent')}</p>
+                  <p className="t-11">
+                  {formData?.pdf?.name ? formData?.pdf?.name : t('careerFormFileContent')}</p>
                 </div>
               </div>
-              {fileError && <ErrorMessageLine text={fileError} />}
+              {pdfError && <ErrorMessageLine text={pdfError} />}
             </div>
             <button
               type="button"
