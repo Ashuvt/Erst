@@ -109,16 +109,15 @@ function App() {
 
           <Route path="/auth/login" element={<Login />} />
           <Route path="/auth/getstarted" element={<GetStarted />} />
-          {/* <Route path="/auth/onborading" element={<OnBoardingSteppers />} /> */}
-
-          {/* <Route path="/auth/home" element={<Home1 />} /> */}
-          {/* <Route path="/auth/explore" element={<Explore />} /> */}
-          {/* <Route path="/auth/live" element={<Live />} /> */}
-          {/* <Route path="/auth/groups" element={<Groups />} /> */}
-          {/* <Route path="/auth/saved" element={<Saved />} /> */}
-          {/* <Route path="/auth/profile" element={<Profile />} /> */}
-          {/* <Route path="/explore/course" element={<ExploreCourses />} /> */}
-          {/* <Route path="/explore/:detail" element={<ExploreDetail />} /> */}
+          <Route path="/auth/onboarding" element={<OnBoardingSteppers />} />
+          <Route path="/auth/home" element={<Home1 />} />
+          <Route path="/auth/explore" element={<Explore />} />
+          <Route path="/auth/live" element={<Live />} />
+          <Route path="/auth/groups" element={<Groups />} />
+          <Route path="/auth/saved" element={<Saved />} />
+          <Route path="/auth/profile" element={<Profile />} />
+          <Route path="/explore/course" element={<ExploreCourses />} />
+          <Route path="/explore/:detail" element={<ExploreDetail />} />
 
      
 

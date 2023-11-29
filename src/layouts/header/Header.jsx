@@ -52,14 +52,14 @@ const Header = ({t}) => {
           <button 
             type="button" 
             className="signup"
-            onClick={signUpHandler}  
+            onClick={signInHandler}  
           >
               {t('signIn')}
             </button>
             <button
               type="button"
               className="signin"
-              onClick={signInHandler}
+              onClick={signUpHandler}
             >
               {t('signUp')}
             </button>

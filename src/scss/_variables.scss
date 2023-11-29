@@ -27,6 +27,7 @@ $borderLight: #2C2C2E;
 $textContrast: #171819;
 $blackBg:rgba(0, 0, 0, 0.40);
 $cardFill:linear-gradient(113deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.00) 110.84%);
+
 $textAccent:#799AFF;
 $brandPrimary:#3B64E1;
 $borderSubtle:#262626;
@@ -38,6 +39,8 @@ $borderGradient: linear-gradient(130deg, #ffffff44, #ffffff17);
 
 // $bgGradient: linear-gradient(106deg, rgba(20, 119, 201, 0.80) -90.28%, rgba(20, 119, 201, 0.00) 25.81%, rgba(255, 197, 44, 0.1) 112.21%);
 $bgGradient:linear-gradient(104deg, #0077C2 0%, rgba(1, 73, 158, 0.61) 49.66%, rgba(2, 27, 121, 0.22) 100%);
+$bgLightGradient: linear-gradient(106deg, rgba(20, 119, 201, 0.7) -132.28%, rgba(20, 119, 201, 0.00) 38.81%, rgba(55, 59, 68, 0.24) 112.21%);
+
 
 $primaryGradient: linear-gradient(315deg, $secondary, $primary);
 $primaryGradient_1: linear-gradient(135deg, $primary 30%, $secondary);

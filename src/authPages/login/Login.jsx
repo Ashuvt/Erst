@@ -1,13 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { redirectContext } from "../../context/RoutingContext"; 
 import "./Login.scss";
 import { Fragment } from "react";
 import LoginHeader from "../components/loginHeader/LoginHeader";
 import { icon } from "../../utils/images/icons";
-import { useNavigate } from "react-router-dom";
 import WOW from "wow.js";
 
 const Login = () => {
-  const navigate = useNavigate();
+
+ const {signUpHandler} = useContext(redirectContext);
 
   useEffect(() => {
     const wow = new WOW();
@@ -31,9 +32,7 @@ const Login = () => {
     console.log(loginForm);
   };
 
-  const getStarted = () => {
-    navigate("/auth/getStarted");
-  };
+
 
   return (
     <Fragment>
@@ -50,7 +49,7 @@ const Login = () => {
               <h1 className="small_title wow fadeInUp">Sign In</h1>
               <div className="suggetion wow fadeInUp">
                 <p>New user?</p>
-                <button type="button" onClick={getStarted}>
+                <button type="button" onClick={signUpHandler}>
                   <p>Get started for free</p>
                 </button>
               </div>
@@ -101,7 +100,7 @@ const Login = () => {
               <button
                 type="button"
                 className="authbtn auth_secondary wow fadeInUp"
-                onClick={getStarted}
+                onClick={signUpHandler}
               >
                 Get started for free
               </button>

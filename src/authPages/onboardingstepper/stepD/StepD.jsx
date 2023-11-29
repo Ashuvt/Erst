@@ -1,10 +1,14 @@
-import { Fragment } from "react";
+import { Fragment, useContext } from "react";
 import { icon } from "../../../utils/images/icons";
 import "./StepD.scss";
+import { redirectContext } from "../../../context/RoutingContext";
 import RedBlueCard from "./redbluecard/RedBlueCard";
-import { useNavigate } from "react-router-dom";
+
 
 const StepD = () => {
+
+const {goToAuthHome} = useContext(redirectContext);
+
   const cardData = [
     {
       id: 111,
@@ -54,11 +58,6 @@ const StepD = () => {
     },
   ];
 
-  const navigate = useNavigate();
-
-  const goHome = () => {
-    navigate("/auth/home")
-  }
 
   return (
     <div className="step_d">
@@ -73,7 +72,7 @@ const StepD = () => {
         {cardData.map((data) => {
           return (
             <Fragment>
-              <RedBlueCard {...data} clickHandler={goHome} />
+              <RedBlueCard {...data} clickHandler={goToAuthHome} />
             </Fragment>
           );
         })}

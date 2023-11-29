@@ -1,8 +1,9 @@
 import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { redirectContext } from "../../../context/RoutingContext";
 import "./LoginHeader.scss";
 import { logoImage } from "../../../utils/images/images";
 import { icon } from "../../../utils/images/icons";
-import { useNavigate } from "react-router-dom";
 
 export const LoginHeader = ({
   left,
@@ -11,12 +12,13 @@ export const LoginHeader = ({
   progressCount,
   setStep,
 }) => {
-  const navigate = useNavigate();
+
+  const {signUpHandler} = useContext(redirectContext);
 
   const backBtnHandler = () => {
     setStep((prev) => {
       if (prev === 1) {
-        return navigate("/getstarted");
+        return signUpHandler();
       }else{
         return prev - 1;
       }

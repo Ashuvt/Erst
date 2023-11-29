@@ -7,7 +7,7 @@ import ParticlesBg from "../../../components/particlesbg/ParticlesBg";
 import { useSelector } from "react-redux";
 
 const ContactLanding = ({t}) => {
-const {signInHandler} = useContext(redirectContext);
+const {signUpHandler} = useContext(redirectContext);
   
   const l = useSelector(state => state.langReducer.lang);
 
@@ -23,7 +23,7 @@ const {signInHandler} = useContext(redirectContext);
           </p>
           <div className="btn_line wow fadeInRight">
            <CircleArrowBtn />
-           <TextArrowBtn text={t('constactLandingBtn')} clickHandler={signInHandler} />
+           <TextArrowBtn text={t('constactLandingBtn')} clickHandler={signUpHandler} />
           </div>
         </div>
       </div>

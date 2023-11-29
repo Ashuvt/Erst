@@ -4,25 +4,40 @@ import { useNavigate } from "react-router-dom";
 export const redirectContext = createContext();
 
 const RoutingContextProvider = ({ children }) => {
-    
+
   const navigation = useNavigate();
 
+// For Login Page
   const signInHandler = () => {
-    navigation("/comingsoon");
+    navigation("/auth/login");
   };
 
+  // For Getstarted Page (Sign Up)
   const signUpHandler = () => {
-    navigation("/comingsoon");
+    navigation("/auth/getstarted");
   };
 
+  // Web Home
   const goToHome = () => {
     navigation("/home");
+  }
+
+  // Post Login OnBoarding Stepper
+  const goToOnBoarding = () => {
+    navigation("/auth/onboarding");
+  }
+
+  // Post Login Home Page
+  const goToAuthHome = () => {
+    navigation("/auth/home");
   }
 
   const allRedirectFunctions = {
     signInHandler,
     signUpHandler,
-    goToHome
+    goToHome,
+    goToOnBoarding,
+    goToAuthHome
   };
 
   return (

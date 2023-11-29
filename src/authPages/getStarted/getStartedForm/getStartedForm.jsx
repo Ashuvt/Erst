@@ -1,11 +1,14 @@
 import "./getStartedForm.scss";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useContext } from "react";
 import { icon } from "../../../utils/images/icons";
+import { redirectContext } from "../../../context/RoutingContext";
 
 const GetStartedForm = () => {
-  const navigate = useNavigate();
+  
+const {signInHandler, goToOnBoarding } = useContext(redirectContext);
+
   const [eye, setEye] = useState(false);
+
   const [getStartedForm, setGetStartedForm] = useState({
     name: "",
     email: "",
@@ -23,10 +26,6 @@ const GetStartedForm = () => {
     console.log(getStartedForm);
   };
 
-  const goToLogin = () => {
-    navigate("/auth/login");
-  };
-
   return (
     <div className="get_started_form">
       <form>
@@ -34,7 +33,7 @@ const GetStartedForm = () => {
           <h1 className="small_title wow fadeInUp">Get started</h1>
           <div className="suggetion wow fadeInUp">
             <p>Already have an account?</p>
-            <button type="button" onClick={goToLogin}>
+            <button type="button" onClick={signInHandler}>
               <p>Sign In</p>
             </button>
           </div>
@@ -94,7 +93,7 @@ const GetStartedForm = () => {
           <button
             type="button"
             className="authbtn auth_primary wow fadeInUp"
-            onClick={() => navigate("/auth/onborading")}
+            onClick={goToOnBoarding}
 
           >
             Get started for free
@@ -102,7 +101,7 @@ const GetStartedForm = () => {
           <button
             type="button"
             className="authbtn auth_secondary wow fadeInUp"
-            onClick={goToLogin}
+            onClick={signInHandler}
           >
             Sign In
           </button>
