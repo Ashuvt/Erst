@@ -1,13 +1,15 @@
 import "./Footer.scss";
+import { useContext } from "react";
 import { icons, images } from "../../utils/images/images";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { redirectContext } from "../../context/RoutingContext";
+
 
 const Footer = ({t}) => {
 
-const navigate = useNavigate();
-
 const l = useSelector(state => state.langReducer.lang);
+const {signInHandler, signUpHandler} = useContext(redirectContext);
 
   return (
     <section className="footer">
@@ -71,7 +73,7 @@ const l = useSelector(state => state.langReducer.lang);
                 <h5>{t('title2')}</h5>
                 <p>{t('text2')}</p>
                 <div className="stay_connect">
-                  <a href="tel:04-876-6326">04-876-6326</a>
+                  <a href="tel:+972 52-209-3578">+972 52-209-3578</a>
                 </div>
               </div>
 
@@ -80,11 +82,11 @@ const l = useSelector(state => state.langReducer.lang);
                 <p>{t('text3')}</p>
 
                 <div className="app_wrap">
-                  <button type="button" onClick={() => navigate("/commingsoon")}>
+                  <button type="button" onClick={signUpHandler}>
                   {t('signUp')}
                   </button>
 
-                  <button type="button" onClick={() => navigate("/commingsoon")}>
+                  <button type="button" onClick={signInHandler}>
                   {t('signIn')}
                   </button>
                 </div>

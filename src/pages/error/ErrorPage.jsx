@@ -3,8 +3,11 @@ import "./ErrorPage.scss";
 import { NavLink } from "react-router-dom";
 import { logoImage } from "../../utils/images/images";
 import WOW from "wow.js";
+import { useTranslation } from 'react-i18next';
 
 const ErrorPage = () => {
+
+  const { t } = useTranslation();
 
     useEffect(() => {
       const wow = new WOW();
@@ -21,13 +24,13 @@ const ErrorPage = () => {
          <img src={logoImage.logo} alt="logo" />
         </NavLink>
         <div className="content">
-          <h1 className="wow slideInUp">404</h1>
-          <h2 className="wow slideInUp" data-wow-delay="0.25s">
-            Something’s <span>Not Right.</span>
+          <h1 className="wow fadeInUp">404</h1>
+          <h2 className="wow fadeInUp" data-wow-delay="0.25s">
+            {t('errorTitle1')}<span>{t('errorTitle2')}</span>
           </h2>
-          <p className="wow slideInUp" data-wow-delay="0.50s">We can’t find the page your are looking for.</p>
+          <p className="wow fadeInUp" data-wow-delay="0.50s">{t('errorSubText')}</p>
           <NavLink to="/">
-          <button className="primarybtn wow slideInUp" data-wow-delay="0.75s">back to home</button>
+          <button className="primarybtn wow fadeInUp" data-wow-delay="0.75s">{t('backToHome')}</button>
           </NavLink>
         </div>
       </div>

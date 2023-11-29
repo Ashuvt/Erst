@@ -247,6 +247,18 @@ copyRight2:"Powered By Supagrow",
 
 
 
+// 404 Page
+errorTitle1:"Something’s",
+errorTitle2:"Not Right.",
+errorSubText:"We Can’t Find The Page Your Are Looking For.",
+
+
+// Comming Soon Page
+soonMainTitle:"Coming Soon...",
+soonSubTitle1:"Get Ready For",
+soonSubTitle2:"Knowledge.",
+soonPara:"Get Ready To Pushing Boundaries And Innovating In The Field Of Cyber Security.",
+
 
 
 
@@ -255,4 +267,5 @@ prev:"Prev",
 next:"Next",
 signUp:"Sign Up",
 signIn:"Sign In",
+backToHome:"Back To Home",
 }

@@ -252,9 +252,28 @@ copyRight1:"© جميع الحقوق محفوظة 2023. الترخيص",
 copyRight2:"מופעל על ידי Supagrow",
 
 
+
+
+// 404 Page
+errorTitle1:"כמה דברים",
+errorTitle2:"לא נכון.",
+errorSubText:"אנחנו לא יכולים למצוא את הדף שאתה מחפש.",
+
+
+// Comming Soon Page
+soonMainTitle:"בקרוב...",
+soonSubTitle1:"תתכונן ל",
+soonSubTitle2:"יֶדַע.",
+soonPara:"התכוננו לפרוץ גבולות ולחדש בתחום אבטחת הסייבר.",
+
+
+
+
+
 // Common Terms
 prev:"הקודם",
 next:"הַבָּא",
 signUp:"הירשם",
 signIn:"להתחבר",
+backToHome:"בחזרה לבית",
 }

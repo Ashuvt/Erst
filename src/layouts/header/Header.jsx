@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useContext } from "react";
 import "./Header.scss";
 import { icons, logoImage } from "../../utils/images/images";
 import MenuBtn from "./menu/MenuBtn";
@@ -9,9 +9,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { sidebarToggler } from "../../store/actions";
 import { useNavigate, NavLink } from "react-router-dom";
 import LanguageDd from "../../components/languagedd/LanguageDd";
+import { redirectContext } from "../../context/RoutingContext";
 
 const Header = ({t}) => {
   const dispatch = useDispatch();
+
+  const {signInHandler, signUpHandler} = useContext(redirectContext);
 
   const l = useSelector(state => state.langReducer.lang);
   
@@ -27,7 +30,6 @@ const Header = ({t}) => {
     }
   };
 
-  const navigate = useNavigate();
   return (
     <section className="header">
       <div className="content_wrap">
@@ -43,28 +45,21 @@ const Header = ({t}) => {
             <NavLink to="/careers">{t('Careers')}</NavLink>               
             <NavLink to="/blogs">{t('Blogs')}</NavLink>     
             {/* <NavLink to="/faq">FAQ</NavLink> */}
-            <NavLink to="/contact">{t('Contact')}</NavLink> 
-          
-            {/* {menuList.map((ele) => {
-              return (
-                <Fragment key={ele.id}>
-                  <MenuBtn title={ele.title} linkdata={ele.submenu} />
-                </Fragment>
-              );
-            })} */}
+            <NavLink to="/contact">{t('Contact')}</NavLink>          
+       
           </nav>
           <div className="btns">
           <button 
             type="button" 
             className="signup"
-            onClick={() => navigate("/commingsoon")}  
+            onClick={signUpHandler}  
           >
               {t('signIn')}
             </button>
             <button
               type="button"
               className="signin"
-              onClick={() => navigate("/commingsoon")}
+              onClick={signInHandler}
             >
               {t('signUp')}
             </button>

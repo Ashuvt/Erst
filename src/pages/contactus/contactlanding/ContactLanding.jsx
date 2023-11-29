@@ -1,14 +1,14 @@
 import "./ContactLanding.scss";
-import { icons } from "../../../utils/images/images";
+import { useContext } from "react";
+import { redirectContext  } from "../../../context/RoutingContext";
 import CircleArrowBtn from "../../../components/circlearrowbtn/CircleArrowBtn";
 import TextArrowBtn from "../../../components/textarrowbtn/TextArrowBtn"; 
 import ParticlesBg from "../../../components/particlesbg/ParticlesBg";
-import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const ContactLanding = ({t}) => {
-
-  const navigate = useNavigate();
+const {signInHandler} = useContext(redirectContext);
+  
   const l = useSelector(state => state.langReducer.lang);
 
   return (
@@ -23,7 +23,7 @@ const ContactLanding = ({t}) => {
           </p>
           <div className="btn_line wow fadeInRight">
            <CircleArrowBtn />
-           <TextArrowBtn text={t('constactLandingBtn')} clickHandler={() => navigate("/commingsoon")} />
+           <TextArrowBtn text={t('constactLandingBtn')} clickHandler={signInHandler} />
           </div>
         </div>
       </div>

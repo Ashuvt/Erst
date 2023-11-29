@@ -264,9 +264,30 @@ copyRight2:"مدعوم من سوباجرو",
 
 
 
+
+
+// 404 Page
+errorTitle1:"شيء ما",
+errorTitle2:"ليس صحيحا.",
+errorSubText:"لا يمكننا العثور على الصفحة التي تبحث عنها.",
+
+
+// Comming Soon Page
+soonMainTitle:"قريباً...",
+soonSubTitle1:"كن جاهز ل",
+soonSubTitle2:"معرفة.",
+soonPara:"استعد لتخطي الحدود والابتكار في مجال الأمن السيبراني.",
+
+
+
+
+
+
+
 // Common Terms
 prev:"السابق",
 next:"التالي",
 signUp:"اشتراك",
 signIn:"تسجيل الدخول",
+backToHome:"العودة إلى المنزل",
 }

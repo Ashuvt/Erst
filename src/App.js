@@ -44,7 +44,7 @@ import { resetAllToggler } from "./store/actions";
 import ExploreDetail from "./authPages/exploredetail/ExploreDetail";
 import CourseSidebar from "./layouts/coursesidebar/CourseSidebar";
 import ExploreCourses from "./authPages/explorecourses/ExploreCourses";
-import CommingSoon from "./pages/commingsoon/CommingSoon";
+import ComingSoon from "./pages/comingsoon/ComingSoon";
 
 
 
@@ -55,11 +55,6 @@ import CommingSoon from "./pages/commingsoon/CommingSoon";
 
 
 function App() {
-
-
-
-
-
 
   var menu;
   const dispatch = useDispatch();
@@ -88,7 +83,7 @@ function App() {
           <Route path="/blogs/:id" element={<BlogDetail />} />
           <Route path="/faq" element={<Faq />} />
           <Route path="/contact" element={<ContactUs />} />
-          <Route path="/commingsoon" element={<CommingSoon />} />
+          <Route path="/comingsoon" element={<ComingSoon />} />
           <Route path="/*" element={<ErrorPage />} />
          
          

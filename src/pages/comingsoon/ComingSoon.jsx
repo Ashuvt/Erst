@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
-import "./CommingSoon.scss";
+import "./ComingSoon.scss";
 import { NavLink } from "react-router-dom";
 import { logoImage } from "../../utils/images/images";
 import WOW from "wow.js";
+import { useTranslation } from 'react-i18next';
 
-const CommingSoon = () => {
+const ComingSoon = () => {
+
+  const { t } = useTranslation();
 
     useEffect(() => {
       const wow = new WOW();
@@ -21,13 +24,13 @@ const CommingSoon = () => {
          <img src={logoImage.logo} alt="logo" />
         </NavLink>
         <div className="content">
-          <h1 className="wow slideInUp">Coming Soon...</h1>
-          <h2 className="wow slideInUp" data-wow-delay="0.25s">
-            Get Ready For  <span>Knowledge.</span>
+          <h1 className="wow fadeInUp">{t('soonMainTitle')}</h1>
+          <h2 className="wow fadeInUp" data-wow-delay="0.25s">
+          {t('soonSubTitle1')} <span>{t('soonSubTitle2')}</span>
           </h2>
-          <p className="wow slideInUp" data-wow-delay="0.50s">Get Ready To Pushing Boundaries And Innovating In The Field Of Cyber Security.</p>
+          <p className="wow fadeInUp" data-wow-delay="0.50s">{t('soonPara')}</p>
           <NavLink to="/">
-          <button className="primarybtn wow slideInUp" data-wow-delay="0.75s">back to home</button>
+          <button className="primarybtn wow fadeInUp" data-wow-delay="0.75s">{t('backToHome')}</button>
           </NavLink>
         </div>
       </div>
@@ -35,4 +38,4 @@ const CommingSoon = () => {
   );
 };
 
-export default CommingSoon;
+export default ComingSoon;
