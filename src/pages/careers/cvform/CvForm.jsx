@@ -89,6 +89,7 @@ const initialState = {
     setTimeout(() => {
       setProgress(false);
     }, 1500);
+    
   }else{
     setProgress(false);
   }

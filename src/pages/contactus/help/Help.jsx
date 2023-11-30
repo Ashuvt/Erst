@@ -165,7 +165,7 @@ const Help = ({ t }) => {
         <div className="help_form">
           <form>
             <div className={`success_message ${success ? "open" : "close"}`}>
-              <h4>Message Send Successfully!</h4>
+              <h4>Message Sent Successfully!</h4>
               <p>Data You have Submitted has been saved!</p>
             </div>
             <div className="info_fields wow slideInUp">

@@ -6,6 +6,7 @@ import { images } from "../../../utils/images/images";
 import HomeBlogCard from "./blogcard/HomeBlogCard";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { baseUrl } from "../../../utils/data/data";
 
 const HomeBlogs = ({t}) => {
 
@@ -15,15 +16,14 @@ const HomeBlogs = ({t}) => {
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-
-  const baseUrl = 'https://cybergainbackend.supagrow.in/';
+ 
 
   const getMainBlog = async () => {
     try {
       
       setError(null);
 
-      const response = await axios.get('https://cybergainbackend.supagrow.in/homemainblog');
+      const response = await axios.get(`${baseUrl}/homemainblog`);
       
       setBlogData(response.data.data);
 
@@ -41,7 +41,7 @@ const HomeBlogs = ({t}) => {
       
       setError(null);
 
-      const response = await axios.get('https://cybergainbackend.supagrow.in/homeblog');
+      const response = await axios.get(`${baseUrl}/homeblog`);
       
       setallBlogData(response.data.data);
 
