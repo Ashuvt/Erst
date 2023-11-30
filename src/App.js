@@ -40,21 +40,18 @@ import Groups from "./authPages/groups/Groups";
 import Profile from "./authPages/profile/Profile";
 import Saved from "./authPages/saved/Saved";
 import { useDispatch } from "react-redux";
-import { resetAllToggler } from "./store/actions";
+import { languageChanges, resetAllToggler } from "./store/actions";
 import ExploreDetail from "./authPages/exploredetail/ExploreDetail";
 import CourseSidebar from "./layouts/coursesidebar/CourseSidebar";
 import ExploreCourses from "./authPages/explorecourses/ExploreCourses";
 import ComingSoon from "./pages/comingsoon/ComingSoon";
-
-
-
-
-
-
-
+import { useTranslation } from "react-i18next";
 
 
 function App() {
+
+
+  const { t, i18n } = useTranslation();
 
   var menu;
   const dispatch = useDispatch();
@@ -65,6 +62,20 @@ function App() {
     window.scrollTo(0, 0);
     dispatch({type:resetAllToggler()});
   }, [location.pathname]);
+
+  useEffect(() => {
+const defaultLanguage = localStorage.getItem('lang');
+
+if(defaultLanguage){
+  dispatch({type:languageChanges(), payload:defaultLanguage}); 
+  i18n.changeLanguage(defaultLanguage);   
+}else{
+  localStorage.setItem("lang", "en");
+  dispatch({type:languageChanges(), payload:"en"});
+  i18n.changeLanguage('en');  
+}
+
+  },[]);
 
   return (
     <Fragment>     

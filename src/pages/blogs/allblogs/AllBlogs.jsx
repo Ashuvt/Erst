@@ -21,11 +21,13 @@ const AllBlogs = () => {
       setLoading(true);
       setError(null);
       const response = await axios.get(`${baseUrl}/getblogs`);
-      setBlogData(response.data.data);
+      if(response.status === 200){
+        setBlogData(response.data.data);
+        setLoading(false);
+      }
+      
     } catch (error) {
       setError(error.message || 'An error occurred');
-    } finally {
-      setLoading(false);
     }
   };
 
@@ -40,13 +42,13 @@ useEffect(() => {
         {blogData &&
           blogData.map((data) => {
             return (
-              <div className="blog_wrap" key={data._id}>
+              <div className="blog_wrap" key={data._id} onClick={() => goToBlogDetail(data._id)}>
                 <div className="overlay"></div>
                 <div className="overlay_color"></div>
                 <img src={`${baseUrl}/${data.image}`} alt="blogBanner" className="banner" />
                 <div className="content">
-                  <div className="top">
-                    <Pill text={data.flag} />
+                  <div className="top">                    
+                    <Pill text="Blog" />
                   </div>
                   <div className="bottom_wrap">
                     <div className="bottom">
@@ -56,7 +58,7 @@ useEffect(() => {
                       </div>
                       <div className="btn_line">
                         <div className="line"></div>
-                        <CircleArrowBtn clickHandler={() => goToBlogDetail(data._id)} />
+                        <CircleArrowBtn />
                       </div>
                     </div>
                   </div>
@@ -66,7 +68,7 @@ useEffect(() => {
           })
         } 
 
-        {loading && <Loader />}
+        {(loading || error) && <Loader />}
       </div>
   
     </section>

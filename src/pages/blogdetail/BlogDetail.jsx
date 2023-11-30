@@ -24,9 +24,8 @@ const BlogDetail = () => {
     try {
       setLoading(true);
       setError(null);
-
       const response = await axios.get(
-        `https://cybergainbackend.supagrow.in/blogdetails/${id}`
+        `${baseUrl}/blogdetails/${id}`
       );
       if (response.status === 200) {
         setBlogDetail(response.data.data);
@@ -38,26 +37,30 @@ const BlogDetail = () => {
   };
 
   useEffect(() => {
-    getBlogDetail();
+    if (id) {
+      getBlogDetail();
+    }
+
     const wow = new WOW();
     wow.init();
-  }, []);
+  }, [id]);
 
   return (
     <Fragment>
-      <PreLoginLayout>        
-        
-       {loading && <Loader />} 
-        {!loading && <Fragment>
-        <BlogDetailLanding
-          title={blogDetail?.title}
-          text={blogDetail?.small_description}
-          date={blogDetail?.createdAt}
-        />
-        <BlogBanner img={`${baseUrl}/${blogDetail?.image}`} />
-        <BlogContent content={blogDetail?.description} />
-        <BlogPagination />
-        </Fragment>}
+      <PreLoginLayout>
+        {loading && <Loader />}
+        {!loading && (
+          <Fragment>
+            <BlogDetailLanding
+              title={blogDetail?.title}
+              text={blogDetail?.small_description}
+              date={blogDetail?.createdAt}
+            />
+            <BlogBanner img={`${baseUrl}/${blogDetail?.image}`} />
+            <BlogContent content={blogDetail?.description} />
+            <BlogPagination currentId={id} />
+          </Fragment>
+        )}
       </PreLoginLayout>
     </Fragment>
   );

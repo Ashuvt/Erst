@@ -6,8 +6,6 @@ import { useTranslation } from "react-i18next";
 
 const LanguageDd = () => {
 
-
-
   const AllLanguages = [
     {
       id: "English",
@@ -26,7 +24,18 @@ const LanguageDd = () => {
     },
   ];
 
+const defaultSelection = localStorage.getItem("lang");
   const [lang, setLang] = useState("En");
+
+  useEffect(() => {
+    const language = localStorage.getItem("lang");
+    if(language){
+     const currentLang = AllLanguages.filter(ele => ele.lang === language);
+      setLang(currentLang[0].text);
+    }else{
+      setLang("en");
+    }
+  })
 
   const dispatch = useDispatch();
   const status = useSelector((state) => state.toggleReducer.multilangDdStatus);
@@ -34,19 +43,16 @@ const LanguageDd = () => {
   const btnClickHandler = (e) => {
     e.stopPropagation();
     dispatch({ type: multilangToggler(), payload: !status });
-
   };
 
   const { t, i18n } = useTranslation();
 
   const changeLanguage = (lng, selected) => {
-    i18n.changeLanguage(lng);
-    setLang(selected);
-    
+    i18n.changeLanguage(lng);     
     dispatch({type:languageChanges(), payload:lng});
-
-
-  };
+    setLang(selected);  
+    localStorage.setItem("lang",lng);
+  }; 
 
   return (
     <div className="language_dd">

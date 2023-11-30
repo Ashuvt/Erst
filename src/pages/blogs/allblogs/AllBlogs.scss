@@ -20,10 +20,10 @@ section.tech_blog {
 
         .blog_wrap {
             position: relative;
-        height: 450px;
+            height: 450px;
             border-radius: 12px;
             overflow: hidden;
-
+            cursor:pointer;
             .overlay {
                 background: linear-gradient(to top, rgba(0, 0, 0, .6) 25%, rgba(15, 53, 144, .05) 75%);
                 position: absolute;
@@ -50,7 +50,7 @@ section.tech_blog {
                 min-height: 100%;
                 min-width: 100%;
                 object-fit: cover;
-                max-height:100%;
+                max-height: 100%;
             }
 
             .content {
@@ -105,7 +105,7 @@ section.tech_blog {
                                 transition: all 0.4s ease-in-out;
                             }
 
-                         
+
                         }
                     }
                 }

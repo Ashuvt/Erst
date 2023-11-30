@@ -29,7 +29,7 @@ const particlesLoaded = useCallback(async container => {
             interactivity: {
                 events: {
                     onClick: {
-                        enable: true,
+                        enable: false,
                         mode: "push",
                     },
                     onHover: {
