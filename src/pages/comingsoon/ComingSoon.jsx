@@ -29,8 +29,8 @@ const ComingSoon = () => {
           {t('soonSubTitle1')} <span>{t('soonSubTitle2')}</span>
           </h2>
           <p className="wow fadeInUp" data-wow-delay="0.50s">{t('soonPara')}</p>
-          <NavLink to="/">
-          <button className="primarybtn wow fadeInUp" data-wow-delay="0.75s">{t('backToHome')}</button>
+          <NavLink to="/contact">
+          <button className="primarybtn wow fadeInUp" data-wow-delay="0.75s">{t('KnowMore')}</button>
           </NavLink>
         </div>
       </div>

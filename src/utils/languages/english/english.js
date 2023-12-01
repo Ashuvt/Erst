@@ -268,4 +268,5 @@ next:"Next",
 signUp:"Sign Up",
 signIn:"Sign In",
 backToHome:"Back To Home",
+KnowMore:"Know More",
 }

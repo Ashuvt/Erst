@@ -276,4 +276,5 @@ next:"הַבָּא",
 signUp:"הירשם",
 signIn:"להתחבר",
 backToHome:"בחזרה לבית",
+KnowMore:"יודע יותר",
 }
