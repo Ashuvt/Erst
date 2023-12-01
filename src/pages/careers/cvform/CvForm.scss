@@ -9,6 +9,32 @@ section.cv_form {
     position: relative;
     z-index: 2;
 
+    .success_message{
+        height:500px;
+        width:100%;
+        background-color:rgba($dark, 0.4);
+        backdrop-filter: blur(10px);
+        position:absolute;
+        top:0px;
+        left:0px;
+        transition:all 0.3s ease-in-out;
+        transform-origin: top center;
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;            
+        h4, p{
+            text-align: center;
+        }    
+        &.open{
+            transform: scaleY(1);
+        }
+        &.close{
+            transform: scaleY(0);
+        }
+    }
+
     .cv_form_glass{
         height: 250px;
         width: 250px;
@@ -44,6 +70,7 @@ section.cv_form {
             margin-left: auto;
             margin-right: auto;
             margin-top: 60px;
+            position:relative;
 
             .bi_grid {
                 display: grid;

@@ -73,7 +73,8 @@ const initialState = {
 
   const fieldChange = (e) => {
     const { name, value } = e.target;
-    if (name === "pdf") {
+    if (name == "pdf") {
+      console.log("pdf");
       setFormData((prev) => ({ ...prev, pdf: e.target.files[0] }));
     } else {
       setFormData((prev) => ({ ...prev, [name]: value }));
@@ -103,10 +104,17 @@ const initialState = {
   };
 
   const cvApi = async (data) => {
+    console.log(data, "::APIDATA");
     try {
       setLoading(true);
       setError(null);
-      const response = await axios.post(`${baseUrl}/storecarrerapi`, {...data});
+
+      const response = await axios.post(`${baseUrl}/storecarrerapi`, {...data},{
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+
       if(response.status === 200){
         setLoading(false);
         setSuccess(true);
@@ -131,16 +139,16 @@ const initialState = {
     formDataToSend.append("name", formData.name);
     formDataToSend.append("email", formData.email);
     formDataToSend.append("phone", formData.phone);
-    formDataToSend.append("message", formData.message);
+    formDataToSend.append("skill", formData.skill);
     formDataToSend.append("pdf", formData.pdf);
 
-    // const formDataObject = {};
-    // formDataToSend.forEach((value, key) => {
-    //   formDataObject[key] = value;
-    // });    
-    // console.log(formDataObject);
+    const formDataObject = {};
+    formDataToSend.forEach((value, key) => {
+      formDataObject[key] = value;
+    });    
+    console.log(formDataObject);
     
-    cvApi(formDataToSend);
+    cvApi(formDataObject);
   };
 
   return (
@@ -154,7 +162,14 @@ const initialState = {
         />
 
         <div className="form_wraper">
-          <form>
+
+          <form encType="multipart/form-data" >
+
+          <div className={`success_message ${success ? "open" : "close"}`}>
+              <h4>CV Submited Successfully!</h4>
+              <p>Data You have Submitted has been Sent Successfully!</p>
+            </div>
+
             <div className="bi_grid">
               <div className="form_field mt_20">
                 <label className="wow fadeInUp">{t('careerFormName')}</label>

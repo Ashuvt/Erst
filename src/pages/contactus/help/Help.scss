@@ -114,7 +114,10 @@ section.contact_help {
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                overflow: hidden;            
+                overflow: hidden;       
+                h4, p{
+                    text-align: center;
+                }     
 
                 &.open{
                     transform: scaleY(1);
