@@ -1,0 +1,18 @@
+@import "../../../scss/variables";
+.error_field{
+    margin-top:2px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    img{
+        width:16px;
+        margin:0px;
+    }
+    p{
+        text-transform: capitalize;
+        margin-left:5px;
+        font-size:14px;
+        color:$orange;
+        letter-spacing:0.5px;
+    }
+}

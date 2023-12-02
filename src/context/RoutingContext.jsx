@@ -11,12 +11,14 @@ const RoutingContextProvider = ({ children }) => {
   const signInHandler = () => {
     navigation("/comingsoon");
     // /auth/login
+    // /comingsoon
   };
 
   // For Getstarted Page (Sign Up)
   const signUpHandler = () => {
     navigation("/comingsoon");
     // /auth/getstarted
+    // /comingsoon
   };
 
   // Web Home

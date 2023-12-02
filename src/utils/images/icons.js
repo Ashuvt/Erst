@@ -56,6 +56,8 @@ import whiteCheck from "../../assets/images/icons/whitecheck.svg";
 import lightLock from "../../assets/images/icons/lightlock.svg";
 import bgGlass from "../../assets/images/icons/userglass.svg";
 import float from "../../assets/images/icons/floating.svg";
+import alertTriangle from "../../assets/images/icons/alert.png";
+
 
 
 export const icon = {
@@ -119,4 +121,5 @@ export const icon = {
 
   playfill,
   userFill,
+  alertTriangle,
 };
