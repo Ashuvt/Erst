@@ -62,4 +62,5 @@
 @mixin glassMorphism{  
     -webkit-filter: blur(89px);
     filter: blur(89px);
+    opacity:0.6;
 }
