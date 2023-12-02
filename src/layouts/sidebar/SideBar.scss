@@ -165,6 +165,7 @@
     width: 100%;
     z-index: 999997;
     overflow: hidden;
+    -webkit-backdrop-filter:blur(10px);
     backdrop-filter:blur(10px);
 
     &.open {

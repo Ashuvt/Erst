@@ -36,8 +36,8 @@ section.comming_soon {
                     @include font('Inter-Regular', 80px, 80px, 600, $white);
                 }
                 @media only screen and (max-width:$mobile){
-                    font-size:130px;
-                    line-height: 155px;;
+                    font-size:35px;
+                    line-height:40px;;
                 }
             }
 
@@ -51,6 +51,11 @@ section.comming_soon {
                     background-image: linear-gradient(135deg, $primary 40%, $secondary 60%);
                     -webkit-background-clip: text;
                     color: transparent;
+                }
+                @media only screen and (max-width:$mobile){
+                    font-size:25px;
+                    line-height:29px;
+                    margin:15px auto;
                 }
             }
 
@@ -74,6 +79,7 @@ section.comming_soon {
         background-color: $primary;
         border-radius: 50%;
         position: absolute;
+        -webkit-filter: blur(130px);
         filter: blur(130px);
         z-index: 0;
         transition: all 0.6s ease-in-out;

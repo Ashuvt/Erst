@@ -1,17 +1,20 @@
 import "./SideBar.scss";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useEffect, useState, useContext } from "react";
 import { menuList } from "../../utils/data/data";
 import { icons, logoImage } from "../../utils/images/images";
 import { useDispatch, useSelector } from "react-redux";
 import { resetAllToggler, sidebarToggler } from "../../store/actions";
 import { NavLink } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { redirectContext } from "../../context/RoutingContext";
+
 import { useTranslation } from 'react-i18next';
 const SideBar = () => {
 
+  const {signUpHandler, signInHandler} = useContext(redirectContext);
+
   const { t } = useTranslation();
 
-  const navigate = useNavigate();
+
   const dispatch = useDispatch();
 
   const sidebarStatus = useSelector(
@@ -55,14 +58,14 @@ const SideBar = () => {
           <button
             type="button"
             className="primarybtn"
-            onClick={() => navigate("/auth/login")}
+            onClick={signInHandler}
           >
             sign in
           </button>
           <button 
             type="button" 
             className="secondarybtn"
-            onClick={() => navigate("/auth/getStarted")}
+            onClick={signUpHandler}
             >
             sign up
           </button>

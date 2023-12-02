@@ -6,6 +6,9 @@
 section.blog_banner {
     position: relative;   
     padding:0px;
+    background-color: transparent;
+    .content_wrap{
+        position:relative;
     .overlayer {
         position: absolute;
         left: 0px;
@@ -101,4 +104,5 @@ section.blog_banner {
             }
         }
     }
+}
 }

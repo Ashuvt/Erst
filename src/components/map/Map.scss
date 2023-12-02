@@ -12,6 +12,7 @@ section.map {
 
         img {
             max-width: 100%;
+            -webkit-filter: invert(30%) sepia(96%) saturate(5065%) hue-rotate(188deg) brightness(98%) contrast(101%);
             filter: invert(30%) sepia(96%) saturate(5065%) hue-rotate(188deg) brightness(98%) contrast(101%);
         }
 

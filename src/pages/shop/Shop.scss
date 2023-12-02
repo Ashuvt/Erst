@@ -10,6 +10,7 @@
     background-color: $primary;
     border-radius: 50%;
     position: absolute;
+    -webkit-filter: blur(200px);
     filter: blur(200px);
     z-index: 1;
     transition: all 0.6s ease-in-out;
@@ -24,11 +25,13 @@
         right: 0px;
         height: 400px;
         width: 400px;
+        -webkit-filter: blur(230px);
         filter: blur(230px);
 
         @media only screen and (max-width:$tab) {
             height: 200px;
             width: 200px;
+            -webkit-filter: blur(100px);
             filter: blur(100px);
         }
     }
@@ -36,6 +39,7 @@
     &.b {
         height: 150px;
         width: 150px;
+        -webkit-filter: blur(120px);
         filter: blur(120px);
         left: 30%;
         top: 300px;

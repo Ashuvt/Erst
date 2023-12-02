@@ -46,6 +46,7 @@ section.services {
                     .primary_blur {
                         width: 200px;
                         height: 200px;
+                        -webkit-filter: blur(180px);
                         filter: blur(180px);
                         background-color: $primary;
                         position: absolute;
@@ -57,6 +58,7 @@ section.services {
                     .secondary_blur {
                         height: 200px;
                         width: 200px;
+                        -webkit-filter: blur(180px);
                         filter: blur(180px);
                         background-color: $primary;
                         position: absolute;

@@ -32,6 +32,7 @@
         border-radius: 12px;
         background:$borderGradient;
         padding: 1px;
+        -webkit-backdrop-filter: blur(28px);
         backdrop-filter: blur(28px);
         transition: all 0.3s ease-in-out;
         width: 100%;

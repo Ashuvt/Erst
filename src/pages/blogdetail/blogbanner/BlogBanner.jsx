@@ -19,6 +19,7 @@ const BlogBanner = ({title, text, img}) => {
 
   return (
     <section className="blog_banner">
+      <div className="content_wrap">
       <img src={img} alt="banner" />
       <div className="overlayer"></div>
       <button href="#blogContent" onClick={() => scrollToSection('blogContent')}>
@@ -28,6 +29,7 @@ const BlogBanner = ({title, text, img}) => {
             <img src={icons.whiteBigArrow} alt="arrow" />
         </span>
       </button>
+      </div>
     </section>
   );
 };

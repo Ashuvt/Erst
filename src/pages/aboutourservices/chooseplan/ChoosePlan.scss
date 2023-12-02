@@ -17,6 +17,7 @@ section.choose_plan {
         background-color: $primary;
         border-radius: 50%;
         position: absolute;
+        -webkit-filter: blur(180px);
         filter: blur(180px);
         z-index: 1;
         transition: all 0.6s ease-in-out;
@@ -24,6 +25,7 @@ section.choose_plan {
         &.a {
             height: 200px;
             width: 200px;
+            -webkit-filter: blur(130px);
             filter: blur(130px);
             top: 150px;
             left: 600px;
@@ -45,6 +47,7 @@ section.choose_plan {
         &.c {
             height: 200px;
             width: 200px;
+            -webkit-filter: blur(130px);
             filter: blur(130px);
             background-color: $secondary;
             bottom: 450px;

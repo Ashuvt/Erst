@@ -51,6 +51,7 @@ section.faq_landing {
         position: absolute;
         top: -50px;
         right:0px;
+        -webkit-filter: blur(130px);
         filter: blur(130px);
         transition: all 0.4s ease-in-out;     
       
@@ -63,6 +64,7 @@ section.faq_landing {
         position: absolute;
         top: 300px;
         left: 25%;
+        -webkit-filter: blur(130px);                
         filter: blur(130px);                
         transition:all 0.4s ease-in-out;
         @media only screen and (max-width:$mobile){
@@ -78,6 +80,7 @@ section.faq_landing {
         position: absolute;
         bottom: 100px;
         left: -50px;
+        -webkit-filter: blur(130px);
         filter: blur(130px);
         transition: all 0.4s ease-in-out;
        

@@ -23,6 +23,7 @@
             transition: all 0.3s ease-in-out;
             border-radius: 12px;
             height: 100%;
+            -webkit-backdrop-filter: blur(28px);
             backdrop-filter: blur(28px);
             min-height: 100%;
             position: relative;

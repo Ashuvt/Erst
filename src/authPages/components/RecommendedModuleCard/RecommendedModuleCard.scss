@@ -12,6 +12,7 @@
     border-radius: 12px;
     padding: 16px;
     background: $cardFill;
+    -webkit-backdrop-filter: blur(28px);
     backdrop-filter: blur(28px);
     display: flex;
     justify-content: flex-start;
