@@ -128,18 +128,17 @@
         }
 
         .primary_glass {
+            @include glassMorphism;
             height: 250px;
             width: 250px;
             background-color: $primary;
             border-radius: 50%;
-            position: absolute;
-            -webkit-filter: blur(180px);
-            filter: blur(180px);
+            position: absolute;            
             z-index: 0;
             transition: all 0.6s ease-in-out;
 
             &.first {
-                left: 50px;
+                right: 50px;
                 top: 50px;
             }
 
@@ -150,20 +149,18 @@
         }
 
         .secondary_glass {
+            @include glassMorphism;
             height: 250px;
             width: 250px;
             background-color: $primary;
             border-radius: 50%;
             position: absolute;
-            -webkit-filter: blur(180px);
-            filter: blur(180px);
             z-index: 0;
             transition: all 0.6s ease-in-out;
 
             &.first {
                 right: 400px;
                 top: 200px;
-
             }
 
             &.second {
@@ -185,7 +182,7 @@
                 width: 200px;
 
                 &.first {
-                    right: 0px;
+                    right: 100px;
                 }
 
                 &.second {

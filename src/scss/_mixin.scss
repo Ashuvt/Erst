@@ -59,6 +59,7 @@
     }
 }
 
-@mixin glassmorphism{
-
+@mixin glassMorphism{  
+    -webkit-filter: blur(89px);
+    filter: blur(150px);
 }

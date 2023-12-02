@@ -10,8 +10,6 @@
     background-color: $primary;
     border-radius: 50%;
     position: absolute;
-    -webkit-filter: blur(180px);
-    filter: blur(180px);
     z-index: 0;
     transition: all 0.6s ease-in-out;
 
@@ -45,8 +43,6 @@
     background-color: $secondary;
     border-radius: 50%;
     position: absolute;
-    -webkit-filter: blur(200px);
-    filter: blur(200px);
     z-index: 0;
     transition: all 0.6s ease-in-out;
     top:20%;

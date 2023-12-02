@@ -22,12 +22,11 @@ section.home1landing {
 
 
     .purple_blur {
+        @include glassMorphism;
+        background-color:$primary;
         height: 250px;
         width: 250px;
-        background-color: $primary;
         border-radius: 50% !important;
-        -webkit-filter: blur(150px);
-        filter: blur(150px);
         position: absolute;
 
         &.b {

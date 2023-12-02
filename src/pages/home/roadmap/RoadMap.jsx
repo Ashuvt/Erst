@@ -6,7 +6,7 @@ import FourOneFloat from "./fouronefloat/FourOneFloat";
 import OneTwoFloat from "./onetwofloat/OneTwoFloat";
 import { logoImage } from "../../../utils/images/images"
 import CourseCard from "./courcecard/CourseCard";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 
 const RoadMap = ({t}) => {

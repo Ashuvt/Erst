@@ -73,6 +73,7 @@ const navigate = useNavigate();
            >{t('aboutLandingBtn')}</button>
         </div>
       </div>
+      <div className="secondary_glass second"></div>
       <div className="primary_glass first"></div>
       <div className="primary_glass second"></div>
     </section>

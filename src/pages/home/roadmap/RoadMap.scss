@@ -307,11 +307,11 @@ section.road_map {
     }
 
     .roadmap_glass {
+        @include glassMorphism;
         height: 250px;
         width: 250px;
         background-color: $primary;
         border-radius: 50% !important;
-        filter: blur(180px);
         position: absolute;
 
         &.a {

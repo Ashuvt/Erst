@@ -13,7 +13,7 @@ const BlogsLanding = ({t}) => {
 
 
   return (
-    <section className="tech_landing">
+    <section className="blog_landing">
       <ParticlesBg />
       <div className="content_wrap p_bottom">
       <div className="top_border"></div>
