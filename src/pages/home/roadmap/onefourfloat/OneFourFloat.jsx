@@ -11,12 +11,12 @@ const OneFourBox = ({ scrollY }) => {
       : scrollY > start + 180 && scrollY <= start + 300
       ? 180
       : scrollY > start + 300
-      ? scrollY - 400
+      ? scrollY - (start + 100)
       : -15;
 
       let leftXA = scrollY > start + 180 && scrollY <= start + 300
-        ? 50 + (0 - 50)*((scrollY - 480)/(600 - 480))
-        : scrollY >= 600
+        ? 50 + (0 - 50)*((scrollY - 480)/120)
+        : scrollY >= (start + 300)
         ? 0
         : 50;
 
