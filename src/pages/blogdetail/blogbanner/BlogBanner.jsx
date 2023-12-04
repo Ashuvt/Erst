@@ -1,10 +1,7 @@
-import { useRef } from "react";
-import { icons, images } from "../../../utils/images/images";
+import {icons} from "../../../utils/images/images";
 import "./BlogBanner.scss";
 
-
-const BlogBanner = ({title, text, img}) => {
-
+const BlogBanner = ({img}) => {
 
  const scrollToSection = (sectionId) => {
     const section = document.getElementById(sectionId);

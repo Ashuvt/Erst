@@ -1,26 +1,27 @@
 import { Fragment, useEffect, useState } from "react";
-import BlogBanner from "./blogbanner/BlogBanner";
-import BlogContent from "./blogcontent/BlogContent";
-import BlogDetailLanding from "./blogdetaillanding/BlogDetailLanding";
-import BlogPagination from "./blogpagination/BlogPagination";
-import Header from "../../layouts/header/Header";
-import Footer from "../../layouts/footer/Footer";
 import WOW from "wow.js";
 import { useParams } from "react-router-dom";
-import { useTranslation } from "react-i18next";
 import axios from "axios";
-import PreLoginLayout from "../../layouts/preloginlayout/PreLoginLayout";
 import { baseUrl } from "../../utils/data/data";
+
+// Components
 import Loader from "../../components/loader/Loader";
+import PreLoginLayout from "../../layouts/preloginlayout/PreLoginLayout";
+import BlogDetailLanding from "./blogdetaillanding/BlogDetailLanding";
+import BlogBanner from "./blogbanner/BlogBanner";
+import BlogContent from "./blogcontent/BlogContent";
+import BlogPagination from "./blogpagination/BlogPagination";
+
+
 
 const BlogDetail = () => {
   const { id } = useParams();
-
   const [blogDetail, setBlogDetail] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   const getBlogDetail = async () => {
+
     try {
       setLoading(true);
       setError(null);

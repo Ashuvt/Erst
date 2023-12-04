@@ -1,8 +1,4 @@
-import { images } from "../../../utils/images/images";
-import FeedGrid from "../../home/feedback/feedgrid/FeedGrid";
 import "./BlogContent.scss";
-import { blogsData } from "../../../utils/data/data";
-import { Fragment } from "react";
 
 const BlogContent = ({ content }) => {
   return (

@@ -10,7 +10,7 @@ const RoutingContextProvider = ({ children }) => {
 // For Login Page
   const signInHandler = () => {
     navigation("/comingsoon");
-    // /auth/login
+    // /auth/signin
     // /comingsoon
   };
 

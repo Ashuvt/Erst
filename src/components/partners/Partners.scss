@@ -1,0 +1,33 @@
+@import "../../scss/variables";
+
+section.our_partners{
+    position:relative;
+    z-index:2;
+    padding-top:60px;
+    padding-bottom:60px;
+
+    .content_wrap{
+        .logo_space {
+            position:relative;
+            border: 1px solid $cardBorder;
+            border-radius: 12px;
+            padding: 12px;
+            display: flex;
+            justify-content:center;
+            align-items: center;
+            gap:20px;
+            flex-wrap: wrap;        
+            .logo_wraper {
+                opacity: 0.6;
+                transition: all 0.3s ease-in-out;
+                img{
+                    max-width:210px;
+                }
+        
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}

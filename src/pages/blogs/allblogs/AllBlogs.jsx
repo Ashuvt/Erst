@@ -1,5 +1,4 @@
 import "./AllBlogs.scss";
-import { icons, images } from "../../../utils/images/images";
 import { useState, useEffect, useContext } from "react";
 import Pill from "../../../components/pill/Pill";
 import CircleArrowBtn from "../../../components/circlearrowbtn/CircleArrowBtn";

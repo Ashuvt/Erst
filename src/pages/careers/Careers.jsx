@@ -1,17 +1,14 @@
 import { Fragment, useEffect } from "react";
-import MapLanding from "../../components/maplanding/MapLanding";
-import JoinTeam from "./jointeam/JoinTeam";
-// import IntelligentTeam from "./Intelligentteam/IntelligentTeam";
-import SymmentricSlider from "../../components/symmentricslider/SymmentricSlider";
-import Header from "../../layouts/header/Header";
-import Footer from "../../layouts/footer/Footer";
 import WOW from "wow.js";
-import CvForm from "./cvform/CvForm";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
+// Components
 import PreLoginLayout from "../../layouts/preloginlayout/PreLoginLayout";
+import MapLanding from "../../components/maplanding/MapLanding";
+import SymmentricSlider from "./symmentricslider/SymmentricSlider";
+import JoinTeam from "./jointeam/JoinTeam";
+import CvForm from "./cvform/CvForm";
 
 const Careers = () => {
-
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -19,17 +16,16 @@ const Careers = () => {
     wow.init();
   }, []);
 
-
   return (
     <Fragment>
       <PreLoginLayout>
-      <MapLanding
-        title={t('careerLandingTitle')}
-        text={t('careerLandingPara')}
-      />
-      <SymmentricSlider />
-      <JoinTeam t={t} />
-      <CvForm t={t} />
+        <MapLanding
+          title={t("careerLandingTitle")}
+          text={t("careerLandingPara")}
+        />
+        <SymmentricSlider />
+        <JoinTeam t={t} />
+        <CvForm t={t} />
       </PreLoginLayout>
     </Fragment>
   );
