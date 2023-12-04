@@ -7,7 +7,7 @@
 section.tabs_sec {
     border-bottom: 1px solid $borderSubtle;
     padding-top: 24px;
-
+     
     .scree_container {
         display: flex;
         justify-content: center;
@@ -27,6 +27,8 @@ section.tabs_sec {
         }
 
         button.tab {
+            text-decoration:none;
+            cursor: pointer;
             padding: 16px;
             width: 220px;
             border-style: none;
@@ -52,13 +54,3 @@ section.tabs_sec {
     }
 }
 
-.tab_content_slidebox {
-    overflow: hidden;
-    width: 100%;
-    .tab_slide {
-        margin: 0px;
-        padding: 0px;
-        display: flex;
-        transition: all 0.4s ease-in-out;
-    }
-}

@@ -50,7 +50,7 @@ const ModulesSec = () => {
 
   return (
     <Fragment>
-      <div className="module_sec">
+      <div className="module_sec" id="courses" >
         <h5 className="small_title">Modules</h5>
         {module_data.map((data) => {
           return (

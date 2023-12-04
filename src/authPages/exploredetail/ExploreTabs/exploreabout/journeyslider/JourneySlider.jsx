@@ -71,7 +71,7 @@ const JourneySlider = () => {
       ]
   };
   return (
-    <div className="journey_slider">
+    <div className="journey_slider" id="reviews">
         <div className="title">
         <h5 className="small_title">Start your journey</h5>
         <p>Be job ready in red field</p>

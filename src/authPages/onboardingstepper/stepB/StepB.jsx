@@ -24,13 +24,13 @@ const StepB = ({ setStep }) => {
         >
           Continue
         </button>
-        <button
+        {/* <button
           type="button"
           className="authbtn auth_secondary wow fadeInUp"
           onClick={SkipHandler}
         >
           Skip
-        </button>
+        </button> */}
       </div>
     </div>
   );

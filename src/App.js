@@ -11,9 +11,8 @@ import CourseSidebar from "./layouts/coursesidebar/CourseSidebar";
 import { RoutoingData } from "./utils/routingData";
 
 function App() {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
 
-  var menu;
   const dispatch = useDispatch();
   const location = useLocation();
 
@@ -24,7 +23,6 @@ function App() {
 
   useEffect(() => {
     const defaultLanguage = localStorage.getItem("lang");
-
     if (defaultLanguage) {
       dispatch({ type: languageChanges(), payload: defaultLanguage });
       i18n.changeLanguage(defaultLanguage);

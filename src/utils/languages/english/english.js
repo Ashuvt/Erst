@@ -55,7 +55,7 @@ export const english = {
 
   homeRightTitle: "Universities",
   homeRightPara: "Our Enterprise Program Is Meticulously Crafted To Meet Each Business's Unique Requirements. Tailoring A Customized Plan, We Provide A Range Of Options—Online Or In-Person Training, Lab Access, Video Resources, CyberGain Certification, And International Certifications—To Align With Their Specific Preferences. Clients Have The Flexibility To Select From Our Diverse Course Catalog Or Request A Bespoke Curriculum. Simply Reach Out, And We'll Collaboratively Build A Plan That Perfectly Fits Your Needs. We Offer Complete Flexibility—Everything Is Up For Discussion.",
-  homeRightBtn: "By Package Now",
+  homeRightBtn: "Book A Meeting",
   goLeftBtn:"For Universities",
 
   homeOfferTitle: "Get Started A 15 Days Free Trial.",
@@ -77,7 +77,7 @@ export const english = {
   feedText2:"Works with the Military",
   feedPara2:"My experience with the company was like being part of a close-knit family. I started out as a gamer, but my interest in cybersecurity grew over time. Thanks to the Cyber Gain Center, I received all the support and resources I needed to enter the field and eventually work with the police forces.",
 
-  feedName3:"Mr.H.j.Shanksra",
+  feedName3:"Yousef",
   feedText3:"Freelancer",
   feedPara3:"This company is special. They gave me a chance to learn and gain practical experience in the field, even though I didn't have a formal academic background. I was a self-learner, and Cyber Gain Center believed in me, so they gave me an opportunity. I worked hard to excel in my studies with them.",
 

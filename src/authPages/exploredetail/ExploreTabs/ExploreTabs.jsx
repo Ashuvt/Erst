@@ -5,27 +5,46 @@ import { transform } from "framer-motion";
 import { useDispatch } from "react-redux";
 import { resetAllToggler } from "../../../store/actions";
 
+
+
+
 const ExploreTabs = () => {
+
+
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      window.scrollTo({
+        top: section.offsetTop - 100,
+        behavior: 'smooth',
+      });
+    }
+  };
+
+
+
   const tabData = [
     {
       id: 0,
       tab: "About",
+      target:"about"
     },
     {
       id: 1,
       tab: "Courses",
+      target:"courses",
     },
     {
       id: 2,
       tab: "Related Skill Paths",
+      target:"skillpath",
     },
     {
       id: 3,
       tab: "Reviews",
+      target:"reviews",
     },
   ];
-
-  const [tab, setTab] = useState(tabData[0].id);
 
   const dispatch = useDispatch();
 
@@ -41,9 +60,9 @@ const ExploreTabs = () => {
             return (
               <Fragment key={data.id}>
                 <button
-                  type="button"
-                  className={`tab ${tab === data.id ? "active" : ""}`}
-                  onClick={() => setTab(data.id)}
+                    href={data.target}
+                    className="tab"
+                    onClick={() => scrollToSection(data.target)}
                 >
                   {data.tab}
                 </button>
@@ -52,17 +71,8 @@ const ExploreTabs = () => {
           })}
         </div>
       </section>
-      <div className="tab_content_slidebox">
-        <div
-          className="tab_slide"
-          style={{ transform: `translateX(-${tab * 100}%)` }}
-        >
+        
           <ExploreAbout />
-          <ExploreAbout />
-          <ExploreAbout />
-          <ExploreAbout />
-        </div>
-      </div>
     </Fragment>
   );
 };

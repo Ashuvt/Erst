@@ -291,7 +291,7 @@ section.road_map {
             }
 
             @media only screen and (max-width:$tab) {
-                flex-direction: column;
+                flex-direction: column!important;
                 align-items: center;
                 gap: 20px;
             }

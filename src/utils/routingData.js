@@ -104,7 +104,7 @@ export const RoutoingData = [
         id:16,
         component:<ExploreCourses />,
         path:"/explore/course"
-    },
+    },    
     {
         id:17,
         component:<ExploreDetail />,

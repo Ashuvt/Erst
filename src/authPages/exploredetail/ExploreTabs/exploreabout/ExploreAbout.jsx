@@ -89,7 +89,7 @@ const ExploreAbout = () => {
   return (
     <section className="explore_detail_content" onClick={resetToggler}>
       <div className="screen_container">
-        <div className="grid_content">
+        <div className="grid_content" id="about">
           <div className="left">
             <div className="btn_line">
               {whiteBtnData.map((data) => {
