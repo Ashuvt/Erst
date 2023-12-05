@@ -1,18 +1,41 @@
 import "./getStartedForm.scss";
-import { useState, useContext } from "react";
+import { useState, useContext, Fragment } from "react";
 import { icon } from "../../../utils/images/icons";
 import { redirectContext } from "../../../context/RoutingContext";
 import FieldErrorMessage from "../../components/errorMessage/FieldErrorMessage";
 import * as Yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import { useDispatch, useSelector } from "react-redux";
+import { contryDdToggler } from "../../../store/actions";
 
 const GetStartedForm = () => {
-  const { signInHandler, goToOnBoarding } = useContext(redirectContext);
+  const countryList = [
+    {
+      id: 0,
+      name: "Israel",
+    },
+    {
+      id: 1,
+      name: "UAE",
+    },
+    {
+      id: 2,
+      name: "India",
+    },
+    {
+      id: 3,
+      name: "Other",
+    },
+  ];
 
+  const { signInHandler, goToOnBoarding } = useContext(redirectContext);
+  const dispatch = useDispatch();
+  const ddStatus = useSelector((state) => state.toggleReducer.countryDdStatus);
   const [eye, setEye] = useState(false);
 
   const initialValues = {
     name: "",
+    country: "",
     email: "",
     password: "",
   };
@@ -23,28 +46,17 @@ const GetStartedForm = () => {
       .email("invalid email formate!")
       .required("email is required!"),
     password: Yup.string().required("password is required!"),
+    country: Yup.string().required("Country is required!"),
   });
 
   const onSubmit = (values) => {
     console.log("Form data : ", values);
   };
 
-  // const [getStartedForm, setGetStartedForm] = useState({
-  //   name: "",
-  //   email: "",
-  //   password: "",
-  // });
-
-  // const inputHandler = (e) => {
-  //   const name = e.target.name;
-  //   const value = e.target.value;
-  //   setGetStartedForm((values) => ({ ...values, [name]: value }));
-  // };
-
-  // const loginHandler = (e) => {
-  //   e.preventDefault();
-  //   console.log(getStartedForm);
-  // };
+  const ddToggler = (event) => {
+    event.stopPropagation();
+    dispatch({ type: contryDdToggler(), payload: !ddStatus });
+  };
 
   return (
     <div className="get_started_form">
@@ -73,13 +85,37 @@ const GetStartedForm = () => {
           </div>
 
           <div className="auth_field mt wow fadeInUp">
+            <label htmlFor="Country">country</label>
+            <div className="input_wrap">
+              <Field
+                type="text"
+                readOnly
+                placeholder="Select"
+                name="country"
+                className="dd"
+                onClick={ddToggler}
+              />
+              <div className={`option_wrap ${ddStatus ? "open" : "close"}`}>
+                {countryList.map((data) => {
+                  return (
+                    <label className={`option`} key={data.id}>
+                      {data.name}
+                      <Field type="radio" name="country" value={data.name} />
+                    </label>
+                  );
+                })}
+              </div>
+            </div>
+            <ErrorMessage name="country" component={FieldErrorMessage} />
+          </div>
+
+          <div className="auth_field mt wow fadeInUp">
             <label htmlFor="Email">email</label>
             <div className="input_wrap">
               <Field type="email" placeholder="email" name="email" id="Email" />
               <img className="field_icon" src={icon.email} alt="email" />
             </div>
             <ErrorMessage name="email" component={FieldErrorMessage} />
-
           </div>
 
           <div className="auth_field mt wow fadeInUp">

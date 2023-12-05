@@ -7,7 +7,8 @@ import {
   HELP_FORM_DD_TOGGLER,
   RESET_ALL,
   MULTILANG_TOGGLER,
-  LANG
+  COUNTRY_DD_TOGGLER,
+  LANG,
   
 } from "./consts";
 
@@ -43,7 +44,9 @@ export const multilangToggler = () => {
   return MULTILANG_TOGGLER;
 }
 
-
+export const contryDdToggler = () => {
+  return COUNTRY_DD_TOGGLER;
+}
 
 export const languageChanges = () => {
   return LANG;

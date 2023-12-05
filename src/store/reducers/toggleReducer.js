@@ -7,6 +7,7 @@ import {
   RESET_ALL,
   HELP_FORM_DD_TOGGLER,
   MULTILANG_TOGGLER,
+  COUNTRY_DD_TOGGLER,
   LANG,
 } from "../consts";
 
@@ -18,6 +19,7 @@ const initialToggleState = {
   profileStatus: false,
   helpFormDdStatus: false,
   multilangDdStatus: false,
+  countryDdStatus:false,
 };
 
 export const toggleReducer = (state = initialToggleState, action) => {
@@ -42,6 +44,9 @@ export const toggleReducer = (state = initialToggleState, action) => {
 
     case MULTILANG_TOGGLER:
       return { ...initialToggleState, multilangDdStatus: action.payload };
+
+      case COUNTRY_DD_TOGGLER:
+      return { ...initialToggleState, countryDdStatus: action.payload };
 
     case RESET_ALL:
       return initialToggleState;

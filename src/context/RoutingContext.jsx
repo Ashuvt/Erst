@@ -1,22 +1,29 @@
 import { createContext } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { useDispatch } from "react-redux";
+import { resetAllToggler } from "../store/actions";
 export const redirectContext = createContext();
 
+
 const RoutingContextProvider = ({ children }) => {
+const dispatch = useDispatch();
 
   const navigation = useNavigate();
 
+  const resetAllState = () => {
+    dispatch({type:resetAllToggler()})
+  }
+
 // For Login Page
   const signInHandler = () => {
-    navigation("/comingsoon");
+    navigation("/auth/signin");
     // /auth/signin
     // /comingsoon
   };
 
   // For Getstarted Page (Sign Up)
   const signUpHandler = () => {
-    navigation("/comingsoon");
+    navigation("/auth/getstarted");
     // /auth/getstarted
     // /comingsoon
   };
@@ -42,12 +49,13 @@ const RoutingContextProvider = ({ children }) => {
   }
 
   const allRedirectFunctions = {
+    resetAllState,
     signInHandler,
     signUpHandler,
     goToHome,
     goToBlogDetail,
     goToOnBoarding,
-    goToAuthHome
+    goToAuthHome,
   };
 
   return (

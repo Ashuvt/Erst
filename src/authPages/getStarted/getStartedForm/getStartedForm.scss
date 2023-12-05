@@ -4,7 +4,7 @@
 @import "../../../scss/variables";
 
 .get_started_form {
-    padding: 64px 100px;
+    padding: 40px 100px;
 
     @media only screen and (max-width:1250px){
         padding: 30px 50px;
@@ -57,5 +57,61 @@
                 cursor:pointer;
             }
         }
+        .input_wrap{
+            position:relative;
+            .option_wrap{
+                border:1px solid $lightBorder_2;
+                border-radius:12px;
+                position:absolute;
+                width:100%;
+                top:56px;
+                left:0px;
+                background-color: $dark;
+                z-index:99;
+                display: flex;
+                flex-direction: column;
+                transform-origin:top center;
+                transition:all 0.2s ease-in-out;
+                overflow: hidden;
+                &.open{
+                    transform: scaleY(1);
+                }
+                &.close{
+                    transform: scaleY(0);
+                }
+           
+                label.option{
+                    height:50px;
+                    position:relative;
+                    overflow: hidden;
+                    margin:0px;
+                    display:flex;
+                    justify-content:flex-start;
+                    align-items: center;
+                    padding-left: 15px;
+                    border-bottom:1px solid $lightBorder_2;
+                    transition:all 0.3s ease-in-out;
+                    &:hover{
+                        -webkit-backdrop-filter: blur(28px);
+                        backdrop-filter: blur(28px);
+                        background: linear-gradient(113deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.00) 110.84%);
+                    }
+                    input{
+                        padding:5px 15px;
+                        position:absolute;
+                        top:0px;
+                        left:0px;
+                        width:100%;
+                        opacity:0;
+
+                    }
+                }
+            }
+        }
+        input.dd{
+            cursor:pointer;
+        }
+ 
+       
     }
 }
