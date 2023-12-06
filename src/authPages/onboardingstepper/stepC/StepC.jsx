@@ -1,7 +1,7 @@
 import "./StepC.scss";
 import { Fragment, useState } from "react";
 
-const StepC = ({ setStep }) => {
+const StepC = ({ setStep, name }) => {
   const tagsData = [
     {
       id: 0,
@@ -108,7 +108,7 @@ const StepC = ({ setStep }) => {
   return (
     <div className="step_c">
       <h1 className="small_title wow fadeInUp">
-        Hey Rajat, tell us about fields of interests
+        Hey {name ? name : "User"}, tell us about fields of interests
       </h1>
       <p className="wow fadeInUp">Let’s help you setup your learning path</p>
 

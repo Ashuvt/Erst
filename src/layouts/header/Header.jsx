@@ -1,8 +1,6 @@
 import { Fragment, useContext } from "react";
 import "./Header.scss";
 import { icons, logoImage } from "../../utils/images/images";
-import MenuBtn from "./menu/MenuBtn";
-import { menuList } from "../../utils/data/data";
 import HembergerMenu from "../../components/hembergerIcon/HembergerMenu";
 import { cartPopupToggler } from "../../store/actions";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,6 +8,9 @@ import { sidebarToggler } from "../../store/actions";
 import { useNavigate, NavLink } from "react-router-dom";
 import LanguageDd from "../../components/languagedd/LanguageDd";
 import { redirectContext } from "../../context/RoutingContext";
+
+
+import 'react-toastify/dist/ReactToastify.css';
 
 const Header = ({t}) => {
   const dispatch = useDispatch();
@@ -63,6 +64,8 @@ const Header = ({t}) => {
             >
               {t('signUp')}
             </button>
+
+    
            
 
             {/* <button type="button" className="cartbtn" onClick={openCartPopup}>

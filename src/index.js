@@ -8,6 +8,9 @@ import store from "./store/store";
 import { Provider } from "react-redux";
 import RoutingContextProvider from "./context/RoutingContext";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
@@ -15,7 +18,19 @@ root.render(
       <Router>
         <RoutingContextProvider>
           <App />
-          </RoutingContextProvider>
+          <ToastContainer
+            position="top-right"
+            autoClose={3000}
+            hideProgressBar={false}
+            newestOnTop
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="dark"
+          />
+        </RoutingContextProvider>
       </Router>
     </Provider>
   </React.StrictMode>

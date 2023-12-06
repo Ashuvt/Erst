@@ -16,39 +16,55 @@
     .content_wraper {
         max-height: 550px;
         overflow: auto;
-        padding-bottom: 100px;
+        padding:20px;
 
-        .sticky_box{
-            position:sticky;
-            top:162px;
-            left:0px;            
-            z-index:2;
-            &::after{
-                position:absolute;
-                content:"";
-                width:calc(100% + 32px);
-                top:-16px;
-                left:-16px;
-                height:calc(100% + 16px);
-                z-index:0;
-                background-color:$dark;
+        .sticky_box {
+            position: sticky;
+            top: 162px;
+            left: 0px;
+            z-index: 2;
 
-            }
-            &:before{
-                position:absolute;
-                content:"";
-                width:calc(100% + 32px);
-                top:-16px;
-                left:-16px;
-                height:calc(100% + 16px);
-                z-index:1;
-                background: $textContrast;
+            // &::after {
+            //     position: absolute;
+            //     content: "";
+            //     width: calc(100% + 32px);
+            //     top: -16px;
+            //     left: -16px;
+            //     height: calc(100% + 16px);
+            //     z-index: 0;
+            //     background-color: $dark;
 
+            // }
+
+            // &:before {
+            //     position: absolute;
+            //     content: "";
+            //     width: calc(100% + 32px);
+            //     top: -16px;
+            //     left: -16px;
+            //     height: calc(100% + 16px);
+            //     z-index: 1;
+            //     background: $textContrast;
+
+            // }
+
+            .team_name,
+            .description,
+            .counts,
+            button {
+                position: relative;
+                z-index: 2;
+                width:100%;
             }
-            .team_name, .description, .counts, button{
-            position:relative;
-            z-index:2;
-            }
+            .description {
+                p{
+                   display: -webkit-box;
+                   -webkit-line-clamp: 2;
+                   -webkit-box-orient: vertical;
+                   overflow: hidden;          
+               }
+
+         }
         }
 
         p {
@@ -58,9 +74,9 @@
 
             &.dark {
                 color: $textPrimary;
-                margin-top:20px;
+                margin-top: 20px;
             }
-    
+
         }
 
         .logo_wrap {
@@ -75,27 +91,9 @@
             left: 0px;
             top: 0px;
 
-            .rating {
-                padding: 6px 8px;
-                border-radius: 12px;
-                background: $bgLight;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                gap: 4px;
-                position: absolute;
-                top: 8px;
-                right: 8px;
-
-                p {
-                    margin: 0px;
-                    color: $textPrimary;
-                }
-            }
         }
 
         .content {
-            padding:0px 16px 16px;           
 
             .team_name {
                 display: flex;
@@ -107,20 +105,38 @@
                 .box {
                     height: 20px;
                     width: 20px;
+
+                    &.RedTeam {
+                        background-color:#CC0A0A;
+                    }
+
+                    &.BlueTeam {
+                        background-color:#0A1633;
+                    }
+
+
+                    p {
+                        color: $textPrimary;
+                    }
                 }
 
-                p {
-                    color: $textPrimary;
+      
+
+                button {
+                    width: 100%;
+                    margin-bottom: 20px;
+                }
+
+                ol {
+                    margin-top: 4px;
+                    padding-left: 15px;
+
+                    li {
+                        @include font("Inter-Regular", 14px, 20px, 400, $textSecondary);
+                        text-transform: capitalize;
+                    }
                 }
             }
-
-            p.description {
-                display: -webkit-box;
-                -webkit-line-clamp: 2;
-                -webkit-box-orient: vertical;
-                overflow: hidden;
-            }
-
             .counts {
                 display: flex;
                 justify-content: flex-start;
@@ -145,33 +161,18 @@
                 }
             }
 
-            button {
-                width: 100%;
-                margin-bottom: 20px;
-            }
-
-            ol {
-                margin-top: 4px;
-                padding-left: 15px;
-
-                li {
-                    @include font("Inter-Regular", 14px, 20px, 400, $textSecondary);
-                    text-transform: capitalize;
-                }
+            &::-webkit-scrollbar {
+                display: none;
             }
         }
 
-        &::-webkit-scrollbar {
-            display: none;
-        }
-    }
-
-    .overlay {
-        position: absolute;
-        bottom: 0px;
-        left: 0px;
-        width: 100%;
-        height: 150px;
-        background: linear-gradient(180deg, rgba(23, 24, 25, 0) 0%, #171819 100%);
+        // .overlay {
+        //     position: absolute;
+        //     bottom: 0px;
+        //     left: 0px;
+        //     width: 100%;
+        //     height: 150px;
+        //     background: linear-gradient(180deg, rgba(23, 24, 25, 0) 0%, #171819 100%);
+        // }
     }
 }

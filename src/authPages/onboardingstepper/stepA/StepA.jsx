@@ -1,9 +1,19 @@
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState, useContext } from "react";
 import "./StepA.scss";
 import { icon } from "../../../utils/images/icons";
+import { baseUrl } from "../../../utils/data/data";
+import axios from "axios";
+import { redirectContext } from "../../../context/RoutingContext";
 
-const StepA = ({ setStep }) => {
+const StepA = ({ setStep, name }) => {
+  const {toastError} = useContext(redirectContext);
+  const [optionsData, setOptionsData] = useState([]);
   const [selectedOption, setSelectedOption] = useState([]);
+  const [search, setSearch] = useState("")
+
+  const searchHandler = (e) => {
+    setSearch(e.target.value)
+  }
 
   const continueHandler = () => {
     SkipHandler();
@@ -13,33 +23,8 @@ const StepA = ({ setStep }) => {
     setStep((prev) => prev + 1);
   };
 
-  const optionsData = [
-    {
-      id: 0,
-      text: "Student",
-    },
-    {
-      id: 1,
-      text: "Data science",
-    },
-    {
-      id: 2,
-      text: "IT",
-    },
-    {
-      id: 3,
-      text: "Learning and development ",
-    },
-    {
-      id: 4,
-      text: "Operations",
-    },
-    {
-      id: 5,
-      text: "Risk and compliance",
-    },
-  ];
 
+  
   const addSelection = (selectedId) => {
     setSelectedOption((prev) => {
       if (selectedOption.includes(selectedId)) {
@@ -50,10 +35,27 @@ const StepA = ({ setStep }) => {
     });
   };
 
+  const getOptions = async() => {
+    try{
+      const response = await axios.get(`${baseUrl}/getproffession`);
+      if(response.status === 200){
+        setOptionsData(response.data.data);
+      }
+    }catch(error){
+    }
+  }
+
+  useEffect(() => {
+    getOptions();
+  },[]);
+
+  const searchedData = () => {
+    return optionsData.filter(data => data.name.toLowerCase().includes(search.toLowerCase()));
+  }
   return (
     <div className="step_a">
       <h1 className="small_title wow slideInUp">
-        Hey Rajat, tell us about your department profession
+        Hey {name ? name : "User"}, tell us about your department profession
       </h1>
       <p className="wow slideInUp">Let’s help you setup your learning path</p>
 
@@ -61,30 +63,31 @@ const StepA = ({ setStep }) => {
         <div className="auth_field wow slideInUp">
           <div className="input_wrap">
             <input
-              type="search"
+              type="test"
               placeholder="search"
               name="search"
               autoComplete="off"
+              onChange={searchHandler}
             />
             <img className="field_icon" src={icon.search} alt="email" />
           </div>
         </div>
 
-        {optionsData.map((data) => {
+        {searchedData().length > 0 ? searchedData().map((data) => {
           return (
-            <Fragment key={data.id}>
+            <Fragment key={data._id}>
               <div
-                className={`select_field ${selectedOption.includes(data.id) ? "active" : ''} wow fadeInUp `}
-                onClick={() => addSelection(data.id)}
+                className={`select_field ${selectedOption.includes(data._id) ? "active" : ''} wow fadeInUp `}
+                onClick={() => addSelection(data._id)}
               >
-                <p className="small_text">{data.text}</p>
+                <p className="small_text">{data.name}</p>
                 <div className="check_box">
-                  <img src={icon.checked} alt="checked" className={selectedOption.includes(data.id) ? "active" : ''} />
+                  <img src={icon.checked} alt="checked" className={selectedOption.includes(data._id) ? "active" : ''} />
                 </div>
               </div>
             </Fragment>
           );
-        })}
+        }) : <p>No Options Found...</p>}
       </form>
 
       <div className="bottom_btn">

@@ -7,6 +7,8 @@ import * as Yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 import { contryDdToggler } from "../../../store/actions";
+import { baseUrl } from "../../../utils/data/data";
+import axios from "axios";
 
 const GetStartedForm = () => {
   const countryList = [
@@ -28,7 +30,8 @@ const GetStartedForm = () => {
     },
   ];
 
-  const { signInHandler, goToOnBoarding } = useContext(redirectContext);
+  const { signInHandler, goToOnBoarding, toastSuccess, toastError, toastInfo, toastClear } =
+    useContext(redirectContext);
   const dispatch = useDispatch();
   const ddStatus = useSelector((state) => state.toggleReducer.countryDdStatus);
   const [eye, setEye] = useState(false);
@@ -38,6 +41,7 @@ const GetStartedForm = () => {
     country: "",
     email: "",
     password: "",
+    role: 4,
   };
 
   const validationSchema = Yup.object({
@@ -49,13 +53,37 @@ const GetStartedForm = () => {
     country: Yup.string().required("Country is required!"),
   });
 
-  const onSubmit = (values) => {
-    console.log("Form data : ", values);
-  };
-
   const ddToggler = (event) => {
     event.stopPropagation();
     dispatch({ type: contryDdToggler(), payload: !ddStatus });
+  };
+
+  const registration = async (data) => {
+    try {
+      const response = await axios.post(`${baseUrl}/userregister`, { ...data });
+      if (response.status === 200) {
+        toastClear();
+        toastSuccess("Registration Success!");
+        localStorage.setItem("token", response.data.token);
+        localStorage.setItem("name", response.data.newUser.name);
+        goToOnBoarding();
+      } else {
+        toastError("Email is already in use");
+      }
+   
+    } catch (error) {
+      if(error.response.status){
+        toastClear();
+        toastError(error.response.data.error);
+      }
+      console.log("ERror:::", error.response.data.error);
+      // toastError(error);
+    }
+  };
+
+  const onSubmit = (values, {resetForm}) => {
+    registration(values);
+    resetForm();
   };
 
   return (
@@ -79,7 +107,7 @@ const GetStartedForm = () => {
           <div className="auth_field wow fadeInUp">
             <label htmlFor="Name">name</label>
             <div className="input_wrap">
-              <Field type="text" placeholder="name" name="name" id="Name" />
+              <Field type="text" placeholder="name" name="name" id="Name" autoComplete="off" />
             </div>
             <ErrorMessage name="name" component={FieldErrorMessage} />
           </div>
@@ -112,7 +140,7 @@ const GetStartedForm = () => {
           <div className="auth_field mt wow fadeInUp">
             <label htmlFor="Email">email</label>
             <div className="input_wrap">
-              <Field type="email" placeholder="email" name="email" id="Email" />
+              <Field type="email" placeholder="email" name="email" id="Email" autoComplete="off"/>
               <img className="field_icon" src={icon.email} alt="email" />
             </div>
             <ErrorMessage name="email" component={FieldErrorMessage} />
@@ -126,6 +154,7 @@ const GetStartedForm = () => {
                 placeholder="password"
                 name="password"
                 id="Password"
+                autoComplete="off"
               />
               <button type="button" onClick={() => setEye(!eye)}>
                 {eye ? (

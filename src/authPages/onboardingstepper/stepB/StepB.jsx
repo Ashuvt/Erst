@@ -1,6 +1,6 @@
 import "./StepB.scss";
 
-const StepB = ({ setStep }) => {
+const StepB = ({ setStep, name }) => {
   const continueHandler = () => {
     SkipHandler();
   };
@@ -12,7 +12,7 @@ const StepB = ({ setStep }) => {
   return (
     <div className="step_b">
       <h1 className="small_title wow fadeInUp">
-        Hey Rajat, tell us about your department profession
+        Hey {name ? name : "User"}, tell us about your department profession
       </h1>
       <p className="wow fadeInUp">Let’s help you setup your learning path</p>
 

@@ -1,5 +1,6 @@
 @import "./scss/variables";
 @import "./scss/mixin";
+@import "./scss/typography";
 
 * {
   margin: 0px;
@@ -272,4 +273,14 @@ button.slick-arrow{
 
     }
   }
+}
+
+.Toastify .Toastify__toast-body{
+  @include font('Inter-Regular', 16px, 20px, 400, $white);
+  letter-spacing:0.5px;
+  text-transform: capitalize;
+}
+
+.Toastify .Toastify__close-button svg{
+  color:$white;
 }

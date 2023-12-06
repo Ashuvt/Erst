@@ -23,8 +23,8 @@ const Home = () => {
 
   return (
     <Fragment>
-      <PreLoginLayout>
-        <HomeLanding t={t} />
+      <PreLoginLayout> 
+        <HomeLanding t={t} />  
         <RoadMap t={t} />
         <LeftRightSec t={t} />
         <Partners />

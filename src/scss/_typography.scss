@@ -114,6 +114,7 @@ h1 {
         @media only screen and (max-width:$tab){
             @include font('SpaceGrotesk-Regular', 20px, 24px, 400, $white);
         }
+   
     }
 }
 

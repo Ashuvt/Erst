@@ -1,13 +1,32 @@
-import { Fragment, useContext } from "react";
+import { Fragment, useContext, useEffect, useState } from "react";
 import { icon } from "../../../utils/images/icons";
 import "./StepD.scss";
 import { redirectContext } from "../../../context/RoutingContext";
 import RedBlueCard from "./redbluecard/RedBlueCard";
+import { baseUrl } from "../../../utils/data/data";
+import axios from "axios";
 
 
 const StepD = () => {
 
 const {goToAuthHome} = useContext(redirectContext);
+const [courses, setCourses] = useState([]);
+
+const getCourses = async() => {
+  try{
+    const response = await axios.get(`${baseUrl}/getcourse`);
+    console.log(response);
+    if(response.status === 200){
+      setCourses(response.data.data)
+    }
+  }catch(error){
+  }
+}
+
+useEffect(() => {
+  getCourses();
+},[])
+
 
   const cardData = [
     {
@@ -69,9 +88,9 @@ const {goToAuthHome} = useContext(redirectContext);
         journey.
       </p>
       <div className="cources_bigrid">
-        {cardData.map((data) => {
+        {courses.map((data) => {
           return (
-            <Fragment>
+            <Fragment key={data._id}>
               <RedBlueCard {...data} clickHandler={goToAuthHome} />
             </Fragment>
           );
