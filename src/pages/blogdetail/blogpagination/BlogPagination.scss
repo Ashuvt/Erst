@@ -5,7 +5,7 @@
 
 section.blog_pagination {
     position: relative;
-
+z-index:4;
     .content_wrap {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -126,7 +126,7 @@ section.blog_pagination {
         position: absolute;
         -webkit-filter: blur(150px);
         filter: blur(150px);
-        z-index: 0;
+        z-index:5;
         transition: all 0.6s ease-in-out;
         bottom: 0px;
         left: 300px;

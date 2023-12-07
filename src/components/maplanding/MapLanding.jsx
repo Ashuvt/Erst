@@ -1,6 +1,5 @@
 import "./MapLanding.scss";
 import { images } from "../../utils/images/images";
-import ParticlesBg from "../particlesbg/ParticlesBg";
 const CareersLanding = ({title, text}) => {
     const circleData = [
         {

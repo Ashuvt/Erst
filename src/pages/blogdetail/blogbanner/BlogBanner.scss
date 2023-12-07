@@ -6,7 +6,9 @@
 section.blog_banner {
     position: relative;   
     padding:0px;
-    background-color: transparent;
+    background-color:$dark;;
+    z-index:4;
+
     .content_wrap{
         position:relative;
     .overlayer {

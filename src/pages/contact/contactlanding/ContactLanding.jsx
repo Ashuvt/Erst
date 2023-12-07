@@ -3,7 +3,6 @@ import { useContext } from "react";
 import { redirectContext  } from "../../../context/RoutingContext";
 import CircleArrowBtn from "../../../components/circlearrowbtn/CircleArrowBtn";
 import TextArrowBtn from "../../../components/textarrowbtn/TextArrowBtn"; 
-import ParticlesBg from "../../../components/particlesbg/ParticlesBg";
 import { useSelector } from "react-redux";
 
 const ContactLanding = ({t}) => {
@@ -13,7 +12,6 @@ const {signUpHandler} = useContext(redirectContext);
 
   return (
     <section className="contact_landing">
-      <ParticlesBg />
       <div className={`content_wrap ${['ar', 'he'].includes(l) ? 'flip' : ''}`}>
         <h1 className="wow fadeInLeft">{t('constactLandingTitle')}</h1>
 

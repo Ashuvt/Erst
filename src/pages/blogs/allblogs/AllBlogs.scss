@@ -6,7 +6,8 @@
 section.tech_blog {
     overflow: visible;
     position: relative;
-
+    background-color: $dark;
+    z-index:2;
     .content_wrap {
         display: grid;
         grid-template-columns: 1fr 1fr;

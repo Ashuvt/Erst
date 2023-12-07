@@ -23,7 +23,7 @@ const Home = () => {
 
   return (
     <Fragment>
-      <PreLoginLayout> 
+      <PreLoginLayout>         
         <HomeLanding t={t} />  
         <RoadMap t={t} />
         <LeftRightSec t={t} />

@@ -2,7 +2,6 @@ import "./JoinTeam.scss";
 import { Fragment } from "react";
 import { icons, images } from "../../../utils/images/images";
 import ProfileList from "../../../components/profilelist/ProfileList";
-import ParticlesBg from "../../../components/particlesbg/ParticlesBg";
 import { useSelector } from "react-redux";
 
 const JoinTeam = ({t}) => {
@@ -30,7 +29,6 @@ const JoinTeam = ({t}) => {
 
   return (
     <Fragment>
-    <ParticlesBg />
     <section className="join_team">
      
       <div className={`content_wrap ${['ar', 'he'].includes(l) ? 'flip' : ''}`}>

@@ -10,7 +10,7 @@ section.home1landing {
     overflow-x: hidden;
     overflow: hidden;
     z-index: 1;
-
+    background-color: transparent!important;
 
     @media only screen and (max-width:$tab) {
         padding-top: 180px;

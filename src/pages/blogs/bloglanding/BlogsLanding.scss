@@ -6,6 +6,7 @@
 section.blog_landing {
     padding-top: 190px;
     position:relative;
+    background-color: transparent!important;
     @media only screen and (max-width:$tab){
         padding-top: 150px;
     }

@@ -3,7 +3,7 @@ import "./Help.scss";
 import Map from "../../../components/map/Map";
 import MidTitle from "../../../components/midtitle/MidTitle";
 import { useDispatch, useSelector } from "react-redux";
-import { helpDdToggler, resetAllToggler } from "../../../store/actions";
+import { resetAllToggler } from "../../../store/actions";
 import ErrorMessageLine from "../../../components/errormessageline/ErrorMessageLine";
 import { baseUrl } from "../../../utils/data/data";
 import axios from "axios";

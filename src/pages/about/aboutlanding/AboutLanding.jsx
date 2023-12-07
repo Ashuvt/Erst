@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import "./AboutLanding.scss";
 import WOW from "wow.js";
-import ParticlesBg from "../../../components/particlesbg/ParticlesBg";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -32,9 +31,7 @@ const navigate = useNavigate();
 
   return (
     <section className="home2_landing p_bottom p_top">
-    <ParticlesBg />
       <div className="content_wrap">
-
          <div className={`title_wraper ${['ar', 'he'].includes(l) ? 'flip' : ''}`}>
         <div className="text_content"> 
           <div className="dynamic wow fadeInUp">

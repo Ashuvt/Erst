@@ -1,4 +1,3 @@
-import ParticlesBg from "../../../components/particlesbg/ParticlesBg";
 import "./BlogDetailLanding.scss";
 import BlogDate from "./date/BlogDate";
 
@@ -17,11 +16,8 @@ const BlogDetailLanding = ({ title, text, date }) => {
   
   return (
     <section className="blogdetail_landing">
-      <ParticlesBg />
-      <div className="content_wrap">
-        
-        <BlogDate date={FormattedDate(date)}/>
-        
+      <div className="content_wrap">        
+        <BlogDate date={FormattedDate(date)}/>        
         <div className="text_content ">
           <h1 className="wow fadeInUp">{title}</h1>
           <div dangerouslySetInnerHTML={{ __html: text }}></div>

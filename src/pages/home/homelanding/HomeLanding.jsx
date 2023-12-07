@@ -1,15 +1,12 @@
 import "./HomeLanding.scss";
 import { useContext } from "react";
 import { redirectContext } from "../../../context/RoutingContext";
-import ParticlesBg from "../../../components/particlesbg/ParticlesBg";
 
 const HomeLanding = ({ t }) => {
   const { signUpHandler } = useContext(redirectContext);
 
   return (
     <section className="home1landing p_bottom">
-      <ParticlesBg />
-
       <div
         className="purple_blur a wow zoomIn"
         data-wow-delay="0.5s"

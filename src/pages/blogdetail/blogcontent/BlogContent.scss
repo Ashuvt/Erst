@@ -6,6 +6,8 @@
 section.blog_content {
     position: relative;
     padding-bottom:20px;
+    background-color: $dark;
+    z-index:4;;
 
     // .content_wrap {
     //     position: relative;
