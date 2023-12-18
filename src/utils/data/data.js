@@ -1,8 +1,6 @@
 // Header Data main menu and router links
 import { images } from "../images/images";
 
-export const baseUrl = "https://backend.cybergain.ae/"
-
 export const menuList = [
   {
     id: 1,

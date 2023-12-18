@@ -1,6 +1,6 @@
 import { icons } from "../../../utils/images/images";
 import "./BlogPagination.scss";
-import { baseUrl } from "../../../utils/data/data";
+import { baseUrl } from "../../../utils/apidata";
 import { useEffect, useState, useContext } from "react";
 import { redirectContext } from "../../../context/RoutingContext";
 import axios from "axios";

@@ -2,7 +2,7 @@ import { Fragment, useEffect, useState } from "react";
 import WOW from "wow.js";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { baseUrl } from "../../utils/data/data";
+import { baseUrl } from "../../utils/apidata";
 
 // Components
 import Loader from "../../components/loader/Loader";

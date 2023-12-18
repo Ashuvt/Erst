@@ -1,14 +1,16 @@
-import { useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import "./Help.scss";
 import Map from "../../../components/map/Map";
 import MidTitle from "../../../components/midtitle/MidTitle";
 import { useDispatch, useSelector } from "react-redux";
 import { resetAllToggler } from "../../../store/actions";
 import ErrorMessageLine from "../../../components/errormessageline/ErrorMessageLine";
-import { baseUrl } from "../../../utils/data/data";
+import { baseUrl, needAssistance } from "../../../utils/apidata";
 import axios from "axios";
+import { redirectContext } from "../../../context/RoutingContext";
 
 const Help = ({ t }) => {
+  const {toastError} = useContext(redirectContext);
   const dispatch = useDispatch();
   const ddStatus = useSelector((state) => state.toggleReducer.helpFormDdStatus);
 
@@ -134,10 +136,8 @@ const Help = ({ t }) => {
     try {
       setLoading(true);
       setError(null);
-      const response = await axios.post(`${baseUrl}/storecontactapi`, {
-        ...help,
-      });
-      if (response.status === 200) {
+      const response = await axios.post(`${baseUrl}/${needAssistance}`,{...help});
+      if (response.data.success) {
         setLoading(false);
         setSuccess(true);
         setHelp({ ...initialState });
@@ -145,9 +145,11 @@ const Help = ({ t }) => {
           setSuccess(false);
         }, [2000]);
       }
-      console.log(response);
     } catch (error) {
-      setError(error.message || "An error occurred");
+      if(error.message){
+        toastError(error.message || "Something Went Wrong!");
+      }
+      setLoading(false);
     }
   };
 

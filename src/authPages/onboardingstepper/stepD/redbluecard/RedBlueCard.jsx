@@ -1,7 +1,7 @@
 import "./RedBlueCard.scss";
 import { icon } from "../../../../utils/images/icons";
 import { Fragment } from "react";
-import { baseUrl } from "../../../../utils/data/data";
+import { baseUrl } from "../../../../utils/apidata";
 
 const RedBlueCard = ({
   image,

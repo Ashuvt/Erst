@@ -1,12 +1,12 @@
 import { Fragment, useEffect, useState, useContext } from "react";
 import "./StepA.scss";
 import { icon } from "../../../utils/images/icons";
-import { baseUrl } from "../../../utils/data/data";
+import { baseUrl, professionOption } from "../../../utils/apidata";
 import axios from "axios";
-import { redirectContext } from "../../../context/RoutingContext";
+// import { redirectContext } from "../../../context/RoutingContext";
 
 const StepA = ({ setStep, name }) => {
-  const {toastError} = useContext(redirectContext);
+  // const {toastError} = useContext(redirectContext);
   const [optionsData, setOptionsData] = useState([]);
   const [selectedOption, setSelectedOption] = useState([]);
   const [search, setSearch] = useState("")
@@ -37,8 +37,9 @@ const StepA = ({ setStep, name }) => {
 
   const getOptions = async() => {
     try{
-      const response = await axios.get(`${baseUrl}/getproffession`);
-      if(response.status === 200){
+      const response = await axios.get(`${baseUrl}/${professionOption}`);
+      console.log(response);
+      if(response.data.success){
         setOptionsData(response.data.data);
       }
     }catch(error){

@@ -6,7 +6,7 @@ import { images } from "../../../utils/images/images";
 import HomeBlogCard from "./blogcard/HomeBlogCard";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { baseUrl } from "../../../utils/data/data";
+import { baseUrl } from "../../../utils/apidata";
 
 const HomeBlogs = ({t}) => {
 

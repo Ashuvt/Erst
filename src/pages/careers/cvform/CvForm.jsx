@@ -1,12 +1,16 @@
 import MidTitle from "../../../components/midtitle/MidTitle";
 import "./CvForm.scss";
 import { icon } from "../../../utils/images/icons";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import ErrorMessageLine from "../../../components/errormessageline/ErrorMessageLine";
-import { baseUrl } from "../../../utils/data/data";
+import { baseUrl, sendCv } from "../../../utils/apidata";
 import axios from "axios";
+import { redirectContext } from "../../../context/RoutingContext";
 
 const CvForm = ({t}) => {
+
+  const {toastError} = useContext(redirectContext);
+  
   const [progress, setProgress] = useState(false);
 
   const [success, setSuccess] = useState(false);
@@ -104,18 +108,17 @@ const initialState = {
   };
 
   const cvApi = async (data) => {
-    console.log(data, "::APIDATA");
     try {
       setLoading(true);
       setError(null);
 
-      const response = await axios.post(`${baseUrl}/storecarrerapi`, {...data},{
+      const response = await axios.post(`${baseUrl}/${sendCv}`, {...data},{
         headers: {
           'Content-Type': 'multipart/form-data',
         },
       });
-
-      if(response.status === 200){
+      console.log(response);
+      if(response.data.success){
         setLoading(false);
         setSuccess(true);
         setFormData({...initialState});
@@ -123,10 +126,12 @@ const initialState = {
           setSuccess(false);
         }, [2000]);
       }
-      console.log(response);
       setSubmittedRes(response);
     } catch (error) {
-      setError(error.message || 'An error occurred');
+        if(error.message){
+          toastError(error.message || "something Went Wrong!")
+        }
+
     }
   };
 

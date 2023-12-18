@@ -37,5 +37,9 @@
        @media only screen and (max-width:$tab){
         grid-template-columns: 1fr;
        }
+   
     }
+    p.error{
+        text-align: center;
+       }
 }

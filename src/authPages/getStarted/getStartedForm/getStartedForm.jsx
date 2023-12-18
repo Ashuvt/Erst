@@ -7,7 +7,7 @@ import * as Yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 import { contryDdToggler } from "../../../store/actions";
-import { baseUrl } from "../../../utils/data/data";
+import { baseUrl, getStarted } from "../../../utils/apidata";
 import axios from "axios";
 
 const GetStartedForm = () => {
@@ -30,8 +30,14 @@ const GetStartedForm = () => {
     },
   ];
 
-  const { signInHandler, goToOnBoarding, toastSuccess, toastError, toastInfo, toastClear } =
-    useContext(redirectContext);
+  const {
+    signInHandler,
+    goToOnBoarding,
+    toastSuccess,
+    toastError,
+    toastInfo,
+    toastClear,
+  } = useContext(redirectContext);
   const dispatch = useDispatch();
   const ddStatus = useSelector((state) => state.toggleReducer.countryDdStatus);
   const [eye, setEye] = useState(false);
@@ -57,31 +63,28 @@ const GetStartedForm = () => {
     event.stopPropagation();
     dispatch({ type: contryDdToggler(), payload: !ddStatus });
   };
-
   const registration = async (data) => {
     try {
-      const response = await axios.post(`${baseUrl}/userregister`, { ...data });
-      if (response.status === 200) {
+      const response = await axios.post(`${baseUrl}/${getStarted}`, {
+        ...data,
+      });
+      if (response.data.success) {
         toastClear();
         toastSuccess("Registration Success!");
-        localStorage.setItem("token", response.data.token);
-        localStorage.setItem("name", response.data.newUser.name);
         goToOnBoarding();
+        localStorage.setItem("token", response.data.token);
+        localStorage.setItem("name", response.data.data.name);
       } else {
         toastError("Email is already in use");
       }
-   
     } catch (error) {
-      if(error.response.status){
-        toastClear();
-        toastError(error.response.data.error);
+      if (error.message) {
+        toastError(error.message || "Something Went Wrong!");
       }
-      console.log("ERror:::", error.response.data.error);
-      // toastError(error);
     }
   };
 
-  const onSubmit = (values, {resetForm}) => {
+  const onSubmit = (values, { resetForm }) => {
     registration(values);
     resetForm();
   };
@@ -107,7 +110,13 @@ const GetStartedForm = () => {
           <div className="auth_field wow fadeInUp">
             <label htmlFor="Name">name</label>
             <div className="input_wrap">
-              <Field type="text" placeholder="name" name="name" id="Name" autoComplete="off" />
+              <Field
+                type="text"
+                placeholder="name"
+                name="name"
+                id="Name"
+                autoComplete="off"
+              />
             </div>
             <ErrorMessage name="name" component={FieldErrorMessage} />
           </div>
@@ -140,7 +149,13 @@ const GetStartedForm = () => {
           <div className="auth_field mt wow fadeInUp">
             <label htmlFor="Email">email</label>
             <div className="input_wrap">
-              <Field type="email" placeholder="email" name="email" id="Email" autoComplete="off"/>
+              <Field
+                type="email"
+                placeholder="email"
+                name="email"
+                id="Email"
+                autoComplete="off"
+              />
               <img className="field_icon" src={icon.email} alt="email" />
             </div>
             <ErrorMessage name="email" component={FieldErrorMessage} />

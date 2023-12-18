@@ -98,9 +98,7 @@ const {signInHandler, signUpHandler} = useContext(redirectContext);
               <p>{t('copyRight1')}</p>
             </div>
             <div className={`right ${['ar', 'he'].includes(l) ? 'flip' : ''}`}>
-              <p>
               <p>{t('copyRight2')}</p>
-              </p>
             </div>
           </div>
         </footer>

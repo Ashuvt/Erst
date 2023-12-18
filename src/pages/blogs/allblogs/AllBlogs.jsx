@@ -3,7 +3,7 @@ import { useState, useEffect, useContext } from "react";
 import Pill from "../../../components/pill/Pill";
 import CircleArrowBtn from "../../../components/circlearrowbtn/CircleArrowBtn";
 import axios from "axios";
-import { baseUrl } from "../../../utils/data/data";
+import { baseUrl } from "../../../utils/apidata";
 import { redirectContext } from "../../../context/RoutingContext";
 import Loader from "../../../components/loader/Loader";
 

@@ -2,7 +2,7 @@ import { useContext } from "react";
 import Pill from "../../../../components/pill/Pill";
 import "./HomeBlogCard.scss";
 import { redirectContext } from "../../../../context/RoutingContext";
-import { baseUrl } from "../../../../utils/data/data";
+import { baseUrl } from "../../../../utils/apidata";
 
 const HomeBlogCard = ({ tag, title, date, image, index, _id }) => {
 

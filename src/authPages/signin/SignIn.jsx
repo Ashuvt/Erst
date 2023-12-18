@@ -8,10 +8,13 @@ import FieldErrorMessage from "../components/errorMessage/FieldErrorMessage";
 import WOW from "wow.js";
 import * as Yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-
+import { baseUrl, signIn } from "../../utils/apidata";
+import axios from "axios";
 
 const SignIn = () => {
-  const { signUpHandler } = useContext(redirectContext);
+  const { signUpHandler, toastError, toastSuccess, goToAuthHome } = useContext(redirectContext);
+
+  const [loader, setLoader] = useState(false);
 
   const initialValues = {
     email: "",
@@ -32,14 +35,32 @@ const SignIn = () => {
 
   const [eye, setEye] = useState(false);
 
-  // const loginHandler = (e) => {
-  //   e.preventDefault();
-  //   console.log(loginForm);
-  // };
+  const onSubmit = async (values) => {
+    setLoader(true);
+    try {
+      const response = await axios.post(`${baseUrl}/${signIn}`, values);
+      console.log("response::::", response)
+      if(response.data.success){
+   
+        toastSuccess("Sign In Success!");
+        localStorage.setItem("token", response.data.token);
+        localStorage.setItem("name", response.data.data.name);
+        setLoader(false);
+        goToAuthHome();
 
-  const onSubmit = (values) => {
-    console.log("Form data : ", values);
+      }else{
+        toastError(response.data.message);
+        setLoader(false);
+      }
+    } catch (error) {
+      console.log("ERROR:::", error);
+      if (error.message) {
+        toastError(error.message || "Something Went Wrong!");
+      }
+    }
   };
+
+
 
   return (
     <Fragment>
@@ -69,13 +90,13 @@ const SignIn = () => {
 
               <div className="auth_field wow fadeInUp">
                 <label htmlFor="Email">email</label>
-
                 <div className="input_wrap">
                   <Field
                     type="email"
                     placeholder="Email"
                     id="Email"
                     name="email"
+                    autoComplete="off"
                   />
                   <img className="field_icon" src={icon.email} alt="email" />
                 </div>
@@ -91,6 +112,7 @@ const SignIn = () => {
                     placeholder="password"
                     id="Password"
                     name="password"
+                    autoComplete="off"                  
                   />
 
                   <button type="button" onClick={() => setEye(!eye)}>
@@ -105,12 +127,21 @@ const SignIn = () => {
               </div>
 
               <div className="btns">
+                {loader ? 
                 <button
+                className="authbtn auth_primary wow fadeInUp"
+                type="button"
+                disabled
+              >
+                Loading...
+              </button>
+              :
+              <button
                   className="authbtn auth_primary wow fadeInUp"
                   type="submit"
                 >
                   Sign In
-                </button>
+                </button>}
                 <button
                   className="authbtn auth_secondary wow fadeInUp"
                   type="button"

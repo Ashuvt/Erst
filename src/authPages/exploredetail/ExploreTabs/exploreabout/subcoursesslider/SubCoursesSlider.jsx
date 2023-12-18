@@ -4,6 +4,7 @@ import Slider from "react-slick";
 import { images } from "../../../../../utils/images/images";
 import ExploreCard from "../../../../components/explorecard/ExploreCard";
 
+
 const SubCoursesSlider = () => {
   const courcesData = [
     {

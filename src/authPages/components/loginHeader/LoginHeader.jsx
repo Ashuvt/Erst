@@ -13,7 +13,7 @@ export const LoginHeader = ({
   setStep,
 }) => {
 
-  const {signUpHandler} = useContext(redirectContext);
+  const {signUpHandler, goToAuthHome} = useContext(redirectContext);
 
   const backBtnHandler = () => {
     setStep((prev) => {
@@ -42,7 +42,7 @@ export const LoginHeader = ({
           </NavLink>
 
           <div className="right">
-            {right && <button type="button">skip</button>}
+            {right && <button type="button" onClick={goToAuthHome}>skip</button>}
           </div>
         </header>
       </div>
