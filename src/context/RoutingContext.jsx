@@ -19,14 +19,14 @@ const dispatch = useDispatch();
 
 // For Login Page
   const signInHandler = () => {
-    navigation("/auth/signin");
+    navigation("/signin");
     // /auth/signin
     // /comingsoon
   };
 
   // For Getstarted Page (Sign Up)
   const signUpHandler = () => {
-    navigation("/auth/getstarted");
+    navigation("/getstarted");
     // /auth/getstarted
     // /comingsoon
   };

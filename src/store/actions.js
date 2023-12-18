@@ -9,6 +9,9 @@ import {
   MULTILANG_TOGGLER,
   COUNTRY_DD_TOGGLER,
   LANG,
+
+  SEND_PROFESSIONS,
+  SEND_INTERESTED_FIELD
   
 } from "./consts";
 
@@ -50,4 +53,13 @@ export const contryDdToggler = () => {
 
 export const languageChanges = () => {
   return LANG;
+}
+
+
+export const sendProfession = () => {
+  return SEND_PROFESSIONS;
+}
+
+export const sendInterestedField = () => {
+  return SEND_INTERESTED_FIELD;
 }

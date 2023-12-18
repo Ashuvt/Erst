@@ -20,7 +20,6 @@ import pc from "../../assets/images/pc.svg";
 import playStore from "../../assets/images/playstore.webp";
 import appStore from "../../assets/images/appstore.webp";
 import mapImage from "../../assets/images/map.png";
-import mobiles from "../../assets/images/contactmobile.webp";
 import contactUsBanner from "../../assets/images/contactusbanner.jpg";
 import contactUsVideoBanner from "../../assets/images/contactusvideobanner.jpg";
 import profilea from "../../assets/images/profilea.jpg";
@@ -55,12 +54,10 @@ import teamMemberF from "../../assets/images/team/salman.jpeg";
 
 import videoBtnImage from "../../assets/images/videobtn.webp";
 import primaryPlay from "../../assets/images/primaryplaybtn.png";
-import analyticBg from "../../assets/images/analyticbg.webp";
 import benefitSuite from "../../assets/images/benefitofsuite.jpg";
 import earningA from "../../assets/images/earninga.webp";
 import earningB from "../../assets/images/earningb.webp";
 import blogView from "../../assets/images/blogview.jpg";
-import squareBg from "../../assets/images/sqarebg.webp";
 import bgPattern from "../../assets/images/bgpattern.svg";
 import getstartedA from "../../assets/images/getstartedA.png";
 import getstartedB from "../../assets/images/getstartedB.png";
@@ -202,7 +199,6 @@ export const images = {
   playStore,
   appStore,
   mapImage,
-  mobiles,
   contactUsBanner,
   contactUsVideoBanner,
   profilea,
@@ -227,12 +223,10 @@ export const images = {
   teamD,
   videoBtnImage,
   primaryPlay,
-  analyticBg,
   benefitSuite,
   earningA,
   earningB,
   blogView,
-  squareBg,
   bgPattern,
   getstartedA,
   getstartedB,

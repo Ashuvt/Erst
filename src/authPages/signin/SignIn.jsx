@@ -38,16 +38,15 @@ const SignIn = () => {
   const onSubmit = async (values) => {
     setLoader(true);
     try {
-      const response = await axios.post(`${baseUrl}/${signIn}`, values);
-      console.log("response::::", response)
-      if(response.data.success){
-   
+      const response = await axios.post(`${baseUrl}/${signIn}`, values);   
+      console.log(response);   
+      if(response.data.success){   
         toastSuccess("Sign In Success!");
         localStorage.setItem("token", response.data.token);
         localStorage.setItem("name", response.data.data.name);
+        localStorage.setItem("email", response.data.data.email);
         setLoader(false);
         goToAuthHome();
-
       }else{
         toastError(response.data.message);
         setLoader(false);

@@ -1,9 +1,11 @@
 import { createStore, combineReducers } from "redux";
 import { toggleReducer, langReducer } from "./reducers/toggleReducer";
+import {onBoardingReducer} from "./reducers/onboardingReducer";
 
 const rootReducer = combineReducers({
     toggleReducer,
-    langReducer
+    langReducer,
+    onBoardingReducer,
 });
 
 const store = createStore(rootReducer);

@@ -1,108 +1,88 @@
 import "./StepC.scss";
-import { Fragment, useState } from "react";
+import { Fragment, useState, useEffect, useContext } from "react";
+import { baseUrl, fieldOfInterest, updateProfessionInterest } from "../../../utils/apidata";
+import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
+import { sendInterestedField } from "../../../store/actions";
+import { redirectContext } from "../../../context/RoutingContext";
 
 const StepC = ({ setStep, name }) => {
-  const tagsData = [
-    {
-      id: 0,
-      text: "ComTIA security",
-    },
-    {
-      id: 1,
-      text: "ComTIA security",
-    },
-    {
-      id: 2,
-      text: "ComTIA security",
-    },
-    {
-      id: 3,
-      text: "Entry-level",
-    },
-    {
-      id: 4,
-      text: "Offensive",
-    },
-    {
-      id: 5,
-      text: "Entry-level",
-    },
-    {
-      id: 6,
-      text: "CEH",
-    },
-    {
-      id: 7,
-      text: "MITRE ATT&CK",
-    },
-    {
-      id: 8,
-      text: "CISM",
-    },
-    {
-      id: 9,
-      text: "MITRE ATT&CK",
-    },
-    {
-      id: 10,
-      text: "MITRE ATT&CK",
-    },
-    {
-      id: 11,
-      text: "Neutral",
-    },
-    {
-      id: 12,
-      text: "CEH",
-    },
-    {
-      id: 13,
-      text: "CISM",
-    },
-    {
-      id: 14,
-      text: "ComTIA security",
-    },
-    {
-      id: 15,
-      text: "ComTIA security",
-    },
-    {
-      id: 16,
-      text: "Defensive",
-    },
-    {
-      id: 17,
-      text: "ComTIA security",
-    },
-    {
-      id: 18,
-      text: "CISM",
-    },
-    {
-      id: 19,
-      text: "CISM",
-    },
-  ];
 
+  const token = localStorage.getItem("token");
+
+  const {toastSuccess} = useContext(redirectContext);
+  
+  const dispatch = useDispatch();
+  const professionAndInterestData = useSelector(
+    (state) => state.onBoardingReducer
+  );
+
+  const [tagsData, setTagsData] = useState([]);
   const [selectedTags, setSelectedTags] = useState([]);
 
-  const continueHandler = () => {
-    SkipHandler();
-  };
+
 
   const SkipHandler = () => {
     setStep((prev) => prev + 1);
+    setSelectedTags([]);
+    dispatch({type:sendInterestedField(), payload:[]})
   };
 
-  const addTag = (selectedId) => {
+  const addTag = (selected) => {
     setSelectedTags((prev) => {
-      if (selectedTags.includes(selectedId)) {
-        return selectedTags.filter((id) => id !== selectedId);
+      if (prev.includes(selected)) {
+        return selectedTags.filter((ele) => ele._id !== selected._id);
       } else {
-        return [...selectedTags, selectedId];
+        return [...prev, selected];
       }
     });
+  };
+
+  const getfieldOfInterest = async () => {
+    try {
+      const response = await axios.get(`${baseUrl}/${fieldOfInterest}`);
+      if (response.data.success) {
+        setTagsData(response.data.data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {    
+    getfieldOfInterest();
+  }, []);
+
+  useEffect(() => {
+    dispatch({
+      type: sendInterestedField(),
+      payload: selectedTags.map((ele) => ele.name),
+    });
+  }, [selectedTags]);
+
+  const headers = {    
+    'Authorization': `Bearer ${token}`,
+  };
+
+
+  const userPreferenceApi = async() => {
+    console.log("HEADER:::", headers);
+    try {
+      const response = await axios.post(`${baseUrl}/${updateProfessionInterest}`,{...professionAndInterestData}, {headers});
+      console.log("response:::", response)
+      if(response.data.success){
+        toastSuccess("User Preference Updated Successfully!");
+      }
+    } catch (error) {
+      console.log("ERROR::::", error);
+      
+    }
+  }
+
+
+  const continueHandler = () => {
+    setStep((prev) => prev + 1);   
+    userPreferenceApi();
   };
 
   return (
@@ -113,21 +93,25 @@ const StepC = ({ setStep, name }) => {
       <p className="wow fadeInUp">Let’s help you setup your learning path</p>
 
       <div className="tags_wrap">
-        {tagsData.map((ele) => {
-          return (
-            <Fragment key={ele.id}>
-              <button
-                type="button"
-                className={`tagbtn wow fadeInUp ${
-                  selectedTags.includes(ele.id) ? "active" : ""
-                }`}
-                onClick={() => addTag(ele.id)}
-              >
-                {ele.text}
-              </button>
-            </Fragment>
-          );
-        })}
+        {tagsData.length > 0 ? (
+          tagsData.map((ele) => {
+            return (
+              <Fragment key={ele._id}>
+                <button
+                  type="button"
+                  className={`tagbtn wow fadeInUp ${
+                    selectedTags.includes(ele) ? "active" : ""
+                  }`}
+                  onClick={() => addTag(ele)}
+                >
+                  {ele.name}
+                </button>
+              </Fragment>
+            );
+          })
+        ) : (
+          <p>Data Does Not Found...</p>
+        )}
       </div>
 
       <div className="btns">

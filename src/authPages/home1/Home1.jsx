@@ -1,7 +1,7 @@
 import CoursesHeader from "../components/coursesheader/CoursesHeader";
 import WelComeStrip from "../components/welcomestrip/WelComeStrip";
 import "./Home1.scss";
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
 import RecommendedModules from "./recommendedmodules/RecommendedModules";
 import LiveSec from "./livesec/LiveSec";
 import PopularSkillPath from "./popularskillpath/PopularSkillPath";
@@ -14,6 +14,8 @@ import { icon } from "../../utils/images/icons";
 import { useDispatch } from "react-redux";
 import { resetAllToggler } from "../../store/actions";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { baseUrl, authHomeApi } from "../../utils/apidata";
 
 const Home1 = () => {
   const fourInfoData = [
@@ -43,6 +45,13 @@ const Home1 = () => {
     },
   ];
 
+  const name = localStorage.getItem("name");
+  const token = localStorage.getItem("token");
+
+  const [homeData, setHomeData] = useState();
+  const[savedCourse, setSavedCourse] = useState([]);
+  const [cta, setCta] = useState([]);
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -50,12 +59,35 @@ const resetToggler = () => {
   dispatch({type:resetAllToggler()});
 }
 
+const headers = {    
+  'Authorization': `Bearer ${token}`,
+};
+
+const homeApi = async() => {
+  try {
+      const response = await axios.get(`${baseUrl}/${authHomeApi}`, {headers});
+      console.log("RES:::", response);
+      if(response.data.success){
+        setHomeData(response.data.data);
+        setSavedCourse(response?.data?.data?.saved_courses);
+        setCta(response?.data?.data?.cta);
+      }
+  } catch (error) {
+    console.log("Error:::",error)
+  }
+}
+
+useEffect(() => {
+  homeApi();
+},[]);
+
+
   return (
     <Fragment>
       <div className="header_filler"></div>
       <CoursesHeader />
       <WelComeStrip
-        title="Welcome Rajat"
+        title={`Welcome ${name}`}
         text="This is a short copy nudging user to explore app and courses"
       />
       <section className="home_content_screen" onClick={resetToggler}>
@@ -79,12 +111,12 @@ const resetToggler = () => {
                   Cources
                 </button>
               </div>
-              <SavedList />
+              <SavedList dataList={savedCourse} />
               <ExploreCard />
               <OfferCard />
             </div>
           </div>
-          <BottomLive />
+          <BottomLive dataList={cta} />
         </div>
       </section>
     </Fragment>

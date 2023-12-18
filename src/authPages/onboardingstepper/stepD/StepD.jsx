@@ -12,8 +12,7 @@ const StepD = () => {
 
   const getCourses = async () => {
     try {
-      const response = await axios.get(`${baseUrl}/${CourseList}`);
-      console.log(response);
+      const response = await axios.get(`${baseUrl}/${CourseList}`);      
       if (response.status === 200) {
         setCourses(response.data.data);
       }

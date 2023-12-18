@@ -4,6 +4,9 @@ import { Fragment } from "react";
 import { useNavigate } from "react-router-dom";
 
 const ProfileMenu = ({ menuStatus }) => {
+
+
+
   const menuData = [
     {
       id: 0,
@@ -35,7 +38,10 @@ const ProfileMenu = ({ menuStatus }) => {
       id: 4,
       icon: icon.logout,
       text:"Logout",
-      clickHandler:() => {}
+      clickHandler:() => {
+        localStorage.clear();
+        navigate("/signin");
+      }
     },
   ];
 

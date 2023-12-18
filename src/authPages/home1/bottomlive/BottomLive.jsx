@@ -1,8 +1,9 @@
 import "./BottomLive.scss";
 import { images } from "../../../utils/images/images";
 import { Fragment } from "react";
+import { baseUrl } from "../../../utils/apidata";
 
-const BottomLive = () => {
+const BottomLive = ({dataList}) => {
   const liveData = [
     {
       id: 0,
@@ -25,20 +26,25 @@ const BottomLive = () => {
       title: "Help guide",
     },
   ];
+
+
+  console.log("LIST::", dataList);
   return (
     <div className="home_bottom_live">
-      {liveData.map((data, k) => {
+      {dataList.length > 0 ? dataList.map((data, k) => {
         return (
-          <Fragment key={data.id}>
+          <Fragment key={data._id}>
           <div className="live_card wow fadeInUp" data-wow-delay={`${0.15*k}s`} >
             <div className="img_wrap">
-              <img src={data.img} alt="poster" />
+              <img src={`${baseUrl}/${data.image}`} alt="poster" />
             </div>
-            <h5 className="small_title">{data.title}</h5>
-          </div>
+            <h5 className="small_title">{data.name}</h5>
+          </div>  
           </Fragment>
         );
-      })}
+      })
+    : <p>Data Not Found</p>
+    }
     </div>
   );
 };

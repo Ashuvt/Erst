@@ -24,6 +24,8 @@ import ExploreCourses from "../authPages/explorecourses/ExploreCourses";
 import CourseSidebar from "../layouts/coursesidebar/CourseSidebar";
 
 
+import ProtectedRoute from "../authPages/ProtectedRoute";
+
 export const RoutoingData = [
     {
         id:0,
@@ -58,56 +60,56 @@ export const RoutoingData = [
     {
         id:7,
         component:<SignIn />,
-        path:"/auth/signin"
+        path:"/signin"
     },
     {
         id:8,
         component:<GetStarted />,
-        path:"/auth/getstarted"
+        path:"/getstarted"
     },
     {
         id:9,
-        component:<OnBoardingSteppers />,
+        component:<ProtectedRoute><OnBoardingSteppers /></ProtectedRoute>,
         path:"auth/onboarding"
     },
     {
         id:10,
-        component:<Home1 />,
+        component:<ProtectedRoute><Home1 /></ProtectedRoute>,
         path:"/auth/home"
     },
     {
         id:11,
-        component:<Explore />,
+        component:<ProtectedRoute><Explore /></ProtectedRoute>,
         path:"/auth/explore"
     },
     {
         id:12,
-        component:<Live />,
+        component:<ProtectedRoute><Live /></ProtectedRoute>,
         path:"/auth/live"
     },
     {
         id:13,
-        component:<Groups />,
+        component:<ProtectedRoute><Groups /></ProtectedRoute>,
         path:"/auth/groups"
     },
     {
         id:14,
-        component:<Saved />,
+        component:<ProtectedRoute><Saved /></ProtectedRoute>,
         path:"/auth/saved"
     },
     {
         id:15,
-        component:<Profile />,
+        component:<ProtectedRoute><Profile /></ProtectedRoute>,
         path:"/auth/profile"
     },
     {
         id:16,
-        component:<ExploreCourses />,
+        component:<ProtectedRoute><ExploreCourses /></ProtectedRoute>,
         path:"/explore/course"
     },    
     {
         id:17,
-        component:<ExploreDetail />,
+        component:<ProtectedRoute><ExploreDetail /></ProtectedRoute>,
         path:"/explore/:detail"
     },
     {

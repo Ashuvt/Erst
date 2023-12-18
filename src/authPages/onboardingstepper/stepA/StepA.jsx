@@ -3,56 +3,65 @@ import "./StepA.scss";
 import { icon } from "../../../utils/images/icons";
 import { baseUrl, professionOption } from "../../../utils/apidata";
 import axios from "axios";
-// import { redirectContext } from "../../../context/RoutingContext";
+import { useDispatch } from "react-redux";
+import { sendProfession } from "../../../store/actions";
 
-const StepA = ({ setStep, name }) => {
-  // const {toastError} = useContext(redirectContext);
+const StepA = ({ setStep, name}) => {
+
+  const dispatch = useDispatch();
+
   const [optionsData, setOptionsData] = useState([]);
   const [selectedOption, setSelectedOption] = useState([]);
-  const [search, setSearch] = useState("")
+  const [search, setSearch] = useState("");
 
   const searchHandler = (e) => {
-    setSearch(e.target.value)
-  }
+    setSearch(e.target.value);
+  };
 
   const continueHandler = () => {
     SkipHandler();
+    dispatch({type:sendProfession(), payload:selectedOption.map(data => data.name)})
   };
 
   const SkipHandler = () => {
-    setStep((prev) => prev + 1);
+    setStep(prev => prev + 1);
+    setSelectedOption([]);
+    dispatch({type:sendProfession(), payload:[]})
   };
 
-
-  
-  const addSelection = (selectedId) => {
+  const addSelection = (selected) => {
     setSelectedOption((prev) => {
-      if (selectedOption.includes(selectedId)) {
-        return prev.filter((id) => id !== selectedId);
+      if (selectedOption.includes(selected)) {
+        return prev.filter((ele) => ele._id !== selected._id);
       } else {
-        return [...prev, selectedId];
+        return [...prev, selected];
       }
     });
   };
 
-  const getOptions = async() => {
-    try{
-      const response = await axios.get(`${baseUrl}/${professionOption}`);
-      console.log(response);
-      if(response.data.success){
+  const getOptions = async () => {
+    try {
+      const response = await axios.get(`${baseUrl}/${professionOption}`);      
+      if (response.data.success) {
         setOptionsData(response.data.data);
       }
-    }catch(error){
+    } catch (error) {
+      console.log(error);
     }
-  }
+  };
 
   useEffect(() => {
     getOptions();
-  },[]);
+  }, []);
 
   const searchedData = () => {
-    return optionsData.filter(data => data.name.toLowerCase().includes(search.toLowerCase()));
-  }
+    return optionsData.filter((data) =>
+      data.name.toLowerCase().includes(search.toLowerCase())
+    );
+  };
+
+
+
   return (
     <div className="step_a">
       <h1 className="small_title wow slideInUp">
@@ -74,21 +83,31 @@ const StepA = ({ setStep, name }) => {
           </div>
         </div>
 
-        {searchedData().length > 0 ? searchedData().map((data) => {
-          return (
-            <Fragment key={data._id}>
-              <div
-                className={`select_field ${selectedOption.includes(data._id) ? "active" : ''} wow fadeInUp `}
-                onClick={() => addSelection(data._id)}
-              >
-                <p className="small_text">{data.name}</p>
-                <div className="check_box">
-                  <img src={icon.checked} alt="checked" className={selectedOption.includes(data._id) ? "active" : ''} />
+        {searchedData().length > 0 ? (
+          searchedData().map((data) => {
+            return (
+              <Fragment key={data._id}>
+                <div
+                  className={`select_field ${
+                    selectedOption.includes(data) ? "active" : ""
+                  } wow fadeInUp `}
+                  onClick={() => addSelection(data)}
+                >
+                  <p className="small_text">{data.name}</p>
+                  <div className="check_box">
+                    <img
+                      src={icon.checked}
+                      alt="checked"
+                      className={selectedOption.includes(data) ? "active" : ""}
+                    />
+                  </div>
                 </div>
-              </div>
-            </Fragment>
-          );
-        }) : <p>No Options Found...</p>}
+              </Fragment>
+            );
+          })
+        ) : (
+          <p>No Options Found...</p>
+        )}
       </form>
 
       <div className="bottom_btn">

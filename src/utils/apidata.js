@@ -18,8 +18,23 @@ export const signIn = "api/userlogin"
 export const professionOption = "api/getproffession";
 
 // OnBoarding : Stepper-3 Field Of Interest Options
-export const firldOfInterest = ""
+export const fieldOfInterest = "api/getintrest";
+
+// OnBoarding Post on 3rd Step
+export const updateProfessionInterest = "api/userpreferences"
+
 
 // OnBoarding : Stepper-4 Red & Blue Course API
 export const CourseList = "api/getcourse"
 
+// Auth/Home page API
+
+export const authHomeApi = "api/homepageapi";
+
+
+// ::::::::Profile Page::::::::::::::
+
+// Profile Account Update
+export const profileUpdate = "api/profileupdate"
+// Help Submit
+export const help = "api/helpstore";

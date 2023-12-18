@@ -12,6 +12,8 @@ const WelComeStrip = ({ title, text }) => {
     const wow = new WOW();
     wow.init();
 
+    const name = localStorage.getItem("name")
+
     let currentIndex = 1;
     let direction = true;
 
