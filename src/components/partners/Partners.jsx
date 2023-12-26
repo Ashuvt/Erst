@@ -24,6 +24,10 @@ const Partners = () => {
       id: "05",
       img: logoImage.partnerE,
     },
+    {
+      id: "06",
+      img: logoImage.partnerF,
+    },
   
   ];
   return (
