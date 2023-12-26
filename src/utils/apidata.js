@@ -6,12 +6,20 @@ export const sendCv = "api/storecarrerapi";
 // Contact Page Need Assistance Form
 export const needAssistance = "api/storecontactapi";
 
+//Get all Blog List
+export const getAllBlogs = "api/getblogs"
+
+//Get Blog By Id add /id to following
+export const getBlogById = "api/blogdetails"
+
 // GetStarted API Registration
 export const getStarted = "api/userregister";
 
 // SignIn API
 export const signIn = "api/userlogin"
 
+// Forgot Password
+export const forgotPassword = "api/forgotpassword";
 
 
 // OnBoarding : Stepper-1 Profession Options
@@ -33,6 +41,9 @@ export const authHomeApi = "api/homepageapi";
 
 
 // ::::::::Profile Page::::::::::::::
+
+// Get Profile data
+export const getProfile = "api/userprofile"
 
 // Profile Account Update
 export const profileUpdate = "api/profileupdate"

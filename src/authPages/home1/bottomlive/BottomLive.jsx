@@ -4,28 +4,7 @@ import { Fragment } from "react";
 import { baseUrl } from "../../../utils/apidata";
 
 const BottomLive = ({dataList}) => {
-  const liveData = [
-    {
-      id: 0,
-      img: images.liveA,
-      title: "Help guide",
-    },
-    {
-      id: 1,
-      img: images.liveB,
-      title: "Popular courses",
-    },
-    {
-      id: 2,
-      img: images.liveC,
-      title: "Community",
-    },
-    {
-      id: 3,
-      img: images.liveD,
-      title: "Help guide",
-    },
-  ];
+ 
 
 
   console.log("LIST::", dataList);
@@ -43,7 +22,7 @@ const BottomLive = ({dataList}) => {
           </Fragment>
         );
       })
-    : <p>Data Not Found</p>
+    : <p>Data Not Found...</p>
     }
     </div>
   );

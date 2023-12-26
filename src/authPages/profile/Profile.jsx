@@ -9,10 +9,15 @@ import Subscription from "./subscription/Subscription";
 import EmailNotification from "./emailnotification/EmailNotification";
 import Help from "./help/ProfileHelp";
 import WOW from "wow.js";
-import { useDispatch } from "react-redux";
-import { resetAllToggler } from "../../store/actions";
+import { useDispatch, useSelector } from "react-redux";
+import { profileTabChanger, resetAllToggler } from "../../store/actions";
+import axios from "axios";
+import { baseUrl, getProfile } from "../../utils/apidata";
+import { getProfileData } from "../../store/actions";
 
 const Profile = () => {
+  const [profile, setProfile] = useState();
+  const token = localStorage.getItem("token");
   const optionData = [
     {
       id: 0,
@@ -46,20 +51,46 @@ const Profile = () => {
     wow.init();
   }, []);
 
-  const [tab, setTab] = useState(0);
-
   const dispatch = useDispatch();
 
   const resetToggler = () => {
     dispatch({ type: resetAllToggler() });
   };
 
+  const tab = useSelector((state) => state.profileTabReducer);
+
+  const headers = {
+    Authorization: `Bearer ${token}`,
+  };
+
+  const getProfileApi = async () => {
+    try {
+      const response = await axios.get(`${baseUrl}/${getProfile}`, { headers });
+      console.log("Response:::", response.data.data);
+      if(response?.data.success){
+        setProfile(response?.data?.data);
+        dispatch({type:getProfileData(),payload:response?.data?.data})
+      }
+    } catch (error) {
+      console.log("Error:", error)
+    }
+  };
+
+  useState(() => {
+    getProfileApi();
+  },[]);
+
+  const recallProfile = () => {
+    getProfileApi();
+    console.log("API RECALLED");
+  }
+
   return (
     <Fragment>
       <CoursesHeader />
       <div className="header_filler"></div>
       <ProfileBanner />
-      <section className="profile_screens" onClick={resetToggler} >
+      <section className="profile_screens" onClick={resetToggler}>
         <div className="screen_container">
           <div className="side_menu">
             {optionData.map((data) => {
@@ -68,7 +99,9 @@ const Profile = () => {
                   <button
                     type="button"
                     className={data.id === tab ? "active" : ""}
-                    onClick={() => setTab(data.id)}
+                    onClick={() =>
+                      dispatch({ type: profileTabChanger(), payload: data.id })
+                    }
                   >
                     <img src={data.icon} alt="icon" />
                     {data.text}
@@ -79,7 +112,7 @@ const Profile = () => {
           </div>
           <div className="menu_screens">
             {tab === 0 && <MyProfile />}
-            {tab === 1 && <Accounts />}
+            {tab === 1 && <Accounts profile={profile} recallProfile={recallProfile} />}
             {tab === 2 && <Subscription />}
             {tab === 3 && <EmailNotification />}
             {tab === 4 && <Help />}

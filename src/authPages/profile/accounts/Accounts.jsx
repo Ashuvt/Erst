@@ -11,9 +11,12 @@ import { baseUrl, profileUpdate } from "../../../utils/apidata";
 import { useContext, useState } from "react";
 import { redirectContext } from "../../../context/RoutingContext";
 
-const Accounts = () => {
-  const email = localStorage.getItem("email");
-  const name = localStorage.getItem("name");
+const Accounts = ({profile, recallProfile}) => {
+
+  const profileData = useSelector(state => state?.getProfileDataReducer);
+  console.log(profileData);
+  // const email = localStorage.getItem("email");
+  // const name = localStorage.getItem("name");
   const token = localStorage.getItem("token");
 
   const { toastSuccess, toastError } = useContext(redirectContext);
@@ -54,7 +57,9 @@ const Accounts = () => {
 
       if(response.data.success) {
         toastSuccess("Profile Update Success!");
+        recallProfile();
         setLoader(false);
+        
       } else {
         toastError("Something Went Wrong!");
         setLoader(false);
@@ -65,23 +70,22 @@ const Accounts = () => {
     }
   };
 
-  const initialValues = {
-    name: name,
-    country: "",
-    profile: "",
-    bio: "",
+  let initialValues = {
+    name:profileData?.name || "",
+    country:profileData?.country || "",
+    profile:"",
+    bio:profileData?.bio || "",
   };
 
   const validationSchema = Yup.object({
     name: Yup.string().required("Name is required!"),
     country: Yup.string().required("Country is required!"),
     bio: Yup.string().required("Bio is required!"),
-    profile: Yup.mixed().required("Profile is required"),
   });
 
   const onSubmit = (values, {resetForm}) => {
     profileUpdateApi(values);
-    resetForm();
+    // resetForm();
   };
 
   const ddToggler = (event) => {
@@ -92,7 +96,7 @@ const Accounts = () => {
     <div className="profile_accounts">
       <div className="profile_info wow fadeInUp">
         <div className="profile_wraper">
-          <img src={images.profileb} alt="profile" />
+          <img src={`${baseUrl}/${profile?.profile}`} alt="profile" />
         </div>
         <div className="text_info">
           <h5 className="small_title">Account</h5>
@@ -109,7 +113,12 @@ const Accounts = () => {
           <div className="bi_grid">
             <div className="profile_field wow fadeInUp">
               <label html="name">Name</label>
-              <Field type="text" placeholder="name" name="name" id="name" />
+              <Field 
+                type="text" 
+                placeholder="name" 
+                name="name" 
+                id="name" 
+              />
               <ErrorMessage name="name" component={FieldErrorMessage} />
             </div>
 
@@ -123,6 +132,7 @@ const Accounts = () => {
                   name="country"
                   className="dd"
                   onClick={ddToggler}
+                  
                 />
                 <div className={`option_wrap ${ddStatus ? "open" : "close"}`}>
                   {countryList.map((data) => {

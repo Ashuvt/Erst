@@ -411,7 +411,11 @@ const Explore = () => {
                 {courcesData.map((data, k) => {
                   return (
                     <Fragment key={data.id}>
-                      <ExploreCard {...data} index={k} />
+                      <ExploreCard
+                      {...data} 
+                      index={k}
+                      redirectTo="/explore/courses"
+                       />
                     </Fragment>
                   );
                 })}
@@ -428,7 +432,7 @@ const Explore = () => {
                       <ExploreCard
                         {...data}
                         index={k}
-                        redirectTo="/explore/course"
+                        redirectTo="/explore/courses"
                       />
                     </Fragment>
                   );

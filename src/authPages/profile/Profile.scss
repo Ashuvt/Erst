@@ -25,6 +25,8 @@ section.profile_screens{
             background: $textContrast;
             min-height:400px;
             height:calc(100vh - 320px);
+            border-radius: 4px;
+            overflow: hidden;
             @media only screen and (max-width:900px){
                 position:relative;
                 top:0px;
@@ -79,6 +81,7 @@ section.profile_screens{
         .menu_screens{
             width:calc(100% - 340px);
             min-height:400px;
+          
             
             @media only screen and (max-width:900px){
                 width:100%;

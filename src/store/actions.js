@@ -9,6 +9,9 @@ import {
   MULTILANG_TOGGLER,
   COUNTRY_DD_TOGGLER,
   LANG,
+  GET_PROFILE_DATA,
+
+  PROFILE_TAB_CHANGER,
 
   SEND_PROFESSIONS,
   SEND_INTERESTED_FIELD
@@ -62,4 +65,13 @@ export const sendProfession = () => {
 
 export const sendInterestedField = () => {
   return SEND_INTERESTED_FIELD;
+}
+
+
+export const profileTabChanger = () => {
+  return PROFILE_TAB_CHANGER;
+}
+
+export const getProfileData = () => {
+  return GET_PROFILE_DATA;
 }

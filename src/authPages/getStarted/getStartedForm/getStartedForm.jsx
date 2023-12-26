@@ -30,6 +30,8 @@ const GetStartedForm = () => {
     },
   ];
 
+  const [loader, setLoader] = useState(false);
+
   const {
     signInHandler,
     goToOnBoarding,
@@ -64,6 +66,7 @@ const GetStartedForm = () => {
     dispatch({ type: contryDdToggler(), payload: !ddStatus });
   };
   const registration = async (data) => {
+    setLoader(true);
     try {
       const response = await axios.post(`${baseUrl}/${getStarted}`, {
         ...data,
@@ -72,6 +75,7 @@ const GetStartedForm = () => {
         toastClear();
         toastSuccess("Registration Success!");
         goToOnBoarding();
+        setLoader(false);
         localStorage.setItem("token", response.data.token);
         localStorage.setItem("name", response.data.data.name);
       } else {
@@ -187,9 +191,22 @@ const GetStartedForm = () => {
           </p>
 
           <div className="btns">
-            <button className="authbtn auth_primary wow fadeInUp" type="submit">
-              Get started for free
-            </button>
+            {loader ? (
+              <button
+                className="authbtn auth_primary wow fadeInUp"
+                type="button"
+              >
+                Loading...
+              </button>
+            ) : (
+              <button
+                className="authbtn auth_primary wow fadeInUp"
+                type="submit"
+              >
+                Get started for free
+              </button>
+            )}
+
             <button
               type="button"
               className="authbtn auth_secondary wow fadeInUp"

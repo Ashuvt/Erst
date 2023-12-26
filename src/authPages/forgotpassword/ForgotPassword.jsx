@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { redirectContext } from "../../context/RoutingContext";
-import "./SignIn.scss";
+import "../signin/SignIn.scss";
 import { Fragment } from "react";
 import LoginHeader from "../components/loginHeader/LoginHeader";
 import { icon } from "../../utils/images/icons";
@@ -8,24 +8,22 @@ import FieldErrorMessage from "../components/errorMessage/FieldErrorMessage";
 import WOW from "wow.js";
 import * as Yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { baseUrl, signIn } from "../../utils/apidata";
+import { baseUrl, forgotPassword } from "../../utils/apidata";
 import axios from "axios";
 
-const SignIn = () => {
-  const { signUpHandler, toastError, toastSuccess, goToAuthHome, goToForgotPassword } = useContext(redirectContext);
+const ForgotPassword = () => {
+  const { signInHandler, signUpHandler, toastError, toastSuccess} = useContext(redirectContext);
 
   const [loader, setLoader] = useState(false);
 
   const initialValues = {
-    email: "",
-    password: "",
+    email: "",  
   };
 
   const validationSchema = Yup.object({
     email: Yup.string()
       .email("invalid email formate!")
-      .required("email is required!"),
-    password: Yup.string().required("password is required!"),
+      .required("email is required!"),  
   });
 
   useEffect(() => {
@@ -38,21 +36,16 @@ const SignIn = () => {
   const onSubmit = async (values) => {
     setLoader(true);
     try {
-      const response = await axios.post(`${baseUrl}/${signIn}`, values);   
-      console.log(response);   
-      if(response.data.success){   
-        toastSuccess("Sign In Success!");
-        localStorage.setItem("token", response.data.token);
-        localStorage.setItem("name", response.data.data.name);
-        localStorage.setItem("email", response.data.data.email);
+      const response = await axios.post(`${baseUrl}/${forgotPassword}`, values);   
+      if(response.data.success){         
         setLoader(false);
-        goToAuthHome();
+        toastSuccess("We have send New password, please check Mail.")
+        signInHandler();
       }else{
         toastError(response.data.message);
         setLoader(false);
       }
     } catch (error) {
-      console.log("ERROR:::", error);
       if (error.message) {
         toastError(error.message || "Something Went Wrong!");
       }
@@ -78,11 +71,11 @@ const SignIn = () => {
           >
             <Form>
               <div className="title">
-                <h1 className="small_title wow fadeInUp">Sign In</h1>
+                <h1 className="small_title wow fadeInUp">Forgot Password</h1>
                 <div className="suggetion wow fadeInUp">
-                  <p>New user?</p>
-                  <button type="button" onClick={signUpHandler}>
-                    <p>Get started for free</p>
+                  <p>Already Have An Account?</p>
+                  <button type="button" onClick={signInHandler}>
+                    <p>Sign In</p>
                   </button>
                 </div>
               </div>
@@ -102,29 +95,7 @@ const SignIn = () => {
                 <ErrorMessage name="email" component={FieldErrorMessage} />
               </div>
 
-              <div className="auth_field mt wow fadeInUp">
-                <label htmlFor="Password">password</label>
-
-                <div className="input_wrap">
-                  <Field
-                    type={`${eye ? "text" : "password"}`}
-                    placeholder="password"
-                    id="Password"
-                    name="password"
-                    autoComplete="off"                  
-                  />
-                 
-                  <button type="button" onClick={() => setEye(!eye)}>
-                    {eye ? (
-                      <img src={icon.eyeSlash} alt="email" />
-                    ) : (
-                      <img src={icon.eye} alt="email" />
-                    )}
-                  </button>
-                </div>
-                <ErrorMessage name="password" component={FieldErrorMessage} />
-              </div>
-              <button type="button" className="forgot_password wow fadeInUp" onClick={goToForgotPassword}>Forgot Password</button>
+             
               <div className="btns">
                 {loader ? 
                 <button
@@ -139,15 +110,8 @@ const SignIn = () => {
                   className="authbtn auth_primary wow fadeInUp"
                   type="submit"
                 >
-                  Sign In
-                </button>}
-                <button
-                  className="authbtn auth_secondary wow fadeInUp"
-                  type="button"
-                  onClick={signUpHandler}
-                >
-                  Get started for free
-                </button>
+                  Next
+                </button>}       
               </div>
             </Form>
           </Formik>
@@ -157,4 +121,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default ForgotPassword;

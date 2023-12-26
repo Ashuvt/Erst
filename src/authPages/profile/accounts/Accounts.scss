@@ -8,6 +8,7 @@
     border: 0.5px solid $primary;
     background: $textContrast;
     height: 100%;
+    border-radius:4px;
     @media only screen and (max-width:$tab){
         padding:20px;
     }

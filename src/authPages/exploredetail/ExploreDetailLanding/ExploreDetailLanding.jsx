@@ -83,7 +83,7 @@ const ExploreDetailLanding = ({
             })}
           </div>
           <button type="button" className="authbtn auth_primary wow fadeInUp">
-            Enroll For Free
+            Add To Cart
           </button>
         </div>
       </div>

@@ -1,4 +1,9 @@
-import { SEND_PROFESSIONS, SEND_INTERESTED_FIELD } from "../consts";
+import {
+  SEND_PROFESSIONS,
+  SEND_INTERESTED_FIELD,
+  PROFILE_TAB_CHANGER,
+  GET_PROFILE_DATA,
+} from "../consts";
 
 const initialState = {
   proffession: [],
@@ -12,6 +17,28 @@ export const onBoardingReducer = (state = initialState, action) => {
 
     case SEND_INTERESTED_FIELD:
       return { ...state, intrest: [...action.payload] };
+
+    default:
+      return state;
+  }
+};
+
+export const profileTabReducer = (state = 0, action) => {
+  switch (action.type) {
+    case PROFILE_TAB_CHANGER:
+      return action.payload;
+
+    default:
+      return state;
+  }
+};
+
+const initialProfile = {};
+
+export const getProfileDataReducer = (state = initialProfile, action) => {
+  switch (action.type) {
+    case GET_PROFILE_DATA:
+      return {...action.payload};
 
     default:
       return state;

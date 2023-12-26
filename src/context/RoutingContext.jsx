@@ -20,16 +20,17 @@ const dispatch = useDispatch();
 // For Login Page
   const signInHandler = () => {
     navigation("/signin");
-    // /auth/signin
-    // /comingsoon
   };
 
   // For Getstarted Page (Sign Up)
   const signUpHandler = () => {
     navigation("/getstarted");
-    // /auth/getstarted
-    // /comingsoon
   };
+
+  // For Forgot Password
+const goToForgotPassword = () => {
+  navigation("/forgotpassword");
+}
 
   // Web Home
   const goToHome = () => {
@@ -79,7 +80,7 @@ const dispatch = useDispatch();
     goToBlogDetail,
     goToOnBoarding,
     goToAuthHome,
-
+    goToForgotPassword,
 
     toastSuccess,
     toastError,

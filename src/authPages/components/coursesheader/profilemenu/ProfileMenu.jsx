@@ -2,10 +2,11 @@ import "./ProfileMenu.scss";
 import { icon } from "../../../../utils/images/icons";
 import { Fragment } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import {profileTabChanger} from "../../../../store/actions";
 
 const ProfileMenu = ({ menuStatus }) => {
-
-
+  const dispatch = useDispatch();
 
   const menuData = [
     {
@@ -14,28 +15,38 @@ const ProfileMenu = ({ menuStatus }) => {
       text: "My Profile",
       clickHandler:() => {
         navigate("/auth/profile");
+        dispatch({type:profileTabChanger(), payload:0});
       }
     },
     {
       id: 1,
       icon: icon.courses,
       text: "My Courses",
-      clickHandler:() => {}
+      clickHandler:() => {
+        navigate("/auth/profile");
+        dispatch({type:profileTabChanger(), payload:2});
+      }
     },
     {
       id: 2,
       icon: icon.calender,
       text: "Manage Subscription",
-      clickHandler:() => {}
-    },
-    {
-      id: 3,
-      icon: icon.help,
-      text: "Help",
-      clickHandler:() => {}
+      clickHandler:() => {
+        navigate("/auth/profile");
+        dispatch({type:profileTabChanger(), payload:2});
+      }
     },
     {
       id: 4,
+      icon: icon.help,
+      text: "Help",
+      clickHandler:() => {
+        navigate("/auth/profile");
+        dispatch({type:profileTabChanger(), payload:4});
+      }
+    },
+    {
+      id: 5,
       icon: icon.logout,
       text:"Logout",
       clickHandler:() => {
@@ -44,6 +55,8 @@ const ProfileMenu = ({ menuStatus }) => {
       }
     },
   ];
+
+  const tab = useSelector(state => state.profileTabReducer);
 
   const navigate = useNavigate();
   return (
@@ -54,7 +67,7 @@ const ProfileMenu = ({ menuStatus }) => {
       {menuData.map((data) => {
         return (
           <Fragment key={data.id}>
-            <button type="button" onClick={data.clickHandler}>
+            <button type="button" onClick={data.clickHandler} className={tab === data.id ? 'active' : ''}>
               <img src={data.icon} alt="icon" />
               <p>{data.text}</p>
             </button>

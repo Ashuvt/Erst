@@ -41,8 +41,7 @@ const AddCartPopup = () => {
     e.stopPropagation();
   };
 
-  const inputHandler = () => {
-  }
+  const inputHandler = () => {};
   return (
     <div
       className={`add_cart_popup ${cartPopupStatus ? "open" : "close"}`}
@@ -70,14 +69,17 @@ const AddCartPopup = () => {
                       <button type="button">remove</button>
                     </div>
                   </div>
-                  <div className="count">
+                  {/* <div className="count">
                     <button type="button">-</button>
                     <form>
-                    <input type="number" value={data.count} onChange={inputHandler} />
+                      <input
+                        type="number"
+                        value={data.count}
+                        onChange={inputHandler}
+                      />
                     </form>
                     <button type="button">+</button>
-                    
-                  </div>
+                  </div> */}
                 </div>
               );
             })}

@@ -3,7 +3,7 @@ import { useState, useEffect, useContext } from "react";
 import Pill from "../../../components/pill/Pill";
 import CircleArrowBtn from "../../../components/circlearrowbtn/CircleArrowBtn";
 import axios from "axios";
-import { baseUrl } from "../../../utils/apidata";
+import { baseUrl, getAllBlogs } from "../../../utils/apidata";
 import { redirectContext } from "../../../context/RoutingContext";
 import Loader from "../../../components/loader/Loader";
 
@@ -19,7 +19,7 @@ const AllBlogs = () => {
     try {
       setLoading(true);
       setError(null);
-      const response = await axios.get(`${baseUrl}/getblogs`);
+      const response = await axios.get(`${baseUrl}/${getAllBlogs}`);
       if(response.status === 200){
         setBlogData(response.data.data);
         setLoading(false);
@@ -38,7 +38,7 @@ useEffect(() => {
   return (
     <section className="tech_blog p_top p_bottom">
       <div className="content_wrap">
-        {blogData &&
+        {blogData?.length > 0 &&
           blogData.map((data) => {
             return (
               <div className="blog_wrap" key={data._id} onClick={() => goToBlogDetail(data._id)}>

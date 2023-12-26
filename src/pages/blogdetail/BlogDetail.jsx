@@ -2,7 +2,7 @@ import { Fragment, useEffect, useState } from "react";
 import WOW from "wow.js";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { baseUrl } from "../../utils/apidata";
+import { baseUrl, getBlogById } from "../../utils/apidata";
 
 // Components
 import Loader from "../../components/loader/Loader";
@@ -26,7 +26,7 @@ const BlogDetail = () => {
       setLoading(true);
       setError(null);
       const response = await axios.get(
-        `${baseUrl}/blogdetails/${id}`
+        `${baseUrl}/${getBlogById}/${id}`
       );
       if (response.status === 200) {
         setBlogDetail(response.data.data);

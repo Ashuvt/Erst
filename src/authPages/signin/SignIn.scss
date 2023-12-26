@@ -44,7 +44,6 @@ section.login_form {
                     button {
                         border-style: none;
                         background-color: transparent;
-
                         p {
                             color: $primary;
                             text-decoration: 1px solid underline;
@@ -56,17 +55,24 @@ section.login_form {
 
             }
 
+        
             .btns {
                 display: flex;
                 flex-direction: column;
                 gap: 16px;
-                margin-top: 52px;
+                margin-top:20px;              
 
                 button {
                     width: 100%;
                 }
             }
-
+            button.forgot_password{
+                border-style: none;
+                background-color: transparent;
+                margin:20px 0px 0px;
+                color:$primary;
+                
+            }
         }
     }
 }

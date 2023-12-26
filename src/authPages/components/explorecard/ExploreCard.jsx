@@ -12,7 +12,7 @@ const navigate = useNavigate();
       <div className="poster_wrap">
         <span>Cources</span>
         <img src={img} alt="poster" />
-        <button type="button">
+        <button type="button" >
           {saved ? (
             <img src={icon.saved} alt="save" />
           ) : (

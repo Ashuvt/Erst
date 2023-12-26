@@ -25,6 +25,7 @@ import CourseSidebar from "../layouts/coursesidebar/CourseSidebar";
 
 
 import ProtectedRoute from "../authPages/ProtectedRoute";
+import ForgotPassword from "../authPages/forgotpassword/ForgotPassword";
 
 export const RoutoingData = [
     {
@@ -66,6 +67,11 @@ export const RoutoingData = [
         id:8,
         component:<GetStarted />,
         path:"/getstarted"
+    },
+    {
+        id:81,
+        component:<ForgotPassword />,
+        path:"/forgotpassword"
     },
     {
         id:9,
@@ -110,7 +116,7 @@ export const RoutoingData = [
     {
         id:17,
         component:<ProtectedRoute><ExploreDetail /></ProtectedRoute>,
-        path:"/explore/:detail"
+        path:"/explore/:courseId"
     },
     {
         id:18,

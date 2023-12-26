@@ -5,13 +5,15 @@
 
 
 .profile_menu_card {
-    padding: 24px;
+    padding: 24px 0px 0px;
     width: 240px;
     border-radius: 8px;
     position: absolute;
     top: 90px;
     right: 0px;
     transition: all 0.5s ease-in-out;
+    overflow: hidden;
+
 
     &::after {
         position: absolute;
@@ -54,7 +56,7 @@
     }
 
     @media only screen and (max-width:$tab) {
-        padding: 15px;
+        padding:0px 15px;
     }
 
     @media only screen and (max-width:$mobile) {
@@ -67,6 +69,10 @@
         position: relative;
         z-index: 3;
         pointer-events: none;
+        padding-left:24px;
+        @media only screen and (max-width:$tab) {
+            padding-left:15px;
+        }
     }
 
     button {
@@ -77,11 +83,25 @@
         border-style: none;
         background: transparent;
         gap:15px;
-        margin-top:8px;
         position: relative;
         z-index: 3;
+        width:100%;
+        display: flex;
+        justify-content: flex-start;
+        padding:8px 24px;
+        transition:all 0.3s ease-in-out;
+        @media only screen and (max-width:$tab) {
+            padding:5px 15px;
+        }
+        img{
+            padding:0px;
+            margin:0px;
+        }
         p {
             @include font('Inter-Regular', 14px, 20px, 400, $textPrimary);
+        }
+        &:hover, &.active{
+            background-color: rgba($white,0.1);
         }
     }
 
