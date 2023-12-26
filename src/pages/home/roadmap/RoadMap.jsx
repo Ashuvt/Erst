@@ -41,7 +41,7 @@ const RoadMap = ({t}) => {
     {
       id: "000",
       name:t('redTitle'),
-      img: icon.redTeam,
+      img: icon.transparentRed,
       type: "#CC0A0A",
       about:t('redPara'),
       courses: [
@@ -86,7 +86,7 @@ const RoadMap = ({t}) => {
     {
       id: "111",
       name:t('blueTitle'),
-      img: icon.blueTeam,
+      img: icon.transparentBlue,
       type: "#0A1633",
       about:t('bluePara'),        
       courses: [

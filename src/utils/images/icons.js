@@ -58,6 +58,9 @@ import bgGlass from "../../assets/images/icons/userglass.svg";
 import float from "../../assets/images/icons/floating.svg";
 import alertTriangle from "../../assets/images/icons/alert.png";
 
+import transparentBlue from "../../assets/images/logos/transparent-BlueTeam.png";
+import transparentRed from "../../assets/images/logos/transparent-RedTeam.png";
+
 
 
 export const icon = {
@@ -122,4 +125,7 @@ export const icon = {
   playfill,
   userFill,
   alertTriangle,
+
+  transparentBlue,
+  transparentRed,
 };
