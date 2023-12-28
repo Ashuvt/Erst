@@ -4,10 +4,6 @@ import { Fragment } from "react";
 import { baseUrl } from "../../../utils/apidata";
 
 const BottomLive = ({dataList}) => {
- 
-
-
-  console.log("LIST::", dataList);
   return (
     <div className="home_bottom_live">
       {dataList.length > 0 ? dataList.map((data, k) => {

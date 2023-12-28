@@ -1,0 +1,124 @@
+@import "../../../../scss/common";
+@import "../../../../scss/mixin";
+@import "../../../../scss/typography";
+@import "../../../../scss/variables";
+
+.one_three_float{
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+    @media only screen and (max-width:1250px){
+     height:150px;
+    }
+    @media only screen and (max-width:900px){
+        display:none;
+    }
+    .t_line{
+        position: absolute;
+        top: 0px;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+        height: 149px;
+        width: 1px;
+        background-color: $lightBorder_3;
+    }
+    .h_line{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, calc(-50% - 2px));
+        transform: translate(-50%, calc(-50% - 2px));
+        height: 1px;
+        width:calc(50% + 50px);
+        background-color: $lightBorder_3;
+        @media only screen and (max-width:1250px){
+            display: none;
+        }
+      .left{
+        position: absolute;
+        top: 1px;
+        left:0%;        
+        height: 150px;
+        width: 1px;
+        background-color: $lightBorder_3;
+        @media only screen and (max-width:1250px){
+            display: none;
+        }
+      }
+      .right{
+        position: absolute;
+        top: 1px;
+        right:0%;        
+        height: 150px;
+        width: 1px;
+        background-color: $lightBorder_3;
+        @media only screen and (max-width:1250px){
+            display: none;
+        }
+      }
+      .center{
+        position: absolute;
+        top: 1px;
+    left:50%;
+        transform: translate(-50%);        
+        height: 150px;
+        width: 1px;
+        background-color: $lightBorder_3;
+      }
+    }
+    
+    .circle {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        background-color: $dark;
+        display: grid;
+        place-items: center;
+        z-index: 0;
+        position: absolute;
+        -webkit-transform:translateX(-50%);
+       transform:translateX(-50%);
+        top: 0px;
+
+        .a {
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+            background-color: rgba($primary, 0.3);
+            display: grid;
+            place-items: center;
+
+            .b {
+                height: 18px;
+                width: 18px;
+                border-radius: 50%;
+                background-color: rgba($primary, 0.5);
+                display: grid;
+                place-items: center;
+
+                .c {
+                    height: 8px;
+                    width: 8px;
+                    border-radius: 50%;
+                    background-color: rgba($primary, 1);
+                    display: grid;
+                    place-items: center;
+                }
+            }
+        }
+
+        &.l, &.r{
+            @media only screen and (max-width:1250px){
+                display: none;
+            }
+        }
+    }
+
+    .moving_line{
+        position:relative;
+        width:calc(50% + 50px);
+        margin-left:auto;
+        margin-right:auto;
+    }
+}

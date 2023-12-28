@@ -44,10 +44,8 @@ const Header = ({t}) => {
             <NavLink to="/">{t('Home')}</NavLink>
             <NavLink to="/about">{t('About')}</NavLink>
             <NavLink to="/careers">{t('Careers')}</NavLink>               
-            <NavLink to="/blogs">{t('Blogs')}</NavLink>     
-            {/* <NavLink to="/faq">FAQ</NavLink> */}
-            <NavLink to="/contact">{t('Contact')}</NavLink>          
-       
+            <NavLink to="/blogs">{t('Blogs')}</NavLink>           
+            <NavLink to="/contact">{t('Contact')}</NavLink> 
           </nav>
           <div className="btns">
           <button 
@@ -65,15 +63,6 @@ const Header = ({t}) => {
               {t('signUp')}
             </button>
 
-    
-           
-
-            {/* <button type="button" className="cartbtn" onClick={openCartPopup}>
-              <div className="notification">2</div>
-              <img src={icons.addCart} alt="cart" />
-            </button> */}
-
-            
             <HembergerMenu clickHandler={menuToggler} status={sidebarStatus} />
             <LanguageDd />
 

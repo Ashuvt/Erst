@@ -6,7 +6,7 @@ import { baseUrl } from "../../../../utils/apidata";
 const RedBlueCard = ({
   image,
   name,
-  team,
+  description,
   small_description,
   students,
   course_time,
@@ -44,6 +44,7 @@ const RedBlueCard = ({
           >
             Explore Free Lessons
           </button>
+          <div dangerouslySetInnerHTML={{ __html: description }}></div>
           </div>       
         </div>
       </div>

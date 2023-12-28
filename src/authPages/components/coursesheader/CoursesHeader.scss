@@ -57,6 +57,27 @@ section.courses_header {
                         gap:8px;
                     }
 
+                    &.cartbtn {
+                        border-style: none;
+                        background-color: transparent;
+                        position:relative;                        
+                        .notification {
+                            height: 20px;
+                            width: 20px;
+                            border-radius: 50%;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            background: $primaryGradient_5;
+                            position:absolute;
+                            top:-15px;
+                            right:-15px;
+                            p{
+                                @include font('Inter-Regular', 12px, 11px, 400, $white);
+                            }
+                        }
+                    }
+
                     .img_wrap {
                         height: 32px;
                         width: 32px;

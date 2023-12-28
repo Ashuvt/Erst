@@ -1,32 +1,53 @@
 @import "../../scss/variables";
 
-section.our_partners{
-    position:relative;
-    z-index:2;
-    padding-top:60px;
-    padding-bottom:60px;
+section.our_partners {
+    position: relative;
+    z-index: 2;
+    padding-top: 60px;
+    padding-bottom: 60px;
 
-    .content_wrap{
+    .content_wrap {
         .logo_space {
-            position:relative;
+            position: relative;
             border: 1px solid $cardBorder;
             border-radius: 12px;
             padding: 12px;
-            display: flex;
-            justify-content:center;
-            align-items: center;
-            gap:20px;
-            flex-wrap: wrap;        
-            .logo_wraper {
-                opacity: 0.6;
-                transition: all 0.3s ease-in-out;
-                img{
-                    max-width:210px;
+
+            .logo_card {
+
+                height: 150px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                @media only screen and (max-width:$tab){
+                 height:100px;
                 }
-        
-                &:hover {
-                    opacity: 1;
+
+                img {
+                    max-width: 210px;
+                    max-height: 120px;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    opacity: 0.6;
+                    transition: all 0.3s ease-in-out;
+                    @media only screen and (max-width:$tab){
+                        max-height:80px;
+                        max-width:150px;
+                    }
+                    @media only screen and (max-width:400px){
+                        max-height:130px;
+                        max-width:200px;
+                    }
+                    &:hover {
+                        opacity: 1;
+                    }
                 }
+
+
             }
         }
     }

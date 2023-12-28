@@ -1,34 +1,40 @@
 import "./CourseCard.scss";
-import { Fragment } from "react";
 import { icon } from "../../../../utils/images/icons";
+import { baseUrl } from "../../../../utils/apidata";
 import { useNavigate } from "react-router-dom";
 
-const CourseCard = ({ name, img, type, about, courses, t }) => {
+const CourseCard = ({
+  name,
+  image,
+  description,
+  small_description,
+  course_time,
+  students,
+  t,
+}) => {
   const navigate = useNavigate();
 
   return (
     <div className="course_card">
       <div className="sticky_content">
         <div className="img_wrap">
-          <img src={img} alt="logo" />
+          <img src={`${baseUrl}/${image}`} alt="logo" />
         </div>
         <div className="name_line">
-          <div className="box" style={{ background: `${type}` }}></div>
+          <div className={`box ${name}`}></div>
           <p className="t-g-18">{name}</p>
         </div>
-      </div>
-      <div className="courses_list">
-        <p>{about}</p>
-        <p className="t-g-18">{t('availTitle')}</p>
-        <ol>
-          {courses.map((ele) => {
-            return (
-              <Fragment key={ele.id}>
-                <li>{ele.course}</li>
-              </Fragment>
-            );
-          })}
-        </ol>
+        <div className="counts">
+          <div className="info">
+            <img src={icon.students} alt="students" />
+            <p>{students}</p>
+          </div>
+          <div className="info">
+            <img src={icon.clock} alt="clock" />
+            <p>{course_time}</p>
+          </div>
+        </div>
+        <div dangerouslySetInnerHTML={{ __html: small_description }}></div>
         <button
           type="buttton"
           className="primarybtn"
@@ -36,6 +42,22 @@ const CourseCard = ({ name, img, type, about, courses, t }) => {
         >
           Explore Free Lessons
         </button>
+      </div>
+
+      <div className="courses_list">
+        {/* <p>{about}</p> */}
+        <p className="t-g-18">{t("availTitle")}</p>
+        {/* <ol>
+          {courses.map((ele) => {
+            return (
+              <Fragment key={ele.id}>
+                <li>{ele.course}</li>
+              </Fragment>
+            );
+          })}
+        </ol> */}
+
+        <div dangerouslySetInnerHTML={{ __html: description }}></div>
       </div>
       <div
         className="bottom_shad wow zoomIn"

@@ -8,6 +8,8 @@ import { icon } from "../../utils/images/icons";
 import { useDispatch } from "react-redux";
 import { resetAllToggler } from "../../store/actions";
 import WOW from "wow.js";
+import axios from "axios";
+import { baseUrl, explorePage } from "../../utils/apidata";
 
 const Explore = () => {
   const courcesData = [
@@ -171,9 +173,48 @@ const Explore = () => {
     },
   ];
 
+  const [courseList, setCourseList] = useState([]);
+  const [skillPathList, setSkillPathList] = useState([]);
+  const [moduleList, setModuleList] = useState([]);
+
+  const [loader, setLoader] = useState(false);
+
+  const token = localStorage.getItem("token");
+
+  const headers = {
+    Authorization: `Bearer ${token}`,
+  };
+  const exploreApi = async () => {
+    setLoader(true);
+    try {
+      const response = await axios.get(`${baseUrl}/${explorePage}`, {
+        headers,
+      });
+      if (response?.data?.success) {
+        setLoader(false);
+        console.log(response);
+        setCourseList(response?.data?.data?.course);
+        setModuleList(response?.data?.data?.module);
+        setSkillPathList(response?.data?.data?.skill_paths);
+      } else {
+        setCourseList([]);
+        setModuleList([]);
+        setSkillPathList([]);
+      }
+    } catch (error) {
+      console.log(error);
+      setCourseList([]);
+      setModuleList([]);
+      setSkillPathList([]);
+      setLoader(false);
+    }
+  };
+
   useEffect(() => {
     const wow = new WOW();
     wow.init();
+
+    exploreApi();
   }, []);
 
   const [selectedFilter, setSelectedFilter] = useState([]);
@@ -389,55 +430,74 @@ const Explore = () => {
                 title="Courses"
                 text="Elevate your capabilities with insights and training from cybersecurity frontrunners."
               />
-              <div className="explore_video_grid">
-                {courcesData.map((data, k) => {
-                  return (
-                    <Fragment key={data.id}>
-                      <ExploreCard
-                        {...data}
-                        index={k}
-                        redirectTo="/explore/courses"
-                      />
-                    </Fragment>
-                  );
-                })}
-              </div>
+
+              {courseList.length > 0 ? (
+                <div className="explore_video_grid">
+                  {courseList.map((data, k) => {
+                    return (
+                      <Fragment key={data._id}>
+                        <ExploreCard
+                          {...data}
+                          index={k}
+                          redirectTo="/explore/courses"
+                        />
+                      </Fragment>
+                    );
+                  })}
+                </div>
+              ) : (
+                <div className="empty_box">
+                  <p>{loader ? "Loading ..." : "Course Data Not Found..."}</p>
+                </div>
+              )}
 
               <ExploreTitle
                 title="Skill paths"
                 text="Embrace career advancement pathways customized for high-demand cybersecurity careers."
               />
-              <div className="explore_video_grid">
-                {courcesData.map((data, k) => {
-                  return (
-                    <Fragment key={data.id}>
-                      <ExploreCard
-                      {...data} 
-                      index={k}
-                      redirectTo="/explore/courses"
-                       />
-                    </Fragment>
-                  );
-                })}
-              </div>
+              {skillPathList.length > 0 ? (
+                <div className="explore_video_grid">
+                  {skillPathList.map((data, k) => {
+                    return (
+                      <Fragment key={data._id}>
+                        <ExploreCard
+                          {...data}
+                          index={k}
+                          redirectTo="/explore/courses"
+                        />
+                      </Fragment>
+                    );
+                  })}
+                </div>
+              ) : (
+                <div className="empty_box">
+                  <p>{loader ? "Loading ..." : "Skill Path Data Not Found..."}</p>
+                </div>
+              )}
 
               <ExploreTitle
                 title="Modules"
                 text="Embrace career advancement pathways customized for high-demand cybersecurity careers."
               />
-              <div className="explore_video_grid">
-                {courcesData.map((data, k) => {
-                  return (
-                    <Fragment key={data.id}>
-                      <ExploreCard
-                        {...data}
-                        index={k}
-                        redirectTo="/explore/courses"
-                      />
-                    </Fragment>
-                  );
-                })}
-              </div>
+                  {moduleList.length > 0 ? (
+                <div className="explore_video_grid">
+                  {moduleList.map((data, k) => {
+                    return (
+                      <Fragment key={data._id}>
+                        <ExploreCard
+                          {...data}
+                          index={k}
+                          redirectTo="/explore/courses"
+                        />
+                      </Fragment>
+                    );
+                  })}
+                </div>
+              ) : (
+                <div className="empty_box">
+                  <p>{loader ? "Loading ..." : "Module Data Not Found..."}</p>
+                </div>
+              )}
             </div>
           </div>
         </div>

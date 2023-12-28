@@ -65,8 +65,7 @@ const headers = {
 
 const homeApi = async() => {
   try {
-      const response = await axios.get(`${baseUrl}/${authHomeApi}`, {headers});
-      console.log("RES:::", response);
+      const response = await axios.get(`${baseUrl}/${authHomeApi}`, {headers});   
       if(response.data.success){
         setHomeData(response.data.data);
         setSavedCourse(response?.data?.data?.saved_courses);

@@ -1,132 +1,138 @@
-import { Fragment, useEffect, useState} from "react";
+import { Fragment, useEffect, useState } from "react";
 import "./RoadMap.scss";
 import { icon } from "../../../utils/images/icons";
 import OneFourFloat from "./onefourfloat/OneFourFloat";
 import FourOneFloat from "./fouronefloat/FourOneFloat";
 import OneTwoFloat from "./onetwofloat/OneTwoFloat";
-import { logoImage } from "../../../utils/images/images"
+import { logoImage } from "../../../utils/images/images";
 import CourseCard from "./courcecard/CourseCard";
 import { useSelector } from "react-redux";
+import axios from "axios";
+import { baseUrl, CourseList } from "../../../utils/apidata";
+import RedBlueCard from "../../../authPages/onboardingstepper/stepD/redbluecard/RedBlueCard";
+import OneThreeFloat from "./onethreefloat/OneThreeFloat";
 
 
-const RoadMap = ({t}) => {
+const RoadMap = ({ t }) => {
+  const [courseList, setCourseList] = useState([]);
+
   const framData = [
     {
       id: 0,
       icon: icon.certificate1,
-      title:t('courseCardOneTitle'),
-      text:t('courseCardOnePara'),
+      title: t("courseCardOneTitle"),
+      text: t("courseCardOnePara"),
     },
     {
       id: 1,
       icon: icon.certificate2,
-      title:t('courseCardTwoTitle'),
-      text:t('courseCardTwoPara'),
+      title: t("courseCardTwoTitle"),
+      text: t("courseCardTwoPara"),
     },
     {
       id: 2,
       icon: icon.certificate3,
-      title:t('courseCardThreeTitle'),
-      text:t('courseCardThreePara'),
+      title: t("courseCardThreeTitle"),
+      text: t("courseCardThreePara"),
     },
     {
       id: 3,
       icon: icon.certificate4,
-      title:t('courseCardFourTitle'),
-      text:t('courseCardFourPara'),
+      title: t("courseCardFourTitle"),
+      text: t("courseCardFourPara"),
     },
   ];
 
   const courseData = [
     {
       id: "000",
-      name:t('redTitle'),
+      name: t("redTitle"),
       img: icon.transparentRed,
       type: "#CC0A0A",
-      about:t('redPara'),
+      about: t("redPara"),
       courses: [
         {
           id: "r1",
-          course:t('redC1'),
+          course: t("redC1"),
         },
         {
           id: "r2",
-          course:t('redC2'),
+          course: t("redC2"),
         },
         {
           id: "r3",
-          course:t('redC3'),
+          course: t("redC3"),
         },
         {
           id: "r4",
-          course:t('redC4'),
+          course: t("redC4"),
         },
         {
           id: "r5",
-          course:t('redC5'),
+          course: t("redC5"),
         },
         {
           id: "r6",
-          course:t('redC6'),
+          course: t("redC6"),
         },
         {
           id: "r7",
-          course:t('redC7'),
+          course: t("redC7"),
         },
         {
           id: "r8",
-          course:t('redC8'),
+          course: t("redC8"),
         },
         {
           id: "r9",
-          course:t('redC9'),
+          course: t("redC9"),
         },
       ],
     },
     {
       id: "111",
-      name:t('blueTitle'),
+      name: t("blueTitle"),
       img: icon.transparentBlue,
       type: "#0A1633",
-      about:t('bluePara'),        
+      about: t("bluePara"),
       courses: [
         {
           id: "b1",
-          course:t('blueC1'),
+          course: t("blueC1"),
         },
         {
           id: "b2",
-          course:t('blueC2'),
+          course: t("blueC2"),
         },
         {
           id: "b3",
-          course:t('blueC3'),
+          course: t("blueC3"),
         },
         {
           id: "b4",
-          course:t('blueC4'),
+          course: t("blueC4"),
         },
         {
           id: "b5",
-          course:t('blueC5'),
+          course: t("blueC5"),
         },
         {
           id: "b6",
-          course:t('blueC6'),
+          course: t("blueC6"),
         },
         {
           id: "b7",
-          course:t('blueC7'),
+          course: t("blueC7"),
         },
         {
           id: "b8",
-          course:t('blueC8'),
+          course: t("blueC8"),
         },
       ],
     },
   ];
   const [scrollY, setScrollY] = useState(0);
-  const l = useSelector(state => state.langReducer.lang);
+  const l = useSelector((state) => state.langReducer.lang);
 
   const handleScroll = () => {
     setScrollY(window.scrollY);
@@ -141,10 +147,28 @@ const RoadMap = ({t}) => {
 
   let smallCirclleMove = scrollY > 300 ? scrollY - 300 : 0;
 
+  const getCourse = async() => {
+    try {
+      const response = await axios.get(`${baseUrl}/${CourseList}`);
+      console.log("RES:::", response);
+      if (response?.data?.success) {
+        setCourseList(response?.data?.data);
+        console.log(response?.data?.data);
+      }
+    } catch (error) {
+      console.log("ERROR:", error);
+    }
+  };
+
+  useEffect(() => {
+    getCourse();
+  }, []);
+
   return (
     <Fragment>
-      <section className="road_map">  
+      <section className="road_map">
         <div className="content_wrap">
+
           <div className="small_screen_map">
             <div className="center_line"></div>
             <div
@@ -158,7 +182,6 @@ const RoadMap = ({t}) => {
               </div>
             </div>
           </div>
-       
 
           <OneFourFloat scrollY={scrollY} />
 
@@ -183,7 +206,7 @@ const RoadMap = ({t}) => {
 
           <div className="center_logo">
             <div className="content_circle">
-            <img src={logoImage.fulllogo} alt="icon" />
+              <img src={logoImage.fulllogo} alt="icon" />
               {/* <img src={logoImage.logo} alt="icon" /> */}
               {/* <h4 className="single_card_title">{t('singlecardTitle')}</h4>
               
@@ -192,16 +215,20 @@ const RoadMap = ({t}) => {
             <div className="glass_shad"></div>
           </div>
 
-          <OneTwoFloat scrollY={scrollY} />
+          {/* <OneTwoFloat scrollY={scrollY} /> */}
+          <OneThreeFloat scrollY={scrollY} />
 
-          <div className={`bi_flex ${['ar', 'he'].includes(l) ? 'flip' : ''}`}>
-            {courseData.map((data) => {
-              return (
-                <Fragment key={data.id}>
-                  <CourseCard {...data} t={t} />
-                </Fragment>
-              );
-            })}
+          <div className={`tri_grid ${["ar", "he"].includes(l) ? "flip" : ""}`}>
+
+            {courseList?.length > 0 &&
+              courseList.map((data) => {
+                return (
+                  <Fragment key={data._id}>
+                    <CourseCard {...data} t={t} />
+                  </Fragment>
+                );
+              })}
+
           </div>
         </div>
         <div

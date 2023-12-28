@@ -21,7 +21,6 @@ import Profile from "../authPages/profile/Profile";
 import Saved from "../authPages/saved/Saved";
 import ExploreDetail from "../authPages/exploredetail/ExploreDetail";
 import ExploreCourses from "../authPages/explorecourses/ExploreCourses";
-import CourseSidebar from "../layouts/coursesidebar/CourseSidebar";
 
 
 import ProtectedRoute from "../authPages/ProtectedRoute";

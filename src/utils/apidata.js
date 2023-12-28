@@ -6,6 +6,11 @@ export const sendCv = "api/storecarrerapi";
 // Contact Page Need Assistance Form
 export const needAssistance = "api/storecontactapi";
 
+
+// Home Page Blog POster and 4 Blog LList API
+export const blogPoster = "api/homemainblog"
+export const blogList = "api/homeblog"
+
 //Get all Blog List
 export const getAllBlogs = "api/getblogs"
 
@@ -49,3 +54,12 @@ export const getProfile = "api/userprofile"
 export const profileUpdate = "api/profileupdate"
 // Help Submit
 export const help = "api/helpstore";
+
+// Get Cart
+export const getCart = "api/getcart";
+
+//Explore Page
+export const explorePage = "api/explorepageapi";
+
+// Save Course API
+export const saveCourse = "api/savedcourse"

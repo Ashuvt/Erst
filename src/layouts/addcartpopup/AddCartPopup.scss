@@ -16,7 +16,7 @@
     justify-content: center;
     align-items: center;
     min-height: 570px;
-    transition: all 0.5s ease-in-out;   
+    transition: all 0.5s ease-in-out; 
 
     &.open {
         display: flex;
@@ -32,6 +32,8 @@
         min-width: 480px;
         border-radius: 12px;
         overflow: hidden;
+        max-height:95vh;
+        overflow: auto;
         @media only screen and (max-width:500px){
             min-width:100%;
         }
@@ -42,7 +44,9 @@
             align-items: center;
             padding: 16px 24px;
             background: $primaryGradient_5;
-
+            position: sticky;
+            top:0px;
+            left:0px;
             h5 {
                 text-transform: capitalize;
             }
@@ -104,7 +108,7 @@
                         button {
                             margin: 0px;
                             padding: 0px;
-                            @include font('Inter-Regular', 12px, 12px, 500, $secondary);
+                            @include font('Inter-Regular', 12px, 12px, 500, $primary);
                             text-transform: uppercase;
                             letter-spacing: 2.4px;
                             border-style: none;
@@ -145,13 +149,23 @@
                 //     }
                 // }
             }
+            .empty_block{
+
+                p{
+                    text-align: center;
+                    margin:50px 0px;
+                    text-transform: capitalize;
+                }
+            }
         }
 
         .model_footer {
             border-top: 1px solid #e6e6e6;
             background-color: #222;
-            ;
             padding: 16px 24px 24px;
+            position:sticky;
+            bottom:0px;
+            left:0px;
 
             .total {
                 display: flex;
@@ -159,7 +173,7 @@
                 align-items: center;
 
                 p {
-                    @include font('Syne-Regular', 17px, 23.8px, 400, $white);
+                    @include font('Inter-Regular', 17px, 23.8px, 400, $white);
                 }
 
                 margin-bottom:30px;

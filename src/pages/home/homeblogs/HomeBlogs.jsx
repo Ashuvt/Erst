@@ -6,7 +6,7 @@ import { images } from "../../../utils/images/images";
 import HomeBlogCard from "./blogcard/HomeBlogCard";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { baseUrl } from "../../../utils/apidata";
+import { baseUrl, blogPoster, blogList } from "../../../utils/apidata";
 
 const HomeBlogs = ({t}) => {
 
@@ -23,7 +23,7 @@ const HomeBlogs = ({t}) => {
       
       setError(null);
 
-      const response = await axios.get(`${baseUrl}/homemainblog`);
+      const response = await axios.get(`${baseUrl}/${blogPoster}`);
       
       setBlogData(response.data.data);
 
@@ -41,7 +41,7 @@ const HomeBlogs = ({t}) => {
       
       setError(null);
 
-      const response = await axios.get(`${baseUrl}/homeblog`);
+      const response = await axios.get(`${baseUrl}/${blogList}`);
       
       setallBlogData(response.data.data);
 

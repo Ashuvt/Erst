@@ -2,12 +2,17 @@ import "./AddCartPopup.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { icons, products } from "../../utils/images/images";
 import { cartPopupToggler } from "../../store/actions";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { baseUrl, getCart } from "../../utils/apidata";
 
 const AddCartPopup = () => {
   const dispatch = useDispatch();
   const cartPopupStatus = useSelector(
     (data) => data.toggleReducer.cartPopupStatus
   );
+
+  const [cartList, setCartList] = useState([]);
 
   const productsData = [
     {
@@ -41,7 +46,35 @@ const AddCartPopup = () => {
     e.stopPropagation();
   };
 
-  const inputHandler = () => {};
+  const token = localStorage.getItem("token");
+
+  const headers = {
+    Authorization: `Bearer ${token}`,
+  };
+
+  const getCartApi = async () => {
+    try {
+      const response = await axios.get(`${baseUrl}/${getCart}`, { headers });
+      if(response.data.success){
+        console.log(response);
+        setCartList(response?.data?.data);
+      }else{
+        setCartList([]);
+      }
+      
+    } catch (error) {
+      console.log(error);
+      setCartList([]);
+    }
+  };
+
+  useEffect(() => {
+    if (cartPopupStatus) {
+      console.log("Run!");
+      getCartApi();
+    }
+  }, [cartPopupStatus]);
+
   return (
     <div
       className={`add_cart_popup ${cartPopupStatus ? "open" : "close"}`}
@@ -55,7 +88,7 @@ const AddCartPopup = () => {
           </button>
         </div>
         <div className="product_list">
-          {productsData &&
+          {cartList.length > 0 ?
             productsData.map((data) => {
               return (
                 <div className="product_card" key={data.id}>
@@ -82,7 +115,11 @@ const AddCartPopup = () => {
                   </div> */}
                 </div>
               );
-            })}
+            })
+          : <div className="empty_block">
+            <p>Your Cart is empty...</p>
+          </div>
+          }
         </div>
         <div className="model_footer">
           <div className="total">

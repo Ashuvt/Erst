@@ -125,13 +125,14 @@
 
                 &.active,
                 &:hover {
+                    color:$primary;
                     &::after {
                         position: absolute;
                         content: "";
                         height:15px;
                         width:2px;
                         border-radius: 15px;
-                        background-color: $white;
+                        background-color:$primary;
                         top: 50%;
                         left: -10px;
                         -webkit-transform: translatey(-50%);

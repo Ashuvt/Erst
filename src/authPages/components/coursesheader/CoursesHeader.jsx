@@ -2,12 +2,14 @@ import { NavLink } from "react-router-dom";
 import "./CoursesHeader.scss";
 import { images, logoImage } from "../../../utils/images/images";
 import { icon } from "../../../utils/images/icons";
+import { icons } from "../../../utils/images/images";
 import NavBtn from "./navbtn/NavBtn";
 import { Fragment } from "react";
 import NotificationCard from "./notificationcard/NotificationCard";
 import ProfileMenu from "./profilemenu/ProfileMenu";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  cartPopupToggler,
   courseSidebarToggler,
   notificationToggler,
   profileToggler,
@@ -66,8 +68,7 @@ const CoursesHeader = () => {
     (state) => state.toggleReducer.courseSidebarStatus
   );
 
-  const courseMenuToggler = (e) => {     
-  
+  const courseMenuToggler = (e) => {
     if (courseSidebarStatus) {
       dispatch({ type: courseSidebarToggler(), payload: false });
     } else {
@@ -89,6 +90,10 @@ const CoursesHeader = () => {
     dispatch({ type: resetAllToggler() });
   };
 
+  const openCartPopup = (e) => {
+    e.stopPropagation();
+    dispatch({ type: cartPopupToggler(), payload: true });
+  }
   return (
     <section className="courses_header" onClick={resetToggle}>
       <div className="screen_container">
@@ -112,6 +117,14 @@ const CoursesHeader = () => {
             <button type="button" onClick={notificationHandler}>
               <img src={icon.notification} alt="notification" />
             </button>
+
+            <button type="button" className="cartbtn" onClick={openCartPopup}>
+              <div className="notification">
+                <p>2</p>
+              </div>
+              <img src={icons.addCart} alt="cart" />
+            </button>
+
             <button
               type="button"
               className="profile_btn"

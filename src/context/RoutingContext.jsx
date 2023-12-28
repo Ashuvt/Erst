@@ -3,6 +3,8 @@ import { createContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { resetAllToggler } from "../store/actions";
+import {baseUrl, saveCourse} from "../utils/apidata";
+import axios from 'axios';
 
 export const redirectContext = createContext();
 
@@ -19,14 +21,14 @@ const dispatch = useDispatch();
 
 // For Login Page
   const signInHandler = () => {
-    navigation("/comingsoon");
+    navigation("/signin");
     // comingsoon
     // signin
   };
 
   // For Getstarted Page (Sign Up)
   const signUpHandler = () => {
-    navigation("/comingsoon");
+    navigation("/getstarted");
     // comingsoon
     // getstarted
   };
@@ -76,6 +78,25 @@ const goToForgotPassword = () => {
     toast.dismiss();
   }
 
+
+// Course Save API
+  
+  const saveCourseApi = async(courseId) => {
+    const token = localStorage.getItem("token");
+
+  const headers = {
+    Authorization: `Bearer ${token}`,
+  };
+
+  
+   try {
+    const response = await axios.post(`${baseUrl}/${saveCourse}`,{course_id:courseId},{headers})
+    console.log(response);
+   } catch (error) {
+    console.log(error);
+   }
+  }
+
   const allRedirectFunctions = {
     resetAllState,
     signInHandler,
@@ -90,7 +111,8 @@ const goToForgotPassword = () => {
     toastError,
     toastInfo,
     toastWarning,
-    toastClear
+    toastClear,
+    saveCourseApi
   };
 
   return (
