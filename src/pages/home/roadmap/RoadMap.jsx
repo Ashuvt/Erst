@@ -150,10 +150,9 @@ const RoadMap = ({ t }) => {
   const getCourse = async() => {
     try {
       const response = await axios.get(`${baseUrl}/${CourseList}`);
-      console.log("RES:::", response);
+
       if (response?.data?.success) {
         setCourseList(response?.data?.data);
-        console.log(response?.data?.data);
       }
     } catch (error) {
       console.log("ERROR:", error);
