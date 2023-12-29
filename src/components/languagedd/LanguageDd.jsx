@@ -12,11 +12,11 @@ const LanguageDd = () => {
       lang: "en",
       text: "En",
     },
-    // {
-    //   id: "Hebrew",
-    //   lang: "he",
-    //   text: "עִברִית",
-    // },
+    {
+      id: "Hebrew",
+      lang: "he",
+      text: "הוא",
+    },
     {
       id: "Arabic",
       lang: "ar",
@@ -25,13 +25,13 @@ const LanguageDd = () => {
   ];
 
 const defaultSelection = localStorage.getItem("lang");
-  const [lang, setLang] = useState("En");
+  const [lang, setLang] = useState("he");
 
   useEffect(() => {
     const language = localStorage.getItem("lang");
     if(language){
      const currentLang = AllLanguages.filter(ele => ele.lang === language);
-      setLang(currentLang[0].text);
+      setLang(currentLang[0].lang);
     }else{
       setLang("en");
     }
@@ -54,10 +54,13 @@ const defaultSelection = localStorage.getItem("lang");
     localStorage.setItem("lang",lng);
   }; 
 
+
+
+
   return (
     <div className="language_dd">
       <button type="button" className="primarybtn" onClick={btnClickHandler}>
-        {lang}
+        {AllLanguages.filter(ele => ele.lang === lang)[0]?.text}
       </button>
       <div className={`option_list ${status ? "oprn" : "close"}`}>    
         {AllLanguages.map((data) => {
@@ -65,7 +68,7 @@ const defaultSelection = localStorage.getItem("lang");
             <Fragment key={data.id}>
               <button
                 type="button"
-                className={lang === "data.text" ? 'active' : ''}
+                className={lang === data.lang ? 'active' : ''}
                 onClick={() => changeLanguage(data.lang, data.text)}
               >
                 {data.text}

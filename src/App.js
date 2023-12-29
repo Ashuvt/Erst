@@ -22,14 +22,15 @@ function App() {
   }, [location.pathname]);
 
   useEffect(() => {
+   
     const defaultLanguage = localStorage.getItem("lang");
     if (defaultLanguage) {
       dispatch({ type: languageChanges(), payload: defaultLanguage });
       i18n.changeLanguage(defaultLanguage);
-    } else {
-      localStorage.setItem("lang", "en");
-      dispatch({ type: languageChanges(), payload: "en" });
-      i18n.changeLanguage("en");
+    } else {      
+      localStorage.setItem("lang", "he");
+      dispatch({ type: languageChanges(), payload: "he" });
+      i18n.changeLanguage("he");
     }
   }, []);
 
