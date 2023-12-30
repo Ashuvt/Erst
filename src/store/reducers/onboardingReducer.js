@@ -23,7 +23,7 @@ export const onBoardingReducer = (state = initialState, action) => {
   }
 };
 
-export const profileTabReducer = (state = 0, action) => {
+export const profileTabReducer = (state = 1, action) => {
   switch (action.type) {
     case PROFILE_TAB_CHANGER:
       return action.payload;

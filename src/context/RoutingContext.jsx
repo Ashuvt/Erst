@@ -21,14 +21,14 @@ const dispatch = useDispatch();
 
 // For Login Page
   const signInHandler = () => {
-    navigation("/comingsoon");
+    navigation("/signin");
     // comingsoon
     // signin
   };
 
   // For Getstarted Page (Sign Up)
   const signUpHandler = () => {
-    navigation("/comingsoon");
+    navigation("/getstarted");
     // comingsoon
     // getstarted
   };
@@ -71,7 +71,7 @@ const goToForgotPassword = () => {
   }
 
   const toastWarning = (warn) => {
-    toast.info(warn);
+    toast.warn(warn);
   }
 
   const toastClear = () => {
@@ -87,13 +87,18 @@ const goToForgotPassword = () => {
   const headers = {
     Authorization: `Bearer ${token}`,
   };
-
   
    try {
     const response = await axios.post(`${baseUrl}/${saveCourse}`,{course_id:courseId},{headers})
     console.log(response);
+    if(response?.data?.success){
+
+    }else{
+      toastWarning("This Course is already added!");
+    }
    } catch (error) {
     console.log(error);
+    toastError("Something went wrong");
    }
   }
 

@@ -4,7 +4,7 @@ import { images, logoImage } from "../../../utils/images/images";
 import { icon } from "../../../utils/images/icons";
 import { icons } from "../../../utils/images/images";
 import NavBtn from "./navbtn/NavBtn";
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
 import NotificationCard from "./notificationcard/NotificationCard";
 import ProfileMenu from "./profilemenu/ProfileMenu";
 import { useDispatch, useSelector } from "react-redux";
@@ -15,9 +15,14 @@ import {
   profileToggler,
   resetAllToggler,
 } from "../../../store/actions";
+import { baseUrl, getProfile } from "../../../utils/apidata";
 import HembergerMenu from "../../../components/hembergerIcon/HembergerMenu";
+import axios from "axios";
 
 const CoursesHeader = () => {
+  const [name, setName] = useState("");
+  const [profile, setProfile] = useState("");
+
   const menuData = [
     {
       id: 0,
@@ -93,7 +98,32 @@ const CoursesHeader = () => {
   const openCartPopup = (e) => {
     e.stopPropagation();
     dispatch({ type: cartPopupToggler(), payload: true });
-  }
+  };
+
+  const getProfileApi = async () => {
+    const token = localStorage.getItem("token");
+
+    const headers = {
+      Authorization: `Bearer ${token}`,
+    };
+
+    try {
+      const response = await axios.get(`${baseUrl}/${getProfile}`, { headers });
+      if (response?.data?.success) {
+        setName(response?.data?.data?.name);
+        setProfile(response?.data?.data?.profile);
+        console.log(response?.data?.data?.profile);
+      } else {
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getProfileApi();
+  }, []);
+
   return (
     <section className="courses_header" onClick={resetToggle}>
       <div className="screen_container">
@@ -131,7 +161,12 @@ const CoursesHeader = () => {
               onClick={profileMenuHandler}
             >
               <div className="img_wrap">
-                <img src={images.profilef} alt="profile" />
+                {profile ? (
+                  <img src={`${baseUrl}/${profile}`} alt="profile" />
+                ) : (
+                  <img src={images.avtar} alt="profile" />
+                )}
+                <img src={images.avtar} alt="profile" />
               </div>
               <img
                 src={icon.angleDown}
@@ -146,7 +181,7 @@ const CoursesHeader = () => {
           </div>
         </header>
         <NotificationCard status={notificationStatus} />
-        <ProfileMenu menuStatus={profileStatus} />
+        <ProfileMenu menuStatus={profileStatus} name={name} />
       </div>
     </section>
   );

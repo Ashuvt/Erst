@@ -130,5 +130,19 @@ section.saved_page {
                 }
             }
         }
+
+        .empty_box_wrap{
+            border:1px solid $lightBorder_2;
+            padding:20px;
+            border-radius: 8px;
+            margin-top:40px;
+            height:200px;
+            display: grid;
+            place-items: center;
+            p{
+                text-align: center;
+                color:$textSecondary;
+            }
+        }
     }
 }

@@ -5,18 +5,19 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {profileTabChanger} from "../../../../store/actions";
 
-const ProfileMenu = ({ menuStatus }) => {
+const ProfileMenu = ({ menuStatus, name }) => {
   const dispatch = useDispatch();
 
   const menuData = [
     {
-      id: 0,
+      id:0,
       icon: icon.user,
       text: "My Profile",
       clickHandler:() => {
         navigate("/auth/profile");
-        dispatch({type:profileTabChanger(), payload:0});
-      }
+        dispatch({type:profileTabChanger(), payload:1});
+      },
+      
     },
     {
       id: 1,
@@ -24,8 +25,8 @@ const ProfileMenu = ({ menuStatus }) => {
       text: "My Courses",
       clickHandler:() => {
         navigate("/auth/profile");
-        dispatch({type:profileTabChanger(), payload:2});
-      }
+        dispatch({type:profileTabChanger(), payload:3});
+      },
     },
     {
       id: 2,
@@ -33,7 +34,7 @@ const ProfileMenu = ({ menuStatus }) => {
       text: "Manage Subscription",
       clickHandler:() => {
         navigate("/auth/profile");
-        dispatch({type:profileTabChanger(), payload:2});
+        dispatch({type:profileTabChanger(), payload:3});
       }
     },
     {
@@ -42,7 +43,7 @@ const ProfileMenu = ({ menuStatus }) => {
       text: "Help",
       clickHandler:() => {
         navigate("/auth/profile");
-        dispatch({type:profileTabChanger(), payload:4});
+        dispatch({type:profileTabChanger(), payload:5});
       }
     },
     {
@@ -62,7 +63,7 @@ const ProfileMenu = ({ menuStatus }) => {
   return (
     <div className={`profile_menu_card ${menuStatus ? "open" : "close"}`}>
        <div className="bg_card_overlay"></div>
-      <h1>Rajat</h1>
+      <h1>{name}</h1>
 
       {menuData.map((data) => {
         return (

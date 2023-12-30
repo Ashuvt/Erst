@@ -61,5 +61,9 @@ export const getCart = "api/getcart";
 //Explore Page
 export const explorePage = "api/explorepageapi";
 
-// Save Course API
+// Save The Course API
 export const saveCourse = "api/savedcourse"
+
+// Saved Course Page list
+
+export const getSavedCourse = "api/getsavedcourse";

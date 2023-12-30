@@ -55,6 +55,7 @@ section.courses_header {
                         justify-content: center;
                         align-items: center;
                         gap:8px;
+                        
                     }
 
                     &.cartbtn {
@@ -83,7 +84,6 @@ section.courses_header {
                         width: 32px;
                         border-radius: 50%;
                         overflow: hidden;
-
 
                         img {
                             height: 100%;

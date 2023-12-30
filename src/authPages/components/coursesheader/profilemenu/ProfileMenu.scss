@@ -100,7 +100,7 @@
         p {
             @include font('Inter-Regular', 14px, 20px, 400, $textPrimary);
         }
-        &:hover, &.active{
+        &:hover{
             background-color: rgba($white,0.1);
         }
     }

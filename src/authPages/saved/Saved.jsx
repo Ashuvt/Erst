@@ -1,19 +1,22 @@
 import { Fragment, useState, useEffect } from "react";
 import "./Saved.scss";
 import CoursesHeader from "../components/coursesheader/CoursesHeader";
-import ExploreTitle from "../explore/exploretitle/ExploreTitle";
 import { images } from "../../utils/images/images";
-import ExploreCard from "../components/explorecard/ExploreCard";
 import { icon } from "../../utils/images/icons";
 import { useDispatch } from "react-redux";
 import { resetAllToggler } from "../../store/actions";
 import WOW from "wow.js";
+import axios from "axios";
+import { baseUrl, getSavedCourse } from "../../utils/apidata";
+import SavedCard from "./savedcard/SavedCard";
 
 const Saved = () => {
   useEffect(() => {
     const wow = new WOW();
     wow.init();
   }, []);
+
+  const [saveCourseList, setSaveCourseList] = useState([]);
 
   const courcesData = [
     {
@@ -112,7 +115,6 @@ const Saved = () => {
       students: 800,
       modules: 12,
     },
-
   ];
 
   const interestOptions = [
@@ -173,10 +175,8 @@ const Saved = () => {
     },
   ];
 
-
   const [selectedInterest, setSelectedInterest] = useState([]);
   const [checkedTypes, setCheckedTypes] = useState([]);
-
 
   const addInterest = (value) => {
     setSelectedInterest((prev) => {
@@ -201,8 +201,33 @@ const Saved = () => {
   const dispatch = useDispatch();
 
   const resetToggler = () => {
-    dispatch({type:resetAllToggler()});
-  }
+    dispatch({ type: resetAllToggler() });
+  };
+
+  const getSavedCourseApi = async () => {
+    const token = localStorage.getItem("token");
+    const headers = {
+      Authorization: `Bearer ${token}`,
+    };
+    try {
+      const response = await axios.get(`${baseUrl}/${getSavedCourse}`, {
+        headers,
+      });
+      console.log(response?.data?.data);
+      if (response?.data?.success) {
+        setSaveCourseList(response?.data?.data);
+      } else {
+        setSaveCourseList([]);
+      }
+    } catch (error) {
+      console.log(error);
+      setSaveCourseList([]);
+    }
+  };
+
+  useEffect(() => {
+    getSavedCourseApi();
+  }, []);
 
   return (
     <Fragment>
@@ -267,16 +292,21 @@ const Saved = () => {
             </div>
 
             <div className="explore_videos_wrap">
-             
-              <div className="explore_video_grid">
-                {courcesData.map((data) => {
-                  return (
-                    <Fragment key={data.id}>
-                      <ExploreCard {...data} saved={true} />
-                    </Fragment>
-                  );
-                })}
-              </div>
+              {saveCourseList.length > 0 ? (
+                <div className="explore_video_grid">
+                  {saveCourseList.map((data, i) => {
+                    return (
+                      <Fragment key={data.id}>
+                        <SavedCard {...data} saved={true} index={i} />
+                      </Fragment>
+                    );
+                  })}
+                </div>
+              ) : (
+                <div className="empty_box_wrap">
+                  <p>You Have No Saved Course...</p>
+                </div>
+              )}
             </div>
           </div>
         </div>

@@ -191,8 +191,7 @@ const Explore = () => {
         headers,
       });
       if (response?.data?.success) {
-        setLoader(false);
-        console.log(response);
+        setLoader(false);      
         setCourseList(response?.data?.data?.course);
         setModuleList(response?.data?.data?.module);
         setSkillPathList(response?.data?.data?.skill_paths);

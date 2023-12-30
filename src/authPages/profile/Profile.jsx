@@ -20,27 +20,27 @@ const Profile = () => {
   const token = localStorage.getItem("token");
   const optionData = [
     {
-      id: 0,
+      id: 1,
       icon: icon.user,
       text: "My profile",
     },
     {
-      id: 1,
+      id: 2,
       icon: icon.email,
       text: "Accounts",
     },
     {
-      id: 2,
+      id: 3,
       icon: icon.calender,
       text: "Subscription",
     },
     {
-      id: 3,
+      id: 4,
       icon: icon.email,
       text: "Email Notification",
     },
     {
-      id: 4,
+      id: 5,
       icon: icon.help,
       text: "Help",
     },
@@ -66,7 +66,6 @@ const Profile = () => {
   const getProfileApi = async () => {
     try {
       const response = await axios.get(`${baseUrl}/${getProfile}`, { headers });
-      console.log("Response:::", response.data.data);
       if(response?.data.success){
         setProfile(response?.data?.data);
         dispatch({type:getProfileData(),payload:response?.data?.data})
@@ -111,11 +110,11 @@ const Profile = () => {
             })}
           </div>
           <div className="menu_screens">
-            {tab === 0 && <MyProfile />}
-            {tab === 1 && <Accounts profile={profile} recallProfile={recallProfile} />}
-            {tab === 2 && <Subscription />}
-            {tab === 3 && <EmailNotification />}
-            {tab === 4 && <Help />}
+            {tab === 1 && <MyProfile />}
+            {tab === 2 && <Accounts profile={profile} recallProfile={recallProfile} />}
+            {tab === 3 && <Subscription />}
+            {tab === 4 && <EmailNotification />}
+            {tab === 5 && <Help />}
           </div>
         </div>
       </section>

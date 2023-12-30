@@ -28,9 +28,9 @@ function App() {
       dispatch({ type: languageChanges(), payload: defaultLanguage });
       i18n.changeLanguage(defaultLanguage);
     } else {      
-      localStorage.setItem("lang", "he");
-      dispatch({ type: languageChanges(), payload: "he" });
-      i18n.changeLanguage("he");
+      localStorage.setItem("lang", "en");
+      dispatch({ type: languageChanges(), payload: "en" });
+      i18n.changeLanguage("en");
     }
   }, []);
 

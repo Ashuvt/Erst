@@ -1,0 +1,152 @@
+@import "../../../scss/common";
+@import "../../../scss/mixin";
+@import "../../../scss/typography";
+@import "../../../scss/variables";
+
+
+.saved_card_wrap {
+    position: relative;
+
+    .explore_card {
+
+        padding: 16px;
+        border-radius: 12px;
+        position: relative;
+        transition: all 0.3s ease-in-out;
+
+        &::after {
+            position: absolute;
+            content: "";
+            top: 1px;
+            left: 1px;
+            height: calc(100% - 2px);
+            width: calc(100% - 2px);
+            border-radius: 12px;
+            overflow: hidden;
+            background-color: $dark;
+            z-index: 1;
+        }
+
+        &::before {
+            position: absolute;
+            content: "";
+            top: 0px;
+            left: 0px;
+            height: 100%;
+            width: 100%;
+            border-radius: 12px;
+            background: $borderGradient;
+            padding: 1px;
+            -webkit-backdrop-filter: blur(28px);
+            backdrop-filter: blur(28px);
+            transition: all 0.3s ease-in-out;
+            width: 100%;
+            z-index: 0;
+        }
+
+        @media only screen and (max-width:$tab) {
+            padding: 15px;
+        }
+
+        .poster_wrap {
+            height: 148px;
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+            z-index: 3;
+            pointer-events: none;
+
+            img {
+                max-height: 100%;
+                max-width: 100%;
+                object-fit: cover;
+                position: relative;
+                z-index: 9;
+            }
+
+            span {
+                position: absolute;
+                left: 0px;
+                top: 5px;
+                background: url("../../../assets/images/icons/ribbinbg.svg");
+                background-position: right center;
+                @include font('Inter-Regular', 10px, 14px, 400, $textSecondary);
+                padding: 2px 10px 2px 2px;
+            }
+
+
+        }
+
+        .desc {
+            p {
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+        }
+
+        h2 {
+            @include font('SpaceGrotesk-Regular', 16px, 20px, 400, $textPrimary);
+            margin-top: 15px;
+            position: relative;
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        p {
+            margin: 12px 0px 16px;
+            position: relative;
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        .counter_info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            position: relative;
+            z-index: 3;
+            pointer-events: none;
+
+            .info {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 8px;
+                flex-wrap: wrap;
+
+                img {
+                    width: 20px;
+                }
+
+                p {
+                    margin: 0px;
+                    @include font('Inter-Regular', 14px, 20px, 400, $textPrimary);
+                }
+            }
+        }
+
+        &:hover {
+            &::before {
+                background: linear-gradient(130deg, #ffffffa0, #ffffffa0);
+            }
+        }
+    }
+
+    button {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        border-style: none;
+        background: transparent;
+        cursor: pointer !important;
+        z-index: 9999;
+
+        img {
+            width: 16px;
+        }
+    }
+}

@@ -1,7 +1,13 @@
 import { icon } from "../../../utils/images/icons";
 import "./SavedList.scss";
+import { useContext } from "react";
+import { redirectContext } from "../../../context/RoutingContext";
+
 
 const SavedList = ({ dataList }) => {
+
+const {saveCourseApi} = useContext(redirectContext); 
+
   return (
     <div className="home_saved_list">
       <div className="title">
@@ -18,7 +24,7 @@ const SavedList = ({ dataList }) => {
               <div className="bg_card_overlay"></div>
               <div className="title_line_wrap">
                 <p className="title_text">{data?.course_id?.name}</p>
-                <button type="button">
+                <button type="button" onClick={() => saveCourseApi(data._id)}>
                   <img src={icon.save} alt="saveicon" />
                 </button>
               </div>
@@ -41,7 +47,7 @@ const SavedList = ({ dataList }) => {
           );
         })
       ) : (
-        <p>No Saved Data Found...</p>
+        <p>No Saved course Found...</p>
       )}
     </div>
   );
