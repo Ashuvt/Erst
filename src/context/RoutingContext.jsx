@@ -102,6 +102,20 @@ const goToForgotPassword = () => {
    }
   }
 
+
+  // Email Subscribe API
+
+  const emailSubscribe = async(emailId) => {
+
+    try { 
+        const response = await axios.post(`${baseUrl}/${emailSubscribe}`, {email:emailId})
+        console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+
   const allRedirectFunctions = {
     resetAllState,
     signInHandler,
@@ -117,7 +131,8 @@ const goToForgotPassword = () => {
     toastInfo,
     toastWarning,
     toastClear,
-    saveCourseApi
+    saveCourseApi,
+    emailSubscribe,
   };
 
   return (

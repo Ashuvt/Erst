@@ -39,7 +39,7 @@ const SignIn = () => {
     setLoader(true);
     try {
       const response = await axios.post(`${baseUrl}/${signIn}`, values);   
-      console.log(response);   
+   
       if(response.data.success){   
         toastSuccess("Sign In Success!");
         localStorage.setItem("token", response.data.token);

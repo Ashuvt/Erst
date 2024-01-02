@@ -1,15 +1,24 @@
 import "./Footer.scss";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { icons, images } from "../../utils/images/images";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { redirectContext } from "../../context/RoutingContext";
 
-
 const Footer = ({t}) => {
+
+  const {emailSubscribe} = useContext(redirectContext);
 
 const l = useSelector(state => state.langReducer.lang);
 const {signInHandler, signUpHandler} = useContext(redirectContext);
+
+const [email, setEmail]= useState('');
+const [error, setError] = useState("");
+
+const emailSubscription = (e) => {
+  e.preventDefault();
+  emailSubscribe(email);
+}
 
   return (
     <section className="footer">
@@ -62,8 +71,8 @@ const {signInHandler, signUpHandler} = useContext(redirectContext);
                 <h5>{t('title1')}</h5>
                 <p>{t('text1')}</p>
                 <form>
-                  <input type="email" placeholder={t('email')} />
-                  <button type="submit" className="submit">
+                  <input type="email"  placeholder={t('email')} onChange={(e) => setEmail(e.target.value)} />
+                  <button type="button" className="submit" onClick={emailSubscription} value={email}>
                     <img src={icons.rightArrow} alt="arrow" />
                   </button>
                 </form>
