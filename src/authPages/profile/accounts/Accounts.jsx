@@ -109,7 +109,7 @@ const Accounts = ({profile, recallProfile}) => {
         validationSchema={validationSchema}
         onSubmit={onSubmit}
       >
-        <Form>
+        <Form encType="multipart/form-data">
           <div className="bi_grid">
             <div className="profile_field wow fadeInUp">
               <label html="name">Name</label>

@@ -60,7 +60,7 @@
             }
         }
 
-        .title_line_wrap {
+        .title_line_wraper {
             position: relative;
             z-index: 3;
             pointer-events: none;
@@ -72,7 +72,6 @@
             button.savedbtn {
                 border-style: none;
                 background-color: transparent;
-                position:relative;
                 img {
                     width: 16px;
                 }

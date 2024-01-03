@@ -41,6 +41,7 @@ const ExploreDetail = () => {
         setCourse(response?.data?.data?.course);
         setModule(response?.data?.data?.module);
         setLoader(false);
+        console.log("Details::", response);
       } else {
       }
     } catch (error) {

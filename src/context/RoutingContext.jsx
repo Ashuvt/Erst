@@ -130,7 +130,7 @@ const goToForgotPassword = () => {
         if(response?.data?.success){
           toastSuccess("Course Added In Cart!");
         }else{
-          toastSuccess("Course Already added on cart");
+          toastWarning("Course Already added on cart");
         }
     } catch (error) {
       console.log("ERROR::" ,error);

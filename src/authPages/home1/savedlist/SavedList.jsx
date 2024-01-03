@@ -22,7 +22,7 @@ const {saveCourseApi} = useContext(redirectContext);
           return (
             <div className="saved_card_wrap wow fadeInRight" key={data._id}>
               <div className="bg_card_overlay"></div>
-              <div className="title_line_wrap">
+              <div className="title_line_wraper">
                 <p className="title_text">{data?.course_id?.name}</p>
                 <button type="button" className="savedbtn" onClick={() => saveCourseApi(data._id)}>
                   <img src={icon.save} alt="saveicon" />

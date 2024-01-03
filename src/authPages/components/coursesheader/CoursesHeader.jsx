@@ -23,6 +23,8 @@ const CoursesHeader = () => {
   const [name, setName] = useState("");
   const [profile, setProfile] = useState("");
 
+
+
   const menuData = [
     {
       id: 0,
@@ -113,6 +115,7 @@ const CoursesHeader = () => {
         setName(response?.data?.data?.name);
         setProfile(response?.data?.data?.profile);
         console.log(response?.data?.data?.profile);
+        
       } else {
       }
     } catch (error) {
