@@ -3,6 +3,12 @@ export const baseUrl = "https://cybergainbackend.supagrow.in";
 // Career page Send CV Form API
 export const sendCv = "api/storecarrerapi";
 
+// get testimonial
+export const getTestimonial = "api/gettestimonial"
+
+// get Events
+export const getEvents = "api/getevent"
+
 // Email Subscription API
 export const emailSubscribe = "api/emailsubscribe"
 
@@ -71,3 +77,8 @@ export const saveCourse = "api/savedcourse"
 
 export const getSavedCourse = "api/getsavedcourse";
 
+// Course Details View By Id
+export const coursedetailById = "api/coursedetails";
+
+// Add To Cart
+export const addToCart = "api/addtocart";

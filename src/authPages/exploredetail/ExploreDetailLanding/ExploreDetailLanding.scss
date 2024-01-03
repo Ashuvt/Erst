@@ -7,30 +7,41 @@ section.explore_detail {
     padding-top: 80px;
     padding-bottom: 80px;
     background: $bgGradient;
-    @media only screen and (max-width:$tab){
-        padding-top: 60px;
-    padding-bottom: 60px;
-    }
 
+    @media only screen and (max-width:$tab) {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+.loader{
+    width:100%;
+    h3{
+        color:$white;
+        text-align: center;
+    }
+}
     .screen_container {
         display: flex;
         justify-content: flex-start;
         align-items: center;
         gap: 48px;
-        @media only screen and (max-width:$laptop){
-            flex-direction: column;   
+
+        @media only screen and (max-width:$laptop) {
+            flex-direction: column;
         }
 
         .video_wrapper {
             position: relative;
-            max-width:460px;
-            width:100%;
-            img{
-                max-width:100%;
+            max-width: 460px;
+            width: 100%;
+
+            img {
+                max-width: 100%;
             }
-            @media only screen and (max-width:$tab){
-                width:100%; 
+
+            @media only screen and (max-width:$tab) {
+                width: 100%;
             }
+
             button {
                 position: absolute;
                 top: 50%;
@@ -43,32 +54,39 @@ section.explore_detail {
         }
 
         .info_wraper {
-            width:calc(100% - 460px);
-            @media only screen and (max-width:$laptop){
-                width:100%;
+            width: calc(100% - 460px);
+
+            @media only screen and (max-width:$laptop) {
+                width: 100%;
             }
+
             .info_line {
                 display: flex;
                 justify-content: flex-start;
                 align-items: center;
                 flex-wrap: wrap;
                 gap: 24px;
-                @media only screen and (max-width:$laptop){
-                    gap:20px;
+
+                @media only screen and (max-width:$laptop) {
+                    gap: 20px;
                 }
-                @media only screen and (max-width:$tab){
-                    gap:15px;
+
+                @media only screen and (max-width:$tab) {
+                    gap: 15px;
                 }
+
                 .info {
                     display: flex;
                     justify-content: flex-start;
                     align-items: center;
                     gap: 8px;
-                    @media only screen and (max-width:$tab){
+
+                    @media only screen and (max-width:$tab) {
                         gap: 6px;
-                       img{
-                        width:20px;
-                       }
+
+                        img {
+                            width: 20px;
+                        }
                     }
                 }
 
@@ -77,12 +95,15 @@ section.explore_detail {
                     display: flex;
                     justify-content: flex-start;
                     align-items: center;
-                    @media only screen and (max-width:$laptop){
+
+                    @media only screen and (max-width:$laptop) {
                         @include font('Inter-Regular', 16px, 20px, 400, $textPrimary);
                     }
-                    @media only screen and (max-width:$tab){
+
+                    @media only screen and (max-width:$tab) {
                         @include font('Inter-Regular', 14px, 18px, 400, $textPrimary);
                     }
+
                     span {
                         height: 4px;
                         width: 4px;
@@ -97,17 +118,23 @@ section.explore_detail {
             h1 {
                 @include font('SpaceGrotesk-Regular', 32px, 36px, 400, $textPrimary);
                 margin: 16px 0px;
-                @media only screen and (max-width:$tab){
+
+                @media only screen and (max-width:$tab) {
                     @include font('SpaceGrotesk-Regular', 26px, 30px, 400, $textPrimary);
                     margin: 15px 0px;
                 }
             }
-            .btn_line{
+
+            .btn_line {
                 display: flex;
                 justify-content: flex-start;
                 align-items: center;
-                gap:8px;
-                margin:8px 0px 40px;
+                gap: 8px;
+                margin: 8px 0px 40px;
+            }
+
+            button {
+                margin-top: 20px;
             }
         }
     }

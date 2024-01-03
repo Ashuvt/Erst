@@ -24,7 +24,7 @@ const {saveCourseApi} = useContext(redirectContext);
               <div className="bg_card_overlay"></div>
               <div className="title_line_wrap">
                 <p className="title_text">{data?.course_id?.name}</p>
-                <button type="button" onClick={() => saveCourseApi(data._id)}>
+                <button type="button" className="savedbtn" onClick={() => saveCourseApi(data._id)}>
                   <img src={icon.save} alt="saveicon" />
                 </button>
               </div>

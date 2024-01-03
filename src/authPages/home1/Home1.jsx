@@ -70,6 +70,7 @@ const homeApi = async() => {
         setHomeData(response.data.data);
         setSavedCourse(response?.data?.data?.saved_courses);
         setCta(response?.data?.data?.cta);
+        console.log(response?.data?.data?.saved_courses);
       }
   } catch (error) {
     console.log("Error:::",error)

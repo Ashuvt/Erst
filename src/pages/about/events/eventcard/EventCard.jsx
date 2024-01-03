@@ -1,9 +1,9 @@
 import { useState } from "react";
 import "./EventCard.scss";
-import {useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+import { baseUrl } from "../../../../utils/apidata";
 
-const EventCard = ({ date, title, text, img, url }) => {
-
+const EventCard = ({ date, title, small_description, image, createdAt }) => {
   const [side, setSide] = useState(false);
   const [width, setWidth] = useState(0);
 
@@ -17,7 +17,7 @@ const EventCard = ({ date, title, text, img, url }) => {
     setWidth(0);
   };
 
-  const l = useSelector(state => state.langReducer.lang);
+  const l = useSelector((state) => state.langReducer.lang);
 
   return (
     <div
@@ -27,16 +27,17 @@ const EventCard = ({ date, title, text, img, url }) => {
       onMouseLeave={hoverOutHandler}
     >
       <div className="text">
-        <p className="date">{date}</p>
+        <p className="date">{createdAt.slice(0, 10)}</p>
         <h3>{title}</h3>
-        <p>{text}</p>
+        <p>{small_description}</p>
       </div>
-      <div className="img_wrap"
-       style={['ar', 'he'].includes(l) ? {left:'0px'} : {right:'0px'}}
+      <div
+        className="img_wrap"
+        style={["ar", "he"].includes(l) ? { left: "0px" } : { right: "0px" }}
       >
         <div className="content_box">
           <div className="overlay"></div>
-          <img src={img} alt="blogbanner" />
+          <img src={`${baseUrl}/${image}`} alt="blogbanner" />
         </div>
       </div>
       <div className="bottom_border">
@@ -45,7 +46,7 @@ const EventCard = ({ date, title, text, img, url }) => {
           style={{ width: `${width}%` }}
         ></div>
       </div>
-      <a href={url} target="_blank" className="link_overlay"></a>
+      {/* <a href={url} target="_blank" className="link_overlay"></a> */}
     </div>
   );
 };

@@ -3,7 +3,7 @@ import { createContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { resetAllToggler } from "../store/actions";
-import {baseUrl, saveCourse} from "../utils/apidata";
+import {baseUrl, saveCourse, emailSubscribe, addToCart} from "../utils/apidata";
 import axios from 'axios';
 
 export const redirectContext = createContext();
@@ -104,16 +104,39 @@ const goToForgotPassword = () => {
 
 
   // Email Subscribe API
-
-  const emailSubscribe = async(emailId) => {
-
+  const emailSubscribeApi = async(emailId) => {
     try { 
         const response = await axios.post(`${baseUrl}/${emailSubscribe}`, {email:emailId})
-        console.log(response);
+        console.log("RES::", response);
+        if(response?.data?.success){
+          toastSuccess("Submit SuccessFully!")
+        }
     } catch (error) {
-      console.log(error);
+      console.log("ERROR::" ,error);
+      toastError("something went wrong!")
     }
-  }
+  };
+
+  // Add To Cart
+
+  const addToCartApi = async(courseId) => {
+    const token = localStorage.getItem("token");
+    const headers = {
+      Authorization: `Bearer ${token}`,
+    };
+    try { 
+        const response = await axios.post(`${baseUrl}/${addToCart}`, {course_id:courseId}, {headers})
+        console.log("RES::", response);
+        if(response?.data?.success){
+          toastSuccess("Course Added In Cart!");
+        }else{
+          toastSuccess("Course Already added on cart");
+        }
+    } catch (error) {
+      console.log("ERROR::" ,error);
+      toastError("something went wrong!")
+    }
+  };
 
 
   const allRedirectFunctions = {
@@ -132,7 +155,8 @@ const goToForgotPassword = () => {
     toastWarning,
     toastClear,
     saveCourseApi,
-    emailSubscribe,
+    emailSubscribeApi,
+    addToCartApi,
   };
 
   return (

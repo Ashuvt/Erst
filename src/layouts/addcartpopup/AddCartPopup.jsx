@@ -13,6 +13,7 @@ const AddCartPopup = () => {
   );
 
   const [cartList, setCartList] = useState([]);
+  const [loader, setLoader] = useState(false);
 
   const productsData = [
     {
@@ -54,17 +55,20 @@ const AddCartPopup = () => {
 
   const getCartApi = async () => {
     try {
+      setLoader(true);
       const response = await axios.get(`${baseUrl}/${getCart}`, { headers });
-      if(response.data.success){
-        console.log(response);
+      if (response?.data?.success) {
         setCartList(response?.data?.data);
-      }else{
+        console.log(response);
+        setLoader(false);
+      } else {
         setCartList([]);
+        setLoader(false);
       }
-      
     } catch (error) {
       console.log(error);
       setCartList([]);
+      setLoader(false);
     }
   };
 
@@ -87,40 +91,36 @@ const AddCartPopup = () => {
             <img src={icons.whiteClose} alt="close" />
           </button>
         </div>
-        <div className="product_list">
-          {cartList.length > 0 ?
-            productsData.map((data) => {
-              return (
-                <div className="product_card" key={data.id}>
-                  <div className="info">
-                    <div className="img_wrap">
-                      <img src={data.img} alt="product" />
-                    </div>
-                    <div className="text">
-                      <p className="name">{data.title}</p>
-                      <p className="price">$ {data.price} USD</p>
-                      <button type="button">remove</button>
+        {loader ? (
+          <div className="loader_sec">
+            <p>Loading...</p>
+          </div>
+        ) : (
+          <div className="product_list">
+            {cartList.length > 0 ? (
+              cartList.map((data) => {
+                return (
+                  <div className="product_card" key={data._id}>
+                    <div className="info">
+                      <div className="img_wrap">
+                        <img src={data.img} alt="product" />
+                      </div>
+                      <div className="text">
+                        <p className="name">{data?.course_id?.name}</p>
+                        <p className="price">$ {data.price} USD</p>
+                        <button type="button">remove</button>
+                      </div>
                     </div>
                   </div>
-                  {/* <div className="count">
-                    <button type="button">-</button>
-                    <form>
-                      <input
-                        type="number"
-                        value={data.count}
-                        onChange={inputHandler}
-                      />
-                    </form>
-                    <button type="button">+</button>
-                  </div> */}
-                </div>
-              );
-            })
-          : <div className="empty_block">
-            <p>Your Cart is empty...</p>
+                );
+              })
+            ) : (
+              <div className="empty_block">
+                <p>Your Cart is empty...</p>
+              </div>
+            )}
           </div>
-          }
-        </div>
+        )}
         <div className="model_footer">
           <div className="total">
             <p>Subtotal</p>

@@ -4,22 +4,26 @@
 @import "../../../scss/variables";
 
 section.feed_back {
-    z-index:1;
-    position:relative;
-    .content_wrap {    
-        .feedback_list {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-            gap: 15px;
-            margin-top:20px;
+    z-index: 1;
+    position: relative;
 
-            @media only screen and (max-width:1200px) {
-                grid-template-columns: 1fr 1fr;
+    .content_wrap {
+        .error_sec{
+            padding:100px;
+            border:1px solid $lightBorder_1;
+            border-radius: 8px;;
+            p{
+                text-align: center;
+                color:$white;
+                letter-spacing: 1px;
             }
+        }
+        .feedback_list {
 
-            @media only screen and (max-width:$tab) {
-                grid-template-columns: 1fr;
-                margin-top:60px;
+            margin-top: 20px;
+
+            .testimonial_info {
+                padding: 10px;
             }
         }
     }

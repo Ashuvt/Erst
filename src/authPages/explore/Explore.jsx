@@ -438,7 +438,7 @@ const Explore = () => {
                         <ExploreCard
                           {...data}
                           index={k}
-                          redirectTo="/explore/courses"
+                          redirectTo={`/explore/${data._id}`}
                         />
                       </Fragment>
                     );

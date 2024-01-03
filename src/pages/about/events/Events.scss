@@ -41,6 +41,16 @@ section.tips_blog {
             }
         }
 
+        .loader_sec{
+            border:1px solid $lightBorder_1;
+            border-radius: 8px;
+            padding:50px;
+            p{
+                text-align: center;
+                color:$white;
+                letter-spacing: 1px;
+            }
+        }
 
 
         .blog_column {

@@ -242,6 +242,9 @@ section.footer {
                     -webkit-transform: rotate(-45deg);
                     transform: rotate(-45deg);
                   }
+                  &:disabled{
+                    opacity:0.5;
+                  }
                 }
               }
             }

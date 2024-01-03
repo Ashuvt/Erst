@@ -6,12 +6,11 @@
 
 .home_saved_list {
     margin-top: 80px;
-
+  
     .title {
         display: flex;
         justify-content: space-between;
         align-items: center;
-
         button {
             background-color: transparent;
             border-style: none;
@@ -70,10 +69,10 @@
             align-items: center;
             margin-bottom: 12px;
 
-            button {
+            button.savedbtn {
                 border-style: none;
                 background-color: transparent;
-
+                position:relative;
                 img {
                     width: 16px;
                 }

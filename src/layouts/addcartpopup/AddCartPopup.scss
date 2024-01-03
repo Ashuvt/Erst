@@ -57,6 +57,18 @@
             }
         }
 
+        .loader_sec{
+            padding:100px 50px;
+            background-color: #222;
+            display: grid;
+            place-items:center;
+            p{
+                color:$white;
+                text-align: center;
+                letter-spacing:1px;
+            }
+        }
+
         .product_list {
             padding: 12px 24px;
             background-color: #222;

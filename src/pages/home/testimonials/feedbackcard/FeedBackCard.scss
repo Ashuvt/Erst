@@ -14,9 +14,11 @@
     align-items: center;
     gap: 20px;
     border-radius: 6px;
-    transition: all 0.3s ease-in-out;
-    @media only screen and (max-width:$mobile){
-        padding:15px;
+    transition: all 0.3s ease-in-out;    
+
+    @media only screen and (max-width:$tab) {
+        padding: 15px;
+        gap:12px;
     }
 
     .profile {
@@ -24,6 +26,12 @@
         width: 60px;
         border-radius: 50%;
         display: block;
+
+        @media only screen and (max-width:$tab) {
+            height:45px;
+            width:45px;
+        }
+
         img {
             height: 100%;
             width: 100%;
@@ -31,17 +39,23 @@
             object-fit: cover;
         }
     }
-    .info{
-        width:calc(100% - 80px);
-        h5{
-            @include font('SpaceGrotesk-Regular', 22px, 24.2px, 400, $white);
-            margin-bottom:10px;
+
+    .info {
+        width: calc(100% - 80px);
+        @media only screen and (max-width:$tab){
+            width: calc(100% - 60px);
         }
-        p{
+
+        h5 {
+            @include font('SpaceGrotesk-Regular', 22px, 24.2px, 400, $white);
+            margin-bottom: 10px;
+        }
+
+        p {
             @include font('SpaceGrotesk-Regular', 15px, 22.5px, 400, $lightBorder_1);
             display: -webkit-box;
-            -webkit-line-clamp:2;
-            -webkit-box-orient: vertical;  
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
             overflow: hidden;
         }
     }

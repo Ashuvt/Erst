@@ -1,64 +1,134 @@
 import { Fragment, useEffect, useState } from "react";
-import {images } from "../../../utils/images/images";
+import { images } from "../../../utils/images/images";
 import "./Testimonials.scss";
 import FeedBackCard from "./feedbackcard/FeedBackCard";
 import FeedGrid from "./feedgrid/FeedGrid";
 import { useSelector } from "react-redux";
+import Slider from "react-slick";
+import axios from "axios";
+import { baseUrl, getTestimonial } from "../../../utils/apidata";
 
-const Testimonials = ({t}) => {
+const Testimonials = ({ t }) => {
+  const settings = {
+    dots: false,
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    speed: 1000,
+    autoplaySpeed: 6000,
+    cssEase: "linear",
+    responsive: [
+      {
+        breakpoint: 1000,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: false,
+        },
+      },
+      {
+        breakpoint: 550,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: false,
+        },
+      },
+    ],
+  };
+
+  const [list, setList] = useState([]);
+  const [loader, setLoader] = useState(false);
+
   const testimonialsData = [
     {
       id: 0,
-      name:t('feedName1'),
-      text:t('feedText1'),
+      name: t("feedName1"),
+      text: t("feedText1"),
       profile: images.avtar,
-      testimonial:t('feedPara1')
+      testimonial: t("feedPara1"),
     },
     {
       id: 1,
-      name:t('feedName2'),
-      text:t('feedText2'),
+      name: t("feedName2"),
+      text: t("feedText2"),
       profile: images.avtar,
-      testimonial:t('feedPara2')
+      testimonial: t("feedPara2"),
     },
     {
       id: 2,
-      name:t('feedName3'),
-      text:t('feedText3'),
+      name: t("feedName3"),
+      text: t("feedText3"),
       profile: images.avtar,
-      testimonial:t('feedPara3')
+      testimonial: t("feedPara3"),
     },
     {
       id: 3,
-      name:t('feedName4'),
-      text:t('feedText4'),
+      name: t("feedName4"),
+      text: t("feedText4"),
       profile: images.avtar,
-      testimonial:t('feedPara4')
+      testimonial: t("feedPara4"),
     },
   ];
 
-  const l = useSelector(state => state.langReducer.lang);
+  const l = useSelector((state) => state.langReducer.lang);
 
-  const [view, setView] = useState(testimonialsData[0]);
+  const [view, setView] = useState({});
+
+  const getTestimonials = async () => {
+    try {
+      setLoader(true);
+      const response = await axios.get(`${baseUrl}/${getTestimonial}`);
+
+      if (response?.data?.success) {
+        setList(response?.data?.data);
+        setView(response?.data?.data[0]);
+        setLoader(false);
+      }
+    } catch (error) {
+      console.log("ERR", error);
+      setLoader(false);
+    }
+  };
 
   useEffect(() => {
-    setView(testimonialsData[0]);
-  }, [l])
+    getTestimonials();
+  }, []);
 
   return (
     <section className="feed_back p_bottom">
       <div className="content_wrap p_top">
-       <FeedGrid data={view} t={t} />
-        <div className="feedback_list">
-        {testimonialsData.map((data, j) => {
-          return (
-            <Fragment key={data.id}>
-              <FeedBackCard data={data} index={j} setView={setView} />
-            </Fragment>
-          );
-        })}
+        {loader ? (
+          <div className="error_sec">
+            <p>Loading...</p>
+          </div>
+        ) : (
+          <Fragment>
+            <FeedGrid data={view} t={t} />
+            <div className="feedback_list">
+              <Slider {...settings}>
+                {list.length > 0 &&
+                  list.map((data, j) => {
+                    return (
+                      <Fragment key={data._id}>
+                        <div className="testimonial_info">
+                          <FeedBackCard
+                            data={data}
+                            index={j}
+                            setView={setView}
+                          />
+                        </div>
+                      </Fragment>
+                    );
+                  })}
+              </Slider>
+            </div>
+          </Fragment>
+        )}
       </div>
-      </div>      
     </section>
   );
 };
