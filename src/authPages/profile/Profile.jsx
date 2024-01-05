@@ -16,6 +16,7 @@ import { baseUrl, getProfile } from "../../utils/apidata";
 import { getProfileData } from "../../store/actions";
 
 const Profile = () => {
+  
   const [profile, setProfile] = useState();
   const token = localStorage.getItem("token");
   const optionData = [
@@ -111,7 +112,7 @@ const Profile = () => {
           </div>
           <div className="menu_screens">
             {tab === 1 && <MyProfile />}
-            {tab === 2 && <Accounts profile={profile} recallProfile={recallProfile} />}
+            {tab === 2 && <Accounts getProfile={profile} recallProfile={recallProfile} />}
             {tab === 3 && <Subscription />}
             {tab === 4 && <EmailNotification />}
             {tab === 5 && <Help />}

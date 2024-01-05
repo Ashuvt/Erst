@@ -151,7 +151,6 @@ const initialState = {
     formDataToSend.forEach((value, key) => {
       formDataObject[key] = value;
     });    
-    console.log(formDataObject);
     
     cvApi(formDataObject);
   };
