@@ -14,7 +14,8 @@ import {
   PROFILE_TAB_CHANGER,
 
   SEND_PROFESSIONS,
-  SEND_INTERESTED_FIELD
+  SEND_INTERESTED_FIELD,
+  ADD_CART_COUNT
   
 } from "./consts";
 
@@ -74,4 +75,8 @@ export const profileTabChanger = () => {
 
 export const getProfileData = () => {
   return GET_PROFILE_DATA;
+}
+
+export const addCartCount = () => {
+  return ADD_CART_COUNT;
 }

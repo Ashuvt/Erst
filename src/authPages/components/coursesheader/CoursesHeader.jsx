@@ -4,10 +4,12 @@ import { images, logoImage } from "../../../utils/images/images";
 import { icon } from "../../../utils/images/icons";
 import { icons } from "../../../utils/images/images";
 import NavBtn from "./navbtn/NavBtn";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useEffect, useState, useContext } from "react";
 import NotificationCard from "./notificationcard/NotificationCard";
 import ProfileMenu from "./profilemenu/ProfileMenu";
 import { useDispatch, useSelector } from "react-redux";
+import { redirectContext } from "../../../context/RoutingContext";
+
 import {
   cartPopupToggler,
   courseSidebarToggler,
@@ -23,7 +25,7 @@ const CoursesHeader = () => {
   const [name, setName] = useState("");
   const [profile, setProfile] = useState("");
 
-
+const {getCartApi} = useContext(redirectContext);
 
   const menuData = [
     {
@@ -38,24 +40,24 @@ const CoursesHeader = () => {
       text: "explore",
       path: "/auth/explore",
     },
-    {
-      id: 2,
-      img: icon.skillpath,
-      text: "skill paths",
-      path: "/auth/skill_paths",
-    },
-    {
-      id: 3,
-      img: icon.live,
-      text: "live",
-      path: "/auth/live",
-    },
-    {
-      id: 4,
-      img: icon.group,
-      text: "groups",
-      path: "/auth/groups",
-    },
+    // {
+    //   id: 2,
+    //   img: icon.skillpath,
+    //   text: "skill paths",
+    //   path: "/auth/skill_paths",
+    // },
+    // {
+    //   id: 3,
+    //   img: icon.live,
+    //   text: "live",
+    //   path: "/auth/live",
+    // },
+    // {
+    //   id: 4,
+    //   img: icon.group,
+    //   text: "groups",
+    //   path: "/auth/groups",
+    // },
     {
       id: 5,
       img: icon.save,
@@ -74,6 +76,10 @@ const CoursesHeader = () => {
   const courseSidebarStatus = useSelector(
     (state) => state.toggleReducer.courseSidebarStatus
   );
+
+  const cartCount = useSelector((state) => state.countReducer.totalItem);
+
+
 
   const courseMenuToggler = (e) => {
     if (courseSidebarStatus) {
@@ -125,6 +131,7 @@ const CoursesHeader = () => {
 
   useEffect(() => {
     getProfileApi();
+    getCartApi();
   }, []);
 
   return (
@@ -153,7 +160,7 @@ const CoursesHeader = () => {
 
             <button type="button" className="cartbtn" onClick={openCartPopup}>
               <div className="notification">
-                <p>2</p>
+                <p>{cartCount ? cartCount : 0}</p>
               </div>
               <img src={icons.addCart} alt="cart" />
             </button>

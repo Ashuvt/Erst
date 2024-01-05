@@ -21,8 +21,7 @@ function App() {
     dispatch({ type: resetAllToggler() });
   }, [location.pathname]);
 
-  useEffect(() => {
-   
+  useEffect(() => {   
     const defaultLanguage = localStorage.getItem("lang");
     if (defaultLanguage) {
       dispatch({ type: languageChanges(), payload: defaultLanguage });

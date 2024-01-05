@@ -2,8 +2,8 @@ import { toast } from 'react-toastify';
 import { createContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { resetAllToggler } from "../store/actions";
-import {baseUrl, saveCourse, emailSubscribe, addToCart} from "../utils/apidata";
+import { addCartCount, resetAllToggler } from "../store/actions";
+import {baseUrl, saveCourse, emailSubscribe, addToCart, getCart} from "../utils/apidata";
 import axios from 'axios';
 
 export const redirectContext = createContext();
@@ -118,7 +118,6 @@ const goToForgotPassword = () => {
   };
 
   // Add To Cart
-
   const addToCartApi = async(courseId) => {
     const token = localStorage.getItem("token");
     const headers = {
@@ -129,6 +128,7 @@ const goToForgotPassword = () => {
         console.log("RES::", response);
         if(response?.data?.success){
           toastSuccess("Course Added In Cart!");
+          getCartApi();
         }else{
           toastWarning("Course Already added on cart");
         }
@@ -137,6 +137,23 @@ const goToForgotPassword = () => {
       toastError("something went wrong!")
     }
   };
+
+  const getCartApi = async () => {   
+    const token = localStorage.getItem("token");
+    const headers = {
+      Authorization: `Bearer ${token}`,
+    }; 
+    try {
+      const response = await axios.get(`${baseUrl}/${getCart}`, { headers });
+      if (response?.data?.success) {       
+        dispatch({type:addCartCount(), payload:response?.data?.data?.length})
+      } else {
+        dispatch({type:addCartCount(), payload:0})
+      }
+    } catch (error) {
+      dispatch({type:addCartCount(), payload:0})
+    }
+  }
 
 
   const allRedirectFunctions = {
@@ -157,6 +174,7 @@ const goToForgotPassword = () => {
     saveCourseApi,
     emailSubscribeApi,
     addToCartApi,
+    getCartApi
   };
 
   return (

@@ -42,10 +42,10 @@ const SavedCard = ({
           dangerouslySetInnerHTML={{ __html: course_id?.small_description }}
         ></div>
         <h2>{course_id?.name}</h2>
-        <div
+        {/* <div
           className="desc"
-          dangerouslySetInnerHTML={{ __html: course_id?.description }}
-        ></div>
+          dangerouslySetInnerHTML={{ __html: course_id?.small_description }}
+        ></div> */}
         <div className="counter_info">
           {course_id?.students && (
             <div className="info">

@@ -9,6 +9,7 @@ import {
   MULTILANG_TOGGLER,
   COUNTRY_DD_TOGGLER,
   LANG,
+  ADD_CART_COUNT,
 } from "../consts";
 
 const initialToggleState = {
@@ -69,3 +70,16 @@ export const langReducer = (state = langState, action) => {
       return state;
   }
 };
+
+
+const countState = {
+  totalItem:0
+}
+export const countReducer = (state=countState, action) => {
+    switch(action.type){
+      case ADD_CART_COUNT : return {...state, totalItem:action.payload};
+
+      default:
+        return state;
+    }
+}

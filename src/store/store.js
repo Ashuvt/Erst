@@ -1,5 +1,5 @@
 import { createStore, combineReducers } from "redux";
-import { toggleReducer, langReducer} from "./reducers/toggleReducer";
+import { toggleReducer, langReducer, countReducer} from "./reducers/toggleReducer";
 import {onBoardingReducer, profileTabReducer, getProfileDataReducer} from "./reducers/onboardingReducer";
 
 const rootReducer = combineReducers({
@@ -8,6 +8,7 @@ const rootReducer = combineReducers({
     onBoardingReducer,
     profileTabReducer,
     getProfileDataReducer,
+    countReducer,
 });
 
 const store = createStore(rootReducer);
