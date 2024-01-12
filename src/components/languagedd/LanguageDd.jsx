@@ -1,5 +1,5 @@
 import "./LanguageDd.scss";
-import { useState, Fragment, useEffect, useCallback, useContext } from "react";
+import { useState, Fragment, useEffect, useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { languageChanges, multilangToggler } from "../../store/actions";
 import { useTranslation } from "react-i18next";
@@ -8,8 +8,9 @@ import { redirectContext } from "../../context/RoutingContext";
 const LanguageDd = () => {
 
   const {domainName} = useContext(redirectContext);
+  const { t, i18n } = useTranslation();
 
-  const AllLanguages = domainName === "net" ? [
+  const AllLanguages = [
     {
       id: "English",
       lang: "en",
@@ -19,18 +20,6 @@ const LanguageDd = () => {
       id: "Hebrew",
       lang: "he",
       text: "עב",
-      
-    },
-    {
-      id: "Arabic",
-      lang: "ar",
-      text: "عر",
-    },
-  ] : [
-    {
-      id: "English",
-      lang: "en",
-      text: "En",
     },
     {
       id: "Arabic",
@@ -39,18 +28,23 @@ const LanguageDd = () => {
     },
   ];
 
-// Default language set from app.js file
 
-const defaultSelection = localStorage.getItem("lang");
-  const [lang, setLang] = useState("he");
+  const [lang, setLang] = useState(domainName() === 'net' ? 'he' : 'en');
 
   useEffect(() => {
     const language = localStorage.getItem("lang");
     if(language){
      const currentLang = AllLanguages.filter(ele => ele.lang === language);
       setLang(currentLang[0].lang);
-    }else{      
-      setLang("he");
+      i18n.changeLanguage(currentLang[0].lang);
+          dispatch({type:languageChanges(), payload:currentLang[0].lang});
+    }else{
+      // default language is set by this set storage
+      localStorage.setItem("lang", domainName() === 'net' ? 'he' : 'en')
+
+      setLang(domainName() === 'net' ? 'he' : 'en');
+      i18n.changeLanguage(domainName() === 'net' ? 'he' : 'en');
+          dispatch({type:languageChanges(), payload:domainName() === 'net' ? 'he' : 'en'});
     }
   })
 
@@ -62,12 +56,12 @@ const defaultSelection = localStorage.getItem("lang");
     dispatch({ type: multilangToggler(), payload: !status });
   };
 
-  const { t, i18n } = useTranslation();
 
-  const changeLanguage = (lng, selected) => {
+
+  const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);     
     dispatch({type:languageChanges(), payload:lng});
-    setLang(selected);  
+    setLang(lng);  
     localStorage.setItem("lang",lng);
   }; 
 
@@ -79,14 +73,14 @@ const defaultSelection = localStorage.getItem("lang");
       <button type="button" className="primarybtn" onClick={btnClickHandler}>
         {AllLanguages.filter(ele => ele.lang === lang)[0]?.text}
       </button>
-      <div className={`option_list ${status ? "oprn" : "close"}`}>    
+      <div className={`option_list ${status ? "open" : "close"}`}>    
         {AllLanguages.map((data) => {
           return (
             <Fragment key={data.id}>
               <button
                 type="button"
                 className={lang === data.lang ? 'active' : ''}
-                onClick={() => changeLanguage(data.lang, data.text)}
+                onClick={() => changeLanguage(data.lang)}
               >
                 {data.text}
               </button>
