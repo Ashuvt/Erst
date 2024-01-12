@@ -49,7 +49,7 @@ export const english = {
   blueC8:"Bash Scripting for Blue Team Course.",
 
   homeLeftTitle: "About Cyber Gain Center.",
-  homeLeftPara: "Established In 2022, Our Cybersecurity Training Company, Headquartered In Israel With Additional Branches In Dubai And India, Stands As A Beacon Of Comprehensive Learning In The Ever-Evolving Digital Landscape. With Over Six Generations Of Trainers, Our Center Offers A Dynamic Fusion Of Expertise And Innovation. We Empower Learners Through Hands-On Labs And Simulations, Immersing Them In Real-Life Scenarios Drawn From Past Incidents. This Immersive Approach Fosters A Deep Understanding Of Cybersecurity, Equipping Our Trainees With The Skills And Foresight Needed To Navigate And Safeguard Against Modern Threats.",
+  homeLeftPara: "Established In 2021, Our Cybersecurity Training Company, Headquartered In Israel With Additional Branches In Dubai And India, Stands As A Beacon Of Comprehensive Learning In The Ever-Evolving Digital Landscape. With Over Six Generations Of Trainers, Our Center Offers A Dynamic Fusion Of Expertise And Innovation. We Empower Learners Through Hands-On Labs And Simulations, Immersing Them In Real-Life Scenarios Drawn From Past Incidents. This Immersive Approach Fosters A Deep Understanding Of Cybersecurity, Equipping Our Trainees With The Skills And Foresight Needed To Navigate And Safeguard Against Modern Threats.",
   homeLeftBtn: "Know More",
   goRightBtn:"For Universities",
 

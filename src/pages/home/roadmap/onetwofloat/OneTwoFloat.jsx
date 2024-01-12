@@ -1,4 +1,6 @@
+import { Fragment } from "react";
 import "./OneTwoFloat.scss";
+import OneThreeFloat from "../onethreefloat/OneThreeFloat";
 
 const OneTwoFloat = ({ scrollY }) => {
   let startPoint = 1700;
@@ -14,6 +16,7 @@ const OneTwoFloat = ({ scrollY }) => {
       : scrollY - startPoint - 70;
 
   return (
+    <Fragment>
     <div className="one_two_float">
       <div className="t_line"></div>
       <div className="h_line">
@@ -42,6 +45,10 @@ const OneTwoFloat = ({ scrollY }) => {
         </div>
       </div>
     </div>
+    <div className="small_spport">
+        <OneThreeFloat scrollY={scrollY} />
+    </div>
+    </Fragment>
   );
 };
 

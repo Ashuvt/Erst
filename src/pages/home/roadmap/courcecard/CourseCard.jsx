@@ -4,6 +4,7 @@ import { baseUrl } from "../../../../utils/apidata";
 import { useNavigate } from "react-router-dom";
 
 const CourseCard = ({
+  _id,
   name,
   image,
   description,
@@ -44,18 +45,8 @@ const CourseCard = ({
         </button>
       </div>
 
-      <div className="courses_list">
-        {/* <p>{about}</p> */}
-        <p className="t-g-18">{t("availTitle")}</p>
-        {/* <ol>
-          {courses.map((ele) => {
-            return (
-              <Fragment key={ele.id}>
-                <li>{ele.course}</li>
-              </Fragment>
-            );
-          })}
-        </ol> */}
+      <div className="courses_list">    
+        <p className="t-g-18">{t("availTitle")}</p>   
 
         <div dangerouslySetInnerHTML={{ __html: description }}></div>
       </div>

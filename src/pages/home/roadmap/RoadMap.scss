@@ -316,6 +316,18 @@ section.road_map {
             }
 
         }
+        .bi_grid{
+            display: flex;
+            justify-content: space-around;
+            gap:20px;            
+            width:100%;
+            @media only screen and (max-width:1250px){
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+        }
 
 
     }

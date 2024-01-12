@@ -1,12 +1,15 @@
 import "./LanguageDd.scss";
-import { useState, Fragment, useEffect } from "react";
+import { useState, Fragment, useEffect, useCallback, useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { languageChanges, multilangToggler } from "../../store/actions";
 import { useTranslation } from "react-i18next";
+import { redirectContext } from "../../context/RoutingContext";
 
 const LanguageDd = () => {
 
-  const AllLanguages = [
+  const {domainName} = useContext(redirectContext);
+
+  const AllLanguages = domainName === "net" ? [
     {
       id: "English",
       lang: "en",
@@ -15,7 +18,19 @@ const LanguageDd = () => {
     {
       id: "Hebrew",
       lang: "he",
-      text: "הוא",
+      text: "עב",
+      
+    },
+    {
+      id: "Arabic",
+      lang: "ar",
+      text: "عر",
+    },
+  ] : [
+    {
+      id: "English",
+      lang: "en",
+      text: "En",
     },
     {
       id: "Arabic",
@@ -23,6 +38,8 @@ const LanguageDd = () => {
       text: "عر",
     },
   ];
+
+// Default language set from app.js file
 
 const defaultSelection = localStorage.getItem("lang");
   const [lang, setLang] = useState("he");
@@ -32,8 +49,8 @@ const defaultSelection = localStorage.getItem("lang");
     if(language){
      const currentLang = AllLanguages.filter(ele => ele.lang === language);
       setLang(currentLang[0].lang);
-    }else{
-      setLang("en");
+    }else{      
+      setLang("he");
     }
   })
 

@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useContext, useEffect, useState } from "react";
 import "./RoadMap.scss";
 import { icon } from "../../../utils/images/icons";
 import OneFourFloat from "./onefourfloat/OneFourFloat";
@@ -11,10 +11,13 @@ import axios from "axios";
 import { baseUrl, CourseList } from "../../../utils/apidata";
 import RedBlueCard from "../../../authPages/onboardingstepper/stepD/redbluecard/RedBlueCard";
 import OneThreeFloat from "./onethreefloat/OneThreeFloat";
+import { redirectContext } from "../../../context/RoutingContext";
 
 
 const RoadMap = ({ t }) => {
   const [courseList, setCourseList] = useState([]);
+
+  const {domainName} = useContext(redirectContext);
 
   const framData = [
     {
@@ -214,13 +217,17 @@ const RoadMap = ({ t }) => {
             <div className="glass_shad"></div>
           </div>
 
-          {/* <OneTwoFloat scrollY={scrollY} /> */}
-          <OneThreeFloat scrollY={scrollY} />
 
-          <div className={`tri_grid ${["ar", "he"].includes(l) ? "flip" : ""}`}>
+{
+  domainName() === 'net' ? <OneThreeFloat scrollY={scrollY} /> : <OneTwoFloat scrollY={scrollY} />
+}
+          
+          
+
+          <div className={`${domainName() === 'net' ? "tri_grid" : "bi_grid"} ${["ar", "he"].includes(l) ? "flip" : ""}`}>
 
             {courseList?.length > 0 &&
-              courseList.map((data) => {
+              courseList.slice(0,domainName() === "net" ? 3 : 2).map((data) => {
                 return (
                   <Fragment key={data._id}>
                     <CourseCard {...data} t={t} />

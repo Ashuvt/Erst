@@ -8,6 +8,13 @@ import axios from 'axios';
 
 export const redirectContext = createContext();
 
+const domainName = () => {
+  // select only two values from below
+  // net
+  // ae
+  return "ae"
+}
+
 
 
 const RoutingContextProvider = ({ children }) => {
@@ -21,14 +28,14 @@ const dispatch = useDispatch();
 
 // For Login Page
   const signInHandler = () => {
-    navigation("/signin");
+    navigation("/comingsoon");
     // comingsoon
     // signin
   };
 
   // For Getstarted Page (Sign Up)
   const signUpHandler = () => {
-    navigation("/getstarted");
+    navigation("/comingsoon");
     // comingsoon
     // getstarted
   };
@@ -174,7 +181,8 @@ const goToForgotPassword = () => {
     saveCourseApi,
     emailSubscribeApi,
     addToCartApi,
-    getCartApi
+    getCartApi,
+    domainName,
   };
 
   return (
