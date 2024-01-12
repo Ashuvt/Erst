@@ -10,7 +10,7 @@ const LanguageDd = () => {
   const {domainName} = useContext(redirectContext);
   const { t, i18n } = useTranslation();
 
-  const AllLanguages = [
+  const AllLanguages = domainName === "net" ? [
     {
       id: "English",
       lang: "en",
@@ -20,6 +20,18 @@ const LanguageDd = () => {
       id: "Hebrew",
       lang: "he",
       text: "עב",
+    },
+    {
+      id: "Arabic",
+      lang: "ar",
+      text: "عر",
+    },
+  ] : 
+  [
+    {
+      id: "English",
+      lang: "en",
+      text: "En",
     },
     {
       id: "Arabic",
@@ -93,3 +105,5 @@ const LanguageDd = () => {
 };
 
 export default LanguageDd;
+
+
