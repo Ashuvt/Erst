@@ -1,8 +1,13 @@
 import "./SymmentricSlider.scss";
 import { logoImage } from "../../../utils/images/images";
 import Slider from "react-slick";
+import { useContext } from "react";
+import {redirectContext} from "../../../context/RoutingContext";
 
 const SymmentricSlider = () => {
+
+  const {domainName} = useContext(redirectContext);
+
   const settings = {
     dots: false,
     infinite: true,
@@ -67,32 +72,37 @@ const SymmentricSlider = () => {
     },
     {
       id: 5,
-      img: logoImage.partnerA,
+      img: logoImage.partnerF,
     },
     {
       id: 6,
-      img: logoImage.partnerB,
-    },
-    {
-      id: 7,
-      img: logoImage.partnerC,
-    },
-    {
-      id: 8,
-      img: logoImage.partnerD,
-    },
-    {
-      id: 9,
-      img: logoImage.partnerE,
-    },
-    {
-      id: 10,
       img: logoImage.partnerA,
     },
     {
-      id: 11,
+      id: 7,
       img: logoImage.partnerB,
     },
+    {
+      id: 8,
+      img: logoImage.partnerC,
+    },
+    {
+      id: 9,
+      img: logoImage.partnerD,
+    },
+    {
+      id: 10,
+      img: logoImage.partnerE,
+    },
+    {
+      id: 11,
+      img: logoImage.partnerF,
+    },
+    domainName() === 'net' && {
+      id: 114,
+      img: logoImage.partnerG,
+    },
+
   ];
   return (
     <section className="symmentric_slider">

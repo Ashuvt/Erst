@@ -1,9 +1,44 @@
 import "./Partners.scss";
 import { logoImage } from "../../utils/images/images";
 import Slider from "react-slick";
+import { useContext } from "react";
+import { redirectContext } from "../../context/RoutingContext";
 
 const Partners = () => {
-  const logoData = [
+
+  const {domainName} = useContext(redirectContext);
+
+  const logoData = domainName() === "net" ?[
+    {
+      id: "00",
+      img: logoImage.partnerA,
+    },
+    {
+      id: "02",
+      img: logoImage.partnerB,
+    },
+    {
+      id: "03",
+      img: logoImage.partnerC,
+    },
+    {
+      id: "04",
+      img: logoImage.partnerD,
+    },
+    {
+      id: "05",
+      img: logoImage.partnerE,
+    },
+    {
+      id: "06",
+      img: logoImage.partnerF,
+    },
+    {
+      id: "07",
+      img: logoImage.partnerG,
+    },
+  ] : 
+  [
     {
       id: "00",
       img: logoImage.partnerA,

@@ -14,6 +14,7 @@ import partnerE from "../../assets/images/logos/Supagrow-Logo.webp";
 import partnerA from "../../assets/images/logos/ThinkCyber_Logo.webp";
 import partnerB from "../../assets/images/logos/ec_council_logo.webp";
 import partnerF from "../../assets/images/logos/SecureAcademy.png";
+import partnerG from "../../assets/images/logos/SmartDrub.png";
 
 // Images
 import dashbord from "../../assets/images/home1landing.svg";
@@ -167,6 +168,7 @@ export const logoImage = {
   partnerD,
   partnerE,
   partnerF,
+  partnerG,
 };
 
 export const icons = {
