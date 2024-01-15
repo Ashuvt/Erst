@@ -1,4 +1,4 @@
-import { Fragment, useEffect } from "react";
+import { Fragment, useEffect, useState } from "react";
 import "./ExploreCourses.scss";
 import CoursesHeader from "../components/coursesheader/CoursesHeader";
 import { icon } from "../../utils/images/icons";
@@ -9,13 +9,17 @@ import { useDispatch } from "react-redux";
 import { resetAllToggler } from "../../store/actions";
 import WOW from "wow.js";
 
-
 const ExploreCourses = () => {
+  const [status, setStatus] = useState(true);
+
+  const statusChanger = () => {
+    setStatus((prev) => !prev);
+  };
+
   useEffect(() => {
     const wow = new WOW();
     wow.init();
   }, []);
-
 
   const uploadFileData = [
     {
@@ -67,20 +71,35 @@ const ExploreCourses = () => {
   const dispatch = useDispatch();
 
   const resetToggler = () => {
-    dispatch({type:resetAllToggler()});
-  }
-
+    dispatch({ type: resetAllToggler() });
+  };
 
   return (
     <Fragment>
       <div className="header_filler"></div>
       <CoursesHeader />
-      <section className="explore_cources" onClick={resetToggler}>
+      <section className="expaned_closer_wrap">
         <div className="screen_container">
-          <div className="left_info">
+          {!status && (
+            <button
+              className="side_opener"
+              type="button"
+              onClick={statusChanger}
+            >
+              <img src={icon.dobleleftangle} alt="icon" />
+            </button>
+          )}
+        </div>
+      </section>
+      <section className="explore_cources" onClick={resetToggler}>
+        <div
+          className="screen_container"
+          style={{ gap: `${status ? "" : "0"}` }}
+        >
+          <div className={`left_info ${status ? "" : "close"}`}>
             <div className="top_title">
               <h5 className="small_title">Outline</h5>
-              <button className="iconbtn" type="button">
+              <button className="iconbtn" type="button" onClick={statusChanger}>
                 <img src={icon.dobleleftangle} alt="icon" />
               </button>
             </div>
@@ -183,7 +202,8 @@ const ExploreCourses = () => {
               </Accordion>
             </div>
           </div>
-          <div className="course_detail">
+
+          <div className={`course_detail ${status ? "" : "expand"}`}>
             <h1 className="title wow fadeInUp">Chapter Title</h1>
             <p className="small_text m-t-16 wow fadeInUp">
               Risk is inevitable. While it would be remarkable to eliminate all
@@ -285,7 +305,10 @@ const ExploreCourses = () => {
                   </p>
                 </li>
               </ul>
-              <button type="button" className="authbtn auth_primary wow fadeInUp">
+              <button
+                type="button"
+                className="authbtn auth_primary wow fadeInUp"
+              >
                 Submit
               </button>
             </div>
@@ -336,7 +359,10 @@ const ExploreCourses = () => {
                   </p>
                 </li>
               </ul>
-              <button type="button" className="authbtn auth_primary wow fadeInUp">
+              <button
+                type="button"
+                className="authbtn auth_primary wow fadeInUp"
+              >
                 Submit
               </button>
             </div>
@@ -364,15 +390,13 @@ const ExploreCourses = () => {
                 </div>
               </div>
 
-              {
-                uploadFileData.map((data) => {
-                  return(
-                    <Fragment key={data.id}>
-                      <UploadedFileCard {...data} />
-                    </Fragment>
-                  )
-                })
-              }
+              {uploadFileData.map((data) => {
+                return (
+                  <Fragment key={data.id}>
+                    <UploadedFileCard {...data} />
+                  </Fragment>
+                );
+              })}
             </div>
           </div>
         </div>

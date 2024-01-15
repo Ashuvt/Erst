@@ -28,14 +28,14 @@ const dispatch = useDispatch();
 
 // For Login Page
   const signInHandler = () => {
-    navigation("/comingsoon");
+    navigation("/signin");
     // comingsoon
     // signin
   };
 
   // For Getstarted Page (Sign Up)
   const signUpHandler = () => {
-    navigation("/comingsoon");
+    navigation("/getstarted");
     // comingsoon
     // getstarted
   };

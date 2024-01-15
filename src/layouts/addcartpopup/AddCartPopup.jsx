@@ -1,6 +1,6 @@
 import "./AddCartPopup.scss";
 import { useSelector, useDispatch } from "react-redux";
-import { icons, products } from "../../utils/images/images";
+import { icons } from "../../utils/images/images";
 import { cartPopupToggler } from "../../store/actions";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -15,29 +15,6 @@ const AddCartPopup = () => {
   const [cartList, setCartList] = useState([]);
   const [loader, setLoader] = useState(false);
 
-  const productsData = [
-    {
-      id: 0,
-      title: "Sony PlayStation",
-      price: 550,
-      img: products.productAa,
-      count: 1,
-    },
-    {
-      id: 1,
-      title: "Apple AirPods",
-      price: 745,
-      img: products.productBa,
-      count: 4,
-    },
-    {
-      id: 2,
-      title: "Headphones Sony WH",
-      price: 1700,
-      img: products.productAc,
-      count: 2,
-    },
-  ];
 
   const closePopup = () => {
     dispatch({ type: cartPopupToggler(), payload: false });

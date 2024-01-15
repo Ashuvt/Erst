@@ -33,7 +33,6 @@ import profilee from "../../assets/images/profilee.webp";
 import profilef from "../../assets/images/profilef.webp";
 import homeVideoBanner from "../../assets/images/homevideobanner.jpg";
 import codeScreen from "../../assets/images/codescreen.svg";
-import businessMap from "../../assets/images/businessmap.png";
 import mobile from "../../assets/images/mobile.webp";
 import homeblogA from "../../assets/images/homebloga.jpg";
 import homeblogB from "../../assets/images/homeblogb.jpg";
@@ -58,8 +57,6 @@ import teamMemberF from "../../assets/images/team/salman.jpeg";
 import videoBtnImage from "../../assets/images/videobtn.webp";
 import primaryPlay from "../../assets/images/primaryplaybtn.png";
 import benefitSuite from "../../assets/images/benefitofsuite.jpg";
-import earningA from "../../assets/images/earninga.webp";
-import earningB from "../../assets/images/earningb.webp";
 import blogView from "../../assets/images/blogview.jpg";
 import bgPattern from "../../assets/images/bgpattern.svg";
 import getstartedA from "../../assets/images/getstartedA.png";
@@ -127,31 +124,6 @@ import discount from "../../assets/images/off.png";
 
 
 
-// Products
-import productAa from "../../assets/images/products/gamingaa.jpg";
-import productAb from "../../assets/images/products/gamingab.jpg";
-import productAc from "../../assets/images/products/gamingac.jpg";
-
-import productBa from "../../assets/images/products/gamingba.jpg";
-import productBb from "../../assets/images/products/gamingbb.jpg";
-import productBc from "../../assets/images/products/gamingbc.jpg";
-
-import productCa from "../../assets/images/products/headsetaa.jpg";
-import productCb from "../../assets/images/products/headsetab.jpg";
-import productCc from "../../assets/images/products/headsetac.jpg";
-
-import productDa from "../../assets/images/products/headsetba.jpg";
-import productDb from "../../assets/images/products/headsetbb.jpg";
-import productDc from "../../assets/images/products/headsetbc.jpg";
-
-import productEa from "../../assets/images/products/virtualaa.jpg";
-import productEb from "../../assets/images/products/virtualab.jpg";
-import productEc from "../../assets/images/products/virtualac.jpg";
-
-import productFa from "../../assets/images/products/virtualba.jpg";
-import productFb from "../../assets/images/products/virtualbb.jpg";
-import productFc from "../../assets/images/products/virtualbc.jpg";
-
 export const logoImage = {
   logo,
   fulllogo,
@@ -214,7 +186,6 @@ export const images = {
   profilef,
   homeVideoBanner,
   codeScreen,
-  businessMap,
   mobile,
   homeblogA,
   homeblogB,
@@ -229,8 +200,6 @@ export const images = {
   videoBtnImage,
   primaryPlay,
   benefitSuite,
-  earningA,
-  earningB,
   blogView,
   bgPattern,
   getstartedA,
@@ -280,28 +249,3 @@ export const images = {
   
 };
 
-export const products = {
-  productAa,
-  productAb,
-  productAc,
-
-  productBa,
-  productBb,
-  productBc,
-
-  productCa,
-  productCb,
-  productCc,
-
-  productDa,
-  productDb,
-  productDc,
-
-  productEa,
-  productEb,
-  productEc,
-
-  productFa,
-  productFb,
-  productFc,
-};

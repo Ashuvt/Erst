@@ -3,14 +3,45 @@
 @import "../../scss/typography";
 @import "../../scss/variables";
 
+
+
+section.expaned_closer_wrap {
+    position: fixed;
+    top:125px;
+    z-index: 999;
+    background-color: transparent;
+
+    @media only screen and (max-width:993px) {
+        display: none;
+    }
+
+    button.side_opener {
+        border-style: none;
+        background-color: transparent;
+        position: sticky;
+        top: 0px;
+        left: 0px;
+        cursor: pointer;
+        transform: translateX(-30px);
+
+        img {
+            transform: rotateY(180deg);
+        }
+    }
+}
+
 section.explore_cources {
     padding-bottom: 40px;
+
+
+
 
     .screen_container {
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
-        gap:80px;
+        gap: 80px;
+        position: relative;
 
         @media only screen and (max-width:$laptop) {
             flex-direction: column;
@@ -22,6 +53,14 @@ section.explore_cources {
             width: 400px;
             position: sticky;
             top: 80px;
+            transition: 0.3s ease-in-out;
+
+            &.close {
+                width: 0%;
+                border-style: none;
+                display: none;
+            }
+
 
             @media only screen and (max-width:$laptop) {
                 top: 0px;
@@ -35,11 +74,17 @@ section.explore_cources {
                 justify-content: space-between;
                 align-items: center;
                 padding: 16px 20px 16px 4px;
+
+                button {
+                    @media only screen and (max-width:993px) {
+                        display: none;
+                    }
+                }
             }
 
             .video_wrap {
                 max-width: 270px;
-                width:100%;
+                width: 100%;
                 height: 164px;
                 position: relative;
                 margin-bottom: 16px;
@@ -96,6 +141,8 @@ section.explore_cources {
 
 
             }
+
+
         }
 
 
@@ -105,9 +152,20 @@ section.explore_cources {
         .course_detail {
             width: calc(100% - 480px);
 
+            &.expand {
+                width: 100%;
+            }
+
+
+
+
+
             @media only screen and (max-width:$laptop) {
                 width: 100%;
             }
+
+
+
 
             h1 {
                 @include font('SpaceGrotesk-Regular', 24px, 32px, 500, $white);
@@ -224,6 +282,7 @@ section.explore_cources {
 
                 h1 {
                     margin-bottom: 40px;
+
                     @media only screen and (max-width:$tab) {
                         margin-top: 30px;
                     }
