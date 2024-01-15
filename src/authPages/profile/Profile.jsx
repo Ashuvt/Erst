@@ -67,6 +67,7 @@ const Profile = () => {
   const getProfileApi = async () => {
     try {
       const response = await axios.get(`${baseUrl}/${getProfile}`, { headers });
+      console.log("Profile", response);
       if(response?.data.success){
         setProfile(response?.data?.data);
         dispatch({type:getProfileData(),payload:response?.data?.data})

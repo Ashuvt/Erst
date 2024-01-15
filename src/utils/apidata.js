@@ -1,40 +1,65 @@
 export const baseUrl = "https://cybergainbackend.supagrow.in";
 
-// Career page Send CV Form API
-export const sendCv = "api/storecarrerapi";
+//*************** Home Page ******************************
 
 // get testimonial
-export const getTestimonial = "api/gettestimonial"
-
-// get Events
-export const getEvents = "api/getevent"
+export const getTestimonial = "api/gettestimonial";
 
 // Email Subscription API
-export const emailSubscribe = "api/emailsubscribe"
+export const emailSubscribe = "api/emailsubscribe";
+
+//Blog Poster and 4 Blog LList API
+export const blogPoster = "api/homemainblog";
+export const blogList = "api/homeblog";
+
+
+//*************** About Page ******************************
+// get Events
+export const getEvents = "api/getevent";
+
+
+//*************** Careers Page ******************************
+
+//  Send CV Form API:
+export const sendCv = "api/storecarrerapi";
+
+
+//*************** Blogs Page ******************************
+
+//Get all Blog List
+export const getAllBlogs = "api/getblogs";
+
+
+//*************** Blogs/blogId Page ******************************
+
+//Get Blog By Id ==> add /id to following end point
+export const getBlogById = "api/blogdetails";
+
+
+//*************** Contact Page ******************************
 
 // Contact Page Need Assistance Form
 export const needAssistance = "api/storecontactapi";
 
 
-// Home Page Blog POster and 4 Blog LList API
-export const blogPoster = "api/homemainblog"
-export const blogList = "api/homeblog"
 
-//Get all Blog List
-export const getAllBlogs = "api/getblogs"
 
-//Get Blog By Id add /id to following
-export const getBlogById = "api/blogdetails"
 
-// GetStarted API Registration
-export const getStarted = "api/userregister";
 
-// SignIn API
+//*************** Signin Page ******************************
 export const signIn = "api/userlogin"
 
+
+//*************** Getstarted (SignUp) Page ******************************
+export const getStarted = "api/userregister";
+
+
+//*************** Forgot Password Page ******************************
 // Forgot Password
 export const forgotPassword = "api/forgotpassword";
 
+
+//*************** OnBoarding Page ****************************
 
 // OnBoarding : Stepper-1 Profession Options
 export const professionOption = "api/getproffession";
@@ -43,18 +68,22 @@ export const professionOption = "api/getproffession";
 export const fieldOfInterest = "api/getintrest";
 
 // OnBoarding Post on 3rd Step
-export const updateProfessionInterest = "api/userpreferences"
-
+export const updateProfessionInterest = "   "
 
 // OnBoarding : Stepper-4 Red & Blue Course API
 export const CourseList = "api/getcourse"
 
-// Auth/Home page API
 
+
+
+
+//*************** Auth/Home Page ******************************
+
+// Auth/Home page API
 export const authHomeApi = "api/homepageapi";
 
 
-// ::::::::Profile Page::::::::::::::
+//*************** Auth/Profile Page ******************************
 
 // Get Profile data
 export const getProfile = "api/userprofile"
@@ -64,21 +93,33 @@ export const profileUpdate = "api/profileupdate"
 // Help Submit
 export const help = "api/helpstore";
 
-// Get Cart
-export const getCart = "api/getcart";
+
+
+//*************** Auth/Explore Page ******************************
 
 //Explore Page
 export const explorePage = "api/explorepageapi";
 
-// Save The Course API
-export const saveCourse = "api/savedcourse"
+
+//*************** Auth/saved Page ******************************
 
 // Saved Course Page list
-
 export const getSavedCourse = "api/getsavedcourse";
+
+
+
+
+
+//*************** Auth / Other utilities API  ***************************
+
+// Save The Course API
+export const saveCourse = "api/savedcourse";
 
 // Course Details View By Id
 export const coursedetailById = "api/coursedetails";
 
 // Add To Cart
 export const addToCart = "api/addtocart";
+
+// Get Cart
+export const getCart = "api/getcart";

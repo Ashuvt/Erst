@@ -58,7 +58,7 @@ const LanguageDd = () => {
       i18n.changeLanguage(domainName() === 'net' ? 'he' : 'en');
           dispatch({type:languageChanges(), payload:domainName() === 'net' ? 'he' : 'en'});
     }
-  })
+  }, []);
 
   const dispatch = useDispatch();
   const status = useSelector((state) => state.toggleReducer.multilangDdStatus);
