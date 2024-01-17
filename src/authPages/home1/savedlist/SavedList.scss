@@ -54,6 +54,21 @@
             width: 100%;
             z-index: 0;
         }
+
+        button.saved_btn{
+            border-style: none;
+            position:absolute;
+            top:15px;
+            right:15px;
+            z-index:999;
+            border-style: none;
+            background-color: transparent;
+            img{
+                width:18px;
+            }
+        }
+
+
         &:hover{
             &::before {
                 background: linear-gradient(130deg, #ffffffa0, #ffffffa0);
@@ -62,21 +77,14 @@
 
         .title_line_wraper {
             position: relative;
-            z-index: 3;
+            z-index:99;
             pointer-events: none;
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 12px;
 
-            button.savedbtn {
-                border-style: none;
-                background-color: transparent;
-                img {
-                    width: 16px;
-                }
-
-            }
+           
         }
 
         .bottom_line {

@@ -25,6 +25,8 @@ import ExploreCourses from "../authPages/explorecourses/ExploreCourses";
 
 import ProtectedRoute from "../authPages/ProtectedRoute";
 import ForgotPassword from "../authPages/forgotpassword/ForgotPassword";
+import Success from "../pages/success/Success";
+import Fail from "../pages/fail/Fail";
 
 export const RoutoingData = [
     {
@@ -121,6 +123,16 @@ export const RoutoingData = [
         id:18,
         component:<ComingSoon/>,
         path:"/comingsoon"
+    },
+    {
+        id:181,
+        component:<Success/>,
+        path:"/success"
+    },
+    {
+        id:182,
+        component:<Fail/>,
+        path:"/fail"
     },
     {
         id:19,

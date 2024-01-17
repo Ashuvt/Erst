@@ -119,9 +119,7 @@ const {getCartApi} = useContext(redirectContext);
       const response = await axios.get(`${baseUrl}/${getProfile}`, { headers });
       if (response?.data?.success) {
         setName(response?.data?.data?.name);
-        setProfile(response?.data?.data?.profile);
-        console.log("Profile::",response)
-        
+        setProfile(response?.data?.data?.profile);        
       } else {
       }
     } catch (error) {

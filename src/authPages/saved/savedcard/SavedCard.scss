@@ -7,6 +7,18 @@
 .saved_card_wrap {
     position: relative;
 
+    button.save_btn{
+        position:absolute;
+        top:15px;
+        right:15px;
+        background-color: transparent;
+        border-style: none;
+        z-index:99;
+        img{
+            width:18px;
+        }
+    }
+
     .explore_card {
 
         padding: 16px;

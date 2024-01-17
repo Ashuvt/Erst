@@ -1,7 +1,7 @@
 import CoursesHeader from "../components/coursesheader/CoursesHeader";
 import WelComeStrip from "../components/welcomestrip/WelComeStrip";
 import "./Home1.scss";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useContext, useEffect, useState } from "react";
 import RecommendedModules from "./recommendedmodules/RecommendedModules";
 import LiveSec from "./livesec/LiveSec";
 import PopularSkillPath from "./popularskillpath/PopularSkillPath";
@@ -15,7 +15,8 @@ import { useDispatch } from "react-redux";
 import { resetAllToggler } from "../../store/actions";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { baseUrl, authHomeApi } from "../../utils/apidata";
+import { baseUrl, authHomeApi, saveCourse } from "../../utils/apidata";
+import { redirectContext } from "../../context/RoutingContext";
 
 const Home1 = () => {
   const fourInfoData = [
@@ -48,42 +49,46 @@ const Home1 = () => {
   const name = localStorage.getItem("name");
   const token = localStorage.getItem("token");
 
-  const [homeData, setHomeData] = useState();
-  const[savedCourse, setSavedCourse] = useState([]);
   const [recommaned, setRecommaned] = useState([]);
-
   const [cta, setCta] = useState([]);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-const resetToggler = () => {
-  dispatch({type:resetAllToggler()});
-}
+  const resetToggler = () => {
+    dispatch({ type: resetAllToggler() });
+  };
 
-const headers = {    
-  'Authorization': `Bearer ${token}`,
-};
+  const headers = {
+    Authorization: `Bearer ${token}`,
+  };
 
-const homeApi = async() => {
-  try {
-      const response = await axios.get(`${baseUrl}/${authHomeApi}`, {headers});     
-      if(response.data.success){
-        setHomeData(response.data.data);
-        setSavedCourse(response?.data?.data?.saved_courses);
+
+  const homeApi = async () => {
+    try {
+      const response = await axios.get(`${baseUrl}/${authHomeApi}`, {
+        headers,
+      });
+      if (response.data.success) {
         setCta(response?.data?.data?.cta);
-        setRecommaned(response?.data?.data?.recommaned_bundles);        
+        setRecommaned(response?.data?.data?.recommaned_bundles);
+      } else {
+        setCta([]);
+        setRecommaned([]);
       }
-  } catch (error) {
-    console.log("Error:::",error)
-  }
-}
-
-useEffect(() => {
-  homeApi();
-},[]);
+    } catch (error) {
+      console.log("Error:::", error);
+      setCta([]);
+      setRecommaned([]);
+    }
+  };
 
 
+  useEffect(() => {
+    homeApi();
+  }, []);
+  
+  
   return (
     <Fragment>
       <div className="header_filler"></div>
@@ -96,7 +101,7 @@ useEffect(() => {
         <div className="screen_container">
           <div className="content_grid">
             <div className="left">
-              <RecommendedModules dataList={recommaned} />
+              <RecommendedModules recommaned={recommaned} />
               <FourBoxInfo title="Your Roadmap" data={fourInfoData} />
               <LiveSec />
               <PopularSkillPath />
@@ -104,16 +109,23 @@ useEffect(() => {
             <div className="right">
               <div className="in_progress">
                 <h5 className="title_class wow fadeInRight">In progress</h5>
-                <p className="dark wow fadeInRight" data-wow-delay="0.2s">Pick a course and start learning</p>
+                <p className="dark wow fadeInRight" data-wow-delay="0.2s">
+                  Pick a course and start learning
+                </p>
                 <p className="wow fadeInRight" data-wow-delay="0.3s">
                   You've got limited access Cybergain courses, Choose a course
                   and start your journey.
                 </p>
-                <button type="button" className="authbtn auth_primary wow fadeInRight" data-wow-delay="0.4s" onClick={() => navigate("/explore/course")}>
+                <button
+                  type="button"
+                  className="authbtn auth_primary wow fadeInRight"
+                  data-wow-delay="0.4s"
+                  onClick={() => navigate("/explore/course")}
+                >
                   Cources
                 </button>
               </div>
-              <SavedList dataList={savedCourse} />
+              <SavedList />
               <ExploreCard />
               <OfferCard />
             </div>

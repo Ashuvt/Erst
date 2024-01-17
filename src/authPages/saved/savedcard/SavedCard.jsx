@@ -13,7 +13,6 @@ const SavedCard = ({
 }) => {
   const { saveCourseApi } = useContext(redirectContext);
 
-  const navigate = useNavigate();
 
   const saveHandler = (e, cousrseId) => {
     e.stopPropagation();
@@ -21,13 +20,9 @@ const SavedCard = ({
   };
   return (
     <div className="saved_card_wrap">
-      {/* <button type="button" onClick={(e) => saveHandler(e, _id)}>
-        {saved ? (
-          <img src={icon.saved} alt="save" />
-        ) : (
-          <img src={icon.save} alt="save" />
-        )}
-      </button> */}
+      <button className="save_btn" type="button" onClick={(e) => saveHandler(e, _id)}>
+      <img src={icon.saved} alt="save" />
+      </button>
       <div
         className="explore_card wow zoomIn"
         data-wow-delay={`${(0.2 * index) % 3}s`}   
