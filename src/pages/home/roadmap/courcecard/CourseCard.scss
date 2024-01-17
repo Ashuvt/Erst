@@ -55,6 +55,8 @@
             p.t-g-18{
                 color:$white;
                 letter-spacing: 0.5px;
+                text-align: left!important;
+                margin:0px;
             }
             .box{
                 height:18px;
@@ -88,6 +90,7 @@
 
                 p {
                     color: $textPrimary;
+                    margin:0px;
                 }
             }
         }
@@ -105,6 +108,9 @@
             color:$white;
             letter-spacing: 0.5px;
             margin-top:15px;
+        }
+        p{
+            text-align: left!important;
         }
         ol{
             margin-top:15px;

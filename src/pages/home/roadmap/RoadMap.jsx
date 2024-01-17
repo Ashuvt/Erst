@@ -155,6 +155,7 @@ const RoadMap = ({ t }) => {
       const response = await axios.get(`${baseUrl}/${CourseList}`);
 
       if (response?.data?.success) {
+        console.log(response);
         setCourseList(response?.data?.data);
       }
     } catch (error) {
@@ -230,7 +231,7 @@ const RoadMap = ({ t }) => {
               courseList.slice(0,domainName() === "net" ? 3 : 2).map((data) => {
                 return (
                   <Fragment key={data._id}>
-                    <CourseCard {...data} t={t} />
+                    <CourseCard {...data} />
                   </Fragment>
                 );
               })}

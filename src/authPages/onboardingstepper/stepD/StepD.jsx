@@ -2,9 +2,9 @@ import { Fragment, useContext, useEffect, useState } from "react";
 import { icon } from "../../../utils/images/icons";
 import "./StepD.scss";
 import { redirectContext } from "../../../context/RoutingContext";
-import RedBlueCard from "./redbluecard/RedBlueCard";
 import { baseUrl, CourseList } from "../../../utils/apidata";
 import axios from "axios";
+import CourseCard from "../../../pages/home/roadmap/courcecard/CourseCard";
 
 const StepD = () => {
   const { goToAuthHome } = useContext(redirectContext);
@@ -27,7 +27,7 @@ const StepD = () => {
       <h1 className="small_title wow fadeInUp">
         Start with our free expertly-curated lessons from courses
       </h1>
-      <p className="wow fadeInUp">
+      <p className="wow fadeInUp title">
         You can change and subscribe to other courses anytime in your learning
         journey.
       </p>
@@ -36,7 +36,7 @@ const StepD = () => {
           {courses.map((data) => {
             return (
               <Fragment key={data._id}>
-                <RedBlueCard {...data} clickHandler={goToAuthHome} />
+                <CourseCard {...data} clickHandler={goToAuthHome} />
               </Fragment>
             );
           })}

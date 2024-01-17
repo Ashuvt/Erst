@@ -11,7 +11,6 @@ const CourseCard = ({
   small_description,
   course_time,
   students,
-  t,
 }) => {
   const navigate = useNavigate();
 
@@ -46,7 +45,7 @@ const CourseCard = ({
       </div>
 
       <div className="courses_list">    
-        <p className="t-g-18">{t("availTitle")}</p>   
+        <p className="t-g-18">Available Courses</p>   
 
         <div dangerouslySetInnerHTML={{ __html: description }}></div>
       </div>

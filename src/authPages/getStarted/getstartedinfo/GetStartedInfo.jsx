@@ -1,6 +1,5 @@
 import "./GetStartedInfo.scss";
 import { images } from "../../../utils/images/images";
-import TestimonialCard from "../../components/testimonialcard/TestimonialCard";
 
 const GetStartedInfo = () => {
   const data = [
@@ -59,13 +58,7 @@ const GetStartedInfo = () => {
             </div>
           );
         })}
-      </div>
-
-      <TestimonialCard
-        profile={images.profileb}
-        name="rohan singh"
-        text="“This is a testimonial. How cybergain helped me learn and develop my cybersecurity skills.”"
-      />
+      </div>    
     </div>
   );
 };
