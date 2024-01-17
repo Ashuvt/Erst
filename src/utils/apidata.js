@@ -130,3 +130,6 @@ export const getCart = "api/getcart";
 
 //Remove From Cart
 export const removeFromCart = "api/removecart"
+
+// Checkout
+export const checkout = "api/createorder";

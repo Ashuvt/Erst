@@ -5,7 +5,7 @@ import ModuleTitle from "../../components/moduletitle/ModuleTitle";
 import { icon } from "../../../utils/images/icons";
 import ReturnRecommendedModuleCard from "../../components/returnrecommededcard/ReturnRecommendedModuleCard";
 
-const RecommendedModules = () => {
+const RecommendedModules = ({ dataList }) => {
   const data = [
     {
       id: 0,
@@ -48,21 +48,21 @@ const RecommendedModules = () => {
         icon={icon.blueRightArrow}
         redirectTo="/auth/explore"
       />
-      {data.map((info, i) => {
+      {dataList.map((info, i) => {
         return (
-          <Fragment key={info.id}>
+          <Fragment key={info._id}>
             <RecommendedModuleCard {...info} index={i} />
           </Fragment>
         );
       })}
 
-{data.map((info, i) => {
+      {/* {data.map((info, i) => {
         return (
           <Fragment key={info.id}>
             <ReturnRecommendedModuleCard {...info} index={i} />
           </Fragment>
         );
-      })}
+      })} */}
     </Fragment>
   );
 };

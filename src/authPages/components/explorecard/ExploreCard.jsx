@@ -1,4 +1,5 @@
 import { icon } from "../../../utils/images/icons";
+import { useState } from "react";
 import "./ExploreCard.scss";
 import { useNavigate } from "react-router-dom";
 import { baseUrl } from "../../../utils/apidata";
@@ -14,23 +15,30 @@ const ExploreCard = ({
   title,
   text,
   students,
-  modules,
   saved,
   index,
   redirectTo,
+  isSave,
+  saveHandler
 }) => {
   const { saveCourseApi } = useContext(redirectContext);
 
+  const [saveStatus, setSaveStatus] = useState(isSave);
+
   const navigate = useNavigate();
 
-  const saveHandler = (e, cousrseId) => {
+
+
+  const saveCourse = (e, cousrseId) => {
+    setSaveStatus(prev => !prev);
     e.stopPropagation();
-    saveCourseApi(cousrseId);
+    saveHandler(cousrseId);
   };
+
   return (
     <div className="card_wrap">
-      <button type="button" onClick={(e) => saveHandler(e, _id)}>
-        {saved ? (
+      <button type="button" onClick={(e) => saveCourse(e, _id)}>
+        {saveStatus ? (
           <img src={icon.saved} alt="save" />
         ) : (
           <img src={icon.save} alt="save" />

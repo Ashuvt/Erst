@@ -195,9 +195,7 @@ const {toastSuccess, toastWarning, toastError} = useContext(redirectContext)
       const response = await axios.get(`${baseUrl}/${explorePage}`, {
         headers,
       });
-      console.log("explore", response);
       if (response?.data?.success) {
-        console.log(response);
         setLoader(false);      
         setCourseList(response?.data?.data?.course);
         setModuleList(response?.data?.data?.module);
@@ -523,6 +521,8 @@ const {toastSuccess, toastWarning, toastError} = useContext(redirectContext)
                           {...data}
                           index={k}
                           redirectTo={`/explore/${data._id}`}
+                          isSave={savedCourses.includes(data._id)}
+                          saveHandler={saveCourseApi}
                         />
                       </Fragment>
                     );

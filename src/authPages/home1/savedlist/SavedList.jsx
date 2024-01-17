@@ -2,17 +2,19 @@ import { icon } from "../../../utils/images/icons";
 import "./SavedList.scss";
 import { useContext } from "react";
 import { redirectContext } from "../../../context/RoutingContext";
+import { useNavigate } from "react-router-dom";
 
 
 const SavedList = ({ dataList }) => {
 
 const {saveCourseApi} = useContext(redirectContext); 
+const navigate = useNavigate();
 
   return (
     <div className="home_saved_list">
       <div className="title">
         <h5 className="small_title wow fadeInLeft">Saved</h5>
-        <button type="button" className="wow fadeInRight">
+        <button type="button" className="wow fadeInRight" onClick={() => navigate("/auth/saved")}>
           show all
         </button>
       </div>

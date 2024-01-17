@@ -1,5 +1,5 @@
 import "./ExploreDetailLanding.scss";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { images } from "../../../utils/images/images";
 import { icon } from "../../../utils/images/icons";
 import { useDispatch } from "react-redux";
@@ -9,7 +9,7 @@ import { baseUrl } from "../../../utils/apidata";
 const ExploreDetailLanding = ({
   loader,
   addtoCartHandler,
-
+  is_cart,
   course_time,
   name,
   small_description,
@@ -19,20 +19,25 @@ const ExploreDetailLanding = ({
 }) => {
   const dispatch = useDispatch();
 
+  const [show, setShow] = useState(false);
+
   const resetToggler = () => {
     dispatch({ type: resetAllToggler() });
   };
 
+  const addToCart = () => {
+    addtoCartHandler();
 
+  }
 
 
   return (
     <section className="explore_detail" onClick={resetToggler}>
       <div className="screen_container">
         {loader ? (
-        <div className="loader">
-          <h3>Loading...</h3>
-        </div>
+          <div className="loader">
+            <h3>Loading...</h3>
+          </div>
         ) : (
           <Fragment>
             <div className="video_wrapper">
@@ -96,13 +101,16 @@ const ExploreDetailLanding = ({
               );
             })}
           </div> */}
-              <button
-                type="button"
-                className="authbtn auth_primary wow fadeInUp"
-                onClick={addtoCartHandler}
-              >
-                Add To Cart
-              </button>
+
+              {!is_cart && (
+                <button
+                  type="button"
+                  className="authbtn auth_primary wow fadeInUp"
+                  onClick={addToCart}
+                >
+                  Add To Cart
+                </button>
+              )}
             </div>
           </Fragment>
         )}

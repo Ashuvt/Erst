@@ -1,16 +1,17 @@
-import { Fragment, useEffect} from "react";
+import { Fragment, useEffect, useState } from "react";
 import "./App.scss";
 import { Routes, Route, useLocation } from "react-router-dom";
 import "./utils/i18n";
 import { useTranslation } from "react-i18next";
 import { useDispatch } from "react-redux";
-import {resetAllToggler } from "./store/actions";
+import { languageChanges, resetAllToggler } from "./store/actions";
 import SideBar from "./layouts/sidebar/SideBar";
 import CourseSidebar from "./layouts/coursesidebar/CourseSidebar";
 import { RoutoingData } from "./utils/routingData";
 import CartPopup from "./layouts/cartpopup/CartPopup";
 
 function App() {
+
   const { i18n } = useTranslation();
 
   const dispatch = useDispatch();
@@ -20,6 +21,19 @@ function App() {
     window.scrollTo(0, 0);
     dispatch({ type: resetAllToggler() });
   }, [location.pathname]);
+
+  // useEffect(() => {   
+
+  //   const defaultLanguage = localStorage.getItem("lang");
+  //   if (defaultLanguage) {
+  //     dispatch({ type: languageChanges(), payload: defaultLanguage });
+  //     i18n.changeLanguage(defaultLanguage);
+  //   } else {      
+  //     localStorage.setItem("lang", "en");
+  //     dispatch({ type: languageChanges(), payload: "en" });
+  //     i18n.changeLanguage("en");
+  //   }
+  // }, []);
 
   return (
     <Fragment>

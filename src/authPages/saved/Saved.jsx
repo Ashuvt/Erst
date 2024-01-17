@@ -213,7 +213,6 @@ const Saved = () => {
       const response = await axios.get(`${baseUrl}/${getSavedCourse}`, {
         headers,
       });
-      console.log(response?.data?.data);
       if (response?.data?.success) {
         setSaveCourseList(response?.data?.data);
       } else {
@@ -296,7 +295,7 @@ const Saved = () => {
                 <div className="explore_video_grid">
                   {saveCourseList.map((data, i) => {
                     return (
-                      <Fragment key={data.id}>
+                      <Fragment key={data._id}>
                         <SavedCard {...data} saved={true} index={i} />
                       </Fragment>
                     );

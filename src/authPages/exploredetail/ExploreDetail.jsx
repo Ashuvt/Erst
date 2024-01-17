@@ -14,9 +14,7 @@ const ExploreDetail = () => {
 
   const {addToCartApi} = useContext(redirectContext);
 
-  const addtoCartHandler = () => {    
-    addToCartApi(courseId)
-  }
+
 
   const [course, setCourse] = useState(null);
   const [module, setModule] = useState(null);
@@ -37,11 +35,13 @@ const ExploreDetail = () => {
         { course_id: courseId },
         { headers }
       );
+
+      console.log("Course Detail", response);
+
       if (response?.data?.success) {
         setCourse(response?.data?.data?.course);
         setModule(response?.data?.data?.module);
         setLoader(false);
-        console.log("Details::", response);
       } else {
       }
     } catch (error) {
@@ -56,11 +56,16 @@ const ExploreDetail = () => {
 
     getCourseDetail();
   }, []);
+
+    const addtoCartHandler = () => {    
+    addToCartApi(courseId);
+    getCourseDetail();
+  }
   return (
     <Fragment>
       <CoursesHeader />
       <div className="header_filler"></div>
-      <ExploreDetailLanding {...course} loader={loader} addtoCartHandler={addtoCartHandler} />
+      <ExploreDetailLanding {...course} loader={loader} addtoCartHandler={addtoCartHandler}  />
       <ExploreTabs />
     </Fragment>
   );

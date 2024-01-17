@@ -3,7 +3,7 @@ import "./ExploreCourseCard.scss";
 import { useNavigate } from "react-router-dom";
 import { baseUrl } from "../../../utils/apidata";
 
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { redirectContext } from "../../../context/RoutingContext";
 
 const ExploreCourseCard = ({
@@ -20,16 +20,19 @@ const ExploreCourseCard = ({
   saveHandler
 }) => {
 
+  const [saveStatus, setSaveStatus] = useState(isSave);
+
   const navigate = useNavigate();
 
   const saveCourse = (e, cousrseId) => {
+    setSaveStatus(prev => !prev);
     e.stopPropagation();
     saveHandler(cousrseId);
   };
   return (
     <div className="explorecourse_card_wrap">
       <button type="button" onClick={(e) => saveCourse(e, _id)}>
-        {isSave ? (
+        {saveStatus ? (
           <img src={icon.saved} alt="save" />
         ) : (
           <img src={icon.save} alt="save" />

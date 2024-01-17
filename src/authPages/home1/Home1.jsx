@@ -50,6 +50,8 @@ const Home1 = () => {
 
   const [homeData, setHomeData] = useState();
   const[savedCourse, setSavedCourse] = useState([]);
+  const [recommaned, setRecommaned] = useState([]);
+
   const [cta, setCta] = useState([]);
 
   const navigate = useNavigate();
@@ -65,12 +67,12 @@ const headers = {
 
 const homeApi = async() => {
   try {
-      const response = await axios.get(`${baseUrl}/${authHomeApi}`, {headers});   
+      const response = await axios.get(`${baseUrl}/${authHomeApi}`, {headers});     
       if(response.data.success){
         setHomeData(response.data.data);
         setSavedCourse(response?.data?.data?.saved_courses);
         setCta(response?.data?.data?.cta);
-        console.log(response?.data?.data?.saved_courses);
+        setRecommaned(response?.data?.data?.recommaned_bundles);        
       }
   } catch (error) {
     console.log("Error:::",error)
@@ -94,7 +96,7 @@ useEffect(() => {
         <div className="screen_container">
           <div className="content_grid">
             <div className="left">
-              <RecommendedModules />
+              <RecommendedModules dataList={recommaned} />
               <FourBoxInfo title="Your Roadmap" data={fourInfoData} />
               <LiveSec />
               <PopularSkillPath />
@@ -104,7 +106,7 @@ useEffect(() => {
                 <h5 className="title_class wow fadeInRight">In progress</h5>
                 <p className="dark wow fadeInRight" data-wow-delay="0.2s">Pick a course and start learning</p>
                 <p className="wow fadeInRight" data-wow-delay="0.3s">
-                  You’ve got limited access Cybergain courses, Choose a course
+                  You've got limited access Cybergain courses, Choose a course
                   and start your journey.
                 </p>
                 <button type="button" className="authbtn auth_primary wow fadeInRight" data-wow-delay="0.4s" onClick={() => navigate("/explore/course")}>

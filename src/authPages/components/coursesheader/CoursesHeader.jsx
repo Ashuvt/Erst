@@ -120,6 +120,7 @@ const {getCartApi} = useContext(redirectContext);
       if (response?.data?.success) {
         setName(response?.data?.data?.name);
         setProfile(response?.data?.data?.profile);
+        console.log("Profile::",response)
         
       } else {
       }
@@ -137,7 +138,7 @@ const {getCartApi} = useContext(redirectContext);
     <section className="courses_header" onClick={resetToggle}>
       <div className="screen_container">
         <header>
-          <NavLink to="/" className="brand">
+          <NavLink to="/auth/home" className="brand">
             <img src={logoImage.logo} alt="logo" />
           </NavLink>
 

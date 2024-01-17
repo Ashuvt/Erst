@@ -4,7 +4,12 @@ import { icons } from "../../utils/images/images";
 import { cartPopupToggler } from "../../store/actions";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
-import { baseUrl, getCart, removeFromCart } from "../../utils/apidata";
+import {
+  baseUrl,
+  checkout,
+  getCart,
+  removeFromCart,
+} from "../../utils/apidata";
 import { redirectContext } from "../../context/RoutingContext";
 
 const CartPopup = () => {
@@ -18,6 +23,7 @@ const CartPopup = () => {
   const [cartList, setCartList] = useState([]);
   const [loader, setLoader] = useState(false);
   const [total, setTotal] = useState(0);
+  const [checkOut, setCheckOut] = useState(false);
 
   const closePopup = () => {
     dispatch({ type: cartPopupToggler(), payload: false });
@@ -83,6 +89,27 @@ const CartPopup = () => {
       console.log("Error : ", error);
       toastError("Something Went Wrong!");
       setLoader(false);
+    }
+  };
+
+  const checkoutApi = async() => {
+    setCheckOut(true);
+    const token = localStorage.getItem("token");
+    const headers = {
+      Authorization: `Bearer ${token}`,
+    };
+
+    try {
+      const response = await axios.post(`${baseUrl}/${checkout}`,{}, {headers});
+      console.log("CHECKOUT", response);
+      if(response.status === 200){
+        setCheckOut(false);
+        window.open(response?.data?.session?.url, '_blank', 'noreferrer');
+
+      }
+    } catch (error) {
+      setCheckOut(false);
+      console.log(error);
     }
   };
 
@@ -153,9 +180,15 @@ const CartPopup = () => {
               {total} {country === "India" ? "INR" : "USD"}
             </p>
           </div>
-          <button type="button" className="primarybtn">
-            continue to chekout
-          </button>
+          {
+            checkOut ?  <button type="button" className="primarybtn">
+          Loading...
+          </button> : 
+           <button type="button" className="primarybtn" onClick={checkoutApi}>
+           continue to chekout
+         </button>
+          }
+          
         </div>
       </div>
     </div>
