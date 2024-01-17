@@ -118,8 +118,15 @@ export const saveCourse = "api/savedcourse";
 // Course Details View By Id
 export const coursedetailById = "api/coursedetails";
 
+
+
+
+
 // Add To Cart
 export const addToCart = "api/addtocart";
 
 // Get Cart
 export const getCart = "api/getcart";
+
+//Remove From Cart
+export const removeFromCart = "api/removecart"

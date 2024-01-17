@@ -42,9 +42,10 @@ const SignIn = () => {
    
       if(response.data.success){   
         toastSuccess("Sign In Success!");
-        localStorage.setItem("token", response.data.token);
-        localStorage.setItem("name", response.data.data.name);
-        localStorage.setItem("email", response.data.data.email);
+        localStorage.setItem("token", response?.data?.token);
+        localStorage.setItem("name", response?.data?.data?.name);
+        localStorage.setItem("email", response?.data?.data?.email);
+        localStorage.setItem("country", response?.data?.data?.country);
         setLoader(false);
         goToAuthHome();
       }else{

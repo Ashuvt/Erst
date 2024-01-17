@@ -1,4 +1,4 @@
-import { Fragment, useState, useEffect } from "react";
+import { Fragment, useState, useEffect, useContext } from "react";
 import "./Explore.scss";
 import CoursesHeader from "../components/coursesheader/CoursesHeader";
 import ExploreTitle from "./exploretitle/ExploreTitle";
@@ -9,7 +9,9 @@ import { useDispatch } from "react-redux";
 import { resetAllToggler } from "../../store/actions";
 import WOW from "wow.js";
 import axios from "axios";
-import { baseUrl, explorePage } from "../../utils/apidata";
+import { baseUrl, explorePage, saveCourse } from "../../utils/apidata";
+import ExploreCourseCard from "./coursecard/ExploreCourseCard";
+import { redirectContext } from "../../context/RoutingContext";
 
 const Explore = () => {
   const courcesData = [
@@ -173,9 +175,12 @@ const Explore = () => {
     },
   ];
 
+const {toastSuccess, toastWarning, toastError} = useContext(redirectContext)
+
   const [courseList, setCourseList] = useState([]);
   const [skillPathList, setSkillPathList] = useState([]);
   const [moduleList, setModuleList] = useState([]);
+  const [savedCourses, setSavedCourseds] = useState([]);
 
   const [loader, setLoader] = useState(false);
 
@@ -190,11 +195,14 @@ const Explore = () => {
       const response = await axios.get(`${baseUrl}/${explorePage}`, {
         headers,
       });
+      console.log("explore", response);
       if (response?.data?.success) {
+        console.log(response);
         setLoader(false);      
         setCourseList(response?.data?.data?.course);
         setModuleList(response?.data?.data?.module);
         setSkillPathList(response?.data?.data?.skill_paths);
+        setSavedCourseds(response?.data?.data?.savedcourses)
       } else {
         setCourseList([]);
         setModuleList([]);
@@ -212,9 +220,35 @@ const Explore = () => {
   useEffect(() => {
     const wow = new WOW();
     wow.init();
-
     exploreApi();
   }, []);
+
+
+
+  // Save Course
+
+  const saveCourseApi = async(courseId) => {
+    const token = localStorage.getItem("token");
+
+  const headers = {
+    Authorization: `Bearer ${token}`,
+  };
+  
+   try {
+    const response = await axios.post(`${baseUrl}/${saveCourse}`,{course_id:courseId},{headers})
+    console.log("Save Course::", response);
+    if(response?.data?.success){
+      toastSuccess(response?.data?.message);
+      exploreApi();
+    }else{
+      toastWarning("This Course is already added!");
+    }
+   } catch (error) {
+    console.log(error);
+    toastError("Something went wrong");
+   }
+  }
+  
 
   const [selectedFilter, setSelectedFilter] = useState([]);
   const [selectedInterest, setSelectedInterest] = useState([]);
@@ -435,10 +469,12 @@ const Explore = () => {
                   {courseList.map((data, k) => {
                     return (
                       <Fragment key={data._id}>
-                        <ExploreCard
+                        <ExploreCourseCard
                           {...data}
                           index={k}
                           redirectTo={`/explore/${data._id}`}
+                          isSave={savedCourses.includes(data._id)}
+                          saveHandler={saveCourseApi}
                         />
                       </Fragment>
                     );

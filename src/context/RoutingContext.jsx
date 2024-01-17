@@ -12,7 +12,7 @@ const domainName = () => {
   // select only two values from below
   // net
   // ae
-  return "ae";
+  return "net";
 }
 
 
@@ -99,7 +99,6 @@ const goToForgotPassword = () => {
     const response = await axios.post(`${baseUrl}/${saveCourse}`,{course_id:courseId},{headers})
     console.log(response);
     if(response?.data?.success){
-
     }else{
       toastWarning("This Course is already added!");
     }
@@ -153,7 +152,7 @@ const goToForgotPassword = () => {
     try {
       const response = await axios.get(`${baseUrl}/${getCart}`, { headers });
       if (response?.data?.success) {       
-        dispatch({type:addCartCount(), payload:response?.data?.data?.length})
+        dispatch({type:addCartCount(), payload:response?.data?.data?.cart?.length})
       } else {
         dispatch({type:addCartCount(), payload:0})
       }

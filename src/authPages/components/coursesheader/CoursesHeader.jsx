@@ -120,7 +120,6 @@ const {getCartApi} = useContext(redirectContext);
       if (response?.data?.success) {
         setName(response?.data?.data?.name);
         setProfile(response?.data?.data?.profile);
-        console.log(response?.data?.data?.profile);
         
       } else {
       }
