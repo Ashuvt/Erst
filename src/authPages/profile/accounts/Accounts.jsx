@@ -31,7 +31,7 @@ const Accounts = () => {
 
   const { toastSuccess, toastError, getProfileApi } =
     useContext(redirectContext);
-const [loader, setLoader] = useState(false);
+  const [loader, setLoader] = useState(false);
   const ddStatus = useSelector((state) => state.toggleReducer.countryDdStatus);
   const dispatch = useDispatch();
   const { profile, name, bio, country } = useSelector(
@@ -85,7 +85,7 @@ const [loader, setLoader] = useState(false);
       console.log(error);
       toastError("Something Went Wrong!");
       setLoader(false);
-        }
+    }
   };
 
   const submitHandler = (e) => {
@@ -110,7 +110,11 @@ const [loader, setLoader] = useState(false);
     <div className="profile_accounts">
       <div className="profile_info wow fadeInUp">
         <div className="profile_wraper">
-          {/* <img src={`${baseUrl}/${getProfile?.profile}`} alt="profile" /> */}
+        {profile ? (
+                  <img src={`${baseUrl}/${profile}`} alt="profile" />
+                ) : (
+                  <img src={images.avtar} alt="profile" />
+                )} 
         </div>
         <div className="text_info">
           <h5 className="small_title">Account</h5>
