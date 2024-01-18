@@ -1,7 +1,6 @@
 import { Fragment, useEffect, useState, useContext } from "react";
-import { redirectContext } from "../../context/RoutingContext";
+import AuthLayout from "../AuthLayout";
 import ExploreDetailLanding from "./ExploreDetailLanding/ExploreDetailLanding";
-import CoursesHeader from "../components/coursesheader/CoursesHeader";
 import ExploreTabs from "./ExploreTabs/ExploreTabs";
 import WOW from "wow.js";
 import { useParams } from "react-router-dom";
@@ -65,8 +64,8 @@ const recallGetCourse = () => {
 
 
   return (
-    <Fragment>
-      <CoursesHeader />
+  <AuthLayout>
+      
       <div className="header_filler"></div>
       <ExploreDetailLanding
         {...course}
@@ -74,7 +73,7 @@ const recallGetCourse = () => {
         recallGetCourse={recallGetCourse}
       />
       <ExploreTabs instructors={instructors} />
-    </Fragment>
+      </AuthLayout>
   );
 };
 

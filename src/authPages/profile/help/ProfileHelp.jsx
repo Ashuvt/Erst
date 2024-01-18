@@ -29,6 +29,7 @@ const Help = () => {
       if (response.data.success) {
         toastSuccess("Message Sent Successfully!");
         setLoader(false);
+        setMessage("");
       } else {
         toastError("Something Went Wrong!");
         setLoader(false);

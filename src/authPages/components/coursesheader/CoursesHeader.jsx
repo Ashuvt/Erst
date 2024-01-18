@@ -22,10 +22,8 @@ import HembergerMenu from "../../../components/hembergerIcon/HembergerMenu";
 import axios from "axios";
 
 const CoursesHeader = () => {
-  const [name, setName] = useState("");
-  const [profile, setProfile] = useState("");
-  const [notification, setNotification] = useState([]);
 
+  const [notification, setNotification] = useState([]);
   const { getCartApi } = useContext(redirectContext);
 
   const menuData = [
@@ -68,9 +66,15 @@ const CoursesHeader = () => {
   ];
 
   const dispatch = useDispatch();
+
   const notificationStatus = useSelector(
     (data) => data.toggleReducer.notificationStatus
   );
+
+const {profile, name} = useSelector(
+  (data) => data.getProfileDataReducer
+);
+
 
   const profileStatus = useSelector((data) => data.toggleReducer.profileStatus);
 
@@ -107,24 +111,7 @@ const CoursesHeader = () => {
     dispatch({ type: cartPopupToggler(), payload: true });
   };
 
-  const getProfileApi = async () => {
-    const token = localStorage.getItem("token");
 
-    const headers = {
-      Authorization: `Bearer ${token}`,
-    };
-
-    try {
-      const response = await axios.get(`${baseUrl}/${getProfile}`, { headers });
-      if (response?.data?.success) {
-        setName(response?.data?.data?.name);
-        setProfile(response?.data?.data?.profile);
-      } else {
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   //Notifivation
   const notificationApi = async () => {
@@ -139,7 +126,6 @@ const CoursesHeader = () => {
   };
 
   useEffect(() => {
-    getProfileApi();
     getCartApi();
     notificationApi();
   }, []);
@@ -200,8 +186,7 @@ const CoursesHeader = () => {
                   <img src={`${baseUrl}/${profile}`} alt="profile" />
                 ) : (
                   <img src={images.avtar} alt="profile" />
-                )}
-                <img src={images.avtar} alt="profile" />
+                )}               
               </div>
               <img
                 src={icon.angleDown}

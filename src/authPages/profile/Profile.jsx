@@ -1,7 +1,7 @@
 import { Fragment, useState, useEffect } from "react";
 import "./Profile.scss";
 import ProfileBanner from "./profilebanner/ProfileBanner";
-import CoursesHeader from "../components/coursesheader/CoursesHeader";
+import AuthLayout from "../AuthLayout";
 import { icon } from "../../utils/images/icons";
 import MyProfile from "./myprofile/MyProfile";
 import Accounts from "./accounts/Accounts";
@@ -11,13 +11,8 @@ import Help from "./help/ProfileHelp";
 import WOW from "wow.js";
 import { useDispatch, useSelector } from "react-redux";
 import { profileTabChanger, resetAllToggler } from "../../store/actions";
-import axios from "axios";
-import { baseUrl, getProfile } from "../../utils/apidata";
-import { getProfileData } from "../../store/actions";
 
 const Profile = () => {
-  
-  const [profile, setProfile] = useState();
   const token = localStorage.getItem("token");
   const optionData = [
     {
@@ -60,35 +55,8 @@ const Profile = () => {
 
   const tab = useSelector((state) => state.profileTabReducer);
 
-  const headers = {
-    Authorization: `Bearer ${token}`,
-  };
-
-  const getProfileApi = async () => {
-    try {
-      const response = await axios.get(`${baseUrl}/${getProfile}`, { headers });
-      console.log("Profile", response);
-      if(response?.data.success){
-        setProfile(response?.data?.data);
-        dispatch({type:getProfileData(),payload:response?.data?.data})
-      }
-    } catch (error) {
-      console.log("Error:", error)
-    }
-  };
-
-  useState(() => {
-    getProfileApi();
-  },[]);
-
-  const recallProfile = () => {
-    getProfileApi();
-    console.log("API RECALLED");
-  }
-
   return (
-    <Fragment>
-      <CoursesHeader />
+    <AuthLayout>
       <div className="header_filler"></div>
       <ProfileBanner />
       <section className="profile_screens" onClick={resetToggler}>
@@ -113,14 +81,14 @@ const Profile = () => {
           </div>
           <div className="menu_screens">
             {tab === 1 && <MyProfile />}
-            {tab === 2 && <Accounts getProfile={profile} recallProfile={recallProfile} />}
+            {tab === 2 && <Accounts />}
             {tab === 3 && <Subscription />}
             {tab === 4 && <EmailNotification />}
             {tab === 5 && <Help />}
           </div>
         </div>
       </section>
-    </Fragment>
+    </AuthLayout>
   );
 };
 

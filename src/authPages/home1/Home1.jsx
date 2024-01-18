@@ -17,6 +17,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { baseUrl, authHomeApi, saveCourse } from "../../utils/apidata";
 import { redirectContext } from "../../context/RoutingContext";
+import AuthLayout from "../AuthLayout";
 
 const Home1 = () => {
   const fourInfoData = [
@@ -63,7 +64,6 @@ const Home1 = () => {
     Authorization: `Bearer ${token}`,
   };
 
-
   const homeApi = async () => {
     try {
       const response = await axios.get(`${baseUrl}/${authHomeApi}`, {
@@ -83,16 +83,13 @@ const Home1 = () => {
     }
   };
 
-
   useEffect(() => {
     homeApi();
   }, []);
-  
-  
+
   return (
-    <Fragment>
+    <AuthLayout>
       <div className="header_filler"></div>
-      <CoursesHeader />
       <WelComeStrip
         title={`Welcome ${name}`}
         text="This is a short copy nudging user to explore app and courses"
@@ -133,7 +130,7 @@ const Home1 = () => {
           <BottomLive dataList={cta} />
         </div>
       </section>
-    </Fragment>
+    </AuthLayout>
   );
 };
 

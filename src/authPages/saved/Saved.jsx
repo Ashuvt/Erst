@@ -9,7 +9,7 @@ import WOW from "wow.js";
 import axios from "axios";
 import { baseUrl, getSavedCourse, saveCourse } from "../../utils/apidata";
 import SavedCard from "./savedcard/SavedCard";
-import { redirectContext } from "../../context/RoutingContext";
+import AuthLayout from "../AuthLayout";
 
 const Saved = () => {
 
@@ -239,10 +239,8 @@ const Saved = () => {
 
 
   return (
-    <Fragment>
+    <AuthLayout>
       <div className="header_filler"></div>
-      <CoursesHeader />
-
       <section className="saved_page" onClick={resetToggler}>
         <div className="screen_container">
           <div className="explore_grid">
@@ -320,7 +318,7 @@ const Saved = () => {
           </div>
         </div>
       </section>
-    </Fragment>
+      </AuthLayout>
   );
 };
 

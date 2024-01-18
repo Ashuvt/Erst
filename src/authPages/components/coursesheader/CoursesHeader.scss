@@ -16,8 +16,10 @@ section.courses_header {
     height: 80px;
     z-index: 9999;
     border-bottom: 1px solid $borderSubtle;
+
     .screen_container {
-        position:relative;
+        position: relative;
+
         header {
             padding: 24px 0px;
             display: flex;
@@ -36,7 +38,8 @@ section.courses_header {
                 justify-content: center;
                 align-items: center;
                 gap: 8px;
-                @media only screen and (max-width:$laptop){
+
+                @media only screen and (max-width:$laptop) {
                     display: none;
                 }
             }
@@ -50,18 +53,20 @@ section.courses_header {
                 button {
                     border-style: none;
                     background-color: transparent;
-                    &.profile_btn{
+
+                    &.profile_btn {
                         display: flex;
                         justify-content: center;
                         align-items: center;
-                        gap:8px;
-                        
+                        gap: 8px;
+
                     }
 
                     &.cartbtn {
                         border-style: none;
                         background-color: transparent;
-                        position:relative;                        
+                        position: relative;
+
                         .notification {
                             height: 20px;
                             width: 20px;
@@ -70,10 +75,11 @@ section.courses_header {
                             justify-content: center;
                             align-items: center;
                             background: $primaryGradient_5;
-                            position:absolute;
-                            top:-14px;
-                            right:-12px;
-                            p{
+                            position: absolute;
+                            top: -14px;
+                            right: -12px;
+
+                            p {
                                 @include font('Inter-Regular', 12px, 11px, 400, $white);
                             }
                         }
@@ -93,13 +99,15 @@ section.courses_header {
                         }
                     }
 
-                    img{
+                    img {
                         transition: 0.2s ease-in-out;
-                        &.open{
+
+                        &.open {
                             transform: rotateX(0deg);
                             -webkit-transform: rotateX(0deg);
                         }
-                        &.close{
+
+                        &.close {
                             transform: rotateX(180deg);
                             -webkit-transform: rotateX(180deg);
                         }

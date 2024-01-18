@@ -6,12 +6,10 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { baseUrl, profileUpdate } from "../../../utils/apidata";
 import { useContext, useState } from "react";
+import { toast } from "react-toastify";
+import { redirectContext } from "../../../context/RoutingContext";
 
 const Accounts = () => {
-  const Loader = false;
-  const ddStatus = useSelector((state) => state.toggleReducer.countryDdStatus);
-  const dispatch = useDispatch();
-
   const countryList = [
     {
       id: 0,
@@ -31,48 +29,68 @@ const Accounts = () => {
     },
   ];
 
+  const { toastSuccess, toastError, getProfileApi } =
+    useContext(redirectContext);
+const [loader, setLoader] = useState(false);
+  const ddStatus = useSelector((state) => state.toggleReducer.countryDdStatus);
+  const dispatch = useDispatch();
+  const { profile, name, bio, country } = useSelector(
+    (data) => data.getProfileDataReducer
+  );
+
   const [fieldData, setFieldData] = useState({
-    name: "",
-    country: "",
-    profile: null,
-    bio: "",
+    name: name,
+    country: country,
+    profile: profile,
+    bio: bio,
   });
 
   const fieldChange = (e) => {
     const { name, value } = e.target;
     if (name == "profile") {
-      console.log("FILE", value);
       setFieldData((prev) => ({ ...prev, profile: e.target.files[0] }));
     } else {
       setFieldData((prev) => ({ ...prev, [name]: value }));
     }
   };
 
-
   const ddToggler = (event) => {
     event.stopPropagation();
     dispatch({ type: contryDdToggler(), payload: !ddStatus });
   };
 
-
+  // Profile Update APi
   const profileUpdateApi = async (data) => {
+    setLoader(true);
     const token = localStorage.getItem("token");
-    
     const headers = {
       Authorization: `Bearer ${token}`,
-      'Content-Type': 'multipart/form-data',
-    }; 
-
+      "Content-Type": "multipart/form-data",
+    };
     try {
-        const response = await axios.post(`${baseUrl}/${profileUpdate}`,{headers}, {...data} );
-        console.log("Res::", response);
+      const response = await axios.post(
+        `${baseUrl}/${profileUpdate}`,
+        { ...data },
+        { headers }
+      );
+
+      if (response?.data?.success) {
+        toastSuccess(response?.data?.message);
+        getProfileApi();
+        setLoader(false);
+      } else {
+        toastError("Something Went Wrong!");
+      }
     } catch (error) {
-        console.log(error);
-    }
-  }
+      console.log(error);
+      toastError("Something Went Wrong!");
+      setLoader(false);
+        }
+  };
 
   const submitHandler = (e) => {
     e.preventDefault();
+
     const formDataToSend = new FormData();
     formDataToSend.append("name", fieldData.name);
     formDataToSend.append("country", fieldData.country);
@@ -83,12 +101,10 @@ const Accounts = () => {
 
     formDataToSend.forEach((value, key) => {
       formDataObject[key] = value;
-    });    
+    });
 
     profileUpdateApi(formDataObject);
-
-  }
-
+  };
 
   return (
     <div className="profile_accounts">
@@ -168,16 +184,16 @@ const Accounts = () => {
               <p>Add Profile</p>
             </div>
             <input
-             type="file" 
-             name="profile" 
-             id="profile" 
-             onChange={fieldChange}
-             />
+              type="file"
+              name="profile"
+              id="profile"
+              onChange={fieldChange}
+            />
           </div>
         </div>
 
         <div className="btn_line">
-          {Loader ? (
+          {loader ? (
             <button
               type="button"
               className="authbtn auth_primary wow fadeInUp"
@@ -186,7 +202,11 @@ const Accounts = () => {
               Loading...
             </button>
           ) : (
-            <button type="submit" className="authbtn auth_primary wow fadeInUp" onClick={submitHandler}>
+            <button
+              type="button"
+              className="authbtn auth_primary wow fadeInUp"
+              onClick={submitHandler}
+            >
               Save
             </button>
           )}
