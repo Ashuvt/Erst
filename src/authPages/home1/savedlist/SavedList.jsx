@@ -23,10 +23,9 @@ const getSavedCourseApi = async () => {
   try {
     const response = await axios.get(`${baseUrl}/${getSavedCourse}`, {
       headers,
-    });
-    console.log("SAVED LIST", response);
+    });   
     if (response?.data?.success) {
-      setSaveCourseList(response?.data?.data);
+      setSaveCourseList(response?.data?.data);     
     } else {
       setSaveCourseList([]);
     }
@@ -91,8 +90,13 @@ const headers = {
               ></div>
               <div className="bottom_line">
                 <p className="title">
-                  Module <span>{data.modules}</span>
+                  {data?.course_id?.is_course} <span>{data.modules}</span>
                 </p>
+
+                <div className="info">
+                  <img src={icon.students} alt="clock" />
+                  <p className="title">{data?.course_id?.students}</p>
+                </div>
                 <div className="info">
                   <img src={icon.clock} alt="clock" />
                   <p className="title">{data?.course_id?.course_time}</p>

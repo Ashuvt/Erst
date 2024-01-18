@@ -82,7 +82,8 @@ const GetStartedForm = () => {
         toastError("Email is already in use");
       }
     } catch (error) {
-      if (error.message) {
+      setLoader(false);
+      if (error.message) {        
         toastError(error.message || "Something Went Wrong!");
       }
     }

@@ -25,24 +25,24 @@ const CourseSidebar = () => {
       text: "explore",
       path: "/auth/explore",
     },
-    {
-      id: 2,
-      img: icon.skillpath,
-      text: "skill paths",
-      path: "/auth/skill_paths",
-    },
-    {
-      id: 3,
-      img: icon.live,
-      text: "live",
-      path: "/auth/live",
-    },
-    {
-      id: 4,
-      img: icon.group,
-      text: "groups",
-      path: "/auth/groups",
-    },
+    // {
+    //   id: 2,
+    //   img: icon.skillpath,
+    //   text: "skill paths",
+    //   path: "/auth/skill_paths",
+    // },
+    // {
+    //   id: 3,
+    //   img: icon.live,
+    //   text: "live",
+    //   path: "/auth/live",
+    // },
+    // {
+    //   id: 4,
+    //   img: icon.group,
+    //   text: "groups",
+    //   path: "/auth/groups",
+    // },
     {
       id: 5,
       img: icon.save,

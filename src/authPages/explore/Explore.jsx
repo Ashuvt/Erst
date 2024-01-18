@@ -9,7 +9,12 @@ import { useDispatch } from "react-redux";
 import { resetAllToggler } from "../../store/actions";
 import WOW from "wow.js";
 import axios from "axios";
-import { baseUrl, explorePage, saveCourse } from "../../utils/apidata";
+import {
+  baseUrl,
+  exploreFilterOptions,
+  explorePage,
+  saveCourse,
+} from "../../utils/apidata";
 import ExploreCourseCard from "./coursecard/ExploreCourseCard";
 import { redirectContext } from "../../context/RoutingContext";
 
@@ -175,7 +180,8 @@ const Explore = () => {
     },
   ];
 
-const {toastSuccess, toastWarning, toastError} = useContext(redirectContext)
+  const { toastSuccess, toastWarning, toastError } =
+    useContext(redirectContext);
 
   const [courseList, setCourseList] = useState([]);
   const [skillPathList, setSkillPathList] = useState([]);
@@ -184,11 +190,22 @@ const {toastSuccess, toastWarning, toastError} = useContext(redirectContext)
 
   const [loader, setLoader] = useState(false);
 
+  const [profession, setProfession] = useState([]);
+  const [interest, setInterest] = useState([]);
+  const [tag, setTag] = useState([]);
+
+
+  const [selectedProfession, setSelectedProfession] = useState([]);
+  const [selectedInterest, setSelectedInterest] = useState([]);
+  const [selectedTag, setSelectedTag] = useState([]);
+
   const token = localStorage.getItem("token");
 
   const headers = {
     Authorization: `Bearer ${token}`,
   };
+
+  // Explore Page APi
   const exploreApi = async () => {
     setLoader(true);
     try {
@@ -196,11 +213,11 @@ const {toastSuccess, toastWarning, toastError} = useContext(redirectContext)
         headers,
       });
       if (response?.data?.success) {
-        setLoader(false);      
+        setLoader(false);
         setCourseList(response?.data?.data?.course);
         setModuleList(response?.data?.data?.module);
         setSkillPathList(response?.data?.data?.skill_paths);
-        setSavedCourseds(response?.data?.data?.savedcourses)
+        setSavedCourseds(response?.data?.data?.savedcourses);
       } else {
         setCourseList([]);
         setModuleList([]);
@@ -215,94 +232,89 @@ const {toastSuccess, toastWarning, toastError} = useContext(redirectContext)
     }
   };
 
+  // Explore Filter Options APi
+  const getFilterOptionsApi = async () => {
+    try {
+      const response = await axios.get(`${baseUrl}/${exploreFilterOptions}`);      
+      if (response?.data?.success) {
+        setProfession(response?.data?.data?.Proffession);
+        setInterest(response?.data?.data?.Intrest);
+        setTag(response?.data?.data?.Tag);
+      }
+    } catch (error) {
+      console.log("ERROR::", error);
+      setProfession([]);
+      setInterest([]);
+      setTag([]);
+    }
+  };
+
   useEffect(() => {
     const wow = new WOW();
     wow.init();
     exploreApi();
+    getFilterOptionsApi();
   }, []);
-
-
 
   // Save Course
 
-  const saveCourseApi = async(courseId) => {
+  const saveCourseApi = async (courseId) => {
     const token = localStorage.getItem("token");
 
-  const headers = {
-    Authorization: `Bearer ${token}`,
-  };
-  
-   try {
-    const response = await axios.post(`${baseUrl}/${saveCourse}`,{course_id:courseId},{headers})
-    console.log("Save Course::", response);
-    if(response?.data?.success){
-      toastSuccess(response?.data?.message);
-      exploreApi();
-    }else{
-      toastWarning("This Course is already added!");
+    const headers = {
+      Authorization: `Bearer ${token}`,
+    };
+
+    try {
+      const response = await axios.post(
+        `${baseUrl}/${saveCourse}`,
+        { course_id: courseId },
+        { headers }
+      );
+      console.log("Save Course::", response);
+      if (response?.data?.success) {
+        toastSuccess(response?.data?.message);
+        exploreApi();
+      } else {
+        toastWarning("This Course is already added!");
+      }
+    } catch (error) {
+      console.log(error);
+      toastError("Something went wrong");
     }
-   } catch (error) {
-    console.log(error);
-    toastError("Something went wrong");
-   }
+  };
+
+  const addProfession = (selectedId) => {
+    setSelectedProfession((prev) => {
+      if (selectedProfession.includes(selectedId)) {
+        return selectedProfession.filter((id) => id !== selectedId);
+      } else {
+        return [...prev, selectedId];
+      }
+    });
+  };
+
+  const addInterest = (selectedId) => {
+    setSelectedInterest((prev) => {
+      if (selectedInterest.includes(selectedId)) {
+        return selectedInterest.filter((id) => id !== selectedId);
+      } else {
+        return [...prev, selectedId];
+      }
+    });
   }
   
-
-  const [selectedFilter, setSelectedFilter] = useState([]);
-  const [selectedInterest, setSelectedInterest] = useState([]);
-  const [checkedTypes, setCheckedTypes] = useState([]);
-  const [checkedDomains, setCheckedDomains] = useState([]);
-  const [checkedWorkRolles, setCheckedWorkRolles] = useState([]);
-
-  const addFilter = (value) => {
-    setSelectedFilter((prev) => {
-      if (selectedFilter.includes(value)) {
-        return selectedFilter.filter((data) => data !== value);
-      } else {
-        return [...prev, value];
-      }
-    });
-  };
-
-  const addInterest = (value) => {
-    setSelectedInterest((prev) => {
-      if (selectedInterest.includes(value)) {
-        return selectedInterest.filter((data) => data !== value);
-      } else {
-        return [...prev, value];
-      }
-    });
-  };
-
-  const addTypes = (selectedId) => {
-    setCheckedTypes((prev) => {
-      if (checkedTypes.includes(selectedId)) {
-        return checkedTypes.filter((id) => id !== selectedId);
+  const addTag = (selectedId) => {
+    setSelectedTag((prev) => {
+      if (selectedTag.includes(selectedId)) {
+        return selectedTag.filter((id) => id !== selectedId);
       } else {
         return [...prev, selectedId];
       }
     });
-  };
+  }
 
-  const addDomains = (selectedId) => {
-    setCheckedDomains((prev) => {
-      if (checkedDomains.includes(selectedId)) {
-        return checkedDomains.filter((id) => id !== selectedId);
-      } else {
-        return [...prev, selectedId];
-      }
-    });
-  };
 
-  const addWorkRolls = (selectedId) => {
-    setCheckedWorkRolles((prev) => {
-      if (checkedWorkRolles.includes(selectedId)) {
-        return checkedWorkRolles.filter((id) => id !== selectedId);
-      } else {
-        return [...prev, selectedId];
-      }
-    });
-  };
 
   const dispatch = useDispatch();
 
@@ -318,140 +330,97 @@ const {toastSuccess, toastWarning, toastError} = useContext(redirectContext)
         <div className="screen_container">
           <div className="explore_grid">
             <div className="filter_options_sec">
+
+              {/* <button onClick={() => {
+                console.log({
+                  profession:selectedProfession,
+                  interest:selectedInterest,
+                  tag:selectedTag
+                })
+              }}>test</button> */}
+              
+              {/* Profession Filter Options */}
+
               <div className="options_content">
-                <h3 className="title wow fadeInUp">Filter</h3>
+                <h3 className="title wow fadeInUp">Profession</h3>
                 <div className="option_box wow fadeInUp">
-                  {filterOptions.map((data) => {
-                    return (
-                      <Fragment key={data.id}>
-                        <button
-                          type="buton"
-                          className={`white_btn ${
-                            selectedFilter.includes(data.text) ? "active" : ""
-                          }`}
-                          onClick={() => addFilter(data.text)}
-                        >
-                          {data.text}
-                        </button>
-                      </Fragment>
-                    );
-                  })}
+                  {profession.length > 0 ? (
+                    profession.map((data) => {
+                      return (
+                        <Fragment key={data._id}>
+                          <button
+                            type="buton"
+                            className={`white_btn ${
+                              selectedProfession.includes(data._id) ? "active" : ""
+                            }`}
+                            onClick={() => addProfession(data._id)}
+                          >
+                            {data.name}
+                          </button>
+                        </Fragment>
+                      );
+                    })
+                  ) : (
+                    <p>Data Not Exist...</p>
+                  )}
                 </div>
               </div>
 
+              {/* Interest Filter Oprtions */}
+
               <div className="options_content">
-                <h3 className="title wow fadeInUp">Interests</h3>
+                <h3 className="title wow fadeInUp">Interest</h3>
                 <div className="option_box wow fadeInUp">
-                  {interestOptions.map((data) => {
-                    return (
-                      <Fragment key={data.id}>
-                        <button
-                          type="buton"
-                          className={`white_btn  ${
-                            selectedInterest.includes(data.text) ? "active" : ""
-                          }`}
-                          onClick={() => addInterest(data.text)}
-                        >
-                          {data.text}
-                        </button>
-                      </Fragment>
-                    );
-                  })}
+                  {interest.length > 0 ? (
+                    interest.map((data) => {
+                      return (
+                        <Fragment key={data._id}>
+                          <button
+                            type="buton"
+                            className={`white_btn  ${
+                              selectedInterest.includes(data._id)
+                                ? "active"
+                                : ""
+                            }`}
+                            onClick={() => addInterest(data._id)}
+                          >
+                            {data.name}
+                          </button>
+                        </Fragment>
+                      );
+                    })
+                  ) : (
+                    <p>Data Does Not Exist...</p>
+                  )}
                 </div>
               </div>
 
-              <div className="options_content">
-                <h3 className="title wow fadeInUp">Type</h3>
-                <div className="checkbox_card wow fadeInUp">
-                  {typesData.map((data) => {
-                    return (
-                      <Fragment key={data.id}>
-                        <div className="check_field">
-                          <button
-                            type="button"
-                            className="checkbtn"
-                            onClick={() => addTypes(data.id)}
-                          >
-                            <img
-                              src={icon.checked}
-                              alt="checked"
-                              className={
-                                checkedTypes.includes(data.id) ? "active" : ""
-                              }
-                            />
-                          </button>
-                          <label>
-                            {data.text} <span></span>
-                            {data.count}
-                          </label>
-                        </div>
-                      </Fragment>
-                    );
-                  })}
-                </div>
-              </div>
+              {/* Tags Filter Oprtions */}
 
               <div className="options_content">
-                <h3 className="title wow fadeInUp">Domains</h3>
-                <div className="checkbox_card wow fadeInUp">
-                  {domainsData.map((data) => {
-                    return (
-                      <Fragment key={data.id}>
-                        <div className="check_field">
+                <h3 className="title wow fadeInUp">Tags</h3>
+                <div className="option_box wow fadeInUp">
+                  {tag.length > 0 ? (
+                    tag.map((data) => {
+                      return (
+                        <Fragment key={data._id}>
                           <button
-                            type="button"
-                            className="checkbtn"
-                            onClick={() => addDomains(data.id)}
+                            type="buton"
+                            className={`white_btn  ${
+                              selectedTag.includes(data._id)
+                                ? "active"
+                                : ""
+                            }`}
+                            onClick={() => addTag(data._id)}
                           >
-                            <img
-                              src={icon.checked}
-                              alt="checked"
-                              className={
-                                checkedDomains.includes(data.id) ? "active" : ""
-                              }
-                            />
+                            {data.name}
                           </button>
-                          <label>
-                            {data.text} <span></span>
-                            {data.count}
-                          </label>
-                        </div>
-                      </Fragment>
-                    );
-                  })}
-                </div>
-              </div>
-
-              <div className="options_content">
-                <h3 className="title wow fadeInUp">Work roles</h3>
-                <div className="checkbox_card wow fadeInUp">
-                  {workLRolesData.map((data) => {
-                    return (
-                      <Fragment key={data.id}>
-                        <div className="check_field">
-                          <button
-                            type="button"
-                            className="checkbtn"
-                            onClick={() => addWorkRolls(data.id)}
-                          >
-                            <img
-                              src={icon.checked}
-                              alt="checked"
-                              className={
-                                checkedWorkRolles.includes(data.id)
-                                  ? "active"
-                                  : ""
-                              }
-                            />
-                          </button>
-                          <label>
-                            {data.text} <span></span>
-                            {data.count}
-                          </label>
-                        </div>
-                      </Fragment>
-                    );
-                  })}
+                        </Fragment>
+                      );
+                    })
+                  ) : (
+                    <p>Data Does Not Exist...</p>
+                  )}
                 </div>
               </div>
             </div>
@@ -460,6 +429,7 @@ const {toastSuccess, toastWarning, toastError} = useContext(redirectContext)
               <ExploreTitle
                 title="Courses"
                 text="Elevate your capabilities with insights and training from cybersecurity frontrunners."
+                btnClickHandler={() => console.log("view all course Clicked")}
               />
 
               {courseList.length > 0 ? (
@@ -487,6 +457,7 @@ const {toastSuccess, toastWarning, toastError} = useContext(redirectContext)
               <ExploreTitle
                 title="Skill paths"
                 text="Embrace career advancement pathways customized for high-demand cybersecurity careers."
+                btnClickHandler={() => console.log("view all Skill Path Btn Clicked")}
               />
               {skillPathList.length > 0 ? (
                 <div className="explore_video_grid">
@@ -504,15 +475,18 @@ const {toastSuccess, toastWarning, toastError} = useContext(redirectContext)
                 </div>
               ) : (
                 <div className="empty_box">
-                  <p>{loader ? "Loading ..." : "Skill Path Data Not Found..."}</p>
+                  <p>
+                    {loader ? "Loading ..." : "Skill Path Data Not Found..."}
+                  </p>
                 </div>
               )}
 
               <ExploreTitle
                 title="Modules"
                 text="Embrace career advancement pathways customized for high-demand cybersecurity careers."
+                btnClickHandler={() => console.log("view all Module Btn Clicked")}
               />
-                  {moduleList.length > 0 ? (
+              {moduleList.length > 0 ? (
                 <div className="explore_video_grid">
                   {moduleList.map((data, k) => {
                     return (

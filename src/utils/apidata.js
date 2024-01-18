@@ -99,6 +99,7 @@ export const help = "api/helpstore";
 
 //Explore Page
 export const explorePage = "api/explorepageapi";
+export const exploreFilterOptions = "api/getfiltersexplore"
 
 
 //*************** Auth/saved Page ******************************

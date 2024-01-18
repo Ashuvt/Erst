@@ -103,7 +103,7 @@ const Home1 = () => {
             <div className="left">
               <RecommendedModules recommaned={recommaned} />
               <FourBoxInfo title="Your Roadmap" data={fourInfoData} />
-              <LiveSec />
+              {/* <LiveSec /> */}
               <PopularSkillPath />
             </div>
             <div className="right">

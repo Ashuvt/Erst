@@ -1,4 +1,4 @@
-import { Fragment, useState, useEffect } from "react";
+import { Fragment, useState, useEffect, useContext } from "react";
 import "./Saved.scss";
 import CoursesHeader from "../components/coursesheader/CoursesHeader";
 import { images } from "../../utils/images/images";
@@ -7,10 +7,15 @@ import { useDispatch } from "react-redux";
 import { resetAllToggler } from "../../store/actions";
 import WOW from "wow.js";
 import axios from "axios";
-import { baseUrl, getSavedCourse } from "../../utils/apidata";
+import { baseUrl, getSavedCourse, saveCourse } from "../../utils/apidata";
 import SavedCard from "./savedcard/SavedCard";
+import { redirectContext } from "../../context/RoutingContext";
 
 const Saved = () => {
+
+
+
+
   useEffect(() => {
     const wow = new WOW();
     wow.init();
@@ -204,6 +209,8 @@ const Saved = () => {
     dispatch({ type: resetAllToggler() });
   };
 
+
+
   const getSavedCourseApi = async () => {
     const token = localStorage.getItem("token");
     const headers = {
@@ -227,6 +234,9 @@ const Saved = () => {
   useEffect(() => {
     getSavedCourseApi();
   }, []);
+
+
+
 
   return (
     <Fragment>
@@ -296,7 +306,7 @@ const Saved = () => {
                   {saveCourseList.map((data, i) => {
                     return (
                       <Fragment key={data._id}>
-                        <SavedCard {...data} saved={true} index={i} />
+                        <SavedCard {...data} saved={true} index={i} getSavedCourseApi={getSavedCourseApi} />
                       </Fragment>
                     );
                   })}

@@ -54,6 +54,7 @@ const SignIn = () => {
       }
     } catch (error) {
       console.log("ERROR:::", error);
+      setLoader(false);
       if (error.message) {
         toastError(error.message || "Something Went Wrong!");
       }
