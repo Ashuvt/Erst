@@ -134,3 +134,6 @@ export const removeFromCart = "api/removecart"
 
 // Checkout
 export const checkout = "api/createorder";
+
+//Notification
+export const getNotification = "api/getnotification";

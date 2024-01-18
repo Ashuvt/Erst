@@ -6,13 +6,10 @@ import ExploreTabs from "./ExploreTabs/ExploreTabs";
 import WOW from "wow.js";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { baseUrl, coursedetailById } from "../../utils/apidata";
-
+import { addToCart, baseUrl, coursedetailById } from "../../utils/apidata";
 
 const ExploreDetail = () => {
   const { courseId } = useParams();
-
-  const {addToCartApi} = useContext(redirectContext);
 
 
 
@@ -20,7 +17,7 @@ const ExploreDetail = () => {
   const [module, setModule] = useState(null);
   const [loader, setLoader] = useState(null);
 
-
+  const [instructors, setInstructors] = useState([]);
 
   const getCourseDetail = async () => {
     const token = localStorage.getItem("token");
@@ -39,7 +36,11 @@ const ExploreDetail = () => {
       console.log("Course Detail", response);
 
       if (response?.data?.success) {
-        setCourse(response?.data?.data?.course);
+        setInstructors(response?.data?.data?.courseinstructors);
+        setCourse(response?.data?.data);
+
+
+
         setModule(response?.data?.data?.module);
         setLoader(false);
       } else {
@@ -57,16 +58,22 @@ const ExploreDetail = () => {
     getCourseDetail();
   }, []);
 
-    const addtoCartHandler = () => {    
-    addToCartApi(courseId);
-    getCourseDetail();
-  }
+
+const recallGetCourse = () => {
+  getCourseDetail();
+}
+
+
   return (
     <Fragment>
       <CoursesHeader />
       <div className="header_filler"></div>
-      <ExploreDetailLanding {...course} loader={loader} addtoCartHandler={addtoCartHandler}  />
-      <ExploreTabs />
+      <ExploreDetailLanding
+        {...course}
+        loader={loader}
+        recallGetCourse={recallGetCourse}
+      />
+      <ExploreTabs instructors={instructors} />
     </Fragment>
   );
 };

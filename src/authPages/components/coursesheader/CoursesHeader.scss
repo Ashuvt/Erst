@@ -71,8 +71,8 @@ section.courses_header {
                             align-items: center;
                             background: $primaryGradient_5;
                             position:absolute;
-                            top:-15px;
-                            right:-15px;
+                            top:-14px;
+                            right:-12px;
                             p{
                                 @include font('Inter-Regular', 12px, 11px, 400, $white);
                             }

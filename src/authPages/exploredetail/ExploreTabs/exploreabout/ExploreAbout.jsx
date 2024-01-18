@@ -10,7 +10,7 @@ import { useDispatch } from "react-redux";
 import { resetAllToggler } from "../../../../store/actions";
 import ModulesSec from "./modulessec/ModulesSec";
 
-const ExploreAbout = () => {
+const ExploreAbout = ({instructors}) => {
   const whiteBtnData = [
     {
       id: 0,
@@ -118,13 +118,13 @@ const ExploreAbout = () => {
           </div>
           <div className="right">
             <h5 className="small_title wow fadeInUp">Instructor</h5>
-            {instructorsData.map((data) => {
+            {instructors?.length > 0 ? instructors.map((data) => {
               return (
-                <Fragment key={data.id}>
+                <Fragment key={data._id}>
                   <InstructorCard {...data} />
                 </Fragment>
               );
-            })}
+            }) : <p>Data Does Not Found...</p>}
             <div className="red_card wow fadeInUp">
               <p className="t-g-16">Get 25% off on RedTeam</p>
               <p>

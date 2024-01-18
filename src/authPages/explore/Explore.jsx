@@ -211,6 +211,10 @@ const Explore = () => {
     try {
       const response = await axios.get(`${baseUrl}/${explorePage}`, {
         headers,
+      }, {
+        proffession:selectedProfession,
+        interest:selectedInterest,
+        tag:selectedTag
       });
       if (response?.data?.success) {
         setLoader(false);
@@ -292,6 +296,8 @@ const Explore = () => {
         return [...prev, selectedId];
       }
     });
+
+    exploreApi();
   };
 
   const addInterest = (selectedId) => {
@@ -302,6 +308,8 @@ const Explore = () => {
         return [...prev, selectedId];
       }
     });
+
+    exploreApi();
   }
   
   const addTag = (selectedId) => {
@@ -312,6 +320,8 @@ const Explore = () => {
         return [...prev, selectedId];
       }
     });
+
+    exploreApi();
   }
 
 
@@ -329,18 +339,8 @@ const Explore = () => {
       <section className="explore_page" onClick={resetToggler}>
         <div className="screen_container">
           <div className="explore_grid">
-            <div className="filter_options_sec">
-
-              {/* <button onClick={() => {
-                console.log({
-                  profession:selectedProfession,
-                  interest:selectedInterest,
-                  tag:selectedTag
-                })
-              }}>test</button> */}
-              
+            <div className="filter_options_sec">              
               {/* Profession Filter Options */}
-
               <div className="options_content">
                 <h3 className="title wow fadeInUp">Profession</h3>
                 <div className="option_box wow fadeInUp">

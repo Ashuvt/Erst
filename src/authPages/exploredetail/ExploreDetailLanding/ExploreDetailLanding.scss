@@ -12,13 +12,16 @@ section.explore_detail {
         padding-top: 60px;
         padding-bottom: 60px;
     }
-.loader{
-    width:100%;
-    h3{
-        color:$white;
-        text-align: center;
+
+    .loader {
+        width: 100%;
+
+        h3 {
+            color: $white;
+            text-align: center;
+        }
     }
-}
+
     .screen_container {
         display: flex;
         justify-content: flex-start;
@@ -117,11 +120,11 @@ section.explore_detail {
 
             h1 {
                 @include font('SpaceGrotesk-Regular', 32px, 36px, 400, $textPrimary);
-                margin: 16px 0px;
+                margin: 16px 0px 10px;
 
                 @media only screen and (max-width:$tab) {
                     @include font('SpaceGrotesk-Regular', 26px, 30px, 400, $textPrimary);
-                    margin: 15px 0px;
+                    margin: 15px 0px 10px;
                 }
             }
 
@@ -130,7 +133,13 @@ section.explore_detail {
                 justify-content: flex-start;
                 align-items: center;
                 gap: 8px;
-                margin: 8px 0px 40px;
+                margin: 0px 0px 10px;
+
+                button.white_btn {
+                    background-color: rgba($white, 0.1);
+                    color: $white;
+                    border: 1px solid $white;
+                }
             }
 
             button {

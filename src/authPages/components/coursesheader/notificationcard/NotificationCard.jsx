@@ -2,7 +2,7 @@ import "./NotificationCard.scss";
 import { icon } from "../../../../utils/images/icons";
 import { Fragment } from "react";
 
-const NotificationCard = ({status}) => {
+const NotificationCard = ({status, notification}) => {
   const notificationData = [
     {
       id: 0,
@@ -31,26 +31,26 @@ const NotificationCard = ({status}) => {
   ];
   return (
     <div className={`notification_card ${status ? 'open' : 'close'}`}>
-       <div className="bg_card_overlay"></div>
+       {/* <div className="bg_card_overlay"></div> */}
       <h1>Notifications</h1>
-      {notificationData.map((data) => {
+      {notification?.length > 0 ? notification.map((data) => {
         return (
-          <Fragment key={data.id}>
+          <Fragment key={data._id}>
             <div className="notification_data">
-              <img src={data.icon} alt="icon" />
+              <img src={icon.courses} alt="icon" />
               <div className="text_content">
                 <p className="title">
-                  {data.title} <span>{data.date}</span>{" "}
+                  Notification Title <span>Sep 25, 01:07 pm</span>
                 </p>
-                <p>{data.text} </p>
-                <button type="button" className="secondarybtn">
+                <p>{data.name} </p>
+                {/* <button type="button" className="secondarybtn">
                   {data.btn}
-                </button>
+                </button> */}
               </div>
             </div>
           </Fragment>
         );
-      })}
+      }) : <p>Notification not found</p>}
     </div>
   );
 };

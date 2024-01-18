@@ -8,36 +8,44 @@
     position: absolute;
     top: 90px;
     right: 0px;
-    transition: all 0.5s ease-in-out;
-    &::after {
-        position: absolute;
-        content: "";
-        top: 1px;
-        left: 1px;
-        height: calc(100% - 2px);
-        width: calc(100% - 2px);
-        border-radius: 12px;
-        overflow: hidden;
-        background-color: $dark;
-        z-index: 1;
+    transition: all 0.3s ease-in-out;
+    background-color: $dark;
+    height:450px;
+    overflow: auto;
+    border:1px solid rgba($white, 0.2);
+    &:hover{
+        border:1px solid rgba($white, 0.8);
     }
 
-    &::before {
-        position: absolute;
-        content: "";
-        top: 0px;
-        left: 0px;
-        height: 100%;
-        width: 100%;
-        border-radius: 12px;
-        background:$borderGradient;;
-        padding: 1px;
-        -webkit-backdrop-filter: blur(28px);
-        backdrop-filter: blur(28px);
-        transition: all 0.3s ease-in-out;
-        width: 100%;
-        z-index: 0;
-    }
+    // &::after {
+    //     position:absolute;;
+    //     content: "";
+    //     top: 1px;
+    //     left: 1px;
+    //     height: calc(100% - 2px);
+    //     width: calc(100% - 2px);
+    //     border-radius: 12px;
+    //     overflow: hidden;
+    //     background-color: $dark;
+    //     z-index: 1;
+    // }
+
+    // &::before {
+    //     position: absolute;
+    //     content: "";
+    //     top: 0px;
+    //     left: 0px;
+    //     height: 100%;
+    //     width: 100%;
+    //     border-radius: 12px;
+    //     background:$borderGradient;;
+    //     padding: 1px;
+    //     -webkit-backdrop-filter: blur(28px);
+    //     backdrop-filter: blur(28px);
+    //     transition: all 0.3s ease-in-out;
+    //     width: 100%;
+    //     z-index: 0;
+    // }
     &.close {
         opacity: 01;
         display: none;
@@ -45,6 +53,7 @@
     &.open {
         opacity: 1;
         display: block;
+     
     }
    
     @media only screen and (max-width:$tab) {

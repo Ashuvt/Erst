@@ -17,15 +17,16 @@ import {
   profileToggler,
   resetAllToggler,
 } from "../../../store/actions";
-import { baseUrl, getProfile } from "../../../utils/apidata";
+import { baseUrl, getNotification, getProfile } from "../../../utils/apidata";
 import HembergerMenu from "../../../components/hembergerIcon/HembergerMenu";
 import axios from "axios";
 
 const CoursesHeader = () => {
   const [name, setName] = useState("");
   const [profile, setProfile] = useState("");
+  const [notification, setNotification] = useState([]);
 
-const {getCartApi} = useContext(redirectContext);
+  const { getCartApi } = useContext(redirectContext);
 
   const menuData = [
     {
@@ -79,8 +80,6 @@ const {getCartApi} = useContext(redirectContext);
 
   const cartCount = useSelector((state) => state.countReducer.totalItem);
 
-
-
   const courseMenuToggler = (e) => {
     if (courseSidebarStatus) {
       dispatch({ type: courseSidebarToggler(), payload: false });
@@ -119,8 +118,20 @@ const {getCartApi} = useContext(redirectContext);
       const response = await axios.get(`${baseUrl}/${getProfile}`, { headers });
       if (response?.data?.success) {
         setName(response?.data?.data?.name);
-        setProfile(response?.data?.data?.profile);        
+        setProfile(response?.data?.data?.profile);
       } else {
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  //Notifivation
+  const notificationApi = async () => {
+    try {
+      const response = await axios.get(`${baseUrl}/${getNotification}`);  
+      if (response.data.success) {
+        setNotification(response?.data?.data);
       }
     } catch (error) {
       console.log(error);
@@ -130,6 +141,17 @@ const {getCartApi} = useContext(redirectContext);
   useEffect(() => {
     getProfileApi();
     getCartApi();
+    notificationApi();
+  }, []);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      notificationApi();
+    },60000);
+
+    return () => {
+      clearInterval(intervalId);
+    };
   }, []);
 
   return (
@@ -152,9 +174,14 @@ const {getCartApi} = useContext(redirectContext);
           </nav>
 
           <div className="profile">
-            <button type="button" onClick={notificationHandler}>
+            <button type="button" className="cartbtn" onClick={notificationHandler}>
+            <div className="notification">
+                <p>{notification?.length > 0 ? notification?.length : 0}</p>
+              </div>
               <img src={icon.notification} alt="notification" />
             </button>
+
+            
 
             <button type="button" className="cartbtn" onClick={openCartPopup}>
               <div className="notification">
@@ -188,7 +215,7 @@ const {getCartApi} = useContext(redirectContext);
             />
           </div>
         </header>
-        <NotificationCard status={notificationStatus} />
+        <NotificationCard status={notificationStatus} notification={notification} />
         <ProfileMenu menuStatus={profileStatus} name={name} />
       </div>
     </section>
