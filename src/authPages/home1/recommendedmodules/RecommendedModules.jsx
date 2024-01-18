@@ -41,7 +41,7 @@ const RecommendedModules = ({ recommaned }) => {
   return (
     <Fragment>
       <ModuleTitle
-        title="Recommended modules"
+        title="Recommended Bundles"
         text="Hi Rajat, Based on your intersect in ComTIA security 
          we suggest you some of personally curated modules"
         btntext="Explore Courses"

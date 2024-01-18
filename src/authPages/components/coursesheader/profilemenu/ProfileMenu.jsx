@@ -22,10 +22,10 @@ const ProfileMenu = ({ menuStatus, name }) => {
     {
       id: 1,
       icon: icon.courses,
-      text: "My Courses",
+      text: "My Certificate",
       clickHandler:() => {
         navigate("/auth/profile");
-        dispatch({type:profileTabChanger(), payload:3});
+        dispatch({type:profileTabChanger(), payload:2});
       },
     },
     {

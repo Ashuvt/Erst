@@ -24,8 +24,7 @@ const Explore = () => {
     useContext(redirectContext);
 
   const [courseList, setCourseList] = useState([]);
-  const [skillPathList, setSkillPathList] = useState([]);
-  const [moduleList, setModuleList] = useState([]);
+  const [bundleList, setBundleList] = useState([]);
 
   const [savedCourses, setSavedCourseds] = useState([]);
 
@@ -62,19 +61,18 @@ const Explore = () => {
       if (response?.data?.success) {
         setLoader(false);
         setCourseList(response?.data?.data?.course);
-        setModuleList(response?.data?.data?.module);
-        setSkillPathList(response?.data?.data?.skill_paths);
+        setBundleList(response?.data?.data?.bundle);
+       
         setSavedCourseds(response?.data?.data?.savedcourses);
+        console.log("Explore:", response);
       } else {
         setCourseList([]);
-        setModuleList([]);
-        setSkillPathList([]);
+        setBundleList([]);
       }
     } catch (error) {
       console.log(error);
       setCourseList([]);
-      setModuleList([]);
-      setSkillPathList([]);
+      setBundleList([]);
       setLoader(false);
     }
   };
@@ -266,6 +264,41 @@ const Explore = () => {
             </div>
 
             <div className="explore_videos_wrap">
+
+            {/* Bundles List */}
+              <ExploreTitle
+                title="Bundles"
+                text="Embrace career advancement pathways customized for high-demand cybersecurity careers."
+                btnClickHandler={() =>
+                  console.log("view all Skill Path Btn Clicked")
+                }
+              />
+              {bundleList.length > 0 ? (
+                <div className="explore_video_grid">
+                  {bundleList.map((data, k) => {
+                    return (
+                      <Fragment key={data._id}>
+                        <ExploreCard
+                          {...data}
+                          index={k}
+                          redirectTo={`/explore/${data._id}`}
+                        />
+                      </Fragment>
+                    );
+                  })}
+                </div>
+              ) : (
+                <div className="empty_box">
+                  <p>
+                    {loader ? "Loading ..." : "Bundles Data Does Not Found..."}
+                  </p>
+                </div>
+              )}
+
+
+
+              {/* Courses List */}
+
               <ExploreTitle
                 title="Courses"
                 text="Elevate your capabilities with insights and training from cybersecurity frontrunners."
@@ -294,36 +327,10 @@ const Explore = () => {
                 </div>
               )}
 
-              <ExploreTitle
-                title="Skill paths"
-                text="Embrace career advancement pathways customized for high-demand cybersecurity careers."
-                btnClickHandler={() =>
-                  console.log("view all Skill Path Btn Clicked")
-                }
-              />
-              {skillPathList.length > 0 ? (
-                <div className="explore_video_grid">
-                  {skillPathList.map((data, k) => {
-                    return (
-                      <Fragment key={data._id}>
-                        <ExploreCard
-                          {...data}
-                          index={k}
-                          redirectTo={`/explore/${data._id}`}
-                        />
-                      </Fragment>
-                    );
-                  })}
-                </div>
-              ) : (
-                <div className="empty_box">
-                  <p>
-                    {loader ? "Loading ..." : "Skill Path Data Not Found..."}
-                  </p>
-                </div>
-              )}
 
-              <ExploreTitle
+
+
+              {/* <ExploreTitle
                 title="Modules"
                 text="Embrace career advancement pathways customized for high-demand cybersecurity careers."
                 btnClickHandler={() =>
@@ -350,7 +357,7 @@ const Explore = () => {
                 <div className="empty_box">
                   <p>{loader ? "Loading ..." : "Module Data Not Found..."}</p>
                 </div>
-              )}
+              )} */}
             </div>
           </div>
         </div>

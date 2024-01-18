@@ -102,10 +102,9 @@ const CartPopup = () => {
     try {
       const response = await axios.post(`${baseUrl}/${checkout}`,{}, {headers});
       console.log("CHECKOUT", response);
-      if(response.status === 200){
+      if(response.data?.success){
         setCheckOut(false);
-        window.open(response?.data?.session?.url, '_blank', 'noreferrer');
-
+        window.open(response?.data?.data?.url, '_blank', 'noreferrer');
       }
     } catch (error) {
       setCheckOut(false);

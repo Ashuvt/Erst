@@ -3,11 +3,11 @@ import "./Profile.scss";
 import ProfileBanner from "./profilebanner/ProfileBanner";
 import AuthLayout from "../AuthLayout";
 import { icon } from "../../utils/images/icons";
-import MyProfile from "./myprofile/MyProfile";
-import Accounts from "./accounts/Accounts";
 import Subscription from "./subscription/Subscription";
 import EmailNotification from "./emailnotification/EmailNotification";
 import Help from "./help/ProfileHelp";
+import Account from "./account/Account";
+import MyProfile from "./myprofile/MyProfile";
 import WOW from "wow.js";
 import { useDispatch, useSelector } from "react-redux";
 import { profileTabChanger, resetAllToggler } from "../../store/actions";
@@ -15,15 +15,16 @@ import { profileTabChanger, resetAllToggler } from "../../store/actions";
 const Profile = () => {
   const token = localStorage.getItem("token");
   const optionData = [
+    
     {
-      id: 1,
+      id: 1,      
       icon: icon.user,
-      text: "My profile",
+      text: "My Profile",
     },
     {
       id: 2,
       icon: icon.email,
-      text: "Accounts",
+      text: "Certificates",
     },
     {
       id: 3,
@@ -80,8 +81,8 @@ const Profile = () => {
             })}
           </div>
           <div className="menu_screens">
-            {tab === 1 && <MyProfile />}
-            {tab === 2 && <Accounts />}
+          {tab === 1 && <MyProfile />}  
+            {tab === 2 &&  <Account />}
             {tab === 3 && <Subscription />}
             {tab === 4 && <EmailNotification />}
             {tab === 5 && <Help />}

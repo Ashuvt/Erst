@@ -123,7 +123,7 @@ const Home1 = () => {
                 </button>
               </div>
               <SavedList />
-              <ExploreCard />
+              {/* <ExploreCard /> */}
               <OfferCard />
             </div>
           </div>

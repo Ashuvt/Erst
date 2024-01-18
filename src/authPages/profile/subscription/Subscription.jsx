@@ -25,7 +25,7 @@ const Subscription = () => {
     <div className="profile_subscription">
       <div className="title">
         <h5 className="small_title wow fadeInUp">Subscription </h5>
-        <p className="wow fadeInUp">Manage your subscription and payment method</p>
+        <p className="wow fadeInUp">Order History</p>
       </div>
 
       <div className="offer_card wow fadeInUp">
@@ -48,14 +48,14 @@ const Subscription = () => {
           );
         })}
 
-      <div className="title mt">
+      {/* <div className="title mt">
         <p className="t-g-16 wow fadeInUp">Payment method</p>
         <p className="wow fadeInUp">Add a payment method to easily subscribe to courses.</p>
-      </div>
+      </div> */}
 
-      <PaymentMethodCard title="MasterCard ending with 1630" text="Expiring 02/2025" />
+      {/* <PaymentMethodCard title="MasterCard ending with 1630" text="Expiring 02/2025" /> */}
 
-      <button className="grotesk_secondary add wow fadeInUp">Add</button>
+      {/* <button className="grotesk_secondary add wow fadeInUp">Add</button> */}
     </div>
   );
 };
