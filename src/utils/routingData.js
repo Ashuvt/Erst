@@ -25,6 +25,7 @@ import ProtectedRoute from "../authPages/ProtectedRoute";
 import ForgotPassword from "../authPages/forgotpassword/ForgotPassword";
 import Success from "../pages/success/Success";
 import Fail from "../pages/fail/Fail";
+import ViewCart from "../authPages/viewcart/ViewCart";
 
 export const RoutoingData = [
   {
@@ -166,6 +167,15 @@ export const RoutoingData = [
       </ProtectedRoute>
     ),
     path: "/auth/success",
+  },
+  {
+    id: 1844,
+    component: (
+      <ProtectedRoute>
+        <ViewCart />
+      </ProtectedRoute>
+    ),
+    path: "/auth/mycart",
   },
   {
     id: 182,

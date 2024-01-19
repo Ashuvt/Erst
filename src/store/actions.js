@@ -15,7 +15,7 @@ import {
 
   SEND_PROFESSIONS,
   SEND_INTERESTED_FIELD,
-  ADD_CART_COUNT
+  GET_CART
   
 } from "./consts";
 
@@ -77,6 +77,3 @@ export const getProfileData = () => {
   return GET_PROFILE_DATA;
 }
 
-export const addCartCount = () => {
-  return ADD_CART_COUNT;
-}

@@ -16,7 +16,7 @@ export const SEND_INTERESTED_FIELD = "SEND_INTERESTED_FIELD";
 
 export const GET_PROFILE_DATA = "GET_PROFILE_DATA";
 
-export const ADD_CART_COUNT = "ADD_CART_COUNT"
+
 
 
 export const LANG = "LANG";

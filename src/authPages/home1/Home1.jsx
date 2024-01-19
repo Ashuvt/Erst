@@ -89,7 +89,6 @@ const Home1 = () => {
 
   return (
     <AuthLayout>
-      <div className="header_filler"></div>
       <WelComeStrip
         title={`Welcome ${name}`}
         text="This is a short copy nudging user to explore app and courses"

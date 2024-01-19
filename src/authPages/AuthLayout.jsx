@@ -14,7 +14,7 @@ const AuthLayout = ({children}) => {
     return(
         <Fragment>
               <CoursesHeader /> 
-             
+              <div className="header_filler"></div>
               {
                 children
               }

@@ -1,17 +1,38 @@
 import {
-    GET_SAVED_LIST_REQUEST,
-    GET_SAVED_LIST_SUCCESS,
-    GET_SAVED_LIST_FAIL,
+    GET_CART_REQUEST,
+    GET_CART_SUCCESS,
+    GET_CART_FAIL,
+    
+    REMOVE_CART_REQUEST,
+    REMOVE_CART_SUCCESS,
+    REMOVE_CART_FAIL,
+
   } from "../apiConsts";
 
 
-  export const getSavedCourseReducer = (state={},action)=>{
+export const getCartReducer = (state={},action)=>{
     switch(action.type){
-        case GET_SAVED_LIST_REQUEST:
+        case GET_CART_REQUEST:
             return {loading:true};
-        case GET_SAVED_LIST_SUCCESS:
-            return {loading:false,payload:action.payload}
-        case GET_SAVED_LIST_FAIL:
+        case GET_CART_SUCCESS:
+            return {loading:false, cartData:action.payload}
+        case GET_CART_FAIL:
+            return {loading:false,error:action.payload}
+        default:
+            return state;
+    }
+}
+
+
+
+
+export const removeFromCartReducer = (state={},action)=>{
+    switch(action.type){
+        case REMOVE_CART_REQUEST:
+            return {loading:true};
+        case REMOVE_CART_SUCCESS:
+            return {loading:false, cartData:action.payload}
+        case REMOVE_CART_FAIL:
             return {loading:false,error:action.payload}
         default:
             return state;

@@ -173,7 +173,6 @@ const Explore = () => {
 
   return (
     <AuthLayout>
-      <div className="header_filler"></div>
       <section className="explore_page" onClick={resetToggler}>
         <div className="screen_container">
           <div className="explore_grid">

@@ -72,14 +72,5 @@ export const langReducer = (state = langState, action) => {
 };
 
 
-const countState = {
-  totalItem:0
-}
-export const countReducer = (state=countState, action) => {
-    switch(action.type){
-      case ADD_CART_COUNT : return {...state, totalItem:action.payload};
 
-      default:
-        return state;
-    }
-}
+

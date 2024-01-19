@@ -77,12 +77,13 @@ const {profile, name} = useSelector(
 
 
   const profileStatus = useSelector((data) => data.toggleReducer.profileStatus);
-
   const courseSidebarStatus = useSelector(
     (state) => state.toggleReducer.courseSidebarStatus
   );
 
-  const cartCount = useSelector((state) => state.countReducer.totalItem);
+  const { cartData } = useSelector(
+    (state) => state.getCartReducer
+  );
 
   const courseMenuToggler = (e) => {
     if (courseSidebarStatus) {
@@ -117,8 +118,10 @@ const {profile, name} = useSelector(
   const notificationApi = async () => {
     try {
       const response = await axios.get(`${baseUrl}/${getNotification}`);  
+      
       if (response.data.success) {
         setNotification(response?.data?.data);
+        // console.log("Notification:::",response);
       }
     } catch (error) {
       console.log(error);
@@ -171,7 +174,7 @@ const {profile, name} = useSelector(
 
             <button type="button" className="cartbtn" onClick={openCartPopup}>
               <div className="notification">
-                <p>{cartCount ? cartCount : 0}</p>
+                <p>{cartData?.cart?.length || 0 }</p>
               </div>
               <img src={icons.addCart} alt="cart" />
             </button>

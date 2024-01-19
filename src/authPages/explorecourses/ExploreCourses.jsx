@@ -76,7 +76,6 @@ const ExploreCourses = () => {
 
   return (
     <Fragment>
-      <div className="header_filler"></div>
       <CoursesHeader />
       <section className="expaned_closer_wrap">
         <div className="screen_container">

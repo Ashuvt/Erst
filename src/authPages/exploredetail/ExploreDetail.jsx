@@ -62,8 +62,6 @@ const recallGetCourse = () => {
 
   return (
   <AuthLayout>
-      
-      <div className="header_filler"></div>
       <ExploreDetailLanding
         {...course}
         loader={loader}

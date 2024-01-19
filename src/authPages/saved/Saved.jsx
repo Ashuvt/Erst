@@ -12,10 +12,6 @@ import SavedCard from "./savedcard/SavedCard";
 import AuthLayout from "../AuthLayout";
 
 const Saved = () => {
-
-
-
-
   useEffect(() => {
     const wow = new WOW();
     wow.init();
@@ -240,7 +236,6 @@ const Saved = () => {
 
   return (
     <AuthLayout>
-      <div className="header_filler"></div>
       <section className="saved_page" onClick={resetToggler}>
         <div className="screen_container">
           <div className="explore_grid">
