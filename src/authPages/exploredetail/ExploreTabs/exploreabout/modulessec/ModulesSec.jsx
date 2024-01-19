@@ -1,6 +1,7 @@
 import "./ModulesSec.scss";
 import { Fragment } from "react";
 import { icon } from "../../../../../utils/images/icons";
+import { useNavigate } from "react-router-dom";
 
 const ModulesSec = () => {
   const module_data = [
@@ -48,9 +49,11 @@ const ModulesSec = () => {
     },
   ];
 
+  const navigate = useNavigate();
+
   return (
     <Fragment>
-      <div className="module_sec" id="courses" >
+      <div className="module_sec" id="courses">
         <h5 className="small_title">Modules</h5>
         {module_data.map((data) => {
           return (
@@ -65,7 +68,10 @@ const ModulesSec = () => {
                     <p className="small_text text">{data.text}</p>
                     <p className="small_text">{data.duration}</p>
                     {data.free && (
-                      <button type="button" className="free_btn">
+                      <button 
+                      type="button" 
+                      className="free_btn"
+                      >
                         Free
                       </button>
                     )}
@@ -73,7 +79,11 @@ const ModulesSec = () => {
                 </div>
 
                 {data.free ? (
-                  <button type="button" className="authbtn auth_primary">
+                  <button
+                    type="button"
+                    className="authbtn auth_primary"
+                    onClick={() => navigate("/explore/course")}
+                  >
                     Free
                   </button>
                 ) : (

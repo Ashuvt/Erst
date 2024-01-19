@@ -32,14 +32,11 @@ const ExploreDetail = () => {
         { headers }
       );
 
-      console.log("Course Detail", response);
+      console.log("Course Detail", response?.data?.data);
 
       if (response?.data?.success) {
         setInstructors(response?.data?.data?.courseinstructors);
         setCourse(response?.data?.data);
-
-
-
         setModule(response?.data?.data?.module);
         setLoader(false);
       } else {
@@ -72,7 +69,7 @@ const recallGetCourse = () => {
         loader={loader}
         recallGetCourse={recallGetCourse}
       />
-      <ExploreTabs instructors={instructors} />
+      <ExploreTabs instructors={instructors} course={course} />
       </AuthLayout>
   );
 };

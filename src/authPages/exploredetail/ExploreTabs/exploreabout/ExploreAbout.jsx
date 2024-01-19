@@ -10,7 +10,7 @@ import { useDispatch } from "react-redux";
 import { resetAllToggler } from "../../../../store/actions";
 import ModulesSec from "./modulessec/ModulesSec";
 
-const ExploreAbout = ({instructors}) => {
+const ExploreAbout = ({ instructors, course }) => {
   const whiteBtnData = [
     {
       id: 0,
@@ -49,7 +49,7 @@ const ExploreAbout = ({instructors}) => {
       id: 3,
       icon: icon.live,
       title: "Live classes",
-      text: "Across courses, you’ll get to test yourself within 10 quizzes and 5 projects.",
+      text: "Across courses, you'll get to test yourself within 10 quizzes and 5 projects.",
     },
   ];
 
@@ -95,7 +95,10 @@ const ExploreAbout = ({instructors}) => {
               {whiteBtnData.map((data) => {
                 return (
                   <Fragment key={data.id}>
-                    <button type="button" className="white_btn active wow fadeInUp">
+                    <button
+                      type="button"
+                      className="white_btn active wow fadeInUp"
+                    >
                       {data.text}
                     </button>
                   </Fragment>
@@ -114,17 +117,22 @@ const ExploreAbout = ({instructors}) => {
               title="What does this course include"
               data={fourInfoData}
             />
-               <ModulesSec />
+
+            {course?.is_course === "course" && <ModulesSec />}
           </div>
           <div className="right">
             <h5 className="small_title wow fadeInUp">Instructor</h5>
-            {instructors?.length > 0 ? instructors.map((data) => {
-              return (
-                <Fragment key={data._id}>
-                  <InstructorCard {...data} />
-                </Fragment>
-              );
-            }) : <p>Data Does Not Found...</p>}
+            {instructors?.length > 0 ? (
+              instructors.map((data) => {
+                return (
+                  <Fragment key={data._id}>
+                    <InstructorCard {...data} />
+                  </Fragment>
+                );
+              })
+            ) : (
+              <p>Data Does Not Found...</p>
+            )}
             <div className="red_card wow fadeInUp">
               <p className="t-g-16">Get 25% off on RedTeam</p>
               <p>
@@ -134,9 +142,12 @@ const ExploreAbout = ({instructors}) => {
             </div>
           </div>
         </div>
-     
-        <SubCoursesSlider />
-        <JourneySlider />
+
+
+        {course?.is_course === "bundle" && <SubCoursesSlider />}        
+
+        {course?.is_course === "course" && <JourneySlider />}
+
       </div>
     </section>
   );

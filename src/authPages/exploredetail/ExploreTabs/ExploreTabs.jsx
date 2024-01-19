@@ -8,7 +8,7 @@ import { resetAllToggler } from "../../../store/actions";
 
 
 
-const ExploreTabs = ({instructors}) => {
+const ExploreTabs = ({instructors, course}) => {
 
 
   const scrollToSection = (sectionId) => {
@@ -72,7 +72,7 @@ const ExploreTabs = ({instructors}) => {
         </div>
       </section>
         
-          <ExploreAbout instructors={instructors} />
+          <ExploreAbout instructors={instructors} course={course} />
     </Fragment>
   );
 };

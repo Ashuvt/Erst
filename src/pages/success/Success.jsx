@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./Success.scss";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { logoImage } from "../../utils/images/images";
 import WOW from "wow.js";
 import { useTranslation } from 'react-i18next';
@@ -11,6 +11,8 @@ const Success = () => {
       const wow = new WOW();
       wow.init();
     }, []);
+
+    const navigate = useNavigate();
 
   return (
     <section className="success">
@@ -31,7 +33,11 @@ const Success = () => {
           <button className="primarybtn wow fadeInUp" data-wow-delay="0.75s">Know More</button>
           </NavLink> */}
          
-          <button className="primarybtn wow fadeInUp" data-wow-delay="0.75s">Know More</button>
+          <button 
+            className="primarybtn wow fadeInUp" 
+            data-wow-delay="0.75s"
+            onClick={() => navigate("/auth/home")}  
+          >Home</button>
          
         </div>
       </div>

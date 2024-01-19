@@ -350,6 +350,17 @@ section.explore_cources {
 
                     }
                 }
+
+                .complete_Btn_wrap{
+                    display: flex;
+                    justify-content: flex-end;
+                    margin-top:30px;
+                   button{
+                    &:disabled{
+                        opacity:0.4;
+                    }
+                   }
+                }
             }
         }
     }

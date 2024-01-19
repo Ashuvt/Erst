@@ -397,6 +397,10 @@ const ExploreCourses = () => {
                   </Fragment>
                 );
               })}
+
+              <div className="complete_Btn_wrap">
+                <button className="primarybtn wow fadeInUp" disabled>Mark as Completed</button>
+              </div>
             </div>
           </div>
         </div>
