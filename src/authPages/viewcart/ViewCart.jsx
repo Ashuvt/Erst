@@ -18,29 +18,6 @@ const ViewCart = () => {
     getCartApi();
   }, []);
 
-  //   setCheckOut(true);
-  //   const token = localStorage.getItem("token");
-  //   const headers = {
-  //     Authorization: `Bearer ${token}`,
-  //   };
-
-  //   try {
-  //     const response = await axios.post(
-  //       `${baseUrl}/${checkout}`,
-  //       {},
-  //       { headers }
-  //     );
-  //     console.log("CHECKOUT", response);
-  //     if (response.data?.success) {
-  //       setCheckOut(false);
-  //       window.open(response?.data?.data?.url, "_blank", "noreferrer");
-  //     }
-  //   } catch (error) {
-  //     setCheckOut(false);
-  //     console.log(error);
-  //   }
-  // };
-
   return (
     <AuthLayout>
       <section className="view_cart">
@@ -49,7 +26,7 @@ const ViewCart = () => {
             <div className="left">
               <div className="title">
                 <h5>My Cart ({cartData?.cart?.length || 0})</h5>
-                <button>Continue shopping</button>
+                <button>Continue Shopping</button>
               </div>
 
               <div className="product_list">

@@ -22,7 +22,6 @@ import HembergerMenu from "../../../components/hembergerIcon/HembergerMenu";
 import axios from "axios";
 
 const CoursesHeader = () => {
-
   const [notification, setNotification] = useState([]);
   const { getCartApi } = useContext(redirectContext);
 
@@ -71,19 +70,14 @@ const CoursesHeader = () => {
     (data) => data.toggleReducer.notificationStatus
   );
 
-const {profile, name} = useSelector(
-  (data) => data.getProfileDataReducer
-);
-
+  const { profile, name } = useSelector((data) => data.getProfileDataReducer);
 
   const profileStatus = useSelector((data) => data.toggleReducer.profileStatus);
   const courseSidebarStatus = useSelector(
     (state) => state.toggleReducer.courseSidebarStatus
   );
 
-  const { cartData } = useSelector(
-    (state) => state.getCartReducer
-  );
+  const { cartData } = useSelector((state) => state.getCartReducer);
 
   const courseMenuToggler = (e) => {
     if (courseSidebarStatus) {
@@ -112,13 +106,11 @@ const {profile, name} = useSelector(
     dispatch({ type: cartPopupToggler(), payload: true });
   };
 
-
-
   //Notifivation
   const notificationApi = async () => {
     try {
-      const response = await axios.get(`${baseUrl}/${getNotification}`);  
-      
+      const response = await axios.get(`${baseUrl}/${getNotification}`);
+
       if (response.data.success) {
         setNotification(response?.data?.data);
         // console.log("Notification:::",response);
@@ -129,14 +121,14 @@ const {profile, name} = useSelector(
   };
 
   useEffect(() => {
-    getCartApi();
+    // getCartApi();
     notificationApi();
   }, []);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
       notificationApi();
-    },60000);
+    }, 60000);
 
     return () => {
       clearInterval(intervalId);
@@ -163,18 +155,20 @@ const {profile, name} = useSelector(
           </nav>
 
           <div className="profile">
-            <button type="button" className="cartbtn" onClick={notificationHandler}>
-            <div className="notification">
+            <button
+              type="button"
+              className="cartbtn"
+              onClick={notificationHandler}
+            >
+              <div className="notification">
                 <p>{notification?.length > 0 ? notification?.length : 0}</p>
               </div>
               <img src={icon.notification} alt="notification" />
             </button>
 
-            
-
             <button type="button" className="cartbtn" onClick={openCartPopup}>
               <div className="notification">
-                <p>{cartData?.cart?.length || 0 }</p>
+                <p>{cartData?.cart?.length || 0}</p>
               </div>
               <img src={icons.addCart} alt="cart" />
             </button>
@@ -189,7 +183,7 @@ const {profile, name} = useSelector(
                   <img src={`${baseUrl}/${profile}`} alt="profile" />
                 ) : (
                   <img src={images.avtar} alt="profile" />
-                )}               
+                )}
               </div>
               <img
                 src={icon.angleDown}
@@ -203,7 +197,10 @@ const {profile, name} = useSelector(
             />
           </div>
         </header>
-        <NotificationCard status={notificationStatus} notification={notification} />
+        <NotificationCard
+          status={notificationStatus}
+          notification={notification}
+        />
         <ProfileMenu menuStatus={profileStatus} name={name} />
       </div>
     </section>

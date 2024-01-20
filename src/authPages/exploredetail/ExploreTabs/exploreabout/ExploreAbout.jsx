@@ -6,11 +6,17 @@ import InstructorCard from "../../../components/Instructorcard/InstructorCard";
 import { images } from "../../../../utils/images/images";
 import SubCoursesSlider from "./subcoursesslider/SubCoursesSlider";
 import JourneySlider from "./journeyslider/JourneySlider";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { resetAllToggler } from "../../../../store/actions";
 import ModulesSec from "./modulessec/ModulesSec";
 
 const ExploreAbout = ({ instructors, course }) => {
+
+  const {courseDetailLoading, courseDetailData, courseDetailError } = useSelector(state => state?.getExploreDetailByIdApi);
+
+  console.log("DATA:::====>", courseDetailData);
+
+
   const whiteBtnData = [
     {
       id: 0,
@@ -92,18 +98,18 @@ const ExploreAbout = ({ instructors, course }) => {
         <div className="grid_content" id="about">
           <div className="left">
             <div className="btn_line">
-              {whiteBtnData.map((data) => {
+              {courseDetailData?.tags?.length > 0 ? courseDetailData?.tags.map((data) => {
                 return (
-                  <Fragment key={data.id}>
+                  <Fragment key={data._id}>
                     <button
                       type="button"
                       className="white_btn active wow fadeInUp"
                     >
-                      {data.text}
+                      {data?.name}
                     </button>
                   </Fragment>
                 );
-              })}
+              }) : <p>Tags Data Not Found...</p>}
             </div>
 
             <p className="small_text wow fadeInUp">
@@ -117,13 +123,13 @@ const ExploreAbout = ({ instructors, course }) => {
               title="What does this course include"
               data={fourInfoData}
             />
-
-            {course?.is_course === "course" && <ModulesSec />}
+            {courseDetailData?.is_course === "course" && <ModulesSec />}
           </div>
+
           <div className="right">
             <h5 className="small_title wow fadeInUp">Instructor</h5>
-            {instructors?.length > 0 ? (
-              instructors.map((data) => {
+            {courseDetailData?.courseinstructors?.length > 0 ? (
+              courseDetailData?.courseinstructors.map((data) => {
                 return (
                   <Fragment key={data._id}>
                     <InstructorCard {...data} />
@@ -144,9 +150,9 @@ const ExploreAbout = ({ instructors, course }) => {
         </div>
 
 
-        {course?.is_course === "bundle" && <SubCoursesSlider />}        
+        {courseDetailData?.is_course === "bundle" && <SubCoursesSlider />}        
 
-        {course?.is_course === "course" && <JourneySlider />}
+        {courseDetailData?.is_course === "course" && <JourneySlider />}
 
       </div>
     </section>

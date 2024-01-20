@@ -1,15 +1,13 @@
 import { Fragment, useState } from "react";
 import "./ExploreTabs.scss";
 import ExploreAbout from "./exploreabout/ExploreAbout";
-import { transform } from "framer-motion";
-import { useDispatch } from "react-redux";
+import { useDispatch} from "react-redux";
 import { resetAllToggler } from "../../../store/actions";
 
 
 
 
-const ExploreTabs = ({instructors, course}) => {
-
+const ExploreTabs = () => {
 
   const scrollToSection = (sectionId) => {
     const section = document.getElementById(sectionId);
@@ -70,9 +68,8 @@ const ExploreTabs = ({instructors, course}) => {
             );
           })}
         </div>
-      </section>
-        
-          <ExploreAbout instructors={instructors} course={course} />
+      </section>        
+          <ExploreAbout/>
     </Fragment>
   );
 };

@@ -1,120 +1,62 @@
 import "./ExploreDetailLanding.scss";
 import { Fragment, useContext, useState } from "react";
 import { icon } from "../../../utils/images/icons";
-import { useDispatch } from "react-redux";
-import { resetAllToggler } from "../../../store/actions";
-import { addToCart, baseUrl } from "../../../utils/apidata";
-import axios from "axios";
+import { baseUrl } from "../../../utils/apidata";
 import { redirectContext } from "../../../context/RoutingContext";
+import { useSelector } from "react-redux";
 
-const ExploreDetailLanding = ({
-  _id,
-  loader,
-  recallGetCourse,
-  is_cart,
-  course_time,
-  name,
-  small_description,
-  students,
-  image,
-  tags,
-  courseincludes,
-}) => {
-  const dispatch = useDispatch();
-
-  const {getCartApi, toastSuccess, toastWarning, toastError} = useContext(redirectContext);
-
-  const resetToggler = () => {
-    dispatch({ type: resetAllToggler() });
-  };
-
-
-      // Add To Cart
-      const addToCartApi = async(courseId) => {
-        const token = localStorage.getItem("token");
-        const headers = {
-          Authorization: `Bearer ${token}`,
-        };
-        try { 
-            const response = await axios.post(`${baseUrl}/${addToCart}`, {course_id:courseId}, {headers})
-            console.log("RES::", response);
-            if(response?.data?.success){
-              getCartApi();
-              toastSuccess("Course Added In Cart!");
-              recallGetCourse();
-            }else{
-              toastWarning("Course Already added on cart");
-            }
-        } catch (error) {
-          console.log("ERROR::" ,error);
-          toastError("something went wrong!")
-        }
-      };
+const ExploreDetailLanding = () => {
+  
+  const { addToCartApi, resetAllToggles } = useContext(redirectContext);
+  const { loading } = useSelector((state) => state?.addCartReducer);
+  const {courseDetailLoading, courseDetailData, courseDetailError } = useSelector(state => state?.getExploreDetailByIdApi);
 
   return (
-    <section className="explore_detail" onClick={resetToggler}>
+    <section className="explore_detail" onClick={resetAllToggles}>
       <div className="screen_container">
-        {loader ? (
+        {courseDetailLoading ? (
           <div className="loader">
-            <h3>Loading...</h3>
+            <h4>Loading...</h4>
           </div>
         ) : (
           <Fragment>
             <div className="video_wrapper">
-              <img src={`${baseUrl}/${image}`} alt="poster" />
+              <img src={`${baseUrl}/${courseDetailData?.image}`} alt="poster" />
               <button>
                 <img src={icon.playCircle} alt="play" />
               </button>
             </div>
             <div className="info_wraper">
               <div className="info_line">
-                {students && (
+                {courseDetailData?.students && (
                   <div className="info wow fadeInUp">
                     <img src={icon.students} alt="students" />
-                    <p>{students}</p>
+                    <p>{courseDetailData?.students}</p>
                   </div>
                 )}
 
-                {courseincludes?.length > 0 && (
+                {courseDetailData?.courseincludes?.length > 0 && (
                   <div className="info wow fadeInUp" data-wow-delay="0.15s">
                     <img src={icon.courses} alt="courses" />
-                    <p>{courseincludes?.length} courses</p>
+                    <p>{courseDetailData?.courseincludes?.length} courses</p>
                   </div>
                 )}
 
-                {course_time && (
+                {courseDetailData?.course_time && (
                   <div className="info wow fadeInUp" data-wow-delay="0.30s">
                     <img src={icon.clock} alt="duration" />
-                    <p>{course_time}</p>
+                    <p>{courseDetailData?.course_time}</p>
                   </div>
-                )}
-
-                {/* {rating && (
-              <div className="info wow fadeInUp" data-wow-delay="0.35s">
-                <img src={icon.star} alt="rating" />
-                <p>
-                  {rating} <span></span> {rateCount}
-                </p>
+                )}             
               </div>
-            )} */}
-
-                {/* {saved && (
-              <div className="info wow fadeInUp" data-wow-delay="0.40s">
-                <img src={icon.save} alt="save" />
-                <p>Save</p>
-              </div>
-            )} */}
-              </div>
-              <h1 className="wow fadeInUp">{name}</h1>
-
-              {/* <p className="wow fadeInUp">{text}</p> */}
+              <h1 className="wow fadeInUp">{courseDetailData?.name}</h1>              
               <div
-                dangerouslySetInnerHTML={{ __html: small_description }}
+                dangerouslySetInnerHTML={{ __html: courseDetailData?.small_description }}
               ></div>
 
               <div className="btn_line">
-                {tags?.length > 0 &&
-                  tags.map((data) => {
+                {courseDetailData?.tags?.length > 0 &&
+                  courseDetailData?.tags.map((data) => {
                     return (
                       <button
                         type="button"
@@ -127,13 +69,13 @@ const ExploreDetailLanding = ({
                   })}
               </div>
 
-              {!is_cart && (
+              {!courseDetailData?.is_cart && (
                 <button
                   type="button"
                   className="authbtn auth_primary wow fadeInUp"
-                  onClick={() => addToCartApi(_id)}
+                  onClick={() => (loading ? null : addToCartApi(courseDetailData?._id))}
                 >
-                  Add To Cart
+                  {loading ? "loading..." : "Add To Cart"}
                 </button>
               )}
             </div>

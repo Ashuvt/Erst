@@ -1,6 +1,6 @@
 import { toast } from "react-toastify";
 import { createContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { getProfileData } from "../store/actions";
 import { getCartAction, resetAllToggler } from "../store/actions";
@@ -13,13 +13,21 @@ import {
   getProfile,
   removeFromCart,
   checkout,
+  coursedetailById,
 } from "../utils/apidata";
 import axios from "axios";
 import {
-  GET_CARTT_REQUEST,
-  GET_CART_FAIL,
+  ADD_TO_CART_REQUEST,
+  ADD_TO_CART_SUCCESS,
+  ADD_TO_CART_FAIL,
+  EXPLORE_DETAIL_REQUEST,
+  EXPLORE_DETAIL_SUCCESS,
+  EXPLORE_DETAIL_FAIL,
   GET_CART_REQUEST,
   GET_CART_SUCCESS,
+  GET_CART_FAIL,
+  REMOVE_CART_REQUEST,
+  REMOVE_CART_SUCCESS,
 } from "../store/apiConsts";
 
 export const redirectContext = createContext();
@@ -32,11 +40,14 @@ const domainName = () => {
 };
 
 const RoutingContextProvider = ({ children }) => {
+  const path = useLocation();
+  console.log("PATH::", path);
+
   const dispatch = useDispatch();
 
   const navigation = useNavigate();
 
-  const resetAllState = () => {
+  const resetAllToggles = () => {
     dispatch({ type: resetAllToggler() });
   };
 
@@ -141,46 +152,21 @@ const RoutingContextProvider = ({ children }) => {
     }
   };
 
-  // Add To Cart
-  const addToCartApi = async (courseId) => {
+  // Get Profile APi
+  const getProfileApi = async () => {
     const token = localStorage.getItem("token");
     const headers = {
       Authorization: `Bearer ${token}`,
     };
     try {
-      const response = await axios.post(
-        `${baseUrl}/${addToCart}`,
-        { course_id: courseId },
-        { headers }
-      );
-      console.log("RES::", response);
-      if (response?.data?.success) {
-        toastSuccess("Course Added In Cart!");
-        getCartApi();
-      } else {
-        toastWarning("Course Already added on cart");
+      const response = await axios.get(`${baseUrl}/${getProfile}`, { headers });
+      if (response?.data.success) {
+        dispatch({ type: getProfileData(), payload: response?.data?.data });
       }
     } catch (error) {
-      console.log("ERROR::", error);
-      toastError("something went wrong!");
+      console.log("Error:", error);
     }
   };
-
-    // Get Profile APi
-    const getProfileApi = async () => {
-      const token = localStorage.getItem("token");
-      const headers = {
-        Authorization: `Bearer ${token}`,
-      };
-      try {
-        const response = await axios.get(`${baseUrl}/${getProfile}`, { headers });
-        if (response?.data.success) {
-          dispatch({ type: getProfileData(), payload: response?.data?.data });
-        }
-      } catch (error) {
-        console.log("Error:", error);
-      }
-    };
 
   // Get Cart Api
   const getCartApi = async () => {
@@ -215,6 +201,9 @@ const RoutingContextProvider = ({ children }) => {
 
   // Remove Cart API
   const removeFromCartApi = async (courseId) => {
+    dispatch({
+      type: REMOVE_CART_REQUEST,
+    });
     const token = localStorage.getItem("token");
     const headers = {
       Authorization: `Bearer ${token}`,
@@ -227,19 +216,27 @@ const RoutingContextProvider = ({ children }) => {
       );
       if (response?.status === 200) {
         getCartApi();
+        if (path?.pathname.startsWith("/explore/")) {
+          const id = path?.pathname.split("/").pop();
+          if (id) {
+            getCourseDetailApi(id);
+          }
+        }
+
         toastSuccess(
           response?.data?.message || "Cart Item Removed Successfully!"
         );
+        dispatch({
+          type: REMOVE_CART_SUCCESS,
+        });
       }
     } catch (error) {
       toastError(error?.message || "Something went wrong!");
     }
   };
 
-
   // Checkout API
   const checkoutApi = async () => {
-
     const token = localStorage.getItem("token");
     const headers = {
       Authorization: `Bearer ${token}`,
@@ -255,13 +252,90 @@ const RoutingContextProvider = ({ children }) => {
         window.open(response?.data?.data?.url, "_blank", "noreferrer");
       }
     } catch (error) {
-      toastError(error?.message || "Something Went Wrong!")
+      toastError(error?.message || "Something Went Wrong!");
     }
   };
 
+  // Explore detail (view by courseId);
+  const getCourseDetailApi = async (courseId) => {
+    const token = localStorage.getItem("token");
+    const headers = {
+      Authorization: `Bearer ${token}`,
+    };
+
+    dispatch({
+      type: EXPLORE_DETAIL_REQUEST,
+    });
+
+    try {
+      const response = await axios.post(
+        `${baseUrl}/${coursedetailById}`,
+        { course_id: courseId },
+        { headers }
+      );
+
+      console.log("Course Detail Context", response);
+
+      if (response?.data?.success) {
+        dispatch({
+          type: EXPLORE_DETAIL_SUCCESS,
+          payload: response?.data?.data,
+        });
+      } else {
+        toastError("Something Went Wrong!");
+        dispatch({
+          type: EXPLORE_DETAIL_FAIL,
+          payload: "Something went wrong!",
+        });
+      }
+    } catch (error) {
+      toastError(error?.message || "Something Went Wrong!");
+      dispatch({
+        type: EXPLORE_DETAIL_FAIL,
+        payload: error?.message || "Something Went Wrong!",
+      });
+    }
+  };
+
+  // Add To Cart
+  const addToCartApi = async (courseId) => {
+    dispatch({
+      type: ADD_TO_CART_REQUEST,
+    });
+
+    const token = localStorage.getItem("token");
+    const headers = {
+      Authorization: `Bearer ${token}`,
+    };
+    try {
+      const response = await axios.post(
+        `${baseUrl}/${addToCart}`,
+        { course_id: courseId },
+        { headers }
+      );
+      if (response?.data?.success) {
+        toastSuccess(response?.data?.data || "Course Added In Cart!");
+        getCartApi();
+        dispatch({
+          type: ADD_TO_CART_SUCCESS,
+        });
+
+        if (path?.pathname == `/explore/${courseId}`) {
+          getCourseDetailApi(courseId);
+        }
+      } else {
+        toastWarning("Course Already added on cart");
+      }
+    } catch (error) {
+      toastError("something went wrong!");
+      dispatch({
+        type: ADD_TO_CART_FAIL,
+      });
+    }
+  };
 
   const allRedirectFunctions = {
-    resetAllState,
+    resetAllToggles,
     signInHandler,
     signUpHandler,
     goToHome,
@@ -284,7 +358,8 @@ const RoutingContextProvider = ({ children }) => {
     removeFromCartApi,
     getCartApi,
     emailSubscribeApi,
-    checkoutApi
+    checkoutApi,
+    getCourseDetailApi,
   };
 
   return (

@@ -1,16 +1,11 @@
 import { useSelector, useDispatch } from "react-redux";
 import "./CartSidebar.scss";
-import { Fragment, useContext, useState, useEffect } from "react";
+import { Fragment, useContext } from "react";
 import { resetAllToggler } from "../../store/actions";
 import { IoMdClose } from "react-icons/io";
 import { redirectContext } from "../../context/RoutingContext";
-import {
-  baseUrl,
-  checkout,
-  getCart,
-  removeFromCart,
-} from "../../utils/apidata";
-import axios from "axios";
+import { baseUrl } from "../../utils/apidata";
+
 import { useNavigate } from "react-router-dom";
 
 const CartSidebar = () => {
@@ -21,12 +16,6 @@ const CartSidebar = () => {
     (data) => data.toggleReducer.cartPopupStatus
   );
 
-  useEffect(() => {
-    if (cartPopupStatus) {
-      getCartApi();
-    }
-  }, [cartPopupStatus]);
-
   const { loading, cartData, error } = useSelector(
     (state) => state.getCartReducer
   );
@@ -35,11 +24,9 @@ const CartSidebar = () => {
     dispatch({ type: resetAllToggler() });
   };
 
-  const { getCartApi, removeFromCartApi, checkoutApi} = useContext(redirectContext);
+  const { removeFromCartApi, checkoutApi } = useContext(redirectContext);
+
   const country = localStorage.getItem("country");
-
-
-
 
   return (
     <Fragment>
@@ -124,14 +111,14 @@ const CartSidebar = () => {
               {cartData?.totalPrice || 0} {country === "India" ? "INR" : "USD"}
             </p>
           </div>
-       
+
           {/* <button type="button" className="primarybtn">
               Loading...
             </button> */}
 
-             <button type="button" className="primarybtn" onClick={checkoutApi}>
-              continue to chekout
-            </button>
+          <button type="button" className="primarybtn" onClick={checkoutApi}>
+            continue to chekout
+          </button>
           <button
             type="button"
             className="view_cart"

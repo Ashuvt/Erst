@@ -15,8 +15,12 @@ section.explore_detail {
 
     .loader {
         width: 100%;
-
-        h3 {
+        height:300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        h4 {
             color: $white;
             text-align: center;
         }
