@@ -110,10 +110,9 @@ const CoursesHeader = () => {
   const notificationApi = async () => {
     try {
       const response = await axios.get(`${baseUrl}/${getNotification}`);
-
+      console.log(response);
       if (response.data.success) {
         setNotification(response?.data?.data);
-        // console.log("Notification:::",response);
       }
     } catch (error) {
       console.log(error);

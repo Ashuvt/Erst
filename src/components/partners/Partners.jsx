@@ -5,105 +5,106 @@ import { useContext } from "react";
 import { redirectContext } from "../../context/RoutingContext";
 
 const Partners = () => {
+  const { domainName } = useContext(redirectContext);
 
-  const {domainName} = useContext(redirectContext);
-
-  const logoData = domainName() === "net" ?[
-    {
-      id: "00",
-      img: logoImage.partnerA,
-    },
-    {
-      id: "02",
-      img: logoImage.partnerB,
-    },
-    {
-      id: "03",
-      img: logoImage.partnerC,
-    },
-    {
-      id: "04",
-      img: logoImage.partnerD,
-    },
-    {
-      id: "05",
-      img: logoImage.partnerE,
-    },
-    {
-      id: "06",
-      img: logoImage.partnerF,
-    },
-    {
-      id: "07",
-      img: logoImage.partnerG,
-    },
-  ] : 
-  [
-    {
-      id: "00",
-      img: logoImage.partnerA,
-    },
-    {
-      id: "02",
-      img: logoImage.partnerB,
-    },
-    {
-      id: "03",
-      img: logoImage.partnerC,
-    },
-    {
-      id: "04",
-      img: logoImage.partnerD,
-    },
-    {
-      id: "05",
-      img: logoImage.partnerE,
-    },
-    {
-      id: "06",
-      img: logoImage.partnerF,
-    },
-  ];
+  const logoData =
+    domainName() === "net"
+      ? [
+          {
+            id: "00",
+            img: logoImage.partnerA,
+          },
+          {
+            id: "02",
+            img: logoImage.partnerB,
+          },
+          {
+            id: "03",
+            img: logoImage.partnerC,
+          },
+          {
+            id: "04",
+            img: logoImage.partnerD,
+          },
+          {
+            id: "05",
+            img: logoImage.partnerE,
+          },
+          {
+            id: "06",
+            img: logoImage.partnerF,
+          },
+          {
+            id: "07",
+            img: logoImage.partnerG,
+          },
+        ]
+      : [
+          {
+            id: "00",
+            img: logoImage.partnerA,
+          },
+          {
+            id: "02",
+            img: logoImage.partnerB,
+          },
+          {
+            id: "03",
+            img: logoImage.partnerC,
+          },
+          {
+            id: "04",
+            img: logoImage.partnerD,
+          },
+          {
+            id: "05",
+            img: logoImage.partnerE,
+          },
+          {
+            id: "06",
+            img: logoImage.partnerF,
+          },
+        ];
 
   var settings = {
     dots: true,
     infinite: true,
-    slidesToShow:5,
+    slidesToShow: 5,
     slidesToScroll: 1,
     autoplay: true,
-    speed:1000,
-    autoplaySpeed:2000,
+    speed: 1000,
+    autoplaySpeed: 2000,
     cssEase: "linear",
     responsive: [
       {
-        breakpoint:1250,
+        breakpoint: 1250,
         settings: {
-          slidesToShow:4,
-          slidesToScroll:1,
+          slidesToShow: 4,
+          slidesToScroll: 1,
           infinite: true,
           dots: true,
         },
       },
       {
-        breakpoint:1000,
+        breakpoint: 1000,
         settings: {
-          slidesToShow:3,
-          slidesToScroll:1,
+          slidesToShow: 3,
+          slidesToScroll: 1,
           initialSlide: 2,
         },
       },
       {
-        breakpoint:550,
+        breakpoint: 550,
         settings: {
-          slidesToShow:2,
-          slidesToScroll:1,
+          slidesToShow: 2,
+          slidesToScroll: 1,
         },
       },
       {
-        breakpoint:400,
+        breakpoint: 400,
         settings: {
-          slidesToShow:1,
-          slidesToScroll:1,
+          slidesToShow: 1,
+          slidesToScroll: 1,
         },
       },
     ],
