@@ -315,6 +315,10 @@ section.road_map {
                 align-items: center;
             }
 
+            @media only screen and (max-width:900px){
+                margin-top:150px;
+            }
+
         }
         .bi_grid{
             display: flex;
@@ -325,6 +329,9 @@ section.road_map {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+            }
+            @media only screen and (max-width:900px){
+                margin-top:150px;
             }
 
         }

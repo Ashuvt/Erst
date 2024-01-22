@@ -36,7 +36,7 @@ const domainName = () => {
   // select only two values from below
   // net
   // ae
-  return "ae";
+  return "net";
 };
 
 const RoutingContextProvider = ({ children }) => {

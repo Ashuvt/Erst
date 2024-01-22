@@ -8,7 +8,7 @@ export const getTestimonial = "api/gettestimonial";
 // Email Subscription API
 export const emailSubscribe = "api/emailsubscribe";
 
-//Blog Poster and 4 Blog LList API
+//Blog Poster and 4 Blog List API
 export const blogPoster = "api/homemainblog";
 export const blogList = "api/homeblog";
 

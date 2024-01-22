@@ -209,11 +209,7 @@ const RoadMap = ({ t }) => {
 
           <div className="center_logo">
             <div className="content_circle">
-              <img src={logoImage.fulllogo} alt="icon" />
-              {/* <img src={logoImage.logo} alt="icon" /> */}
-              {/* <h4 className="single_card_title">{t('singlecardTitle')}</h4>
-              
-              <h6>{t('singlecardText')}</h6> */}
+              <img src={logoImage.fulllogo} alt="icon" />           
             </div>
             <div className="glass_shad"></div>
           </div>

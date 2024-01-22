@@ -49,11 +49,11 @@ const Testimonials = ({ t }) => {
 
   const [view, setView] = useState({});
 
-  const getTestimonials = async () => {
+  const getTestimonials = async() => {
     try {
       setLoader(true);
       const response = await axios.get(`${baseUrl}/${getTestimonial}`);
-
+console.log("Testimonials:::", response);
       if (response?.data?.success) {
         setList(response?.data?.data);
         setView(response?.data?.data[0]);
