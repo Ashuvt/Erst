@@ -9,7 +9,6 @@
     width: 100%;
     background-color: rgba($dark, 0.7);
     z-index: 9998;
-    overflow: hidden;
     transition: all 0.4s ease-in-out;
 
     &.open {
@@ -26,10 +25,11 @@
     position: fixed;
     top: 80px;
     width: 400px;
-    height: calc(100vh - 80px);
+    min-height: calc(100vh - 80px);
+    max-height: calc(100vh - 80px);
     background-color: $card;
     z-index: 9999;
-    overflow: hidden;
+    overflow: auto;
     transition: all 0.4s ease-in-out;
     display: flex;
     flex-direction: column;
@@ -43,43 +43,51 @@
     &.close {
         right: -500px;
     }
-
-    .title {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 15px;
-        background: $primaryGradient_5;
-
-        p.heading {
-            @include font('SpaceGrotesk-Regular', 22px, 26px, 500, $white);
-        }
-
-        button {
-            border-style: none;
-            background-color: transparent;
-
-            svg {
-                color: $white;
-                font-size: 22px;
+    .upper{
+        .title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background: $primaryGradient_5;
+            position:sticky;
+            top:0px;
+    
+            p.heading {
+                @include font('SpaceGrotesk-Regular', 22px, 26px, 500, $white);
+            }
+    
+            button {
+                border-style: none;
+                background-color: transparent;
+    
+                svg {
+                    color: $white;
+                    font-size: 22px;
+                }
             }
         }
     }
 
+
+
     .product_list {
         background-color: #222;
-        height: 400px;
         overflow: auto;
-
+        padding: 16px 24px;
         .product_card {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            gap: 15px;
             padding: 12px 0px;
-            background-color: rgba($white, 0.07);
-            border-bottom: 1px solid $white;
+            background-color: rgba($white, 0.05);
+            margin-bottom:4px;
+            border-radius: 8px;
             padding: 15px 20px;
+            transition:all 0.3s ease-in-out;
+            &:hover{
+                background-color: rgba($white, 0.08);
+            }
 
             @media only screen and (max-width:$mobile) {
                 flex-direction: column;
@@ -133,7 +141,7 @@
                     button {
                         margin: 0px;
                         padding: 0px;
-                        @include font('Inter-Regular', 12px, 12px, 500, $primary);
+                        @include font('SpaceGrotesk-Regular', 12px, 12px, 500, $primary);
                         text-transform: uppercase;
                         letter-spacing: 2.4px;
                         border-style: none;
@@ -162,10 +170,102 @@
         bottom: 0px;
         left: 0px;
 
+        .coupon_card {
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            background-color: rgba($white, 0.05);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            transition:all 0.3s ease-in-out;
+            &:hover{
+                background-color: rgba($white, 0.08);
+            }
+
+            button.apply_Btn {
+                width: 70px;
+                padding: 8px 15px;
+                @include font('Inter-Regular', 12px, 16px, 500, $white);
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                border-radius: 8px;
+                height: 40px;
+                text-align: center;
+                background-color: $primary;
+                border-style: none;
+                transition: all 0.3s ease-in-out;
+
+                &:hover {
+                    -webkit-transform: scale3d(0.98, 0.98, 1);
+                    transform: scale3d(0.98, 0.98, 1);
+                    transform-style: preserve-3d;
+                    opacity: 0.7;
+                }
+            }
+
+        }
+
+
+        button.coupon_btn {
+            margin-bottom: 15px;
+            border-style: none;
+            background-color: transparent;
+            @include font('SpaceGrotesk-Regular', 12px, 20px, 500, $white);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease-in-out;
+
+            svg {
+                font-size: 16px;
+            }
+
+            &:hover {
+                text-decoration: underline;
+                text-underline-offset: 4px;
+            }
+        }
+
+        .apply_field {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            margin-top: 5px;
+
+            input {
+                width: calc(100% - 110px);
+                box-shadow: none;
+                height: 50px;
+                @include font('Inter-Regular', 14px, 18px, 400, $white);
+                padding: 16px 16px;
+
+                &:focus {
+                    box-shadow: none;
+                    padding: 16px 16px;
+                }
+            }
+
+            button {
+                width: 100px;
+            }
+        }
+
+        p.coupon_success {
+            @include font('Inter-Regular', 14px, 18px, 400, $white);
+            text-align: center;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+    
+
         .total {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin-top: 15px;
 
             p {
                 @include font('Inter-Regular', 17px, 23.8px, 400, $white);
@@ -176,7 +276,6 @@
 
         button {
             width: 100%;
-
             &.view_cart {
                 border-style: none;
                 background-color: transparent;

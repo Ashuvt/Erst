@@ -1,15 +1,33 @@
 import AuthLayout from "../AuthLayout";
 import "./ViewCart.scss";
 import { useSelector, useDispatch } from "react-redux";
-import { Fragment, useContext, useEffect } from "react";
+import { Fragment, useContext, useEffect, useState } from "react";
 import { redirectContext } from "../../context/RoutingContext";
 import { baseUrl } from "../../utils/apidata";
 
 const ViewCart = () => {
+  const couponCodes = [
+    {
+      id: 0,
+      title: "lorem ipsum",
+      text: "ipsum amet lorem dolor.",
+      code: "ABS056",
+    },
+    {
+      id: 1,
+      title: "lorem ipsum",
+      text: "ipsum amet lorem dolor.",
+      code: "ZVS099",
+    },
+  ];
+
+  const [applyLoader, setApplyLoader] = useState(false);
+  const [couponField, setCouponField] = useState(true);
+  const [coupon, setCoupon] = useState("");
+  const [couponSuccess, setCouponSuccess] = useState(false);
+
   const country = localStorage.getItem("country");
-
-  const { getCartApi, removeFromCartApi } = useContext(redirectContext);
-
+  const { getCartApi, removeFromCartApi, checkoutApi } = useContext(redirectContext);
   const { loading, cartData, error } = useSelector(
     (state) => state.getCartReducer
   );
@@ -17,6 +35,22 @@ const ViewCart = () => {
   useEffect(() => {
     getCartApi();
   }, []);
+
+  const couponHandler = (e) => {
+    setCoupon(e.target.value);
+  };
+
+  const couponApply = () => {
+    setApplyLoader(true);
+
+    setTimeout(() => {
+      setCouponField(false);
+      setCouponSuccess(true);
+      console.log(coupon);
+      setCoupon("");
+      setApplyLoader(false);
+    }, 2000);
+  };
 
   return (
     <AuthLayout>
@@ -61,7 +95,7 @@ const ViewCart = () => {
                             >
                               remove
                             </button>
-                          </div>  
+                          </div>
                         </div>
                       </div>
                     );
@@ -83,7 +117,73 @@ const ViewCart = () => {
                 )}
               </div>
             </div>
-            <div className="right"></div>
+            <div className="right">
+              <div className="top">
+                {/* Coupon Code Input */}
+                {couponField && (
+                  <div className="apply_field">
+                    <input
+                      type="text"
+                      placeholder="add coupon"
+                      onChange={couponHandler}
+                      value={coupon}
+                    />
+                    {applyLoader ? (
+                      <button type="button" className="primarybtn">
+                        Loading...
+                      </button>
+                    ) : (
+                      <button
+                        type="button"
+                        className="primarybtn"
+                        onClick={couponApply}
+                      >
+                        Apply
+                      </button>
+                    )}
+                  </div>
+                )}
+
+                {/* Coupon Success Message */}
+                {couponSuccess && (
+                  <p className="coupon_success">Coupon Applied Success!</p>
+                )}
+
+                {/* Coupon Cards */}
+                {couponCodes.map((data) => {
+                  return (
+                    <div className="coupon_card">
+                      <div className="coupon_left">
+                        <h6>{data.title}</h6>
+                        <p>{data.text}</p>
+                        <p>Code : {data.code}</p>
+                      </div>
+                      <button
+                        type="button"
+                        className="apply_Btn"
+                        onClick={() => {
+                          setCoupon(data.code);
+                        }}
+                      >
+                        {coupon === data.code ? "Added" : "Add"}
+                      </button>
+                    </div>
+                  );
+                })}
+              </div>
+              <div className="bottom">
+                <div className="total">
+                  <p>Subtotal</p>
+                  <p>
+                    {cartData?.totalPrice || 0}{" "}
+                    {country === "India" ? "INR" : "USD"}
+                  </p>
+                </div>
+                <button type="button" className="primarybtn" onClick={checkoutApi}>
+            continue to chekout
+          </button>
+              </div>
+            </div>
           </div>
         </div>
       </section>

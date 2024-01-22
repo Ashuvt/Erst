@@ -1,16 +1,38 @@
 import { useSelector, useDispatch } from "react-redux";
 import "./CartSidebar.scss";
-import { Fragment, useContext } from "react";
+import { Fragment, useContext, useState } from "react";
 import { resetAllToggler } from "../../store/actions";
 import { IoMdClose } from "react-icons/io";
 import { redirectContext } from "../../context/RoutingContext";
 import { baseUrl } from "../../utils/apidata";
+import { IoMdAdd } from "react-icons/io";
 
 import { useNavigate } from "react-router-dom";
 
 const CartSidebar = () => {
+  const couponCodes = [
+    {
+      id: 0,
+      title: "lorem ipsum",
+      text: "ipsum amet lorem dolor.",
+      code: "ABS056",
+    },
+    {
+      id: 1,
+      title: "lorem ipsum",
+      text: "ipsum amet lorem dolor.",
+      code: "ZVS099",
+    },
+  ];
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const [couponBtn, setCouponBtn] = useState(true);
+  const [applyLoader, setApplyLoader] = useState(false);
+  const [couponField, setCouponField] = useState(true);
+  const [coupon, setCoupon] = useState("");
+  const [couponSuccess, setCouponSuccess] = useState(false);
 
   const cartPopupStatus = useSelector(
     (data) => data.toggleReducer.cartPopupStatus
@@ -28,12 +50,30 @@ const CartSidebar = () => {
 
   const country = localStorage.getItem("country");
 
+  const couponHandler = (e) => {
+    setCoupon(e.target.value);
+  };
+
+  const couponApply = () => {
+    setApplyLoader(true);
+
+    setTimeout(() => {
+      setCouponField(false);
+      setCouponBtn(false);
+      setCouponSuccess(true);
+      console.log(coupon);
+      setCoupon("");
+      setApplyLoader(false);
+    }, 2000);
+  };
+
   return (
     <Fragment>
       <div
         className={`cart_overlay ${cartPopupStatus ? "open" : "close"}`}
         onClick={resetToggler}
       ></div>
+
       <div className={`cart_sidebar ${cartPopupStatus ? "open" : "close"}`}>
         {/* Title */}
 
@@ -105,6 +145,71 @@ const CartSidebar = () => {
         {/* Footer */}
 
         <div className="cart_footer">
+          {/* Coupon Code Input */}
+          {couponField && (
+            <div className="apply_field">
+              <input
+                type="text"
+                placeholder="add coupon"
+                onChange={couponHandler}
+                value={coupon}
+              />
+              {applyLoader ? (
+                <button type="button" className="primarybtn">
+                  Loading...
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  className="primarybtn"
+                  onClick={couponApply}
+                >
+                  Apply
+                </button>
+              )}
+            </div>
+          )}
+
+          {/* Add Coupan Btn */}
+          {/* {couponBtn && (
+            <button
+              type="button"
+              className="coupon_btn"
+              onClick={() => {
+                setCouponField(true);
+                setCouponBtn(false);
+              }}
+            >
+              Add Coupon <IoMdAdd />
+            </button>
+          )} */}
+
+          {/* Coupon Success MEssage */}
+          {couponSuccess && (
+            <p className="coupon_success">Coupon Applied Success!</p>
+          )}
+
+          {couponCodes.map((data) => {
+            return (
+              <div className="coupon_card">
+                <div className="coupon_left">
+                  <h6>{data.title}</h6>
+                  <p>{data.text}</p>
+                  <p>Code : {data.code}</p>
+                </div>
+                <button
+                  type="button"
+                  className="apply_Btn"
+                  onClick={() => {
+                    setCoupon(data.code);
+                  }}
+                  disabled={coupon.length > 0}
+                >
+                  {coupon === data.code ? "Added" : "Add"}
+                </button>
+              </div>
+            );
+          })}
           <div className="total">
             <p>Subtotal</p>
             <p>
