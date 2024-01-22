@@ -29,6 +29,14 @@ const ProfileMenu = ({ menuStatus, name }) => {
       },
     },
     {
+      id: 1,
+      icon: icon.courses,
+      text: "My Resume (1)",
+      clickHandler:() => {
+        console.log("My Resume Clicked");
+      },
+    },
+    {
       id: 2,
       icon: icon.calender,
       text: "Manage Subscription",

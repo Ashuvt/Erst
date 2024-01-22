@@ -58,7 +58,6 @@ const Profile = () => {
 
   return (
     <AuthLayout>
-      <div className="header_filler"></div>
       <ProfileBanner />
       <section className="profile_screens" onClick={resetToggler}>
         <div className="screen_container">

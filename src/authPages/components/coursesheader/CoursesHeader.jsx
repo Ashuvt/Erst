@@ -62,6 +62,12 @@ const CoursesHeader = () => {
       text: "saved",
       path: "/auth/saved",
     },
+    {
+      id: 6,
+      img: icon.courses,
+      text: "Resume Builder",
+      path: "/auth/resumebuilder",
+    },
   ];
 
   const dispatch = useDispatch();

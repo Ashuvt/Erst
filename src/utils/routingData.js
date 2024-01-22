@@ -26,6 +26,7 @@ import ForgotPassword from "../authPages/forgotpassword/ForgotPassword";
 import Success from "../pages/success/Success";
 import Fail from "../pages/fail/Fail";
 import ViewCart from "../authPages/viewcart/ViewCart";
+import ResumeBuilder from "../authPages/resumebuilder/ResumeBuilder";
 
 export const RoutoingData = [
   {
@@ -126,6 +127,15 @@ export const RoutoingData = [
       </ProtectedRoute>
     ),
     path: "/auth/saved",
+  },
+  {
+    id: 144,
+    component: (
+      <ProtectedRoute>
+        <ResumeBuilder />
+      </ProtectedRoute>
+    ),
+    path: "/auth/resumebuilder",
   },
   {
     id: 15,
