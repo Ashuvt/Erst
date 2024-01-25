@@ -109,8 +109,10 @@ export const exploreFilterOptions = "api/getfiltersexplore"
 // Saved Course Page list
 export const getSavedCourse = "api/getsavedcourse";
 
+//*************** ChapterDetail Page ******************************
 
-
+export const moduleList = "api/modulelist";
+export const chapterDetail = "api/chapterdetails"
 
 
 //*************** Auth / Other utilities API  ***************************
@@ -139,3 +141,6 @@ export const checkout = "api/createorder";
 
 //Notification
 export const getNotification = "api/getnotification";
+
+
+

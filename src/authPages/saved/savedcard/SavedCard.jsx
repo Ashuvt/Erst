@@ -41,7 +41,7 @@ const SavedCard = ({ course_id, index, getSavedCourseApi }) => {
       <button
         className="save_btn"
         type="button"
-        onClick={(e) => saveCourseApi(course_id._id)}
+        onClick={() => saveCourseApi(course_id._id)}
       >
         <img src={icon.saved} alt="save" />
       </button>

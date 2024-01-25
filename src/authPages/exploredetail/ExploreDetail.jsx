@@ -9,7 +9,7 @@ import { redirectContext } from "../../context/RoutingContext";
 const ExploreDetail = () => {
   const { courseId } = useParams();
 
-  const {getCourseDetailApi} = useContext(redirectContext);
+  const { getCourseDetailApi } = useContext(redirectContext);
 
   useEffect(() => {
     const wow = new WOW();
@@ -17,13 +17,16 @@ const ExploreDetail = () => {
     getCourseDetailApi(courseId);
   }, []);
 
-
+  const recallPage = (id) => { 
+      getCourseDetailApi(id);
+    
+  }
 
   return (
-  <AuthLayout>
-     <ExploreDetailLanding  />
-      <ExploreTabs  /> 
-      </AuthLayout>
+    <AuthLayout>
+      <ExploreDetailLanding />
+      <ExploreTabs recallPage={recallPage} courseId={courseId} />
+    </AuthLayout>
   );
 };
 

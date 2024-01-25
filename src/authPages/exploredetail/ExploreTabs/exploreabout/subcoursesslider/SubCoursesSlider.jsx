@@ -3,9 +3,9 @@ import { Fragment, useRef } from "react";
 import Slider from "react-slick";
 import { images } from "../../../../../utils/images/images";
 import ExploreCard from "../../../../components/explorecard/ExploreCard";
+import { useSelector } from "react-redux";
 
-
-const SubCoursesSlider = () => {
+const SubCoursesSlider = ({recallPage}) => {
   const courcesData = [
     {
       id: 0,
@@ -108,8 +108,8 @@ const SubCoursesSlider = () => {
   const sliderRef = useRef(null);
 
   const settings = {
-    dots: true,
-    infinite: true,
+    dots: false,
+    infinite: false,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
@@ -119,23 +119,18 @@ const SubCoursesSlider = () => {
       {
         breakpoint: 850,
         settings: {
-          slidesToShow:2,
-          slidesToScroll:1,
-          infinite: true,
-          dots: true
-        }
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
       },
       {
-        breakpoint:600,
+        breakpoint: 600,
         settings: {
-          slidesToShow:1,
-          slidesToScroll:1,
-          infinite: true,
-          dots: true
-        }
-      },   
-    
-    ]
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   const handleMouseWheel = (e) => {
@@ -148,6 +143,11 @@ const SubCoursesSlider = () => {
     }
   };
 
+  const { courseDetailLoading, courseDetailData, courseDetailError } =
+    useSelector((state) => state?.getExploreDetailByIdApi);
+
+  console.log("Module Test", courseDetailData);
+
   return (
     <Fragment>
       <div className="sub_courses_slider_wrap" id="skillpath">
@@ -156,16 +156,14 @@ const SubCoursesSlider = () => {
           <p>Be job ready in red field</p>
         </div>
 
-        <div  className="module_slide_wrap">
-          <Slider ref={sliderRef}  {...settings}   >
-
-            {courcesData.map((data) => {
+        <div className="module_slide_wrap">
+          <Slider ref={sliderRef} {...settings}>
+            {courseDetailData?.selected_courses?.map((data) => {
               return (
-                <Fragment key={data.id}>
+                <Fragment key={data._id}>
                   <div className="slide_card" onWheel={handleMouseWheel}>
-            
                     <div className="card_cover">
-                    <ExploreCard {...data} saved={true} />
+                      <ExploreCard {...data} isSave={courseDetailData?.saved_courses.includes(data._id)} recallPage={recallPage} />
                     </div>
                     <div className="v_line a"></div>
                     <div className="v_line b"></div>

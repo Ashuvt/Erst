@@ -41,7 +41,6 @@ const domainName = () => {
 
 const RoutingContextProvider = ({ children }) => {
   const path = useLocation();
-  console.log("PATH::", path);
 
   const dispatch = useDispatch();
 
@@ -125,8 +124,9 @@ const RoutingContextProvider = ({ children }) => {
         { course_id: courseId },
         { headers }
       );
-      console.log(response);
+   
       if (response?.data?.success) {
+        toastSuccess(response?.data?.message);
       } else {
         toastWarning("This Course is already added!");
       }
@@ -274,9 +274,9 @@ const RoutingContextProvider = ({ children }) => {
         { headers }
       );
 
-      console.log("Course Detail Context", response);
 
-      if (response?.data?.success) {
+
+      if (response?.data?.success) {       
         dispatch({
           type: EXPLORE_DETAIL_SUCCESS,
           payload: response?.data?.data,

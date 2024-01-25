@@ -16,7 +16,7 @@ const ExploreDetailLanding = () => {
       <div className="screen_container">
         {courseDetailLoading ? (
           <div className="loader">
-            <h4>Loading...</h4>
+                <div class="spinner-border text-primary" role="status"></div>
           </div>
         ) : (
           <Fragment>

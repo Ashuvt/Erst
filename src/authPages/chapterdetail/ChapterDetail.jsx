@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useState } from "react";
-import "./ExploreCourses.scss";
+import "./ChapterDetail.scss";
 import CoursesHeader from "../components/coursesheader/CoursesHeader";
 import { icon } from "../../utils/images/icons";
 import { images } from "../../utils/images/images";
@@ -8,9 +8,16 @@ import UploadedFileCard from "./uploadedfilecard/UploadedFileCard";
 import { useDispatch } from "react-redux";
 import { resetAllToggler } from "../../store/actions";
 import WOW from "wow.js";
+import axios from "axios";
+import { baseUrl, chapterDetail, moduleList } from "../../utils/apidata";
+import { useParams } from "react-router-dom";
 
-const ExploreCourses = () => {
+const ChapterDetail = () => {
   const [status, setStatus] = useState(true);
+
+  const [modulesList, setModulesList] = useState([]);
+
+  const { id } = useParams();
 
   const statusChanger = () => {
     setStatus((prev) => !prev);
@@ -74,6 +81,49 @@ const ExploreCourses = () => {
     dispatch({ type: resetAllToggler() });
   };
 
+  // Get Modules Api
+  const getModules = async () => {
+    const token = localStorage.getItem("token");
+    const headers = {
+      Authorization: `Bearer ${token}`,
+    };
+
+    try {
+      const response = await axios.post(
+        `${baseUrl}/${moduleList}`,
+        { course_id: `${id}` },
+        { headers }
+      );     
+      if (response?.data?.success) {
+        setModulesList(response?.data?.data);
+      }
+    } catch (error) {
+      console.log("Explore Error::", error);
+    }
+  };
+
+
+  // Get Chapter Api
+  const getChapterDetails = async (moduleId) => {
+    
+    const token = localStorage.getItem("token");
+
+    const headers = {
+      Authorization: `Bearer ${token}`,
+    };
+
+    try {
+      const response = await axios.post(`${baseUrl}/${chapterDetail}`,{moduleId:`${moduleId}`}, {headers});
+      console.log("Chapters Section:::",response );
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    getModules();
+  }, []);
+
   return (
     <Fragment>
       <CoursesHeader />
@@ -118,87 +168,48 @@ const ExploreCourses = () => {
               <p>12/42 Modules</p>
             </div>
             <div id="side_accord">
-              <Accordion defaultActiveKey="0">
-                <Accordion.Item eventKey="0">
-                  <Accordion.Header>
-                    Module 1.1
-                    <img src={icon.darkAngleDown} alt="angle" />
-                  </Accordion.Header>
-                  <Accordion.Body>
-                    <h5 className="small_title">Introduction</h5>
-                    <div className="icon_info">
-                      <div className="green_circle">
-                        <img src={icon.whiteCheck} alt="check" />
-                      </div>
-                      <div className="text">
-                        <p className="small_text">Introduction to course</p>
-                        <p className="t-i-12">Reading · 5 min</p>
-                      </div>
-                    </div>
+              {modulesList?.length > 0 ? (
+                <Accordion defaultActiveKey="0">
+                  {modulesList.map((data, j) => {
+                    return (
+                      <Accordion.Item eventKey={`${j}`} key={data?._id}>
+                        <Accordion.Header>
+                          {data?.module_name}
+                          <img src={icon.darkAngleDown} alt="angle" />
+                        </Accordion.Header>
+                        <Accordion.Body>
+                          {data?.chapters?.length > 0 ? (
+                            data?.chapters?.map((item) => {
+                              return (
+                                <div className="icon_info between" onClick={() => getChapterDetails(item?._id)} >
+                                  <div className="left">
+                                    <div className="green_circle">
+                                      <img src={icon.whiteCheck} alt="check" />
+                                    </div>
+                                    <div className="text">
+                                      <p className="small_text">
+                                        {item?.chapter}
+                                      </p>
+                                    </div>
+                                  </div>
 
-                    <div className="icon_info">
-                      <img src={icon.module} alt="module" />
-                      <div className="text">
-                        <p className="small_text">Chapter 2</p>
-                        <p className="t-i-12">Video · 15 min</p>
-                      </div>
-                    </div>
-
-                    <div className="icon_info">
-                      <img src={icon.courses} alt="module" />
-                      <div className="text">
-                        <p className="small_text">Chapter 3</p>
-                        <p className="t-i-12">Reading · 23 min</p>
-                      </div>
-                    </div>
-                  </Accordion.Body>
-                </Accordion.Item>
-                <Accordion.Item eventKey="1">
-                  <Accordion.Header>
-                    Module 1.2
-                    <img src={icon.darkAngleDown} alt="angle" />
-                  </Accordion.Header>
-
-                  <Accordion.Body>
-                    <h5 className="small_title">
-                      Governance security and risk
-                    </h5>
-
-                    <div className="icon_info between">
-                      <div className="left">
-                        <img src={icon.courses} alt="module" />
-                        <div className="text">
-                          <p className="small_text">Introduction to course</p>
-                          <p className="t-i-12">Reading · 5 min</p>
-                        </div>
-                      </div>
-                      <img src={icon.lightLock} alt="lock" />
-                    </div>
-
-                    <div className="icon_info between">
-                      <div className="left">
-                        <img src={icon.module} alt="module" />
-                        <div className="text">
-                          <p className="small_text">Chapter 2</p>
-                          <p className="t-i-12">Video · 15 min</p>
-                        </div>
-                      </div>
-                      <img src={icon.lightLock} alt="lock" />
-                    </div>
-
-                    <div className="icon_info between">
-                      <div className="left">
-                        <img src={icon.module} alt="module" />
-                        <div className="text">
-                          <p className="small_text">Chapter 3</p>
-                          <p className="t-i-12">Video · 15 min</p>
-                        </div>
-                      </div>
-                      <img src={icon.lightLock} alt="lock" />
-                    </div>
-                  </Accordion.Body>
-                </Accordion.Item>
-              </Accordion>
+                                  {item?.is_free === "free" && (
+                                    <img src={icon.courses} />
+                                  )}
+                                </div>
+                              );
+                            })
+                          ) : (
+                            <p>Chapters Does Not Found...</p>
+                          )}
+                        </Accordion.Body>
+                      </Accordion.Item>
+                    );
+                  })}
+                </Accordion>
+              ) : (
+                <p>Modules Does Not Found!</p>
+              )}
             </div>
           </div>
 
@@ -398,7 +409,9 @@ const ExploreCourses = () => {
               })}
 
               <div className="complete_Btn_wrap">
-                <button className="primarybtn wow fadeInUp" disabled>Mark as Completed</button>
+                <button className="primarybtn wow fadeInUp" disabled>
+                  Mark as Completed
+                </button>
               </div>
             </div>
           </div>
@@ -408,4 +421,4 @@ const ExploreCourses = () => {
   );
 };
 
-export default ExploreCourses;
+export default ChapterDetail;

@@ -1,12 +1,12 @@
 import { icon } from "../../../utils/images/icons";
-import "./ExploreCourseCard.scss";
+import "./BundleCard.scss";
 import { useNavigate } from "react-router-dom";
 import { baseUrl } from "../../../utils/apidata";
 
 import { useContext, useState } from "react";
 import { redirectContext } from "../../../context/RoutingContext";
 
-const ExploreCourseCard = ({
+const BundleCard = ({
   _id,
   image,
   small_description,
@@ -29,7 +29,7 @@ const ExploreCourseCard = ({
     saveHandler(cousrseId);
   };
   return (
-    <div className="explorecourse_card_wrap">
+    <div className="bundle_card_wrap">
       <button type="button" onClick={(e) => saveCourse(e, _id)}>
         {saveStatus ? (
           <img src={icon.saved} alt="save" />
@@ -49,10 +49,11 @@ const ExploreCourseCard = ({
         </div>
         <div className="bg_card_overlay"></div>
         <h2>{name}</h2>
-        <div
+        {/* <div
           className="desc"
           dangerouslySetInnerHTML={{ __html: small_description }}
-        ></div>
+        ></div> */}
+        <p className="desc">{small_description}</p>
 
       
 
@@ -78,4 +79,4 @@ const ExploreCourseCard = ({
   );
 };
 
-export default ExploreCourseCard;
+export default BundleCard;

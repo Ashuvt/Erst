@@ -23,7 +23,6 @@ import axios from "axios";
 
 const CoursesHeader = () => {
   const [notification, setNotification] = useState([]);
-  const { getCartApi } = useContext(redirectContext);
 
   const menuData = [
     {
@@ -116,7 +115,6 @@ const CoursesHeader = () => {
   const notificationApi = async () => {
     try {
       const response = await axios.get(`${baseUrl}/${getNotification}`);
-      console.log(response);
       if (response.data.success) {
         setNotification(response?.data?.data);
       }

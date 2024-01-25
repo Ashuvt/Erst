@@ -19,7 +19,6 @@ import Groups from "../authPages/groups/Groups";
 import Profile from "../authPages/profile/Profile";
 import Saved from "../authPages/saved/Saved";
 import ExploreDetail from "../authPages/exploredetail/ExploreDetail";
-import ExploreCourses from "../authPages/explorecourses/ExploreCourses";
 
 import ProtectedRoute from "../authPages/ProtectedRoute";
 import ForgotPassword from "../authPages/forgotpassword/ForgotPassword";
@@ -27,6 +26,8 @@ import Success from "../pages/success/Success";
 import Fail from "../pages/fail/Fail";
 import ViewCart from "../authPages/viewcart/ViewCart";
 import ResumeBuilder from "../authPages/resumebuilder/ResumeBuilder";
+import ChapterDetail from "../authPages/chapterdetail/ChapterDetail";
+
 
 export const RoutoingData = [
   {
@@ -150,10 +151,10 @@ export const RoutoingData = [
     id: 16,
     component: (
       <ProtectedRoute>
-        <ExploreCourses />
+        <ChapterDetail />
       </ProtectedRoute>
     ),
-    path: "/explore/course",
+    path: "/chapterdetail/:id",
   },
   {
     id: 17,

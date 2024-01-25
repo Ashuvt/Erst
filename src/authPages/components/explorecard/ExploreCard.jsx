@@ -1,56 +1,87 @@
 import { icon } from "../../../utils/images/icons";
 import { useState } from "react";
 import "./ExploreCard.scss";
-import { useNavigate } from "react-router-dom";
-import { baseUrl } from "../../../utils/apidata";
+import { useNavigate, useParams } from "react-router-dom";
+import { baseUrl, saveCourse } from "../../../utils/apidata";
 
 import { useContext } from "react";
 import { redirectContext } from "../../../context/RoutingContext";
+import axios from "axios";
 
 const ExploreCard = ({
+  recallPage,
   _id,
   image,
   small_description,
   course_time,
   title,
   text,
+  is_course,
   students,
-  saved,
+  isSave,
   index,
   redirectTo,
-  isSave,
-  saveHandler
 }) => {
-  const { saveCourseApi } = useContext(redirectContext);
-
-  const [saveStatus, setSaveStatus] = useState(isSave);
-
   const navigate = useNavigate();
+  const { toastWarning, toastError, toastSuccess } =
+    useContext(redirectContext);
+
+  const { courseId } = useParams();
 
 
-
-  const saveCourse = (e, cousrseId) => {
-    setSaveStatus(prev => !prev);
+  // Save Course APi
+  const saveCourseApi = async (e, idToSave) => {
     e.stopPropagation();
-    saveHandler(cousrseId);
+    const token = localStorage.getItem("token");
+
+    const headers = {
+      Authorization: `Bearer ${token}`,
+    };
+
+    try {
+      const response = await axios.post(
+        `${baseUrl}/${saveCourse}`,
+        { course_id: idToSave },
+        { headers }
+      );
+      if (response?.data?.success) {
+        recallPage(courseId);
+        toastSuccess(response?.data?.message);
+      } else {
+        toastWarning("This Course is already added!");
+      }
+    } catch (error) {
+      console.log(error);
+      toastError("Something went wrong");
+    }
+  };
+
+  const recallPageHandler = (id) => {
+    recallPage(id);
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   };
 
   return (
-    <div className="card_wrap">
-      <button type="button" onClick={(e) => saveCourse(e, _id)}>
-        {saveStatus ? (
+    <div className="card_wrap" onClick={() => recallPageHandler(_id)}>
+      <button type="button" onClick={(e) => saveCourseApi(e, _id)}>
+        {isSave ? (
           <img src={icon.saved} alt="save" />
         ) : (
           <img src={icon.save} alt="save" />
         )}
       </button>
+
       <div
         className="explore_card wow zoomIn"
         data-wow-delay={`${(0.2 * index) % 3}s`}
         onClick={() => navigate(redirectTo)}
       >
         <div className="poster_wrap">
-          <span>Cources</span>
+          <span>{is_course}</span>
           <img src={`${baseUrl}/${image}`} alt="poster" />
         </div>
         <div className="bg_card_overlay"></div>

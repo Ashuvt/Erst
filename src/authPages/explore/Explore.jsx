@@ -1,8 +1,7 @@
 import { Fragment, useState, useEffect, useContext } from "react";
 import "./Explore.scss";
 import ExploreTitle from "./exploretitle/ExploreTitle";
-import { images } from "../../utils/images/images";
-import ExploreCard from "../components/explorecard/ExploreCard";
+import BundleCard from "./bundlecard/BundleCard";
 import { useDispatch } from "react-redux";
 import { resetAllToggler } from "../../store/actions";
 import AuthLayout from "../AuthLayout";
@@ -18,8 +17,6 @@ import ExploreCourseCard from "./coursecard/ExploreCourseCard";
 import { redirectContext } from "../../context/RoutingContext";
 
 const Explore = () => {
-
-
   const { toastSuccess, toastWarning, toastError } =
     useContext(redirectContext);
 
@@ -43,7 +40,7 @@ const Explore = () => {
     Authorization: `Bearer ${token}`,
   };
   // Explore Page APi
-  
+
   const exploreApi = async () => {
     setLoader(true);
     try {
@@ -58,13 +55,13 @@ const Explore = () => {
           tag: selectedTag,
         }
       );
+      console.log("Explore Page:::", response);
       if (response?.data?.success) {
         setLoader(false);
         setCourseList(response?.data?.data?.course);
         setBundleList(response?.data?.data?.bundle);
-       
+
         setSavedCourseds(response?.data?.data?.savedcourses);
-        console.log("Explore:", response);
       } else {
         setCourseList([]);
         setBundleList([]);
@@ -102,14 +99,11 @@ const Explore = () => {
   }, []);
 
   // Save Course
-
   const saveCourseApi = async (courseId) => {
     const token = localStorage.getItem("token");
-
     const headers = {
       Authorization: `Bearer ${token}`,
     };
-
     try {
       const response = await axios.post(
         `${baseUrl}/${saveCourse}`,
@@ -263,8 +257,7 @@ const Explore = () => {
             </div>
 
             <div className="explore_videos_wrap">
-
-            {/* Bundles List */}
+              {/* Bundles List */}
               <ExploreTitle
                 title="Bundles"
                 text="Embrace career advancement pathways customized for high-demand cybersecurity careers."
@@ -277,10 +270,12 @@ const Explore = () => {
                   {bundleList.map((data, k) => {
                     return (
                       <Fragment key={data._id}>
-                        <ExploreCard
+                        <BundleCard
                           {...data}
                           index={k}
                           redirectTo={`/explore/${data._id}`}
+                          isSave={savedCourses.includes(data._id)}
+                          saveHandler={saveCourseApi}
                         />
                       </Fragment>
                     );
@@ -293,8 +288,6 @@ const Explore = () => {
                   </p>
                 </div>
               )}
-
-
 
               {/* Courses List */}
 
@@ -325,38 +318,6 @@ const Explore = () => {
                   <p>{loader ? "Loading ..." : "Course Data Not Found..."}</p>
                 </div>
               )}
-
-
-
-
-              {/* <ExploreTitle
-                title="Modules"
-                text="Embrace career advancement pathways customized for high-demand cybersecurity careers."
-                btnClickHandler={() =>
-                  console.log("view all Module Btn Clicked")
-                }
-              />
-              {moduleList.length > 0 ? (
-                <div className="explore_video_grid">
-                  {moduleList.map((data, k) => {
-                    return (
-                      <Fragment key={data._id}>
-                        <ExploreCard
-                          {...data}
-                          index={k}
-                          redirectTo={`/explore/${data._id}`}
-                          isSave={savedCourses.includes(data._id)}
-                          saveHandler={saveCourseApi}
-                        />
-                      </Fragment>
-                    );
-                  })}
-                </div>
-              ) : (
-                <div className="empty_box">
-                  <p>{loader ? "Loading ..." : "Module Data Not Found..."}</p>
-                </div>
-              )} */}
             </div>
           </div>
         </div>

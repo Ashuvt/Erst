@@ -3,19 +3,21 @@
 @import "../../../scss/typography";
 @import "../../../scss/variables";
 
-.profile_help{
+.profile_help {
     padding: 40px;
     border: 0.5px solid $primary;
     background: $textContrast;
     height: 100%;
-    border-radius:4px;
+    border-radius: 4px;
 
-    @media only screen and (max-width:$tab){
-        padding:20px;
+    @media only screen and (max-width:$tab) {
+        padding: 20px;
     }
-    @media only screen and (max-width:$mobile){
-        padding:15px;
+
+    @media only screen and (max-width:$mobile) {
+        padding: 15px;
     }
+
     .title {
         p {
             margin-top: 8px;
@@ -25,8 +27,10 @@
             margin: 0px;
         }
     }
-
-    textarea{
+p.error{
+    color:$orange;
+}
+    textarea {
         box-shadow: none;
         border-style: none;
         padding: 8px;
@@ -34,12 +38,82 @@
         border: 1px solid $borderSubtle;
         background: $bgLight;
         @include font('Inter-Regular', 14px, 20px, 400, $textPrimary);
-        margin:40px 0px 0px;
+        margin: 40px 0px 0px;
     }
-    button{
-        margin-top:24px;
+
+    button {
+        margin-top: 24px;
     }
-    p{
-        margin:0px;
+
+    p {
+        margin: 0px;
+    }
+
+    h6 {
+        letter-spacing: 1px;
+        margin: 20px 0px 15px;
+    }
+
+    .history_wrap {
+        .accordion {
+            border-style: none;
+            background-color: transparent;
+            border-radius: 4px;
+            overflow: hidden;
+            .accordion-item {
+                background-color: transparent;
+                border-style: none;
+                border-bottom: 1px solid $lightBorder_1;
+                .accordion-header {
+                    button {
+                        margin: 0px;
+                        padding:0px 15px;
+                        background: $bgLight;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        border-bottom: 1px solid $lightBorder;
+                        &:focus{
+                            outline: none;
+                            box-shadow: none;
+                        }
+                        p {
+                            color: $white;
+                        }
+
+                        svg {
+                            color: $white;
+                        }
+
+                        &::after {
+                            color: $white;
+                            display: none;
+                        }
+                    }
+                    button[aria-expanded="false"]{
+                       span.minus{
+                        display: none;
+                       }
+                    }
+                    button[aria-expanded="true"]{
+                        span.plus{
+                         display: none;
+                        }
+                     }
+                }
+
+                .accordion-collapse{
+                    background-color: transparent;
+                    .accordion-body{
+                        background: $bgLight;
+
+                        p{
+                            color:$white;
+                            padding-left:20px;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

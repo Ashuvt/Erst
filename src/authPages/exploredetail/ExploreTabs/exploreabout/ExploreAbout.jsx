@@ -10,11 +10,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { resetAllToggler } from "../../../../store/actions";
 import ModulesSec from "./modulessec/ModulesSec";
 
-const ExploreAbout = ({ instructors, course }) => {
+const ExploreAbout = ({ instructors, course, recallPage, courseId }) => {
 
   const {courseDetailLoading, courseDetailData, courseDetailError } = useSelector(state => state?.getExploreDetailByIdApi);
-
-  console.log("DATA:::====>", courseDetailData);
 
 
   const whiteBtnData = [
@@ -123,7 +121,7 @@ const ExploreAbout = ({ instructors, course }) => {
               title="What does this course include"
               data={fourInfoData}
             />
-            {courseDetailData?.is_course === "course" && <ModulesSec />}
+            {courseDetailData?.is_course === "course" && <ModulesSec courseId={courseId} />}
           </div>
 
           <div className="right">
@@ -150,7 +148,7 @@ const ExploreAbout = ({ instructors, course }) => {
         </div>
 
 
-        {courseDetailData?.is_course === "bundle" && <SubCoursesSlider />}        
+        {courseDetailData?.is_course === "bundle" && <SubCoursesSlider recallPage={recallPage}  />}        
 
         {courseDetailData?.is_course === "course" && <JourneySlider />}
 

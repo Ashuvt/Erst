@@ -29,7 +29,7 @@ const ProfileMenu = ({ menuStatus, name }) => {
       },
     },
     {
-      id: 1,
+      id: 22,
       icon: icon.courses,
       text: "My Resume (1)",
       clickHandler:() => {
