@@ -92,6 +92,8 @@ export const getProfile = "api/userprofile"
 export const profileUpdate = "api/profileupdate"
 // Help Submit
 export const help = "api/helpstore";
+// 
+export const helpHistory = "api/helplist"
 
 
 

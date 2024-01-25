@@ -27,7 +27,8 @@ const ViewCart = () => {
   const [couponSuccess, setCouponSuccess] = useState(false);
 
   const country = localStorage.getItem("country");
-  const { getCartApi, removeFromCartApi, checkoutApi } = useContext(redirectContext);
+  const { getCartApi, removeFromCartApi, checkoutApi } =
+    useContext(redirectContext);
   const { loading, cartData, error } = useSelector(
     (state) => state.getCartReducer
   );
@@ -116,6 +117,11 @@ const ViewCart = () => {
                   </div>
                 )}
               </div>
+              
+              <h6>Recommended Courses</h6>
+
+
+              
             </div>
             <div className="right">
               <div className="top">
@@ -179,9 +185,13 @@ const ViewCart = () => {
                     {country === "India" ? "INR" : "USD"}
                   </p>
                 </div>
-                <button type="button" className="primarybtn" onClick={checkoutApi}>
-            continue to chekout
-          </button>
+                <button
+                  type="button"
+                  className="primarybtn"
+                  onClick={checkoutApi}
+                >
+                  continue to chekout
+                </button>
               </div>
             </div>
           </div>

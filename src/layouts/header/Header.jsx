@@ -14,8 +14,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Header = ({t}) => {
   const dispatch = useDispatch();
-
-  const {signInHandler, signUpHandler} = useContext(redirectContext);
+  const {signInHandler, signUpHandler, domainName} = useContext(redirectContext);
 
   const l = useSelector(state => state.langReducer.lang);
   
@@ -64,7 +63,10 @@ const Header = ({t}) => {
             </button>
 
             <HembergerMenu clickHandler={menuToggler} status={sidebarStatus} />
-            {/* <LanguageDd /> */}
+
+            
+            {domainName() === "ae" && <LanguageDd />}
+            
 
           </div>
         </header>

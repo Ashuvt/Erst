@@ -31,7 +31,6 @@ const Help = ({ t }) => {
     email: "",
     number: "",
     message: "",
-    problem: "test",
   };
 
   const [help, setHelp] = useState({
@@ -95,10 +94,7 @@ const Help = ({ t }) => {
     validation(name, value);
   };
 
-  // const ddToggler = (e) => {
-  //   e.stopPropagation();
-  //   dispatch({type:helpDdToggler(), payload:!ddStatus});
-  // };
+ 
 
   const proglemList = [
     {
@@ -123,10 +119,7 @@ const Help = ({ t }) => {
     },
   ];
 
-  // const selectOption = (data) => {
-  //   setSelectedProblem(data.option);
-  //   setHelp(values => ({...values, problem:data.option}))
-  // }
+
 
   const fullPageClick = () => {
     dispatch({ type: resetAllToggler() });
@@ -206,18 +199,7 @@ const Help = ({ t }) => {
                 {numError && <ErrorMessageLine text={numError} />}
               </div>
 
-              {/* <div className="custom_dropdown" onClick={ddToggler}>
-                {selectedProblem ? <p>{selectedProblem}</p> : <p className="light">select Problem</p>}
-                <div className={`option_list ${ddStatus ? 'open' : 'close'}`}>
-              {
-                proglemList.map((data) => {
-                  return(
-                    <button type="button" className={`optionbtn ${selectedProblem === data.option ? 'active' : ''}`} key={data.id} onClick={() => selectOption(data)} >{data.option}</button>
-                  )
-                })
-              }
-                </div>
-              </div> */}
+
             </div>
             <textarea
               placeholder={t("contactFormMessage")}
