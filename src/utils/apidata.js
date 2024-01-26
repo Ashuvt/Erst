@@ -12,52 +12,39 @@ export const emailSubscribe = "api/emailsubscribe";
 export const blogPoster = "api/homemainblog";
 export const blogList = "api/homeblog";
 
-
 //*************** About Page ******************************
 // get Events
 export const getEvents = "api/getevent";
-
 
 //*************** Careers Page ******************************
 
 //  Send CV Form API:
 export const sendCv = "api/storecarrerapi";
 
-
 //*************** Blogs Page ******************************
 
 //Get all Blog List
 export const getAllBlogs = "api/getblogs";
-
 
 //*************** Blogs/blogId Page ******************************
 
 //Get Blog By Id ==> add /id to following end point
 export const getBlogById = "api/blogdetails";
 
-
 //*************** Contact Page ******************************
 
 // Contact Page Need Assistance Form
 export const needAssistance = "api/storecontactapi";
 
-
-
-
-
-
 //*************** Signin Page ******************************
-export const signIn = "api/userlogin"
-
+export const signIn = "api/userlogin";
 
 //*************** Getstarted (SignUp) Page ******************************
 export const getStarted = "api/userregister";
 
-
 //*************** Forgot Password Page ******************************
 // Forgot Password
 export const forgotPassword = "api/forgotpassword";
-
 
 //*************** OnBoarding Page ****************************
 
@@ -68,41 +55,33 @@ export const professionOption = "api/getproffession";
 export const fieldOfInterest = "api/getintrest";
 
 // OnBoarding Post on 3rd Step
-export const updateProfessionInterest = "   "
+export const updateProfessionInterest = "   ";
 
 // OnBoarding : Stepper-4 Red & Blue Course API
-export const CourseList = "api/getcourse"
-
-
-
-
+export const CourseList = "api/getcourse";
 
 //*************** Auth/Home Page ******************************
 
 // Auth/Home page API
 export const authHomeApi = "api/homepageapi";
 
-
 //*************** Auth/Profile Page ******************************
 
 // Get Profile data
-export const getProfile = "api/userprofile"
+export const getProfile = "api/userprofile";
 
 // Profile Account Update
-export const profileUpdate = "api/profileupdate"
+export const profileUpdate = "api/profileupdate";
 // Help Submit
 export const help = "api/helpstore";
-// 
-export const helpHistory = "api/helplist"
-
-
+//
+export const helpHistory = "api/helplist";
 
 //*************** Auth/Explore Page ******************************
 
 //Explore Page
 export const explorePage = "api/explorepageapi";
-export const exploreFilterOptions = "api/getfiltersexplore"
-
+export const exploreFilterOptions = "api/getfiltersexplore";
 
 //*************** Auth/saved Page ******************************
 
@@ -110,10 +89,6 @@ export const exploreFilterOptions = "api/getfiltersexplore"
 export const getSavedCourse = "api/getsavedcourse";
 
 //*************** ChapterDetail Page ******************************
-
-export const moduleList = "api/modulelist";
-export const chapterDetail = "api/chapterdetails"
-
 
 //*************** Auth / Other utilities API  ***************************
 
@@ -123,9 +98,12 @@ export const saveCourse = "api/savedcourse";
 // Course Details View By Id
 export const coursedetailById = "api/coursedetails";
 
-
-
-
+//*************** Auth / Chapter Detail API  ***************************
+// Quiz Submit
+export const moduleList = "api/modulelist";
+export const chapterDetail = "api/chapterdetails";
+export const quizSubmit = "api/submitquizz";
+export const courseCount = "api/chapterdetailscount";
 
 // Add To Cart
 export const addToCart = "api/addtocart";
@@ -134,7 +112,7 @@ export const addToCart = "api/addtocart";
 export const getCart = "api/getcart";
 
 //Remove From Cart
-export const removeFromCart = "api/removecart"
+export const removeFromCart = "api/removecart";
 
 // Checkout
 export const checkout = "api/createorder";
@@ -142,11 +120,6 @@ export const checkout = "api/createorder";
 //Notification
 export const getNotification = "api/getnotification";
 
-
-// Quiz Submit
-export const quizSubmit = "api/submitquizz";
-
-
 //LogOut Api
 
-export const userLogOut = "api/userlogout"
+export const userLogOut = "api/userlogout";

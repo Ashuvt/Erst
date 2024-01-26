@@ -193,7 +193,7 @@ section.explore_cources {
             }
 
             .img_sec {
-                margin-top: 30px;
+                margin-top: 50px;
 
                 img {
                     max-width: 100%;
@@ -201,7 +201,7 @@ section.explore_cources {
             }
 
             .video_sec {
-                margin-top: 30px;
+                margin-top: 50px;
 
                 video {
                     max-width: 100%;
@@ -300,6 +300,9 @@ section.explore_cources {
             @include font('SpaceGrotesk-Regular', 20px, 24px, 500, $white);
             margin-bottom:20px;
             letter-spacing: 1px;
+            &.m_t{
+                margin-top:60px;
+            }
         }
     }
 }

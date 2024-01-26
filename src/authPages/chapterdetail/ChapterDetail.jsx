@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useContext, useEffect, useState } from "react";
 import "./ChapterDetail.scss";
 import CoursesHeader from "../components/coursesheader/CoursesHeader";
 import { icon } from "../../utils/images/icons";
@@ -12,29 +12,38 @@ import axios from "axios";
 import {
   baseUrl,
   chapterDetail,
+  courseCount,
   moduleList,
   quizSubmit,
 } from "../../utils/apidata";
 import { useParams } from "react-router-dom";
 import AuthLayout from "../AuthLayout";
+import { redirectContext } from "../../context/RoutingContext";
 
 const ChapterDetail = () => {
   const [status, setStatus] = useState(true);
   const [viewPdf, setViewPdf] = useState(false);
   const [moduleLoader, setModuleLoader] = useState(false);
   const [chapterLoader, setChapterLoader] = useState(false);
+  const [quizeSubmitLoader, setQuizeSubmitLoader] = useState(false);
 
   const [modulesList, setModulesList] = useState([]);
   const [chapters, setChaprters] = useState({});
   const [activeTab, setActiveTab] = useState("");
 
+  const [quizeData, setQuizData] = useState([]);
+
   const [selectedAnswer, setSelectedAnswer] = useState([]);
 
   const { id } = useParams();
 
+  const { toastSuccess, toastError } = useContext(redirectContext);
+
   const statusChanger = () => {
     setStatus((prev) => !prev);
   };
+
+
 
   useEffect(() => {
     const wow = new WOW();
@@ -94,6 +103,22 @@ const ChapterDetail = () => {
     dispatch({ type: resetAllToggler() });
   };
 
+  // Course Count Percent Api
+
+  const courseCountPercent = async() => {
+    const token = localStorage.getItem("token");
+    const headers = {
+      Authorization: `Bearer ${token}`,
+    };
+    try {
+      const response = await axios.get(`${baseUrl}/${courseCount}`, {courseId:`${id}`}, {headers});
+      console.log("Count::", response);
+    } catch (error) {
+      console.log("Count Error::",error);
+    }
+
+  }
+
   // Get Modules Api
   const getModules = async () => {
     setModuleLoader(true);
@@ -137,6 +162,11 @@ const ChapterDetail = () => {
       if (response?.data?.success) {
         setChaprters(response?.data?.data);
         console.log("Chapter:::", response?.data?.data);
+        setQuizData(
+          response?.data?.data?.chapterinputs.filter(
+            (ele) => ele.field === "quizz"
+          )
+        );
         setChapterLoader(false);
       }
     } catch (error) {
@@ -148,6 +178,7 @@ const ChapterDetail = () => {
   // Quize Submit
 
   const quizeSubmit = async () => {
+    setQuizeSubmitLoader(true);
     const token = localStorage.getItem("token");
 
     const headers = {
@@ -157,22 +188,22 @@ const ChapterDetail = () => {
     try {
       const response = await axios.post(
         `${baseUrl}/${quizSubmit}`,
-        {
-          chapterId: "",
-          quizId: "",
-          selectedOptions: [...selectedAnswer],
-        },
+        [...selectedAnswer],
         { headers }
       );
-      console.log("Submit::", response);
+      if (response?.data?.success) {
+        toastSuccess(response?.data?.data);
+        setQuizeSubmitLoader(false);
+      }
     } catch (error) {
       console.log(error);
+      toastError("Something Went Wrong!");
+      setQuizeSubmitLoader(false);
     }
   };
 
   const addAnswer = (chapterId, quizId, ans) => {
     const obj = selectedAnswer.find((ele) => ele.quizId === quizId);
-
     if (obj) {
       if (obj.selectedOptions.includes(ans)) {
         const tempObj = {
@@ -204,10 +235,10 @@ const ChapterDetail = () => {
       ]);
     }
   };
-  console.log(selectedAnswer);
 
   useEffect(() => {
     getModules();
+    courseCountPercent();
   }, []);
 
   return (
@@ -237,17 +268,14 @@ const ChapterDetail = () => {
                 <img src={icon.dobleleftangle} alt="icon" />
               </button>
             </div>
-
             <div className="video_wrap">
               <img src={images.exploreDetail} alt="poster" />
-
               <div className="progress_bar">
                 <div className="filler" style={{ width: "13%" }}></div>
               </div>
               <p className="percent">13%</p>
             </div>
             <p className="t-g-18">This is a RedTeam Course</p>
-
             <div className="module_count">
               <img src={icon.module} alt="module" />
               <p>12/42 Modules</p>
@@ -334,49 +362,205 @@ const ChapterDetail = () => {
                 <h3 className="title wow fadeInUp">{chapters?.chapter}</h3>
 
                 {chapters?.chapterinputs?.length > 0 ? (
-                  chapters?.chapterinputs?.map((data) => {
-                    return (
-                      <Fragment key={data?._id}>
-                        {/* Type : description */}
+                  <Fragment>
+                    {chapters?.chapterinputs?.map((data) => {
+                      return (
+                        <Fragment key={data?._id}>
+                          {/* Type : description */}
 
-                        {data.field === "description" && (
-                          <div className="description_sec">
-                            <p>{data?.description}</p>
-                          </div>
-                        )}
+                          {data.field === "description" && (
+                            <div className="description_sec">
+                              <p>{data?.description}</p>
+                            </div>
+                          )}
 
-                        {/* Type Image */}
+                          {/* Type Image */}
 
-                        {data.field === "image" && (
-                          <div className="img_sec">
-                            <img
-                              src={`${baseUrl}/${data?.image}`}
-                              alt="poster"
-                            />
-                          </div>
-                        )}
+                          {data.field === "image" && (
+                            <div className="img_sec">
+                              <img
+                                src={`${baseUrl}/${data?.image}`}
+                                alt="poster"
+                              />
+                            </div>
+                          )}
 
-                        {/* Type : section */}
+                          {/* Type : section */}
 
-                        {data.field === "section" && (
-                          <div className="section_sec">
-                            <h5>{data?.section_title}</h5>
-                            <p>{data?.section_description}</p>
-                          </div>
-                        )}
+                          {data.field === "section" && (
+                            <div className="section_sec">
+                              <h5>{data?.section_title}</h5>
+                              <p>{data?.section_description}</p>
+                            </div>
+                          )}
 
-                        {/* Type : Video */}
-                        {data?.field === "video" && (
-                          <div className="video_sec">
-                            <video controls>
-                              <source src={`${baseUrl}/${data?.video}`} />
-                            </video>
-                          </div>
-                        )}
+                          {/* Type : Video */}
+                          {data?.field === "video" && (
+                            <div className="video_sec">
+                              <video controls>
+                                <source src={`${baseUrl}/${data?.video}`} />
+                              </video>
+                            </div>
+                          )}
 
-                        {/* Type : Quize */}
+                          {/* Type : Quize */}
 
-                        {data?.field === "quizz" && (
+                          {/* {data?.field === "quizz" && (
+                            <div className="quize_sec">
+                              <h5>{data?.quizz_question}</h5>
+
+                              <div className="option_wrap">
+                                <button
+                                  type="button"
+                                  onClick={() =>
+                                    addAnswer(
+                                      data?.chapterId,
+                                      data?._id,
+                                      data?.quizz_opt_1
+                                    )
+                                  }
+                                >
+                                  {selectedAnswer
+                                    .filter(
+                                      (ele) => ele.quizId === data?._id
+                                    )[0]
+                                    ?.selectedOptions?.includes(
+                                      data?.quizz_opt_1
+                                    ) && <span></span>}
+                                </button>
+                                <p>{data?.quizz_opt_1}</p>
+                              </div>
+                              <div className="option_wrap">
+                                <button
+                                  type="button"
+                                  onClick={() =>
+                                    addAnswer(
+                                      data?.chapterId,
+                                      data?._id,
+                                      data?.quizz_opt_2
+                                    )
+                                  }
+                                >
+                                  {selectedAnswer
+                                    .filter(
+                                      (ele) => ele.quizId === data?._id
+                                    )[0]
+                                    ?.selectedOptions?.includes(
+                                      data?.quizz_opt_2
+                                    ) && <span></span>}
+                                </button>
+                                <p>{data?.quizz_opt_2}</p>
+                              </div>
+                              <div className="option_wrap">
+                                <button
+                                  type="button"
+                                  onClick={() =>
+                                    addAnswer(
+                                      data?.chapterId,
+                                      data?._id,
+                                      data?.quizz_opt_3
+                                    )
+                                  }
+                                >
+                                  {selectedAnswer
+                                    .filter(
+                                      (ele) => ele.quizId === data?._id
+                                    )[0]
+                                    ?.selectedOptions?.includes(
+                                      data?.quizz_opt_3
+                                    ) && <span></span>}
+                                </button>
+                                <p>{data?.quizz_opt_3}</p>
+                              </div>
+                              <div className="option_wrap">
+                                <button
+                                  type="button"
+                                  onClick={() =>
+                                    addAnswer(
+                                      data?.chapterId,
+                                      data?._id,
+                                      data?.quizz_opt_4
+                                    )
+                                  }
+                                >
+                                  {selectedAnswer
+                                    .filter(
+                                      (ele) => ele.quizId === data?._id
+                                    )[0]
+                                    ?.selectedOptions?.includes(
+                                      data?.quizz_opt_4
+                                    ) && <span></span>}
+                                </button>
+                                <p>{data?.quizz_opt_4}</p>
+                              </div>
+                            </div>
+                          )} */}
+
+                          {/*Assignment */}
+
+                          {data?.field === "assignment" && (
+                            <div className="assignment_sec">
+                              <h6 className="title">Assignment</h6>
+                              {data?.is_file_upload === "yes" ? (
+                                <div className="upload_wrap wow fadeInUp">
+                                  <input type="file" />
+                                  <div className="content">
+                                    <img src={icon.upload} alt="upload" />
+                                    <p className="small_text">
+                                      Click to select file or drag and drop
+                                    </p>
+                                    <p className="t-i-12">
+                                      .PDF, .Docx Under 10 MB
+                                    </p>
+                                  </div>
+                                </div>
+                              ) : (
+                                ""
+                              )}
+                            </div>
+                          )}
+
+                          {/* Type : pdf */}
+
+                          {data?.field === "pdf" && (
+                            <div className="pdf_sec">
+                              <h6 className="title">PDF</h6>
+                              {data?.is_file_upload === "true" ? (
+                                <div className="upload_wrap wow fadeInUp">
+                                  <input type="file" />
+                                  <div className="content">
+                                    <img src={icon.upload} alt="upload" />
+                                    <p className="small_text">
+                                      Click to select file or drag and drop
+                                    </p>
+                                    <p className="t-i-12">
+                                      .PDF, .Docx Under 10 MB
+                                    </p>
+                                  </div>
+                                </div>
+                              ) : viewPdf ? (
+                                <iframe
+                                  src={`${baseUrl}/${data?.pdf}`}
+                                ></iframe>
+                              ) : (
+                                <button
+                                  type="button"
+                                  className="primarybtn"
+                                  onClick={() => setViewPdf(true)}
+                                >
+                                  View PDF
+                                </button>
+                              )}
+                            </div>
+                          )}
+                        </Fragment>
+                      );
+                    })}
+
+                    <h6 className="title m_t">Quize</h6>
+                    {quizeData?.length > 0 && quizeData?.map((data) => {
+                      return (
+                        <Fragment key={data?._id}>
                           <div className="quize_sec">
                             <h5>{data?.quizz_question}</h5>
 
@@ -391,9 +575,11 @@ const ChapterDetail = () => {
                                   )
                                 }
                               >
-                                {selectedAnswer.includes(data?.quizz_opt_1) && (
-                                  <span></span>
-                                )}
+                                {selectedAnswer
+                                  .filter((ele) => ele.quizId === data?._id)[0]
+                                  ?.selectedOptions?.includes(
+                                    data?.quizz_opt_1
+                                  ) && <span></span>}
                               </button>
                               <p>{data?.quizz_opt_1}</p>
                             </div>
@@ -408,9 +594,11 @@ const ChapterDetail = () => {
                                   )
                                 }
                               >
-                                {selectedAnswer.includes(data?.quizz_opt_2) && (
-                                  <span></span>
-                                )}
+                                {selectedAnswer
+                                  .filter((ele) => ele.quizId === data?._id)[0]
+                                  ?.selectedOptions?.includes(
+                                    data?.quizz_opt_2
+                                  ) && <span></span>}
                               </button>
                               <p>{data?.quizz_opt_2}</p>
                             </div>
@@ -425,9 +613,11 @@ const ChapterDetail = () => {
                                   )
                                 }
                               >
-                                {selectedAnswer.includes(data?.quizz_opt_3) && (
-                                  <span></span>
-                                )}
+                                {selectedAnswer
+                                  .filter((ele) => ele.quizId === data?._id)[0]
+                                  ?.selectedOptions?.includes(
+                                    data?.quizz_opt_3
+                                  ) && <span></span>}
                               </button>
                               <p>{data?.quizz_opt_3}</p>
                             </div>
@@ -442,87 +632,40 @@ const ChapterDetail = () => {
                                   )
                                 }
                               >
-                                {selectedAnswer.includes(data?.quizz_opt_4) && (
-                                  <span></span>
-                                )}
+                                {selectedAnswer
+                                  .filter((ele) => ele.quizId === data?._id)[0]
+                                  ?.selectedOptions?.includes(
+                                    data?.quizz_opt_4
+                                  ) && <span></span>}
                               </button>
                               <p>{data?.quizz_opt_4}</p>
                             </div>
                           </div>
-                        )}
-
-                        {/*Assignment */}
-
-                        {data?.field === "assignment" && (
-                          <div className="assignment_sec">
-                            <h6 className="title">Assignment</h6>
-                            {data?.is_file_upload === "yes" ? (
-                              <div className="upload_wrap wow fadeInUp">
-                                <input type="file" />
-                                <div className="content">
-                                  <img src={icon.upload} alt="upload" />
-                                  <p className="small_text">
-                                    Click to select file or drag and drop
-                                  </p>
-                                  <p className="t-i-12">
-                                    .PDF, .Docx Under 10 MB
-                                  </p>
-                                </div>
-                              </div>
-                            ) : (
-                              ""
-                            )}
-                          </div>
-                        )}
-
-                        {/* Type : pdf */}
-
-                        {data?.field === "pdf" && (
-                          <div className="pdf_sec">
-                            <h6 className="title">PDF</h6>
-                            {data?.is_file_upload === "true" ? (
-                              <div className="upload_wrap wow fadeInUp">
-                                <input type="file" />
-                                <div className="content">
-                                  <img src={icon.upload} alt="upload" />
-                                  <p className="small_text">
-                                    Click to select file or drag and drop
-                                  </p>
-                                  <p className="t-i-12">
-                                    .PDF, .Docx Under 10 MB
-                                  </p>
-                                </div>
-                              </div>
-                            ) : viewPdf ? (
-                              <iframe src={`${baseUrl}/${data?.pdf}`}></iframe>
-                            ) : (
-                              <button
-                                type="button"
-                                className="primarybtn"
-                                onClick={() => setViewPdf(true)}
-                              >
-                                View PDF
-                              </button>
-                            )}
-                          </div>
-                        )}
-                      </Fragment>
-                    );
-                  })
+                        </Fragment>
+                      );
+                    })}
+                  </Fragment>
                 ) : (
                   <p>Data Not Found...</p>
                 )}
 
-                {chapters?.chapterinputs?.find(
-                  (ele) => ele.field === "quizz"
-                ) && (
-                  <button
-                    type="button"
-                    className="primarybtn quiz_submit"
-                    onClick={quizeSubmit}
-                  >
-                    Submit Quize
-                  </button>
+                {/* Quize */}
+                {quizeData?.length > 0 && (
+                  <Fragment>
+                    {quizeSubmitLoader ? (
+                      <button type="button" className="primarybtn quiz_submit">
+                        Loading...
+                      </button>
+                    ) : (
+                      <button
+                        type="button"
+                        className="primarybtn quiz_submit"
+                        onClick={quizeSubmit}
+                      >
+                        Submit Quize
+                      </button>
+                    )}
+                  </Fragment>
                 )}
               </Fragment>
             )}
