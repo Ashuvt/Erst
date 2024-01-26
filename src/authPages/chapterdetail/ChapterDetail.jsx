@@ -9,13 +9,26 @@ import { useDispatch } from "react-redux";
 import { resetAllToggler } from "../../store/actions";
 import WOW from "wow.js";
 import axios from "axios";
-import { baseUrl, chapterDetail, moduleList } from "../../utils/apidata";
+import {
+  baseUrl,
+  chapterDetail,
+  moduleList,
+  quizSubmit,
+} from "../../utils/apidata";
 import { useParams } from "react-router-dom";
+import AuthLayout from "../AuthLayout";
 
 const ChapterDetail = () => {
   const [status, setStatus] = useState(true);
+  const [viewPdf, setViewPdf] = useState(false);
+  const [moduleLoader, setModuleLoader] = useState(false);
+  const [chapterLoader, setChapterLoader] = useState(false);
 
   const [modulesList, setModulesList] = useState([]);
+  const [chapters, setChaprters] = useState({});
+  const [activeTab, setActiveTab] = useState("");
+
+  const [selectedAnswer, setSelectedAnswer] = useState([]);
 
   const { id } = useParams();
 
@@ -83,6 +96,7 @@ const ChapterDetail = () => {
 
   // Get Modules Api
   const getModules = async () => {
+    setModuleLoader(true);
     const token = localStorage.getItem("token");
     const headers = {
       Authorization: `Bearer ${token}`,
@@ -93,19 +107,47 @@ const ChapterDetail = () => {
         `${baseUrl}/${moduleList}`,
         { course_id: `${id}` },
         { headers }
-      );     
+      );
       if (response?.data?.success) {
         setModulesList(response?.data?.data);
+        setModuleLoader(false);
       }
     } catch (error) {
       console.log("Explore Error::", error);
+      setModuleLoader(false);
     }
   };
 
-
   // Get Chapter Api
-  const getChapterDetails = async (moduleId) => {
-    
+  const getChapterDetails = async (chapterId) => {
+    setChapterLoader(true);
+
+    const token = localStorage.getItem("token");
+    const headers = {
+      Authorization: `Bearer ${token}`,
+    };
+
+    try {
+      const response = await axios.post(
+        `${baseUrl}/${chapterDetail}`,
+        { chapter_id: `${chapterId}` },
+        { headers }
+      );
+
+      if (response?.data?.success) {
+        setChaprters(response?.data?.data);
+        console.log("Chapter:::", response?.data?.data);
+        setChapterLoader(false);
+      }
+    } catch (error) {
+      console.log(error);
+      setChapterLoader(false);
+    }
+  };
+
+  // Quize Submit
+
+  const quizeSubmit = async () => {
     const token = localStorage.getItem("token");
 
     const headers = {
@@ -113,20 +155,63 @@ const ChapterDetail = () => {
     };
 
     try {
-      const response = await axios.post(`${baseUrl}/${chapterDetail}`,{moduleId:`${moduleId}`}, {headers});
-      console.log("Chapters Section:::",response );
+      const response = await axios.post(
+        `${baseUrl}/${quizSubmit}`,
+        {
+          chapterId: "",
+          quizId: "",
+          selectedOptions: [...selectedAnswer],
+        },
+        { headers }
+      );
+      console.log("Submit::", response);
     } catch (error) {
       console.log(error);
     }
-  }
+  };
+
+  const addAnswer = (chapterId, quizId, ans) => {
+    const obj = selectedAnswer.find((ele) => ele.quizId === quizId);
+
+    if (obj) {
+      if (obj.selectedOptions.includes(ans)) {
+        const tempObj = {
+          chapterId: obj.chapterId,
+          quizId: obj.quizId,
+          selectedOptions: obj.selectedOptions.filter((ele) => ele !== ans),
+        };
+
+        setSelectedAnswer((prev) => {
+          const newArr = prev.filter((item) => item.quizId !== quizId);
+          return [...newArr, tempObj];
+        });
+      } else {
+        const tempObj = {
+          chapterId: obj.chapterId,
+          quizId: obj.quizId,
+          selectedOptions: [...obj.selectedOptions, ans],
+        };
+
+        setSelectedAnswer((prev) => {
+          const newArr = prev.filter((item) => item.quizId !== quizId);
+          return [...newArr, tempObj];
+        });
+      }
+    } else {
+      setSelectedAnswer((prev) => [
+        ...prev,
+        { chapterId, quizId, selectedOptions: [ans] },
+      ]);
+    }
+  };
+  console.log(selectedAnswer);
 
   useEffect(() => {
     getModules();
   }, []);
 
   return (
-    <Fragment>
-      <CoursesHeader />
+    <AuthLayout>
       <section className="expaned_closer_wrap">
         <div className="screen_container">
           {!status && (
@@ -167,257 +252,284 @@ const ChapterDetail = () => {
               <img src={icon.module} alt="module" />
               <p>12/42 Modules</p>
             </div>
-            <div id="side_accord">
-              {modulesList?.length > 0 ? (
-                <Accordion defaultActiveKey="0">
-                  {modulesList.map((data, j) => {
-                    return (
-                      <Accordion.Item eventKey={`${j}`} key={data?._id}>
-                        <Accordion.Header>
-                          {data?.module_name}
-                          <img src={icon.darkAngleDown} alt="angle" />
-                        </Accordion.Header>
-                        <Accordion.Body>
-                          {data?.chapters?.length > 0 ? (
-                            data?.chapters?.map((item) => {
-                              return (
-                                <div className="icon_info between" onClick={() => getChapterDetails(item?._id)} >
-                                  <div className="left">
-                                    <div className="green_circle">
-                                      <img src={icon.whiteCheck} alt="check" />
-                                    </div>
-                                    <div className="text">
-                                      <p className="small_text">
-                                        {item?.chapter}
-                                      </p>
-                                    </div>
-                                  </div>
+            {moduleLoader ? (
+              <div className="loading_sec">
+                <div
+                  className="spinner-border text-primary"
+                  role="status"
+                ></div>
+              </div>
+            ) : (
+              <div id="side_accord">
+                {modulesList?.length > 0 ? (
+                  <Accordion defaultActiveKey="0">
+                    {modulesList.map((data, j) => {
+                      return (
+                        <Fragment key={data?._id}>
+                          <Accordion.Item eventKey={`${j}`}>
+                            <Accordion.Header>
+                              {data?.module_name}
+                              <img src={icon.darkAngleDown} alt="angle" />
+                            </Accordion.Header>
+                            <Accordion.Body>
+                              {data?.chapters?.length > 0 ? (
+                                data?.chapters?.map((item) => {
+                                  return (
+                                    <div
+                                      className={`icon_info between ${
+                                        item?._id === activeTab ? "active" : ""
+                                      }`}
+                                      onClick={() => {
+                                        getChapterDetails(item?._id);
+                                        setActiveTab(item?._id);
+                                      }}
+                                      key={item?._id}
+                                    >
+                                      <div className="left">
+                                        <div className="green_circle">
+                                          <img
+                                            src={icon.whiteCheck}
+                                            alt="check"
+                                          />
+                                        </div>
+                                        <div className="text">
+                                          <p className="small_text">
+                                            {item?.chapter}
+                                          </p>
+                                        </div>
+                                      </div>
 
-                                  {item?.is_free === "free" && (
-                                    <img src={icon.courses} />
-                                  )}
-                                </div>
-                              );
-                            })
-                          ) : (
-                            <p>Chapters Does Not Found...</p>
-                          )}
-                        </Accordion.Body>
-                      </Accordion.Item>
-                    );
-                  })}
-                </Accordion>
-              ) : (
-                <p>Modules Does Not Found!</p>
-              )}
-            </div>
+                                      {item?.is_free === "free" && (
+                                        <img src={icon.courses} />
+                                      )}
+                                    </div>
+                                  );
+                                })
+                              ) : (
+                                <p>Chapters Does Not Found...</p>
+                              )}
+                            </Accordion.Body>
+                          </Accordion.Item>
+                        </Fragment>
+                      );
+                    })}
+                  </Accordion>
+                ) : (
+                  <p>Modules Does Not Found!</p>
+                )}
+              </div>
+            )}
           </div>
 
           <div className={`course_detail ${status ? "" : "expand"}`}>
-            <h1 className="title wow fadeInUp">Chapter Title</h1>
-            <p className="small_text m-t-16 wow fadeInUp">
-              Risk is inevitable. While it would be remarkable to eliminate all
-              risk associated with protecting information assets, doing so is
-              impossible. A determined adversary with enough time and resources
-              will always pose a threat, and therefore a risk. However unlikely,
-              the event of an earthquake striking your organization's data
-              center is always a possibility. With this fact in mind, the goal
-              of cybersecurity is to reduce risk to an acceptable level through
-              countermeasures and mitigations.
-            </p>
-            <div className="img_wrap wow fadeIn">
-              <img src={images.exploreDetail} alt="poster" />
-            </div>
-            <div className="section">
-              <p className="section_name wow fadeInUp">Section</p>
-
-              <p className="small_text wow fadeInUp">
-                Cyber Risk Managers/Analysts or Auditors will often conduct a
-                quantitative Cyber Risk Analysis that assigns factual data and
-                monetary terms to express the level of risk and loss that may
-                happen if safeguards are not in place. In the exercise below,
-                you will practice performing a Cyber Risk Analysis. First, some
-                key terms you will use in your analysis:
-              </p>
-              <ol>
-                <li>
-                  <p>
-                    <span>1.</span>Asset Value (AV) - The monetary value an
-                    asset is worth.
-                  </p>{" "}
-                </li>
-                <li>
-                  <p>
-                    <span>2.</span>Exposure Factor (EF) - The percentage of the
-                    assets value that would be lost if a breach or attack
-                    happened.
-                  </p>{" "}
-                </li>
-                <li>
-                  <p>
-                    <span>3.</span>Single Loss Expectancy (SLE) - The loss from
-                    a single incident. (AV x EF)
-                  </p>{" "}
-                </li>
-                <li>
-                  <p>
-                    <span>4.</span>Annual Rate of Occurrence (ARO) - The number
-                    of times an incident is expected to occur in a year.
-                  </p>{" "}
-                </li>
-              </ol>
-            </div>
-
-            <h1 className="mt-48 wow fadeInUp">Quiz</h1>
-            <div className="question_wrap">
-              <div className="question wow fadeInUp">
-                <img src={icon.question} alt="question" />
-                <p>QUESTION 1</p>
+            {chapterLoader ? (
+              <div className="loading_sec">
+                <div
+                  className="spinner-border text-primary"
+                  role="status"
+                ></div>
               </div>
-              <p className="primary wow fadeInUp">
-                What is the purpose of a quantitative Cyber Risk Analysis, and
-                what are the key terms used in this analysis?
-              </p>
-              <p className="small_text thin wow fadeInUp">
-                Points will be added to the certificate
-              </p>
-              <ul>
-                <li className="wow fadeInUp">
-                  <img src={icon.unselectedRadio} alt="radiobtn" />
-                  <p>
-                    To estimate cyberattack likelihood and financial impact. Key
-                    terms: Asset Value, Exposure Factor, Single Loss Expectancy,
-                    Annual Rate of Occurrence.
-                  </p>
-                </li>
-                <li className="wow fadeInUp">
-                  <img src={icon.selectedRadio} alt="radiobtn" />
-                  <p>
-                    To identify cybersecurity vulnerabilities. Key terms:
-                    Vulnerability Assessment, Risk Mitigation, Cybersecurity
-                    Audit, Attack Vector Analysis.
-                  </p>
-                </li>
-                <li className="wow fadeInUp">
-                  <img src={icon.unselectedRadio} alt="radiobtn" />
-                  <p>
-                    To calculate cybersecurity investment costs. Key terms:
-                    Budget Allocation, Cybersecurity Investment, Risk Tolerance,
-                    ROI Analysis.
-                  </p>
-                </li>
-                <li className="wow fadeInUp">
-                  <img src={icon.unselectedRadio} alt="radiobtn" />
-                  <p>
-                    To assess company reputation after a cyber incident. Key
-                    terms: Brand Equity, Public Relations, Crisis Management,
-                    Customer Trust.
-                  </p>
-                </li>
-              </ul>
-              <button
-                type="button"
-                className="authbtn auth_primary wow fadeInUp"
-              >
-                Submit
-              </button>
-            </div>
+            ) : (
+              <Fragment>
+                <h3 className="title wow fadeInUp">{chapters?.chapter}</h3>
 
-            <div className="question_wrap">
-              <div className="question wow fadeInUp">
-                <img src={icon.question} alt="question" />
-                <p>QUESTION 1</p>
-              </div>
-              <p className="primary wow fadeInUp">
-                What is the purpose of a quantitative Cyber Risk Analysis, and
-                what are the key terms used in this analysis?
-              </p>
-              <p className="small_text thin wow fadeInUp">
-                Points will be added to the certificate
-              </p>
-              <ul>
-                <li className="wow fadeInUp">
-                  <img src={icon.unselectedRadio} alt="radiobtn" />
-                  <p>
-                    To estimate cyberattack likelihood and financial impact. Key
-                    terms: Asset Value, Exposure Factor, Single Loss Expectancy,
-                    Annual Rate of Occurrence.
-                  </p>
-                </li>
-                <li className="wow fadeInUp">
-                  <img src={icon.selectedRadio} alt="radiobtn" />
-                  <p>
-                    To identify cybersecurity vulnerabilities. Key terms:
-                    Vulnerability Assessment, Risk Mitigation, Cybersecurity
-                    Audit, Attack Vector Analysis.
-                  </p>
-                </li>
-                <li className="wow fadeInUp">
-                  <img src={icon.unselectedRadio} alt="radiobtn" />
-                  <p>
-                    To calculate cybersecurity investment costs. Key terms:
-                    Budget Allocation, Cybersecurity Investment, Risk Tolerance,
-                    ROI Analysis.
-                  </p>
-                </li>
-                <li className="wow fadeInUp">
-                  <img src={icon.unselectedRadio} alt="radiobtn" />
-                  <p>
-                    To assess company reputation after a cyber incident. Key
-                    terms: Brand Equity, Public Relations, Crisis Management,
-                    Customer Trust.
-                  </p>
-                </li>
-              </ul>
-              <button
-                type="button"
-                className="authbtn auth_primary wow fadeInUp"
-              >
-                Submit
-              </button>
-            </div>
+                {chapters?.chapterinputs?.length > 0 ? (
+                  chapters?.chapterinputs?.map((data) => {
+                    return (
+                      <Fragment key={data?._id}>
+                        {/* Type : description */}
 
-            <div className="assignment_wrap">
-              <h1 className="wow fadeInUp">Assignment</h1>
-              <p className="primary wow fadeInUp">
-                What is the purpose of a quantitative Cyber Risk Analysis, and
-                what are the key terms used in this analysis?
-              </p>
-              <p className="small_text wow fadeInUp">
-                Additional description about the assignment. Additional
-                description about the assignment. Additional description about
-                the assignment.{" "}
-              </p>
+                        {data.field === "description" && (
+                          <div className="description_sec">
+                            <p>{data?.description}</p>
+                          </div>
+                        )}
 
-              <div className="upload_wrap wow fadeInUp">
-                <input type="file" />
-                <div className="content">
-                  <img src={icon.upload} alt="upload" />
-                  <p className="small_text">
-                    Click to select file or drag and drop
-                  </p>
-                  <p className="t-i-12">.PDF, .Docx Under 10 MB</p>
-                </div>
-              </div>
+                        {/* Type Image */}
 
-              {uploadFileData.map((data) => {
-                return (
-                  <Fragment key={data.id}>
-                    <UploadedFileCard {...data} />
-                  </Fragment>
-                );
-              })}
+                        {data.field === "image" && (
+                          <div className="img_sec">
+                            <img
+                              src={`${baseUrl}/${data?.image}`}
+                              alt="poster"
+                            />
+                          </div>
+                        )}
 
-              <div className="complete_Btn_wrap">
-                <button className="primarybtn wow fadeInUp" disabled>
-                  Mark as Completed
-                </button>
-              </div>
-            </div>
+                        {/* Type : section */}
+
+                        {data.field === "section" && (
+                          <div className="section_sec">
+                            <h5>{data?.section_title}</h5>
+                            <p>{data?.section_description}</p>
+                          </div>
+                        )}
+
+                        {/* Type : Video */}
+                        {data?.field === "video" && (
+                          <div className="video_sec">
+                            <video controls>
+                              <source src={`${baseUrl}/${data?.video}`} />
+                            </video>
+                          </div>
+                        )}
+
+                        {/* Type : Quize */}
+
+                        {data?.field === "quizz" && (
+                          <div className="quize_sec">
+                            <h5>{data?.quizz_question}</h5>
+
+                            <div className="option_wrap">
+                              <button
+                                type="button"
+                                onClick={() =>
+                                  addAnswer(
+                                    data?.chapterId,
+                                    data?._id,
+                                    data?.quizz_opt_1
+                                  )
+                                }
+                              >
+                                {selectedAnswer.includes(data?.quizz_opt_1) && (
+                                  <span></span>
+                                )}
+                              </button>
+                              <p>{data?.quizz_opt_1}</p>
+                            </div>
+                            <div className="option_wrap">
+                              <button
+                                type="button"
+                                onClick={() =>
+                                  addAnswer(
+                                    data?.chapterId,
+                                    data?._id,
+                                    data?.quizz_opt_2
+                                  )
+                                }
+                              >
+                                {selectedAnswer.includes(data?.quizz_opt_2) && (
+                                  <span></span>
+                                )}
+                              </button>
+                              <p>{data?.quizz_opt_2}</p>
+                            </div>
+                            <div className="option_wrap">
+                              <button
+                                type="button"
+                                onClick={() =>
+                                  addAnswer(
+                                    data?.chapterId,
+                                    data?._id,
+                                    data?.quizz_opt_3
+                                  )
+                                }
+                              >
+                                {selectedAnswer.includes(data?.quizz_opt_3) && (
+                                  <span></span>
+                                )}
+                              </button>
+                              <p>{data?.quizz_opt_3}</p>
+                            </div>
+                            <div className="option_wrap">
+                              <button
+                                type="button"
+                                onClick={() =>
+                                  addAnswer(
+                                    data?.chapterId,
+                                    data?._id,
+                                    data?.quizz_opt_4
+                                  )
+                                }
+                              >
+                                {selectedAnswer.includes(data?.quizz_opt_4) && (
+                                  <span></span>
+                                )}
+                              </button>
+                              <p>{data?.quizz_opt_4}</p>
+                            </div>
+                          </div>
+                        )}
+
+                        {/*Assignment */}
+
+                        {data?.field === "assignment" && (
+                          <div className="assignment_sec">
+                            <h6 className="title">Assignment</h6>
+                            {data?.is_file_upload === "yes" ? (
+                              <div className="upload_wrap wow fadeInUp">
+                                <input type="file" />
+                                <div className="content">
+                                  <img src={icon.upload} alt="upload" />
+                                  <p className="small_text">
+                                    Click to select file or drag and drop
+                                  </p>
+                                  <p className="t-i-12">
+                                    .PDF, .Docx Under 10 MB
+                                  </p>
+                                </div>
+                              </div>
+                            ) : (
+                              ""
+                            )}
+                          </div>
+                        )}
+
+                        {/* Type : pdf */}
+
+                        {data?.field === "pdf" && (
+                          <div className="pdf_sec">
+                            <h6 className="title">PDF</h6>
+                            {data?.is_file_upload === "true" ? (
+                              <div className="upload_wrap wow fadeInUp">
+                                <input type="file" />
+                                <div className="content">
+                                  <img src={icon.upload} alt="upload" />
+                                  <p className="small_text">
+                                    Click to select file or drag and drop
+                                  </p>
+                                  <p className="t-i-12">
+                                    .PDF, .Docx Under 10 MB
+                                  </p>
+                                </div>
+                              </div>
+                            ) : viewPdf ? (
+                              <iframe src={`${baseUrl}/${data?.pdf}`}></iframe>
+                            ) : (
+                              <button
+                                type="button"
+                                className="primarybtn"
+                                onClick={() => setViewPdf(true)}
+                              >
+                                View PDF
+                              </button>
+                            )}
+                          </div>
+                        )}
+                      </Fragment>
+                    );
+                  })
+                ) : (
+                  <p>Data Not Found...</p>
+                )}
+
+                {chapters?.chapterinputs?.find(
+                  (ele) => ele.field === "quizz"
+                ) && (
+                  <button
+                    type="button"
+                    className="primarybtn quiz_submit"
+                    onClick={quizeSubmit}
+                  >
+                    Submit Quize
+                  </button>
+                )}
+              </Fragment>
+            )}
           </div>
         </div>
       </section>
-    </Fragment>
+    </AuthLayout>
   );
 };
 

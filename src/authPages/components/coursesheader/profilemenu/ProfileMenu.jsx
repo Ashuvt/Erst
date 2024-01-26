@@ -1,12 +1,15 @@
 import "./ProfileMenu.scss";
 import { icon } from "../../../../utils/images/icons";
-import { Fragment } from "react";
+import { Fragment, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {profileTabChanger} from "../../../../store/actions";
+import { redirectContext } from "../../../../context/RoutingContext";
 
 const ProfileMenu = ({ menuStatus, name }) => {
   const dispatch = useDispatch();
+const {logOutApi} = useContext(redirectContext);
+
 
   const menuData = [
     {
@@ -59,8 +62,7 @@ const ProfileMenu = ({ menuStatus, name }) => {
       icon: icon.logout,
       text:"Logout",
       clickHandler:() => {
-        localStorage.clear();
-        navigate("/signin");
+        logOutApi();
       }
     },
   ];

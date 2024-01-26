@@ -14,6 +14,7 @@ import {
   removeFromCart,
   checkout,
   coursedetailById,
+  userLogOut,
 } from "../utils/apidata";
 import axios from "axios";
 import {
@@ -40,6 +41,7 @@ const domainName = () => {
 };
 
 const RoutingContextProvider = ({ children }) => {
+  
   const path = useLocation();
 
   const dispatch = useDispatch();
@@ -124,7 +126,7 @@ const RoutingContextProvider = ({ children }) => {
         { course_id: courseId },
         { headers }
       );
-   
+
       if (response?.data?.success) {
         toastSuccess(response?.data?.message);
       } else {
@@ -274,9 +276,7 @@ const RoutingContextProvider = ({ children }) => {
         { headers }
       );
 
-
-
-      if (response?.data?.success) {       
+      if (response?.data?.success) {
         dispatch({
           type: EXPLORE_DETAIL_SUCCESS,
           payload: response?.data?.data,
@@ -334,6 +334,28 @@ const RoutingContextProvider = ({ children }) => {
     }
   };
 
+  const logOutApi = async () => {
+    const token = localStorage.getItem("token");
+    const headers = {
+      Authorization: `Bearer ${token}`,
+    };
+
+    try {
+      const response = await axios.get(`${baseUrl}/${userLogOut}`, { headers });
+      console.log("LogOut::", response);
+
+      if (response?.data?.success) {
+        localStorage.clear();
+        navigation("/signin");
+        toastSuccess(response?.data?.message || "LogOut Success!");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+    localStorage.clear();
+    navigation("/signin");
+  };
+
   const allRedirectFunctions = {
     resetAllToggles,
     signInHandler,
@@ -360,6 +382,7 @@ const RoutingContextProvider = ({ children }) => {
     emailSubscribeApi,
     checkoutApi,
     getCourseDetailApi,
+    logOutApi,
   };
 
   return (

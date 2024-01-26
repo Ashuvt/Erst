@@ -143,4 +143,10 @@ export const checkout = "api/createorder";
 export const getNotification = "api/getnotification";
 
 
+// Quiz Submit
+export const quizSubmit = "api/submitquizz";
 
+
+//LogOut Api
+
+export const userLogOut = "api/userlogout"

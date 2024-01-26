@@ -18,6 +18,7 @@ import axios from "axios";
 import { baseUrl, authHomeApi, saveCourse } from "../../utils/apidata";
 import { redirectContext } from "../../context/RoutingContext";
 import AuthLayout from "../AuthLayout";
+import HomeOfferModel from "./homeoffermodel/HomeOfferModel";
 
 const Home1 = () => {
   const fourInfoData = [
@@ -52,6 +53,7 @@ const Home1 = () => {
 
   const [recommaned, setRecommaned] = useState([]);
   const [cta, setCta] = useState([]);
+  const [couponModel, setCouponModel] = useState(false);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -123,12 +125,13 @@ const Home1 = () => {
               </div>
               <SavedList />
               {/* <ExploreCard /> */}
-              <OfferCard />
+              <OfferCard setCouponModel={setCouponModel}/>
             </div>
           </div>
           <BottomLive dataList={cta} />
         </div>
       </section>
+      {couponModel && <HomeOfferModel setCouponModel={setCouponModel} />}
     </AuthLayout>
   );
 };
