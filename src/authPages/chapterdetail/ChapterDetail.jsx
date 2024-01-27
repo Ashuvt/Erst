@@ -13,6 +13,7 @@ import {
   baseUrl,
   chapterDetail,
   courseCount,
+  markAsCompleted,
   moduleList,
   quizSubmit,
 } from "../../utils/apidata";
@@ -26,6 +27,9 @@ const ChapterDetail = () => {
   const [moduleLoader, setModuleLoader] = useState(false);
   const [chapterLoader, setChapterLoader] = useState(false);
   const [quizeSubmitLoader, setQuizeSubmitLoader] = useState(false);
+  const [asCompleted, setAsCompleted] = useState(false);
+
+  const [counteData, setCountsData] = useState({});
 
   const [modulesList, setModulesList] = useState([]);
   const [chapters, setChaprters] = useState({});
@@ -42,8 +46,6 @@ const ChapterDetail = () => {
   const statusChanger = () => {
     setStatus((prev) => !prev);
   };
-
-
 
   useEffect(() => {
     const wow = new WOW();
@@ -104,20 +106,26 @@ const ChapterDetail = () => {
   };
 
   // Course Count Percent Api
-
-  const courseCountPercent = async() => {
+  const courseCountPercent = async () => {
     const token = localStorage.getItem("token");
     const headers = {
       Authorization: `Bearer ${token}`,
     };
-    try {
-      const response = await axios.get(`${baseUrl}/${courseCount}`, {courseId:`${id}`}, {headers});
-      console.log("Count::", response);
-    } catch (error) {
-      console.log("Count Error::",error);
-    }
 
-  }
+    try {
+      const response = await axios.get(
+        `${baseUrl}/${courseCount}`,
+        { headers },
+        { courseId: `${id}` }
+      );
+      console.log("Count::", response);
+      if (response?.data?.success) {
+        setCountsData(response?.data?.data);
+      }
+    } catch (error) {
+      console.log("Count Error::", error);
+    }
+  };
 
   // Get Modules Api
   const getModules = async () => {
@@ -146,7 +154,6 @@ const ChapterDetail = () => {
   // Get Chapter Api
   const getChapterDetails = async (chapterId) => {
     setChapterLoader(true);
-
     const token = localStorage.getItem("token");
     const headers = {
       Authorization: `Bearer ${token}`,
@@ -199,6 +206,31 @@ const ChapterDetail = () => {
       console.log(error);
       toastError("Something Went Wrong!");
       setQuizeSubmitLoader(false);
+    }
+  };
+
+  const markAsCompletedApi = async () => {
+    const token = localStorage.getItem("token");
+
+    const headers = {
+      Authorization: `Bearer ${token}`,
+    };
+
+    setAsCompleted(true);
+    try {
+      const response = await axios.post(
+        `${baseUrl}/${markAsCompleted}`,
+        { chapterId: `${activeTab}` },
+        { headers }        
+      );
+      console.log(response);
+      if (response?.data?.success) {
+        toastSuccess(response?.data?.message || "Chapter Marked As Completed!");
+        setAsCompleted(false);
+      }
+    } catch (error) {
+      console.log(error);
+      setAsCompleted(false);
     }
   };
 
@@ -271,14 +303,22 @@ const ChapterDetail = () => {
             <div className="video_wrap">
               <img src={images.exploreDetail} alt="poster" />
               <div className="progress_bar">
-                <div className="filler" style={{ width: "13%" }}></div>
+                <div
+                  className="filler"
+                  style={{ width: `${counteData?.totalcomplatedcourse || 0}%` }}
+                ></div>
               </div>
-              <p className="percent">13%</p>
+              <p className="percent">
+                {counteData?.totalcomplatedcourse || 0}%
+              </p>
             </div>
             <p className="t-g-18">This is a RedTeam Course</p>
             <div className="module_count">
               <img src={icon.module} alt="module" />
-              <p>12/42 Modules</p>
+              <p>
+                {counteData?.complatemodule || 0} /{" "}
+                {counteData?.totalmodule || 0} Modules
+              </p>
             </div>
             {moduleLoader ? (
               <div className="loading_sec">
@@ -558,92 +598,101 @@ const ChapterDetail = () => {
                     })}
 
                     <h6 className="title m_t">Quize</h6>
-                    {quizeData?.length > 0 && quizeData?.map((data) => {
-                      return (
-                        <Fragment key={data?._id}>
-                          <div className="quize_sec">
-                            <h5>{data?.quizz_question}</h5>
+                    {quizeData?.length > 0 &&
+                      quizeData?.map((data) => {
+                        return (
+                          <Fragment key={data?._id}>
+                            <div className="quize_sec">
+                              <h5>{data?.quizz_question}</h5>
 
-                            <div className="option_wrap">
-                              <button
-                                type="button"
-                                onClick={() =>
-                                  addAnswer(
-                                    data?.chapterId,
-                                    data?._id,
-                                    data?.quizz_opt_1
-                                  )
-                                }
-                              >
-                                {selectedAnswer
-                                  .filter((ele) => ele.quizId === data?._id)[0]
-                                  ?.selectedOptions?.includes(
-                                    data?.quizz_opt_1
-                                  ) && <span></span>}
-                              </button>
-                              <p>{data?.quizz_opt_1}</p>
+                              <div className="option_wrap">
+                                <button
+                                  type="button"
+                                  onClick={() =>
+                                    addAnswer(
+                                      data?.chapterId,
+                                      data?._id,
+                                      data?.quizz_opt_1
+                                    )
+                                  }
+                                >
+                                  {selectedAnswer
+                                    .filter(
+                                      (ele) => ele.quizId === data?._id
+                                    )[0]
+                                    ?.selectedOptions?.includes(
+                                      data?.quizz_opt_1
+                                    ) && <span></span>}
+                                </button>
+                                <p>{data?.quizz_opt_1}</p>
+                              </div>
+                              <div className="option_wrap">
+                                <button
+                                  type="button"
+                                  onClick={() =>
+                                    addAnswer(
+                                      data?.chapterId,
+                                      data?._id,
+                                      data?.quizz_opt_2
+                                    )
+                                  }
+                                >
+                                  {selectedAnswer
+                                    .filter(
+                                      (ele) => ele.quizId === data?._id
+                                    )[0]
+                                    ?.selectedOptions?.includes(
+                                      data?.quizz_opt_2
+                                    ) && <span></span>}
+                                </button>
+                                <p>{data?.quizz_opt_2}</p>
+                              </div>
+                              <div className="option_wrap">
+                                <button
+                                  type="button"
+                                  onClick={() =>
+                                    addAnswer(
+                                      data?.chapterId,
+                                      data?._id,
+                                      data?.quizz_opt_3
+                                    )
+                                  }
+                                >
+                                  {selectedAnswer
+                                    .filter(
+                                      (ele) => ele.quizId === data?._id
+                                    )[0]
+                                    ?.selectedOptions?.includes(
+                                      data?.quizz_opt_3
+                                    ) && <span></span>}
+                                </button>
+                                <p>{data?.quizz_opt_3}</p>
+                              </div>
+                              <div className="option_wrap">
+                                <button
+                                  type="button"
+                                  onClick={() =>
+                                    addAnswer(
+                                      data?.chapterId,
+                                      data?._id,
+                                      data?.quizz_opt_4
+                                    )
+                                  }
+                                >
+                                  {selectedAnswer
+                                    .filter(
+                                      (ele) => ele.quizId === data?._id
+                                    )[0]
+                                    ?.selectedOptions?.includes(
+                                      data?.quizz_opt_4
+                                    ) && <span></span>}
+                                </button>
+                                <p>{data?.quizz_opt_4}</p>
+                              </div>
                             </div>
-                            <div className="option_wrap">
-                              <button
-                                type="button"
-                                onClick={() =>
-                                  addAnswer(
-                                    data?.chapterId,
-                                    data?._id,
-                                    data?.quizz_opt_2
-                                  )
-                                }
-                              >
-                                {selectedAnswer
-                                  .filter((ele) => ele.quizId === data?._id)[0]
-                                  ?.selectedOptions?.includes(
-                                    data?.quizz_opt_2
-                                  ) && <span></span>}
-                              </button>
-                              <p>{data?.quizz_opt_2}</p>
-                            </div>
-                            <div className="option_wrap">
-                              <button
-                                type="button"
-                                onClick={() =>
-                                  addAnswer(
-                                    data?.chapterId,
-                                    data?._id,
-                                    data?.quizz_opt_3
-                                  )
-                                }
-                              >
-                                {selectedAnswer
-                                  .filter((ele) => ele.quizId === data?._id)[0]
-                                  ?.selectedOptions?.includes(
-                                    data?.quizz_opt_3
-                                  ) && <span></span>}
-                              </button>
-                              <p>{data?.quizz_opt_3}</p>
-                            </div>
-                            <div className="option_wrap">
-                              <button
-                                type="button"
-                                onClick={() =>
-                                  addAnswer(
-                                    data?.chapterId,
-                                    data?._id,
-                                    data?.quizz_opt_4
-                                  )
-                                }
-                              >
-                                {selectedAnswer
-                                  .filter((ele) => ele.quizId === data?._id)[0]
-                                  ?.selectedOptions?.includes(
-                                    data?.quizz_opt_4
-                                  ) && <span></span>}
-                              </button>
-                              <p>{data?.quizz_opt_4}</p>
-                            </div>
-                          </div>
-                        </Fragment>
-                      );
-                    })}
+                          </Fragment>
+                        );
+                      })}
                   </Fragment>
                 ) : (
                   <p>Data Not Found...</p>
@@ -668,6 +717,23 @@ const ChapterDetail = () => {
                   </Fragment>
                 )}
               </Fragment>
+            )}
+            {activeTab && (
+              <div className="completed_wrap">
+                {asCompleted ? (
+                  <button type="button" className="primarybtn">
+                    Loading...
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    className="primarybtn"
+                    onClick={markAsCompletedApi}
+                  >
+                    Mark As Completed
+                  </button>
+                )}
+              </div>
             )}
           </div>
         </div>

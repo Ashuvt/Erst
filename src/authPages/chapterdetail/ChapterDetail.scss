@@ -123,6 +123,7 @@ section.explore_cources {
                     .filler {
                         height: 100%;
                         background-color: $primary;
+                        transition:all 0.4s ease-in-out;
                     }
                 }
 
@@ -309,4 +310,11 @@ section.explore_cources {
 
 button.quiz_submit{
     margin-top:40px;
+}
+
+.completed_wrap{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+     margin-top:30px;   
 }

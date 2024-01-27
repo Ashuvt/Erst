@@ -105,6 +105,9 @@ export const chapterDetail = "api/chapterdetails";
 export const quizSubmit = "api/submitquizz";
 export const courseCount = "api/chapterdetailscount";
 
+export const markAsCompleted = "api/chaptercomplate"
+
+
 // Add To Cart
 export const addToCart = "api/addtocart";
 
