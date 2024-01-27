@@ -51,8 +51,9 @@ const WelComeStrip = ({ title, text }) => {
         <h1 className="wow fadeInUp">{titleText}</h1>
         <p className="wow fadeInUp">{text}</p>
       </div>
-      <img src={images.bgPattern} alt="pattern" className="left" />
-      <img src={images.bgPattern} alt="pattern" className="right" />
+
+
+      <img src={images.bluePattern} alt="pattern" className="pattern" /> 
     </section>
   );
 };

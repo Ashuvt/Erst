@@ -122,6 +122,9 @@ import filledWatch from "../../assets/images/filledwatch.svg";
 import addCart from "../../assets/images/addcart.svg";
 import discount from "../../assets/images/off.png";
 
+import blueTeam from "../../assets/images/logos/transparent-BlueTeam.png"
+import redTeam from "../../assets/images/logos/transparent-RedTeam.png"
+import bluePattern from "../../assets/images/bluepattern.svg";
 
 
 export const logoImage = {
@@ -245,7 +248,11 @@ export const images = {
   eventB,
   eventC,
   about,
-  JoinTeam
+  JoinTeam,
+
+  blueTeam,
+  redTeam,
+  bluePattern,
   
 };
 

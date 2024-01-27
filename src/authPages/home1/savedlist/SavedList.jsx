@@ -61,6 +61,11 @@ const headers = {
  }
 }
 
+const saveBtnHandler = (e, id) => {
+  e.stopPropagation();
+  saveCourseApi(id);
+}
+
   return (
     <div className="home_saved_list">
       <div className="title">
@@ -73,8 +78,8 @@ const headers = {
       {saveCourseList.length > 0 ? (
         saveCourseList.map((data) => {
           return (
-            <div className="saved_card_wrap wow fadeInRight" key={data._id}>
-                <button type="button" className="saved_btn" onClick={() => saveCourseApi(data?.course_id?._id)}>
+            <div className="saved_card_wrap wow fadeInRight" key={data._id} onClick={() => navigate(`/explore/${data?.course_id?._id}`)}>
+                <button type="button" className="saved_btn" onClick={(e) => saveBtnHandler(e, data?.course_id?._id)}>
                     <img src={icon.saved} alt="saveicon" />                  
                 </button>
               <div className="bg_card_overlay"></div>

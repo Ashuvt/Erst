@@ -253,10 +253,7 @@ const RoutingContextProvider = ({ children }) => {
 
     try {
       const response = await axios.post(
-        `${baseUrl}/${checkout}`,
-        {},
-        { headers }
-      );
+        `${baseUrl}/${checkout}`,{}, { headers });
       if (response.data?.success) {
         window.open(response?.data?.data?.url, "_blank", "noreferrer");
       }

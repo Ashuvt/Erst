@@ -10,21 +10,12 @@ import { useNavigate } from "react-router-dom";
 
 const ViewCart = () => {
   const navigate = useNavigate();
-  const settings = {
+  const setting = {
     dots: false,
     infinite: false,
     speed: 500,
     slidesToShow: 2,
     slidesToScroll: 1,
-    responsive: [
-      {
-        breakpoint: 1000,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
   };
 
   const couponCodes = [
@@ -52,7 +43,7 @@ const ViewCart = () => {
     useContext(redirectContext);
 
   const { applyCouponLoading } = useSelector((state) => state.ApplyCouponApi);
-  
+
   const { loading, cartData, error } = useSelector(
     (state) => state.getCartReducer
   );
@@ -69,8 +60,8 @@ const ViewCart = () => {
     <AuthLayout>
       <section className="view_cart">
         <div className="auth_container">
-          <div className="cart_grid">
-            <div className="left r">
+          <div className="cart_grid_wrap">
+            <div className="left_list r">
               <div className="title">
                 <h5>My Cart ({cartData?.cart?.length || 0})</h5>
                 <button>Continue Shopping</button>
@@ -132,39 +123,44 @@ const ViewCart = () => {
 
               {cartData?.recommendedBundles?.length > 0 && (
                 <Fragment>
-                  <h6 className="m_b">Reccomonded Courses</h6>
+                  <h6 className="m_b m_t">Reccomended Courses</h6>
                   {/* Reccomonded List */}
-                  <Slider {...settings}>
-                    {cartData?.recommendedBundles?.map((data) => {
-                      return (
-                        <div className="reccomended_slide" key={data._id}>
-                          <div
-                            className="product_card"
-                            onClick={() => navigate(`/explore/${data._id}`)}
-                          >
-                            <div className="info">
-                              <div className="img_wrap">
-                                <img src={icon.courses} alt="course" />
-                              </div>
-                              <div className="text">
-                                <div className="left">
-                                  <p className="name">{data?.name}</p>
-                                  <p>{data?.small_description}</p>
-                                  <p className="price">999 INR</p>
+                  <div className="slide_boxwrap">
+                    <Slider {...setting}>
+                      {cartData?.recommendedBundles?.map((data) => {
+                        return (
+                          <div className="reccomended_slide" key={data._id}>
+                            <div
+                              className="product_card_wrap"
+                              onClick={() => navigate(`/explore/${data._id}`)}
+                            >
+                              <div className="info">
+                                <div className="img_wrap">
+                                  <img src={icon.courses} alt="course" />
+                                </div>
+                                <div className="text">
+                                  <div className="left">
+                                    <p className="name">{data?.name}</p>
+                                    <p className="des">
+                                      {data?.small_description}
+                                    </p>
+                                    <p className="price">999 INR</p>
+                                  </div>
                                 </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                      );
-                    })}
-                  </Slider>
+                        );
+                      })}
+                    </Slider>
+                  </div>
                 </Fragment>
               )}
             </div>
             <div className="right">
               <div className="top">
                 {/* Coupon Code Input */}
+                <h6 className="m_b">Coupon</h6>
                 <div className="apply_field">
                   <input
                     type="text"
@@ -180,7 +176,11 @@ const ViewCart = () => {
                     <button
                       type="button"
                       className="primarybtn"
-                      onClick={() => applyCouponApi(coupon)}
+                      onClick={() => {
+                        applyCouponApi(coupon);
+                        setCoupon("");
+                      }}
+                      disabled={coupon?.trim()?.length === 0}
                     >
                       Apply
                     </button>

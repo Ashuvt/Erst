@@ -7,6 +7,28 @@ section.explore_detail {
     padding-top: 80px;
     padding-bottom: 80px;
     background: $bgGradient;
+    position:relative;
+    overflow: hidden;
+    img.pattern {
+        position: absolute;
+        width: 100%;
+        z-index: 0;
+        left:2%;
+        top:-30%;
+        transform: rotate(0deg);
+        opacity: 0.15;
+        transform-origin: left center;
+        animation-name: bgRotate;
+        animation-iteration-count: infinite;
+        animation-duration:30s;
+        animation-direction: alternate;
+        animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+        animation-delay: 0s;
+
+        @media only screen and (max-width:$laptop){
+        top:0px;
+        }
+    }
 
     @media only screen and (max-width:$tab) {
         padding-top: 60px;
@@ -31,6 +53,7 @@ section.explore_detail {
         justify-content: flex-start;
         align-items: center;
         gap: 48px;
+        z-index:2;
 
         @media only screen and (max-width:$laptop) {
             flex-direction: column;
@@ -150,5 +173,15 @@ section.explore_detail {
                 margin-top: 20px;
             }
         }
+    }
+}
+
+@keyframes bgRotate {
+    0% {
+        transform: rotateZ(-10deg);
+    }
+
+    50% {
+        transform: rotateZ(-10deg);
     }
 }

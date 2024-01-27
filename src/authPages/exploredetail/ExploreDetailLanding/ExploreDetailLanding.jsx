@@ -4,6 +4,7 @@ import { icon } from "../../../utils/images/icons";
 import { baseUrl } from "../../../utils/apidata";
 import { redirectContext } from "../../../context/RoutingContext";
 import { useSelector } from "react-redux";
+import { images } from "../../../utils/images/images";
 
 const ExploreDetailLanding = () => {
   
@@ -13,6 +14,7 @@ const ExploreDetailLanding = () => {
 
   return (
     <section className="explore_detail" onClick={resetAllToggles}>
+            <img src={images.bluePattern} alt="pattern" className="pattern" />
       <div className="screen_container">
         {courseDetailLoading ? (
           <div className="loader">

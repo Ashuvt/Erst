@@ -15,6 +15,7 @@ const ProfileBanner = () => {
 
     return(
         <section className="profile_banner" onClick={resetToggler}>
+              <img src={images.bluePattern} alt="pattern" className="pattern" />
             <img src={images.bgPattern} alt="patter" className="pattern" />
             <div className="screen_container">
                     <div className="content">

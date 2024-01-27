@@ -82,19 +82,6 @@
             z-index: 0;
         }
 
-        .free_pill {
-            position: absolute;
-            top: 8px;
-            left: 8px;
-            padding: 2px 8px;
-            background-color: $primary;
-            border-radius: 4px;
-
-            p {
-                @include font('SpaceGrotesk-Regular', 12px, 20px, 400, $textPrimary);
-                text-transform: uppercase;
-            }
-        }
     }
 
     .text_info {

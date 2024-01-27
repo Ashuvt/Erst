@@ -23,10 +23,7 @@ const RecommendedModuleCard = ({
     >
       <div className="bg_card_overlay"></div>
       <div className="poster_wrap">
-        <img src={`${baseUrl}/${image}`} alt="poster" />
-        <div className="free_pill">
-          <p>Free</p>
-        </div>
+        <img src={`${baseUrl}/${image}`} alt="poster" />    
       </div>
       <div className="text_info">
         <p className="title">{name}</p>

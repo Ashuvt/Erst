@@ -17,41 +17,57 @@ section.welcome_strip {
             @include font('SpaceGrotesk-Regular', 40px, 44px, 400, $white);
             animation: blink-caret 0.75s step-end infinite;
             display: inline-block;
-            padding-right:5px;
+            padding-right: 5px;
         }
 
         p {
             margin-top: 12px;
             max-width: 370px;
             width: 100%;
-            color:$textPrimary;
+            color: $textPrimary;
         }
     }
 
-    img {
+    img.pattern {
         position: absolute;
-        width: 676.778px;
-        height: 547.681px;
+        width: 100%;
+        z-index: 0;
 
-        &.left {
-            left: -20%;
-            bottom:-20%;
-        }
+        left:2%;
+        top:-30%;
+        transform: rotate(0deg);
+        opacity: 0.15;
+        transform-origin: left center;
+        animation-name: bgRotate;
+        animation-iteration-count: infinite;
+        animation-duration:30s;
+        animation-direction: alternate;
+        animation-timing-function:linear;
+        animation-delay: 0s;
 
-        &.right {
-            right:0%;
-            top:0%;
-            transform: rotate(-45deg);
-            -webkit-transform: rotate(-45deg);
+        @media only screen and (max-width:$laptop){
+        top:0px;
         }
     }
+
 }
 
 @keyframes blink-caret {
     0% {
-      border-color: transparent;
+        border-color: transparent;
     }
+
     50% {
-      border-color: #fff;;
+        border-color: #fff;
     }
-  }
+}
+
+@keyframes bgRotate {
+    0% {
+        transform: rotateZ(-10deg);
+    }
+
+    50% {
+        transform: rotateZ(-10deg);
+    }
+}

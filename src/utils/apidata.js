@@ -132,3 +132,5 @@ export const applyCoupon = "api/applycoupon";
 
 //LogOut Api
 export const userLogOut = "api/userlogout";
+
+export const paymentSuccess = "api/paymentsuccesshome";

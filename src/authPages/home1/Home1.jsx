@@ -54,6 +54,7 @@ const Home1 = () => {
   const [recommaned, setRecommaned] = useState([]);
   const [cta, setCta] = useState([]);
   const [couponModel, setCouponModel] = useState(false);
+  const [couponOffer, setCouponOffer] = useState({});
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -74,6 +75,8 @@ const Home1 = () => {
       if (response.data.success) {
         setCta(response?.data?.data?.cta);
         setRecommaned(response?.data?.data?.recommaned_bundles);
+        setCouponOffer(response?.data?.data?.coupon);
+        console.log("Home:::", response);
       } else {
         setCta([]);
         setRecommaned([]);
@@ -105,7 +108,7 @@ const Home1 = () => {
               <PopularSkillPath />
             </div>
             <div className="right">
-              <div className="in_progress">
+              {/* <div className="in_progress">
                 <h5 className="title_class wow fadeInRight">In progress</h5>
                 <p className="dark wow fadeInRight" data-wow-delay="0.2s">
                   Pick a course and start learning
@@ -118,20 +121,37 @@ const Home1 = () => {
                   type="button"
                   className="authbtn auth_primary wow fadeInRight"
                   data-wow-delay="0.4s"
-                  onClick={() => navigate("/explore/course")}
+                  onClick={() => navigate("/auth/explore")}
                 >
-                  Cources
+                  Courses
                 </button>
-              </div>
+              </div> */}
+
               <SavedList />
-              {/* <ExploreCard /> */}
-              <OfferCard setCouponModel={setCouponModel}/>
+
+              {couponOffer?.code && (
+                <OfferCard
+                  description={couponOffer?.description}
+                  title={couponOffer?.title}
+                  code={couponOffer?.code}
+                  setCouponModel={setCouponModel}
+                  offer={couponOffer?.percentage}
+                />
+              )}
             </div>
           </div>
-          <BottomLive dataList={cta} />
+          {/* <BottomLive dataList={cta} /> */}
         </div>
       </section>
-      {couponModel && <HomeOfferModel setCouponModel={setCouponModel} />}
+      {couponModel && (
+        <HomeOfferModel
+          setCouponModel={setCouponModel}
+          description={couponOffer?.description}
+          title={couponOffer?.title}
+          code={couponOffer?.code}
+          offer={couponOffer?.percentage}
+        />
+      )}
     </AuthLayout>
   );
 };

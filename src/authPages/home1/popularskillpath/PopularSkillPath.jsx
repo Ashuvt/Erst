@@ -3,6 +3,7 @@ import ModuleTitle from "../../components/moduletitle/ModuleTitle";
 import { icon } from "../../../utils/images/icons";
 import { images } from "../../../utils/images/images";
 import SkillPathCard from "../../components/skillpathcard/SkillPathCard";
+import { useNavigate } from "react-router-dom";
 
 const PopularSkillPath = () => {
   const data = [
@@ -37,13 +38,17 @@ const PopularSkillPath = () => {
       count: 1331,
     },
   ];
+
+  const navigate = useNavigate();
+
   return (
     <Fragment>
       <ModuleTitle
-        title="Popular skill paths"
+        title="Popular Bundles"
         text="Hi Rajat, Based on your intersect in ComTIA security we suggest you some of personally curated modules"
-        btntext="Other skill paths"
+        btntext="Popular Bundles"
         icon={icon.blueRightArrow}
+        redirectTo="/auth/explore"
       />
 
       {data.map((info) => {

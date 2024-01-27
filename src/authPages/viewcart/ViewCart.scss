@@ -3,11 +3,9 @@
 
 section.view_cart {
     .auth_container {
-
-
-        .cart_grid {
+        .cart_grid_wrap {
             display: grid;
-            grid-template-columns: 1fr 0.7fr;
+            grid-template-columns: 1fr 1fr;
             gap: 30px;
             margin-top: 60px;
             padding-bottom: 30px;
@@ -16,11 +14,15 @@ section.view_cart {
                 grid-template-columns: 1fr;
             }
 
-            .left {
-              &.r{
-                border-right: 1px solid $lightBorder_1 ;
-                padding-right: 30px; 
-              }
+            .left_list {
+                width:100%;
+                &.r {
+                    border-right: 1px solid $lightBorder_1 ;
+                    padding-right: 30px;
+                    @media only screen and (max-width:$tab){}
+                    border-right:none;
+                    padding-right:0px;
+                }
 
                 @media only screen and (max-width:$tab) {
                     border-style: none;
@@ -144,100 +146,117 @@ section.view_cart {
                     }
                 }
 
-                .reccomended_slide {
-                    padding: 0px 8px 0px 0px;
-
-                    .product_card {
-                        cursor:pointer;
-                        display: flex;
-                        justify-content: space-between;
-                        align-items: flex-start;
-                        padding: 12px 0px;
-                        background-color: rgba($white, 0.05);
-                        margin-bottom: 4px;
-                        border-radius: 8px;
-                        padding: 15px 20px;
-                        transition: all 0.3s ease-in-out;
-
-                        &:hover {
-                            background-color: rgba($white, 0.08);
-                        }
-
-                        @media only screen and (max-width:$mobile) {
-                            flex-direction: column;
-                        }
-
-                        .info {
+                .slide_boxwrap{
+                    max-width:100%;
+                    .reccomended_slide {
+                        padding: 0px 8px 0px 0px;
+                        max-width:100%;
+                        .product_card_wrap {
+                            cursor: pointer;
                             display: flex;
-                            justify-content: flex-start;
+                            justify-content: space-between;
                             align-items: flex-start;
-                            gap: 15px;
-
-                            width: 100%;
-
-                            .img_wrap {
-                                height: 60px;
-                                width: 60px;
-                                overflow: hidden;
-                                display: grid;
-                                place-items: center;
-
-                                img {
-                                    height: 100%;
-                                    width: 100%;
-                                    object-fit: contain;
-                                    width: 25px;
-                                }
+                            padding: 12px 0px;
+                            background-color: rgba($white, 0.05);
+                            margin-bottom: 4px;
+                            border-radius: 8px;
+                            padding: 15px 20px;
+                            transition: all 0.3s ease-in-out;
+    
+                            &:hover {
+                                background-color: rgba($white, 0.08);
                             }
-
-                            .text {
+    
+                            @media only screen and (max-width:$mobile) {
+                                flex-direction: column;
+                            }
+    
+                            .info {
                                 display: flex;
-                                justify-content: space-between;
-                                align-items: center;
-                                width: calc(100% - 80px);
-
-                                .left {
-
-
-                                    p {
-                                        &.name {
-                                            @include font('Inter-Regular', 20px, 24px, 500, $white);
-                                            display: -webkit-box;
-                                            -webkit-line-clamp: 1;
-                                            -webkit-box-orient: vertical;
-                                            overflow: hidden;
-                                        }
-
-                                        &.price {
-                                            @include font('Inter-Regular', 15px, 23.8px, 400, $white);
-                                            margin: 10px 0px 5px;
-                                        }
+                                justify-content: flex-start;
+                                align-items: flex-start;
+                                gap: 15px;
+    
+                                width: 100%;
+    
+                                .img_wrap {
+                                    height: 60px;
+                                    width: 60px;
+                                    overflow: hidden;
+                                    display: grid;
+                                    place-items: center;
+    
+                                    img {
+                                        height: 100%;
+                                        width: 100%;
+                                        object-fit: contain;
+                                        width: 25px;
                                     }
                                 }
-
-                                button {
-                                    margin: 0px;
-                                    padding: 0px;
-                                    @include font('SpaceGrotesk-Regular', 12px, 12px, 500, $primary);
-                                    text-transform: uppercase;
-                                    letter-spacing: 2.4px;
-                                    border-style: none;
-                                    background-color: transparent;
+    
+                                .text {
+                                    display: flex;
+                                    justify-content: space-between;
+                                    align-items: center;
+                                    width: calc(100% - 80px);
+    
+                                    .left {
+    
+    
+                                        p {
+                                            &.name {
+                                                @include font('Inter-Regular', 20px, 24px, 500, $white);
+                                                display: -webkit-box;
+                                                -webkit-line-clamp: 1;
+                                                -webkit-box-orient: vertical;
+                                                overflow: hidden;
+                                            }
+    
+                                            &.price {
+                                                @include font('Inter-Regular', 15px, 23.8px, 400, $white);
+                                                margin: 10px 0px 5px;
+                                            }
+    
+                                            &.des {
+                                                display: -webkit-box;
+                                                -webkit-line-clamp: 1;
+                                                -webkit-box-orient: vertical;
+                                                overflow: hidden;
+                                            }
+                                        }
+                                    }
+    
+                                    button {
+                                        margin: 0px;
+                                        padding: 0px;
+                                        @include font('SpaceGrotesk-Regular', 12px, 12px, 500, $primary);
+                                        text-transform: uppercase;
+                                        letter-spacing: 2.4px;
+                                        border-style: none;
+                                        background-color: transparent;
+                                    }
                                 }
                             }
+    
+    
                         }
-
-
+    
                     }
-
                 }
 
-                h6 {
+
+            }
+
+            h6 {
+
+                letter-spacing: 1px;
+
+                &.m_t {
                     margin-top: 20px;
-                    letter-spacing: 1px;
-                    &.m_b{
-                    margin-bottom:20px;
-                    }
+                }
+
+                &.m_b {
+                    margin-bottom: 20px;
                 }
             }
 
@@ -245,7 +264,12 @@ section.view_cart {
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
-
+                align-self: flex-start;
+                min-height:500px;
+                width:100%;
+                @media only screen and (max-width:$tab){
+                    min-height:350px;
+                }
                 .top {
                     .apply_field {
                         display: flex;
@@ -266,8 +290,14 @@ section.view_cart {
                             }
                         }
 
-                        button {
+                        button.primarybtn {
                             width: 100px;
+                            transition: all 0.3s ease-in-out;
+
+                            &:disabled {
+                                pointer-events: none;
+                                opacity: 0.5;
+                            }
                         }
                     }
 

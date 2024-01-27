@@ -17,7 +17,7 @@ const MyProfile = () => {
     },
     {
       id: 1,
-      name: "UAE",
+      name:"Dubai",
     },
     {
       id: 2,

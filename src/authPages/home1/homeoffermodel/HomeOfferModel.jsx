@@ -3,15 +3,21 @@ import "./HomeOfferModel.scss";
 import { IoMdClose } from "react-icons/io";
 import { MdOutlineContentCopy } from "react-icons/md";
 
-const HomeOfferModel = ({setCouponModel}) => {
+const HomeOfferModel = ({
+  setCouponModel,
+  code,
+  title,
+  description,
+  offer,
+}) => {
   const [copied, setCopied] = useState(false);
 
   const copyToClip = () => {
     setCopied(true);
-    navigator.clipboard.writeText("Coupan Code");
+    navigator.clipboard.writeText(`${code}`);
     setTimeout(() => {
       setCopied(false);
-    },2000);
+    }, 2000);
   };
 
   return (
@@ -24,19 +30,28 @@ const HomeOfferModel = ({setCouponModel}) => {
           </button>
         </div>
         <div className="model_body">
-          <p>Coupan code offered</p>
-          <p>Lorem ipsum dolor sit amet.</p>
+          <p>{title}</p>
+
+          {description && (
+            <div
+              className="desc"
+              dangerouslySetInnerHTML={{ __html: description }}
+            ></div>
+          )}
+
+          {offer && <p>Offer : {offer}%</p>}
+
           <div className="code_wrap">
-            {copied ? (
-              <p>Coupen Copied To Clipboard...</p>
-            ) : (
-              <Fragment>
-                <p>WSD526</p>
-                <button type="button" onClick={copyToClip}>
-                  <MdOutlineContentCopy />
-                </button>
-              </Fragment>
-            )}
+            <p>Code : {code}</p>
+
+            <Fragment>
+              <button type="button" onClick={copyToClip}>
+                {
+                  copied ? "Copied..." : <MdOutlineContentCopy />
+                }
+                
+              </button>
+            </Fragment>
           </div>
         </div>
       </div>

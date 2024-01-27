@@ -60,6 +60,7 @@ section.explore_page {
                 width: calc(100% - 264px);
                 border-left: 1px solid $borderSubtle;
                 padding-bottom:40px;
+               
                 @media only screen and (max-width:$tab){
                     padding-left:0px;
                     width:100%;
@@ -71,6 +72,13 @@ section.explore_page {
                     display: grid;
                     grid-template-columns:1fr 1fr 1fr;
                     gap: 16px;
+                    @media only screen and (max-width:$laptop){
+                        grid-template-columns:1fr 1fr;
+                    }
+                    @media only screen and (max-width:$mobile){
+                        grid-template-columns:1fr;
+                    }
+                    
                 }
 
                 .empty_box{

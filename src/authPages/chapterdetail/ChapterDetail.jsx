@@ -317,7 +317,7 @@ const ChapterDetail = () => {
               <img src={icon.module} alt="module" />
               <p>
                 {counteData?.complatemodule || 0} /{" "}
-                {counteData?.totalmodule || 0} Modules
+                {counteData?.totalmodule || 0} Completed Modules
               </p>
             </div>
             {moduleLoader ? (
