@@ -277,6 +277,7 @@
        .reccomended_slide{
         padding:0px 4px;
         .product_card {
+            cursor:pointer;
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
@@ -307,11 +308,14 @@
                     height: 60px;
                     width: 60px;
                     overflow: hidden;
+                    display: grid;
+                    place-items:center;
 
                     img {
                         height: 100%;
                         width: 100%;
-                        object-fit: cover;
+                        object-fit:contain;
+                        width:25px;                       
                     }
                 }
 

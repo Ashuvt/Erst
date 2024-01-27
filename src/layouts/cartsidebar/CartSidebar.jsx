@@ -50,13 +50,8 @@ const CartSidebar = () => {
   ];
 
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-
-  const [couponBtn, setCouponBtn] = useState(true);
-  const [applyLoader, setApplyLoader] = useState(false);
-  const [couponField, setCouponField] = useState(true);
+  const navigate = useNavigate();  
   const [coupon, setCoupon] = useState("");
-  const [couponSuccess, setCouponSuccess] = useState(false);
 
   const cartPopupStatus = useSelector(
     (data) => data.toggleReducer.cartPopupStatus
@@ -66,11 +61,17 @@ const CartSidebar = () => {
     (state) => state.getCartReducer
   );
 
+  const {applyCouponLoading} = useSelector(state => state.ApplyCouponApi);
+
   const resetToggler = () => {
     dispatch({ type: resetAllToggler() });
   };
 
-  const { removeFromCartApi, checkoutApi } = useContext(redirectContext);
+  const { removeFromCartApi, checkoutApi, getCouponApi, applyCouponApi } =
+    useContext(redirectContext);
+
+  const { couponListData } = useSelector((state) => state?.getCouponsListApi);
+  
 
   const country = localStorage.getItem("country");
 
@@ -78,18 +79,6 @@ const CartSidebar = () => {
     setCoupon(e.target.value);
   };
 
-  const couponApply = () => {
-    setApplyLoader(true);
-
-    setTimeout(() => {
-      setCouponField(false);
-      setCouponBtn(false);
-      setCouponSuccess(true);
-      console.log(coupon);
-      setCoupon("");
-      setApplyLoader(false);
-    }, 2000);
-  };
 
   return (
     <Fragment>
@@ -169,33 +158,41 @@ const CartSidebar = () => {
         {/* Footer */}
 
         <div className="cart_footer">
-          <h6>Reccomonded Courses</h6>
-          {/* Reccomonded List */}
-          <Slider {...settings}>
-            {recommended.map((data) => {
-              return (
-                <div className="reccomended_slide" key={data.id}>
-                <div className="product_card">
-                  <div className="info">
-                    <div className="img_wrap">
-                      <img src={data.img} alt="course" />
-                    </div>
-                    <div className="text">
-                      <div className="left">
-                        <p className="name">{data?.name}</p>
-                        <p className="price">999 INR</p>
+          {cartData?.recommendedBundles?.length > 0 && (
+            <Fragment>
+              <h6>Reccomonded Courses</h6>
+              {/* Reccomonded List */}
+              <Slider {...settings}>
+                {cartData?.recommendedBundles?.map((data) => {
+                  return (
+                    <div className="reccomended_slide" key={data._id}>
+                      <div
+                        className="product_card"
+                        onClick={() => navigate(`explore/${data?._id}`)}
+                      >
+                        <div className="info">
+                          <div className="img_wrap">
+                            <img src={icon.courses} alt="course" />
+                          </div>
+                          <div className="text">
+                            <div className="left">
+                              <p className="name">{data?.name}</p>
+                              <p>{data?.small_description}</p>
+                              <p className="price">999 INR</p>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </div>
-                </div>
-              );
-            })}
-          </Slider>
+                  );
+                })}
+              </Slider>
+            </Fragment>
+          )}
 
-          <h6 style={{marginTop:"15px"}}>Coupon Code</h6>
+          <h6 style={{ marginTop: "15px" }}>Coupon Code</h6>
           {/* Coupon Code Input */}
-          {couponField && (
+          
             <div className="apply_field">
               <input
                 type="text"
@@ -203,7 +200,7 @@ const CartSidebar = () => {
                 onChange={couponHandler}
                 value={coupon}
               />
-              {applyLoader ? (
+              {applyCouponLoading ? (
                 <button type="button" className="primarybtn">
                   Loading...
                 </button>
@@ -211,44 +208,44 @@ const CartSidebar = () => {
                 <button
                   type="button"
                   className="primarybtn"
-                  onClick={couponApply}
+                  onClick={() => applyCouponApi(coupon)}
                 >
                   Apply
                 </button>
               )}
             </div>
-          )}
 
-          {/* Coupon Success MEssage */}
-          {couponSuccess && (
-            <p className="coupon_success">Coupon Applied Success!</p>
-          )}
+          {couponListData?.length > 0 && (
+            <Slider {...settings}>
+              {couponListData?.filter(ele => !ele?.page)?. map((data) => {
+                
+                  return (
+                    <div className="slide_wrap" key={data._id}>
+                      <div className="coupon_card">
+                        <div className="coupon_left">
+                          <h6>Coupon</h6>
+                          {data?.title && <p>{data?.title}</p>}
 
-          <Slider {...settings}>
-            {couponCodes.map((data) => {
-              return (
-                <div className="slide_wrap" key={data.id}>
-                  <div className="coupon_card">
-                    <div className="coupon_left">
-                      <h6>{data.title}</h6>
-                      <p>{data.text}</p>
-                      <p>Code : {data.code}</p>
+                          <p>{data.text}</p>
+                          <p>Code : {data.code}</p>
+                        </div>
+                        <button
+                          type="button"
+                          className="apply_Btn"
+                          onClick={() => {
+                            setCoupon(data?.code);
+                          }}
+                          disabled={coupon.length > 0}
+                        >
+                          {coupon === data.code ? "Added" : "Add"}
+                        </button>
+                      </div>
                     </div>
-                    <button
-                      type="button"
-                      className="apply_Btn"
-                      onClick={() => {
-                        setCoupon(data.code);
-                      }}
-                      disabled={coupon.length > 0}
-                    >
-                      {coupon === data.code ? "Added" : "Add"}
-                    </button>
-                  </div>
-                </div>
-              );
-            })}
-          </Slider>
+                  );
+                
+              })}
+            </Slider>
+          )}
 
           <div className="total">
             <p>Subtotal</p>

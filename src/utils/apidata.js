@@ -117,12 +117,18 @@ export const getCart = "api/getcart";
 //Remove From Cart
 export const removeFromCart = "api/removecart";
 
+//Get Coupan List
+export const couponlist = "api/couponlist";
+
 // Checkout
 export const checkout = "api/createorder";
 
 //Notification
 export const getNotification = "api/getnotification";
 
-//LogOut Api
+// Apply Coupon
 
+export const applyCoupon = "api/applycoupon";
+
+//LogOut Api
 export const userLogOut = "api/userlogout";

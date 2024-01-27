@@ -4,8 +4,29 @@ import { useSelector, useDispatch } from "react-redux";
 import { Fragment, useContext, useEffect, useState } from "react";
 import { redirectContext } from "../../context/RoutingContext";
 import { baseUrl } from "../../utils/apidata";
+import { icon } from "../../utils/images/icons";
+import Slider from "react-slick";
+import { useNavigate } from "react-router-dom";
 
 const ViewCart = () => {
+  const navigate = useNavigate();
+  const settings = {
+    dots: false,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 2,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1000,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
   const couponCodes = [
     {
       id: 0,
@@ -21,14 +42,17 @@ const ViewCart = () => {
     },
   ];
 
-  const [applyLoader, setApplyLoader] = useState(false);
-  const [couponField, setCouponField] = useState(true);
+  const { couponListData } = useSelector((state) => state?.getCouponsListApi);
+
   const [coupon, setCoupon] = useState("");
-  const [couponSuccess, setCouponSuccess] = useState(false);
 
   const country = localStorage.getItem("country");
-  const { getCartApi, removeFromCartApi, checkoutApi } =
+
+  const { getCartApi, removeFromCartApi, checkoutApi, applyCouponApi } =
     useContext(redirectContext);
+
+  const { applyCouponLoading } = useSelector((state) => state.ApplyCouponApi);
+  
   const { loading, cartData, error } = useSelector(
     (state) => state.getCartReducer
   );
@@ -41,24 +65,12 @@ const ViewCart = () => {
     setCoupon(e.target.value);
   };
 
-  const couponApply = () => {
-    setApplyLoader(true);
-
-    setTimeout(() => {
-      setCouponField(false);
-      setCouponSuccess(true);
-      console.log(coupon);
-      setCoupon("");
-      setApplyLoader(false);
-    }, 2000);
-  };
-
   return (
     <AuthLayout>
       <section className="view_cart">
         <div className="auth_container">
           <div className="cart_grid">
-            <div className="left">
+            <div className="left r">
               <div className="title">
                 <h5>My Cart ({cartData?.cart?.length || 0})</h5>
                 <button>Continue Shopping</button>
@@ -117,65 +129,90 @@ const ViewCart = () => {
                   </div>
                 )}
               </div>
-              
-              <h6>Recommended Courses</h6>
 
-
-              
+              {cartData?.recommendedBundles?.length > 0 && (
+                <Fragment>
+                  <h6 className="m_b">Reccomonded Courses</h6>
+                  {/* Reccomonded List */}
+                  <Slider {...settings}>
+                    {cartData?.recommendedBundles?.map((data) => {
+                      return (
+                        <div className="reccomended_slide" key={data._id}>
+                          <div
+                            className="product_card"
+                            onClick={() => navigate(`/explore/${data._id}`)}
+                          >
+                            <div className="info">
+                              <div className="img_wrap">
+                                <img src={icon.courses} alt="course" />
+                              </div>
+                              <div className="text">
+                                <div className="left">
+                                  <p className="name">{data?.name}</p>
+                                  <p>{data?.small_description}</p>
+                                  <p className="price">999 INR</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </Slider>
+                </Fragment>
+              )}
             </div>
             <div className="right">
               <div className="top">
                 {/* Coupon Code Input */}
-                {couponField && (
-                  <div className="apply_field">
-                    <input
-                      type="text"
-                      placeholder="add coupon"
-                      onChange={couponHandler}
-                      value={coupon}
-                    />
-                    {applyLoader ? (
-                      <button type="button" className="primarybtn">
-                        Loading...
-                      </button>
-                    ) : (
-                      <button
-                        type="button"
-                        className="primarybtn"
-                        onClick={couponApply}
-                      >
-                        Apply
-                      </button>
-                    )}
-                  </div>
-                )}
-
-                {/* Coupon Success Message */}
-                {couponSuccess && (
-                  <p className="coupon_success">Coupon Applied Success!</p>
-                )}
+                <div className="apply_field">
+                  <input
+                    type="text"
+                    placeholder="add coupon"
+                    onChange={couponHandler}
+                    value={coupon}
+                  />
+                  {applyCouponLoading ? (
+                    <button type="button" className="primarybtn">
+                      Loading...
+                    </button>
+                  ) : (
+                    <button
+                      type="button"
+                      className="primarybtn"
+                      onClick={() => applyCouponApi(coupon)}
+                    >
+                      Apply
+                    </button>
+                  )}
+                </div>
 
                 {/* Coupon Cards */}
-                {couponCodes.map((data) => {
-                  return (
-                    <div className="coupon_card">
-                      <div className="coupon_left">
-                        <h6>{data.title}</h6>
-                        <p>{data.text}</p>
-                        <p>Code : {data.code}</p>
-                      </div>
-                      <button
-                        type="button"
-                        className="apply_Btn"
-                        onClick={() => {
-                          setCoupon(data.code);
-                        }}
-                      >
-                        {coupon === data.code ? "Added" : "Add"}
-                      </button>
-                    </div>
-                  );
-                })}
+                {couponListData?.length > 0 &&
+                  couponListData
+                    ?.filter((ele) => !ele?.page)
+                    ?.map((data) => {
+                      return (
+                        <div className="coupon_card" key={data?._id}>
+                          <div className="coupon_left">
+                            <h6>Coupon</h6>
+                            {data?.title && <p>{data?.title}</p>}
+
+                            <p>{data.text}</p>
+                            <p>Code : {data.code}</p>
+                          </div>
+                          <button
+                            type="button"
+                            className="apply_Btn"
+                            onClick={() => {
+                              setCoupon(data?.code);
+                            }}
+                          >
+                            {coupon === data.code ? "Added" : "Add"}
+                          </button>
+                        </div>
+                      );
+                    })}
               </div>
               <div className="bottom">
                 <div className="total">

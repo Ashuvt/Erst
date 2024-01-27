@@ -5,11 +5,12 @@ import { useEffect } from "react";
 
 const AuthLayout = ({children}) => {
 
-  const {getProfileApi, getCartApi} = useContext(redirectContext);
+  const {getProfileApi, getCartApi, getCouponApi} = useContext(redirectContext);
 
   useEffect(() => {
     getProfileApi();
     getCartApi();
+    getCouponApi();
   },[]);
 
     return(

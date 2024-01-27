@@ -15,6 +15,8 @@ import {
   checkout,
   coursedetailById,
   userLogOut,
+  couponlist,
+  applyCoupon,
 } from "../utils/apidata";
 import axios from "axios";
 import {
@@ -29,6 +31,12 @@ import {
   GET_CART_FAIL,
   REMOVE_CART_REQUEST,
   REMOVE_CART_SUCCESS,
+  GET_COUPONS_REQUEST,
+  GET_COUPONS_FAIL,
+  GET_COUPONS_SUCCESS,
+  APPLY_COUPONS_REQUEST,
+  APPLY_COUPONS_SUCCESS,
+  APPLY_COUPONS_FAIL,
 } from "../store/apiConsts";
 
 export const redirectContext = createContext();
@@ -41,7 +49,6 @@ const domainName = () => {
 };
 
 const RoutingContextProvider = ({ children }) => {
-  
   const path = useLocation();
 
   const dispatch = useDispatch();
@@ -297,6 +304,39 @@ const RoutingContextProvider = ({ children }) => {
     }
   };
 
+  // GetCoupon
+
+  const getCouponApi = async () => {
+    dispatch({
+      type: GET_COUPONS_REQUEST,
+    });
+
+    const token = localStorage.getItem("token");
+    const headers = {
+      Authorization: `Bearer ${token}`,
+    };
+    try {
+      const response = await axios.get(`${baseUrl}/${couponlist}`, { headers });
+      if (response?.data?.success) {
+        dispatch({
+          type: GET_COUPONS_SUCCESS,
+          payload: response?.data?.data,
+        });
+      } else {
+        dispatch({
+          type: GET_COUPONS_SUCCESS,
+          payload: [],
+        });
+      }
+    } catch (error) {
+      console.log("Coupon:Error:::", error);
+      dispatch({
+        type: GET_COUPONS_FAIL,
+        payload: error?.message || "Something Went Wrong!",
+      });
+    }
+  };
+
   // Add To Cart
   const addToCartApi = async (courseId) => {
     dispatch({
@@ -356,6 +396,37 @@ const RoutingContextProvider = ({ children }) => {
     navigation("/signin");
   };
 
+  // Apply Coupon API
+const applyCouponApi = async(code) => {
+  dispatch({
+    type: APPLY_COUPONS_REQUEST,
+  });
+  const token = localStorage.getItem("token");
+  const headers = {
+    Authorization: `Bearer ${token}`,
+  };
+  try {
+      const response = await axios.post(`${baseUrl}/${applyCoupon}`, {coupon:`${code}`}, {headers});
+      console.log("Apply:::", response);
+      if(response?.data?.success){
+        toastSuccess(response?.data?.message);
+        dispatch({
+          type: APPLY_COUPONS_SUCCESS,
+        });
+        getCartApi();
+        getCouponApi();
+      }
+
+  } catch (error) {
+    console.log(error);
+    toastError(error?.message || "Something Went Wrog!");
+    dispatch({
+      type: APPLY_COUPONS_FAIL,
+    });
+  }
+}
+  
+
   const allRedirectFunctions = {
     resetAllToggles,
     signInHandler,
@@ -383,6 +454,8 @@ const RoutingContextProvider = ({ children }) => {
     checkoutApi,
     getCourseDetailApi,
     logOutApi,
+    applyCouponApi,
+    getCouponApi,
   };
 
   return (
