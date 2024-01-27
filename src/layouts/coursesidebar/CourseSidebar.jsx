@@ -25,6 +25,19 @@ const CourseSidebar = () => {
       text: "explore",
       path: "/auth/explore",
     },
+    {
+      id: 5,
+      img: icon.save,
+      text: "saved",
+      path: "/auth/saved",
+    },
+    {
+      id:6,
+      img:icon.courses,
+      text:"Resume Builder",
+      path:"/auth/resumebuilder"
+    },
+    
     // {
     //   id: 2,
     //   img: icon.skillpath,
@@ -43,12 +56,7 @@ const CourseSidebar = () => {
     //   text: "groups",
     //   path: "/auth/groups",
     // },
-    {
-      id: 5,
-      img: icon.save,
-      text: "saved",
-      path: "/auth/saved",
-    },
+    
   ];
 
   const dispatch = useDispatch();

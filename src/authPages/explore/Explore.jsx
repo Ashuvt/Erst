@@ -55,7 +55,7 @@ const Explore = () => {
           tag: selectedTag,
         }
       );
-      console.log("Explore Page:::", response);
+      // console.log("Explore Page:::", response);
       if (response?.data?.success) {
         setLoader(false);
         setCourseList(response?.data?.data?.course);

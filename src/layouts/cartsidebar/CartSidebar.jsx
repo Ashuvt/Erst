@@ -19,36 +19,6 @@ const CartSidebar = () => {
     slidesToScroll: 1,
   };
 
-  const couponCodes = [
-    {
-      id: 0,
-      title: "lorem ipsum",
-      text: "ipsum amet lorem dolor.",
-      code: "ABS056",
-    },
-    {
-      id: 1,
-      title: "lorem ipsum",
-      text: "ipsum amet lorem dolor.",
-      code: "ZVS099",
-    },
-  ];
-
-  const recommended = [
-    {
-      id: 0,
-      img: icon.redTeam,
-      name: "courseA",
-      des: "lorem ipsum",
-    },
-    {
-      id: 1,
-      img: icon.blueTeam,
-      name: "courseB",
-      des: "lorem ipsum",
-    },
-  ];
-
   const [viewSlide, setViewSlide] = useState(false);
 
   const dispatch = useDispatch();
@@ -62,6 +32,7 @@ const CartSidebar = () => {
   const { loading, cartData, error } = useSelector(
     (state) => state.getCartReducer
   );
+
 
   const { applyCouponLoading } = useSelector((state) => state.ApplyCouponApi);
 
@@ -80,10 +51,13 @@ const CartSidebar = () => {
     setCoupon(e.target.value);
   };
 
-const checkOutHandler = () => {
-  checkoutApi();
-  localStorage.setItem("productIds", cartData?.cart.map(ele => ele._id).join(','));
-}
+  const checkOutHandler = () => {
+    checkoutApi();
+    localStorage.setItem(
+      "productIds",
+      cartData?.cart.map((ele) => ele._id).join(",")
+    );
+  };
 
   return (
     <Fragment>
@@ -109,7 +83,7 @@ const checkOutHandler = () => {
             {cartData?.cart?.length > 0 ? (
               cartData?.cart?.map((data) => {
                 return (
-                  <div className="product_card" key={data._id}>
+                  <div className="product_card" key={data._id} onClick={() => navigate(`/explore/${data?.course_id?._id}`)}>
                     <div className="info">
                       <div className="img_wrap">
                         <img
@@ -133,7 +107,10 @@ const checkOutHandler = () => {
                         </div>
                         <button
                           type="button"
-                          onClick={() => removeFromCartApi(data?._id)}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            removeFromCartApi(data?._id)
+                          }}
                         >
                           remove
                         </button>
@@ -292,7 +269,11 @@ const checkOutHandler = () => {
               Loading...
             </button> */}
 
-          <button type="button" className="primarybtn" onClick={checkOutHandler}>
+          <button
+            type="button"
+            className="primarybtn"
+            onClick={checkOutHandler}
+          >
             continue to chekout
           </button>
           <button

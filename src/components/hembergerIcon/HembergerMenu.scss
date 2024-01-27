@@ -7,7 +7,7 @@
     position: relative;
     cursor: pointer;
     display: none;
-    @media only screen and (max-width:$menubreak){
+    @media only screen and (max-width:$laptop){
         display:block;
     }
 

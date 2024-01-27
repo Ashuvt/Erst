@@ -8,7 +8,6 @@ import { languageChanges, resetAllToggler } from "./store/actions";
 import SideBar from "./layouts/sidebar/SideBar";
 import CourseSidebar from "./layouts/coursesidebar/CourseSidebar";
 import { RoutoingData } from "./utils/routingData";
-import CartPopup from "./layouts/cartpopup/CartPopup";
 import CartSidebar from "./layouts/cartsidebar/CartSidebar";
 
 function App() {
@@ -38,7 +37,6 @@ function App() {
 
   return (
     <Fragment>
-      {/* <CartPopup /> */}
       <CartSidebar />
       <SideBar />
       <CourseSidebar />

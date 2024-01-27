@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import "./ExploreAbout.scss";
 import FourBoxInfo from "../../../components/fourboxinfo/FourBoxInfo";
 import { icon } from "../../../../utils/images/icons";
@@ -9,26 +9,13 @@ import JourneySlider from "./journeyslider/JourneySlider";
 import { useDispatch, useSelector } from "react-redux";
 import { resetAllToggler } from "../../../../store/actions";
 import ModulesSec from "./modulessec/ModulesSec";
+import HomeOfferModel from "../../../home1/homeoffermodel/HomeOfferModel";
 
 const ExploreAbout = ({ instructors, course, recallPage, courseId }) => {
 
   const {courseDetailLoading, courseDetailData, courseDetailError } = useSelector(state => state?.getExploreDetailByIdApi);
 
-
-  const whiteBtnData = [
-    {
-      id: 0,
-      text: "Medium",
-    },
-    {
-      id: 1,
-      text: "Penetration",
-    },
-    {
-      id: 2,
-      text: "CEH",
-    },
-  ];
+  const [couponModel, setCouponModel] = useState(false);
 
   const fourInfoData = [
     {
@@ -142,10 +129,21 @@ const ExploreAbout = ({ instructors, course, recallPage, courseId }) => {
               <p>
                 Get access to 50+ modules covering topics from basic to advance.
               </p>
-              <button>Subscribe</button>
+              <button onClick={() => setCouponModel(true)}>Subscribe</button>
             </div>
           </div>
         </div>
+
+
+        {couponModel && (
+        <HomeOfferModel
+          setCouponModel={setCouponModel}
+          description={courseDetailData?.coupon?.description}
+          title={courseDetailData?.coupon?.title}
+          code={courseDetailData?.coupon?.code}
+          offer={courseDetailData?.coupon?.percentage}
+        />
+      )}
 
 
         {courseDetailData?.is_course === "bundle" && <SubCoursesSlider recallPage={recallPage}  />}        

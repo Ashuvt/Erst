@@ -76,7 +76,7 @@ const Home1 = () => {
         setCta(response?.data?.data?.cta);
         setRecommaned(response?.data?.data?.recommaned_bundles);
         setCouponOffer(response?.data?.data?.coupon);
-        console.log("Home:::", response);
+        // console.log("Home:::", response);
       } else {
         setCta([]);
         setRecommaned([]);
