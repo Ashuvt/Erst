@@ -171,6 +171,7 @@ const RoutingContextProvider = ({ children }) => {
       const response = await axios.get(`${baseUrl}/${getProfile}`, { headers });
       if (response?.data.success) {
         dispatch({ type: getProfileData(), payload: response?.data?.data });
+        // console.log("Profile::", response?.data.data);
       }
     } catch (error) {
       console.log("Error:", error);
@@ -256,9 +257,12 @@ const RoutingContextProvider = ({ children }) => {
         `${baseUrl}/${checkout}`,{}, { headers });
       if (response.data?.success) {
         window.open(response?.data?.data?.url, "_blank", "noreferrer");
+      }else{
+        localStorage.removeItem("productIds");
       }
     } catch (error) {
       toastError(error?.message || "Something Went Wrong!");
+      localStorage.removeItem("productIds");
     }
   };
 

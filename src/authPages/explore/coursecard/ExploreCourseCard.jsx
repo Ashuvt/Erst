@@ -12,12 +12,12 @@ const ExploreCourseCard = ({
   small_description,
   course_time,
   name,
-  text,
   students,
   isSave,
   index,
   redirectTo,
   saveHandler,
+  is_course
 }) => {
   const [saveStatus, setSaveStatus] = useState(isSave);
 
@@ -44,7 +44,9 @@ const ExploreCourseCard = ({
         onClick={() => navigate(redirectTo)}
       >
         <div className="poster_wrap">
-          <span>Cources</span>
+          {
+            is_course && <span>{is_course}</span>
+          }
           <img src={`${baseUrl}/${image}`} alt="poster" />
         </div>
         <div className="bg_card_overlay"></div>
@@ -56,7 +58,7 @@ const ExploreCourseCard = ({
 
       
 
-        <p className="small_text">{text}</p>
+   
 
         <div className="counter_info">
           {students && (

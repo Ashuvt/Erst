@@ -10,8 +10,6 @@ const ModulesSec = ({courseId}) => {
   const { courseDetailLoading, courseDetailData, courseDetailError } =
     useSelector((state) => state?.getExploreDetailByIdApi);
 
-  console.log("Nodule Test", courseDetailData);
-
   const navigate = useNavigate();
 
   return (

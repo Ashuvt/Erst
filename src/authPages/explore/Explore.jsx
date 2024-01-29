@@ -48,7 +48,7 @@ const Explore = () => {
     setLoader(true);
     try {
       const response = await axios.get(
-        `${baseUrl}/${explorePage}`,
+        `${baseUrl}/${explorePage}`,       
         {
           headers,
         },
@@ -56,13 +56,16 @@ const Explore = () => {
           proffession: selectedProfession,
           interest: selectedInterest,
           tag: selectedTag,
-        }
+        },      
       );
       // console.log("Explore Page:::", response);
+      // console.log("Courses:::", response?.data?.data?.course);
       if (response?.data?.success) {
         setLoader(false);
         setCourseList(response?.data?.data?.course);
         setBundleList(response?.data?.data?.bundle);
+
+        
 
         setSavedCourseds(response?.data?.data?.savedcourses);
       } else {
@@ -178,7 +181,7 @@ const Explore = () => {
               <div className="options_content">
                 <h3 className="title wow fadeInUp">Profession</h3>
                 <div className="option_box wow fadeInUp">
-                  {profession.length > 0 ? (
+                  {profession?.length > 0 ? (
                     profession.map((data) => {
                       return (
                         <Fragment key={data._id}>
@@ -207,7 +210,7 @@ const Explore = () => {
               <div className="options_content">
                 <h3 className="title wow fadeInUp">Interest</h3>
                 <div className="option_box wow fadeInUp">
-                  {interest.length > 0 ? (
+                  {interest?.length > 0 ? (
                     interest.map((data) => {
                       return (
                         <Fragment key={data._id}>
@@ -236,7 +239,7 @@ const Explore = () => {
               <div className="options_content">
                 <h3 className="title wow fadeInUp">Tags</h3>
                 <div className="option_box wow fadeInUp">
-                  {tag.length > 0 ? (
+                  {tag?.length > 0 ? (
                     tag.map((data) => {
                       return (
                         <Fragment key={data._id}>
@@ -304,7 +307,7 @@ const Explore = () => {
                 isResize = {courseList?.length > 3}
               />
 
-              {courseList.length > 0 ? (
+              {courseList?.length > 0 ? (
                 <div className="explore_video_grid">
                   {courseList?.slice(0, courseSize ? bundleList?.length + 2 : 3)?.map((data, k) => {
                     return (

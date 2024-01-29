@@ -13,6 +13,21 @@
         &.active {
             background-color: $lightBorder_3;
         }
+
+        .left {
+            .icon_box {
+                img {
+                    width: 20px;
+                }
+            }
+        }
+
+        .right_icon {
+            img {
+                width: 20px;
+            }
+        }
+
     }
 }
 
@@ -334,13 +349,15 @@ button.quiz_submit {
     left: 0px;
     height: 100vh;
     width: 100%;
-    background-color: rgba($dark, 0.7);
+    background-color: rgba($dark, 0.05);
     display: grid;
     place-items: center;
+    padding: 20px;
+    backdrop-filter: blur(5px);
 
     .model_dialog {
-        max-width: 600px;
-        width:100%;
+        max-width: 700px;
+        width: 100%;
         background-color: $dark;
         border-radius: 20px;
         border: 1px solid $white;
@@ -348,17 +365,19 @@ button.quiz_submit {
         display: flex;
         flex-direction: column;
         align-items: center;
-        transition:all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
         animation-name: popup;
-        animation-duration:0.5s;
+        animation-duration: 0.5s;
         animation-iteration-count: 1;
-@media only screen and (max-width:$mobile){
-    padding:20px;
-}
+
+        @media only screen and (max-width:$mobile) {
+            padding: 20px;
+        }
+
         .top_title {
             display: flex;
             justify-content: flex-end;
-            width:100%; 
+            width: 100%;
 
             button {
                 border-style: none;
@@ -375,12 +394,18 @@ button.quiz_submit {
             text-align: center;
             margin-top: 20px;
             margin-bottom: 15px;
-            color:$primary;
+
+            @include font('SpaceGrotesk-Regular', 32px, 36px, 600, $primary);
         }
 
         p {
             text-align: center;
             margin-bottom: 15px;
+            @include font('Inter-Regular', 20px, 26px, 400, $textSecondary);
+
+            @media only screen and (max-width:$tab) {
+                @include font('Inter-Regular', 14px, 18px, 400, $textSecondary);
+            }
         }
 
 
@@ -388,9 +413,11 @@ button.quiz_submit {
 }
 
 @keyframes popup {
-    from{
+    from {
         transform: translateY(-100px);
-    }to{
+    }
+
+    to {
         transform: translateY(0px);
     }
 }

@@ -1,16 +1,16 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./Success.scss";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, redirect, useNavigate } from "react-router-dom";
 import { logoImage } from "../../utils/images/images";
 import WOW from "wow.js";
-import { useTranslation } from "react-i18next";
 import axios from "axios";
 import { baseUrl, paymentSuccess } from "../../utils/apidata";
+import { redirectContext } from "../../context/RoutingContext";
 
 const Success = () => {
   
   const productList = localStorage.getItem("productIds");
-
+const {toastSuccess} = useContext(redirectContext)
 
   useEffect(() => {
     const wow = new WOW();
@@ -22,16 +22,16 @@ const Success = () => {
 
   const successApi = async () => {
     const token = localStorage.getItem("token");
-
     const productList = localStorage.getItem("productIds");
-
     const headers = {
       Authorization: `Bearer ${token}`,
     };
 
     try {
       const response = await axios.post(`${baseUrl}/${paymentSuccess}`, {course_id:productList}, {headers});
-      console.log("Success:::", response);
+     if(response?.data?.success){
+      toastSuccess(response?.data?.message);
+     }
     } catch (error) {}
   };
 
@@ -63,22 +63,18 @@ const Success = () => {
         <div className="content">
           <h1 className="wow fadeInUp">Payment Success</h1>
           <h2 className="wow fadeInUp" data-wow-delay="0.25s">
-            Lorem, ipsum <span>Lorem, ipsum</span>
+            Welcome to <span>Cybergain academy</span>
           </h2>
           <p className="wow fadeInUp" data-wow-delay="0.50s">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit
-            tenetur soluta error explicabo ratione consequatur!
-          </p>
-          {/* <NavLink to="/contact">
-          <button className="primarybtn wow fadeInUp" data-wow-delay="0.75s">Know More</button>
-          </NavLink> */}
+          You're now enrolled in our cutting-edge cybersecurity courses. Get ready to elevate your skills and fortify your digital defenses. Welcome to a world of secure possibilities!
+          </p> 
 
           <button
             className="primarybtn wow fadeInUp"
             data-wow-delay="0.75s"
             onClick={() => navigate("/auth/home")}
           >
-            Home
+           Start learning
           </button>
         </div>
       </div>

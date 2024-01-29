@@ -38,11 +38,12 @@ const ChapterDetail = () => {
   const [quizeData, setQuizData] = useState([]);
 
   const [selectedAnswer, setSelectedAnswer] = useState([]);
-  const [popupStatus, setPopupState] = useState(true);
+  const [popupStatus, setPopupStatus] = useState(false);
 
   const { id } = useParams();
 
-  const { toastSuccess, toastError } = useContext(redirectContext);
+  const { toastSuccess, toastError, addToCartApi } =
+    useContext(redirectContext);
 
   const statusChanger = () => {
     setStatus((prev) => !prev);
@@ -72,7 +73,7 @@ const ChapterDetail = () => {
         { headers },
         { courseId: `${id}` }
       );
-      console.log("Count::", response);
+      // console.log("Count::", response);
       if (response?.data?.success) {
         setCountsData(response?.data?.data);
       }
@@ -96,7 +97,7 @@ const ChapterDetail = () => {
         { headers }
       );
       if (response?.data?.success) {
-        console.log("Modeules", response?.data?.data);
+        console.log("Modeules ==> ", response?.data?.data);
         setModulesList(response?.data?.data);
         setModuleLoader(false);
       }
@@ -303,18 +304,32 @@ const ChapterDetail = () => {
                                         item?._id === activeTab ? "active" : ""
                                       }`}
                                       onClick={() => {
-                                        getChapterDetails(item?._id);
+                                        if (item?.is_free === "paid") {
+                                          setPopupStatus(true);
+                                        } else {
+                                          getChapterDetails(item?._id);
+                                        }
                                         setActiveTab(item?._id);
                                       }}
                                       key={item?._id}
                                     >
                                       <div className="left">
-                                        <div className="green_circle">
-                                          <img
-                                            src={icon.whiteCheck}
-                                            alt="check"
-                                          />
-                                        </div>
+                                        {item?.completed ? (
+                                          <div className="green_circle">
+                                            <img
+                                              src={icon.whiteCheck}
+                                              alt="check"
+                                            />
+                                          </div>
+                                        ) : (
+                                          <div className="icon_box">
+                                            <img
+                                              src={icon.module}
+                                              alt="video"
+                                            />
+                                          </div>
+                                        )}
+
                                         <div className="text">
                                           <p className="small_text">
                                             {item?.chapter}
@@ -322,11 +337,13 @@ const ChapterDetail = () => {
                                         </div>
                                       </div>
 
-                                      {item?.is_free === "free" ? (
-                                        <img src={icon.courses} />
-                                      ) : (
-                                        <img src={icon.lock} />
-                                      )}
+                                      <div className="right_icon">
+                                        {item?.is_free === "free" ? (
+                                          <img src={icon.courses} />
+                                        ) : (
+                                          <img src={icon.lock} />
+                                        )}
+                                      </div>
                                     </div>
                                   );
                                 })
@@ -604,22 +621,33 @@ const ChapterDetail = () => {
       </section>
 
       {/* Model */}
-    {
-      popupStatus && 
-      <div className="subscribe_model">
-      <div className="model_dialog">
-        <div className="top_title">
-          <button type="button" onClick={() => setPopupState(false)}>
-            <IoMdClose />
-          </button>
-        </div>
+      {popupStatus && (
+        <div className="subscribe_model">
+          <div className="model_dialog">
+            <div className="top_title">
+              <button type="button" onClick={() => setPopupStatus(false)}>
+                <IoMdClose />
+              </button>
+            </div>
 
-        <h5>Lorem Ipsum Amet Dolor.</h5>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio dolorem perferendis maiores ducimus soluta vitae. Fuga dolorem rem delectus enim.</p>
-        <button className="primarybtn">Add To cart</button>
-      </div>
-    </div>
-    }
+            <h5>Subscribe for more details</h5>
+            <p>
+              Elevate your learning journey! Subscribe now for exclusive access
+              to the full course and unlock a world of knowledge and
+              possibilities.
+            </p>
+            <button
+              className="primarybtn"
+              onClick={() => {
+                addToCartApi(id);
+                setPopupStatus(false);
+              }}
+            >
+              Add To cart
+            </button>
+          </div>
+        </div>
+      )}
     </AuthLayout>
   );
 };

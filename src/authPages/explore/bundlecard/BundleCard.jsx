@@ -9,10 +9,13 @@ import { redirectContext } from "../../../context/RoutingContext";
 const BundleCard = ({
   _id,
   image,
-  small_description,
-  course_time,
   name,
-  text,
+  is_course,
+  small_description,
+
+  
+  course_time,
+
   students,
   isSave,
   index,
@@ -44,7 +47,7 @@ const BundleCard = ({
         onClick={() => navigate(redirectTo)}
       >
         <div className="poster_wrap">
-          <span>Cources</span>
+          <span>{is_course}</span>
           <img src={`${baseUrl}/${image}`} alt="poster" />
         </div>
         <div className="bg_card_overlay"></div>
@@ -53,11 +56,8 @@ const BundleCard = ({
           className="desc"
           dangerouslySetInnerHTML={{ __html: small_description }}
         ></div> */}
-        <p className="desc">{small_description}</p>
+        <p className="desc">{small_description}</p>     
 
-      
-
-        <p className="small_text">{text}</p>
 
         <div className="counter_info">
           {students && (

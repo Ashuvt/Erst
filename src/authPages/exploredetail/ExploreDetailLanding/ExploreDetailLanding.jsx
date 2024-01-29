@@ -14,8 +14,6 @@ const ExploreDetailLanding = () => {
     useSelector((state) => state?.getExploreDetailByIdApi);
   const country = localStorage.getItem("country");
 
-  console.log("courseDetailData::", courseDetailData);
-
   return (
     <section className="explore_detail" onClick={resetAllToggles}>
       <img src={images.bluePattern} alt="pattern" className="pattern" />
@@ -28,9 +26,9 @@ const ExploreDetailLanding = () => {
           <Fragment>
             <div className="video_wrapper">
               <img src={`${baseUrl}/${courseDetailData?.image}`} alt="poster" />
-              <button>
+              {/* <button>
                 <img src={icon.playCircle} alt="play" />
-              </button>
+              </button> */}
             </div>
             <div className="info_wraper">
               <div className="info_line">

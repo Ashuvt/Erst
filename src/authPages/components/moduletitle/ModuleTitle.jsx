@@ -15,8 +15,7 @@ const ModuleTitle = ({ title, text,btntext, icon, redirectTo }) => {
       <div className="text_side">
         <h5 className="small_title wow fadeInLeft">{title}</h5>
         <p className="wow fadeInLeft" data-wow-delay="0.2s">
-          Hi Rajat, Based on your intersect in ComTIA security we suggest you
-          some of personally curated modules
+       {text}
         </p>
       </div>
 

@@ -23,7 +23,6 @@ const SavedList = () => {
       });
       if (response?.data?.success) {
         setSaveCourseList(response?.data?.data);
-        console.log("Saved:::", response?.data?.data);
       } else {
         setSaveCourseList([]);
       }

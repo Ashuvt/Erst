@@ -19,6 +19,7 @@ import { baseUrl, authHomeApi, saveCourse } from "../../utils/apidata";
 import { redirectContext } from "../../context/RoutingContext";
 import AuthLayout from "../AuthLayout";
 import HomeOfferModel from "./homeoffermodel/HomeOfferModel";
+import PurchasedList from "./purchasedList/PurchasedList";
 
 const Home1 = () => {
   const fourInfoData = [
@@ -55,6 +56,8 @@ const Home1 = () => {
   const [cta, setCta] = useState([]);
   const [couponModel, setCouponModel] = useState(false);
   const [couponOffer, setCouponOffer] = useState({});
+  const [isPurchaed, setIsPurchaed] = useState(false);
+  const [purchasedList, setPurchasedList] = useState([]);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -73,10 +76,12 @@ const Home1 = () => {
         headers,
       });
       if (response.data.success) {
+        console.log("Home:::", response);
         setCta(response?.data?.data?.cta);
         setRecommaned(response?.data?.data?.recommaned_bundles);
         setCouponOffer(response?.data?.data?.coupon);
-        // console.log("Home:::", response);
+        setIsPurchaed(response?.data?.data?.purchase_course);
+        setPurchasedList(response?.data?.data?.purchased_courses_all);
       } else {
         setCta([]);
         setRecommaned([]);
@@ -102,7 +107,12 @@ const Home1 = () => {
         <div className="screen_container">
           <div className="content_grid">
             <div className="left">
-              <RecommendedModules recommaned={recommaned} />
+              {isPurchaed ? (
+                <PurchasedList listData={purchasedList} />
+              ) : (
+                <RecommendedModules listData={recommaned} />
+              )}
+
               <FourBoxInfo title="Your Roadmap" data={fourInfoData} />
               {/* <LiveSec /> */}
               <PopularSkillPath />
@@ -129,7 +139,7 @@ const Home1 = () => {
 
               <SavedList />
 
-              {couponOffer?.code && (
+              {couponOffer?._id && (
                 <OfferCard
                   description={couponOffer?.description}
                   title={couponOffer?.title}

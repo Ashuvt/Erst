@@ -56,6 +56,14 @@ const ViewCart = () => {
     setCoupon(e.target.value);
   };
 
+  const checkOutHandler = () => {
+    checkoutApi();
+    localStorage.setItem(
+      "productIds",
+      cartData?.cart.map((ele) => ele._id).join(",")
+    );
+  };
+
   return (
     <AuthLayout>
       <section className="view_cart">
@@ -225,7 +233,7 @@ const ViewCart = () => {
                 <button
                   type="button"
                   className="primarybtn"
-                  onClick={checkoutApi}
+                  onClick={checkOutHandler}
                 >
                   continue to chekout
                 </button>

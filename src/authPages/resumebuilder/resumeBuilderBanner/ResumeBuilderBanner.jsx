@@ -15,7 +15,7 @@ const ResumeBuilderBanner = () => {
 
     return(
         <section className="resume_builder_banner" onClick={resetToggler}>
-            <img src={images.bgPattern} alt="patter" className="pattern" />
+                 <img src={images.bluePattern} alt="pattern" className="pattern" />
             <div className="screen_container">
                     <div className="content">
                         <div className="icon_wrap wow fadeInUp">

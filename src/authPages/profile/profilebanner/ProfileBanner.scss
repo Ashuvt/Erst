@@ -5,12 +5,13 @@
 
 
 section.profile_banner {
-    padding-top:80px;
-    padding-bottom:80px;
+    overflow: hidden;
+    padding-top:68px;
+    padding-bottom:68px;
     background: $bgGradient;
     position: relative;
     z-indeX:2;
-    overflow: hidden;
+
 
     img.pattern {
         position: absolute;

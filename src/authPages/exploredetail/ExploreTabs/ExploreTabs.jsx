@@ -1,53 +1,24 @@
 import { Fragment, useContext, useState } from "react";
 import "./ExploreTabs.scss";
 import ExploreAbout from "./exploreabout/ExploreAbout";
-import { useDispatch, useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { resetAllToggler } from "../../../store/actions";
 
-
-
-
-const ExploreTabs = ({recallPage, courseId}) => {  
-
-  
-
+const ExploreTabs = ({ recallPage, courseId }) => {
   const scrollToSection = (sectionId) => {
     const section = document.getElementById(sectionId);
     if (section) {
       window.scrollTo({
         top: section.offsetTop - 100,
-        behavior: 'smooth',
+        behavior: "smooth",
       });
     }
   };
 
-
-
-  const tabData = [
-    {
-      id: 0,
-      tab: "About",
-      target:"about"
-    },
-    {
-      id: 1,
-      tab: "Courses",
-      target:"courses",
-    },
-    {
-      id: 2,
-      tab: "Related Skill Paths",
-      target:"skillpath",
-    },
-    {
-      id: 3,
-      tab: "Reviews",
-      target:"reviews",
-    },
-  ];
+  const { courseDetailLoading, courseDetailData, courseDetailError } =
+    useSelector((state) => state?.getExploreDetailByIdApi);
 
   const dispatch = useDispatch();
-
   const resetToggler = () => {
     dispatch({ type: resetAllToggler() });
   };
@@ -56,7 +27,7 @@ const ExploreTabs = ({recallPage, courseId}) => {
     <Fragment>
       <section className="tabs_sec" onClick={resetToggler}>
         <div className="scree_container tabs_btns">
-          {tabData.map((data) => {
+          {/* {tabData.map((data) => {
             return (
               <Fragment key={data.id}>
                 <button
@@ -68,10 +39,38 @@ const ExploreTabs = ({recallPage, courseId}) => {
                 </button>
               </Fragment>
             );
-          })}
+          })} */}
+
+          <button className="tab" onClick={() => scrollToSection("about")}>
+            About
+          </button>
+
+          {courseDetailData?.is_course === "course" && (
+            <Fragment>
+              <button
+                className="tab"
+                onClick={() => scrollToSection("courses")}
+              >
+                Modules
+              </button>
+
+              <button
+                className="tab"
+                onClick={() => scrollToSection("reviews")}
+              >
+                Recommended
+              </button>
+            </Fragment>
+          )}
+
+          {courseDetailData?.is_course === "bundle" && (
+            <button className="tab" onClick={() => scrollToSection("roadmap")}>
+              Roadmap
+            </button>
+          )}
         </div>
-      </section>        
-          <ExploreAbout recallPage={recallPage} courseId={courseId} />
+      </section>
+      <ExploreAbout recallPage={recallPage} courseId={courseId} />
     </Fragment>
   );
 };

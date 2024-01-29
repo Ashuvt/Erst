@@ -150,7 +150,7 @@ const SubCoursesSlider = ({recallPage}) => {
 
   return (
     <Fragment>
-      <div className="sub_courses_slider_wrap" id="skillpath">
+      <div className="sub_courses_slider_wrap" id="roadmap">
         <div className="title">
           <h5 className="small_title">Start your journey</h5>
           <p>Be job ready in red field</p>
