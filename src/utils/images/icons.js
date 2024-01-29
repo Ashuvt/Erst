@@ -61,6 +61,8 @@ import alertTriangle from "../../assets/images/icons/alert.png";
 import transparentBlue from "../../assets/images/logos/transparent-BlueTeam.png";
 import transparentRed from "../../assets/images/logos/transparent-RedTeam.png";
 
+import lock from "../../assets/images/icons/lock.svg";
+
 
 
 export const icon = {
@@ -120,6 +122,7 @@ export const icon = {
   lightLock,
   bgGlass,
   float,
+  lock,
   
 
   playfill,

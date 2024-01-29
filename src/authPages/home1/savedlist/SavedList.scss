@@ -6,11 +6,21 @@
 
 .home_saved_list {
     margin-top: 80px;
-  
-    .title {
+    max-height:600px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position:relative;
+    padding-right:8px;
+    .top_title {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        padding-bottom:10px;
+        position:sticky;
+        top:0px;
+        left:0px;
+        z-index:9999;
+        background-color: $dark;
         button {
             background-color: transparent;
             border-style: none;

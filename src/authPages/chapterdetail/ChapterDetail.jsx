@@ -1,14 +1,14 @@
 import { Fragment, useContext, useEffect, useState } from "react";
 import "./ChapterDetail.scss";
-import CoursesHeader from "../components/coursesheader/CoursesHeader";
 import { icon } from "../../utils/images/icons";
 import { images } from "../../utils/images/images";
 import Accordion from "react-bootstrap/Accordion";
-import UploadedFileCard from "./uploadedfilecard/UploadedFileCard";
 import { useDispatch } from "react-redux";
 import { resetAllToggler } from "../../store/actions";
 import WOW from "wow.js";
 import axios from "axios";
+import { IoMdClose } from "react-icons/io";
+
 import {
   baseUrl,
   chapterDetail,
@@ -38,6 +38,7 @@ const ChapterDetail = () => {
   const [quizeData, setQuizData] = useState([]);
 
   const [selectedAnswer, setSelectedAnswer] = useState([]);
+  const [popupStatus, setPopupState] = useState(true);
 
   const { id } = useParams();
 
@@ -51,53 +52,6 @@ const ChapterDetail = () => {
     const wow = new WOW();
     wow.init();
   }, []);
-
-  const uploadFileData = [
-    {
-      id: 0,
-      img: images.uploadedA,
-      name: "file_name_2123",
-      info: "Uploading · 10% ",
-      upload: true,
-      cancel: false,
-      replace: false,
-      reviewed: false,
-      submit: false,
-    },
-    {
-      id: 1,
-      img: images.uploadedB,
-      name: "file_name_2123",
-      info: "Uploading · 10% ",
-      upload: false,
-      cancel: true,
-      replace: false,
-      reviewed: false,
-      submit: false,
-    },
-    {
-      id: 2,
-      img: images.uploadedC,
-      name: "file_name_2123",
-      info: "Uploading · 10% ",
-      upload: false,
-      cancel: false,
-      replace: true,
-      reviewed: false,
-      submit: true,
-    },
-    {
-      id: 3,
-      img: images.uploadedD,
-      name: "file_name_2123",
-      info: "Uploading · 10% ",
-      upload: false,
-      cancel: false,
-      replace: false,
-      reviewed: true,
-      submit: false,
-    },
-  ];
 
   const dispatch = useDispatch();
 
@@ -142,6 +96,7 @@ const ChapterDetail = () => {
         { headers }
       );
       if (response?.data?.success) {
+        console.log("Modeules", response?.data?.data);
         setModulesList(response?.data?.data);
         setModuleLoader(false);
       }
@@ -221,7 +176,7 @@ const ChapterDetail = () => {
       const response = await axios.post(
         `${baseUrl}/${markAsCompleted}`,
         { chapterId: `${activeTab}` },
-        { headers }        
+        { headers }
       );
       console.log(response);
       if (response?.data?.success) {
@@ -367,8 +322,10 @@ const ChapterDetail = () => {
                                         </div>
                                       </div>
 
-                                      {item?.is_free === "free" && (
+                                      {item?.is_free === "free" ? (
                                         <img src={icon.courses} />
+                                      ) : (
+                                        <img src={icon.lock} />
                                       )}
                                     </div>
                                   );
@@ -442,99 +399,6 @@ const ChapterDetail = () => {
                               </video>
                             </div>
                           )}
-
-                          {/* Type : Quize */}
-
-                          {/* {data?.field === "quizz" && (
-                            <div className="quize_sec">
-                              <h5>{data?.quizz_question}</h5>
-
-                              <div className="option_wrap">
-                                <button
-                                  type="button"
-                                  onClick={() =>
-                                    addAnswer(
-                                      data?.chapterId,
-                                      data?._id,
-                                      data?.quizz_opt_1
-                                    )
-                                  }
-                                >
-                                  {selectedAnswer
-                                    .filter(
-                                      (ele) => ele.quizId === data?._id
-                                    )[0]
-                                    ?.selectedOptions?.includes(
-                                      data?.quizz_opt_1
-                                    ) && <span></span>}
-                                </button>
-                                <p>{data?.quizz_opt_1}</p>
-                              </div>
-                              <div className="option_wrap">
-                                <button
-                                  type="button"
-                                  onClick={() =>
-                                    addAnswer(
-                                      data?.chapterId,
-                                      data?._id,
-                                      data?.quizz_opt_2
-                                    )
-                                  }
-                                >
-                                  {selectedAnswer
-                                    .filter(
-                                      (ele) => ele.quizId === data?._id
-                                    )[0]
-                                    ?.selectedOptions?.includes(
-                                      data?.quizz_opt_2
-                                    ) && <span></span>}
-                                </button>
-                                <p>{data?.quizz_opt_2}</p>
-                              </div>
-                              <div className="option_wrap">
-                                <button
-                                  type="button"
-                                  onClick={() =>
-                                    addAnswer(
-                                      data?.chapterId,
-                                      data?._id,
-                                      data?.quizz_opt_3
-                                    )
-                                  }
-                                >
-                                  {selectedAnswer
-                                    .filter(
-                                      (ele) => ele.quizId === data?._id
-                                    )[0]
-                                    ?.selectedOptions?.includes(
-                                      data?.quizz_opt_3
-                                    ) && <span></span>}
-                                </button>
-                                <p>{data?.quizz_opt_3}</p>
-                              </div>
-                              <div className="option_wrap">
-                                <button
-                                  type="button"
-                                  onClick={() =>
-                                    addAnswer(
-                                      data?.chapterId,
-                                      data?._id,
-                                      data?.quizz_opt_4
-                                    )
-                                  }
-                                >
-                                  {selectedAnswer
-                                    .filter(
-                                      (ele) => ele.quizId === data?._id
-                                    )[0]
-                                    ?.selectedOptions?.includes(
-                                      data?.quizz_opt_4
-                                    ) && <span></span>}
-                                </button>
-                                <p>{data?.quizz_opt_4}</p>
-                              </div>
-                            </div>
-                          )} */}
 
                           {/*Assignment */}
 
@@ -738,6 +602,24 @@ const ChapterDetail = () => {
           </div>
         </div>
       </section>
+
+      {/* Model */}
+    {
+      popupStatus && 
+      <div className="subscribe_model">
+      <div className="model_dialog">
+        <div className="top_title">
+          <button type="button" onClick={() => setPopupState(false)}>
+            <IoMdClose />
+          </button>
+        </div>
+
+        <h5>Lorem Ipsum Amet Dolor.</h5>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio dolorem perferendis maiores ducimus soluta vitae. Fuga dolorem rem delectus enim.</p>
+        <button className="primarybtn">Add To cart</button>
+      </div>
+    </div>
+    }
     </AuthLayout>
   );
 };

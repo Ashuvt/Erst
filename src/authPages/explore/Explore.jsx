@@ -35,6 +35,9 @@ const Explore = () => {
   const [selectedInterest, setSelectedInterest] = useState([]);
   const [selectedTag, setSelectedTag] = useState([]);
 
+  const [bundleSize, setBundleSize] = useState(false);
+  const [courseSize, setCourseSize] = useState(false);
+
   const token = localStorage.getItem("token");
   const headers = {
     Authorization: `Bearer ${token}`,
@@ -262,12 +265,14 @@ const Explore = () => {
                 title="Bundles"
                 text="Embrace career advancement pathways customized for high-demand cybersecurity careers."
                 btnClickHandler={() =>
-                  console.log("view all Skill Path Btn Clicked")
+                  setBundleSize(prev => !prev)
                 }
+                sizeState={bundleSize}
+                isResize = {bundleList?.length > 3}
               />
               {bundleList.length > 0 ? (
                 <div className="explore_video_grid">
-                  {bundleList.map((data, k) => {
+                  {bundleList.slice(0,bundleSize ? bundleList?.length + 2 : 3)?.map((data, k) => {
                     return (
                       <Fragment key={data._id}>
                         <BundleCard
@@ -294,12 +299,14 @@ const Explore = () => {
               <ExploreTitle
                 title="Courses"
                 text="Elevate your capabilities with insights and training from cybersecurity frontrunners."
-                btnClickHandler={() => console.log("view all course Clicked")}
+                btnClickHandler={() => setCourseSize(prev => !prev)}
+                sizeState={courseSize}
+                isResize = {courseList?.length > 3}
               />
 
               {courseList.length > 0 ? (
                 <div className="explore_video_grid">
-                  {courseList.map((data, k) => {
+                  {courseList?.slice(0, courseSize ? bundleList?.length + 2 : 3)?.map((data, k) => {
                     return (
                       <Fragment key={data._id}>
                         <ExploreCourseCard

@@ -41,8 +41,9 @@ section.welcome_strip {
         animation-name: bgRotate;
         animation-iteration-count: infinite;
         animation-duration:30s;
-        animation-direction: alternate;
-        animation-timing-function:linear;
+        // animation-direction: alternate;
+        animation-timing-function:ease-in-out;
+        animation-play-state:running;
         animation-delay: 0s;
 
         @media only screen and (max-width:$laptop){
