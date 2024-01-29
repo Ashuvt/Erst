@@ -27,7 +27,6 @@ const ChapterDetail = () => {
   const [moduleLoader, setModuleLoader] = useState(false);
   const [chapterLoader, setChapterLoader] = useState(false);
   const [quizeSubmitLoader, setQuizeSubmitLoader] = useState(false);
-  const [asCompleted, setAsCompleted] = useState(false);
 
   const [counteData, setCountsData] = useState({});
 
@@ -36,9 +35,11 @@ const ChapterDetail = () => {
   const [activeTab, setActiveTab] = useState("");
 
   const [quizeData, setQuizData] = useState([]);
-
+  // const [asCompleted, setAsCompleted] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState([]);
   const [popupStatus, setPopupStatus] = useState(false);
+
+  const [freeIds, setFreeIds] = useState([]);
 
   const { id } = useParams();
 
@@ -90,6 +91,8 @@ const ChapterDetail = () => {
       Authorization: `Bearer ${token}`,
     };
 
+    setFreeIds([]);
+
     try {
       const response = await axios.post(
         `${baseUrl}/${moduleList}`,
@@ -100,10 +103,22 @@ const ChapterDetail = () => {
         console.log("Modeules ==> ", response?.data?.data);
         setModulesList(response?.data?.data);
         setModuleLoader(false);
+
+        let freeChapterIds = [];
+
+        response?.data?.data.forEach((course) => {
+          course.chapters.forEach((chapter) => {
+            if (chapter.is_free === "free") {
+              freeChapterIds.push(chapter._id);
+            }
+          });
+        });
+        setFreeIds(freeChapterIds);
       }
     } catch (error) {
       console.log("Explore Error::", error);
       setModuleLoader(false);
+      setFreeIds([]);
     }
   };
 
@@ -172,21 +187,23 @@ const ChapterDetail = () => {
       Authorization: `Bearer ${token}`,
     };
 
-    setAsCompleted(true);
+    // setAsCompleted(true);
     try {
       const response = await axios.post(
         `${baseUrl}/${markAsCompleted}`,
         { chapterId: `${activeTab}` },
         { headers }
       );
-      console.log(response);
+
       if (response?.data?.success) {
+        nextChapterHandler();
+        getModules();
         toastSuccess(response?.data?.message || "Chapter Marked As Completed!");
-        setAsCompleted(false);
+        // setAsCompleted(false);
       }
     } catch (error) {
       console.log(error);
-      setAsCompleted(false);
+      // setAsCompleted(false);
     }
   };
 
@@ -229,6 +246,30 @@ const ChapterDetail = () => {
     courseCountPercent();
   }, []);
 
+  useEffect(() => {
+    if (!activeTab) {
+      getChapterDetails(freeIds[0]);
+      setActiveTab(freeIds[0]);
+    }
+  }, [freeIds]);
+
+  const nextChapterHandler = () => {
+    if (activeTab) {
+      const nextChapterIndex =
+        freeIds?.findIndex((ele) => ele === activeTab) + 1;
+      console.log("index", freeIds);
+      if (freeIds.length >= nextChapterIndex + 1) {
+        getChapterDetails(freeIds[nextChapterIndex]);
+        setActiveTab(freeIds[nextChapterIndex]);
+      } else {
+        setPopupStatus(true);
+        getChapterDetails(freeIds[0]);
+      }
+    } else {
+      getChapterDetails(freeIds[0]);
+    }
+  };
+
   return (
     <AuthLayout>
       <section className="expaned_closer_wrap">
@@ -247,7 +288,7 @@ const ChapterDetail = () => {
       <section className="explore_cources" onClick={resetToggler}>
         <div
           className="screen_container"
-          style={{ gap: `${status ? "" : "0"}` }}
+          style={{ gap: `${status ? "0" : "0"}` }}
         >
           <div className={`left_info ${status ? "" : "close"}`}>
             <div className="top_title">
@@ -435,9 +476,7 @@ const ChapterDetail = () => {
                                     </p>
                                   </div>
                                 </div>
-                              ) : (
-                                ""
-                              )}
+                              ) : null}
                             </div>
                           )}
 
@@ -478,6 +517,7 @@ const ChapterDetail = () => {
                       );
                     })}
 
+                    {/* Quize */}
                     <h6 className="title m_t">Quize</h6>
                     {quizeData?.length > 0 &&
                       quizeData?.map((data) => {
@@ -597,24 +637,27 @@ const ChapterDetail = () => {
                     )}
                   </Fragment>
                 )}
+
+                <div className="btn_bottom">
+                  {chapters?.completed ? (
+                    <button
+                      type="button"
+                      className="primarybtn"
+                      onClick={nextChapterHandler}
+                    >
+                      Next
+                    </button>
+                  ) : (
+                    <button
+                      type="button"
+                      className="primarybtn"
+                      onClick={markAsCompletedApi}
+                    >
+                      Mark As Completed
+                    </button>
+                  )}
+                </div>
               </Fragment>
-            )}
-            {activeTab && (
-              <div className="completed_wrap">
-                {asCompleted ? (
-                  <button type="button" className="primarybtn">
-                    Loading...
-                  </button>
-                ) : (
-                  <button
-                    type="button"
-                    className="primarybtn"
-                    onClick={markAsCompletedApi}
-                  >
-                    Mark As Completed
-                  </button>
-                )}
-              </div>
             )}
           </div>
         </div>

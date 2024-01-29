@@ -284,7 +284,10 @@ section.explore_cources {
                     width: 100%;
                 }
             }
-
+            .btn_bottom{
+                display:flex;
+                justify-content:flex-end;
+            }
 
         }
 
@@ -421,3 +424,4 @@ button.quiz_submit {
         transform: translateY(0px);
     }
 }
+

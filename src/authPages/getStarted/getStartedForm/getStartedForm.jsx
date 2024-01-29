@@ -142,7 +142,7 @@ const GetStartedForm = () => {
                   return (
                     <label className={`option`} key={data.id}>
                       {data.name}
-                      <Field type="radio" name="country" value={data.name} />
+                      <Field type="radio" name="country" value={data.name} onClick={ddToggler} />
                     </label>
                   );
                 })}
