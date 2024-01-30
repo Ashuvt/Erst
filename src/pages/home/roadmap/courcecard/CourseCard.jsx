@@ -7,7 +7,7 @@ const CourseCard = ({
   _id,
   name,
   image,
-  description,
+  course_description,
   small_description,
   course_time,
   students,
@@ -47,7 +47,7 @@ const CourseCard = ({
       <div className="courses_list">    
         <p className="t-g-18">Available Courses</p>   
 
-        <div dangerouslySetInnerHTML={{ __html: description }}></div>
+        <div dangerouslySetInnerHTML={{ __html: course_description }}></div>
       </div>
       <div
         className="bottom_shad wow zoomIn"

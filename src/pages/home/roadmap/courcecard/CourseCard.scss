@@ -107,7 +107,8 @@
         p.t-g-18{
             color:$white;
             letter-spacing: 0.5px;
-            margin-top:15px;
+            margin-top:10px;
+            margin-bottom:15px;
         }
         p{
             text-align: left!important;
@@ -142,9 +143,9 @@
             content:"";
             bottom:0px;
             left:0px;
-            height:200px;
+            height:100px;
             width:100%;
-            background:linear-gradient( to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
+            background:linear-gradient( to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
             z-index: 1;
         }
     }

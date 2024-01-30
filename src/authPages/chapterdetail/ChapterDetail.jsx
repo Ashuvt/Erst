@@ -100,7 +100,7 @@ const ChapterDetail = () => {
         { headers }
       );
       if (response?.data?.success) {
-        console.log("Modeules ==> ", response?.data?.data);
+        console.log("Modeules ==> ", response?.data);
         setModulesList(response?.data?.data);
         setModuleLoader(false);
 

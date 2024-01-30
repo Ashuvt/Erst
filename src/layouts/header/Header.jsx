@@ -65,7 +65,7 @@ const Header = ({t}) => {
             <HembergerMenu clickHandler={menuToggler} status={sidebarStatus} />
 
             
-            {domainName() === "ae" && <LanguageDd />}
+            {/* <LanguageDd /> */}
             
 
           </div>
