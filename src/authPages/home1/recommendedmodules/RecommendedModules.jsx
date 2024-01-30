@@ -5,7 +5,7 @@ import ModuleTitle from "../../components/moduletitle/ModuleTitle";
 import { icon } from "../../../utils/images/icons";
 import ReturnRecommendedModuleCard from "../../components/returnrecommededcard/ReturnRecommendedModuleCard";
 
-const RecommendedModules = ({ recommaned }) => {
+const RecommendedModules = ({ listData }) => {
   const name = localStorage.getItem("name");
   return (
     <Fragment>
@@ -17,7 +17,7 @@ const RecommendedModules = ({ recommaned }) => {
         icon={icon.blueRightArrow}
         redirectTo="/auth/explore"
       />
-      { recommaned?.length > 0  ? recommaned.map((info, i) => {
+      { listData?.length > 0  ? listData.map((info, i) => {
         return (
           <Fragment key={info._id}>
             <RecommendedModuleCard {...info} index={i} />

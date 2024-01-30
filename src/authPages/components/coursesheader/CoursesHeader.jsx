@@ -162,15 +162,13 @@ const CoursesHeader = () => {
               type="button"
               className="cartbtn"
               onClick={notificationHandler}
-            >
-              <div className="notification">
-                <p>{notification?.length > 0 ? notification?.length : 0}</p>
-              </div>
+            >      
+            <div className="alert_view"></div>     
               <img src={icon.notification} alt="notification" />
             </button>
 
             <button type="button" className="cartbtn" onClick={openCartPopup}>
-              <div className="notification">
+              <div className="cart_count">
                 <p>{cartData?.cart?.length || 0}</p>
               </div>
               <img src={icons.addCart} alt="cart" />

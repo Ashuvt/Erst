@@ -67,7 +67,7 @@ section.courses_header {
                         background-color: transparent;
                         position: relative;
 
-                        .notification {
+                        .cart_count {
                             height: 20px;
                             width: 20px;
                             border-radius: 50%;
@@ -83,6 +83,21 @@ section.courses_header {
                                 @include font('Inter-Regular', 12px, 11px, 400, $white);
                             }
                         }
+
+                        .alert_view{
+                            height:12px;
+                            width:12px;
+                            border-radius: 50%;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            background:$primary;
+                            position: absolute;
+                            top:0px;
+                            right:-2px; 
+                        }
+                     
+
                     }
 
                     .img_wrap {

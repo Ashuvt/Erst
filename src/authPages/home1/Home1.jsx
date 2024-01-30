@@ -56,7 +56,7 @@ const Home1 = () => {
   const [cta, setCta] = useState([]);
   const [couponModel, setCouponModel] = useState(false);
   const [couponOffer, setCouponOffer] = useState({});
-  const [isPurchaed, setIsPurchaed] = useState(false);
+  const [isPurchased, setIsPurchsed] = useState(false);
   const [purchasedList, setPurchasedList] = useState([]);
 
   const navigate = useNavigate();
@@ -80,7 +80,7 @@ const Home1 = () => {
         setCta(response?.data?.data?.cta);
         setRecommaned(response?.data?.data?.recommaned_bundles);
         setCouponOffer(response?.data?.data?.coupon);
-        setIsPurchaed(response?.data?.data?.purchase_course);
+        setIsPurchsed(response?.data?.data?.purchase_course);
         setPurchasedList(response?.data?.data?.purchased_courses_all);
       } else {
         setCta([]);
@@ -107,11 +107,9 @@ const Home1 = () => {
         <div className="screen_container">
           <div className="content_grid">
             <div className="left">
-              {isPurchaed ? (
-                <PurchasedList listData={purchasedList} />
-              ) : (
-                <RecommendedModules listData={recommaned} />
-              )}
+
+              {isPurchased ? <PurchasedList listData={purchasedList} /> : <RecommendedModules listData={recommaned} />
+              }
 
               <FourBoxInfo title="Your Roadmap" data={fourInfoData} />
               {/* <LiveSec /> */}
