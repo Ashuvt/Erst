@@ -1,45 +1,61 @@
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
 import ModuleTitle from "../../components/moduletitle/ModuleTitle";
 import { icon } from "../../../utils/images/icons";
-import { images } from "../../../utils/images/images";
 import SkillPathCard from "../../components/skillpathcard/SkillPathCard";
-import { useNavigate } from "react-router-dom";
+import { baseUrl, explorePage } from "../../../utils/apidata";
+import axios from "axios";
 
-const PopularSkillPath = () => {
-  const data = [
-    {
-      id: 0,
-      title: "Cyber security",
-      img: images.skillPath,
-      text: "A short description about the module, it can be in two lines.",
-      students: 800,
-      module:15,
-      rating: 4.5,
-      count: 1331,
-    },
-    {
-      id: 1,
-      title: "Red alert",
-      img: images.skillPath,
-      text: "A short description about the module, it can be in two lines.",
-      students: 800,
-      module:15,
-      rating: 4.5,
-      count: 1331,
-    },
-    {
-      id: 2,
-      title: "Safety class",
-      img: images.skillPath,
-      text: "A short description about the module, it can be in two lines.",
-      students: 800,
-      module:15,
-      rating: 4.5,
-      count: 1331,
-    },
-  ];
+const PopularSkillPath = ({dummyNum, setDummyNum}) => {
+  const [loader, setLoader] = useState(false);
+  const [bundleList, setBundleList] = useState([]);
+  const [savedList, setSavedList] = useState([]);
 
-  const navigate = useNavigate();
+  const exploreApi = async () => {
+    const token = localStorage.getItem("token");
+
+    const headers = {
+      Authorization: `Bearer ${token}`,
+    };
+
+    setLoader(true);
+    try {
+      const response = await axios.get(
+        `${baseUrl}/${explorePage}`,
+        {
+          headers,
+        },
+        {
+          proffession: {},
+          interest: {},
+          tag: {},
+        }
+      );
+      if (response?.data?.success) {
+        setLoader(false);
+        setBundleList(response?.data?.data?.bundle);
+        setSavedList(response?.data?.data?.savedcourses);
+      } else {
+        setBundleList([]);
+      }
+    } catch (error) {
+      console.log(error);
+      setBundleList([]);
+      setLoader(false);
+    }
+  };
+
+  useEffect(() => {
+    exploreApi();
+  }, []);
+
+  useEffect(() => {
+    exploreApi();
+  }, [dummyNum]);
+
+const recallAfterSaveAPi = () => {
+  exploreApi();
+  setDummyNum(prev => prev - 1);
+}
 
   return (
     <Fragment>
@@ -49,15 +65,20 @@ const PopularSkillPath = () => {
         btntext="Popular Bundles"
         icon={icon.blueRightArrow}
         redirectTo="/auth/explore"
+        
       />
 
-      {data.map((info) => {
-        return (
-          <Fragment key={info.id}>
-            <SkillPathCard {...info} />
-          </Fragment>
-        );
-      })}
+      {bundleList?.length > 0 ? (
+        bundleList.slice(0, 3)?.map((info) => {
+          return (
+            <Fragment key={info.id}>
+              <SkillPathCard {...info} recallAfterSaveAPi={recallAfterSaveAPi} savedList={savedList} />
+            </Fragment>
+          );
+        })
+      ) : (
+        <p>Data Not Found...</p>
+      )}
     </Fragment>
   );
 };

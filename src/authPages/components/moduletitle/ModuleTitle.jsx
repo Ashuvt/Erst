@@ -3,7 +3,7 @@ import BlueTextBtn from "../bluetextbtn/BlueTextBtn";
 import "./ModuleTitle.scss";
 import WOW from "wow.js";
 
-const ModuleTitle = ({ title, text,btntext, icon, redirectTo }) => {
+const ModuleTitle = ({ title, text,btntext, icon, redirectTo}) => {
 
   useEffect(() => {
     const wow = new WOW();

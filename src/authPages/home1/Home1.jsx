@@ -15,7 +15,12 @@ import { useDispatch } from "react-redux";
 import { resetAllToggler } from "../../store/actions";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { baseUrl, authHomeApi, saveCourse } from "../../utils/apidata";
+import {
+  baseUrl,
+  authHomeApi,
+  saveCourse,
+  explorePage,
+} from "../../utils/apidata";
 import { redirectContext } from "../../context/RoutingContext";
 import AuthLayout from "../AuthLayout";
 import HomeOfferModel from "./homeoffermodel/HomeOfferModel";
@@ -62,6 +67,8 @@ const Home1 = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  const [dummyNum, setDummyNum] = useState(1);
+
   const resetToggler = () => {
     dispatch({ type: resetAllToggler() });
   };
@@ -97,6 +104,8 @@ const Home1 = () => {
     homeApi();
   }, []);
 
+
+
   return (
     <AuthLayout>
       <WelComeStrip
@@ -107,13 +116,15 @@ const Home1 = () => {
         <div className="screen_container">
           <div className="content_grid">
             <div className="left">
-
-              {isPurchased ? <PurchasedList listData={purchasedList} /> : <RecommendedModules listData={recommaned} />
-              }
+              {isPurchased ? (
+                <PurchasedList listData={purchasedList} />
+              ) : (
+                <RecommendedModules listData={recommaned} />
+              )}
 
               <FourBoxInfo title="Your Roadmap" data={fourInfoData} />
               {/* <LiveSec /> */}
-              <PopularSkillPath />
+              <PopularSkillPath dummyNum={dummyNum} setDummyNum={setDummyNum} />
             </div>
             <div className="right">
               {/* <div className="in_progress">
@@ -135,7 +146,7 @@ const Home1 = () => {
                 </button>
               </div> */}
 
-              <SavedList />
+              <SavedList dummyNum={dummyNum} setDummyNum={setDummyNum} />
 
               {couponOffer?._id && (
                 <OfferCard

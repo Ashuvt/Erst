@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { baseUrl, getSavedCourse, saveCourse } from "../../../utils/apidata";
 
-const SavedList = () => {
+const SavedList = ({dummyNum, setDummyNum}) => {
   const navigate = useNavigate();
   const [saveCourseList, setSaveCourseList] = useState([]);
   const { toastWarning, toastError, toastSuccess } =
@@ -64,7 +64,12 @@ const SavedList = () => {
   const saveBtnHandler = (e, id) => {
     e.stopPropagation();
     saveCourseApi(id);
+    setDummyNum(prev => prev + 1)
   };
+
+  useEffect(() => {
+    getSavedCourseApi();
+  },[dummyNum])
 
   return (
     <div className="home_saved_list">
