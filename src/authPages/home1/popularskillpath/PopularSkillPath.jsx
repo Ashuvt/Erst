@@ -71,7 +71,7 @@ const recallAfterSaveAPi = () => {
       {bundleList?.length > 0 ? (
         bundleList.slice(0, 3)?.map((info) => {
           return (
-            <Fragment key={info.id}>
+            <Fragment key={info?._id}>
               <SkillPathCard {...info} recallAfterSaveAPi={recallAfterSaveAPi} savedList={savedList} />
             </Fragment>
           );

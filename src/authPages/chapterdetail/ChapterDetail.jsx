@@ -28,6 +28,8 @@ const ChapterDetail = () => {
   const [chapterLoader, setChapterLoader] = useState(false);
   const [quizeSubmitLoader, setQuizeSubmitLoader] = useState(false);
 
+  const [chapterIdForQuize, setChapterIdForQuize] = useState("");
+
   const [counteData, setCountsData] = useState({});
 
   const [modulesList, setModulesList] = useState([]);
@@ -39,6 +41,8 @@ const ChapterDetail = () => {
   const [selectedAnswer, setSelectedAnswer] = useState([]);
   const [popupStatus, setPopupStatus] = useState(false);
 
+  const [showResult, setShowResult] = useState(false);
+const[resultData, setResultData] = useState({});
   const [freeIds, setFreeIds] = useState([]);
 
   const { id } = useParams();
@@ -166,16 +170,22 @@ const ChapterDetail = () => {
     try {
       const response = await axios.post(
         `${baseUrl}/${quizSubmit}`,
-        [...selectedAnswer],
+        {
+          chapterId: `${chapterIdForQuize}`,
+          answers: [...selectedAnswer],
+        },
         { headers }
       );
+      console.log("Q response::", response);
       if (response?.data?.success) {
-        toastSuccess(response?.data?.data);
+        setResultData(response?.data?.data);
+        toastSuccess(response?.data?.data?.message);
         setQuizeSubmitLoader(false);
+        setShowResult(true);
       }
     } catch (error) {
       console.log(error);
-      toastError("Something Went Wrong!");
+      toastError(error?.message || "Something Went Wrong!");
       setQuizeSubmitLoader(false);
     }
   };
@@ -208,38 +218,33 @@ const ChapterDetail = () => {
   };
 
   const addAnswer = (chapterId, quizId, ans) => {
-    const obj = selectedAnswer.find((ele) => ele.quizId === quizId);
-    if (obj) {
-      if (obj.selectedOptions.includes(ans)) {
-        const tempObj = {
-          chapterId: obj.chapterId,
-          quizId: obj.quizId,
-          selectedOptions: obj.selectedOptions.filter((ele) => ele !== ans),
-        };
-
-        setSelectedAnswer((prev) => {
-          const newArr = prev.filter((item) => item.quizId !== quizId);
-          return [...newArr, tempObj];
-        });
+    setChapterIdForQuize(chapterId);
+    setSelectedAnswer((prev) => {
+      var indexToadd = prev.findIndex((item) => item.quizId === quizId);
+      if (indexToadd !== -1) {
+        prev.splice(indexToadd, 1);
+        return [
+          ...prev,
+          {
+            quizId: quizId,
+            answer: ans,
+          },
+        ];
       } else {
-        const tempObj = {
-          chapterId: obj.chapterId,
-          quizId: obj.quizId,
-          selectedOptions: [...obj.selectedOptions, ans],
-        };
-
-        setSelectedAnswer((prev) => {
-          const newArr = prev.filter((item) => item.quizId !== quizId);
-          return [...newArr, tempObj];
-        });
+        return [
+          ...prev,
+          {
+            quizId: quizId,
+            answer: ans,
+          },
+        ];
       }
-    } else {
-      setSelectedAnswer((prev) => [
-        ...prev,
-        { chapterId, quizId, selectedOptions: [ans] },
-      ]);
-    }
+    });
   };
+
+  useEffect(() => {
+    console.log("Ans:::", selectedAnswer);
+  }, [selectedAnswer]);
 
   useEffect(() => {
     getModules();
@@ -519,107 +524,138 @@ const ChapterDetail = () => {
 
                     {/* Quize */}
                     <h6 className="title m_t">Quize</h6>
-                    {quizeData?.length > 0 &&
-                      quizeData?.map((data) => {
-                        return (
-                          <Fragment key={data?._id}>
-                            <div className="quize_sec">
-                              <h5>{data?.quizz_question}</h5>
 
-                              <div className="option_wrap">
-                                <button
-                                  type="button"
-                                  onClick={() =>
-                                    addAnswer(
-                                      data?.chapterId,
-                                      data?._id,
-                                      data?.quizz_opt_1
-                                    )
-                                  }
-                                >
-                                  {selectedAnswer
-                                    .filter(
-                                      (ele) => ele.quizId === data?._id
-                                    )[0]
-                                    ?.selectedOptions?.includes(
-                                      data?.quizz_opt_1
-                                    ) && <span></span>}
-                                </button>
-                                <p>{data?.quizz_opt_1}</p>
-                              </div>
-                              <div className="option_wrap">
-                                <button
-                                  type="button"
-                                  onClick={() =>
-                                    addAnswer(
-                                      data?.chapterId,
-                                      data?._id,
-                                      data?.quizz_opt_2
-                                    )
-                                  }
-                                >
-                                  {selectedAnswer
-                                    .filter(
-                                      (ele) => ele.quizId === data?._id
-                                    )[0]
-                                    ?.selectedOptions?.includes(
-                                      data?.quizz_opt_2
-                                    ) && <span></span>}
-                                </button>
-                                <p>{data?.quizz_opt_2}</p>
-                              </div>
-                              <div className="option_wrap">
-                                <button
-                                  type="button"
-                                  onClick={() =>
-                                    addAnswer(
-                                      data?.chapterId,
-                                      data?._id,
-                                      data?.quizz_opt_3
-                                    )
-                                  }
-                                >
-                                  {selectedAnswer
-                                    .filter(
-                                      (ele) => ele.quizId === data?._id
-                                    )[0]
-                                    ?.selectedOptions?.includes(
-                                      data?.quizz_opt_3
-                                    ) && <span></span>}
-                                </button>
-                                <p>{data?.quizz_opt_3}</p>
-                              </div>
-                              <div className="option_wrap">
-                                <button
-                                  type="button"
-                                  onClick={() =>
-                                    addAnswer(
-                                      data?.chapterId,
-                                      data?._id,
-                                      data?.quizz_opt_4
-                                    )
-                                  }
-                                >
-                                  {selectedAnswer
-                                    .filter(
-                                      (ele) => ele.quizId === data?._id
-                                    )[0]
-                                    ?.selectedOptions?.includes(
-                                      data?.quizz_opt_4
-                                    ) && <span></span>}
-                                </button>
-                                <p>{data?.quizz_opt_4}</p>
-                              </div>
-                            </div>
-                          </Fragment>
-                        );
-                      })}
+                    {showResult ? (
+                      //Quize Result
+                      <Fragment>
+                        <div className="quize_result">
+                        {resultData?.success ? <p className="pass">Passed</p> : <p className="fail">Failed</p>}
+                        <p>Score : {resultData?.totalScore}/{resultData?.totalQuizzes}</p>
+                        <p>Percentage : {resultData?.overallPercentage}%</p>
+                        </div>
+                        {quizeData?.length > 0 &&
+                          quizeData?.map((data) => {
+                            return (
+                              <Fragment key={data?._id}>
+                                <div className="quize_sec">
+                                  <h5>{data?.quizz_question}</h5>
+
+                                  <div className="option_wrap">
+                                    <button type="button">
+                                      <span></span>
+                                    </button>
+                                    <p>{data?.quizz_opt_1}</p>
+                                  </div>
+                                  <div className="option_wrap">
+                                    <button type="button">
+                                      <span></span>
+                                    </button>
+                                    <p>{data?.quizz_opt_2}</p>
+                                  </div>
+                                  <div className="option_wrap">
+                                  <button type="button">
+                                      <span></span>
+                                    </button>
+                                    <p>{data?.quizz_opt_3}</p>
+                                  </div>
+                                  <div className="option_wrap">
+                                    <button type="button">
+                                      <span></span>
+                                    </button>
+                                    <p>{data?.quizz_opt_4}</p>
+                                  </div>
+                                </div>
+                              </Fragment>
+                            );
+                          })}
+                      </Fragment>
+                    ) : (
+                      <Fragment>
+                        {quizeData?.length > 0 &&
+                          quizeData?.map((data) => {
+                            return (
+                              <Fragment key={data?._id}>
+                                <div className="quize_sec">
+                                  <h5>{data?.quizz_question}</h5>
+
+                                  <div className="option_wrap">
+                                    <button
+                                      type="button"
+                                      onClick={() =>
+                                        addAnswer(
+                                          data?.chapterId,
+                                          data?._id,
+                                          "option 1"
+                                        )
+                                      }
+                                    >
+                                      {selectedAnswer.find(
+                                        (ele) => ele.quizId === data?._id
+                                      )?.answer === "option 1" && <span></span>}
+                                    </button>
+                                    <p>{data?.quizz_opt_1}</p>
+                                  </div>
+                                  <div className="option_wrap">
+                                    <button
+                                      type="button"
+                                      onClick={() =>
+                                        addAnswer(
+                                          data?.chapterId,
+                                          data?._id,
+                                          "option 2"
+                                        )
+                                      }
+                                    >
+                                      {selectedAnswer.find(
+                                        (ele) => ele.quizId === data?._id
+                                      )?.answer === "option 2" && <span></span>}
+                                    </button>
+                                    <p>{data?.quizz_opt_2}</p>
+                                  </div>
+                                  <div className="option_wrap">
+                                    <button
+                                      type="button"
+                                      onClick={() =>
+                                        addAnswer(
+                                          data?.chapterId,
+                                          data?._id,
+                                          "option 3"
+                                        )
+                                      }
+                                    >
+                                      {selectedAnswer.find(
+                                        (ele) => ele.quizId === data?._id
+                                      )?.answer === "option 3" && <span></span>}
+                                    </button>
+                                    <p>{data?.quizz_opt_3}</p>
+                                  </div>
+                                  <div className="option_wrap">
+                                    <button
+                                      type="button"
+                                      onClick={() =>
+                                        addAnswer(
+                                          data?.chapterId,
+                                          data?._id,
+                                          "option 4"
+                                        )
+                                      }
+                                    >
+                                      {selectedAnswer.find(
+                                        (ele) => ele.quizId === data?._id
+                                      )?.answer === "option 4" && <span></span>}
+                                    </button>
+                                    <p>{data?.quizz_opt_4}</p>
+                                  </div>
+                                </div>
+                              </Fragment>
+                            );
+                          })}
+                      </Fragment>
+                    )}
                   </Fragment>
                 ) : (
                   <p>Data Not Found...</p>
                 )}
-
-                {/* Quize */}
                 {quizeData?.length > 0 && (
                   <Fragment>
                     {quizeSubmitLoader ? (

@@ -59,6 +59,7 @@ const ResumeBuilder = () => {
                   type="button"
                   className={tab === data.id ? "active" : ""}
                   onClick={() => setTab(data.id)}
+                  key={data?.id}
                 >
                   <div
                     className={`circle ${tab === data.id ? "active" : ""}`}

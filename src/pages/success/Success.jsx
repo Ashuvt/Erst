@@ -22,13 +22,12 @@ const {toastSuccess} = useContext(redirectContext)
 
   const successApi = async () => {
     const token = localStorage.getItem("token");
-    const productList = localStorage.getItem("productIds");
     const headers = {
       Authorization: `Bearer ${token}`,
     };
 
     try {
-      const response = await axios.post(`${baseUrl}/${paymentSuccess}`, {course_id:productList}, {headers});
+      const response = await axios.post(`${baseUrl}/${paymentSuccess}`, {headers});
      if(response?.data?.success){
       toastSuccess(response?.data?.message);
      }

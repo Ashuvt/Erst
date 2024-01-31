@@ -102,7 +102,7 @@ export const coursedetailById = "api/coursedetails";
 // Quiz Submit
 export const moduleList = "api/modulelist";
 export const chapterDetail = "api/chapterdetails";
-export const quizSubmit = "api/submitquizz";
+export const quizSubmit = "api/submitallquiz";
 export const courseCount = "api/chapterdetailscount";
 
 export const markAsCompleted = "api/chaptercomplate"

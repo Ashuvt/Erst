@@ -57,11 +57,7 @@ const ViewCart = () => {
   };
 
   const checkOutHandler = () => {
-    checkoutApi();
-    localStorage.setItem(
-      "productIds",
-      cartData?.cart.map((ele) => ele._id).join(",")
-    );
+    checkoutApi();  
   };
 
   return (

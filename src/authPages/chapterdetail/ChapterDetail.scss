@@ -238,7 +238,6 @@ section.explore_cources {
                     align-items: center;
                     gap: 15px;
                     margin-top: 10px;
-
                     button {
                         height: 20px;
                         width: 20px;
@@ -423,5 +422,23 @@ button.quiz_submit {
     to {
         transform: translateY(0px);
     }
+
+  
 }
 
+.quize_result{
+    p{
+        @include font('SpaceGrotesk-Regular', 18px, 20px, 400, $white);
+        margin-bottom:10px;
+        &.fail{
+            color:$orange;
+            font-size:22px;
+            line-height: 26px;
+        }
+        &.pass{
+            color:$green;
+            font-size:22px;
+            line-height: 26px;
+        }
+    }
+}

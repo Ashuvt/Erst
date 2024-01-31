@@ -1,9 +1,11 @@
 import "./CourseCard.scss";
+import { Fragment } from "react";
 import { icon } from "../../../../utils/images/icons";
 import { baseUrl } from "../../../../utils/apidata";
 import { useNavigate } from "react-router-dom";
 
 const CourseCard = ({
+  dataObj,
   _id,
   name,
   image,
@@ -11,10 +13,19 @@ const CourseCard = ({
   small_description,
   course_time,
   students,
+
+  setPopStatus,
+  setViewData
 }) => {
-  const navigate = useNavigate();
+ 
+
+  const viewMore = () => {    
+    setPopStatus(true);
+    setViewData(dataObj);
+  }
 
   return (
+    <Fragment>
     <div className="course_card">
       <div className="sticky_content">
         <div className="img_wrap">
@@ -38,9 +49,9 @@ const CourseCard = ({
         <button
           type="buttton"
           className="primarybtn"
-          onClick={() => navigate("/contact")}
+          onClick={viewMore}
         >
-          Explore Free Lessons
+         Know More
         </button>
       </div>
 
@@ -55,6 +66,9 @@ const CourseCard = ({
         data-wow-duration="1.5s"
       ></div>
     </div>
+
+
+    </Fragment>
   );
 };
 

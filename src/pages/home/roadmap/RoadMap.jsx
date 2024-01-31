@@ -14,7 +14,7 @@ import OneThreeFloat from "./onethreefloat/OneThreeFloat";
 import { redirectContext } from "../../../context/RoutingContext";
 
 
-const RoadMap = ({ t }) => {
+const RoadMap = ({ t, setPopStatus, setViewData }) => {
   const [courseList, setCourseList] = useState([]);
 
   const {domainName} = useContext(redirectContext);
@@ -216,7 +216,7 @@ const RoadMap = ({ t }) => {
 
 
 {
-  domainName() === 'net' ? <OneThreeFloat scrollY={scrollY} /> : <OneTwoFloat scrollY={scrollY} />
+  domainName() === 'net' ? <OneThreeFloat scrollY={scrollY}  /> : <OneTwoFloat scrollY={scrollY} />
 }
           
           
@@ -227,7 +227,7 @@ const RoadMap = ({ t }) => {
               courseList.slice(0,domainName() === "net" ? 3 : 2).map((data) => {
                 return (
                   <Fragment key={data._id}>
-                    <CourseCard {...data} />
+                    <CourseCard {...data} dataObj={data} setPopStatus={setPopStatus} setViewData={setViewData} />
                   </Fragment>
                 );
               })}

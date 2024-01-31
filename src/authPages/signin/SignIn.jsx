@@ -10,10 +10,11 @@ import * as Yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { baseUrl, signIn } from "../../utils/apidata";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const SignIn = () => {
   const { signUpHandler, toastError, toastSuccess, goToAuthHome, goToForgotPassword } = useContext(redirectContext);
-
+const navigate = useNavigate();
   const [loader, setLoader] = useState(false);
 
   const initialValues = {
@@ -36,6 +37,7 @@ const SignIn = () => {
   const [eye, setEye] = useState(false);
 
   const onSubmit = async (values) => {
+    // const pageId = localStorage.getItem("pageId");
     setLoader(true);
     try {
       const response = await axios.post(`${baseUrl}/${signIn}`, values);   
@@ -46,8 +48,17 @@ const SignIn = () => {
         localStorage.setItem("name", response?.data?.data?.name);
         localStorage.setItem("email", response?.data?.data?.email);
         localStorage.setItem("country", response?.data?.data?.country);
-        setLoader(false);
+
         goToAuthHome();
+
+
+        setLoader(false);
+//         if(pageId){
+// navigate(`/explore/${pageId}`);
+//         }else{
+//           goToAuthHome();
+//         }
+       
       }else{
         toastError(response.data.message);
         setLoader(false);

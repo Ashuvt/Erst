@@ -45,7 +45,7 @@ const domainName = () => {
   // select only two values from below
   // net
   // ae
-  return "ae";
+  return "net";
 };
 
 const RoutingContextProvider = ({ children }) => {
@@ -61,14 +61,14 @@ const RoutingContextProvider = ({ children }) => {
 
   // For Login Page
   const signInHandler = () => {
-    navigation("/comingsoon");
+    navigation("/signin");
     // comingsoon
     // signin
   };
 
   // For Getstarted Page (Sign Up)
   const signUpHandler = () => {
-    navigation("/comingsoon");
+    navigation("/getstarted");
     // comingsoon
     // getstarted
   };
@@ -258,11 +258,11 @@ const RoutingContextProvider = ({ children }) => {
       if (response.data?.success) {
         window.open(response?.data?.data?.url, "_blank", "noreferrer");
       }else{
-        localStorage.removeItem("productIds");
+        toastError("Something went wrong!");
       }
     } catch (error) {
-      toastError(error?.message || "Something Went Wrong!");
-      localStorage.removeItem("productIds");
+      toastError(error?.message || "Something went wrong!");
+      
     }
   };
 
