@@ -2,13 +2,15 @@
 @import "./variables";
 @import "./typography";
 
-#tsparticles{
-  position:relative;
-  z-index: 0!important;
-  canvas{
-    border:0px solid #fff;
+#tsparticles {
+  position: relative;
+  z-index: 0 !important;
+
+  canvas {
+    border: 0px solid #fff;
   }
 }
+
 section {
   width: 100%;
   background-color: $dark;
@@ -108,6 +110,11 @@ section {
 
 button.primarybtn {
   @include primaryBtn;
+  user-select: none;
+
+  &:disabled {
+    opacity: 0.5;
+  }
 }
 
 button.secondarybtn {
@@ -145,7 +152,8 @@ textarea,
 }
 
 
-.auth_field, .form_field {
+.auth_field,
+.form_field {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -173,7 +181,9 @@ textarea,
   .input_wrap {
     position: relative;
 
-    input, textarea, button.dd{
+    input,
+    textarea,
+    button.dd {
       padding: 16px 50px 16px 16px;
       border-radius: 8px;
       border: 1px solid #2E2E2E;
@@ -184,6 +194,7 @@ textarea,
       -webkit-backdrop-filter: blur(28px);
       backdrop-filter: blur(28px);
       background: linear-gradient(113deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.00) 110.84%);
+
       &::placeholder {
         @include font('Inter-Regular', 14px, 20px, 400, $textHint);
       }
@@ -198,7 +209,7 @@ textarea,
       opacity: 0.4;
       max-width: 20px;
 
-    
+
     }
 
     button {
@@ -284,19 +295,20 @@ button.iconbtn {
 }
 
 
-.bg_card_overlay{
-  position:absolute;
-  top:1px;
-  left:1px;
-  height:calc(100% - 2px);
-  width:calc(100% - 2px);
+.bg_card_overlay {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  height: calc(100% - 2px);
+  width: calc(100% - 2px);
   background: linear-gradient(113deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.00) 110.84%);
-  z-index:2;
-  transition:all 0.3s ease-in-out;
+  z-index: 2;
+  transition: all 0.3s ease-in-out;
   border-radius: 12px;
   -webkit-backdrop-filter: blur(28px);
   backdrop-filter: blur(28px);
-  &:hover{    
+
+  &:hover {
     background: linear-gradient(253deg, rgba(255, 255, 255, 0.08) -7.53%, rgba(255, 255, 255, 0.00) 97.04%);
     box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.06);
     -webkit-backdrop-filter: blur(1.75px);
@@ -308,138 +320,138 @@ button.iconbtn {
 
 form {
   .bi_sec {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
   }
 
   .bi_in_sec {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
   }
 
   .resume_field {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 24px;
 
-      label {
-          @include font('Inter-Regular', 14px, 20px, 400, $textSecondary);
-      }
+    label {
+      @include font('Inter-Regular', 14px, 20px, 400, $textSecondary);
+    }
 
-      input {
-          box-shadow: none;
-          border-style: none;
-          padding: 8px;
-          border-radius: 8px;
-          border: 1px solid $borderSubtle;
-          background: $bgLight;
-          @include font('Inter-Regular', 14px, 20px, 400, $textPrimary);
-      }
+    input {
+      box-shadow: none;
+      border-style: none;
+      padding: 8px;
+      border-radius: 8px;
+      border: 1px solid $borderSubtle;
+      background: $bgLight;
+      @include font('Inter-Regular', 14px, 20px, 400, $textPrimary);
+    }
 
-      .input_wrap {
+    .input_wrap {
+      position: relative;
+
+      .option_wrap {
+        border: 1px solid $lightBorder_2;
+        border-radius: 12px;
+        position: absolute;
+        width: 100%;
+        top: 56px;
+        left: 0px;
+        background-color: $dark;
+        z-index: 99;
+        display: flex;
+        flex-direction: column;
+        transform-origin: top center;
+        transition: all 0.2s ease-in-out;
+        overflow: hidden;
+
+        &.open {
+          transform: scaleY(1);
+        }
+
+        &.close {
+          transform: scaleY(0);
+        }
+
+        label.option {
+          height: 50px;
           position: relative;
+          overflow: hidden;
+          margin: 0px;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          padding-left: 15px;
+          border-bottom: 1px solid $lightBorder_2;
+          transition: all 0.3s ease-in-out;
 
-          .option_wrap {
-              border: 1px solid $lightBorder_2;
-              border-radius: 12px;
-              position: absolute;
-              width: 100%;
-              top: 56px;
-              left: 0px;
-              background-color: $dark;
-              z-index: 99;
-              display: flex;
-              flex-direction: column;
-              transform-origin: top center;
-              transition: all 0.2s ease-in-out;
-              overflow: hidden;
-
-              &.open {
-                  transform: scaleY(1);
-              }
-
-              &.close {
-                  transform: scaleY(0);
-              }
-
-              label.option {
-                  height: 50px;
-                  position: relative;
-                  overflow: hidden;
-                  margin: 0px;
-                  display: flex;
-                  justify-content: flex-start;
-                  align-items: center;
-                  padding-left: 15px;
-                  border-bottom: 1px solid $lightBorder_2;
-                  transition: all 0.3s ease-in-out;
-
-                  &:hover {
-                      -webkit-backdrop-filter: blur(28px);
-                      backdrop-filter: blur(28px);
-                      background: linear-gradient(113deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.00) 110.84%);
-                  }
-
-                  input {
-                      padding: 5px 15px;
-                      position: absolute;
-                      top: 0px;
-                      left: 0px;
-                      width: 100%;
-                      opacity: 0;
-
-                  }
-              }
+          &:hover {
+            -webkit-backdrop-filter: blur(28px);
+            backdrop-filter: blur(28px);
+            background: linear-gradient(113deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.00) 110.84%);
           }
-      }
-
-      .file_wraper {
-          box-shadow: none;
-          border-style: none;
-          padding: 8px;
-          border-radius: 8px;
-          border: 1px solid $borderSubtle;
-          background: $bgLight;
-          padding: 0px;
-          height: 100px;
-          z-index: 0;
-          position: relative;
 
           input {
-              position: absolute;
-              height: 100%;
-              width: 100%;
-              z-index: 3;
-              opacity: 0;
-          }
+            padding: 5px 15px;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            opacity: 0;
 
-          .overlay {
-              position: absolute;
-              height: 100%;
-              width: 100%;
-              z-index: 2;
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-              justify-content: center;
-
-              svg {
-                  color: $white;
-                  font-size: 25px;
-                  margin-bottom: 4px;
-                  color: $textSecondary;
-              }
           }
+        }
       }
+    }
+
+    .file_wraper {
+      box-shadow: none;
+      border-style: none;
+      padding: 8px;
+      border-radius: 8px;
+      border: 1px solid $borderSubtle;
+      background: $bgLight;
+      padding: 0px;
+      height: 100px;
+      z-index: 0;
+      position: relative;
+
+      input {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        z-index: 3;
+        opacity: 0;
+      }
+
+      .overlay {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        svg {
+          color: $white;
+          font-size: 25px;
+          margin-bottom: 4px;
+          color: $textSecondary;
+        }
+      }
+    }
   }
 }
 
-.navigate_btns{
+.navigate_btns {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top:60px;
+  margin-top: 60px;
 }

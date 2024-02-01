@@ -2,12 +2,16 @@ import { useState } from "react";
 import AuthLayout from "../AuthLayout";
 import "./ResumeBuilder.scss";
 import ResumeBuilderBanner from "./resumeBuilderBanner/ResumeBuilderBanner";
-import StepOne from "./stepone/StepOne";
-import StepTwo from "./stepTwo/StepTwo";
 import { useDispatch } from "react-redux";
 import { resetAllToggler } from "../../store/actions";
+import Navigations from "./navigations/Navigations";
+import StepA from "./stepA/StepA";
+import StepB from "./stepB/StepB";
+import StepC from "./stepC/StepC";
+import NextPrevBtns from "./nextPrevBtns/NextPrevBtns";
 
 const ResumeBuilder = () => {
+
   const tabs = [
     {
       id: 1,
@@ -38,41 +42,30 @@ const ResumeBuilder = () => {
       title: "Finalize",
     },
   ];
+
+
   const [tab, setTab] = useState(1);
-
   const dispatch = useDispatch();
-
   const resetToggler = () => {
     dispatch({ type: resetAllToggler() });
   };
-
 
   return (
     <AuthLayout>
       <ResumeBuilderBanner />
       <section className="resume_builder" onClick={resetToggler}>
         <div className="screen_container">
-          <div className="side_menu">
-            {tabs.map((data) => {
-              return (
-                <button
-                  type="button"
-                  className={tab === data.id ? "active" : ""}
-                  onClick={() => setTab(data.id)}
-                  key={data?.id}
-                >
-                  <div
-                    className={`circle ${tab === data.id ? "active" : ""}`}
-                  ></div>
-                  {data.title}
-                </button>
-              );
-            })}
-          </div>
+          {/* Left Navigator */}
+          <Navigations tabs={tabs} tab={tab} setTab={setTab} />
 
+          {/* Middle Screens */}
           <div className="tabs_view">
-            {tab === 1 && <StepOne setTab={setTab} />}
-            {tab === 2 && <StepTwo setTab={setTab} />}
+            {tab === 1 && <StepA />}
+            {tab === 2 && <StepB />}
+            {tab === 3 && <StepC />}
+
+            {/* Mid Bottom Next Prev Btns */}
+           <NextPrevBtns tabs={tabs} setTab={setTab} tab={tab}/>
           </div>
         </div>
       </section>

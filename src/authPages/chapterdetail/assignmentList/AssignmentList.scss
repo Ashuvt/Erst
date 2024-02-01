@@ -1,0 +1,8 @@
+@import "../../../scss/typography";
+@import "../../../scss/variables";
+
+h6.assignment{
+    @include font('SpaceGrotesk-Regular', 20px, 24px, 500, $white);
+    margin:40px 0px 20px;
+    letter-spacing: 1px;
+}

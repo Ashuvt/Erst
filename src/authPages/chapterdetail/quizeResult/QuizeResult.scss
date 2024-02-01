@@ -1,0 +1,28 @@
+@import "../../../scss/variables";
+@import "../../../scss/typography";
+
+h6.result {
+    @include font('SpaceGrotesk-Regular', 20px, 24px, 500, $white);
+    margin: 30px 0px 20px;
+    letter-spacing: 1px;
+}
+
+.quize_result {
+
+    p {
+        @include font('SpaceGrotesk-Regular', 18px, 20px, 400, $white);
+        margin-bottom: 10px;
+
+        &.fail {
+            color: $orange;
+            font-size: 22px;
+            line-height: 26px;
+        }
+
+        &.pass {
+            color: $green;
+            font-size: 22px;
+            line-height: 26px;
+        }
+    }
+}

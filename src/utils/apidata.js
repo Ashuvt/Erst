@@ -99,13 +99,13 @@ export const saveCourse = "api/savedcourse";
 export const coursedetailById = "api/coursedetails";
 
 //*************** Auth / Chapter Detail API  ***************************
-// Quiz Submit
+
 export const moduleList = "api/modulelist";
 export const chapterDetail = "api/chapterdetails";
 export const quizSubmit = "api/submitallquiz";
 export const courseCount = "api/chapterdetailscount";
-
 export const markAsCompleted = "api/chaptercomplate"
+export const getAssignmentList = "api/assignmentlist";
 
 
 // Add To Cart

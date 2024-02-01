@@ -1,0 +1,70 @@
+@import "../../../scss/variables";
+@import "../../../scss/typography";
+
+
+.quize_list {
+    h6 {
+        @include font('SpaceGrotesk-Regular', 20px, 24px, 500, $white);
+        margin:30px 0px 0px;
+        letter-spacing: 1px;
+    }
+
+    .quize_sec {
+        margin-top: 30px;
+
+        h5 {
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            font-weight:400;
+        }
+
+        .option_wrap {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 15px;
+            margin-top: 10px;
+
+            button {
+                height: 20px;
+                width: 20px;
+                border-radius: 50%;
+                border-radius: 50%;
+                border: 1px solid $white;
+                display: grid;
+                place-items: center;
+                background-color: transparent;
+
+                span {
+                    height: 10px;
+                    width: 10px;
+                    border-radius: 50%;
+                    background-color: $white;
+                    display: block;
+
+                }
+
+                &.red {
+                    border: 1px solid $orange;
+
+                    span {
+                        background-color: $orange;
+                    }
+
+                }
+
+                &.green {
+                    border: 1px solid $green;
+
+                    span {
+                        background-color: $green;
+                    }
+                }
+            }
+        }
+
+        button.primarybtn {
+            margin-top: 15px;
+        }
+    }
+}

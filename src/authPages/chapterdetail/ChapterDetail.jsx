@@ -20,6 +20,9 @@ import {
 import { useParams } from "react-router-dom";
 import AuthLayout from "../AuthLayout";
 import { redirectContext } from "../../context/RoutingContext";
+import QuizeList from "./quizList/QuizeList";
+import QuizeResult from "./quizeResult/QuizeResult";
+import AssignmentList from "./assignmentList/AssignmentList";
 
 const ChapterDetail = () => {
   const [status, setStatus] = useState(true);
@@ -27,9 +30,6 @@ const ChapterDetail = () => {
   const [moduleLoader, setModuleLoader] = useState(false);
   const [chapterLoader, setChapterLoader] = useState(false);
   const [quizeSubmitLoader, setQuizeSubmitLoader] = useState(false);
-
-  const [chapterIdForQuize, setChapterIdForQuize] = useState("");
-
   const [counteData, setCountsData] = useState({});
 
   const [modulesList, setModulesList] = useState([]);
@@ -37,12 +37,11 @@ const ChapterDetail = () => {
   const [activeTab, setActiveTab] = useState("");
 
   const [quizeData, setQuizData] = useState([]);
-  // const [asCompleted, setAsCompleted] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState([]);
   const [popupStatus, setPopupStatus] = useState(false);
 
   const [showResult, setShowResult] = useState(false);
-const[resultData, setResultData] = useState({});
+  const [resultData, setResultData] = useState({});
   const [freeIds, setFreeIds] = useState([]);
 
   const { id } = useParams();
@@ -159,7 +158,7 @@ const[resultData, setResultData] = useState({});
 
   // Quize Submit
 
-  const quizeSubmit = async () => {
+  const quizeSubmit = async (chapterId, selectedAnswerList) => {
     setQuizeSubmitLoader(true);
     const token = localStorage.getItem("token");
 
@@ -171,8 +170,8 @@ const[resultData, setResultData] = useState({});
       const response = await axios.post(
         `${baseUrl}/${quizSubmit}`,
         {
-          chapterId: `${chapterIdForQuize}`,
-          answers: [...selectedAnswer],
+          chapterId: `${chapterId}`,
+          answers: [...selectedAnswerList],
         },
         { headers }
       );
@@ -196,8 +195,6 @@ const[resultData, setResultData] = useState({});
     const headers = {
       Authorization: `Bearer ${token}`,
     };
-
-    // setAsCompleted(true);
     try {
       const response = await axios.post(
         `${baseUrl}/${markAsCompleted}`,
@@ -209,39 +206,13 @@ const[resultData, setResultData] = useState({});
         nextChapterHandler();
         getModules();
         toastSuccess(response?.data?.message || "Chapter Marked As Completed!");
-        // setAsCompleted(false);
       }
     } catch (error) {
       console.log(error);
-      // setAsCompleted(false);
     }
   };
 
-  const addAnswer = (chapterId, quizId, ans) => {
-    setChapterIdForQuize(chapterId);
-    setSelectedAnswer((prev) => {
-      var indexToadd = prev.findIndex((item) => item.quizId === quizId);
-      if (indexToadd !== -1) {
-        prev.splice(indexToadd, 1);
-        return [
-          ...prev,
-          {
-            quizId: quizId,
-            answer: ans,
-          },
-        ];
-      } else {
-        return [
-          ...prev,
-          {
-            quizId: quizId,
-            answer: ans,
-          },
-        ];
-      }
-    });
-  };
-
+ 
   useEffect(() => {
     console.log("Ans:::", selectedAnswer);
   }, [selectedAnswer]);
@@ -522,157 +493,44 @@ const[resultData, setResultData] = useState({});
                       );
                     })}
 
-                    {/* Quize */}
-                    <h6 className="title m_t">Quize</h6>
+            
 
-                    {showResult ? (
-                      //Quize Result
-                      <Fragment>
-                        <div className="quize_result">
-                        {resultData?.success ? <p className="pass">Passed</p> : <p className="fail">Failed</p>}
-                        <p>Score : {resultData?.totalScore}/{resultData?.totalQuizzes}</p>
-                        <p>Percentage : {resultData?.overallPercentage}%</p>
-                        </div>
-                        {quizeData?.length > 0 &&
-                          quizeData?.map((data) => {
-                            return (
-                              <Fragment key={data?._id}>
-                                <div className="quize_sec">
-                                  <h5>{data?.quizz_question}</h5>
+                    {/* Quize Section*/}
 
-                                  <div className="option_wrap">
-                                    <button type="button">
-                                      <span></span>
-                                    </button>
-                                    <p>{data?.quizz_opt_1}</p>
-                                  </div>
-                                  <div className="option_wrap">
-                                    <button type="button">
-                                      <span></span>
-                                    </button>
-                                    <p>{data?.quizz_opt_2}</p>
-                                  </div>
-                                  <div className="option_wrap">
-                                  <button type="button">
-                                      <span></span>
-                                    </button>
-                                    <p>{data?.quizz_opt_3}</p>
-                                  </div>
-                                  <div className="option_wrap">
-                                    <button type="button">
-                                      <span></span>
-                                    </button>
-                                    <p>{data?.quizz_opt_4}</p>
-                                  </div>
-                                </div>
-                              </Fragment>
-                            );
-                          })}
-                      </Fragment>
+                    {quizeSubmitLoader ? (
+                      <div className="loading_sec">
+                        <div
+                          className="spinner-border text-primary"
+                          role="status"
+                        ></div>
+                      </div>
                     ) : (
                       <Fragment>
-                        {quizeData?.length > 0 &&
-                          quizeData?.map((data) => {
-                            return (
-                              <Fragment key={data?._id}>
-                                <div className="quize_sec">
-                                  <h5>{data?.quizz_question}</h5>
-
-                                  <div className="option_wrap">
-                                    <button
-                                      type="button"
-                                      onClick={() =>
-                                        addAnswer(
-                                          data?.chapterId,
-                                          data?._id,
-                                          "option 1"
-                                        )
-                                      }
-                                    >
-                                      {selectedAnswer.find(
-                                        (ele) => ele.quizId === data?._id
-                                      )?.answer === "option 1" && <span></span>}
-                                    </button>
-                                    <p>{data?.quizz_opt_1}</p>
-                                  </div>
-                                  <div className="option_wrap">
-                                    <button
-                                      type="button"
-                                      onClick={() =>
-                                        addAnswer(
-                                          data?.chapterId,
-                                          data?._id,
-                                          "option 2"
-                                        )
-                                      }
-                                    >
-                                      {selectedAnswer.find(
-                                        (ele) => ele.quizId === data?._id
-                                      )?.answer === "option 2" && <span></span>}
-                                    </button>
-                                    <p>{data?.quizz_opt_2}</p>
-                                  </div>
-                                  <div className="option_wrap">
-                                    <button
-                                      type="button"
-                                      onClick={() =>
-                                        addAnswer(
-                                          data?.chapterId,
-                                          data?._id,
-                                          "option 3"
-                                        )
-                                      }
-                                    >
-                                      {selectedAnswer.find(
-                                        (ele) => ele.quizId === data?._id
-                                      )?.answer === "option 3" && <span></span>}
-                                    </button>
-                                    <p>{data?.quizz_opt_3}</p>
-                                  </div>
-                                  <div className="option_wrap">
-                                    <button
-                                      type="button"
-                                      onClick={() =>
-                                        addAnswer(
-                                          data?.chapterId,
-                                          data?._id,
-                                          "option 4"
-                                        )
-                                      }
-                                    >
-                                      {selectedAnswer.find(
-                                        (ele) => ele.quizId === data?._id
-                                      )?.answer === "option 4" && <span></span>}
-                                    </button>
-                                    <p>{data?.quizz_opt_4}</p>
-                                  </div>
-                                </div>
-                              </Fragment>
-                            );
-                          })}
+                        {showResult ? (
+                          <QuizeResult
+                            resultData={resultData}
+                            quizeData={quizeData}
+                            setShowResult={setShowResult}
+                          />
+                        ) : (
+                          <Fragment>
+                            {quizeData?.length > 0 && (
+                              <QuizeList
+                                quizeData={quizeData}
+                                quizeSubmit={quizeSubmit}
+                              />
+                            )}
+                          </Fragment>
+                        )}
                       </Fragment>
                     )}
                   </Fragment>
                 ) : (
                   <p>Data Not Found...</p>
                 )}
-                {quizeData?.length > 0 && (
-                  <Fragment>
-                    {quizeSubmitLoader ? (
-                      <button type="button" className="primarybtn quiz_submit">
-                        Loading...
-                      </button>
-                    ) : (
-                      <button
-                        type="button"
-                        className="primarybtn quiz_submit"
-                        onClick={quizeSubmit}
-                      >
-                        Submit Quize
-                      </button>
-                    )}
-                  </Fragment>
-                )}
+
+                        {/* Assignment Section */}
+                        <AssignmentList activeTab={activeTab} />
 
                 <div className="btn_bottom">
                   {chapters?.completed ? (
@@ -695,6 +553,8 @@ const[resultData, setResultData] = useState({});
                 </div>
               </Fragment>
             )}
+
+            {/* Assignment */}
           </div>
         </div>
       </section>

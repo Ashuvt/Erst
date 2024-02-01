@@ -1,10 +1,13 @@
-import "./StepOne.scss";
+import TitleStep from "../titlestep/TitleStep";
+import "./StepA.scss";
 
-const StepOne = ({setTab}) => {
+const StepA = ({setTab}) => {
   return (
     <div className="step_one">
-      <h4>Let's start with your header</h4>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+      <TitleStep
+      title="Let's start with your header"
+      text="Lorem ipsum dolor sit amet consectetur adipisicing elit."
+      />
       <form>
         <div className="bi_sec">
           <div className="resume_field">
@@ -46,12 +49,9 @@ const StepOne = ({setTab}) => {
           </div>
         </div>
       </form>
-      <div className="navigate_btns">
-            <button type="button" className="primarybtn" onClick={() => setTab(prev => prev - 1)}>Back</button>
-            <button type="button" className="primarybtn" onClick={() => setTab(prev => prev + 1)}>Next</button>
-      </div>
+     
     </div>
   );
 };
 
-export default StepOne;
+export default StepA;

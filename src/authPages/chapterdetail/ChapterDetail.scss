@@ -254,6 +254,20 @@ section.explore_cources {
                             border-radius: 50%;
                             background-color: $white;
                             display: block;
+                           
+                        }
+                        &.red{
+                            border:1px solid $orange;
+                            span{
+                                background-color:$orange;
+                            }
+                           
+                        }
+                        &.green{
+                            border:1px solid $green;
+                           span{
+                            background-color: $green;
+                           }
                         }
                     }
                 }
@@ -425,20 +439,15 @@ button.quiz_submit {
 
   
 }
-
-.quize_result{
-    p{
-        @include font('SpaceGrotesk-Regular', 18px, 20px, 400, $white);
-        margin-bottom:10px;
-        &.fail{
-            color:$orange;
-            font-size:22px;
-            line-height: 26px;
-        }
-        &.pass{
-            color:$green;
-            font-size:22px;
-            line-height: 26px;
-        }
-    }
+button.retake{
+    padding:15px;
+    background-color: $orange;
+    margin-top:30px;
+    border-radius: 8px;
+    text-transform:uppercase;
+    letter-spacing: 1px;
+    border-style: none;
+    width:100px;
+    @include font('Inter-Regular', 12px, 16px, 400, $white);
 }
+

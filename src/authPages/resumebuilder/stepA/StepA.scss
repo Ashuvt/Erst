@@ -2,10 +2,9 @@
 @import "../../../scss/variables";
 @import "../../../scss/common";
 
-.step_two{
-    h4{
-        margin-top:10px;
-    }
+.step_one {
+    width: 100%;
+
     form {
         .bi_sec {
             display: grid;
@@ -137,10 +136,5 @@
         }
     }
 
-    .navigate_btns{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top:60px;
-    }
+ 
 }
