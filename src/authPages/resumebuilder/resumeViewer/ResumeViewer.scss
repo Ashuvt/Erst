@@ -3,7 +3,7 @@
 
 
 .resume_viewer{
-    border:1px solid red;
+    border:1px solid $primary;
     width:250px;
 
     .resume_page{
@@ -11,6 +11,11 @@
         width:100%;
         background-color: $white;
         padding:10px;
+        .bi_grid{
+            display:grid;
+            grid-template-columns: 1fr 1fr;
+            gap:20px;
+        }
         .title{
             p{
                 text-align: center;
@@ -20,17 +25,20 @@
 
         .info_sec{
             margin-top:10px;
+            &.active{
+                background-color: rgba($primary, 0.15);
+            }
             p.info_title{
-                @include font('Inter-Regular', 10px, 14px, 600, $primary);
-                letter-spacing:1px;
+                @include font('Inter-Regular', 8px, 10px, 400, $primary);
             }
             p.info{
-                @include font('Inter-Regular', 10px, 14px, 600, $dark);
-                letter-spacing:1px;
+                @include font('Inter-Regular', 8px, 10px, 400, $dark);
                 span{
                     color:$grey;
                 }
+               
             }
+          
         }
     }
 }

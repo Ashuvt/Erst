@@ -141,6 +141,8 @@ const ResumeBuilder = () => {
 
           <ResumeViewer
           formA={formA}
+          formB={formB}
+          tab={tab}
           />    
         </div>
       </section>
