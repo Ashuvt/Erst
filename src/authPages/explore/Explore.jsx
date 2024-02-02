@@ -48,7 +48,7 @@ const Explore = () => {
     setLoader(true);
     try {
       const response = await axios.get(
-        `${baseUrl}/${explorePage}`,       
+        `${baseUrl}/${explorePage}`,
         {
           headers,
         },
@@ -56,7 +56,7 @@ const Explore = () => {
           proffession: selectedProfession,
           interest: selectedInterest,
           tag: selectedTag,
-        },      
+        }
       );
       // console.log("Explore Page:::", response);
       // console.log("Courses:::", response?.data?.data?.course);
@@ -64,8 +64,6 @@ const Explore = () => {
         setLoader(false);
         setCourseList(response?.data?.data?.course);
         setBundleList(response?.data?.data?.bundle);
-
-        
 
         setSavedCourseds(response?.data?.data?.savedcourses);
       } else {
@@ -171,6 +169,7 @@ const Explore = () => {
     dispatch({ type: resetAllToggler() });
   };
 
+ 
   return (
     <AuthLayout>
       <section className="explore_page" onClick={resetToggler}>
@@ -267,27 +266,27 @@ const Explore = () => {
               <ExploreTitle
                 title="Bundles"
                 text="Embrace career advancement pathways customized for high-demand cybersecurity careers."
-                btnClickHandler={() =>
-                  setBundleSize(prev => !prev)
-                }
+                btnClickHandler={() => setBundleSize((prev) => !prev)}
                 sizeState={bundleSize}
-                isResize = {bundleList?.length > 3}
+                isResize={bundleList?.length > 3}
               />
               {bundleList.length > 0 ? (
                 <div className="explore_video_grid">
-                  {bundleList.slice(0,bundleSize ? bundleList?.length + 2 : 3)?.map((data, k) => {
-                    return (
-                      <Fragment key={data._id}>
-                        <BundleCard
-                          {...data}
-                          index={k}
-                          redirectTo={`/explore/${data._id}`}
-                          isSave={savedCourses.includes(data._id)}
-                          saveHandler={saveCourseApi}
-                        />
-                      </Fragment>
-                    );
-                  })}
+                  {bundleList
+                    .slice(0, bundleSize ? bundleList?.length + 2 : 3)
+                    ?.map((data, k) => {
+                      return (
+                        <Fragment key={data._id}>
+                          <BundleCard
+                            {...data}
+                            index={k}
+                            redirectTo={`/explore/${data._id}`}
+                            isSave={savedCourses.includes(data._id)}
+                            saveHandler={saveCourseApi}
+                          />
+                        </Fragment>
+                      );
+                    })}
                 </div>
               ) : (
                 <div className="empty_box">
@@ -301,27 +300,29 @@ const Explore = () => {
 
               <ExploreTitle
                 title="Courses"
-                text="Elevate your capabilities with insights and training from cybersecurity frontrunners."
-                btnClickHandler={() => setCourseSize(prev => !prev)}
+                text="Elevate your capabilities with insights and training from cybersecurity frontrunners."            
+                btnClickHandler={() => setCourseSize((prev) => !prev)}
                 sizeState={courseSize}
-                isResize = {courseList?.length > 3}
+                isResize={courseList?.length > 3}
               />
 
               {courseList?.length > 0 ? (
                 <div className="explore_video_grid">
-                  {courseList?.slice(0, courseSize ? bundleList?.length + 2 : 3)?.map((data, k) => {
-                    return (
-                      <Fragment key={data._id}>
-                        <ExploreCourseCard
-                          {...data}
-                          index={k}
-                          redirectTo={`/explore/${data._id}`}
-                          isSave={savedCourses.includes(data._id)}
-                          saveHandler={saveCourseApi}
-                        />
-                      </Fragment>
-                    );
-                  })}
+                  {courseList
+                    ?.slice(0, courseSize ? bundleList?.length + 2 : 3)
+                    ?.map((data, k) => {
+                      return (
+                        <Fragment key={data._id}>
+                          <ExploreCourseCard
+                            {...data}
+                            index={k}
+                            redirectTo={`/explore/${data._id}`}
+                            isSave={savedCourses.includes(data._id)}
+                            saveHandler={saveCourseApi}
+                          />
+                        </Fragment>
+                      );
+                    })}
                 </div>
               ) : (
                 <div className="empty_box">

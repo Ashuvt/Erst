@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import AuthLayout from "../AuthLayout";
 import "./ResumeBuilder.scss";
 import ResumeBuilderBanner from "./resumeBuilderBanner/ResumeBuilderBanner";
@@ -9,9 +9,14 @@ import StepA from "./stepA/StepA";
 import StepB from "./stepB/StepB";
 import StepC from "./stepC/StepC";
 import NextPrevBtns from "./nextPrevBtns/NextPrevBtns";
+import StepF from "./stepF/StepF";
+import StepE from "./stepE/StepE";
+import StepD from "./stepD/StepD";
+import StepG from "./stepG/StepG";
+import ProcessLoader from "./processLoader/ProcessLoader";
+import ResumeViewer from "./resumeViewer/ResumeViewer";
 
 const ResumeBuilder = () => {
-
   const tabs = [
     {
       id: 1,
@@ -43,11 +48,62 @@ const ResumeBuilder = () => {
     },
   ];
 
-
   const [tab, setTab] = useState(1);
+  const [loader, setLoader] = useState(false);
+
+  const [formA, setFormA] = useState({
+    fName: "",
+    sName: "",
+    city: "",
+    country: "",
+    pin: "",
+    phone: "",
+    email: "",
+  });
+
+  const [formB, setFormB] = useState({
+    jobTitle: "",
+    employer: "",
+    city: "",
+    country: "",
+    startDate: "",
+    endDate: "",
+  });
+
   const dispatch = useDispatch();
   const resetToggler = () => {
     dispatch({ type: resetAllToggler() });
+  };
+
+  const goNext = () => {
+    setLoader(true);
+    setTimeout(() => {
+      setTab((prev) => {
+        // Submit Handler
+        if (prev === 1) {
+          console.log(formA);
+        } else if (prev === 2) {
+          console.log(formB);
+        }
+
+        if (prev === 7) {
+          return prev;
+        } else {
+          return prev + 1;
+        }
+      });
+      setLoader(false);
+    }, 2000);
+  };
+
+  const goPrev = () => {
+    setTab((prev) => {
+      if (prev === 1) {
+        return prev;
+      } else {
+        return prev - 1;
+      }
+    });
   };
 
   return (
@@ -60,13 +116,32 @@ const ResumeBuilder = () => {
 
           {/* Middle Screens */}
           <div className="tabs_view">
-            {tab === 1 && <StepA />}
-            {tab === 2 && <StepB />}
-            {tab === 3 && <StepC />}
+            {loader ? (
+              <ProcessLoader />
+            ) : (
+              <Fragment>
+                {tab === 1 && <StepA formA={formA} setFormA={setFormA} />}
+                {tab === 2 && <StepB formB={formB} setFormB={setFormB} />}
+                {tab === 3 && <StepC />}
+                {tab === 4 && <StepD />}
+                {tab === 5 && <StepE />}
+                {tab === 6 && <StepF />}
+                {tab === 7 && <StepG />}
 
-            {/* Mid Bottom Next Prev Btns */}
-           <NextPrevBtns tabs={tabs} setTab={setTab} tab={tab}/>
+                {/* Mid Bottom Next Prev Btns */}
+                <NextPrevBtns
+                  tabs={tabs}
+                  tab={tab}
+                  goNext={goNext}
+                  goPrev={goPrev}
+                />
+              </Fragment>
+            )}
           </div>
+
+          <ResumeViewer
+          formA={formA}
+          />    
         </div>
       </section>
     </AuthLayout>

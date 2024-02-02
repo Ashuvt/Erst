@@ -1,0 +1,36 @@
+@import "../../../scss/typography";
+@import "../../../scss/variables";
+
+
+.resume_viewer{
+    border:1px solid red;
+    width:250px;
+
+    .resume_page{
+        height:400px;
+        width:100%;
+        background-color: $white;
+        padding:10px;
+        .title{
+            p{
+                text-align: center;
+                color:$dark;
+            }
+        }
+
+        .info_sec{
+            margin-top:10px;
+            p.info_title{
+                @include font('Inter-Regular', 10px, 14px, 600, $primary);
+                letter-spacing:1px;
+            }
+            p.info{
+                @include font('Inter-Regular', 10px, 14px, 600, $dark);
+                letter-spacing:1px;
+                span{
+                    color:$grey;
+                }
+            }
+        }
+    }
+}

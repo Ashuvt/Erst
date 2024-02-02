@@ -1,15 +1,15 @@
 import TitleStep from "../titlestep/TitleStep";
-import "./StepC.scss";
+import "./StepG.scss";
 
-const StepC = () => {
+const StepG = () => {
   return (
-    <div className="steper_c">
+    <div className="steper_g">
      <TitleStep
-     title="C Lorem Ipsum Amet"
+     title="G Lorem Ipsum Amet"
      text="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis, cum?"
      />
      
     </div>
   );
 };
-export default StepC;
+export default StepG;
