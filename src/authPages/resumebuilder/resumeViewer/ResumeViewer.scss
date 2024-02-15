@@ -2,43 +2,53 @@
 @import "../../../scss/variables";
 
 
-.resume_viewer{
-    border:1px solid $primary;
-    width:250px;
+.resume_viewer {
+    border: 1px solid $primary;
+    width: 250px;
 
-    .resume_page{
-        height:400px;
-        width:100%;
+    .resume_page {
+        height: 400px;
+        width: 100%;
         background-color: $white;
-        padding:10px;
-        .bi_grid{
-            display:grid;
+
+        .bi_grid {
+            display: grid;
             grid-template-columns: 1fr 1fr;
-            gap:20px;
+            gap:0px;
         }
-        .title{
-            p{
+
+        .title {
+            p {
                 text-align: center;
-                color:$dark;
+                @include font('Inter-Regular', 10px, 12px, 400, $dark);
             }
         }
 
-        .info_sec{
-            margin-top:10px;
-            &.active{
+        .info_sec {
+            margin-top: 10px;
+            padding:10px;
+
+            &.active {
                 background-color: rgba($primary, 0.15);
             }
-            p.info_title{
+
+            p.info_title {
                 @include font('Inter-Regular', 8px, 10px, 400, $primary);
             }
-            p.info{
+
+            p.info {
                 @include font('Inter-Regular', 8px, 10px, 400, $dark);
-                span{
-                    color:$grey;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                width: 100px;
+
+                span {
+                    color: $grey;
                 }
-               
+
             }
-          
+
         }
     }
 }

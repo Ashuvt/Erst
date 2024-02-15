@@ -13,7 +13,7 @@ const StepB = ({ formB, setFormB }) => {
     <div className="steper_b">
       <TitleStep
         title="Now, let's add your experience"
-        text="Lorem ipsum dolor sit amet consectetur adipisicing elit."
+        text="Start with your most recent job first."
       />
       <form>
         <div className="bi_sec">

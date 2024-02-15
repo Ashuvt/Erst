@@ -13,11 +13,10 @@ import RedBlueCard from "../../../authPages/onboardingstepper/stepD/redbluecard/
 import OneThreeFloat from "./onethreefloat/OneThreeFloat";
 import { redirectContext } from "../../../context/RoutingContext";
 
-
 const RoadMap = ({ t, setPopStatus, setViewData }) => {
   const [courseList, setCourseList] = useState([]);
 
-  const {domainName} = useContext(redirectContext);
+  const { domainName } = useContext(redirectContext);
 
   const framData = [
     {
@@ -46,94 +45,7 @@ const RoadMap = ({ t, setPopStatus, setViewData }) => {
     },
   ];
 
-  const courseData = [
-    {
-      id: "000",
-      name: t("redTitle"),
-      img: icon.transparentRed,
-      type: "#CC0A0A",
-      about: t("redPara"),
-      courses: [
-        {
-          id: "r1",
-          course: t("redC1"),
-        },
-        {
-          id: "r2",
-          course: t("redC2"),
-        },
-        {
-          id: "r3",
-          course: t("redC3"),
-        },
-        {
-          id: "r4",
-          course: t("redC4"),
-        },
-        {
-          id: "r5",
-          course: t("redC5"),
-        },
-        {
-          id: "r6",
-          course: t("redC6"),
-        },
-        {
-          id: "r7",
-          course: t("redC7"),
-        },
-        {
-          id: "r8",
-          course: t("redC8"),
-        },
-        {
-          id: "r9",
-          course: t("redC9"),
-        },
-      ],
-    },
-    {
-      id: "111",
-      name: t("blueTitle"),
-      img: icon.transparentBlue,
-      type: "#0A1633",
-      about: t("bluePara"),
-      courses: [
-        {
-          id: "b1",
-          course: t("blueC1"),
-        },
-        {
-          id: "b2",
-          course: t("blueC2"),
-        },
-        {
-          id: "b3",
-          course: t("blueC3"),
-        },
-        {
-          id: "b4",
-          course: t("blueC4"),
-        },
-        {
-          id: "b5",
-          course: t("blueC5"),
-        },
-        {
-          id: "b6",
-          course: t("blueC6"),
-        },
-        {
-          id: "b7",
-          course: t("blueC7"),
-        },
-        {
-          id: "b8",
-          course: t("blueC8"),
-        },
-      ],
-    },
-  ];
+
   const [scrollY, setScrollY] = useState(0);
   const l = useSelector((state) => state.langReducer.lang);
 
@@ -150,9 +62,11 @@ const RoadMap = ({ t, setPopStatus, setViewData }) => {
 
   let smallCirclleMove = scrollY > 300 ? scrollY - 300 : 0;
 
-  const getCourse = async() => {
+  const getCourse = async () => {
     try {
-      const response = await axios.get(`${baseUrl}/${CourseList}`);
+      const response = await axios.post(`${baseUrl}/${CourseList}`, { country: domainName() === 'net' ? "Isreal" : "Dubai" });
+      
+      console.log("Home:::", response);
 
       if (response?.data?.success) {
         console.log(response);
@@ -171,7 +85,6 @@ const RoadMap = ({ t, setPopStatus, setViewData }) => {
     <Fragment>
       <section className="road_map">
         <div className="content_wrap">
-
           <div className="small_screen_map">
             <div className="center_line"></div>
             <div
@@ -209,29 +122,37 @@ const RoadMap = ({ t, setPopStatus, setViewData }) => {
 
           <div className="center_logo">
             <div className="content_circle">
-              <img src={logoImage.fulllogo} alt="icon" />           
+              <img src={logoImage.fulllogo} alt="icon" />
             </div>
             <div className="glass_shad"></div>
           </div>
 
+          {domainName() === "net" ? (
+            <OneThreeFloat scrollY={scrollY} />
+          ) : (
+            <OneTwoFloat scrollY={scrollY} />
+          )}
 
-{
-  domainName() === 'net' ? <OneThreeFloat scrollY={scrollY}  /> : <OneTwoFloat scrollY={scrollY} />
-}
-          
-          
-
-          <div className={`${domainName() === 'net' ? "tri_grid" : "bi_grid"} ${["ar", "he"].includes(l) ? "flip" : ""}`}>
-
+          <div
+            className={`${domainName() === "net" ? "tri_grid" : "bi_grid"} ${
+              ["ar", "he"].includes(l) ? "flip" : ""
+            }`}
+          >
             {courseList?.length > 0 &&
-              courseList.slice(0,domainName() === "net" ? 3 : 2).map((data) => {
-                return (
-                  <Fragment key={data._id}>
-                    <CourseCard {...data} dataObj={data} setPopStatus={setPopStatus} setViewData={setViewData} />
-                  </Fragment>
-                );
-              })}
-
+              courseList
+                .slice(0, domainName() === "net" ? 3 : 2)
+                .map((data) => {
+                  return (
+                    <Fragment key={data._id}>
+                      <CourseCard
+                        {...data}
+                        dataObj={data}
+                        setPopStatus={setPopStatus}
+                        setViewData={setViewData}
+                      />
+                    </Fragment>
+                  );
+                })}
           </div>
         </div>
         <div

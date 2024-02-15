@@ -61,21 +61,21 @@ const RoutingContextProvider = ({ children }) => {
 
   // For Login Page
   const signInHandler = () => {
-    navigation("/signin");
+    navigation("/comingsoon");
     // comingsoon
     // signin
   };
 
   // For Getstarted Page (Sign Up)
   const signUpHandler = () => {
-    navigation("/getstarted");
+    navigation("/comingsoon");
     // comingsoon
     // getstarted
   };
 
   // For Forgot Password
   const goToForgotPassword = () => {
-    navigation("/forgotpassword");
+    navigation("/comingsoon");
   };
 
   // Web Home
