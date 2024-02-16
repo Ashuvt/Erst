@@ -60,21 +60,21 @@ export const RoutoingData = [
     component: <Contact />,
     path: "/contact",
   },
-  {
-    id: 7,
-    component: <SignIn />,
-    path: "/signin",
-  },
-  {
-    id: 8,
-    component: <GetStarted />,
-    path: "/getstarted",
-  },
-  {
-    id: 81,
-    component: <ForgotPassword />,
-    path: "/forgotpassword",
-  },
+  // {
+  //   id: 7,
+  //   component: <SignIn />,
+  //   path: "/signin",
+  // },
+  // {
+  //   id: 8,
+  //   component: <GetStarted />,
+  //   path: "/getstarted",
+  // },
+  // {
+  //   id: 81,
+  //   component: <ForgotPassword />,
+  //   path: "/forgotpassword",
+  // },
   {
     id: 9,
     component: (

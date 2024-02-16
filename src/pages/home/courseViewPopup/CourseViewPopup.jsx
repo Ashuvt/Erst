@@ -8,7 +8,7 @@ const CourseViewPopup = ({ viewData, setPopStatus }) => {
   console.log("From Popuo::", viewData);
   const navigate = useNavigate();
   const loginHandler = () => {
-    navigate("/signin");
+    navigate("/comingsoon");
   };
 
   const propogationHandler = (event) => {
