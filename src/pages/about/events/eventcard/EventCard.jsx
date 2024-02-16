@@ -3,7 +3,7 @@ import "./EventCard.scss";
 import { useSelector } from "react-redux";
 import { baseUrl } from "../../../../utils/apidata";
 
-const EventCard = ({ date, title, small_description, image, createdAt }) => {
+const EventCard = ({ title, small_description, image, createdAt, linkedin_link }) => {
   const [side, setSide] = useState(false);
   const [width, setWidth] = useState(0);
 
@@ -46,7 +46,10 @@ const EventCard = ({ date, title, small_description, image, createdAt }) => {
           style={{ width: `${width}%` }}
         ></div>
       </div>
-      {/* <a href={url} target="_blank" className="link_overlay"></a> */}
+      {
+        linkedin_link && <a href={linkedin_link} target="_blank" className="link_overlay"></a>
+      }
+      
     </div>
   );
 };
