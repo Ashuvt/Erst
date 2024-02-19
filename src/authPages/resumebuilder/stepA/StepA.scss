@@ -28,7 +28,7 @@
                 @include font('Inter-Regular', 14px, 20px, 400, $textSecondary);
             }
 
-            input {
+            input, select {
                 box-shadow: none;
                 border-style: none;
                 padding: 8px;
@@ -37,7 +37,9 @@
                 background: $bgLight;
                 @include font('Inter-Regular', 14px, 20px, 400, $textPrimary);
             }
-
+select{
+    height:48px;
+}
             .input_wrap {
                 position: relative;
 

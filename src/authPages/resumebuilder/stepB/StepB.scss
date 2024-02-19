@@ -2,7 +2,7 @@
 @import "../../../scss/variables";
 @import "../../../scss/common";
 
-.steper_b{
+.steper_b {
     form {
         .bi_sec {
             display: grid;
@@ -26,7 +26,8 @@
                 @include font('Inter-Regular', 14px, 20px, 400, $textSecondary);
             }
 
-            input {
+            input,
+            select {
                 box-shadow: none;
                 border-style: none;
                 padding: 8px;
@@ -34,6 +35,10 @@
                 border: 1px solid $borderSubtle;
                 background: $bgLight;
                 @include font('Inter-Regular', 14px, 20px, 400, $textPrimary);
+            }
+
+            select {
+                height: 48px;
             }
 
             .input_wrap {
@@ -134,5 +139,107 @@
         }
     }
 
-   
+    .date_wrap {
+        position: relative;
+        width: 100%;
+
+        input[type="date"] {
+            position: relative;
+        }
+
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0px;
+            left: 0px;
+            opacity: 0;
+        }
+
+        svg {
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            transform: translateY(-50%);
+            color: $textPrimary;
+            pointer-events: none;
+        }
+    }
+
+    button.add_btn {
+        margin-top: 15px;
+        margin-left: auto;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        border-style:none;
+        background-color:transparent;
+        @include font('Inter-Regular', 14px, 16px, 400, $white);
+        letter-spacing: 1px;
+        transition:all 0.3s ease-in-out;
+        svg{
+            font-size:16px;
+        }
+        &:hover{
+            color:$primary;
+        }
+    }
+
+    .check_line {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 8px;
+        margin-top: 15px;
+
+        input.normal {
+            width: 16px;
+            height: 16px !important;
+            box-shadow: none;
+            padding: 0p !important;
+            cursor: pointer;
+            position: relative;
+        }
+
+        input.normal:after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 18px;
+            width: 18px;
+            border-radius: 4px;
+            border: 1px solid $primary;
+            background-color: $dark;
+            z-index: 1;
+        }
+
+        input.normal:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, calc(-50% - 2px)) rotate(-45deg);
+            height: 4px;
+            width: 8px;
+            border-bottom: 1px solid $white;
+            border-left: 1px solid $white;
+            z-index: 2;
+            opacity: 0;
+            transition: all 0.2s ease-in-out;
+        }
+
+        input.normal:checked {
+            &::before {
+                opacity: 1;
+            }
+        }
+
+        label {
+            color: $white;
+        }
+    }
+
+
 }

@@ -1,10 +1,9 @@
-import { useState } from "react";
+import { Fragment } from "react";
 import TitleStep from "../titlestep/TitleStep";
 import "./StepA.scss";
+import { countries } from "../../../utils/countrylist";
 
 const StepA = ({ formA, setFormA }) => {
-
-
   const fieldAHandler = (e) => {
     const { name, value } = e.target;
     setFormA((values) => ({ ...values, [name]: value }));
@@ -20,12 +19,14 @@ const StepA = ({ formA, setFormA }) => {
         <div className="bi_sec">
           <div className="resume_field">
             <label>First Name</label>
+
             <input
               type="text"
               placeholder="First Name"
               name="fName"
               value={formA.fName || ""}
               onChange={fieldAHandler}
+              autoComplete="off"
             />
           </div>
           <div className="resume_field">
@@ -36,6 +37,7 @@ const StepA = ({ formA, setFormA }) => {
               name="sName"
               value={formA.sName || ""}
               onChange={fieldAHandler}
+              autoComplete="off"
             />
           </div>
         </div>
@@ -49,19 +51,25 @@ const StepA = ({ formA, setFormA }) => {
               name="city"
               value={formA.city || ""}
               onChange={fieldAHandler}
+              autoComplete="off"
             />
           </div>
 
           <div className="bi_in_sec">
             <div className="resume_field">
               <label>Country</label>
-              <input
-                type="text"
-                placeholder="Country"
-                name="country"
-                value={formA.country || ""}
-                onChange={fieldAHandler}
-              />
+              <select name="country" onChange={fieldAHandler} >
+                <option value="" disabled selected>
+                  -Select-
+                </option>
+                {countries.map((data) => {
+                  return (
+                    <Fragment key={data.code}>
+                      <option value={data.name}>{data.name}</option>
+                    </Fragment>
+                  );
+                })}
+              </select>
             </div>
             <div className="resume_field">
               <label>PinCod</label>
@@ -71,6 +79,7 @@ const StepA = ({ formA, setFormA }) => {
                 name="pin"
                 value={formA.pin || ""}
                 onChange={fieldAHandler}
+                autoComplete="off"
               />
             </div>
           </div>
@@ -85,6 +94,7 @@ const StepA = ({ formA, setFormA }) => {
               name="phone"
               value={formA.phone || ""}
               onChange={fieldAHandler}
+              autoComplete="off"
             />
           </div>
           <div className="resume_field">
@@ -95,6 +105,7 @@ const StepA = ({ formA, setFormA }) => {
               name="email"
               value={formA.email || ""}
               onChange={fieldAHandler}
+              autoComplete="off"
             />
           </div>
         </div>

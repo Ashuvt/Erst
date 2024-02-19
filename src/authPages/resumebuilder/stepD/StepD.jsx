@@ -6,7 +6,7 @@ const StepD = () => {
     <div className="steper_d">
      <TitleStep
      title="D Lorem Ipsum Amet"
-     text="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis, cum?"
+     text="Almost done! Let’s finish with a strong summary"
      />
      
     </div>

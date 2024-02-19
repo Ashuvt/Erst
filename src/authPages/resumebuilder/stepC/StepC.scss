@@ -2,6 +2,243 @@
 @import "../../../scss/variables";
 @import "../../../scss/common";
 
-.steper_c{
-    width: 100%; 
+.steper_c {
+    form {
+        .bi_sec {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .bi_in_sec {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .resume_field {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 24px;
+
+            label {
+                @include font('Inter-Regular', 14px, 20px, 400, $textSecondary);
+            }
+
+            input,
+            select {
+                box-shadow: none;
+                border-style: none;
+                padding: 8px;
+                border-radius: 8px;
+                border: 1px solid $borderSubtle;
+                background: $bgLight;
+                @include font('Inter-Regular', 14px, 20px, 400, $textPrimary);
+            }
+
+            select {
+                height: 48px;
+            }
+
+            .input_wrap {
+                position: relative;
+
+                .option_wrap {
+                    border: 1px solid $lightBorder_2;
+                    border-radius: 12px;
+                    position: absolute;
+                    width: 100%;
+                    top: 56px;
+                    left: 0px;
+                    background-color: $dark;
+                    z-index: 99;
+                    display: flex;
+                    flex-direction: column;
+                    transform-origin: top center;
+                    transition: all 0.2s ease-in-out;
+                    overflow: hidden;
+
+                    &.open {
+                        transform: scaleY(1);
+                    }
+
+                    &.close {
+                        transform: scaleY(0);
+                    }
+
+                    label.option {
+                        height: 50px;
+                        position: relative;
+                        overflow: hidden;
+                        margin: 0px;
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: center;
+                        padding-left: 15px;
+                        border-bottom: 1px solid $lightBorder_2;
+                        transition: all 0.3s ease-in-out;
+
+                        &:hover {
+                            -webkit-backdrop-filter: blur(28px);
+                            backdrop-filter: blur(28px);
+                            background: linear-gradient(113deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.00) 110.84%);
+                        }
+
+                        input {
+                            padding: 5px 15px;
+                            position: absolute;
+                            top: 0px;
+                            left: 0px;
+                            width: 100%;
+                            opacity: 0;
+
+                        }
+                    }
+                }
+            }
+
+            .file_wraper {
+                box-shadow: none;
+                border-style: none;
+                padding: 8px;
+                border-radius: 8px;
+                border: 1px solid $borderSubtle;
+                background: $bgLight;
+                padding: 0px;
+                height: 100px;
+                z-index: 0;
+                position: relative;
+
+                input {
+                    position: absolute;
+                    height: 100%;
+                    width: 100%;
+                    z-index: 3;
+                    opacity: 0;
+                }
+
+                .overlay {
+                    position: absolute;
+                    height: 100%;
+                    width: 100%;
+                    z-index: 2;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+
+                    svg {
+                        color: $white;
+                        font-size: 25px;
+                        margin-bottom: 4px;
+                        color: $textSecondary;
+                    }
+                }
+            }
+        }
+    }
+
+    .date_wrap {
+        position: relative;
+        width: 100%;
+
+        input[type="date"] {
+            position: relative;
+        }
+
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0px;
+            left: 0px;
+            opacity: 0;
+        }
+
+        svg {
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            transform: translateY(-50%);
+            color: $textPrimary;
+            pointer-events: none;
+        }
+    }
+
+    button.add_experienc {
+        margin-bottom: 0px;
+        margin-top: 20px;
+        margin-left: auto;
+    }
+
+    .check_line {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 8px;
+        margin-top:15px;
+        input.normal {
+            width:16px;
+            height:16px!important;
+            box-shadow:none;
+            padding:0p!important;
+            cursor:pointer;
+            position:relative;
+        }
+        input.normal:after{
+            content:"";
+            position:absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%, -50%);
+            height:18px;
+            width:18px;
+            border-radius:4px;
+            border:1px solid $primary;
+            background-color:$dark;
+            z-index:1;
+        }
+        input.normal:before{
+            content:"";
+            position:absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%, calc(-50% - 2px)) rotate(-45deg);
+            height:4px;
+                width:8px;
+            border-bottom:1px solid $white;
+            border-left:1px solid $white;
+            z-index:2;
+            opacity:0;
+            transition:all 0.2s ease-in-out;
+        }
+        input.normal:checked{
+            &::before{
+              opacity:1;
+            }
+        }
+        label{
+            color:$white;
+        }
+    }
+
+    button.add_btn {
+        margin-top: 15px;
+        margin-left: auto;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        border-style:none;
+        background-color:transparent;
+        @include font('Inter-Regular', 14px, 16px, 400, $white);
+        letter-spacing: 1px;
+        transition:all 0.3s ease-in-out;
+        svg{
+            font-size:16px;
+        }
+        &:hover{
+            color:$primary;
+        }
+    }
 }

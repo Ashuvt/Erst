@@ -68,6 +68,16 @@ const ResumeBuilder = () => {
     country: "",
     startDate: "",
     endDate: "",
+    isWorking: false,
+  });
+
+  const [formC, setFormC] = useState({
+    schoolName: "",
+    schoolLocation: "",
+    degree: "",
+    fieldOfStudy: "",
+    dateFrom: "",
+    dateTo: "",
   });
 
   const dispatch = useDispatch();
@@ -81,9 +91,11 @@ const ResumeBuilder = () => {
       setTab((prev) => {
         // Submit Handler
         if (prev === 1) {
-          console.log(formA);
+          console.log("Header", formA);
         } else if (prev === 2) {
-          console.log(formB);
+          console.log("Experience", formC);
+        } else if (prev === 3) {
+          console.log("Education:", formC);
         }
 
         if (prev === 7) {
@@ -122,7 +134,7 @@ const ResumeBuilder = () => {
               <Fragment>
                 {tab === 1 && <StepA formA={formA} setFormA={setFormA} />}
                 {tab === 2 && <StepB formB={formB} setFormB={setFormB} />}
-                {tab === 3 && <StepC />}
+                {tab === 3 && <StepC formC={formC} setFormC={setFormC} />}
                 {tab === 4 && <StepD />}
                 {tab === 5 && <StepE />}
                 {tab === 6 && <StepF />}
@@ -139,11 +151,7 @@ const ResumeBuilder = () => {
             )}
           </div>
 
-          <ResumeViewer
-          formA={formA}
-          formB={formB}
-          tab={tab}
-          />    
+          <ResumeViewer formA={formA} formB={formB} tab={tab} />
         </div>
       </section>
     </AuthLayout>

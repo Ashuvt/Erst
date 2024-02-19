@@ -1,7 +1,8 @@
 import "./CourseCard.scss";
-import { Fragment } from "react";
+import { Fragment, useContext } from "react";
 import { icon } from "../../../../utils/images/icons";
 import { baseUrl } from "../../../../utils/apidata";
+import { redirectContext } from "../../../../context/RoutingContext";
 import { useNavigate } from "react-router-dom";
 
 const CourseCard = ({
@@ -18,10 +19,18 @@ const CourseCard = ({
   setViewData
 }) => {
  
+const navigate = useNavigate();
+  const {domainName} = useContext(redirectContext);
 
-  const viewMore = () => {    
-    setPopStatus(true);
-    setViewData(dataObj);
+  const viewMore = () => {   
+    if(domainName() === "net"){
+      setPopStatus(true);
+      setViewData(dataObj);
+    }else{
+      navigate("/comingsoon")
+    }
+    
+    
   }
 
   return (
