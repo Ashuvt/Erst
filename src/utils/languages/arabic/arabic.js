@@ -180,7 +180,7 @@ careerFormTextarea:"أخبر عن مهارتك",
 careerFormFileTitle:"قم بتحميل سيرتك الذاتية / السيرة الذاتية هنا",
 careerFormFileContent:"تحميل السيرة الذاتية / السيرة الذاتية",
 
-careerFormBtn:"ترك السيرة الذاتية",
+careerFormBtn:"يُقدِّم",
 
 errorFieldRequired:"זהו שדה חובה!",
 errorFieldEmail:"الرجاء إدخال تنسيق بريد إلكتروني صالح!",

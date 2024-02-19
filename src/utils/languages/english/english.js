@@ -164,7 +164,7 @@ careerFormTextarea:"Tell About Your Skill",
 careerFormFileTitle:"Upload Your CV / Resume Here",
 careerFormFileContent:"Upload CV / Resume",
 
-careerFormBtn:"Leave A CV",
+careerFormBtn:"Submit",
 
 // Error
 errorFieldRequired:"This Field Is Required!",

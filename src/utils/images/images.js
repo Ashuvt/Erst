@@ -15,6 +15,10 @@ import partnerA from "../../assets/images/logos/ThinkCyber_Logo.webp";
 import partnerB from "../../assets/images/logos/ec_council_logo.webp";
 import partnerF from "../../assets/images/logos/SecureAcademy.png";
 import partnerG from "../../assets/images/logos/SmartDrub.png";
+import partnerH from "../../assets/images/logos/checkpoint.png";
+import partnerI from "../../assets/images/logos/softcloud.png";
+
+
 
 // Images
 import dashbord from "../../assets/images/home1landing.svg";
@@ -144,6 +148,9 @@ export const logoImage = {
   partnerE,
   partnerF,
   partnerG,
+  partnerH,
+  partnerI,
+
 };
 
 export const icons = {

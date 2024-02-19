@@ -194,24 +194,24 @@ h6 {
 }
 
 p {
-    @include font('Inter-Regular', 16px, 26px, 400, $textSecondary);
+    @include font('Inter-Regular', 16px, 26px, 400, $textPrimary);
     margin: 0px;
     text-transform: capitalize;
     letter-spacing: -0.16px;
     &.small_text{
-        @include font('Inter-Regular', 14px, 20px, 400, $textSecondary);
+        @include font('Inter-Regular', 14px, 20px, 400, $textPrimary);
     }
 
     &.t-g-16{
-        @include font('SpaceGrotesk-Regular', 16px, 20px, 400, $textSecondary);
+        @include font('SpaceGrotesk-Regular', 16px, 20px, 400, $textPrimary);
     }
 
     &.t-g-18{
-        @include font('SpaceGrotesk-Regular', 18px, 20px, 400, $textSecondary);
+        @include font('SpaceGrotesk-Regular', 18px, 20px, 400, $textPrimary);
     }
 
     &.t-i-12{
-        @include font('Inter-Regular', 12px, 16px, 400, $textSecondary);
+        @include font('Inter-Regular', 12px, 16px, 400, $textPrimary);
     }
    
 }

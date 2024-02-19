@@ -103,6 +103,14 @@ const SymmentricSlider = () => {
       img: logoImage.partnerG,
     },
 
+    {
+      id: 11,
+      img: logoImage.partnerH,
+    },
+    {
+      id: 11,
+      img: logoImage.partnerI,
+    },
   ];
   return (
     <section className="symmentric_slider">

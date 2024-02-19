@@ -164,7 +164,7 @@ careerFormTextarea:"ספר על המיומנות שלך",
 careerFormFileTitle:"העלה קורות חיים / קורות חיים כאן",
 careerFormFileContent:"העלה קורות חיים / קורות חיים",
 
-careerFormBtn:"השאירו קורות חיים",
+careerFormBtn:"שלח",
 
 errorFieldRequired:"זהו שדה חובה!",
 errorFieldEmail:"נא להזין פורמט אימייל תקף!",
