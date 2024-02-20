@@ -15,6 +15,7 @@ import StepD from "./stepD/StepD";
 import StepG from "./stepG/StepG";
 import ProcessLoader from "./processLoader/ProcessLoader";
 import ResumeViewer from "./resumeViewer/ResumeViewer";
+import ParticlesBg from "../../components/particlesbg/ParticlesBg";
 
 const ResumeBuilder = () => {
   const tabs = [
@@ -120,6 +121,7 @@ const ResumeBuilder = () => {
 
   return (
     <AuthLayout>
+      <ParticlesBg />
       <ResumeBuilderBanner />
       <section className="resume_builder" onClick={resetToggler}>
         <div className="screen_container">

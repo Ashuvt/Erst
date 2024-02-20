@@ -8,9 +8,11 @@
 }
 
 section.home_content_screen {
-    margin-top: 64px;
+    padding-top: 64px;
     padding-bottom: 60px;
-
+    background-color:$dark;
+    position:relative;
+    z-index:2;
     .screen_container {
 
         .content_grid {

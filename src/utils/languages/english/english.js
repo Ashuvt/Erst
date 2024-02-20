@@ -188,7 +188,7 @@ Israel:"Israel",
 IsraelAdd:"Beit Ha'am, Abu Snan, 2490500",
 
 UAE:"UAE",
-UAEAdd:"Lorem Ipsum Amet, Dubai",
+UAEAdd:"Dubai",
 
 India:"India",
 IndiaAdd:"Cybergain Educenter Private Limited, 2-A/3 S/F Front Side, Asaf Ali Rd, Turkman Gt., Darya Ganj, New Delhi, Delhi, India, 110002",

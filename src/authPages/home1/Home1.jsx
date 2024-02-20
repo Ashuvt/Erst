@@ -15,6 +15,7 @@ import { useDispatch } from "react-redux";
 import { resetAllToggler } from "../../store/actions";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import ParticlesBg from "../../components/particlesbg/ParticlesBg";
 import {
   baseUrl,
   authHomeApi,
@@ -108,6 +109,7 @@ const Home1 = () => {
 
   return (
     <AuthLayout>
+      <ParticlesBg />
       <WelComeStrip
         title={`Welcome ${name}`}
         text="This is a short copy nudging user to explore app and courses"
@@ -127,27 +129,7 @@ const Home1 = () => {
               <PopularSkillPath dummyNum={dummyNum} setDummyNum={setDummyNum} />
             </div>
             <div className="right">
-              {/* <div className="in_progress">
-                <h5 className="title_class wow fadeInRight">In progress</h5>
-                <p className="dark wow fadeInRight" data-wow-delay="0.2s">
-                  Pick a course and start learning
-                </p>
-                <p className="wow fadeInRight" data-wow-delay="0.3s">
-                  You've got limited access Cybergain courses, Choose a course
-                  and start your journey.
-                </p>
-                <button
-                  type="button"
-                  className="authbtn auth_primary wow fadeInRight"
-                  data-wow-delay="0.4s"
-                  onClick={() => navigate("/auth/explore")}
-                >
-                  Courses
-                </button>
-              </div> */}
-
-              <SavedList dummyNum={dummyNum} setDummyNum={setDummyNum} />
-
+             <SavedList dummyNum={dummyNum} setDummyNum={setDummyNum} />
               {couponOffer?._id && (
                 <OfferCard
                   description={couponOffer?.description}

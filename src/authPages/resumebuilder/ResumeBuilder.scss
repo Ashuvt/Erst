@@ -4,12 +4,16 @@
 @import "../../scss/variables";
 
 section.resume_builder {
+    position:relative;
+    z-index:9;
+    background-color:$dark;
+    min-height:calc(100vh - 226px);
     .screen_container {
         display: flex;
         justify-content: flex-start;
         align-items: flex-start;
         gap:20px;
-        margin-top: 40px;
+        padding-top: 40px;
         padding-bottom:40px;      
 
         .tabs_view {

@@ -24,9 +24,9 @@ const Home = () => {
   const [popupStatus, setPopStatus] = useState(false);
   const [viewData, setViewData] = useState({})
 
-  useState(() => {
-    console.log("viewData:::", viewData);
-  }, [viewData]);
+  // useState(() => {
+  //   console.log("viewData:::", viewData);
+  // }, [viewData]);
 
   return (
     <Fragment>

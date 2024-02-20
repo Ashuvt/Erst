@@ -11,6 +11,7 @@ import MyProfile from "./myprofile/MyProfile";
 import WOW from "wow.js";
 import { useDispatch, useSelector } from "react-redux";
 import { profileTabChanger, resetAllToggler } from "../../store/actions";
+import ParticlesBg from "../../components/particlesbg/ParticlesBg";
 
 const Profile = () => {
   const token = localStorage.getItem("token");
@@ -58,6 +59,7 @@ const Profile = () => {
 
   return (
     <AuthLayout>
+       <ParticlesBg />
       <ProfileBanner />
       <section className="profile_screens" onClick={resetToggler}>
         <div className="screen_container">

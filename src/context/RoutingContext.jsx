@@ -45,7 +45,7 @@ const domainName = () => {
   // select only two values from below
   // net
   // ae
-  return "ae";
+  return "net";
 };
 
 const RoutingContextProvider = ({ children }) => {
@@ -61,7 +61,7 @@ const RoutingContextProvider = ({ children }) => {
 
   // For Login Page
   const signInHandler = () => {
-    navigation("/comingsoon");
+    navigation("/signin");
     // comingsoon
     // signin
   };

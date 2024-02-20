@@ -188,7 +188,7 @@ Israel:"ישראל",
 IsraelAdd:"בית העם, אבו סנאן, 2490500",
 
 UAE:"איחוד האמירויות הערביות",
-UAEAdd:"לורם איפסום אמט, דובאי",
+UAEAdd:"דובאי",
 
 India:"הוֹדוּ",
 IndiaAdd:"Cybergain Educenter Private Limited, 2-A/3 S/F Front Side, Asaf Ali Rd, Turkman Gt., Darya Ganj, ניו דלהי, דלהי, הודו, 110002",

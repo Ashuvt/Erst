@@ -8,6 +8,9 @@
 }
 
 section.profile_screens{
+    position:relative;
+    background-color:$dark;
+    z-index:1;
     .screen_container{
         padding-top:40px;
         padding-bottom:40px;

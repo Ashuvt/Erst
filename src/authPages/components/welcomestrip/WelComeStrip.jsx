@@ -45,15 +45,12 @@ const WelComeStrip = ({ title, text }) => {
     dispatch({ type: resetAllToggler() });
   };
 
-  return (
-    <section className="welcome_strip" onClick={resetToggler}>
+  return (    
+    <section className="welcome_strip" onClick={resetToggler}>    
       <div className="screen_container">
         <h1 className="wow fadeInUp">{titleText}</h1>
         <p className="wow fadeInUp">{text}</p>
       </div>
-
-
-      <img src={images.bluePattern} alt="pattern" className="pattern" /> 
     </section>
   );
 };

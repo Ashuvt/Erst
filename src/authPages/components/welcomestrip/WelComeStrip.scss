@@ -7,6 +7,7 @@ section.welcome_strip {
     background: $bgGradient;
     position: relative;
     overflow: hidden;
+    z-index:1;
 
     .screen_container {
         padding-top: 88px;
@@ -28,28 +29,7 @@ section.welcome_strip {
         }
     }
 
-    img.pattern {
-        position: absolute;
-        width: 100%;
-        z-index: 0;
-
-        left:2%;
-        top:-30%;
-        transform: rotate(0deg);
-        opacity: 0.15;
-        transform-origin: left center;
-        animation-name: bgRotate;
-        animation-iteration-count: infinite;
-        animation-duration:30s;
-        // animation-direction: alternate;
-        animation-timing-function:ease-in-out;
-        animation-play-state:running;
-        animation-delay: 0s;
-
-        @media only screen and (max-width:$laptop){
-        top:0px;
-        }
-    }
+   
 
 }
 

@@ -7,9 +7,6 @@ import { IoMdClose } from "react-icons/io";
 const CourseViewPopup = ({ viewData, setPopStatus }) => {
   console.log("From Popuo::", viewData);
   const navigate = useNavigate();
-  const loginHandler = () => {
-    navigate("/comingsoon");
-  };
 
   const propogationHandler = (event) => {
     event.stopPropagation();
@@ -30,25 +27,29 @@ const CourseViewPopup = ({ viewData, setPopStatus }) => {
               <p className="t-g-18">{viewData?.name}</p>
             </div>
             <div className="counts">
-              <div className="info">
-                <p>Duration : 9-10 Months</p>
+
+              {
+                viewData?.duration && <div className="info">
+                <p>Duration : {viewData?.duration}</p>
               </div>
-              <div className="info">
-                <img src={icon.clock} alt="clock" />
-                <p>350 Hours</p>
-              </div>
+              }
+              
+
+              {viewData?.course_time && (
+                <div className="info">
+                  <img src={icon.clock} alt="clock" />
+                  <p>{viewData?.course_time}</p>
+                </div>
+              )}
             </div>
-
-            <div
-              dangerouslySetInnerHTML={{ __html: viewData?.small_description }}
-            ></div>
-
             <button
               type="buttton"
               className="primarybtn"
-              onClick={loginHandler}
+              onClick={() => {
+                navigate("/contact");
+              }}
             >
-              Sign Up
+              Contact Us
             </button>
           </div>
         </div>

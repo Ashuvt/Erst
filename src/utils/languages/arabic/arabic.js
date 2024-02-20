@@ -204,7 +204,7 @@ Israel:"إسرائيل",
 IsraelAdd:"بيت هام، أبو سنان، 2490500",
 
 UAE:"الإمارات العربية المتحدة",
-UAEAdd:"لوريم إيبسوم أميت، دبي",
+UAEAdd:" دبي",
 
 India:"الهند",
 IndiaAdd:"Cybergain Educenter Private Limited, 2-A/3 S/F Front Side, Asaf Ali Rd, Turkman Gt., داريا غانج, نيودلهي, دلهي, الهند, 110002",
