@@ -32,7 +32,7 @@
                 svg {
                     color: $white;
                     transition: all 0.3s ease-in-out;
-                    font-size:18px;
+                    font-size: 18px;
                 }
 
                 &:hover {
@@ -43,12 +43,14 @@
             }
         }
     }
-.h_line{
-height:1px;
-width:50%;
-margin:12px 0px;
-background-color:$textSecondary;
-}
+
+    .h_line {
+        height: 1px;
+        width: 50%;
+        margin: 12px 0px;
+        background-color: $textSecondary;
+    }
+
     p {
         display: flex;
         justify-content: flex-start;
