@@ -1,0 +1,80 @@
+@import "../../../../scss/typography";
+@import "../../../../scss/variables";
+
+.education_card {
+    background-color: $bgLight;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 15px;
+
+    .top_line {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+
+        .btns {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+
+            button {
+                border-style: none;
+                background-color: transparent;
+                padding: 0px;
+                height: 25px;
+                width: 25px;
+                border-radius: 50%;
+                display: grid;
+                place-items: center;
+
+                svg {
+                    color: $white;
+                    transition: all 0.3s ease-in-out;
+                    font-size:18px;
+                }
+
+                &:hover {
+                    svg {
+                        color: $primary;
+                    }
+                }
+            }
+        }
+    }
+.h_line{
+height:1px;
+width:50%;
+margin:12px 0px;
+background-color:$white;
+}
+    p {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+
+        span {
+            height: 20px;
+            width: 1px;
+            margin: 0px 10px;
+            background-color: $white;
+            display: inline-block;
+        }
+
+        &.job_company {
+            @include font('Inter-Regular', 18px, 22px, 400, $textPrimary);
+        }
+
+        &.location_date {
+            @include font('Inter-Regular', 14px, 18px, 400, $textPrimary);
+            letter-spacing: 1px;
+        }
+
+        &.second_l {
+            margin-top: 4px;
+        }
+    }
+
+}

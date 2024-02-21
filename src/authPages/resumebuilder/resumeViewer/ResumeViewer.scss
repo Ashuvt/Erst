@@ -5,5 +5,96 @@
 .resume_viewer {
     border: 1px solid $primary;
     width: 250px;
+    min-height: 400px;
+    background-color: $white;
+    display: flex;
+    align-items: flex-start;
 
+    .personal_info {
+        width: 80px;
+        height: 400px;
+        background-color: $primary;
+        padding: 6px;
+        overflow: hidden;
+
+        p {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+            &.header {
+                margin-bottom: 4px;
+                @include font('Inter-Medium', 12px, 12px, 400, $white);
+            }
+
+            &.title {
+                @include font('Inter-Medium', 10px, 10px, 400, $white);
+
+                &.m_t {
+                    margin-top: 8px;
+                }
+            }
+
+            &.value {
+                margin-top: 1px;
+                @include font('Inter-Regular', 8px, 8px, 100, $white);
+            }
+        }
+    }
+
+    .right_info {
+        width: calc(100% - 80px);
+        padding: 8px;
+
+        p {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+            &.header {
+                margin-bottom: 4px;
+                @include font('Inter-Medium', 10px, 10px, 400, $dark);
+
+                &.bb {
+                    border-bottom:0.5px solid rgba($dark, 0.4);
+                    padding-bottom:3px;
+                }
+            }
+
+            &.title {
+                @include font('Inter-Medium', 8px, 8px, 400, $primary);
+
+                &.m_t {
+                    margin-top: 8px;
+                }
+
+            }
+
+            &.value {
+                margin-top: 1px;
+                @include font('Inter-Regular', 8px, 8px, 100, $primary);
+            }
+
+            &.name {
+                @include font('Inter-Regular', 14px, 14px, 100, $primary);
+                margin-bottom: 10px;
+
+                span {
+                    color: $dark;
+                }
+            }
+        }
+        .rxperience_list{
+            display: flex;
+            flex-direction: column;
+            gap:4px;
+
+            .ex_card{
+                padding:6px;
+                background-color:rgba($primary,0.1);
+                border-radius: 2px;
+            }
+
+        }
+    }
 }

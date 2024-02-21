@@ -32,7 +32,8 @@
             }
 
             input,
-            select {
+            select,
+            textarea {
                 box-shadow: none;
                 border-style: none;
                 padding: 8px;
@@ -40,6 +41,10 @@
                 border: 1px solid $borderSubtle;
                 background: $bgLight;
                 @include font('Inter-Regular', 14px, 20px, 400, $textPrimary);
+            }
+
+            textarea{
+            height:100px;
             }
 
             select {

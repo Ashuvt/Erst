@@ -16,7 +16,7 @@ const ModulesSec = ({courseId}) => {
     <Fragment>
       
       {courseDetailLoading ? (
-     <div class="spinner-border text-primary" role="status"></div>
+     <div className="spinner-border text-primary" role="status"></div>
       ) : (
         <div className="module_sec" id="courses">
           <h5 className="small_title">Modules</h5>

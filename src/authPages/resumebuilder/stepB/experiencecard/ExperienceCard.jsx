@@ -40,9 +40,7 @@ const ExperienceCard = ({ data, setFormB }) => {
         {data.city}{data.country && `, ${data.country}`}  <span></span> {formatDate(data.startDate)} - {formatDate(data.endDate)}
       </p>
       <div className="h_line"></div>
-      <p>
-       Lorem ipsum dolor, sit amet consectetur adipisicing elit. Libero, maiores? Numquam eum soluta excepturi vel?
-      </p>
+      <p>{data.jobDescription}</p>
     </div>
   );
 };

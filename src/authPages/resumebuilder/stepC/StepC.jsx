@@ -2,9 +2,10 @@ import TitleStep from "../titlestep/TitleStep";
 import "./StepC.scss";
 import { MdOutlineDateRange } from "react-icons/md";
 import { IoMdAdd } from "react-icons/io";
-import { useState } from "react";
+import { Fragment, useState } from "react";
+import EducationCard from "./educationCard/EducationCard";
 
-const StepC = ({ formC, setFormC }) => {
+const StepC = ({ formC, setFormC, educationList, setEducationList}) => {
   const [schoolNameError, setSchoolNameError] = useState("");
   const [schoolLocationError, setSchoolLocationError] = useState("");
   const [degreeError, setDegreeError] = useState("");
@@ -54,6 +55,29 @@ const StepC = ({ formC, setFormC }) => {
     const { name, value } = e.target;
     validation(name, value);
   };
+
+
+const addEducation = () => {
+  if (
+    formC.schoolName &&
+    formC.schoolLocation &&
+    formC.degree &&
+    formC.fieldOfStudy &&
+    formC.dateFrom
+  ) {
+    setEducationList((prev) => [...prev, formC]);
+  }
+
+  setFormC({
+    schoolName: "",
+    schoolLocation: "",
+    degree: "",
+    fieldOfStudy: "",
+    dateFrom: "",
+    dateTo: "",
+  });
+}
+
   return (
     <div className="steper_c">
       <TitleStep
@@ -162,10 +186,32 @@ const StepC = ({ formC, setFormC }) => {
           />
           <label>I am still enrolled</label>
         </div>
-      </form>
-      <button type="button" class="add_btn">
-        <IoMdAdd /> Add More Course
+        <button
+        type="button"
+        className="primarybtn"
+        style={{ marginLeft: "auto" }}
+        onClick={addEducation}
+      >
+        submit
       </button>
+      </form>
+
+
+      {/* Education List */}
+
+      {educationList.length > 0 && (
+        <div className="experienc_list">
+          <h6 className="title">Review your education</h6>
+          {educationList.map((data, i) => {
+            return (
+              <Fragment key={i}>
+                <EducationCard data={data} setFormC={setFormC} />
+              </Fragment>
+            );
+          })}
+        </div>
+      )}
+
     </div>
   );
 };

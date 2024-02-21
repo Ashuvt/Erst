@@ -99,7 +99,7 @@ const StepA = ({ formA, setFormA }) => {
               type="text"
               placeholder="Last Name"
               name="lName"
-              value={formA.sName || ""}
+              value={formA.lName || ""}
               onChange={fieldAHandler}
               onBlur={onBlurHandler}
               autoComplete="off"

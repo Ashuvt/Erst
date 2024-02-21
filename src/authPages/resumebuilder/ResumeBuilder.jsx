@@ -49,8 +49,12 @@ const ResumeBuilder = () => {
     },
   ];
 
-  const [tab, setTab] = useState(4);
+  const [tab, setTab] = useState(2);
   const [loader, setLoader] = useState(false);
+  
+  const [experiensList, setExperiensList] = useState([]);
+  const [educationList, setEducationList] = useState([]);
+
 
   const [formA, setFormA] = useState({
     fName: "",
@@ -69,6 +73,7 @@ const ResumeBuilder = () => {
     country: "",
     startDate: "",
     endDate: "",
+    jobDescription:"",
     isWorking: false,
   });
 
@@ -79,6 +84,7 @@ const ResumeBuilder = () => {
     fieldOfStudy: "",
     dateFrom: "",
     dateTo: "",
+    stillEnrolled:false
   });
 
   const dispatch = useDispatch();
@@ -135,8 +141,8 @@ const ResumeBuilder = () => {
             ) : (
               <Fragment>
                 {tab === 1 && <StepA formA={formA} setFormA={setFormA} />}
-                {tab === 2 && <StepB formB={formB} setFormB={setFormB} />}
-                {tab === 3 && <StepC formC={formC} setFormC={setFormC} />}
+                {tab === 2 && <StepB formB={formB} setFormB={setFormB} experiensList={experiensList} setExperiensList={setExperiensList} />}
+                {tab === 3 && <StepC formC={formC} setFormC={setFormC} educationList={educationList} setEducationList={setEducationList} />}
                 {tab === 4 && <StepD />}
                 {tab === 5 && <StepE />}
                 {tab === 6 && <StepF />}
@@ -153,7 +159,12 @@ const ResumeBuilder = () => {
             )}
           </div>
 
-          <ResumeViewer formA={formA} formB={formB} tab={tab} />
+          <ResumeViewer 
+            formA={formA} 
+            formB={formB} 
+            tab={tab}
+            experiensList={experiensList} 
+            />
         </div>
       </section>
     </AuthLayout>

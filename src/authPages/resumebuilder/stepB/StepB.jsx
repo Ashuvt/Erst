@@ -6,7 +6,7 @@ import { MdOutlineDateRange } from "react-icons/md";
 
 import ExperienceCard from "./experiencecard/ExperienceCard";
 
-const StepB = ({ formB, setFormB }) => {
+const StepB = ({ formB, setFormB, experiensList, setExperiensList }) => {
   const today = new Date().toISOString().split("T")[0];
 
   const [jobTitleError, setJobTitleError] = useState("");
@@ -14,6 +14,7 @@ const StepB = ({ formB, setFormB }) => {
   const [cityError, setCityError] = useState("");
   const [countryError, setCountryError] = useState("");
   const [startDateError, setStartDateError] = useState("");
+  const [jobDescError, setJobDescError] = useState("");
 
   const validation = (name, value) => {
     if (name === "jobTitle") {
@@ -46,6 +47,12 @@ const StepB = ({ formB, setFormB }) => {
       } else {
         setStartDateError("");
       }
+    } else if (name === "jobDescription") {
+      if (value.trim().length === 0) {
+        setJobDescError("This field is required!");
+      } else {
+        setJobDescError("");
+      }
     }
   };
 
@@ -60,13 +67,26 @@ const StepB = ({ formB, setFormB }) => {
     validation(name, value);
   };
 
-  const [experiensList, setExperiensList] = useState([]);
-
   const addExerience = () => {
-    if(formB.jobTitle && formB.employer && formB.city && formB.country && formB.startDate ){
+    if (
+      formB.jobTitle &&
+      formB.employer &&
+      formB.city &&
+      formB.country &&
+      formB.startDate
+    ) {
       setExperiensList((prev) => [...prev, formB]);
-    }  
-    
+    }
+
+    setFormB({
+      jobTitle: "",
+      employer: "",
+      city: "",
+      country: "",
+      startDate: "",
+      endDate: "",
+      isWorking: false,
+    });
   };
 
   return (
@@ -88,7 +108,7 @@ const StepB = ({ formB, setFormB }) => {
               onBlur={onBlurHandler}
               autoComplete="off"
             />
-            {jobTitleError && <p class="error">{jobTitleError}</p>}
+            {jobTitleError && <p className="error">{jobTitleError}</p>}
           </div>
           <div className="resume_field">
             <label>EMPLOYER</label>
@@ -101,7 +121,7 @@ const StepB = ({ formB, setFormB }) => {
               onBlur={onBlurHandler}
               autoComplete="off"
             />
-            {employerError && <p class="error">{employerError}</p>}
+            {employerError && <p className="error">{employerError}</p>}
           </div>
         </div>
 
@@ -117,7 +137,7 @@ const StepB = ({ formB, setFormB }) => {
               onBlur={onBlurHandler}
               autoComplete="off"
             />
-            {cityError && <p class="error">{cityError}</p>}
+            {cityError && <p className="error">{cityError}</p>}
           </div>
           <div className="resume_field">
             <label>Country</label>
@@ -137,7 +157,7 @@ const StepB = ({ formB, setFormB }) => {
                 );
               })}
             </select>
-            {countryError && <p class="error">{countryError}</p>}
+            {countryError && <p className="error">{countryError}</p>}
           </div>
         </div>
 
@@ -158,7 +178,7 @@ const StepB = ({ formB, setFormB }) => {
                 <MdOutlineDateRange />
               </div>
             </div>
-            {startDateError && <p class="error">{startDateError}</p>}
+            {startDateError && <p className="error">{startDateError}</p>}
           </div>
           <div className="resume_field">
             <label>End Date</label>
@@ -176,6 +196,20 @@ const StepB = ({ formB, setFormB }) => {
             </div>
           </div>
         </div>
+
+        <div className="resume_field">
+          <label>Job Description</label>
+          <textarea
+            type="text"
+            placeholder="Job Description"
+            name="jobDescription"
+            value={formB.jobDescription}
+            onChange={fieldBHandler}
+            onBlur={onBlurHandler}
+          />
+           {jobDescError && <p className="error">{jobDescError}</p>}
+        </div>
+
         <div className="check_line">
           <input
             type="checkbox"
@@ -186,26 +220,27 @@ const StepB = ({ formB, setFormB }) => {
           />
           <label>I am Currently working here</label>
         </div>
-      </form>
-
-      <button
+        <button
         type="button"
-        class="primarybtn"
+        className="primarybtn"
         style={{ marginLeft: "auto" }}
         onClick={addExerience}
       >
         submit
       </button>
+      </form>
+
+     
 
       {/* Experience List */}
 
       {experiensList.length > 0 && (
         <div className="experienc_list">
-          <h6 class="title">Review your experience</h6>
+          <h6 className="title">Review your experience</h6>
           {experiensList.map((data, i) => {
             return (
               <Fragment key={i}>
-                <ExperienceCard data={data} setFormB={setFormB}/>
+                <ExperienceCard data={data} setFormB={setFormB} />
               </Fragment>
             );
           })}
