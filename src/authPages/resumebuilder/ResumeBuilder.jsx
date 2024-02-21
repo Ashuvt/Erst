@@ -49,12 +49,13 @@ const ResumeBuilder = () => {
     },
   ];
 
-  const [tab, setTab] = useState(4);
+  const [tab, setTab] = useState(1);
   const [loader, setLoader] = useState(false);
 
   const [experiensList, setExperiensList] = useState([]);
   const [educationList, setEducationList] = useState([]);
   const [selectedSkills, setSelectedSkills] = useState([]);
+  const [summary, setSummary] = useState("");
 
   const [formA, setFormA] = useState({
     fName: "",
@@ -86,6 +87,8 @@ const ResumeBuilder = () => {
     dateTo: "",
     stillEnrolled: false,
   });
+
+
 
   const dispatch = useDispatch();
   const resetToggler = () => {
@@ -158,7 +161,7 @@ const ResumeBuilder = () => {
                 )}
                 {tab === 4 && <StepD selectedSkills={selectedSkills} setSelectedSkills={setSelectedSkills} />}
 
-                {tab === 5 && <StepE />}
+                {tab === 5 && <StepE summary={summary} setSummary={setSummary} />}
 
                 {tab === 6 && <StepF />}
 
@@ -169,7 +172,7 @@ const ResumeBuilder = () => {
                   tabs={tabs}
                   tab={tab}
                   goNext={goNext}
-                  goPrev={goPrev}
+                  goPrev={goPrev}                  
                 />
               </Fragment>
             )}
@@ -180,6 +183,7 @@ const ResumeBuilder = () => {
             experiensList={experiensList}
             educationList={educationList}
             selectedSkills={selectedSkills}
+            summary={summary}
           />
         </div>
       </section>

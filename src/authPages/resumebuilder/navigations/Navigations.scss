@@ -9,7 +9,9 @@
     gap: 15px;
     border-right: 1px solid $lightBorder_2;
     min-height: 60vh;
-    position: relative;
+    align-self:flex-start;
+    position:sticky;
+    top:80px;
 
     button {
         padding: 10px 20px 10px 0px;

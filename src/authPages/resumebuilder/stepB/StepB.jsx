@@ -73,7 +73,8 @@ const StepB = ({ formB, setFormB, experiensList, setExperiensList }) => {
       formB.employer &&
       formB.city &&
       formB.country &&
-      formB.startDate
+      formB.startDate &&
+      formB.jobDescription
     ) {
       setExperiensList((prev) => [...prev, formB]);
     }
@@ -85,7 +86,13 @@ const StepB = ({ formB, setFormB, experiensList, setExperiensList }) => {
       country: "",
       startDate: "",
       endDate: "",
+      jobDescription: "",
       isWorking: false,
+    });
+
+    window.scrollTo({
+      top:document.body.scrollHeight + 100,
+      behavior: 'smooth',
     });
   };
 
@@ -207,7 +214,7 @@ const StepB = ({ formB, setFormB, experiensList, setExperiensList }) => {
             onChange={fieldBHandler}
             onBlur={onBlurHandler}
           />
-           {jobDescError && <p className="error">{jobDescError}</p>}
+          {jobDescError && <p className="error">{jobDescError}</p>}
         </div>
 
         <div className="check_line">
@@ -221,16 +228,14 @@ const StepB = ({ formB, setFormB, experiensList, setExperiensList }) => {
           <label>I am Currently working here</label>
         </div>
         <button
-        type="button"
-        className="primarybtn"
-        style={{ marginLeft: "auto" }}
-        onClick={addExerience}
-      >
-        submit
-      </button>
+          type="button"
+          className="primarybtn"
+          style={{ marginLeft: "auto" }}
+          onClick={addExerience}
+        >
+          submit
+        </button>
       </form>
-
-     
 
       {/* Experience List */}
 

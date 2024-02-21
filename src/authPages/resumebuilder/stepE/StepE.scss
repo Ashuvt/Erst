@@ -4,4 +4,35 @@
 
 .steper_e{
     width: 100%; 
+    form{
+        .resume_field{
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 24px;
+            p.error{
+                @include font('Inter-Regular', 14px, 18px, 400, $orange);
+                letter-spacing:1px;
+            }
+
+            label {
+                @include font('Inter-Regular', 14px, 20px, 400, $textSecondary);
+            }
+            input,
+            select,
+            textarea {
+                box-shadow: none;
+                border-style: none;
+                padding: 8px;
+                border-radius: 8px;
+                border: 1px solid $borderSubtle;
+                background: $bgLight;
+                @include font('Inter-Regular', 14px, 20px, 400, $textPrimary);
+            }
+
+            textarea{
+            height:100px;
+            }
+        }
+    }
 }

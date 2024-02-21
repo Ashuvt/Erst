@@ -6,6 +6,7 @@ const ResumeViewer = ({
   experiensList,
   educationList,
   selectedSkills,
+  summary
 }) => {
   const formatDate = (dateString) => {
     const options = { year: "numeric", month: "long" };
@@ -103,6 +104,14 @@ const ResumeViewer = ({
             </div>
           </Fragment>
         )}
+
+        {
+          summary && 
+          <Fragment>
+          <p className="header bb">Summary</p>
+          <p className="value">{summary}</p>
+          </Fragment>
+        }
       </div>
     </div>
   );

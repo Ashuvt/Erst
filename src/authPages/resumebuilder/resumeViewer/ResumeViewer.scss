@@ -9,10 +9,13 @@
     background-color: $white;
     display: flex;
     align-items: flex-start;
+    align-self:flex-start;
+    position:sticky;
+    top:80px;
 
     .personal_info {
         width: 80px;
-        height: 400px;
+        min-height: 400px;
         background-color: $primary;
         padding: 6px;
         overflow: hidden;

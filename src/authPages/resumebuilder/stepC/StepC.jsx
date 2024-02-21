@@ -58,6 +58,7 @@ const StepC = ({ formC, setFormC, educationList, setEducationList}) => {
 
 
 const addEducation = () => {
+
   if (
     formC.schoolName &&
     formC.schoolLocation &&
@@ -75,6 +76,11 @@ const addEducation = () => {
     fieldOfStudy: "",
     dateFrom: "",
     dateTo: "",
+  });
+  
+  window.scrollTo({
+    top:document.body.scrollHeight + 100,
+    behavior: 'smooth',
   });
 }
 
@@ -200,7 +206,7 @@ const addEducation = () => {
       {/* Education List */}
 
       {educationList.length > 0 && (
-        <div className="experienc_list">
+        <div className="education_list">
           <h6 className="title">Review your education</h6>
           {educationList.map((data, i) => {
             return (
