@@ -49,12 +49,12 @@ const ResumeBuilder = () => {
     },
   ];
 
-  const [tab, setTab] = useState(2);
+  const [tab, setTab] = useState(4);
   const [loader, setLoader] = useState(false);
-  
+
   const [experiensList, setExperiensList] = useState([]);
   const [educationList, setEducationList] = useState([]);
-
+  const [selectedSkills, setSelectedSkills] = useState([]);
 
   const [formA, setFormA] = useState({
     fName: "",
@@ -73,7 +73,7 @@ const ResumeBuilder = () => {
     country: "",
     startDate: "",
     endDate: "",
-    jobDescription:"",
+    jobDescription: "",
     isWorking: false,
   });
 
@@ -84,7 +84,7 @@ const ResumeBuilder = () => {
     fieldOfStudy: "",
     dateFrom: "",
     dateTo: "",
-    stillEnrolled:false
+    stillEnrolled: false,
   });
 
   const dispatch = useDispatch();
@@ -100,7 +100,6 @@ const ResumeBuilder = () => {
         if (prev === 1) {
           console.log("Header", formA);
         } else if (prev === 2) {
-          
         } else if (prev === 3) {
           console.log("Education:", formC);
         }
@@ -141,11 +140,28 @@ const ResumeBuilder = () => {
             ) : (
               <Fragment>
                 {tab === 1 && <StepA formA={formA} setFormA={setFormA} />}
-                {tab === 2 && <StepB formB={formB} setFormB={setFormB} experiensList={experiensList} setExperiensList={setExperiensList} />}
-                {tab === 3 && <StepC formC={formC} setFormC={setFormC} educationList={educationList} setEducationList={setEducationList} />}
-                {tab === 4 && <StepD />}
+                {tab === 2 && (
+                  <StepB
+                    formB={formB}
+                    setFormB={setFormB}
+                    experiensList={experiensList}
+                    setExperiensList={setExperiensList}
+                  />
+                )}
+                {tab === 3 && (
+                  <StepC
+                    formC={formC}
+                    setFormC={setFormC}
+                    educationList={educationList}
+                    setEducationList={setEducationList}
+                  />
+                )}
+                {tab === 4 && <StepD selectedSkills={selectedSkills} setSelectedSkills={setSelectedSkills} />}
+
                 {tab === 5 && <StepE />}
+
                 {tab === 6 && <StepF />}
+
                 {tab === 7 && <StepG />}
 
                 {/* Mid Bottom Next Prev Btns */}
@@ -159,12 +175,12 @@ const ResumeBuilder = () => {
             )}
           </div>
 
-          <ResumeViewer 
-            formA={formA} 
-            formB={formB} 
-            tab={tab}
-            experiensList={experiensList} 
-            />
+          <ResumeViewer
+            formA={formA}
+            experiensList={experiensList}
+            educationList={educationList}
+            selectedSkills={selectedSkills}
+          />
         </div>
       </section>
     </AuthLayout>

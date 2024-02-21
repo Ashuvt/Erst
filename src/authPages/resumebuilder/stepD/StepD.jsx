@@ -7,9 +7,9 @@ import { IoMdClose } from "react-icons/io";
 import { IoMdAdd } from "react-icons/io";
 import { MdOutlineRemove } from "react-icons/md";
 
-const StepD = () => {
+const StepD = ({selectedSkills, setSelectedSkills}) => {
   const [skill, setSkill] = useState("");
-  const [selectedSkills, setSelectedSkills] = useState([]);
+
 
   const inputHandler = (e) => {
     setSkill(e.target.value);

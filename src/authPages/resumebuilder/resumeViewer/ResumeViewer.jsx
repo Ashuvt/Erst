@@ -1,7 +1,12 @@
 import { Fragment } from "react";
 import "./ResumeViewer.scss";
 
-const ResumeViewer = ({ tab, formA, formB, experiensList }) => {
+const ResumeViewer = ({
+  formA,
+  experiensList,
+  educationList,
+  selectedSkills,
+}) => {
   const formatDate = (dateString) => {
     const options = { year: "numeric", month: "long" };
     const formattedDate = new Date(dateString).toLocaleDateString(
@@ -33,7 +38,42 @@ const ResumeViewer = ({ tab, formA, formB, experiensList }) => {
         <p class="value">{formA.city}</p>
         <p class="value">{formA.country}</p>
         <p class="value">{formA.pin}</p>
+
+        {educationList.length > 0 && (
+          <Fragment>
+            <p class="title m_t">Education</p>
+
+            {educationList.map((data) => {
+              return (
+                <div className="education_wrap">
+                  <p className="value">
+                    {formatDate(data.dateFrom)} - {formatDate(data.dateTo)}
+                  </p>
+                  <p className="value">
+                    {data.degree} | {data.fieldOfStudy}
+                  </p>
+                  <p className="value">{data.schoolName}</p>
+                  <p className="value">{data.schoolLocation}</p>
+                </div>
+              );
+            })}
+          </Fragment>
+        )}
+
+        {selectedSkills.length > 0 && (
+          <Fragment>
+            <p className="header">Skills</p>
+            {selectedSkills.map((item, j) => {
+              return (
+                <p className="value list" key={j}>
+                  {item}
+                </p>
+              );
+            })}
+          </Fragment>
+        )}
       </div>
+
       <div className="right_info">
         <p className="name">
           <span>{formA.fName}</span> {formA.lName}
@@ -42,7 +82,7 @@ const ResumeViewer = ({ tab, formA, formB, experiensList }) => {
         {experiensList.length > 0 && (
           <Fragment>
             <p className="header bb">Experience</p>
-            <div className="rxperience_list">
+            <div className="experience_list">
               {experiensList.map((data, i) => {
                 return (
                   <div className="ex_card" key={i}>
@@ -54,8 +94,7 @@ const ResumeViewer = ({ tab, formA, formB, experiensList }) => {
                       {data.country && `, ${data.country}`}
                     </p>
                     <p className="value">
-                      {formatDate(data.startDate)} -{" "}
-                      {formatDate(data.endDate)}
+                      {formatDate(data.startDate)} - {formatDate(data.endDate)}
                     </p>
                     <p className="value">{data.jobDescription}</p>
                   </div>

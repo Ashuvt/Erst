@@ -21,9 +21,11 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+            max-width:100%;
 
             &.header {
                 margin-bottom: 4px;
+                margin-top:8px;
                 @include font('Inter-Medium', 12px, 12px, 400, $white);
             }
 
@@ -38,6 +40,29 @@
             &.value {
                 margin-top: 1px;
                 @include font('Inter-Regular', 8px, 8px, 100, $white);
+                &.list{
+                    display:flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                    gap:4px;
+                   svg{
+                    font-size:8px;
+                    color:$white;
+                   }
+                }
+            }
+        }
+
+        .education_wrap{
+            margin-top:8px;
+        }
+        ul{
+            padding-left:6px;
+            list-style-type: disc;
+            color:$white;
+            margin-bottom:0px;
+            li{
+            color:$white;
             }
         }
     }
@@ -84,7 +109,7 @@
                 }
             }
         }
-        .rxperience_list{
+        .experience_list{
             display: flex;
             flex-direction: column;
             gap:4px;
