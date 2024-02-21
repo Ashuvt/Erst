@@ -6,49 +6,4 @@
     border: 1px solid $primary;
     width: 250px;
 
-    .resume_page {
-        height: 400px;
-        width: 100%;
-        background-color: $white;
-
-        .bi_grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap:0px;
-        }
-
-        .title {
-            p {
-                text-align: center;
-                @include font('Inter-Regular', 10px, 12px, 400, $dark);
-            }
-        }
-
-        .info_sec {
-            margin-top: 10px;
-            padding:10px;
-
-            &.active {
-                background-color: rgba($primary, 0.15);
-            }
-
-            p.info_title {
-                @include font('Inter-Regular', 8px, 10px, 400, $primary);
-            }
-
-            p.info {
-                @include font('Inter-Regular', 8px, 10px, 400, $dark);
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                width: 100px;
-
-                span {
-                    color: $grey;
-                }
-
-            }
-
-        }
-    }
 }

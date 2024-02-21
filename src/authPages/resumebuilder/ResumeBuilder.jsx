@@ -49,12 +49,12 @@ const ResumeBuilder = () => {
     },
   ];
 
-  const [tab, setTab] = useState(1);
+  const [tab, setTab] = useState(4);
   const [loader, setLoader] = useState(false);
 
   const [formA, setFormA] = useState({
     fName: "",
-    sName: "",
+    lName: "",
     city: "",
     country: "",
     pin: "",
@@ -94,7 +94,7 @@ const ResumeBuilder = () => {
         if (prev === 1) {
           console.log("Header", formA);
         } else if (prev === 2) {
-          console.log("Experience", formC);
+          
         } else if (prev === 3) {
           console.log("Education:", formC);
         }

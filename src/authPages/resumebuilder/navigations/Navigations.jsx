@@ -11,8 +11,7 @@ const Navigations = ({tabs, tab, setTab}) => {
         return (
           <button
             type="button"
-            className={tab === data.id ? "active" : ""}
-            onClick={() => setTab(data.id)}
+            className={tab === data.id ? "active" : ""}         
             key={data?.id}
           >
             <div className={`circle ${tab === data.id ? "active" : ""}`}></div>            

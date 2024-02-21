@@ -22,6 +22,11 @@
             gap: 8px;
             margin-top: 24px;
 
+            p.error{
+                @include font('Inter-Regular', 14px, 18px, 400, $orange);
+                letter-spacing:1px;
+            }
+
             label {
                 @include font('Inter-Regular', 14px, 20px, 400, $textSecondary);
             }
@@ -166,24 +171,7 @@
         }
     }
 
-    button.add_btn {
-        margin-top: 15px;
-        margin-left: auto;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        border-style:none;
-        background-color:transparent;
-        @include font('Inter-Regular', 14px, 16px, 400, $white);
-        letter-spacing: 1px;
-        transition:all 0.3s ease-in-out;
-        svg{
-            font-size:16px;
-        }
-        &:hover{
-            color:$primary;
-        }
-    }
+
 
     .check_line {
         display: flex;
@@ -242,4 +230,14 @@
     }
 
 
+    .experienc_list {
+        margin-top: 25px;
+
+        h6.title{
+            font-size:20px;
+            letter-spacing: 1px;
+            text-transform: capitalize;
+        }
+      
+    }
 }
