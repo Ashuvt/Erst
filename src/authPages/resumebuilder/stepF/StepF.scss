@@ -2,6 +2,41 @@
 @import "../../../scss/variables";
 @import "../../../scss/common";
 
-.steper_f{
-    width: 100%; 
+.steper_f {
+    width: 100%;
+
+    .additional_acc {
+        margin-top: 24px;
+
+        .accordion {
+
+            .accordion-item {
+                margin-top: 8px;
+                border-radius: 8px;
+                overflow: hidden;
+                border-style: none;
+                background-color: transparent;
+
+                .accordion-header {
+                    padding: 0px;
+
+                    button {
+                        padding: 0px 16px;
+                        background: $primaryGradient_2;
+
+                        &:focus {
+                            box-shadow: none;
+                            outline: none;
+                        }
+
+                        &::after {
+                            filter: invert(100%) sepia(57%) saturate(14%) hue-rotate(278deg) brightness(102%) contrast(100%);
+                        }
+                    }
+                }
+
+                .accordion-body {}
+            }
+        }
+    }
 }

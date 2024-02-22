@@ -245,7 +245,7 @@ const StepB = ({ formB, setFormB, experiensList, setExperiensList }) => {
           {experiensList.map((data, i) => {
             return (
               <Fragment key={i}>
-                <ExperienceCard data={data} setFormB={setFormB} />
+                <ExperienceCard data={data} setFormB={setFormB} index={i} />
               </Fragment>
             );
           })}

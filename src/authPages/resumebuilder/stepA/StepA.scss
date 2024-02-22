@@ -23,15 +23,18 @@
             flex-direction: column;
             gap: 8px;
             margin-top: 24px;
-            p.error{
+
+            p.error {
                 @include font('Inter-Regular', 14px, 18px, 400, $orange);
-                letter-spacing:1px;
+                letter-spacing: 1px;
             }
+
             label {
                 @include font('Inter-Regular', 14px, 20px, 400, $textSecondary);
             }
 
-            input, select {
+            input,
+            select {
                 box-shadow: none;
                 border-style: none;
                 padding: 8px;
@@ -39,11 +42,27 @@
                 border: 1px solid $borderSubtle;
                 background: $bgLight;
                 @include font('Inter-Regular', 14px, 20px, 400, $textPrimary);
+                position: relative;
+                z-index: 1;
+                transition: all 0.3s ease-in-out;
+                &::after{
+                    content:"";
+                    position:absolute;
+                    bottom:15px;
+                    left:15px;
+                    height:20px;
+                    width:20px;
+                    background-color:$white;
+                    z-index:999;
+
+                }
             }
-select{
-    height:48px;
-    max-width:200px;
-}
+
+            select {
+                height: 48px;
+                max-width: 200px;
+            }
+
             .input_wrap {
                 position: relative;
 
@@ -142,6 +161,5 @@ select{
         }
     }
 
- 
-}
 
+}

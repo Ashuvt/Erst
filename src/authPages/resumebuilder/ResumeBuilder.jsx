@@ -49,7 +49,7 @@ const ResumeBuilder = () => {
     },
   ];
 
-  const [tab, setTab] = useState(1);
+  const [tab, setTab] = useState(6);
   const [loader, setLoader] = useState(false);
 
   const [experiensList, setExperiensList] = useState([]);
