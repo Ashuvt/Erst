@@ -10,12 +10,22 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 10px;
+
+            @media only screen and (max-width:600px) {
+                grid-template-columns: 1fr;
+                gap: 0px;
+            }
         }
 
         .bi_in_sec {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 10px;
+
+            @media only screen and (max-width:600px) {
+                grid-template-columns: 1fr;
+                gap: 0px;
+            }
         }
 
         .resume_field {
@@ -45,15 +55,16 @@
                 position: relative;
                 z-index: 1;
                 transition: all 0.3s ease-in-out;
-                &::after{
-                    content:"";
-                    position:absolute;
-                    bottom:15px;
-                    left:15px;
-                    height:20px;
-                    width:20px;
-                    background-color:$white;
-                    z-index:999;
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    bottom: 15px;
+                    left: 15px;
+                    height: 20px;
+                    width: 20px;
+                    background-color: $white;
+                    z-index: 999;
 
                 }
             }
@@ -61,6 +72,9 @@
             select {
                 height: 48px;
                 max-width: 200px;
+                @media only screen and (max-width:600px){
+                    max-width:100%;
+                }
             }
 
             .input_wrap {

@@ -1,12 +1,17 @@
 import { Fragment } from "react";
 import "./ResumeViewer.scss";
+import { ImLink } from "react-icons/im";
 
 const ResumeViewer = ({
   formA,
   experiensList,
   educationList,
   selectedSkills,
-  summary
+  activities,
+  awards,
+  certifications,
+  summary,
+  socialLinks,
 }) => {
   const formatDate = (dateString) => {
     const options = { year: "numeric", month: "long" };
@@ -73,6 +78,19 @@ const ResumeViewer = ({
             })}
           </Fragment>
         )}
+
+        {
+          socialLinks.length > 0 && 
+          <Fragment>
+          <p className="header">Skills</p>
+          {socialLinks.map((item, i) => {
+              return (
+                <p className="value list" key={i}>{item}</p>
+              );
+            })}
+
+          </Fragment>
+        }
       </div>
 
       <div className="right_info">
@@ -105,13 +123,39 @@ const ResumeViewer = ({
           </Fragment>
         )}
 
-        {
-          summary && 
+        {activities && (
           <Fragment>
-          <p className="header bb">Summary</p>
-          <p className="value">{summary}</p>
+            <div className="text_editor">
+              <p className="header bb">Activities</p>
+              <div dangerouslySetInnerHTML={{ __html: activities }} />
+            </div>
           </Fragment>
-        }
+        )}
+
+        {awards && (
+          <Fragment>
+            <div className="text_editor">
+              <p className="header bb">Awards, Accomplishments & Honors</p>
+              <div dangerouslySetInnerHTML={{ __html: awards }} />
+            </div>
+          </Fragment>
+        )}
+
+        {certifications && (
+          <Fragment>
+            <div className="text_editor">
+              <p className="header bb">Certifications & Licenses</p>
+              <div dangerouslySetInnerHTML={{ __html: certifications }} />
+            </div>
+          </Fragment>
+        )}
+
+        {summary && (
+          <Fragment>
+            <p className="header bb">Summary</p>
+            <p className="value">{summary}</p>
+          </Fragment>
+        )}
       </div>
     </div>
   );

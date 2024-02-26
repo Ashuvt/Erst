@@ -71,6 +71,9 @@
         max-height: 400px;
         overflow: auto;
         padding-right:8px;
+        @media only screen and (max-width:550px){
+            grid-template-columns:1fr;
+        }
 
         .skill_card {
             background-color: $bgLight;

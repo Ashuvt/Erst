@@ -49,13 +49,19 @@ const ResumeBuilder = () => {
     },
   ];
 
-  const [tab, setTab] = useState(6);
+  const [tab, setTab] = useState(1);
   const [loader, setLoader] = useState(false);
 
   const [experiensList, setExperiensList] = useState([]);
   const [educationList, setEducationList] = useState([]);
   const [selectedSkills, setSelectedSkills] = useState([]);
   const [summary, setSummary] = useState("");
+
+  const [activities, setActivities] = useState("");
+  const [awards, setAwards] = useState("");
+  const [certifications, setCertifications] = useState("");
+const [socialLinks, setSocialLinks] = useState([]);
+
 
   const [formA, setFormA] = useState({
     fName: "",
@@ -87,8 +93,6 @@ const ResumeBuilder = () => {
     dateTo: "",
     stillEnrolled: false,
   });
-
-
 
   const dispatch = useDispatch();
   const resetToggler = () => {
@@ -159,11 +163,29 @@ const ResumeBuilder = () => {
                     setEducationList={setEducationList}
                   />
                 )}
-                {tab === 4 && <StepD selectedSkills={selectedSkills} setSelectedSkills={setSelectedSkills} />}
+                {tab === 4 && (
+                  <StepD
+                    selectedSkills={selectedSkills}
+                    setSelectedSkills={setSelectedSkills}
+                  />
+                )}
 
-                {tab === 5 && <StepE summary={summary} setSummary={setSummary} />}
+                {tab === 5 && (
+                  <StepE summary={summary} setSummary={setSummary} />
+                )}
 
-                {tab === 6 && <StepF />}
+                {tab === 6 && (
+                  <StepF
+                    activities={activities}
+                    setActivities={setActivities}
+                    awards={awards}
+                    setAwards={setAwards}
+                    certifications={certifications}
+                    setCertifications={setCertifications}
+                    socialLinks={socialLinks}
+                    setSocialLinks={setSocialLinks}
+                  />
+                )}
 
                 {tab === 7 && <StepG />}
 
@@ -172,7 +194,7 @@ const ResumeBuilder = () => {
                   tabs={tabs}
                   tab={tab}
                   goNext={goNext}
-                  goPrev={goPrev}                  
+                  goPrev={goPrev}
                 />
               </Fragment>
             )}
@@ -183,7 +205,11 @@ const ResumeBuilder = () => {
             experiensList={experiensList}
             educationList={educationList}
             selectedSkills={selectedSkills}
+            activities={activities}
+            awards={awards}
+            certifications={certifications}
             summary={summary}
+            socialLinks={socialLinks}
           />
         </div>
       </section>

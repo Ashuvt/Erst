@@ -9,9 +9,21 @@
     gap: 15px;
     border-right: 1px solid $lightBorder_2;
     min-height: 60vh;
-    align-self:flex-start;
-    position:sticky;
-    top:80px;
+    position: sticky;
+    top: 80px;
+
+    @media only screen and (max-width:950px) {
+        position: relative;
+        top: 0px;
+        flex-direction: row;
+        border-style: none;
+        gap: 8px;
+        align-self: flex-start;
+        min-height:auto;
+        overflow: auto;
+        width:100%;
+        padding-left:10px;
+    }
 
     button {
         padding: 10px 20px 10px 0px;
@@ -26,11 +38,12 @@
         gap: 10px;
         position: relative;
         transition: all 0.3s ease-in-out;
-        padding-left:15px;
+        padding-left: 15px;
+
         &::after {
             position: absolute;
             content: "";
-            left:-3px;
+            left: -3px;
             top: 50%;
             transform: translateY(-50%);
             height: 53px;
@@ -62,9 +75,9 @@
             border: 1px solid $primary;
             background-color: $dark;
             position: absolute;
-            top:50%;
-            left:-10px;
-            transform:translateY(-50%);
+            top: 50%;
+            left: -10px;
+            transform: translateY(-50%);
             z-index: 2;
             transition: all 0.3s ease-in-out;
 
@@ -73,6 +86,12 @@
             }
         }
 
+@media only screen and (max-width:950px){
+    min-width:132px;
+    &::after{
+        display:none;
+    }
+}
     }
 
 

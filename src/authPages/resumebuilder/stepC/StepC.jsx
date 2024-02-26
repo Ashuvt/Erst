@@ -5,6 +5,7 @@ import { IoMdAdd } from "react-icons/io";
 import { Fragment, useState } from "react";
 import EducationCard from "./educationCard/EducationCard";
 
+
 const StepC = ({ formC, setFormC, educationList, setEducationList}) => {
   const [schoolNameError, setSchoolNameError] = useState("");
   const [schoolLocationError, setSchoolLocationError] = useState("");

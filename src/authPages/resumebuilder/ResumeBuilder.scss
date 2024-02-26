@@ -13,12 +13,18 @@ section.resume_builder {
         justify-content: flex-start;
         align-items: flex-start;
         gap:20px;
-        padding-top: 40px;
-        padding-bottom:40px;      
+        padding-top: 40px; 
+        padding-bottom:40px; 
+        @media only screen and (max-width:950px){
+            flex-direction: column;
+        }     
 
         .tabs_view {
             width: calc(100% - 490px);
             align-self:flex-start;
+            @media only screen and (max-width:950px){
+                width:100%;
+            }
         }
 
     }

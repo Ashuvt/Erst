@@ -9,12 +9,20 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 10px;
+            @media only screen and (max-width:600px) {
+                grid-template-columns: 1fr;
+                gap: 0px;
+            }
         }
 
         .bi_in_sec {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 10px;
+            @media only screen and (max-width:600px) {
+                grid-template-columns: 1fr;
+                gap: 0px;
+            }
         }
 
         .resume_field {
