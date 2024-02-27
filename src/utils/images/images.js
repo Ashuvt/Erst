@@ -17,6 +17,8 @@ import partnerF from "../../assets/images/logos/SecureAcademy.png";
 import partnerG from "../../assets/images/logos/SmartDrub.png";
 import partnerH from "../../assets/images/logos/Check_Point.png";
 import partnerI from "../../assets/images/logos/softcloud.png";
+import partnerJ from "../../assets/images/logos/aws.png";
+import partnerK from "../../assets/images/logos/wlogo.png";
 
 
 
@@ -150,6 +152,8 @@ export const logoImage = {
   partnerG,
   partnerH,
   partnerI,
+  partnerJ,
+  partnerK,
 
 };
 

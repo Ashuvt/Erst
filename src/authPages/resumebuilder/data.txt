@@ -1,0 +1,52 @@
+
+
+
+{
+    fName: "",
+    lName: "",
+    city: "",
+    country: "",
+    pin: "",
+    phone: "",
+    email: "",
+};
+
+{
+    jobTitle: "",
+    employer: "",
+    city: "",
+    country: "",
+    startDate: "",
+    endDate: "",
+    jobDescription: "",
+    isWorking: false,
+}
+
+(3)For Education Array Of object
+
+{
+    schoolName: "",
+    schoolLocation: "",
+    degree: "",
+    fieldOfStudy: "",
+    dateFrom: "",
+    dateTo: "",
+    stillEnrolled: false,
+}
+
+
+(4)in Skills Section
+
+selectedSkills = ["skill A", "Skill B", "Skill C"]; Array of Any Skills
+
+(5) In Summary Section 
+
+summary="This is Summary"
+
+
+(6)
+
+activities (Dangerious html like text editor)
+awards (Dangerious html like text editor)
+certifications (Dangerious html like text editor)
+socialLinks : ["instagram link", "personal portfolio link"] Array of Any Links

@@ -74,42 +74,27 @@ const SymmentricSlider = () => {
       id: 5,
       img: logoImage.partnerF,
     },
-    {
-      id: 6,
-      img: logoImage.partnerA,
-    },
-    {
-      id: 7,
-      img: logoImage.partnerB,
-    },
-    {
-      id: 8,
-      img: logoImage.partnerC,
-    },
-    {
-      id: 9,
-      img: logoImage.partnerD,
-    },
-    {
-      id: 10,
-      img: logoImage.partnerE,
-    },
-    {
-      id: 11,
-      img: logoImage.partnerF,
-    },
+ 
     domainName() === 'net' && {
-      id: 114,
+      id:6,
       img: logoImage.partnerG,
     },
 
     {
-      id: 11,
+      id:7,
       img: logoImage.partnerH,
     },
     {
-      id: 11,
+      id:8,
       img: logoImage.partnerI,
+    },
+    {
+      id:9,
+      img: logoImage.partnerJ,
+    },
+    {
+      id:10,
+      img: logoImage.partnerK,
     },
   ];
   return (

@@ -46,6 +46,14 @@ const Partners = () => {
             id: "09",
             img: logoImage.partnerI,
           },
+          {
+            id: "10",
+            img: logoImage.partnerJ,
+          },
+          {
+            id: "11",
+            img: logoImage.partnerK,
+          },
         ]
       : [
           {
@@ -79,6 +87,14 @@ const Partners = () => {
           {
             id: "09",
             img: logoImage.partnerI,
+          },
+          {
+            id: "10",
+            img: logoImage.partnerJ,
+          },
+          {
+            id: "11",
+            img: logoImage.partnerK,
           },
         ];
 
