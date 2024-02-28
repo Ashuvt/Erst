@@ -2,7 +2,7 @@ import "./ExperienceCard.scss";
 import { MdEdit } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
 
-const ExperienceCard = ({ data, setFormB, index }) => {
+const ExperienceCard = ({ data, setFormB, setForEdit, onDelete }) => {
   const formatDate = (dateString) => {
     const options = { year: "numeric", month: "long" };
     const formattedDate = new Date(dateString).toLocaleDateString(
@@ -18,12 +18,13 @@ const ExperienceCard = ({ data, setFormB, index }) => {
       behavior: "smooth",
     });
     setFormB(data);
+    setForEdit(true);
   };
 
 
 
  return (
-    <div className="experience_card" >
+    <div className="experience_card">
       <div className="top_line">
         <p className="job_company">
           {data.jobTitle}
@@ -34,7 +35,7 @@ const ExperienceCard = ({ data, setFormB, index }) => {
           <button type="button" onClick={editHandler}>
             <MdEdit />
           </button>
-          <button type="button">
+          <button type="button" onClick={() => onDelete(data.id)}>
             <MdDelete />
           </button>
         </div>

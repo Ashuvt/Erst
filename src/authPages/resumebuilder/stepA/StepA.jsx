@@ -2,8 +2,9 @@ import { Fragment, useState } from "react";
 import TitleStep from "../titlestep/TitleStep";
 import "./StepA.scss";
 import { countries } from "../../../utils/countrylist";
+import NextPrevBtns from "../nextPrevBtns/NextPrevBtns";
 
-const StepA = ({ formA, setFormA }) => {
+const StepA = ({ formA, setFormA, submitStepA }) => {
   const [fnameError, setFnameError] = useState("");
   const [lnameError, setLnameError] = useState("");
   const [cityError, setCityError] = useState("");
@@ -73,6 +74,7 @@ const StepA = ({ formA, setFormA }) => {
   };
 
   return (
+    <Fragment>
     <div className="steper_a">
       <TitleStep
         title="Let's start with your header"
@@ -190,6 +192,8 @@ const StepA = ({ formA, setFormA }) => {
         </div>
       </form>
     </div>
+    <NextPrevBtns backDisabled={true} nextDisabled={false} onNext={submitStepA} />
+    </Fragment>
   );
 };
 

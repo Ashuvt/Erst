@@ -134,3 +134,7 @@ export const applyCoupon = "api/applycoupon";
 export const userLogOut = "api/userlogout";
 
 export const paymentSuccess = "api/paymentsuccesshome";
+
+// Resume Builder API
+export const resumeBuild = "api/createresume";
+export const getResume = "";

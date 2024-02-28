@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useContext, useEffect, useState } from "react";
 import AuthLayout from "../AuthLayout";
 import "./ResumeBuilder.scss";
 import ResumeBuilderBanner from "./resumeBuilderBanner/ResumeBuilderBanner";
@@ -8,7 +8,6 @@ import Navigations from "./navigations/Navigations";
 import StepA from "./stepA/StepA";
 import StepB from "./stepB/StepB";
 import StepC from "./stepC/StepC";
-import NextPrevBtns from "./nextPrevBtns/NextPrevBtns";
 import StepF from "./stepF/StepF";
 import StepE from "./stepE/StepE";
 import StepD from "./stepD/StepD";
@@ -16,6 +15,10 @@ import StepG from "./stepG/StepG";
 import ProcessLoader from "./processLoader/ProcessLoader";
 import ResumeViewer from "./resumeViewer/ResumeViewer";
 import ParticlesBg from "../../components/particlesbg/ParticlesBg";
+import axios from "axios";
+import { baseUrl, resumeBuild } from "../../utils/apidata";
+import { redirectContext } from "../../context/RoutingContext";
+
 
 const ResumeBuilder = () => {
   const tabs = [
@@ -49,6 +52,7 @@ const ResumeBuilder = () => {
     },
   ];
 
+  const { toastSuccess, toastError } = useContext(redirectContext);
   const [tab, setTab] = useState(1);
   const [loader, setLoader] = useState(false);
 
@@ -60,8 +64,7 @@ const ResumeBuilder = () => {
   const [activities, setActivities] = useState("");
   const [awards, setAwards] = useState("");
   const [certifications, setCertifications] = useState("");
-const [socialLinks, setSocialLinks] = useState([]);
-
+  const [socialLinks, setSocialLinks] = useState([]);
 
   const [formA, setFormA] = useState({
     fName: "",
@@ -99,26 +102,51 @@ const [socialLinks, setSocialLinks] = useState([]);
     dispatch({ type: resetAllToggler() });
   };
 
-  const goNext = () => {
+  const resumeBuilderApi = async (body, number) => {
     setLoader(true);
-    setTimeout(() => {
-      setTab((prev) => {
-        // Submit Handler
-        if (prev === 1) {
-          console.log("Header", formA);
-        } else if (prev === 2) {
-        } else if (prev === 3) {
-          console.log("Education:", formC);
-        }
+    const token = localStorage.getItem("token");
+    const headers = {
+      Authorization: `Bearer ${token}`,
+    };
 
-        if (prev === 7) {
-          return prev;
-        } else {
-          return prev + 1;
-        }
-      });
+    try {
+      const res = await axios.post(
+        `${baseUrl}/${resumeBuild}`,
+        { ...body },
+        { headers }
+      );
+      console.log(res);
+      if (res?.status === 200) {
+        toastSuccess(res?.data?.message);
+        setTab(number);
+        setLoader(false);
+      } else {
+        toastError("Something went wrong!");
+        setLoader(false);
+      }
+    } catch (error) {
+      toastError("Something went wrong!");
+      console.log(error);
       setLoader(false);
-    }, 2000);
+    }
+  };
+
+
+  // Form Submit Functions
+  const submitStepA = () => {
+    const body = {
+      step: 1,
+      data: { ...formA },
+    };
+    resumeBuilderApi(body, 2);
+  };
+
+  const submitStepB = () => {
+    const body = {
+      step:2,
+      data:[...experiensList],
+    };
+    resumeBuilderApi(body, 3);
   };
 
   const goPrev = () => {
@@ -130,6 +158,8 @@ const [socialLinks, setSocialLinks] = useState([]);
       }
     });
   };
+
+  // Resume Builder API
 
   return (
     <AuthLayout>
@@ -146,13 +176,20 @@ const [socialLinks, setSocialLinks] = useState([]);
               <ProcessLoader />
             ) : (
               <Fragment>
-                {tab === 1 && <StepA formA={formA} setFormA={setFormA} />}
+                {tab === 1 && (
+                  <StepA
+                    formA={formA}
+                    setFormA={setFormA}
+                    submitStepA={submitStepA}
+                  />
+                )}
                 {tab === 2 && (
                   <StepB
                     formB={formB}
                     setFormB={setFormB}
                     experiensList={experiensList}
                     setExperiensList={setExperiensList}
+                    submitStepB={submitStepB}
                   />
                 )}
                 {tab === 3 && (
@@ -190,12 +227,6 @@ const [socialLinks, setSocialLinks] = useState([]);
                 {tab === 7 && <StepG />}
 
                 {/* Mid Bottom Next Prev Btns */}
-                <NextPrevBtns
-                  tabs={tabs}
-                  tab={tab}
-                  goNext={goNext}
-                  goPrev={goPrev}
-                />
               </Fragment>
             )}
           </div>

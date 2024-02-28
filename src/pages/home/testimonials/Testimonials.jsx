@@ -51,7 +51,7 @@ const Testimonials = ({ t }) => {
     try {
       setLoader(true);
       const response = await axios.get(`${baseUrl}/${getTestimonial}`);
-      console.log("Testimonials:::", response);
+      // console.log("Testimonials:::", response);
       if (response?.data?.success) {
         setList(response?.data?.data);
         setView(response?.data?.data[0]);

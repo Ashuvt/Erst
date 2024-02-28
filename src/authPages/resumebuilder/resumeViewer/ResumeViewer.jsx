@@ -28,26 +28,26 @@ const ResumeViewer = ({
         <p className="header">Contact</p>
         {formA.phone && (
           <Fragment>
-            <p class="title m_t">Phone</p>
-            <p class="value">{formA.phone}</p>
+            <p className="title m_t">Phone</p>
+            <p className="value">{formA.phone}</p>
           </Fragment>
         )}
         {formA.email && (
           <Fragment>
-            <p class="title m_t">Email</p>
-            <p class="value">{formA.email}</p>
+            <p className="title m_t">Email</p>
+            <p className="value">{formA.email}</p>
           </Fragment>
         )}
 
-        <p class="title m_t">Address</p>
+        <p className="title m_t">Address</p>
 
-        <p class="value">{formA.city}</p>
-        <p class="value">{formA.country}</p>
-        <p class="value">{formA.pin}</p>
+        <p className="value">{formA.city}</p>
+        <p className="value">{formA.country}</p>
+        <p className="value">{formA.pin}</p>
 
         {educationList.length > 0 && (
           <Fragment>
-            <p class="title m_t">Education</p>
+            <p className="title m_t">Education</p>
 
             {educationList.map((data) => {
               return (

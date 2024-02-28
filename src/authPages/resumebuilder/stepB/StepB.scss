@@ -194,14 +194,13 @@
         justify-content: flex-start;
         align-items: center;
         gap: 8px;
-        margin-top: 15px;
 
         input.normal {
-            width: 16px;
-            height: 16px !important;
-            box-shadow: none;
-            padding: 0p !important;
-            cursor: pointer;
+            width:16px;
+            height:16px !important;
+            box-shadow:none;
+            padding:0px!important;
+            cursor:pointer;
             position: relative;
         }
 
