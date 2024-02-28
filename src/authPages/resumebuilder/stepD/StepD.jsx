@@ -6,8 +6,9 @@ import { IoMdClose } from "react-icons/io";
 
 import { IoMdAdd } from "react-icons/io";
 import { MdOutlineRemove } from "react-icons/md";
+import NextPrevBtns from "../nextPrevBtns/NextPrevBtns";
 
-const StepD = ({selectedSkills, setSelectedSkills}) => {
+const StepD = ({selectedSkills, setSelectedSkills, submitStepD, goPrev}) => {
   const [skill, setSkill] = useState("");
 
 
@@ -40,6 +41,7 @@ const StepD = ({selectedSkills, setSelectedSkills}) => {
   }
 
   return (
+    <Fragment>
     <div className="steper_d">
       <TitleStep title="Skills" text="" />
       <form>
@@ -93,6 +95,14 @@ const StepD = ({selectedSkills, setSelectedSkills}) => {
         })}
       </div>
     </div>
+
+    <NextPrevBtns
+        backDisabled={false}
+        nextDisabled={false}
+        onPrev={goPrev}
+        onNext={submitStepD}
+      />
+    </Fragment>
   );
 };
 export default StepD;

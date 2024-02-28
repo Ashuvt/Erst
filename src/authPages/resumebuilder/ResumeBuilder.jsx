@@ -19,7 +19,6 @@ import axios from "axios";
 import { baseUrl, resumeBuild } from "../../utils/apidata";
 import { redirectContext } from "../../context/RoutingContext";
 
-
 const ResumeBuilder = () => {
   const tabs = [
     {
@@ -131,7 +130,6 @@ const ResumeBuilder = () => {
     }
   };
 
-
   // Form Submit Functions
   const submitStepA = () => {
     const body = {
@@ -143,10 +141,34 @@ const ResumeBuilder = () => {
 
   const submitStepB = () => {
     const body = {
-      step:2,
-      data:[...experiensList],
+      step: 2,
+      data: [...experiensList],
     };
     resumeBuilderApi(body, 3);
+  };
+
+  const submitStepC = () => {
+    const body = {
+      step: 3,
+      data: [...educationList],
+    };
+    resumeBuilderApi(body, 4);
+  };
+
+  const submitStepD = () => {
+    const body = {
+      step: 4,
+      data: [...selectedSkills],
+    };
+    resumeBuilderApi(body, 5);
+  };
+
+  const submitStepE = () => {
+    const body = {
+      step: 5,
+      data: summary,
+    };
+    resumeBuilderApi(body, 6);
   };
 
   const goPrev = () => {
@@ -154,6 +176,10 @@ const ResumeBuilder = () => {
       if (prev === 1) {
         return prev;
       } else {
+        setLoader(true);
+        setTimeout(() => {
+          setLoader(false);
+        }, 2000);
         return prev - 1;
       }
     });
@@ -181,6 +207,7 @@ const ResumeBuilder = () => {
                     formA={formA}
                     setFormA={setFormA}
                     submitStepA={submitStepA}
+                    goPrev={goPrev}
                   />
                 )}
                 {tab === 2 && (
@@ -190,6 +217,7 @@ const ResumeBuilder = () => {
                     experiensList={experiensList}
                     setExperiensList={setExperiensList}
                     submitStepB={submitStepB}
+                    goPrev={goPrev}
                   />
                 )}
                 {tab === 3 && (
@@ -198,17 +226,26 @@ const ResumeBuilder = () => {
                     setFormC={setFormC}
                     educationList={educationList}
                     setEducationList={setEducationList}
+                    submitStepC={submitStepC}
+                    goPrev={goPrev}
                   />
                 )}
                 {tab === 4 && (
                   <StepD
                     selectedSkills={selectedSkills}
                     setSelectedSkills={setSelectedSkills}
+                    submitStepD={submitStepD}
+                    goPrev={goPrev}
                   />
                 )}
 
                 {tab === 5 && (
-                  <StepE summary={summary} setSummary={setSummary} />
+                  <StepE
+                    summary={summary}
+                    setSummary={setSummary}
+                    submitStepE={submitStepE}
+                    goPrev={goPrev}
+                  />
                 )}
 
                 {tab === 6 && (
@@ -221,6 +258,7 @@ const ResumeBuilder = () => {
                     setCertifications={setCertifications}
                     socialLinks={socialLinks}
                     setSocialLinks={setSocialLinks}
+                    goPrev={goPrev}
                   />
                 )}
 

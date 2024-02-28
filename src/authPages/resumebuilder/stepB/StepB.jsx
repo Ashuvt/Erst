@@ -15,6 +15,7 @@ const StepB = ({
   experiensList,
   setExperiensList,
   submitStepB,
+  goPrev
 }) => {
   const today = new Date().toISOString().split("T")[0];
 
@@ -286,6 +287,7 @@ const StepB = ({
       <NextPrevBtns
         backDisabled={false}
         nextDisabled={false}
+        onPrev={goPrev}
         onNext={submitStepB}
       />
     </Fragment>

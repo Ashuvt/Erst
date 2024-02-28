@@ -1,12 +1,14 @@
 import TitleStep from "../titlestep/TitleStep";
 import "./StepC.scss";
 import { MdOutlineDateRange } from "react-icons/md";
-import { IoMdAdd } from "react-icons/io";
 import { Fragment, useState } from "react";
 import EducationCard from "./educationCard/EducationCard";
+import { v4 as uuidv4 } from "uuid";
+import NextPrevBtns from "../nextPrevBtns/NextPrevBtns";
 
+const StepC = ({ formC, setFormC, educationList, setEducationList, submitStepC, goPrev }) => {
+  const [forEdit, setForEdit] = useState(false);
 
-const StepC = ({ formC, setFormC, educationList, setEducationList}) => {
   const [schoolNameError, setSchoolNameError] = useState("");
   const [schoolLocationError, setSchoolLocationError] = useState("");
   const [degreeError, setDegreeError] = useState("");
@@ -57,34 +59,43 @@ const StepC = ({ formC, setFormC, educationList, setEducationList}) => {
     validation(name, value);
   };
 
+  const addEducation = () => {
+    if (
+      formC.schoolName &&
+      formC.schoolLocation &&
+      formC.degree &&
+      formC.fieldOfStudy &&
+      formC.dateFrom
+    ) {
+   
+      if (forEdit) {
+        setEducationList((prev) => {
+          return [...prev.filter((ele) => ele.id !== formC.id), { ...formC }];
+        });
+      } else {
+        setEducationList((prev) => [...prev, { id: uuidv4(), ...formC }]);
+      }
+      setForEdit(false);
+    }
 
-const addEducation = () => {
+    setFormC({
+      schoolName: "",
+      schoolLocation: "",
+      degree: "",
+      fieldOfStudy: "",
+      dateFrom: "",
+      dateTo: "",
+    });
 
-  if (
-    formC.schoolName &&
-    formC.schoolLocation &&
-    formC.degree &&
-    formC.fieldOfStudy &&
-    formC.dateFrom
-  ) {
-    setEducationList((prev) => [...prev, formC]);
-  }
+    window.scrollTo({
+      top: document.body.scrollHeight + 100,
+      behavior: "smooth",
+    });
+  };
 
-  setFormC({
-    schoolName: "",
-    schoolLocation: "",
-    degree: "",
-    fieldOfStudy: "",
-    dateFrom: "",
-    dateTo: "",
-  });
-  
-  window.scrollTo({
-    top:document.body.scrollHeight + 100,
-    behavior: 'smooth',
-  });
-}
-
+  const deleteHandler = (itemId) => {
+    setEducationList((prev) => prev.filter((item) => item.id !== itemId));
+  };
   return (
     <div className="steper_c">
       <TitleStep
@@ -105,7 +116,7 @@ const addEducation = () => {
               onBlur={onBlurHandler}
               autoComplete="off"
             />
-            {schoolNameError  && <p className="error">{schoolNameError}</p>}
+            {schoolNameError && <p className="error">{schoolNameError}</p>}
           </div>
           <div className="resume_field">
             <label>School location</label>
@@ -118,7 +129,9 @@ const addEducation = () => {
               onBlur={onBlurHandler}
               autoComplete="off"
             />
-            {schoolLocationError  && <p className="error">{schoolLocationError}</p>}
+            {schoolLocationError && (
+              <p className="error">{schoolLocationError}</p>
+            )}
           </div>
         </div>
 
@@ -134,7 +147,7 @@ const addEducation = () => {
               onBlur={onBlurHandler}
               autoComplete="off"
             />
-            {degreeError  && <p className="error">{degreeError}</p>}
+            {degreeError && <p className="error">{degreeError}</p>}
           </div>
 
           <div className="resume_field">
@@ -148,7 +161,7 @@ const addEducation = () => {
               onBlur={onBlurHandler}
               autoComplete="off"
             />
-             {fieldError  && <p className="error">{fieldError}</p>}
+            {fieldError && <p className="error">{fieldError}</p>}
           </div>
         </div>
 
@@ -166,7 +179,7 @@ const addEducation = () => {
               />
               <MdOutlineDateRange />
             </div>
-            {fromError  && <p className="error">{fromError}</p>}
+            {fromError && <p className="error">{fromError}</p>}
           </div>
           <div className="resume_field">
             <label>Date to</label>
@@ -194,15 +207,14 @@ const addEducation = () => {
           <label>I am still enrolled</label>
         </div>
         <button
-        type="button"
-        className="primarybtn"
-        style={{ marginLeft: "auto" }}
-        onClick={addEducation}
-      >
-        submit
-      </button>
+          type="button"
+          className="primarybtn"
+          style={{ marginLeft: "auto" }}
+          onClick={addEducation}
+        >
+          submit
+        </button>
       </form>
-
 
       {/* Education List */}
 
@@ -211,14 +223,25 @@ const addEducation = () => {
           <h6 className="title">Review your education</h6>
           {educationList.map((data, i) => {
             return (
-              <Fragment key={i}>
-                <EducationCard data={data} setFormC={setFormC} />
+              <Fragment key={data.id}>
+                <EducationCard
+                  data={data}
+                  setFormC={setFormC}
+                  setForEdit={setForEdit}
+                  onDelete={deleteHandler}
+                />
               </Fragment>
             );
           })}
         </div>
       )}
+      <NextPrevBtns
+        backDisabled={false}
+        nextDisabled={false}
+        onPrev={goPrev}
+        onNext={submitStepC}
 
+      />
     </div>
   );
 };

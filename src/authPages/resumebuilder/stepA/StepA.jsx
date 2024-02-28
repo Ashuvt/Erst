@@ -4,7 +4,7 @@ import "./StepA.scss";
 import { countries } from "../../../utils/countrylist";
 import NextPrevBtns from "../nextPrevBtns/NextPrevBtns";
 
-const StepA = ({ formA, setFormA, submitStepA }) => {
+const StepA = ({ formA, setFormA, submitStepA, goPrev }) => {
   const [fnameError, setFnameError] = useState("");
   const [lnameError, setLnameError] = useState("");
   const [cityError, setCityError] = useState("");
@@ -192,7 +192,7 @@ const StepA = ({ formA, setFormA, submitStepA }) => {
         </div>
       </form>
     </div>
-    <NextPrevBtns backDisabled={true} nextDisabled={false} onNext={submitStepA} />
+    <NextPrevBtns backDisabled={true} nextDisabled={false} onPrev={goPrev} onNext={submitStepA} />
     </Fragment>
   );
 };

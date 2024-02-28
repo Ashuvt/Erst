@@ -25,6 +25,7 @@ const StepF = ({
   setCertifications,
   socialLinks,
   setSocialLinks,
+  goPrev
 }) => {
   const [link, setLink] = useState();
 

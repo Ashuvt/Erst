@@ -1,9 +1,10 @@
-const NextPrevBtns = ({onNext, backDisabled, nextDisabled}) => {
+const NextPrevBtns = ({onNext, onPrev, backDisabled, nextDisabled}) => {
     return(
         <div className="navigate_btns">
         <button
           type="button"
           className="primarybtn"
+          onClick={onPrev}
           disabled={backDisabled}
         >
           Back

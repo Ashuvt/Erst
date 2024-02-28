@@ -2,7 +2,7 @@ import "./EducationCard.scss";
 import { MdEdit } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
 
-const EducationCard = ({ data, setFormC }) => {
+const EducationCard = ({ data, setFormC, setForEdit, onDelete }) => {
 
     const formatDate = (dateString) => {
         const options = { year: 'numeric', month: 'long' };
@@ -16,6 +16,7 @@ const EducationCard = ({ data, setFormC }) => {
           behavior: 'smooth',
         });
         setFormC(data);
+        setForEdit(true);
       }
     
 
@@ -28,10 +29,10 @@ const EducationCard = ({ data, setFormC }) => {
           {data.fieldOfStudy}
         </p>
         <div className="btns">
-          <button type="button" onClick={editHandler}>
+        <button type="button" onClick={editHandler}>
             <MdEdit />
           </button>
-          <button type="button">
+          <button type="button" onClick={() => onDelete(data.id)}>
             <MdDelete />
           </button>
         </div>

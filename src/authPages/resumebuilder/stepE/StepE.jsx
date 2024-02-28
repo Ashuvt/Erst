@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import TitleStep from "../titlestep/TitleStep";
 import "./StepE.scss";
+import NextPrevBtns from "../nextPrevBtns/NextPrevBtns";
 
-const StepE = ({summary, setSummary}) => {
+const StepE = ({summary, setSummary, submitStepE, goPrev}) => {
 
   const [error, setError] = useState("")
 
@@ -25,6 +26,7 @@ const blurHandler = () => {
 
 
   return (
+    <Fragment>
     <div className="steper_e">
      <TitleStep
      title="Summary"
@@ -48,6 +50,13 @@ const blurHandler = () => {
      </form>
      
     </div>
+    <NextPrevBtns
+        backDisabled={false}
+        nextDisabled={false}
+        onPrev={goPrev}
+        onNext={submitStepE}
+      />
+    </Fragment>
   );
 };
 export default StepE;
