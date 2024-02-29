@@ -20,7 +20,7 @@ const [assignmentData, setAssignmentData] = useState([]);
       }else{
         setAssignmentData([]);
       }
-      console.log("Assignment List :::===>", response);
+      // console.log("Assignment List :::===>", response);
     } catch (error) {
       console.log(error);
       setAssignmentData([]);

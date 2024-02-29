@@ -66,10 +66,9 @@ const RoadMap = ({ t, setPopStatus, setViewData }) => {
     try {
       const response = await axios.post(`${baseUrl}/${CourseList}`, { country: domainName() === 'net' ? "Isreal" : "Dubai" });
       
-      console.log("Home:::", response);
+      // console.log("Home:::", response);
 
       if (response?.data?.success) {
-        console.log(response);
         setCourseList(response?.data?.data);
       }
     } catch (error) {

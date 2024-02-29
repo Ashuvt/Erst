@@ -1,9 +1,8 @@
-import { Fragment, useState } from "react";
+import { Fragment, useState, useRef } from "react";
 import { countries } from "../../../utils/countrylist";
 import TitleStep from "../titlestep/TitleStep";
 import "./StepB.scss";
 import { MdOutlineDateRange } from "react-icons/md";
-
 import ExperienceCard from "./experiencecard/ExperienceCard";
 import NextPrevBtns from "../nextPrevBtns/NextPrevBtns";
 
@@ -19,8 +18,9 @@ const StepB = ({
 }) => {
   const today = new Date().toISOString().split("T")[0];
 
-  const [forEdit, setForEdit] = useState(false);
+  const sectionRef = useRef(null);
 
+  const [forEdit, setForEdit] = useState(false);
   const [jobTitleError, setJobTitleError] = useState("");
   const [employerError, setEmployerError] = useState("");
   const [cityError, setCityError] = useState("");
@@ -28,7 +28,7 @@ const StepB = ({
   const [startDateError, setStartDateError] = useState("");
   const [jobDescError, setJobDescError] = useState("");
 
-  const validation = (name, value, submitStepB) => {
+  const validation = (name, value) => {
     if (name === "jobTitle") {
       if (value.trim().length === 0) {
         setJobTitleError("This field is required!");
@@ -77,7 +77,7 @@ const StepB = ({
       setFormB((values) => ({
         ...values,
         isWorking: e.target.checked,
-        endDate: ""
+        endDate: "",
       }));
     } else {
       setFormB((values) => ({ ...values, [name]: value }));
@@ -119,11 +119,6 @@ const StepB = ({
       endDate: "",
       jobDescription: "",
       isWorking: false,
-    });
-
-    window.scrollTo({
-      top: document.body.scrollHeight + 100,
-      behavior: "smooth",
     });
   };
 
@@ -261,7 +256,7 @@ const StepB = ({
               onChange={fieldBHandler}
               style={{ height: "20px" }}
             />
-            <label>I am Currently working here</label>
+            <label>I am currently working here</label>
           </div>
 
           <div className="resume_field">
@@ -316,6 +311,7 @@ const StepB = ({
         onPrev={goPrev}
         onNext={submitStepB}
       />
+      <div ref={sectionRef}></div>
     </Fragment>
   );
 };

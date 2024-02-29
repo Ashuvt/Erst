@@ -175,7 +175,7 @@ const ChapterDetail = () => {
         },
         { headers }
       );
-      console.log("Q response::", response);
+      // console.log("Q response::", response);
       if (response?.data?.success) {
         setResultData(response?.data?.data);
         toastSuccess(response?.data?.data?.message);
@@ -214,7 +214,7 @@ const ChapterDetail = () => {
 
  
   useEffect(() => {
-    console.log("Ans:::", selectedAnswer);
+    // console.log("Ans:::", selectedAnswer);
   }, [selectedAnswer]);
 
   useEffect(() => {

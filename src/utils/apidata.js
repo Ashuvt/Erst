@@ -137,4 +137,4 @@ export const paymentSuccess = "api/paymentsuccesshome";
 
 // Resume Builder API
 export const resumeBuild = "api/createresume";
-export const getResume = "";
+export const getResume = "api/getresume";

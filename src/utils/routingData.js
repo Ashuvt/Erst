@@ -65,9 +65,19 @@ export const RoutoingData = [
     component: <SignIn />,
     path: "/signin",
   },
+  // {
+  //   id: 7,
+  //   component: <ComingSoon />,
+  //   path: "/signin",
+  // },
+  // {
+  //   id: 8,
+  //   component: <GetStarted />,
+  //   path: "/getstarted",
+  // },
   {
     id: 8,
-    component: <GetStarted />,
+    component:<ComingSoon />,
     path: "/getstarted",
   },
   {

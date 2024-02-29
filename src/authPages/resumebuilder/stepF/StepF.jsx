@@ -147,7 +147,7 @@ const StepF = ({
                       value={link}
                       onChange={(e) => setLink(e.target.value)}
                     />
-                    <button type="button" onClick={addLink}>
+                    <button type="button" onClick={addLink} disabled={link?.trim()?.length === 0}>
                       <IoMdAdd />
                     </button>
                   </div>

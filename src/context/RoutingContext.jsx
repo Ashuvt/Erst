@@ -61,7 +61,7 @@ const RoutingContextProvider = ({ children }) => {
 
   // For Login Page
   const signInHandler = () => {
-    navigation("/comingsoon");
+    navigation("/signin");
     // comingsoon
     // signin
   };

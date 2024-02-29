@@ -16,7 +16,7 @@ import ProcessLoader from "./processLoader/ProcessLoader";
 import ResumeViewer from "./resumeViewer/ResumeViewer";
 import ParticlesBg from "../../components/particlesbg/ParticlesBg";
 import axios from "axios";
-import { baseUrl, resumeBuild } from "../../utils/apidata";
+import { baseUrl, getResume, resumeBuild } from "../../utils/apidata";
 import { redirectContext } from "../../context/RoutingContext";
 
 const ResumeBuilder = () => {
@@ -52,7 +52,7 @@ const ResumeBuilder = () => {
   ];
 
   const { toastSuccess, toastError } = useContext(redirectContext);
-  const [tab, setTab] = useState(6);
+  const [tab, setTab] = useState(2);
   const [loader, setLoader] = useState(false);
 
   const [experiensList, setExperiensList] = useState([]);
@@ -176,8 +176,8 @@ const ResumeBuilder = () => {
       step: 6,
       data: {
         activities: activities,
-        activities: awards,
-        websiteLinks: certifications,
+        awards: awards,
+        certifications: certifications,
         websiteLinks: [...socialLinks],
       },
     };
@@ -198,7 +198,22 @@ const ResumeBuilder = () => {
     });
   };
 
-  // Resume Builder API
+  // Get Resume API
+
+  // const getResumeApi = async () => {
+  //   try {
+  //     const res = await axios.get(`${baseUrl}/${getResume}`);
+  //     console.log(res);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   getResumeApi();
+  // }, []);
+
+
 
   return (
     <AuthLayout>
@@ -295,6 +310,7 @@ const ResumeBuilder = () => {
           />
         </div>
       </section>
+    
     </AuthLayout>
   );
 };
