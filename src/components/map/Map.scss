@@ -9,9 +9,13 @@ section.map {
     .content_wrap {
         position: relative;
         overflow: hidden;
-
+        overflow: hidden;
+        .map_wraper{
+            position:relative;
+        }
         img {
-            max-width: 100%;
+            min-height:360px;
+            object-fit: cover;
             -webkit-filter: invert(30%) sepia(96%) saturate(5065%) hue-rotate(188deg) brightness(98%) contrast(101%);
             filter: invert(30%) sepia(96%) saturate(5065%) hue-rotate(188deg) brightness(98%) contrast(101%);
         }

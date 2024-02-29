@@ -32,7 +32,9 @@ const Map = () => {
   return (
     <section className="map wow fadeIn" id="map">
       <div className="content_wrap">
+        <div className="map_wraper">
         <img src={images.mapImage} alt="map" />
+        </div>
 
         {circleData.map((data, i) => {
           return (

@@ -6,7 +6,14 @@ import EducationCard from "./educationCard/EducationCard";
 import { v4 as uuidv4 } from "uuid";
 import NextPrevBtns from "../nextPrevBtns/NextPrevBtns";
 
-const StepC = ({ formC, setFormC, educationList, setEducationList, submitStepC, goPrev }) => {
+const StepC = ({
+  formC,
+  setFormC,
+  educationList,
+  setEducationList,
+  submitStepC,
+  goPrev,
+}) => {
   const [forEdit, setForEdit] = useState(false);
 
   const [schoolNameError, setSchoolNameError] = useState("");
@@ -14,12 +21,6 @@ const StepC = ({ formC, setFormC, educationList, setEducationList, submitStepC, 
   const [degreeError, setDegreeError] = useState("");
   const [fieldError, setFieldError] = useState("");
   const [fromError, setFromError] = useState("");
-
-  const fieldCHandler = (e) => {
-    const { name, value } = e.target;
-    setFormC((values) => ({ ...values, [name]: value }));
-    validation(name, value);
-  };
 
   const validation = (name, value) => {
     if (name === "schoolName") {
@@ -54,6 +55,28 @@ const StepC = ({ formC, setFormC, educationList, setEducationList, submitStepC, 
       }
     }
   };
+
+  const fieldCHandler = (e) => {
+    const { name, value } = e.target;
+
+    if (name === "dateTo") {
+      setFormC((values) => ({
+        ...values,
+        dateTo: value,
+        stillEnrolled: false,
+      }));
+    } else if (name === "stillEnrolled") {
+      setFormC((values) => ({
+        ...values,
+        stillEnrolled: e.target.checked,
+        dateTo: "",
+      }));
+    } else {
+      setFormC((values) => ({ ...values, [name]: value }));
+    }
+    validation(name, value);
+  };
+
   const onBlurHandler = (e) => {
     const { name, value } = e.target;
     validation(name, value);
@@ -67,7 +90,6 @@ const StepC = ({ formC, setFormC, educationList, setEducationList, submitStepC, 
       formC.fieldOfStudy &&
       formC.dateFrom
     ) {
-   
       if (forEdit) {
         setEducationList((prev) => {
           return [...prev.filter((ele) => ele.id !== formC.id), { ...formC }];
@@ -96,6 +118,20 @@ const StepC = ({ formC, setFormC, educationList, setEducationList, submitStepC, 
   const deleteHandler = (itemId) => {
     setEducationList((prev) => prev.filter((item) => item.id !== itemId));
   };
+const submitDisabled = () => {
+  if(
+    formC.schoolName.trim().length === 0 ||
+    formC.schoolLocation.trim().length === 0 ||
+    formC.degree.trim().length === 0 ||
+    formC.fieldOfStudy.trim().length === 0 ||
+    formC.dateFrom.trim().length === 0
+  ){
+    return true;
+  }else{
+    return false;
+  }
+}
+
   return (
     <div className="steper_c">
       <TitleStep
@@ -201,8 +237,9 @@ const StepC = ({ formC, setFormC, educationList, setEducationList, submitStepC, 
             type="checkbox"
             className="normal"
             name="stillEnrolled"
-            value={formC.isEnrolled}
+            checked={formC.stillEnrolled}
             onChange={fieldCHandler}
+            style={{ height: "20px" }}
           />
           <label>I am still enrolled</label>
         </div>
@@ -211,6 +248,7 @@ const StepC = ({ formC, setFormC, educationList, setEducationList, submitStepC, 
           className="primarybtn"
           style={{ marginLeft: "auto" }}
           onClick={addEducation}
+          disabled={submitDisabled()}
         >
           submit
         </button>
@@ -240,7 +278,6 @@ const StepC = ({ formC, setFormC, educationList, setEducationList, submitStepC, 
         nextDisabled={false}
         onPrev={goPrev}
         onNext={submitStepC}
-
       />
     </div>
   );

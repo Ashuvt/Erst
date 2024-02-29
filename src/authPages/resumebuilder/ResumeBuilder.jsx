@@ -52,7 +52,7 @@ const ResumeBuilder = () => {
   ];
 
   const { toastSuccess, toastError } = useContext(redirectContext);
-  const [tab, setTab] = useState(1);
+  const [tab, setTab] = useState(6);
   const [loader, setLoader] = useState(false);
 
   const [experiensList, setExperiensList] = useState([]);
@@ -71,7 +71,7 @@ const ResumeBuilder = () => {
     city: "",
     country: "",
     pin: "",
-    phone: "",
+    pin: "",
     email: "",
   });
 
@@ -171,6 +171,19 @@ const ResumeBuilder = () => {
     resumeBuilderApi(body, 6);
   };
 
+  const submitStepF = () => {
+    const body = {
+      step: 6,
+      data: {
+        activities: activities,
+        activities: awards,
+        websiteLinks: certifications,
+        websiteLinks: [...socialLinks],
+      },
+    };
+    resumeBuilderApi(body, 7);
+  };
+
   const goPrev = () => {
     setTab((prev) => {
       if (prev === 1) {
@@ -258,7 +271,7 @@ const ResumeBuilder = () => {
                     setCertifications={setCertifications}
                     socialLinks={socialLinks}
                     setSocialLinks={setSocialLinks}
-                    goPrev={goPrev}
+                    submitStepF={submitStepF}
                   />
                 )}
 

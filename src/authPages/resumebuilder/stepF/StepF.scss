@@ -147,7 +147,7 @@
                             }
 
                             label {
-                                @include font('Inter-Regular', 14px, 20px, 400, $textSecondary);
+                                @include font('Inter-Regular', 14px, 20px, 400, $white);
                             }
 
                             input {

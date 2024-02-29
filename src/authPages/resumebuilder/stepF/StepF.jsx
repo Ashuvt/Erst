@@ -3,18 +3,16 @@ import TitleStep from "../titlestep/TitleStep";
 import "./StepF.scss";
 import Accordion from "react-bootstrap/Accordion";
 import { ImLink } from "react-icons/im";
-
 import { AiOutlineInteraction } from "react-icons/ai";
 import { FaAward } from "react-icons/fa6";
 import { AiFillSafetyCertificate } from "react-icons/ai";
-import { HiMiniLanguage } from "react-icons/hi2";
 import { IoShareSocial } from "react-icons/io5";
 import { IoMdAdd } from "react-icons/io";
-import { MdModeEdit } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
 
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import NextPrevBtns from "../nextPrevBtns/NextPrevBtns";
 
 const StepF = ({
   activities,
@@ -25,30 +23,25 @@ const StepF = ({
   setCertifications,
   socialLinks,
   setSocialLinks,
-  goPrev
+  goPrev,
+  submitStepF
 }) => {
   const [link, setLink] = useState();
-
   const addLink = () => {
     setLink("");
     setSocialLinks((prev) => [...prev, link]);
   };
-
   const deletLink = (item) => {
     setSocialLinks((prev) => [...prev.filter((ele) => ele !== item)]);
   };
-
   return (
     <div className="steper_f">
       <TitleStep
         title="Add More Details"
         text="This is an opportunity to highlight qualifications that don't fit into standard resume sections."
       />
-
       <div className="additional_acc">
-
         <Accordion>
-
           <Accordion.Item eventKey="0">
             <Accordion.Header>
               <div className="btn_wrap">
@@ -70,7 +63,6 @@ const StepF = ({
               />
             </Accordion.Body>
           </Accordion.Item>
-
           <Accordion.Item eventKey="1">
             <Accordion.Header>
               <div className="btn_wrap">
@@ -89,7 +81,6 @@ const StepF = ({
               <ReactQuill theme="snow" value={awards} onChange={setAwards} />
             </Accordion.Body>
           </Accordion.Item>
-
           <Accordion.Item eventKey="2">
             <Accordion.Header>
               <div className="btn_wrap">
@@ -110,8 +101,7 @@ const StepF = ({
                 onChange={setCertifications}
               />
             </Accordion.Body>
-          </Accordion.Item>
-          
+          </Accordion.Item>          
           <Accordion.Item eventKey="3">
             <Accordion.Header>
               <div className="btn_wrap">
@@ -167,6 +157,12 @@ const StepF = ({
           </Accordion.Item>
         </Accordion>
       </div>
+      <NextPrevBtns
+        backDisabled={false}
+        nextDisabled={false}
+        onPrev={goPrev}
+        onNext={submitStepF}
+      />
     </div>
   );
 };

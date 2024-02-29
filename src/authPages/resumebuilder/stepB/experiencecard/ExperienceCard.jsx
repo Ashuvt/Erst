@@ -42,8 +42,9 @@ const ExperienceCard = ({ data, setFormB, setForEdit, onDelete }) => {
       </div>
       <p className="location_date second_l">
         {data.city}
-        {data.country && `, ${data.country}`} <span></span>{" "}
-        {formatDate(data.startDate)} - {formatDate(data.endDate)}
+        {data.country && `, ${data.country}`} <span></span>
+        
+        {formatDate(data?.startDate)} - {data?.endDate ? formatDate(data?.endDate) : data?.isWorking && "Present"}
       </p>
       <div className="h_line"></div>
       <p>{data.jobDescription}</p>

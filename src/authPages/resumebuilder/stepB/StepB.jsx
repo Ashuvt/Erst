@@ -15,7 +15,7 @@ const StepB = ({
   experiensList,
   setExperiensList,
   submitStepB,
-  goPrev
+  goPrev,
 }) => {
   const today = new Date().toISOString().split("T")[0];
 
@@ -70,7 +70,19 @@ const StepB = ({
 
   const fieldBHandler = (e) => {
     const { name, value } = e.target;
-    setFormB((values) => ({ ...values, [name]: value }));
+
+    if (name === "endDate") {
+      setFormB((values) => ({ ...values, endDate: value, isWorking: false }));
+    } else if (name === "isWorking") {
+      setFormB((values) => ({
+        ...values,
+        isWorking: e.target.checked,
+        endDate: ""
+      }));
+    } else {
+      setFormB((values) => ({ ...values, [name]: value }));
+    }
+
     validation(name, value);
   };
 
@@ -117,6 +129,19 @@ const StepB = ({
 
   const deleteHandler = (itemId) => {
     setExperiensList((prev) => prev.filter((item) => item.id !== itemId));
+  };
+
+  const submitDisabled = () => {
+    if (
+      formB.jobTitle.trim().length === 0 ||
+      formB.employer.trim().length === 0 ||
+      formB.city.trim().length === 0 ||
+      formB.startDate.trim().length === 0
+    ) {
+      return true;
+    } else {
+      return false;
+    }
   };
 
   return (
@@ -177,7 +202,7 @@ const StepB = ({
                 onChange={fieldBHandler}
                 onBlur={onBlurHandler}
               >
-                <option value="" disabled selected>
+                <option value="" defaultValue>
                   -Select-
                 </option>
                 {countries.map((data) => {
@@ -217,7 +242,7 @@ const StepB = ({
                 <input
                   type="date"
                   name="endDate"
-                  value={formB.endDate || ""}
+                  value={formB.endDate}
                   onChange={fieldBHandler}
                   autoComplete="off"
                   min={formB.startDate}
@@ -232,7 +257,7 @@ const StepB = ({
               type="checkbox"
               className="normal"
               name="isWorking"
-              value={formB.isWorking}
+              checked={formB.isWorking}
               onChange={fieldBHandler}
               style={{ height: "20px" }}
             />
@@ -257,6 +282,7 @@ const StepB = ({
             className="primarybtn"
             style={{ marginLeft: "auto", marginTop: "16px" }}
             onClick={addExerience}
+            disabled={submitDisabled()}
           >
             submit
           </button>
