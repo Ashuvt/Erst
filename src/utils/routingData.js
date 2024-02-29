@@ -32,22 +32,22 @@ import ChapterDetail from "../authPages/chapterdetail/ChapterDetail";
 export const RoutoingData = [
   {
     id: 0,
-    component: <Home />,
+    component:<Home />,
     path: "/",
   },
   {
     id: 2,
-    component: <About />,
+    component:<About />,
     path: "/about",
   },
   {
     id: 3,
-    component: <Careers />,
+    component:<Careers />,
     path: "/careers",
   },
   {
     id: 4,
-    component: <Blogs />,
+    component:<Blogs />,
     path: "/blogs",
   },
   {
@@ -63,18 +63,18 @@ export const RoutoingData = [
   {
     id: 7,
     component: <SignIn />,
-    path: "/signin",
+    path: "/commingsoon",
   },
-  // {
-  //   id: 8,
-  //   component: <GetStarted />,
-  //   path: "/getstarted",
-  // },
-  // {
-  //   id: 81,
-  //   component: <ForgotPassword />,
-  //   path: "/forgotpassword",
-  // },
+  {
+    id: 8,
+    component: <GetStarted />,
+    path: "/commingsoon",
+  },
+  {
+    id: 81,
+    component: <ForgotPassword />,
+    path: "/forgotpassword",
+  },
   {
     id: 9,
     component: (
