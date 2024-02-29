@@ -63,12 +63,12 @@ export const RoutoingData = [
   {
     id: 7,
     component: <SignIn />,
-    path: "/commingsoon",
+    path: "/signin",
   },
   {
     id: 8,
     component: <GetStarted />,
-    path: "/commingsoon",
+    path: "/getstarted",
   },
   {
     id: 81,
