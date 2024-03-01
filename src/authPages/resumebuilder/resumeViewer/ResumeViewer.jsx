@@ -83,7 +83,7 @@ const ResumeViewer = ({
         {
           socialLinks.length > 0 && 
           <Fragment>
-          <p className="header">Skills</p>
+          <p className="header">Links</p>
           {socialLinks.map((item, i) => {
               return (
                 <p className="value list" key={i}>{item}</p>
@@ -96,7 +96,7 @@ const ResumeViewer = ({
 
       <div className="right_info">
         <p className="name">
-          <span>{formA.fName}</span> {formA.lName}
+          <span>{formA.firstname}</span> {formA.lastname}
         </p>
 
         {experiensList.length > 0 && (

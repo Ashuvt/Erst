@@ -10,23 +10,168 @@ section.resume {
         align-items: flex-start;
         gap: 8px;
 
+        @media only screen and (max-width:900px) {
+            flex-direction: column-reverse;
+        }
+
+        .loader_wrap {
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+
+            .spinners {
+                height: 40px;
+                width: 40px;
+                border-radius: 50%;
+                border-top: 4px solid $primary;
+                border-bottom: 4px solid $primary;
+                border-left: 4px solid transparent;
+                border-right: 4px solid transparent;
+                animation: spin 1s linear infinite;
+            }
+        }
+
         .resume_paper {
             border-radius: 16px;
             background-color: $white;
             min-height: calc(100vh - 100px);
             width: calc(100% - 208px);
-            display:flex;
+            display: flex;
             justify-content: space-between;
-            align-items: flex-start;
+            overflow: hidden;
+
+            @media only screen and (max-width:900px) {
+                width: 100%;
+            }
+
+            @media only screen and (max-width:$tab){
+              flex-direction: column;
+
+                }
+
             .left_info {
                 width: 300px;
                 background-color: $primary;
-                min-height:100%;
-                padding:24px;
+                min-height: 100%;
+                padding: 24px;
+
+                @media only screen and (max-width:$tab){
+                width:100%;
+                }
+
+                a {
+                    text-decoration: none;
+                }
+
+                h6 {
+                    @include font('SpaceGrotesk-Regular', 20px, 24px, 500, $white);
+                    margin-bottom: 8px;
+
+                    &.m_t {
+                        margin-top: 16px;
+                    }
+
+                    &.p_t {
+                        padding-top: 16px;
+                    }
+
+                    &.b_t {
+                        border-top: 1px dashed $white;
+                    }
+                }
+
+                ul {
+                    list-style-type: disc;
+                    color: $white;
+                    padding-left: 24px;
+                }
+
+                a {
+                    display: flex;
+                    gap: 8px;
+                    align-items: center;
+
+                    p {
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+                }
+
+
+                .info_line {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    gap: 8px;
+
+                    p {
+                        color: $white;
+                    }
+
+                    svg {
+                        color: $white;
+                        font-size: 18px;
+                    }
+                }
+
+                .edu_divider {
+                    width: 100px;
+                    margin: 12px 0;
+                    height: 1px;
+                    border-bottom: 1px solid $lightBorder_1;
+                }
+
             }
 
-            .right {
+            .right_info {
+                padding: 24px;
                 width: calc(100% - 300px);
+                padding-bottom: 100px;
+                @media only screen and (max-width:$tab){
+                width:100%;
+                }
+
+                .experience_wrap {
+                    padding: 8px;
+                    border: 1px solid $primary;
+                    border-radius: 8px;
+                    margin-top: 8px;
+                }
+
+
+                h6 {
+                    @include font('SpaceGrotesk-Regular', 20px, 24px, 500, $primary);
+                    margin-bottom: 8px;
+
+                    &.m_t {
+                        margin-top: 16px;
+                    }
+
+                    &.p_t {
+                        padding-top: 16px;
+                    }
+
+                    &.b_t {
+                        border-top: 1px dashed $primary;
+                    }
+                }
+
+                h4 {
+                    color: $primary;
+                    margin-bottom: 16px;
+                }
+
+                p {
+                    color: $card;
+                    line-height: 20px;
+
+                    &.m_8 {
+                        margin-top: 8px;
+                    }
+                }
             }
         }
 
@@ -40,10 +185,23 @@ section.resume {
             right: 0px;
             padding: 8px;
 
+            @media only screen and (max-width:900px) {
+                width: 100%;
+                position:relative;
+                top:0;
+            }
+
+            .steppers{
+            clear: both;
+            }
+
             .line {
                 height: 1px;
                 border-bottom: 1px dashed $lightBorder_1;
                 margin: 8px 0px;
+                @media only screen and (max-width:900px){
+                    display:none
+                }
             }
 
             button {
@@ -57,6 +215,10 @@ section.resume {
                 @include font('Inter-Regular', 14px, 20px, 400, $white);
                 gap: 8px;
                 transition: all 0.3s ease-in-out;
+
+                @media only screen and (max-width:900px) {
+                    float: left;
+                }
 
                 &.count {
                     .circle {
@@ -106,8 +268,31 @@ section.resume {
 
             p {
                 color: $white;
+                &.small_text{
+                @media only screen and (max-width:900px){
+                display:none;
+                }
+                }
             }
         }
 
+    }
+}
+
+section#printable{
+    // height:0px;
+    // overflow: hidden;
+}
+.hide{
+    display: none;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
     }
 }

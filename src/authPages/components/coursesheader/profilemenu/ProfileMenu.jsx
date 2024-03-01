@@ -34,9 +34,9 @@ const {logOutApi} = useContext(redirectContext);
     {
       id: 22,
       icon: icon.courses,
-      text: "My Resume (1)",
+      text: "My Resume",
       clickHandler:() => {
-        console.log("My Resume Clicked");
+        navigate("/auth/resume")
       },
     },
     {
