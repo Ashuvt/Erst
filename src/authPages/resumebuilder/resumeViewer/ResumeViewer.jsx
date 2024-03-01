@@ -12,6 +12,7 @@ const ResumeViewer = ({
   certifications,
   summary,
   socialLinks,
+  goPrev
 }) => {
   const formatDate = (dateString) => {
     const options = { year: "numeric", month: "long" };

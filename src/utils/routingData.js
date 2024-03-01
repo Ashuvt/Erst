@@ -19,6 +19,7 @@ import Groups from "../authPages/groups/Groups";
 import Profile from "../authPages/profile/Profile";
 import Saved from "../authPages/saved/Saved";
 import ExploreDetail from "../authPages/exploredetail/ExploreDetail";
+import Resume from "../authPages/resume/Resume";
 
 import ProtectedRoute from "../authPages/ProtectedRoute";
 import ForgotPassword from "../authPages/forgotpassword/ForgotPassword";
@@ -147,6 +148,24 @@ export const RoutoingData = [
       </ProtectedRoute>
     ),
     path: "/auth/resumebuilder",
+  },
+  {
+    id: 14411,
+    component: (
+      <ProtectedRoute>
+        <ResumeBuilder />
+      </ProtectedRoute>
+    ),
+    path: "/auth/resumebuilder/:id",
+  },
+  {
+    id: 1445,
+    component: (
+      <ProtectedRoute>
+        <Resume />
+      </ProtectedRoute>
+    ),
+    path: "/auth/resume",
   },
   {
     id: 15,

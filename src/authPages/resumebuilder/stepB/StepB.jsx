@@ -17,7 +17,6 @@ const StepB = ({
   goPrev,
 }) => {
   const today = new Date().toISOString().split("T")[0];
-
   const sectionRef = useRef(null);
 
   const [forEdit, setForEdit] = useState(false);
@@ -102,12 +101,22 @@ const StepB = ({
     ) {
       if (forEdit) {
         setExperiensList((prev) => {
-          return [...prev.filter((ele) => ele.id !== formB.id), { ...formB }];
+          return [...prev.filter((ele) => ele?._id !== formB?._id), { ...formB }];
         });
       } else {
         setExperiensList((prev) => [...prev, { id: uuidv4(), ...formB }]);
       }
       setForEdit(false);
+      setFormB({
+        jobTitle: "",
+        employer: "",
+        city: "",
+        country: "",
+        startDate: "",
+        endDate: "",
+        jobDescription: "",
+        isWorking: false,
+      })
     }
 
     setFormB({
@@ -123,7 +132,7 @@ const StepB = ({
   };
 
   const deleteHandler = (itemId) => {
-    setExperiensList((prev) => prev.filter((item) => item.id !== itemId));
+    setExperiensList((prev) => prev.filter((item) => item?._id !== itemId));
   };
 
   const submitDisabled = () => {
@@ -220,7 +229,7 @@ const StepB = ({
                   <input
                     type="date"
                     name="startDate"
-                    value={formB.startDate || ""}
+                    value={formB?.startDate}
                     onChange={fieldBHandler}
                     onBlur={onBlurHandler}
                     autoComplete="off"
@@ -237,7 +246,7 @@ const StepB = ({
                 <input
                   type="date"
                   name="endDate"
-                  value={formB.endDate}
+                  value={formB?.endDate}
                   onChange={fieldBHandler}
                   autoComplete="off"
                   min={formB.startDate}
@@ -291,7 +300,7 @@ const StepB = ({
 
             {experiensList.map((data, i) => {
               return (
-                <Fragment key={data.id}>
+                <Fragment key={data?._id}>
                   <ExperienceCard
                     data={data}
                     setFormB={setFormB}

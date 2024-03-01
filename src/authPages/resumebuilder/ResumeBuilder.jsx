@@ -11,13 +11,13 @@ import StepC from "./stepC/StepC";
 import StepF from "./stepF/StepF";
 import StepE from "./stepE/StepE";
 import StepD from "./stepD/StepD";
-import StepG from "./stepG/StepG";
 import ProcessLoader from "./processLoader/ProcessLoader";
 import ResumeViewer from "./resumeViewer/ResumeViewer";
 import ParticlesBg from "../../components/particlesbg/ParticlesBg";
 import axios from "axios";
 import { baseUrl, getResume, resumeBuild } from "../../utils/apidata";
 import { redirectContext } from "../../context/RoutingContext";
+import { useNavigate, useParams } from "react-router-dom";
 
 const ResumeBuilder = () => {
   const tabs = [
@@ -47,12 +47,14 @@ const ResumeBuilder = () => {
     },
     {
       id: 7,
-      title: "Finalize",
+      title: "Preview",
     },
   ];
+  const navigate = useNavigate();
+  const {id} = useParams();
 
   const { toastSuccess, toastError } = useContext(redirectContext);
-  const [tab, setTab] = useState(2);
+  const [tab, setTab] = useState(id ? Number(id) : 1);
   const [loader, setLoader] = useState(false);
 
   const [experiensList, setExperiensList] = useState([]);
@@ -66,12 +68,11 @@ const ResumeBuilder = () => {
   const [socialLinks, setSocialLinks] = useState([]);
 
   const [formA, setFormA] = useState({
-    fName: "",
-    lName: "",
+    firstname: "",
+    lastname: "",
     city: "",
     country: "",
-    pin: "",
-    pin: "",
+    pincode: "",
     email: "",
   });
 
@@ -114,11 +115,16 @@ const ResumeBuilder = () => {
         { ...body },
         { headers }
       );
-      console.log(res);
       if (res?.status === 200) {
         toastSuccess(res?.data?.message);
-        setTab(number);
         setLoader(false);
+        if (number === 7 || id) {
+          setTab(1);
+          navigate("/auth/resume");
+        }else{
+          setTab(number);
+        }
+          
       } else {
         toastError("Something went wrong!");
         setLoader(false);
@@ -200,18 +206,34 @@ const ResumeBuilder = () => {
 
   // Get Resume API
 
-  // const getResumeApi = async () => {
-  //   try {
-  //     const res = await axios.get(`${baseUrl}/${getResume}`);
-  //     console.log(res);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
+  const getResumeApi = async () => {
+    const token = localStorage.getItem("token");
+    const headers = {
+      Authorization: `Bearer ${token}`,
+    };
+    try {
+      const res = await axios.get(`${baseUrl}/${getResume}`, { headers });
+      if (res?.data?.success) {
+        console.log("Resume:::", res?.data?.data);
+        setFormA(res?.data?.data?.header);
+        setExperiensList([...res?.data?.data?.experience]);
+        setEducationList([...res?.data?.data?.education]);
+        setSelectedSkills([...res?.data?.data?.skills]);
+        setSummary(res?.data?.data?.summary);
+        setActivities(res?.data?.data?.activities);
+        setAwards(res?.data?.data?.awards);
+        setSocialLinks(res?.data?.data?.websiteLinks);
+        setCertifications(res?.data?.data?.certifications);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-  // useEffect(() => {
-  //   getResumeApi();
-  // }, []);
+  useEffect(() => {    
+    getResumeApi();
+
+  }, []);
 
 
 
@@ -287,12 +309,9 @@ const ResumeBuilder = () => {
                     socialLinks={socialLinks}
                     setSocialLinks={setSocialLinks}
                     submitStepF={submitStepF}
+                    goPrev={goPrev}
                   />
                 )}
-
-                {tab === 7 && <StepG />}
-
-                {/* Mid Bottom Next Prev Btns */}
               </Fragment>
             )}
           </div>
@@ -310,7 +329,6 @@ const ResumeBuilder = () => {
           />
         </div>
       </section>
-    
     </AuthLayout>
   );
 };

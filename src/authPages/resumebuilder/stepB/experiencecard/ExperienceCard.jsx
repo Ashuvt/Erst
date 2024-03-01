@@ -17,7 +17,7 @@ const ExperienceCard = ({ data, setFormB, setForEdit, onDelete }) => {
       top: 0,
       behavior: "smooth",
     });
-    setFormB(data);
+    setFormB({...data});
     setForEdit(true);
   };
 
@@ -35,7 +35,7 @@ const ExperienceCard = ({ data, setFormB, setForEdit, onDelete }) => {
           <button type="button" onClick={editHandler}>
             <MdEdit />
           </button>
-          <button type="button" onClick={() => onDelete(data.id)}>
+          <button type="button" onClick={() => onDelete(data?._id)}>
             <MdDelete />
           </button>
         </div>

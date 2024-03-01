@@ -1,0 +1,113 @@
+@import "../../scss/typography";
+@import "../../scss/variables";
+
+section.resume {
+
+    .content_wrap {
+        padding: 24px 0px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 8px;
+
+        .resume_paper {
+            border-radius: 16px;
+            background-color: $white;
+            min-height: calc(100vh - 100px);
+            width: calc(100% - 208px);
+            display:flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            .left_info {
+                width: 300px;
+                background-color: $primary;
+                min-height:100%;
+                padding:24px;
+            }
+
+            .right {
+                width: calc(100% - 300px);
+            }
+        }
+
+        .settings {
+            width: 200px;
+            border-radius: 16px;
+            background-color: $card;
+            align-self: flex-start;
+            position: sticky;
+            top: 104px;
+            right: 0px;
+            padding: 8px;
+
+            .line {
+                height: 1px;
+                border-bottom: 1px dashed $lightBorder_1;
+                margin: 8px 0px;
+            }
+
+            button {
+                width: 150px;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                padding: 8px;
+                border-style: none;
+                background-color: transparent;
+                @include font('Inter-Regular', 14px, 20px, 400, $white);
+                gap: 8px;
+                transition: all 0.3s ease-in-out;
+
+                &.count {
+                    .circle {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: 14px;
+                        width: 14px;
+                        background-color: $white;
+                        border-radius: 50%;
+                        padding: 0px;
+                        transition: all 0.3s ease-in-out;
+
+                        p {
+                            color: $card;
+                            font-size: 10px;
+                            transition: all 0.3s ease-in-out;
+                        }
+                    }
+                }
+
+                svg {
+                    font-size: 18px;
+                    color: $white;
+                    transition: all 0.3s ease-in-out;
+                }
+
+                &:hover {
+                    color: $primary;
+
+                    svg {
+                        color: $primary;
+                    }
+
+                    &.count {
+                        .circle {
+                            background-color: $primary;
+
+                            p {
+                                color: $white;
+                            }
+                        }
+
+                    }
+                }
+            }
+
+            p {
+                color: $white;
+            }
+        }
+
+    }
+}

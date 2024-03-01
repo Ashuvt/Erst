@@ -14,13 +14,13 @@ const StepA = ({ formA, setFormA, submitStepA, goPrev }) => {
   const [emailError, setEmailError] = useState("");
 
   const validation = (name, value) => {
-    if (name === "fName") {
+    if (name === "firstname") {
       if (value.trim().length === 0) {
         setFnameError("This field is required!");
       } else {
         setFnameError("");
       }
-    } else if (name === "lName") {
+    } else if (name === "lastname") {
       if (value.trim().length === 0) {
         setLnameError("This field is required!");
       } else {
@@ -38,7 +38,7 @@ const StepA = ({ formA, setFormA, submitStepA, goPrev }) => {
       } else {
         setCountryError("");
       }
-    } else if (name === "pin") {
+    } else if (name === "pincode") {
       if (value.trim().length === 0) {
         setPinError("This field is required!");
       } else {
@@ -76,13 +76,12 @@ const StepA = ({ formA, setFormA, submitStepA, goPrev }) => {
   const isNextDisabled = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (
-      formA?.fName.trim().length === 0 ||
-      formA?.fName.trim().lName === 0 ||
-      formA?.fName.trim().city === 0 ||
-      formA?.fName.trim().country === 0 ||
-      formA?.fName.trim().pin === 0 ||
-      formA?.fName.trim().phone === 0 ||
-      formA?.fName.trim().email === 0 || 
+      formA?.firstname?.trim().length === 0 ||
+      formA?.lastname?.trim().length === 0 ||
+      formA?.city?.trim().length === 0 ||
+      formA?.country?.trim().length === 0 ||
+      formA?.pincode?.trim().length === 0 ||
+      formA?.email?.trim().length === 0 ||
       !emailRegex.test(formA?.email?.trim())
     ) {
       return true;
@@ -105,8 +104,8 @@ const StepA = ({ formA, setFormA, submitStepA, goPrev }) => {
               <input
                 type="text"
                 placeholder="First Name"
-                name="fName"
-                value={formA.fName || ""}
+                name="firstname"
+                value={formA.firstname || ""}
                 onChange={fieldAHandler}
                 onBlur={onBlurHandler}
                 autoComplete="off"
@@ -118,8 +117,8 @@ const StepA = ({ formA, setFormA, submitStepA, goPrev }) => {
               <input
                 type="text"
                 placeholder="Last Name"
-                name="lName"
-                value={formA.lName || ""}
+                name="lastname"
+                value={formA.lastname || ""}
                 onChange={fieldAHandler}
                 onBlur={onBlurHandler}
                 autoComplete="off"
@@ -151,7 +150,7 @@ const StepA = ({ formA, setFormA, submitStepA, goPrev }) => {
                   onChange={fieldAHandler}
                   onBlur={onBlurHandler}
                 >
-                  <option value="" disabled selected>
+                  <option value="" disabled>
                     -Select-
                   </option>
                   {countries.map((data) => {
@@ -169,8 +168,8 @@ const StepA = ({ formA, setFormA, submitStepA, goPrev }) => {
                 <input
                   type="text"
                   placeholder="Pin Code"
-                  name="pin"
-                  value={formA.pin || ""}
+                  name="pincode"
+                  value={formA.pincode || ""}
                   onChange={fieldAHandler}
                   onBlur={onBlurHandler}
                   autoComplete="off"
