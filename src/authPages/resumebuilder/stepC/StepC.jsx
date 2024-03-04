@@ -208,7 +208,7 @@ const submitDisabled = () => {
               <input
                 type="date"
                 name="dateFrom"
-                value={formC.dateFrom || ""}
+                value={formC.dateFrom ? formC.dateFrom : ""}
                 onChange={fieldCHandler}
                 onBlur={onBlurHandler}
                 autoComplete="off"
@@ -223,7 +223,7 @@ const submitDisabled = () => {
               <input
                 type="date"
                 name="dateTo"
-                value={formC.dateTo || ""}
+                value={formC.dateTo ? formC.dateTo : ""}
                 onChange={fieldCHandler}
                 autoComplete="off"
               />

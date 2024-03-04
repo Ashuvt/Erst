@@ -84,7 +84,7 @@ const Home1 = () => {
         headers,
       });
       if (response.data.success) {
-        console.log("Home:::", response);
+        // console.log("Home:::", response);
         setCta(response?.data?.data?.cta);
         setRecommaned(response?.data?.data?.recommaned_bundles);
         setCouponOffer(response?.data?.data?.coupon);

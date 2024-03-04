@@ -71,11 +71,11 @@ const StepB = ({
     const { name, value } = e.target;
 
     if (name === "endDate") {
-      setFormB((values) => ({ ...values, endDate: value, isWorking: false }));
-    } else if (name === "isWorking") {
+      setFormB((values) => ({ ...values, endDate: value, currentlyWorking: false }));
+    } else if (name === "currentlyWorking") {
       setFormB((values) => ({
         ...values,
-        isWorking: e.target.checked,
+        currentlyWorking: e.target.checked,
         endDate: "",
       }));
     } else {
@@ -101,7 +101,10 @@ const StepB = ({
     ) {
       if (forEdit) {
         setExperiensList((prev) => {
-          return [...prev.filter((ele) => ele?._id !== formB?._id), { ...formB }];
+          return [
+            ...prev.filter((ele) => ele?._id !== formB?._id),
+            { ...formB },
+          ];
         });
       } else {
         setExperiensList((prev) => [...prev, { id: uuidv4(), ...formB }]);
@@ -115,8 +118,8 @@ const StepB = ({
         startDate: "",
         endDate: "",
         jobDescription: "",
-        isWorking: false,
-      })
+        currentlyWorking: false,
+      });
     }
 
     setFormB({
@@ -127,7 +130,7 @@ const StepB = ({
       startDate: "",
       endDate: "",
       jobDescription: "",
-      isWorking: false,
+      currentlyWorking: false,
     });
   };
 
@@ -229,7 +232,7 @@ const StepB = ({
                   <input
                     type="date"
                     name="startDate"
-                    value={formB?.startDate}
+                    value={formB?.startDate ? formB?.startDate.substr(0, 10) : ""}
                     onChange={fieldBHandler}
                     onBlur={onBlurHandler}
                     autoComplete="off"
@@ -246,7 +249,7 @@ const StepB = ({
                 <input
                   type="date"
                   name="endDate"
-                  value={formB?.endDate}
+                  value={formB?.endDate ? formB.endDate.substr(0, 10) : ""}
                   onChange={fieldBHandler}
                   autoComplete="off"
                   min={formB.startDate}
@@ -260,8 +263,8 @@ const StepB = ({
             <input
               type="checkbox"
               className="normal"
-              name="isWorking"
-              checked={formB.isWorking}
+              name="currentlyWorking"
+              checked={formB.currentlyWorking}
               onChange={fieldBHandler}
               style={{ height: "20px" }}
             />

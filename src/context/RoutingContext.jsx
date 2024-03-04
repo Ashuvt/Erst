@@ -68,7 +68,7 @@ const RoutingContextProvider = ({ children }) => {
 
   // For Getstarted Page (Sign Up)
   const signUpHandler = () => {
-    navigation("/comingsoon");
+    navigation("/getstarted");
     // comingsoon
     // getstarted
   };
@@ -170,8 +170,8 @@ const RoutingContextProvider = ({ children }) => {
     try {
       const response = await axios.get(`${baseUrl}/${getProfile}`, { headers });
       if (response?.data.success) {
-        dispatch({ type: getProfileData(), payload: response?.data?.data });
-        // console.log("Profile::", response?.data.data);
+        dispatch({ type: getProfileData(), payload: {...response?.data?.data?.user,isresume:response?.data?.data?.isresume}});
+        console.log("Profile::", response?.data?.data);
       }
     } catch (error) {
       console.log("Error:", error);

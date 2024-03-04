@@ -18,6 +18,7 @@ const ExperienceCard = ({ data, setFormB, setForEdit, onDelete }) => {
       behavior: "smooth",
     });
     setFormB({...data});
+    // console.log("Patching Data:::",data)
     setForEdit(true);
   };
 
@@ -44,7 +45,7 @@ const ExperienceCard = ({ data, setFormB, setForEdit, onDelete }) => {
         {data.city}
         {data.country && `, ${data.country}`} <span></span>
         
-        {formatDate(data?.startDate)} - {data?.endDate ? formatDate(data?.endDate) : data?.isWorking && "Present"}
+        {formatDate(data?.startDate)} - {data?.endDate && formatDate(data?.endDate)}{data?.currentlyWorking && "Present"}
       </p>
       <div className="h_line"></div>
       <p>{data.jobDescription}</p>

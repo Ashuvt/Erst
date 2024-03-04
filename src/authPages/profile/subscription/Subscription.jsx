@@ -24,11 +24,11 @@ const Subscription = () => {
   return (
     <div className="profile_subscription">
       <div className="title">
-        <h5 className="small_title wow fadeInUp">Subscription </h5>
-        <p className="wow fadeInUp">Order History</p>
+        <h5 className="small_title wow fadeInUp">Order History</h5>
+        
       </div>
 
-      <div className="offer_card wow fadeInUp">
+      {/* <div className="offer_card wow fadeInUp">
         <div className="text">
           <p className="t-g-16">Get 25% off on RedTeam</p>
           <p>
@@ -37,7 +37,7 @@ const Subscription = () => {
           <button type="button">Subscribe</button>
         </div>
         <img src={images.offerBell} alt="offer" />
-      </div>
+      </div> */}
 
       {subscribedData &&
         subscribedData.map((data) => {

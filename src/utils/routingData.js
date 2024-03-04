@@ -29,26 +29,25 @@ import ViewCart from "../authPages/viewcart/ViewCart";
 import ResumeBuilder from "../authPages/resumebuilder/ResumeBuilder";
 import ChapterDetail from "../authPages/chapterdetail/ChapterDetail";
 
-
 export const RoutoingData = [
   {
     id: 0,
-    component:<Home />,
+    component: <Home />,
     path: "/",
   },
   {
     id: 2,
-    component:<About />,
+    component: <About />,
     path: "/about",
   },
   {
     id: 3,
-    component:<Careers />,
+    component: <Careers />,
     path: "/careers",
   },
   {
     id: 4,
-    component:<Blogs />,
+    component: <Blogs />,
     path: "/blogs",
   },
   {
@@ -71,14 +70,14 @@ export const RoutoingData = [
   //   component: <ComingSoon />,
   //   path: "/signin",
   // },
-  // {
-  //   id: 8,
-  //   component: <GetStarted />,
-  //   path: "/getstarted",
-  // },
   {
     id: 8,
-    component:<ComingSoon />,
+    component: <GetStarted />,
+    path: "/getstarted",
+  },
+  {
+    id: 8,
+    component: <ComingSoon />,
     path: "/getstarted",
   },
   {

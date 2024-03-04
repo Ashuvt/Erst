@@ -84,7 +84,7 @@ const ResumeBuilder = () => {
     startDate: "",
     endDate: "",
     jobDescription: "",
-    isWorking: false,
+    currentlyWorking: false,
   });
 
   const [formC, setFormC] = useState({
@@ -213,8 +213,7 @@ const ResumeBuilder = () => {
     };
     try {
       const res = await axios.get(`${baseUrl}/${getResume}`, { headers });
-      if (res?.data?.success) {
-        console.log("Resume:::", res?.data?.data);
+      if (res?.data?.success && res?.data?.data) {
         setFormA(res?.data?.data?.header);
         setExperiensList([...res?.data?.data?.experience]);
         setEducationList([...res?.data?.data?.education]);

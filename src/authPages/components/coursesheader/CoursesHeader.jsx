@@ -23,6 +23,7 @@ import axios from "axios";
 
 const CoursesHeader = () => {
   const [notification, setNotification] = useState([]);
+  const { profile, name, isresume } = useSelector((data) => data.getProfileDataReducer);
 
   const menuData = [
     {
@@ -65,7 +66,7 @@ const CoursesHeader = () => {
       id: 6,
       img: icon.courses,
       text: "Resume Builder",
-      path: "/auth/resumebuilder",
+      path: isresume ? "/auth/resume" : "/auth/resumebuilder",
     },
   ];
 
@@ -75,7 +76,7 @@ const CoursesHeader = () => {
     (data) => data.toggleReducer.notificationStatus
   );
 
-  const { profile, name } = useSelector((data) => data.getProfileDataReducer);
+ 
 
   const profileStatus = useSelector((data) => data.toggleReducer.profileStatus);
   const courseSidebarStatus = useSelector(
@@ -202,7 +203,7 @@ const CoursesHeader = () => {
           status={notificationStatus}
           notification={notification}
         />
-        <ProfileMenu menuStatus={profileStatus} name={name} />
+        <ProfileMenu menuStatus={profileStatus} name={name} isresume={isresume} />
       </div>
     </section>
   );

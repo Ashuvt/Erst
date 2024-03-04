@@ -190,11 +190,9 @@ export const Resume = () => {
                             {data?.jobTitle} | {data?.employer}
                           </p>
                           <p>
-                            {data?.city}, {data?.country} |{" "}
-                            {formatDate(data?.startDate)} -{" "}
-                            {data?.currentlyWorking
-                              ? "Present"
-                              : formatDate(data?.endDate)}
+                            {data?.city}, {data?.country} |
+                            {data?.startDate && formatDate(data?.startDate)} - {data?.endDate && formatDate(data?.endDate)} 
+                            {data?.currentlyWorking && "Present"}
                           </p>
                           <p className="m_8">{data?.jobDescription}</p>
                         </div>
