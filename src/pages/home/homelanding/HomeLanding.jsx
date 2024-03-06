@@ -24,14 +24,14 @@ const HomeLanding = ({ t }) => {
         </p>
         <br />
 
-        <button
+        {/* <button
           type="button"
           className="primarybtn wow fadeInUp"
           data-wow-delay="0.4s"
           onClick={signUpHandler}
         >
           {t("homeLandingBtn")}
-        </button>
+        </button> */}
       </div>
     </section>
   );

@@ -143,13 +143,13 @@ const Footer = ({ t }) => {
                 <p>{t("text3")}</p>
 
                 <div className="app_wrap">
-                  <button type="button" onClick={signUpHandler}>
+                  {/* <button type="button" onClick={signUpHandler}>
                     {t("signUp")}
                   </button>
 
                   <button type="button" onClick={signInHandler}>
                     {t("signIn")}
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </div>
