@@ -139,8 +139,8 @@ const Footer = ({ t }) => {
               </div>
 
               <div className="grid_box footer_download wow fadeInUp">
-                <h5>{t("title3")}</h5>
-                <p>{t("text3")}</p>
+                {/* <h5>{t("title3")}</h5>
+                <p>{t("text3")}</p> */}
 
                 <div className="app_wrap">
                   {/* <button type="button" onClick={signUpHandler}>

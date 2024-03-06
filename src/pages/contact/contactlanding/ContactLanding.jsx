@@ -16,12 +16,12 @@ const {signUpHandler} = useContext(redirectContext);
         <h1 className="wow fadeInLeft">{t('constactLandingTitle')}</h1>
 
         <div className="trial_wrap">
-          <p className="wow fadeInRight">
+          {/* <p className="wow fadeInRight">
           {t('constactLandingPara')}
-          </p>
+          </p> */}
           <div className="btn_line wow fadeInRight">
-           <CircleArrowBtn />
-           <TextArrowBtn text={t('constactLandingBtn')} clickHandler={signUpHandler} />
+           {/* <CircleArrowBtn />
+           <TextArrowBtn text={t('constactLandingBtn')} clickHandler={signUpHandler} /> */}
           </div>
         </div>
       </div>

@@ -64,10 +64,10 @@ const navigate = useNavigate();
             {t('aboutLandingOfferText1')} <br />  {t('aboutLandingOfferText2')}
             </h6>
           </div>
-          <button
+          {/* <button
            className="primarybtn"
            onClick={() => navigate("/commingsoon")}
-           >{t('aboutLandingBtn')}</button>
+           >{t('aboutLandingBtn')}</button> */}
         </div>
       </div>
       <div className="secondary_glass second"></div>
