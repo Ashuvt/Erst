@@ -142,6 +142,8 @@ const Footer = ({ t }) => {
                 {/* <h5>{t("title3")}</h5>
                 <p>{t("text3")}</p> */}
 
+                <p>React out to us at <a href="mailto:info@cybergain.co.il">info@cybergain.co.il</a> for more information.</p>
+
                 <div className="app_wrap">
                   {/* <button type="button" onClick={signUpHandler}>
                     {t("signUp")}
