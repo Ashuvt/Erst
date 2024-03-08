@@ -1,4 +1,5 @@
-export const baseUrl = "https://cybergainbackend.supagrow.in";
+// export const baseUrl = "https://cybergainbackend.supagrow.in";
+export const baseUrl = "https://3ignimjhsxfwkvw4wacwl3r5ze0wahvo.lambda-url.eu-west-1.on.aws/dev";
 
 //*************** Home Page ******************************
 
