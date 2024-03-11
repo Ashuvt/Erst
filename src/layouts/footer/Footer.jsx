@@ -1,5 +1,5 @@
 import "./Footer.scss";
-import { useContext, useState } from "react";
+import { Fragment, useContext, useState } from "react";
 import { icons, images } from "../../utils/images/images";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -9,7 +9,8 @@ const Footer = ({ t }) => {
   const { emailSubscribeApi } = useContext(redirectContext);
 
   const l = useSelector((state) => state.langReducer.lang);
-  const { signInHandler, signUpHandler } = useContext(redirectContext);
+  const { signInHandler, signUpHandler, domainName } =
+    useContext(redirectContext);
 
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
@@ -139,20 +140,32 @@ const Footer = ({ t }) => {
               </div>
 
               <div className="grid_box footer_download wow fadeInUp">
-                {/* <h5>{t("title3")}</h5>
-                <p>{t("text3")}</p> */}
+                {domainName() === "ae" ? (
+                  <Fragment>
+                    <h5>{t("title3")}</h5>
+                    <p>{t("text3")}</p>
+                  </Fragment>
+                ) : (
+                  <p>
+                    React out to us at{" "}
+                    <a href="mailto:info@cybergain.co.il">
+                      info@cybergain.co.il
+                    </a>{" "}
+                    for more information.
+                  </p>
+                )}
 
-                <p>React out to us at <a href="mailto:info@cybergain.co.il">info@cybergain.co.il</a> for more information.</p>
+                {domainName() === "ae" && (
+                  <div className="app_wrap">
+                    <button type="button" onClick={signUpHandler}>
+                      {t("signUp")}
+                    </button>
 
-                <div className="app_wrap">
-                  {/* <button type="button" onClick={signUpHandler}>
-                    {t("signUp")}
-                  </button>
-
-                  <button type="button" onClick={signInHandler}>
-                    {t("signIn")}
-                  </button> */}
-                </div>
+                    <button type="button" onClick={signInHandler}>
+                      {t("signIn")}
+                    </button>
+                  </div>
+                )}
               </div>
             </div>
           </div>

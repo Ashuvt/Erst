@@ -1,6 +1,5 @@
 import "./SideBar.scss";
 import { Fragment, useEffect, useState, useContext } from "react";
-import { menuList } from "../../utils/data/data";
 import { icons, logoImage } from "../../utils/images/images";
 import { useDispatch, useSelector } from "react-redux";
 import { resetAllToggler, sidebarToggler } from "../../store/actions";
@@ -10,7 +9,7 @@ import { redirectContext } from "../../context/RoutingContext";
 import { useTranslation } from 'react-i18next';
 const SideBar = () => {
 
-  const {signUpHandler, signInHandler} = useContext(redirectContext);
+  const {signUpHandler, signInHandler, domainName} = useContext(redirectContext);
 
   const { t } = useTranslation();
 
@@ -54,7 +53,7 @@ const SideBar = () => {
           </nav>
         </div>
 
-        <div className="btn_line">
+        {domainName() === "ae" && <div className="btn_line">
           <button
             type="button"
             className="primarybtn"
@@ -69,7 +68,9 @@ const SideBar = () => {
             >
             sign up
           </button>
-        </div>
+        </div> }
+
+
       </div>
       <div
         className={`blur_overlay ${sidebarStatus ? "open" : "close"}`}

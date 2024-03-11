@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { redirectContext } from "../../../context/RoutingContext";
 
 const HomeLanding = ({ t }) => {
-  const { signUpHandler } = useContext(redirectContext);
+  const { signUpHandler, domainName } = useContext(redirectContext);
 
   return (
     <section className="home1landing p_bottom">
@@ -24,14 +24,14 @@ const HomeLanding = ({ t }) => {
         </p>
         <br />
 
-        {/* <button
+        {domainName() === "ae" && <button
           type="button"
           className="primarybtn wow fadeInUp"
           data-wow-delay="0.4s"
           onClick={signUpHandler}
         >
           {t("homeLandingBtn")}
-        </button> */}
+        </button> }
       </div>
     </section>
   );

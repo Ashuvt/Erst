@@ -47,12 +47,25 @@ const Header = ({ t }) => {
             <NavLink to="/contact">{t("Contact")}</NavLink>
           </nav>
           <div className="btns">
-            {/* <button type="button" className="signup" onClick={signInHandler}>
-              {t("signIn")}
-            </button> 
-            <button type="button" className="signin" onClick={signUpHandler}>
-              {t("signUp")}
-            </button>*/}
+            {domainName() === "ae" && (
+              <Fragment>
+                <button
+                  type="button"
+                  className="signup"
+                  onClick={signInHandler}
+                >
+                  {t("signIn")}
+                </button>
+                <button
+                  type="button"
+                  className="signin"
+                  onClick={signUpHandler}
+                >
+                  {t("signUp")}
+                </button>
+              </Fragment>
+            )}
+
             <HembergerMenu clickHandler={menuToggler} status={sidebarStatus} />
 
             {/* <LanguageDd /> */}
