@@ -5,7 +5,6 @@ import "./CourseViewPopup.scss";
 import { IoMdClose } from "react-icons/io";
 
 const CourseViewPopup = ({ viewData, setPopStatus }) => {
-  console.log("From Popuo::", viewData);
   const navigate = useNavigate();
 
   const propogationHandler = (event) => {

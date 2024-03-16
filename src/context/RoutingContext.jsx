@@ -140,8 +140,7 @@ const RoutingContextProvider = ({ children }) => {
         toastWarning("This Course is already added!");
       }
     } catch (error) {
-      console.log(error);
-      toastError("Something went wrong");
+      sessionManager(error);
     }
   };
 
@@ -156,8 +155,7 @@ const RoutingContextProvider = ({ children }) => {
         toastSuccess("Submit SuccessFully!");
       }
     } catch (error) {
-      console.log("ERROR::", error);
-      toastError("something went wrong!");
+      sessionManager(error);
     }
   };
 
@@ -170,11 +168,16 @@ const RoutingContextProvider = ({ children }) => {
     try {
       const response = await axios.get(`${baseUrl}/${getProfile}`, { headers });
       if (response?.data.success) {
-        dispatch({ type: getProfileData(), payload: {...response?.data?.data?.user,isresume:response?.data?.data?.isresume}});
-        console.log("Profile::", response?.data?.data);
+        dispatch({
+          type: getProfileData(),
+          payload: {
+            ...response?.data?.data?.user,
+            isresume: response?.data?.data?.isresume,
+          },
+        }); 
       }
     } catch (error) {
-      console.log("Error:", error);
+      sessionManager(error);
     }
   };
 
@@ -206,6 +209,7 @@ const RoutingContextProvider = ({ children }) => {
         type: GET_CART_FAIL,
         payload: "Something went wrong!",
       });
+      sessionManager(error);
     }
   };
 
@@ -241,7 +245,7 @@ const RoutingContextProvider = ({ children }) => {
         });
       }
     } catch (error) {
-      toastError(error?.message || "Something went wrong!");
+      sessionManager(error);
     }
   };
 
@@ -254,15 +258,17 @@ const RoutingContextProvider = ({ children }) => {
 
     try {
       const response = await axios.post(
-        `${baseUrl}/${checkout}`,{}, { headers });
+        `${baseUrl}/${checkout}`,
+        {},
+        { headers }
+      );
       if (response.data?.success) {
         window.open(response?.data?.data?.url, "_blank", "noreferrer");
-      }else{
+      } else {
         toastError("Something went wrong!");
       }
     } catch (error) {
-      toastError(error?.message || "Something went wrong!");
-      
+      sessionManager(error);
     }
   };
 
@@ -296,12 +302,12 @@ const RoutingContextProvider = ({ children }) => {
           payload: "Something went wrong!",
         });
       }
-    } catch (error) {
-      toastError(error?.message || "Something Went Wrong!");
+    } catch (error) {     
       dispatch({
         type: EXPLORE_DETAIL_FAIL,
         payload: error?.message || "Something Went Wrong!",
       });
+      sessionManager(error);
     }
   };
 
@@ -329,12 +335,12 @@ const RoutingContextProvider = ({ children }) => {
           payload: [],
         });
       }
-    } catch (error) {
-      console.log("Coupon:Error:::", error);
+    } catch (error) {      
       dispatch({
         type: GET_COUPONS_FAIL,
         payload: error?.message || "Something Went Wrong!",
       });
+      sessionManager(error);
     }
   };
 
@@ -368,14 +374,14 @@ const RoutingContextProvider = ({ children }) => {
         toastWarning("Course Already added on cart");
       }
     } catch (error) {
-      toastError("something went wrong!");
       dispatch({
         type: ADD_TO_CART_FAIL,
       });
+      sessionManager(error);
     }
   };
 
-  const logOutApi = async () => {
+  const logOutApi = async (warningStatus) => {
     const token = localStorage.getItem("token");
     const headers = {
       Authorization: `Bearer ${token}`,
@@ -383,33 +389,37 @@ const RoutingContextProvider = ({ children }) => {
 
     try {
       const response = await axios.get(`${baseUrl}/${userLogOut}`, { headers });
-      console.log("LogOut::", response);
-
-      if (response?.data?.success) {
-        localStorage.clear();
+      if (response?.data?.success) {       
+        localStorage.clear();        
         navigation("/signin");
-        toastSuccess(response?.data?.message || "LogOut Success!");
+        toastSuccess(response?.data?.message || "LogOut Success!");        
       }
     } catch (error) {
-      console.log(error);
-    }
-    localStorage.clear();
+      // if(token && warningStatus){
+      //   toastWarning("Session expired. Please log in again!");
+      // }
+      localStorage.clear();
+    }   
     navigation("/signin");
   };
 
   // Apply Coupon API
-const applyCouponApi = async(code) => {
-  dispatch({
-    type: APPLY_COUPONS_REQUEST,
-  });
-  const token = localStorage.getItem("token");
-  const headers = {
-    Authorization: `Bearer ${token}`,
-  };
-  try {
-      const response = await axios.post(`${baseUrl}/${applyCoupon}`, {coupon:`${code}`}, {headers});
+  const applyCouponApi = async (code) => {
+    dispatch({
+      type: APPLY_COUPONS_REQUEST,
+    });
+    const token = localStorage.getItem("token");
+    const headers = {
+      Authorization: `Bearer ${token}`,
+    };
+    try {
+      const response = await axios.post(
+        `${baseUrl}/${applyCoupon}`,
+        { coupon: `${code}` },
+        { headers }
+      );
       console.log("Apply:::", response);
-      if(response?.data?.success){
+      if (response?.data?.success) {
         toastSuccess(response?.data?.message);
         dispatch({
           type: APPLY_COUPONS_SUCCESS,
@@ -417,16 +427,23 @@ const applyCouponApi = async(code) => {
         getCartApi();
         getCouponApi();
       }
+    } catch (error) {
+      toastError(error?.message || "Something Went Wrog!");
+      dispatch({
+        type: APPLY_COUPONS_FAIL,
+      });
+      sessionManager(error);
+    }
+  };
 
-  } catch (error) {
-    console.log(error);
-    toastError(error?.message || "Something Went Wrog!");
-    dispatch({
-      type: APPLY_COUPONS_FAIL,
-    });
-  }
+
+const sessionManager = (error) => {
+    if(error.response?.status == 401){
+      logOutApi(true);
+    }else{
+      toastError('An error occurred. Please try again later.');
+    }
 }
-  
 
   const allRedirectFunctions = {
     resetAllToggles,
@@ -457,6 +474,7 @@ const applyCouponApi = async(code) => {
     logOutApi,
     applyCouponApi,
     getCouponApi,
+    sessionManager,
   };
 
   return (

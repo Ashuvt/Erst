@@ -43,7 +43,6 @@ const Events = ({ t }) => {
     try {
       setLoader(true);
       const response = await axios.get(`${baseUrl}/${getEvents}`);
-      console.log("Events:::", response);
       if (response?.data?.success) {
         setEvents(response?.data?.data);
         setLoader(false);

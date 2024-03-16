@@ -58,7 +58,7 @@ const Explore = () => {
           tag: selectedTag,
         }
       );
-      // console.log("Explore Page:::", response);
+      console.log("Explore Page:::", response);
       // console.log("Courses:::", response?.data?.data?.course);
       if (response?.data?.success) {
         setLoader(false);
@@ -71,7 +71,7 @@ const Explore = () => {
         setBundleList([]);
       }
     } catch (error) {
-      console.log(error);
+      console.log("Explore Error:::", error);
       setCourseList([]);
       setBundleList([]);
       setLoader(false);
@@ -82,6 +82,7 @@ const Explore = () => {
   const getFilterOptionsApi = async () => {
     try {
       const response = await axios.get(`${baseUrl}/${exploreFilterOptions}`);
+      console.log("Explore:::", response);
       if (response?.data?.success) {
         setProfession(response?.data?.data?.Proffession);
         setInterest(response?.data?.data?.Intrest);
